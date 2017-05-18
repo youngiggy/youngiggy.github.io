@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://youngiggy.github.io/"/>
-  <updated>2017-05-18T14:02:30.000Z</updated>
+  <updated>2017-05-18T14:23:45.000Z</updated>
   <id>http://youngiggy.github.io/</id>
   
   <author>
@@ -20,18 +20,12 @@
     <link href="http://youngiggy.github.io/2017/05/18/declare/"/>
     <id>http://youngiggy.github.io/2017/05/18/declare/</id>
     <published>2017-05-18T13:02:20.000Z</published>
-    <updated>2017-05-18T14:02:30.000Z</updated>
+    <updated>2017-05-18T14:23:45.000Z</updated>
     
-    <content type="html"><![CDATA[<p>###나는 정말 해본 적이 있는가?</p>
-<p>내가 은연 중 피하려고 했던 것들</p>
-<p>아는 척 많이 하지만 정확히 모르는 것들</p>
-<ul>
-<li>API 서버 구축과 인증을 붙여본다</li>
-<li>전통적인 RESTful API와 GraphQL 서버 모두 구현</li>
-<li>REST에 대해 제대로 설명하게 된다</li>
-<li>여러 인증 과정을 경험해본다</li>
-</ul>
-<p>-<br>2017.05.18</p>
+    <content type="html"><![CDATA[<h3 id="내가-은연-중-피하려고-했던-것들"><a href="#내가-은연-중-피하려고-했던-것들" class="headerlink" title="내가 은연 중 피하려고 했던 것들"></a>내가 은연 중 피하려고 했던 것들</h3><p>기술 블로그와 신세 한탄이 섞여있겠지만,</p>
+<p>익숙하지 않은 것을 시도해보기로 했다.</p>
+<p>그리고 2017.05.18 오늘</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var test = 1;</div></pre></td></tr></table></figure>
 <p>오랜만에 제창된 임을 위한 행진곡</p>
 <p><a href="https://www.youtube.com/watch?v=UdKgerP9O7Q" target="_blank" rel="external"><img src="https://img.youtube.com/vi/UdKgerP9O7Q/0.jpg" alt="IMAGE ALT TEXT HERE"></a></p>
 <p>그리고 RIP. Chris Cornell</p>
@@ -40,12 +34,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;###나는 정말 해본 적이 있는가?&lt;/p&gt;
-&lt;p&gt;내가 은연 중 피하려고 했던 것들&lt;/p&gt;
-&lt;p&gt;아는 척 많이 하지만 정확히 모르는 것들&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;API 서버 구축과 인증을 붙여본다&lt;/li&gt;
-&lt;li&gt;전통적인 RESTful API와 G
+      &lt;h3 id=&quot;내가-은연-중-피하려고-했던-것들&quot;&gt;&lt;a href=&quot;#내가-은연-중-피하려고-했던-것들&quot; class=&quot;headerlink&quot; title=&quot;내가 은연 중 피하려고 했던 것들&quot;&gt;&lt;/a&gt;내가 은연 중 피하려고 했던 것들&lt;/h3&gt;&lt;p&gt;기술 블로그
     
     </summary>
     
