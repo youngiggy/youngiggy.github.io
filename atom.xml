@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://youngiggy.github.io/"/>
-  <updated>2017-05-18T14:23:45.000Z</updated>
+  <updated>2017-05-18T14:35:54.000Z</updated>
   <id>http://youngiggy.github.io/</id>
   
   <author>
@@ -16,16 +16,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>API DESIGN을 들여다보다</title>
+    <link href="http://youngiggy.github.io/2017/05/18/learning-api-design/"/>
+    <id>http://youngiggy.github.io/2017/05/18/learning-api-design/</id>
+    <published>2017-05-18T14:28:44.000Z</published>
+    <updated>2017-05-18T14:35:54.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="API-DESIGN"><a href="#API-DESIGN" class="headerlink" title="API DESIGN"></a>API DESIGN</h3><p>생각해보니 내가 API를 제대로 만들어 본 적이 없었더랬다.</p>
+<p>그럼 나는 REST를 설명할 수 있던가?</p>
+<p>GraphQL이 재미있어 보이니 써보고는 싶은데, 인증을 붙인 프로덕션 레벨의 코드를 만들어 본 적이 없다</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;API-DESIGN&quot;&gt;&lt;a href=&quot;#API-DESIGN&quot; class=&quot;headerlink&quot; title=&quot;API DESIGN&quot;&gt;&lt;/a&gt;API DESIGN&lt;/h3&gt;&lt;p&gt;생각해보니 내가 API를 제대로 만들어 본 적이 없었더랬다.&lt;/p&gt;
+
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>블로그를 시작하겠노라고 선언하다</title>
     <link href="http://youngiggy.github.io/2017/05/18/declare/"/>
     <id>http://youngiggy.github.io/2017/05/18/declare/</id>
     <published>2017-05-18T13:02:20.000Z</published>
-    <updated>2017-05-18T14:23:45.000Z</updated>
+    <updated>2017-05-18T14:25:35.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="내가-은연-중-피하려고-했던-것들"><a href="#내가-은연-중-피하려고-했던-것들" class="headerlink" title="내가 은연 중 피하려고 했던 것들"></a>내가 은연 중 피하려고 했던 것들</h3><p>기술 블로그와 신세 한탄이 섞여있겠지만,</p>
 <p>익숙하지 않은 것을 시도해보기로 했다.</p>
-<p>그리고 2017.05.18 오늘</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var test = 1;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">그리고 2017.05.18 오늘</div></pre></td></tr></table></figure>
 <p>오랜만에 제창된 임을 위한 행진곡</p>
 <p><a href="https://www.youtube.com/watch?v=UdKgerP9O7Q" target="_blank" rel="external"><img src="https://img.youtube.com/vi/UdKgerP9O7Q/0.jpg" alt="IMAGE ALT TEXT HERE"></a></p>
 <p>그리고 RIP. Chris Cornell</p>
