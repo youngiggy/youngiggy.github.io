@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://youngiggy.github.io/"/>
-  <updated>2017-04-20T11:28:05.000Z</updated>
+  <updated>2017-05-18T13:11:10.000Z</updated>
   <id>http://youngiggy.github.io/</id>
   
   <author>
@@ -16,30 +16,45 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>new-post</title>
-    <link href="http://youngiggy.github.io/2017/04/20/new-post/"/>
-    <id>http://youngiggy.github.io/2017/04/20/new-post/</id>
-    <published>2017-04-20T11:18:28.000Z</published>
-    <updated>2017-04-20T11:28:05.000Z</updated>
+    <title>블로그를 시작하겠노라고 선언하다</title>
+    <link href="http://youngiggy.github.io/2017/05/18/declare/"/>
+    <id>http://youngiggy.github.io/2017/05/18/declare/</id>
+    <published>2017-05-18T13:02:20.000Z</published>
+    <updated>2017-05-18T13:11:10.000Z</updated>
     
-    <content type="html"><![CDATA[<p>#haha<br>난 나난난 </p>
+    <content type="html"><![CDATA[<p>ㄹㄴㅇㄹㄴ</p>
 <ul>
-<li>why?</li>
+<li>Item 1</li>
 </ul>
+<ol>
+<li>Item 2</li>
+<li>Item 3<ol>
+<li>Item 3a</li>
+<li>Item 3b</li>
+</ol>
+</li>
+</ol>
+<p>fjsdlfsdflsdfjls</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;#haha&lt;br&gt;난 나난난 &lt;/p&gt;
+      &lt;p&gt;ㄹㄴㅇㄹㄴ&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;why?&lt;/li&gt;
+&lt;li&gt;Item 1&lt;/li&gt;
 &lt;/ul&gt;
-
+&lt;ol&gt;
+&lt;li&gt;Item 2&lt;/li&gt;
+&lt;li&gt;Item 3&lt;ol&gt;
+&lt;li&gt;Item 3a&lt;/li&gt;
+&lt;li&gt;Item 3b&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;fjsdlfsdf
     
     </summary>
     
-    
-      <category term="test" scheme="http://youngiggy.github.io/tags/test/"/>
     
   </entry>
   
