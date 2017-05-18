@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://youngiggy.github.io/"/>
-  <updated>2017-05-18T13:11:10.000Z</updated>
+  <updated>2017-05-18T13:12:07.000Z</updated>
   <id>http://youngiggy.github.io/</id>
   
   <author>
@@ -20,38 +20,9 @@
     <link href="http://youngiggy.github.io/2017/05/18/declare/"/>
     <id>http://youngiggy.github.io/2017/05/18/declare/</id>
     <published>2017-05-18T13:02:20.000Z</published>
-    <updated>2017-05-18T13:11:10.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>ㄹㄴㅇㄹㄴ</p>
-<ul>
-<li>Item 1</li>
-</ul>
-<ol>
-<li>Item 2</li>
-<li>Item 3<ol>
-<li>Item 3a</li>
-<li>Item 3b</li>
-</ol>
-</li>
-</ol>
-<p>fjsdlfsdflsdfjls</p>
-]]></content>
+    <updated>2017-05-18T13:12:07.000Z</updated>
     
     <summary type="html">
-    
-      &lt;p&gt;ㄹㄴㅇㄹㄴ&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Item 1&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol&gt;
-&lt;li&gt;Item 2&lt;/li&gt;
-&lt;li&gt;Item 3&lt;ol&gt;
-&lt;li&gt;Item 3a&lt;/li&gt;
-&lt;li&gt;Item 3b&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;fjsdlfsdf
     
     </summary>
     
