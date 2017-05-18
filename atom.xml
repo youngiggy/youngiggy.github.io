@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://youngiggy.github.io/"/>
-  <updated>2017-05-18T14:35:54.000Z</updated>
+  <updated>2017-05-18T14:57:30.000Z</updated>
   <id>http://youngiggy.github.io/</id>
   
   <author>
@@ -20,17 +20,43 @@
     <link href="http://youngiggy.github.io/2017/05/18/learning-api-design/"/>
     <id>http://youngiggy.github.io/2017/05/18/learning-api-design/</id>
     <published>2017-05-18T14:28:44.000Z</published>
-    <updated>2017-05-18T14:35:54.000Z</updated>
+    <updated>2017-05-18T14:57:30.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="API-DESIGN"><a href="#API-DESIGN" class="headerlink" title="API DESIGN"></a>API DESIGN</h3><p>생각해보니 내가 API를 제대로 만들어 본 적이 없었더랬다.</p>
-<p>그럼 나는 REST를 설명할 수 있던가?</p>
-<p>GraphQL이 재미있어 보이니 써보고는 싶은데, 인증을 붙인 프로덕션 레벨의 코드를 만들어 본 적이 없다</p>
+<p>그럼 REST는 설명할 수 있던가? HTTP는?</p>
+<p>GraphQL이 재미있어 보이니 써보고는 싶은데, 인증을 붙인 프로덕션 레벨의 코드를 만들어 본 적이 없다.</p>
+<p>그럼 해야지.</p>
+<a id="more"></a>
+<p>배움에 있어서, 지금까지는 발표를 통해 드라이브를 걸었다면, 이제 블로그에 정리하면서 익혀보려고 한다</p>
+<p>‘정확히 알기’ 그 첫번째 과정으로 API 디자인에 도전해본다.</p>
+<p>이 시리즈가 끝날 즈음이면 나는</p>
+<ul>
+<li>API 서버를 구축해서 인증을 붙여본다</li>
+<li>전통적인 RESTful API와 GraphQL 서버 모두 구현</li>
+<li>REST에 대해 제대로 설명하게 된다</li>
+<li>여러 인증 과정을 경험해본다</li>
+</ul>
+<p>동시에</p>
+<ul>
+<li>HTTP 완벽가이드 릴레이 세미나<ul>
+<li>HTTP 완벽가이드로 적당히 완벽히 알기(아하…금새 또 적당히 적당히)</li>
+<li>그림으로 배우는 시리즈로 네트워크와 HTTP에 대한 쉬운 설명을 익히기</li>
+</ul>
+</li>
+</ul>
+<p>어떻게?</p>
+<ul>
+<li>검색과 블로그와 책으로부터 얻은 지식을 에버노트에 거칠게 정리한 다음</li>
+<li>블로그에 옮겨 담는다</li>
+</ul>
 ]]></content>
     
     <summary type="html">
     
       &lt;h3 id=&quot;API-DESIGN&quot;&gt;&lt;a href=&quot;#API-DESIGN&quot; class=&quot;headerlink&quot; title=&quot;API DESIGN&quot;&gt;&lt;/a&gt;API DESIGN&lt;/h3&gt;&lt;p&gt;생각해보니 내가 API를 제대로 만들어 본 적이 없었더랬다.&lt;/p&gt;
-
+&lt;p&gt;그럼 REST는 설명할 수 있던가? HTTP는?&lt;/p&gt;
+&lt;p&gt;GraphQL이 재미있어 보이니 써보고는 싶은데, 인증을 붙인 프로덕션 레벨의 코드를 만들어 본 적이 없다.&lt;/p&gt;
+&lt;p&gt;그럼 해야지.&lt;/p&gt;
     
     </summary>
     
@@ -42,10 +68,11 @@
     <link href="http://youngiggy.github.io/2017/05/18/declare/"/>
     <id>http://youngiggy.github.io/2017/05/18/declare/</id>
     <published>2017-05-18T13:02:20.000Z</published>
-    <updated>2017-05-18T14:25:35.000Z</updated>
+    <updated>2017-05-18T14:52:37.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="내가-은연-중-피하려고-했던-것들"><a href="#내가-은연-중-피하려고-했던-것들" class="headerlink" title="내가 은연 중 피하려고 했던 것들"></a>내가 은연 중 피하려고 했던 것들</h3><p>기술 블로그와 신세 한탄이 섞여있겠지만,</p>
 <p>익숙하지 않은 것을 시도해보기로 했다.</p>
+<a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">그리고 2017.05.18 오늘</div></pre></td></tr></table></figure>
 <p>오랜만에 제창된 임을 위한 행진곡</p>
 <p><a href="https://www.youtube.com/watch?v=UdKgerP9O7Q" target="_blank" rel="external"><img src="https://img.youtube.com/vi/UdKgerP9O7Q/0.jpg" alt="IMAGE ALT TEXT HERE"></a></p>
@@ -55,7 +82,8 @@
     
     <summary type="html">
     
-      &lt;h3 id=&quot;내가-은연-중-피하려고-했던-것들&quot;&gt;&lt;a href=&quot;#내가-은연-중-피하려고-했던-것들&quot; class=&quot;headerlink&quot; title=&quot;내가 은연 중 피하려고 했던 것들&quot;&gt;&lt;/a&gt;내가 은연 중 피하려고 했던 것들&lt;/h3&gt;&lt;p&gt;기술 블로그
+      &lt;h3 id=&quot;내가-은연-중-피하려고-했던-것들&quot;&gt;&lt;a href=&quot;#내가-은연-중-피하려고-했던-것들&quot; class=&quot;headerlink&quot; title=&quot;내가 은연 중 피하려고 했던 것들&quot;&gt;&lt;/a&gt;내가 은연 중 피하려고 했던 것들&lt;/h3&gt;&lt;p&gt;기술 블로그와 신세 한탄이 섞여있겠지만,&lt;/p&gt;
+&lt;p&gt;익숙하지 않은 것을 시도해보기로 했다.&lt;/p&gt;
     
     </summary>
     
