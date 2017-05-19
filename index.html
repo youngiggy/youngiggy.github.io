@@ -1,5 +1,211 @@
-<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> ha-ah</title><meta name="description" content="A Blog Powered By Hexo"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://youngiggy.github.io/atom.xml" title="ha-ah"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/misfits.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link active">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/youngiggy" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><ul class="home post-list"><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/2017/05/18/learning-api-design/" class="post-title-link">API DESIGN을 들여다보다</a></h2><div class="post-info">2017년 5월 18일</div><div class="post-content"><h3 id="API-DESIGN"><a href="#API-DESIGN" class="headerlink" title="API DESIGN"></a>API DESIGN</h3><p>생각해보니 내가 API를 제대로 만들어 본 적이 없었더랬다.</p>
-<p>그럼 REST는 설명할 수 있던가? HTTP는?</p>
-<p>GraphQL이 재미있어 보이니 써보고는 싶은데, 인증을 붙인 프로덕션 레벨의 코드를 만들어 본 적이 없다.</p>
-<p>그럼 해야지.</p></div><a href="/2017/05/18/learning-api-design/" class="read-more">...more</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/2017/05/18/declare/" class="post-title-link">블로그를 시작하겠노라고 선언하다</a></h2><div class="post-info">2017년 5월 18일</div><div class="post-content"><h3 id="내가-은연-중-피하려고-했던-것들"><a href="#내가-은연-중-피하려고-했던-것들" class="headerlink" title="내가 은연 중 피하려고 했던 것들"></a>내가 은연 중 피하려고 했던 것들</h3><p>기술 블로그와 신세 한탄이 섞여있겠지만,</p>
-<p>익숙하지 않은 것을 시도해보기로 했다.</p></div><a href="/2017/05/18/declare/" class="read-more">...more</a></article></li></ul></main><footer><div class="paginator"></div><div class="copyright"><p>© 2017 <a href="https://youngiggy.github.io">youngiggy</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-99319001-1",'auto');ga('send','pageview');</script></body></html>
+<!DOCTYPE html>
+<html lang=ko>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta property="og:type" content="website">
+<meta property="og:title" content="ha-ah">
+<meta property="og:url" content="https://youngiggy.github.io/index.html">
+<meta property="og:site_name" content="ha-ah">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ha-ah">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>ha-ah</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="ha-ah" type="application/atom+xml" />
+    
+</head>
+
+<body>
+    
+    <div class="content index width mx-auto px2 my4">
+        
+          <header id="header">
+  <a href="/">
+  
+    
+      <div id="logo" style="background-image: url(/images/misfits.png);"></div>
+    
+  
+    <div id="title">
+      <h1>ha-ah</h1>
+    </div>
+  </a>
+  <div id="nav">
+    <ul>
+      <li class="icon">
+        <a href="#"><i class="fa fa-bars fa-2x"></i></a>
+      </li>
+       
+        <li><a href="/">Home</a></li>
+       
+        <li><a href="/about/">About</a></li>
+       
+        <li><a href="/archives/">Writing</a></li>
+      
+    </ul>
+  </div>
+</header>
+
+        
+        <section id="about">
+  
+  <p style="display: inline">
+    
+      Find me on
+      <ul id="sociallinks">
+        
+          <li><a class="icon" target="_blank" href="https://github.com/youngiggy" title="github"><i class="fa fa-github"></i></a></li>
+        
+          <li><a class="icon" target="_blank" href="https://www.facebook.com/profile.php?id=100001259884599" title="facebook"><i class="fa fa-facebook"></i></a></li>
+        
+      </ul>.
+    
+  </p>
+</section>
+
+<section id="writing">
+  <span class="h1"><a href="/archives">Writing</a></span>
+  <ul class="post-list">
+    
+      
+    
+    
+      <li class="post-item">
+        
+    <div class="meta">
+        <time datetime="2017-05-19T12:30:00.000Z" itemprop="datePublished">2017-05-19</time>
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/2017/05/19/restful/">RESTful</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+        <time datetime="2017-05-18T14:28:44.000Z" itemprop="datePublished">2017-05-18</time>
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/2017/05/18/learning-api-design/">API Design을 들여다보다</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+        <time datetime="2017-05-18T13:02:20.000Z" itemprop="datePublished">2017-05-18</time>
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/2017/05/18/declare/">블로그를 시작하겠노라고 선언하다</a>
+    
+
+
+</span>
+      </li>
+    
+  </ul>
+  
+</section>
+
+
+
+    </div>
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2017 youngiggy
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-99319001-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'youngiggy-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+

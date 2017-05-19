@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://youngiggy.github.io/"/>
-  <updated>2017-05-19T12:28:29.000Z</updated>
+  <updated>2017-05-19T13:18:49.000Z</updated>
   <id>https://youngiggy.github.io/</id>
   
   <author>
@@ -16,19 +16,49 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>API DESIGN을 들여다보다</title>
+    <title>RESTful</title>
+    <link href="https://youngiggy.github.io/2017/05/19/restful/"/>
+    <id>https://youngiggy.github.io/2017/05/19/restful/</id>
+    <published>2017-05-19T12:30:00.000Z</published>
+    <updated>2017-05-19T13:18:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="thanks-to"><a href="#thanks-to" class="headerlink" title="thanks to"></a>thanks to</h3><p><a href="https://blog.npcode.com/" target="_blank" rel="external">이응준님의 블로그</a>에서 많은 영감을 얻음</p>
+<h1 id="REST"><a href="#REST" class="headerlink" title="REST?"></a>REST?</h1><p>Representational State Transfer</p>
+<h3 id="논문"><a href="#논문" class="headerlink" title="논문"></a>논문</h3><p><a href="https://blog.npcode.com/2017/03/02/%EB%B0%94%EC%81%9C-%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%93%A4%EC%9D%84-%EC%9C%84%ED%95%9C-rest-%EB%85%BC%EB%AC%B8-%EC%9A%94%EC%95%BD/" target="_blank" rel="external">바쁜 개발자들을 위한 REST 논문 요약</a></p>
+<blockquote>
+<p>REST는 Representational State Transfer의 줄임말로, 웹을 위한 네트워크 기반 아키텍처 스타일이다. REST는 Roy T. Fielding이 그의 박사학위 논문 “Architectural Styles and the Design of Network-based Software Architectures” 에서 처음 소개하였다.</p>
+</blockquote>
+<p>##### </p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;thanks-to&quot;&gt;&lt;a href=&quot;#thanks-to&quot; class=&quot;headerlink&quot; title=&quot;thanks to&quot;&gt;&lt;/a&gt;thanks to&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://blog.npcode.com/&quot; target=
+    
+    </summary>
+    
+    
+      <category term="API" scheme="https://youngiggy.github.io/tags/API/"/>
+    
+      <category term="RESTful" scheme="https://youngiggy.github.io/tags/RESTful/"/>
+    
+      <category term="REST" scheme="https://youngiggy.github.io/tags/REST/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>API Design을 들여다보다</title>
     <link href="https://youngiggy.github.io/2017/05/18/learning-api-design/"/>
     <id>https://youngiggy.github.io/2017/05/18/learning-api-design/</id>
     <published>2017-05-18T14:28:44.000Z</published>
-    <updated>2017-05-19T12:28:29.000Z</updated>
+    <updated>2017-05-19T13:17:51.000Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="API-DESIGN"><a href="#API-DESIGN" class="headerlink" title="API DESIGN"></a>API DESIGN</h3><p>생각해보니 내가 API를 제대로 만들어 본 적이 없었더랬다.</p>
+    <content type="html"><![CDATA[<h2 id="API-Design"><a href="#API-Design" class="headerlink" title="API Design"></a>API Design</h2><p>생각해보니 내가 API를 제대로 만들어 본 적이 없었더랬다.</p>
 <p>그럼 REST는 설명할 수 있던가? HTTP는?</p>
 <p>GraphQL이 재미있어 보이니 써보고는 싶은데, 인증을 붙인 프로덕션 레벨의 코드를 만들어 본 적이 없다.</p>
 <p>그럼 해야지.</p>
-<a id="more"></a>
 <p>배움에 있어서, 지금까지는 발표를 통해 드라이브를 걸었다면, 이제 블로그에 정리하면서 익혀보려고 한다</p>
-<p>‘정확히 알기’ 그 첫번째 과정으로 API 디자인에 도전해본다.</p>
+<h2 id="what-to-do"><a href="#what-to-do" class="headerlink" title="what to do"></a>what to do</h2><p>‘정확히 알기’ 그 첫번째 과정으로 API 디자인에 도전해본다.</p>
 <p>이 시리즈가 끝날 즈음이면 나는</p>
 <ul>
 <li>API 서버를 구축해서 인증을 붙여본다</li>
@@ -44,7 +74,7 @@
 </ul>
 </li>
 </ul>
-<p>어떻게?</p>
+<h2 id="and-how"><a href="#and-how" class="headerlink" title="and how?"></a>and how?</h2><p>어떻게?</p>
 <ul>
 <li>검색과 블로그와 책으로부터 얻은 지식을 에버노트에 거칠게 정리한 다음</li>
 <li>블로그에 옮겨 담는다</li>
@@ -53,15 +83,15 @@
     
     <summary type="html">
     
-      &lt;h3 id=&quot;API-DESIGN&quot;&gt;&lt;a href=&quot;#API-DESIGN&quot; class=&quot;headerlink&quot; title=&quot;API DESIGN&quot;&gt;&lt;/a&gt;API DESIGN&lt;/h3&gt;&lt;p&gt;생각해보니 내가 API를 제대로 만들어 본 적이 없었더랬다.&lt;/p&gt;
-&lt;p&gt;그럼 REST는 설명할 수 있던가? HTTP는?&lt;/p&gt;
-&lt;p&gt;GraphQL이 재미있어 보이니 써보고는 싶은데, 인증을 붙인 프로덕션 레벨의 코드를 만들어 본 적이 없다.&lt;/p&gt;
-&lt;p&gt;그럼 해야지.&lt;/p&gt;
+      &lt;h2 id=&quot;API-Design&quot;&gt;&lt;a href=&quot;#API-Design&quot; class=&quot;headerlink&quot; title=&quot;API Design&quot;&gt;&lt;/a&gt;API Design&lt;/h2&gt;&lt;p&gt;생각해보니 내가 API를 제대로 만들어 본 적이 없었더랬다.&lt;/p&gt;
+
     
     </summary>
     
     
-      <category term="API DESIGN" scheme="https://youngiggy.github.io/tags/API-DESIGN/"/>
+      <category term="API" scheme="https://youngiggy.github.io/tags/API/"/>
+    
+      <category term="Design" scheme="https://youngiggy.github.io/tags/Design/"/>
     
   </entry>
   
@@ -70,22 +100,19 @@
     <link href="https://youngiggy.github.io/2017/05/18/declare/"/>
     <id>https://youngiggy.github.io/2017/05/18/declare/</id>
     <published>2017-05-18T13:02:20.000Z</published>
-    <updated>2017-05-18T14:52:37.000Z</updated>
+    <updated>2017-05-19T13:18:49.000Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="내가-은연-중-피하려고-했던-것들"><a href="#내가-은연-중-피하려고-했던-것들" class="headerlink" title="내가 은연 중 피하려고 했던 것들"></a>내가 은연 중 피하려고 했던 것들</h3><p>기술 블로그와 신세 한탄이 섞여있겠지만,</p>
+    <content type="html"><![CDATA[<h2 id="내가-은연-중-피하려고-했던-것들"><a href="#내가-은연-중-피하려고-했던-것들" class="headerlink" title="내가 은연 중 피하려고 했던 것들"></a>내가 은연 중 피하려고 했던 것들</h2><p>기술 블로그와 신세 한탄이 섞여있겠지만,</p>
 <p>익숙하지 않은 것을 시도해보기로 했다.</p>
-<a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">그리고 2017.05.18 오늘</div></pre></td></tr></table></figure>
-<p>오랜만에 제창된 임을 위한 행진곡</p>
-<p><a href="https://www.youtube.com/watch?v=UdKgerP9O7Q" target="_blank" rel="external"><img src="https://img.youtube.com/vi/UdKgerP9O7Q/0.jpg" alt="IMAGE ALT TEXT HERE"></a></p>
+<p>오랜만에 제창된 임을 위한 행진곡<br><div class="video-container"><iframe src="//www.youtube.com/embed/UdKgerP9O7Q" frameborder="0" allowfullscreen></iframe></div></p>
 <p>그리고 RIP. Chris Cornell</p>
-<p><a href="https://www.youtube.com/watch?v=W5oH1uMCybA" target="_blank" rel="external"><img src="https://img.youtube.com/vi/W5oH1uMCybA/0.jpg" alt="IMAGE ALT TEXT HERE"></a></p>
+<div class="video-container"><iframe src="//www.youtube.com/embed/W5oH1uMCybA" frameborder="0" allowfullscreen></iframe></div>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;내가-은연-중-피하려고-했던-것들&quot;&gt;&lt;a href=&quot;#내가-은연-중-피하려고-했던-것들&quot; class=&quot;headerlink&quot; title=&quot;내가 은연 중 피하려고 했던 것들&quot;&gt;&lt;/a&gt;내가 은연 중 피하려고 했던 것들&lt;/h3&gt;&lt;p&gt;기술 블로그와 신세 한탄이 섞여있겠지만,&lt;/p&gt;
-&lt;p&gt;익숙하지 않은 것을 시도해보기로 했다.&lt;/p&gt;
+      &lt;h2 id=&quot;내가-은연-중-피하려고-했던-것들&quot;&gt;&lt;a href=&quot;#내가-은연-중-피하려고-했던-것들&quot; class=&quot;headerlink&quot; title=&quot;내가 은연 중 피하려고 했던 것들&quot;&gt;&lt;/a&gt;내가 은연 중 피하려고 했던 것들&lt;/h2&gt;&lt;p&gt;기술 블로그
     
     </summary>
     
