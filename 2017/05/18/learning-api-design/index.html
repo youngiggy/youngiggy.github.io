@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="API Design생각해보니 내가 API를 제대로 만들어 본 적이 없었더랬다. 그럼 REST는 설명할 수 있던가? HTTP는? GraphQL이 재미있어 보이니 써보고는 싶은데,  인증을 붙인 프로덕션 레벨의 코드를 만들어 본 적이 없다. 그럼 해야지. 배움에 있어서,  지금까지는 발표를 통해 드라이브를 걸었다면, 이제 블로그에 정리하면서 익혀보려고 한다.">
+    <meta name="description" content="API Design생각해보니 내가 API를 제대로 만들어 본 적이 없었더랬다. GraphQL이 재미있어 보이니 써보고는 싶은데,  사실 난 인증을 붙인 프로덕션 레벨의 코드를 만들어 본 적이 없다. 왜 좋은가를 설명하려면 널리 퍼진 아키텍처 스타일을 기반으로 설명하면 좋을텐데, 나는 REST는 설명할 수 있던가? HTTP는? 나는 정확히 설명할 수 없다.">
 <meta name="keywords" content="API,Design">
 <meta property="og:type" content="article">
 <meta property="og:title" content="API Design을 들여다보다">
 <meta property="og:url" content="https://youngiggy.github.io/2017/05/18/learning-api-design/index.html">
 <meta property="og:site_name" content="ha-ah">
-<meta property="og:description" content="API Design생각해보니 내가 API를 제대로 만들어 본 적이 없었더랬다. 그럼 REST는 설명할 수 있던가? HTTP는? GraphQL이 재미있어 보이니 써보고는 싶은데,  인증을 붙인 프로덕션 레벨의 코드를 만들어 본 적이 없다. 그럼 해야지. 배움에 있어서,  지금까지는 발표를 통해 드라이브를 걸었다면, 이제 블로그에 정리하면서 익혀보려고 한다.">
-<meta property="og:updated_time" content="2017-05-19T13:35:07.000Z">
+<meta property="og:description" content="API Design생각해보니 내가 API를 제대로 만들어 본 적이 없었더랬다. GraphQL이 재미있어 보이니 써보고는 싶은데,  사실 난 인증을 붙인 프로덕션 레벨의 코드를 만들어 본 적이 없다. 왜 좋은가를 설명하려면 널리 퍼진 아키텍처 스타일을 기반으로 설명하면 좋을텐데, 나는 REST는 설명할 수 있던가? HTTP는? 나는 정확히 설명할 수 없다.">
+<meta property="og:updated_time" content="2017-05-21T16:35:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="API Design을 들여다보다">
-<meta name="twitter:description" content="API Design생각해보니 내가 API를 제대로 만들어 본 적이 없었더랬다. 그럼 REST는 설명할 수 있던가? HTTP는? GraphQL이 재미있어 보이니 써보고는 싶은데,  인증을 붙인 프로덕션 레벨의 코드를 만들어 본 적이 없다. 그럼 해야지. 배움에 있어서,  지금까지는 발표를 통해 드라이브를 걸었다면, 이제 블로그에 정리하면서 익혀보려고 한다.">
+<meta name="twitter:description" content="API Design생각해보니 내가 API를 제대로 만들어 본 적이 없었더랬다. GraphQL이 재미있어 보이니 써보고는 싶은데,  사실 난 인증을 붙인 프로덕션 레벨의 코드를 만들어 본 적이 없다. 왜 좋은가를 설명하려면 널리 퍼진 아키텍처 스타일을 기반으로 설명하면 좋을텐데, 나는 REST는 설명할 수 있던가? HTTP는? 나는 정확히 설명할 수 없다.">
     
     
         
@@ -71,7 +71,7 @@
         <li><a class="icon" href="/2017/05/18/declare/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
         
         
-        <li><a class="icon" href="/2017/05/19/restful/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        <li><a class="icon" href="/2017/05/22/restful/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
         <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
@@ -138,12 +138,13 @@
 
   <div class="content" itemprop="articleBody">
     <h2 id="API-Design"><a href="#API-Design" class="headerlink" title="API Design"></a>API Design</h2><p>생각해보니 내가 API를 제대로 만들어 본 적이 없었더랬다.</p>
-<p>그럼 REST는 설명할 수 있던가? HTTP는?</p>
 <p>GraphQL이 재미있어 보이니 써보고는 싶은데, </p>
-<p>인증을 붙인 프로덕션 레벨의 코드를 만들어 본 적이 없다.</p>
+<p>사실 난 인증을 붙인 프로덕션 레벨의 코드를 만들어 본 적이 없다.</p>
+<p>왜 좋은가를 설명하려면 널리 퍼진 아키텍처 스타일을 기반으로 설명하면 좋을텐데,</p>
+<p>나는 REST는 설명할 수 있던가? HTTP는?</p>
+<p>나는 정확히 설명할 수 없다.</p>
 <p>그럼 해야지.</p>
-<p>배움에 있어서, </p>
-<p>지금까지는 발표를 통해 드라이브를 걸었다면, 이제 블로그에 정리하면서 익혀보려고 한다.</p>
+<p>지금까지는 지식 습득의 드라이브를 발표를 통해 얻었다면, 이제 블로그에 정리하면서 익혀보려고 한다.</p>
 <h2 id="what-to-do"><a href="#what-to-do" class="headerlink" title="what to do"></a>what to do</h2><p>‘정확히 알기’ 그 첫번째 과정으로 API 디자인에 도전해본다.</p>
 <p>이 시리즈가 끝날 즈음이면 나는</p>
 <ul>

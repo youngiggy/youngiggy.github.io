@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://youngiggy.github.io/"/>
-  <updated>2017-05-21T16:26:30.000Z</updated>
+  <updated>2017-05-21T16:35:50.000Z</updated>
   <id>https://youngiggy.github.io/</id>
   
   <author>
@@ -17,10 +17,10 @@
   
   <entry>
     <title>RESTful - 1</title>
-    <link href="https://youngiggy.github.io/2017/05/19/restful/"/>
-    <id>https://youngiggy.github.io/2017/05/19/restful/</id>
-    <published>2017-05-19T12:30:00.000Z</published>
-    <updated>2017-05-21T16:26:30.000Z</updated>
+    <link href="https://youngiggy.github.io/2017/05/22/restful/"/>
+    <id>https://youngiggy.github.io/2017/05/22/restful/</id>
+    <published>2017-05-21T16:30:00.000Z</published>
+    <updated>2017-05-21T16:35:50.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Representational-State-Transfer"><a href="#Representational-State-Transfer" class="headerlink" title="Representational State Transfer"></a>Representational State Transfer</h2><p><a href="https://blog.npcode.com/2017/03/02/%EB%B0%94%EC%81%9C-%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%93%A4%EC%9D%84-%EC%9C%84%ED%95%9C-rest-%EB%85%BC%EB%AC%B8-%EC%9A%94%EC%95%BD/" target="_blank" rel="external">바쁜 개발자들을 위한 REST 논문 요약</a></p>
 <blockquote>
@@ -152,15 +152,16 @@
     <link href="https://youngiggy.github.io/2017/05/18/learning-api-design/"/>
     <id>https://youngiggy.github.io/2017/05/18/learning-api-design/</id>
     <published>2017-05-18T14:28:44.000Z</published>
-    <updated>2017-05-19T13:35:07.000Z</updated>
+    <updated>2017-05-21T16:35:50.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="API-Design"><a href="#API-Design" class="headerlink" title="API Design"></a>API Design</h2><p>생각해보니 내가 API를 제대로 만들어 본 적이 없었더랬다.</p>
-<p>그럼 REST는 설명할 수 있던가? HTTP는?</p>
 <p>GraphQL이 재미있어 보이니 써보고는 싶은데, </p>
-<p>인증을 붙인 프로덕션 레벨의 코드를 만들어 본 적이 없다.</p>
+<p>사실 난 인증을 붙인 프로덕션 레벨의 코드를 만들어 본 적이 없다.</p>
+<p>왜 좋은가를 설명하려면 널리 퍼진 아키텍처 스타일을 기반으로 설명하면 좋을텐데,</p>
+<p>나는 REST는 설명할 수 있던가? HTTP는?</p>
+<p>나는 정확히 설명할 수 없다.</p>
 <p>그럼 해야지.</p>
-<p>배움에 있어서, </p>
-<p>지금까지는 발표를 통해 드라이브를 걸었다면, 이제 블로그에 정리하면서 익혀보려고 한다.</p>
+<p>지금까지는 지식 습득의 드라이브를 발표를 통해 얻었다면, 이제 블로그에 정리하면서 익혀보려고 한다.</p>
 <h2 id="what-to-do"><a href="#what-to-do" class="headerlink" title="what to do"></a>what to do</h2><p>‘정확히 알기’ 그 첫번째 과정으로 API 디자인에 도전해본다.</p>
 <p>이 시리즈가 끝날 즈음이면 나는</p>
 <ul>
