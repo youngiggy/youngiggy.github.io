@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://youngiggy.github.io/"/>
-  <updated>2017-05-21T16:35:50.000Z</updated>
+  <updated>2017-05-21T16:42:28.000Z</updated>
   <id>https://youngiggy.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://youngiggy.github.io/2017/05/22/restful/"/>
     <id>https://youngiggy.github.io/2017/05/22/restful/</id>
     <published>2017-05-21T16:30:00.000Z</published>
-    <updated>2017-05-21T16:35:50.000Z</updated>
+    <updated>2017-05-21T16:42:28.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Representational-State-Transfer"><a href="#Representational-State-Transfer" class="headerlink" title="Representational State Transfer"></a>Representational State Transfer</h2><p><a href="https://blog.npcode.com/2017/03/02/%EB%B0%94%EC%81%9C-%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%93%A4%EC%9D%84-%EC%9C%84%ED%95%9C-rest-%EB%85%BC%EB%AC%B8-%EC%9A%94%EC%95%BD/" target="_blank" rel="external">바쁜 개발자들을 위한 REST 논문 요약</a></p>
 <blockquote>
@@ -85,14 +85,14 @@
 <li>hypermedia as the engine of application state<ul>
 <li>= HATEOAS</li>
 <li>조대협님의 블로그에 언급되기를, <code>HTTP Response에 다음 Action이나 관계되는 리소스에 대한 HTTP Link를 함께 리턴하는 것</code><ul>
-<li>조대협님의 설명이 틀린 것 같아 찾아보면…항상 내가 틀리더라</li>
+<li>뭔가…이상한데…틀렸다고 하기는 뭣 하지만 온전히 이해가 되는 문장은 또 아니다. 다른 사람의 의견을 더 들어보자</li>
 </ul>
 </li>
 <li><a href="https://community.oracle.com/blogs/mkarg/2010/02/14/what-hateoas-actually-means" target="_blank" rel="external">What HATEOAS actually means</a><ul>
 <li>다들 혼란스러워하는 것 같은데 직접 로이 필딩에게 물어보지 그래?</li>
 <li>로이의 문장은 명확하고, 모호하지도 않으니 그냥 읽어보길 바란다</li>
 <li>로이가 HTTP 표준의 기여자라는 것을 잘 생각해보자</li>
-<li>이 논문의 주제는 WWW가 잘 동작하고 확장성도 좋고, REST가 WWW 아키텍쳐 위에서 동작한다면, 이 역시 잘 동작하고 확장성이 좋다는 것이다.</li>
+<li>이 논문의 주제는 WWW가 잘 동작하고 확장성도 좋고, REST가 WWW 아키텍쳐 위에서 동작한다면, 이 역시 잘 동작하고 확장성이 좋다는 것이다</li>
 <li>4가지의 제약 조건은 결국 URI를 사용해서 MIME-typed 문서를 GET/PUT 등으로 전송하는 것 + HATEOAS</li>
 <li>WWW := URI + HTTP + MIME + Hypermedia</li>
 <li>Hypermedia라는 건 hypertext를 확장한 개념</li>
@@ -123,7 +123,7 @@
 </ul>
 <p>Code-On-Demand (Optional)</p>
 <ul>
-<li>서버가 네트워크를 통해 클라이언트에 프로그램을 전달하면 그 프로그램이 클라이언트에서 실행될 수 있어야한다. (Java applet이나 Javascript 같은 것을 말함) 다만 이 제약조건은 필수는 아니다.</li>
+<li>서버가 네트워크를 통해 클라이언트에 프로그램을 전달하면 그 프로그램이 클라이언트에서 실행될 수 있어야한다. (Java applet이나 Javascript 같은 것을 말함) 다만 이 제약조건은 필수는 아니다</li>
 </ul>
 <h2 id="thanks-to"><a href="#thanks-to" class="headerlink" title="thanks to"></a>thanks to</h2><p><a href="http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm" target="_blank" rel="external">로이 필딩의 논문</a></p>
 <p><a href="https://blog.npcode.com/" target="_blank" rel="external">이응준님의 블로그</a>에서 많은 영감을 얻음</p>
