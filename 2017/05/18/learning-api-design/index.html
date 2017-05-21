@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="API Design생각해보니 내가 API를 제대로 만들어 본 적이 없었더랬다. 그럼 REST는 설명할 수 있던가? HTTP는? GraphQL이 재미있어 보이니 써보고는 싶은데, 인증을 붙인 프로덕션 레벨의 코드를 만들어 본 적이 없다. 그럼 해야지. 배움에 있어서, 지금까지는 발표를 통해 드라이브를 걸었다면, 이제 블로그에 정리하면서 익혀보려고 한다 wha">
+    <meta name="description" content="API Design생각해보니 내가 API를 제대로 만들어 본 적이 없었더랬다. 그럼 REST는 설명할 수 있던가? HTTP는? GraphQL이 재미있어 보이니 써보고는 싶은데,  인증을 붙인 프로덕션 레벨의 코드를 만들어 본 적이 없다. 그럼 해야지. 배움에 있어서,  지금까지는 발표를 통해 드라이브를 걸었다면, 이제 블로그에 정리하면서 익혀보려고 한다.">
 <meta name="keywords" content="API,Design">
 <meta property="og:type" content="article">
 <meta property="og:title" content="API Design을 들여다보다">
 <meta property="og:url" content="https://youngiggy.github.io/2017/05/18/learning-api-design/index.html">
 <meta property="og:site_name" content="ha-ah">
-<meta property="og:description" content="API Design생각해보니 내가 API를 제대로 만들어 본 적이 없었더랬다. 그럼 REST는 설명할 수 있던가? HTTP는? GraphQL이 재미있어 보이니 써보고는 싶은데, 인증을 붙인 프로덕션 레벨의 코드를 만들어 본 적이 없다. 그럼 해야지. 배움에 있어서, 지금까지는 발표를 통해 드라이브를 걸었다면, 이제 블로그에 정리하면서 익혀보려고 한다 wha">
-<meta property="og:updated_time" content="2017-05-19T13:17:51.000Z">
+<meta property="og:description" content="API Design생각해보니 내가 API를 제대로 만들어 본 적이 없었더랬다. 그럼 REST는 설명할 수 있던가? HTTP는? GraphQL이 재미있어 보이니 써보고는 싶은데,  인증을 붙인 프로덕션 레벨의 코드를 만들어 본 적이 없다. 그럼 해야지. 배움에 있어서,  지금까지는 발표를 통해 드라이브를 걸었다면, 이제 블로그에 정리하면서 익혀보려고 한다.">
+<meta property="og:updated_time" content="2017-05-19T13:35:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="API Design을 들여다보다">
-<meta name="twitter:description" content="API Design생각해보니 내가 API를 제대로 만들어 본 적이 없었더랬다. 그럼 REST는 설명할 수 있던가? HTTP는? GraphQL이 재미있어 보이니 써보고는 싶은데, 인증을 붙인 프로덕션 레벨의 코드를 만들어 본 적이 없다. 그럼 해야지. 배움에 있어서, 지금까지는 발표를 통해 드라이브를 걸었다면, 이제 블로그에 정리하면서 익혀보려고 한다 wha">
+<meta name="twitter:description" content="API Design생각해보니 내가 API를 제대로 만들어 본 적이 없었더랬다. 그럼 REST는 설명할 수 있던가? HTTP는? GraphQL이 재미있어 보이니 써보고는 싶은데,  인증을 붙인 프로덕션 레벨의 코드를 만들어 본 적이 없다. 그럼 해야지. 배움에 있어서,  지금까지는 발표를 통해 드라이브를 걸었다면, 이제 블로그에 정리하면서 익혀보려고 한다.">
     
     
         
@@ -139,9 +139,11 @@
   <div class="content" itemprop="articleBody">
     <h2 id="API-Design"><a href="#API-Design" class="headerlink" title="API Design"></a>API Design</h2><p>생각해보니 내가 API를 제대로 만들어 본 적이 없었더랬다.</p>
 <p>그럼 REST는 설명할 수 있던가? HTTP는?</p>
-<p>GraphQL이 재미있어 보이니 써보고는 싶은데, 인증을 붙인 프로덕션 레벨의 코드를 만들어 본 적이 없다.</p>
+<p>GraphQL이 재미있어 보이니 써보고는 싶은데, </p>
+<p>인증을 붙인 프로덕션 레벨의 코드를 만들어 본 적이 없다.</p>
 <p>그럼 해야지.</p>
-<p>배움에 있어서, 지금까지는 발표를 통해 드라이브를 걸었다면, 이제 블로그에 정리하면서 익혀보려고 한다</p>
+<p>배움에 있어서, </p>
+<p>지금까지는 발표를 통해 드라이브를 걸었다면, 이제 블로그에 정리하면서 익혀보려고 한다.</p>
 <h2 id="what-to-do"><a href="#what-to-do" class="headerlink" title="what to do"></a>what to do</h2><p>‘정확히 알기’ 그 첫번째 과정으로 API 디자인에 도전해본다.</p>
 <p>이 시리즈가 끝날 즈음이면 나는</p>
 <ul>
@@ -149,14 +151,15 @@
 <li>전통적인 RESTful API와 GraphQL 서버 모두 구현</li>
 <li>REST에 대해 제대로 설명하게 된다</li>
 <li>여러 인증 과정을 경험해본다</li>
+<li>HTTP에 대해 설명을 할 수 있게 된다</li>
 </ul>
 <p>동시에</p>
 <ul>
 <li>HTTP 완벽가이드 릴레이 세미나<ul>
 <li>HTTP 완벽가이드로 적당히 완벽히 알기(아하…금새 또 적당히 적당히)</li>
-<li>그림으로 배우는 시리즈로 네트워크와 HTTP에 대한 쉬운 설명을 익히기</li>
 </ul>
 </li>
+<li>(친절하고 쉽고 자세하고 재미없는) 그림으로 보는 시리즈 읽</li>
 </ul>
 <h2 id="and-how"><a href="#and-how" class="headerlink" title="and how?"></a>and how?</h2><p>어떻게?</p>
 <ul>

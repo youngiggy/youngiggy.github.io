@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://youngiggy.github.io/"/>
-  <updated>2017-05-19T13:18:49.000Z</updated>
+  <updated>2017-05-21T16:26:30.000Z</updated>
   <id>https://youngiggy.github.io/</id>
   
   <author>
@@ -16,24 +16,125 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>RESTful</title>
+    <title>RESTful - 1</title>
     <link href="https://youngiggy.github.io/2017/05/19/restful/"/>
     <id>https://youngiggy.github.io/2017/05/19/restful/</id>
     <published>2017-05-19T12:30:00.000Z</published>
-    <updated>2017-05-19T13:18:49.000Z</updated>
+    <updated>2017-05-21T16:26:30.000Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="thanks-to"><a href="#thanks-to" class="headerlink" title="thanks to"></a>thanks to</h3><p><a href="https://blog.npcode.com/" target="_blank" rel="external">이응준님의 블로그</a>에서 많은 영감을 얻음</p>
-<h1 id="REST"><a href="#REST" class="headerlink" title="REST?"></a>REST?</h1><p>Representational State Transfer</p>
-<h3 id="논문"><a href="#논문" class="headerlink" title="논문"></a>논문</h3><p><a href="https://blog.npcode.com/2017/03/02/%EB%B0%94%EC%81%9C-%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%93%A4%EC%9D%84-%EC%9C%84%ED%95%9C-rest-%EB%85%BC%EB%AC%B8-%EC%9A%94%EC%95%BD/" target="_blank" rel="external">바쁜 개발자들을 위한 REST 논문 요약</a></p>
+    <content type="html"><![CDATA[<h2 id="Representational-State-Transfer"><a href="#Representational-State-Transfer" class="headerlink" title="Representational State Transfer"></a>Representational State Transfer</h2><p><a href="https://blog.npcode.com/2017/03/02/%EB%B0%94%EC%81%9C-%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%93%A4%EC%9D%84-%EC%9C%84%ED%95%9C-rest-%EB%85%BC%EB%AC%B8-%EC%9A%94%EC%95%BD/" target="_blank" rel="external">바쁜 개발자들을 위한 REST 논문 요약</a></p>
 <blockquote>
 <p>REST는 Representational State Transfer의 줄임말로, 웹을 위한 네트워크 기반 아키텍처 스타일이다. REST는 Roy T. Fielding이 그의 박사학위 논문 “Architectural Styles and the Design of Network-based Software Architectures” 에서 처음 소개하였다.</p>
 </blockquote>
-<p>##### </p>
+<p>아하.</p>
+<h2 id="REST-아키텍처-스타일"><a href="#REST-아키텍처-스타일" class="headerlink" title="REST 아키텍처 스타일"></a>REST 아키텍처 스타일</h2><p>REST 아키텍처에 대한 설명은 온갖 블로그에서 서로 다르게 해석하고 있다.</p>
+<p>작성자의 역량 + 독자의 역량이 오해를 재생산하는가 보다.</p>
+<p>그러니 지금 이 정리를 본 누군가도 역시 오해를 얻어가리라 믿는다. 나 때문이든 당신 때문이든.</p>
+<p>‘바쁜 개발자들을 위한 REST 논문 요약’을 요약 + WhatIsRest.com + 내 생각을 적어보자. </p>
+<h3 id="REST-제약-조건"><a href="#REST-제약-조건" class="headerlink" title="REST 제약 조건"></a>REST 제약 조건</h3><p>Client-Server</p>
+<ul>
+<li>보통 생각하는 서버-클라이언트를 의미</li>
+<li>서로의 관심사를 분리하여 각각의 로직의 독립적인 진화를 지원</li>
+<li>여기서 Client-Server라는 게 과연 제약조건이라고 할 수 있는 건가 의문이 든다. 그러니까, 제약 조건을 어기는 게 과연 가능한가?</li>
+<li>이 제약조건은 클라이언트와 서버의 역할을 명확하게 구분한다 정도로 생각하면 될 것 같다</li>
+</ul>
+<p>Stateless</p>
+<ul>
+<li>모든 요청은 필요한 모든 정보를 담고 있어야한다</li>
+<li>요청 하나만 봐도 바로 뭔지 알 수 있으므로 가시성이 개선</li>
+<li>인증을 위해 쿠키를 심고 세션에서 필요한 정보를 가져오는 경우, 이는 stateless인가 아닌가? </li>
+<li>API 문외한 입장에서 가장 이해가 안됐던 부분 중 하나인데, 서버에 세션 정보를 저장하는 방법 말고는 몰랐기 때문이다</li>
+<li>REST에서는 각각의 요청에 서버가 필요한 정보가 모두 담겨야 한다</li>
+</ul>
+<p>Cache</p>
+<ul>
+<li>모든 서버 응답은 캐시 가능한지 그렇지 아닌지 알 수 있어야한다</li>
+<li>캐시가 가능해야 한다가 아니라 캐시가 가능한 지 알 수 있어야 한다</li>
+</ul>
+<p>Uniform Interface</p>
+<ul>
+<li>구성요소(클라이언트, 서버 등) 사이의 인터페이스는 균일(uniform)해야한다<ul>
+<li>이것만으로는 무슨 말인지 모르겠다</li>
+</ul>
+</li>
+<li><p>WhatIsREST.com의 내용을 구글 번역으로 돌려보면<br><code>소비자는 많은 소비자와 서비스에서 표준화 된 방법, 미디어 유형 및 공통 리소스 식별자 구문을 통해 서비스 기능에 액세스합니다</code><br>라고 나오는데, 미디어 유형이나 리소스 식별자 등을 의미하는 문법이 구성요소나 호환 시스템 간 동일해야 한다</p>
+</li>
+<li><p>REST는 <a href="http://exyus.com/articles/rest-the-short-version/" target="_blank" rel="external">네가지 Interface 제약조건</a>으로 정의된다</p>
+<ul>
+<li>identification of resources<ul>
+<li>리소스는 저장된 특정 객체를 의미하는 게 아니고 하나의 개념으로 이해해야 한다</li>
+<li>(구글 번역된 논문을 살펴보) 이 자원의 추상적 정의는 웹 아키텍처의 핵심 기능을 가능하게합니다<ul>
+<li>유형이나 구현에 따라 인위적으로 구별하지 않고 많은 정보 소스를 포괄함으로써 보편성을 제공합니다 </li>
+<li>표현에 대한 참조의 늦은 바인딩을 허용하여 요청의 특성에 따라 내용 협상을 수행 할 수 있습니다 </li>
+<li>저자는 개념의 단수 표현보다는 개념을 참조 할 수 있으므로 표현이 바뀔 때마다 기존의 모든 링크를 변경할 필요가 없습니다</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>manipulation of resources through representation<ul>
+<li>representation의 개념은 이후에 다시 다룰텐데, 이 역시 <a href="https://blog.npcode.com/2017/04/03/rest%EC%9D%98-representation%EC%9D%B4%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80/" target="_blank" rel="external">이응준님 블로그</a>에서 다루고 있다</li>
+<li>리소스의 표현계층(representation)을 리소스의 식별자(URL)로부터 분리한 것은 REST에서 아주 주요한 관점이다</li>
+<li>RESTful 응용 프로그램은 동일한 URI에서 동일한 자원의 표현을 둘 이상 지원할 수 있다</li>
+</ul>
+</li>
+<li>self-descriptive messages<ul>
+<li>요청이나 응답 메시지에는 이후 처리를 위한 모든 정보가 들어있어야 한다</li>
+<li>논문에서 이를 설명하는 문구를 보자<br><code>REST enables intermediate processing by constraining messages to be self-descriptive: interaction is stateless between requests, standard methods and media types are used to indicate semantics and exchange information, and responses explicitly indicate cacheability.</code></li>
+</ul>
+</li>
+<li>hypermedia as the engine of application state<ul>
+<li>= HATEOAS</li>
+<li>조대협님의 블로그에 언급되기를, <code>HTTP Response에 다음 Action이나 관계되는 리소스에 대한 HTTP Link를 함께 리턴하는 것</code><ul>
+<li>조대협님의 설명이 틀린 것 같아 찾아보면…항상 내가 틀리더라</li>
+</ul>
+</li>
+<li><a href="https://community.oracle.com/blogs/mkarg/2010/02/14/what-hateoas-actually-means" target="_blank" rel="external">What HATEOAS actually means</a><ul>
+<li>다들 혼란스러워하는 것 같은데 직접 로이 필딩에게 물어보지 그래?</li>
+<li>로이의 문장은 명확하고, 모호하지도 않으니 그냥 읽어보길 바란다</li>
+<li>로이가 HTTP 표준의 기여자라는 것을 잘 생각해보자</li>
+<li>이 논문의 주제는 WWW가 잘 동작하고 확장성도 좋고, REST가 WWW 아키텍쳐 위에서 동작한다면, 이 역시 잘 동작하고 확장성이 좋다는 것이다.</li>
+<li>4가지의 제약 조건은 결국 URI를 사용해서 MIME-typed 문서를 GET/PUT 등으로 전송하는 것 + HATEOAS</li>
+<li>WWW := URI + HTTP + MIME + Hypermedia</li>
+<li>Hypermedia라는 건 hypertext를 확장한 개념</li>
+<li>좀 더 정확하게 쓰자면, HATEOAS := hypermedia documents as the state of state</li>
+<li>로이의 배경을 생각하면 그는, 하이퍼링크가 없는 HTML 도큐먼트를 상상조차 못할 인물이다</li>
+<li>그가 언급한 Hypermedia란 문서 자체를 의미한다</li>
+<li>로이는 HTTP통신에 Link header를 넣어도 여전히 RESTful 할 수 있지만, 합당한 이유가 있어야 한다고 했다<ul>
+<li>헤더에 넣으면 이를 처리할 수 없는 클라이언트도 있을 수 있기 때문에..라고 했지만, 당시에는 LINK가 정식 표준이 아닌 때였기 때문인 것 같음</li>
+</ul>
+</li>
+<li>HATEOAS를 정확히 구현한 것은 문서안에 있는 링크다<ul>
+<li>representation 안이라고 명시하는 것을 보니 header는 representation이라고 표현 안 하는 듯</li>
+</ul>
+</li>
+<li>HATEOAS라는 다음 상태 변경을 위한 링크(form 링크 등)를 제공해야 한다는 것</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Layered System </p>
+<ul>
+<li>클라이언트든 서버든 미들웨어 구성요소를 추가할 수 있는 구조</li>
+<li>하지만 Client-Server 사이에선 그 구성요소가 추가되는지, 다른 서비스와 추가로 통신하는 지 여부는 관심없다</li>
+<li>특정 서비스와 소비자 간의 상호 작용을 일관성있게 유지해야 한다</li>
+</ul>
+<p>Code-On-Demand (Optional)</p>
+<ul>
+<li>서버가 네트워크를 통해 클라이언트에 프로그램을 전달하면 그 프로그램이 클라이언트에서 실행될 수 있어야한다. (Java applet이나 Javascript 같은 것을 말함) 다만 이 제약조건은 필수는 아니다.</li>
+</ul>
+<h2 id="thanks-to"><a href="#thanks-to" class="headerlink" title="thanks to"></a>thanks to</h2><p><a href="http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm" target="_blank" rel="external">로이 필딩의 논문</a></p>
+<p><a href="https://blog.npcode.com/" target="_blank" rel="external">이응준님의 블로그</a>에서 많은 영감을 얻음</p>
+<p><a href="http://whatisrest.com" target="_blank" rel="external">WhatIsREST.com</a></p>
+<p><a href="http://exyus.com/articles/rest-the-short-version/" target="_blank" rel="external">네가지 제약조건에 대한 짧은 설명</a> </p>
+<p><a href="https://community.oracle.com/blogs/mkarg/2010/02/14/what-hateoas-actually-means" target="_blank" rel="external">HATEOAS가 진짜로 의미하는 것</a> </p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;thanks-to&quot;&gt;&lt;a href=&quot;#thanks-to&quot; class=&quot;headerlink&quot; title=&quot;thanks to&quot;&gt;&lt;/a&gt;thanks to&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://blog.npcode.com/&quot; target=
+      &lt;h2 id=&quot;Representational-State-Transfer&quot;&gt;&lt;a href=&quot;#Representational-State-Transfer&quot; class=&quot;headerlink&quot; title=&quot;Representational State Transfe
     
     </summary>
     
@@ -51,13 +152,15 @@
     <link href="https://youngiggy.github.io/2017/05/18/learning-api-design/"/>
     <id>https://youngiggy.github.io/2017/05/18/learning-api-design/</id>
     <published>2017-05-18T14:28:44.000Z</published>
-    <updated>2017-05-19T13:17:51.000Z</updated>
+    <updated>2017-05-19T13:35:07.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="API-Design"><a href="#API-Design" class="headerlink" title="API Design"></a>API Design</h2><p>생각해보니 내가 API를 제대로 만들어 본 적이 없었더랬다.</p>
 <p>그럼 REST는 설명할 수 있던가? HTTP는?</p>
-<p>GraphQL이 재미있어 보이니 써보고는 싶은데, 인증을 붙인 프로덕션 레벨의 코드를 만들어 본 적이 없다.</p>
+<p>GraphQL이 재미있어 보이니 써보고는 싶은데, </p>
+<p>인증을 붙인 프로덕션 레벨의 코드를 만들어 본 적이 없다.</p>
 <p>그럼 해야지.</p>
-<p>배움에 있어서, 지금까지는 발표를 통해 드라이브를 걸었다면, 이제 블로그에 정리하면서 익혀보려고 한다</p>
+<p>배움에 있어서, </p>
+<p>지금까지는 발표를 통해 드라이브를 걸었다면, 이제 블로그에 정리하면서 익혀보려고 한다.</p>
 <h2 id="what-to-do"><a href="#what-to-do" class="headerlink" title="what to do"></a>what to do</h2><p>‘정확히 알기’ 그 첫번째 과정으로 API 디자인에 도전해본다.</p>
 <p>이 시리즈가 끝날 즈음이면 나는</p>
 <ul>
@@ -65,14 +168,15 @@
 <li>전통적인 RESTful API와 GraphQL 서버 모두 구현</li>
 <li>REST에 대해 제대로 설명하게 된다</li>
 <li>여러 인증 과정을 경험해본다</li>
+<li>HTTP에 대해 설명을 할 수 있게 된다</li>
 </ul>
 <p>동시에</p>
 <ul>
 <li>HTTP 완벽가이드 릴레이 세미나<ul>
 <li>HTTP 완벽가이드로 적당히 완벽히 알기(아하…금새 또 적당히 적당히)</li>
-<li>그림으로 배우는 시리즈로 네트워크와 HTTP에 대한 쉬운 설명을 익히기</li>
 </ul>
 </li>
+<li>(친절하고 쉽고 자세하고 재미없는) 그림으로 보는 시리즈 읽</li>
 </ul>
 <h2 id="and-how"><a href="#and-how" class="headerlink" title="and how?"></a>and how?</h2><p>어떻게?</p>
 <ul>
