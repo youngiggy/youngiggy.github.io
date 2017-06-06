@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://youngiggy.github.io/"/>
-  <updated>2017-05-28T14:56:12.000Z</updated>
+  <updated>2017-06-01T03:41:50.000Z</updated>
   <id>https://youngiggy.github.io/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>RESTful</title>
+    <title>REST and RESTful</title>
     <link href="https://youngiggy.github.io/2017/05/22/restful/"/>
     <id>https://youngiggy.github.io/2017/05/22/restful/</id>
     <published>2017-05-21T16:30:00.000Z</published>
-    <updated>2017-05-28T14:56:12.000Z</updated>
+    <updated>2017-06-01T03:41:50.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Representational-State-Transfer"><a href="#Representational-State-Transfer" class="headerlink" title="Representational State Transfer"></a>Representational State Transfer</h2><p><a href="https://blog.npcode.com/2017/03/02/%EB%B0%94%EC%81%9C-%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%93%A4%EC%9D%84-%EC%9C%84%ED%95%9C-rest-%EB%85%BC%EB%AC%B8-%EC%9A%94%EC%95%BD/" target="_blank" rel="external">바쁜 개발자들을 위한 REST 논문 요약</a></p>
 <blockquote>
@@ -125,11 +125,37 @@
 <ul>
 <li>서버가 네트워크를 통해 클라이언트에 프로그램을 전달하면 그 프로그램이 클라이언트에서 실행될 수 있어야한다. (Java applet이나 Javascript 같은 것을 말함) 다만 이 제약조건은 필수는 아니다</li>
 </ul>
-<h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><h3 id="한계"><a href="#한계" class="headerlink" title="한계"></a>한계</h3><p>REST는 2000년에 발표한 논문이다. 그리고 20년 쯤 지났다.</p>
+<h2 id="REST-VS-RESTful"><a href="#REST-VS-RESTful" class="headerlink" title="REST VS RESTful"></a>REST VS RESTful</h2><p>REST는 2000년에 발표한 논문이다. 그리고 20년 쯤 지났다.</p>
 <p>로이 필딩은 HTTP에 기여를 했고 웹이 얼마나 잘 설계되었는지에 대한 확신이 있었던 것 같다.</p>
 <p>여전히 그는 틀리지 않았다고 생각한다. 웹은 여전히 잘 돌아간다.</p>
-<p>하지만 RESTful이 현재의 웹을 잘 담아낼 수 있을까 의문이다.</p>
-<p>현대의 요구사항에 맞춰 제약 조건을 조금 위반한 설계를 여전히 RESTful하다고 부를 수 있을까? </p>
+<p>하지만 REST가 현재의 웹을 잘 담아낼 수 있을까 의문이다.</p>
+<p>현대의 요구사항에 맞춰 제약 조건을 조금 위반한 설계를 여전히 REST라고 부를 수 있을까? </p>
+<p>잠깐.</p>
+<p>당시의 웹 환경과 철학이 과연 얼마나 달라졌는가 생각을 해보자.</p>
+<p>그동안 웹 사이트 내에 동적인 요소가 많이 추가됐고 타 서비스 간 통신도 활발해졌지만,</p>
+<p>웹의 철학이 바뀌었는가?</p>
+<p>웹은 그대로 있지 않았나?</p>
+<h3 id="RESTful"><a href="#RESTful" class="headerlink" title="RESTful?"></a>RESTful?</h3><p>REST와 RESTful을 동일하게 보는 시선도 분명 있지만(보통 그냥 막 섞어쓰기 때문에..),</p>
+<p>REST는 아키텍쳐 스타일, RESTful은 REST에 기초하여 구현한 시스템을 의미한다고 생각한다.</p>
+<p>(사실 스택오버플로우에서 그런 주장을 봤다)</p>
+<p>위키디피아에서 설명하는 <a href="https://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank" rel="external">REST</a>에는</p>
+<p>‘Representational state transfer (REST) or RESTful Web services는’이라고 시작하는데,</p>
+<p>REST와 RESTful Web service를 동급으로 본다.</p>
+<p>앞서 REST의 의미를 살펴본 바 틀리지 않은 것 같다. </p>
+<h3 id="API는-웹인가"><a href="#API는-웹인가" class="headerlink" title="API는 웹인가?"></a>API는 웹인가?</h3><p>(API의 개념을 좁게 보면) 웹의 중요한 요소이지만 그 자체로 온전한 웹이라고 할 수 있을까?</p>
+<p>이게 좀 애매한데, 이건 사용방식에 딸라 달라질 것 같다.</p>
+<p>API는 리소스나 어플리케이션의 상태를 변경하는 용도를 쓰게 될텐데,</p>
+<p>온전한 하나의 어플리케이션으로서 혹은 그것의 상태를 변경하는 API도 있겠지만</p>
+<p>어플리케이션의 서브 리소스로써 동작하는 API도 존재한다.</p>
+<p>이미지와 동영상은 어떨까?</p>
+<p>논문에서 hypertext가 아닌 hypermedia로 언급한 것처럼, 이 거대한 웹에는 여러가지 미디어가 연결되어 있다.</p>
+<p>하지만 이를 연결하는 주체는 웹(특히 HTML)이 아닌가?</p>
+<p>이런 이미지 등의 리소스는 HATEOAS를 제공할 의무가 있는가?</p>
+<p>난 Cache에 대한 제약사항이 ‘모든 response는 캐시가 가능해야 한다’가 아니고 ‘캐시가 가능한 지 알 수 있어야 하고, 캐시를 고려해야 한다’라고 본다.</p>
+<p>HATEOAS도 마찬가지의 관점에서 봐야하지 않을까 생각이 든다.</p>
+<p>그렇다면 RESTful 서비스는 REST의 모든 제약조건을 지킨 시스템을 말하는, 모든 제약조건을 고려한 시스템을 의미하는가?</p>
+<p>여기서 고려한이란 말은 안 지켜도 된다가 아니라, 지킬 수 없는 상황도 있다 정도로 생각하자.</p>
+<h1 id="그렇다면…이-아랫-부분은-좀-더-생각해보자"><a href="#그렇다면…이-아랫-부분은-좀-더-생각해보자" class="headerlink" title="그렇다면…이 아랫 부분은 좀 더 생각해보자."></a>그렇다면…이 아랫 부분은 좀 더 생각해보자.</h1><p>다시 쓰자.</p>
 <h3 id="최대한-RESTful"><a href="#최대한-RESTful" class="headerlink" title="최대한 RESTful"></a>최대한 RESTful</h3><p>간단히 말해서 RESTful하다는 말은 다섯(+1)가지의 제약 조건을 충족시킨다는 의미이다.</p>
 <p>다섯가지의 제약조건을 충족시켰다는 것은 웹의 특성을 잘 살려 일관되고 효율적이며 확장성이 있게 만들었다는 말이다.</p>
 <p>어떤 이는 REST API는 네가지 메소드를 사용해 통신하는 방식을 의미하고, 로이 필딩이 주장하는 디자인은 특별히 RESTful이라고 지칭한다고 말한다.</p>
