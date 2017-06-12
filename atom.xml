@@ -201,7 +201,7 @@
     <link href="https://youngiggy.github.io/2017/05/18/learning-api-design/"/>
     <id>https://youngiggy.github.io/2017/05/18/learning-api-design/</id>
     <published>2017-05-18T14:28:44.000Z</published>
-    <updated>2017-06-12T11:39:32.000Z</updated>
+    <updated>2017-06-12T11:40:15.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="API-Design"><a href="#API-Design" class="headerlink" title="API Design"></a>API Design</h2><p>생각해보니 내가 API를 제대로 만들어 본 적이 없었더랬다.</p>
 <p>GraphQL이 재미있어 보이니 써보고는 싶은데, </p>
@@ -224,6 +224,10 @@
 <ul>
 <li>HTTP 완벽가이드 릴레이 세미나<ul>
 <li>HTTP 완벽가이드로 적당히 완벽히 알기(아하…금새 또 적당히 적당히)</li>
+<li><ul>
+<li>몇가지 간단한 책(그림으로 배우는 시리즈)도 참고로 읽기</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
