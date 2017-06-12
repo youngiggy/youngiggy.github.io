@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://youngiggy.github.io/"/>
-  <updated>2017-06-12T12:56:23.000Z</updated>
+  <updated>2017-06-12T12:57:06.000Z</updated>
   <id>https://youngiggy.github.io/</id>
   
   <author>
@@ -20,12 +20,12 @@
     <link href="https://youngiggy.github.io/2017/06/12/rest-the-big-lie/"/>
     <id>https://youngiggy.github.io/2017/06/12/rest-the-big-lie/</id>
     <published>2017-06-12T11:41:23.000Z</published>
-    <updated>2017-06-12T12:56:23.000Z</updated>
+    <updated>2017-06-12T12:57:06.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="REST에-관한-끊이지-않는-논쟁"><a href="#REST에-관한-끊이지-않는-논쟁" class="headerlink" title="REST에 관한 끊이지 않는 논쟁"></a>REST에 관한 끊이지 않는 논쟁</h2><p>자신을 “SPA (UI/UX/server) architect and author”라고 소개하고 있는<br><em>Michael S. Mikowski</em>의 <a href="https://mmikowski.github.io/the_lie/" target="_blank" rel="external">REST the big lie</a>라는 자극적인 글과 댓글을 읽고 한번 정리해볼 필요가 있다고 생각했다.</p>
 <p>댓글로 달려드는 모두가 REST나 API를 바라보는 관점이 다르고, 댓글을 읽으면서 ‘그래, 그렇지’하면서 나의 관점도 계속 흔들렸다. (결국 REST를 공부한 직후의 관점으로 돌아왔지만…)</p>
 <p>따지고 보면 개싸움이나 다름없지만, 이거야 말로 현실 세계의 문제인 듯!</p>
-<p>주요 논점을 정리해보고, 개발 새발 정리한 버전은 페이지 마지막에 (잘 안 보이게) 붙여놓겠다.</p>
+<p>주요 논점을 정리해보고, 주요 댓글을 개발 새발 정리한 버전은 페이지 마지막에 (잘 안 보이게) 붙여놓겠다.</p>
 <h2 id="블로그-본문"><a href="#블로그-본문" class="headerlink" title="블로그 본문"></a>블로그 본문</h2><p>우선 블로그에서 저자가 주장하는 바를 짧게 정리해보자.</p>
 <h3 id="Problem-1-There-is-little-agreement-on-what-a-RESTful-API-is"><a href="#Problem-1-There-is-little-agreement-on-what-a-RESTful-API-is" class="headerlink" title="Problem #1: There is little agreement on what a RESTful API is"></a>Problem #1: There is little agreement on what a RESTful API is</h3><p>HTTP 메소드와 응답코드는 모호해서 그 뜻이 정확히 뭘 의미하는지 사람마다 다르게 인식한다.</p>
 <p>어떤 응답코드를 줄 지는 회사/사람마다 다른 기준이 있을 수 있어서, client 입장에선 정확히 예측하기 어렵다</p>
