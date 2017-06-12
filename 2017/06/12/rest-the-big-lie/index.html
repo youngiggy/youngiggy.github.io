@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang=ko>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="REST에 관한 끊이지 않는 논쟁자신을 “SPA (UI/UX/server) architect and author”라고 소개하고 있는Michael S. Mikowski의 REST the big lie라는 자극적인 글과 댓글을 읽고 한번 정리해볼 필요가 있다고 생각했다. 댓글로 달려드 모두가 REST나 API를 바라보는 관점이 다르고, 댓글을 읽으면서 ‘그래,">
+<meta name="keywords" content="API,RESTful,REST">
+<meta property="og:type" content="article">
+<meta property="og:title" content="rest-the-big-lie">
+<meta property="og:url" content="https://youngiggy.github.io/2017/06/12/rest-the-big-lie/index.html">
+<meta property="og:site_name" content="ha-ah">
+<meta property="og:description" content="REST에 관한 끊이지 않는 논쟁자신을 “SPA (UI/UX/server) architect and author”라고 소개하고 있는Michael S. Mikowski의 REST the big lie라는 자극적인 글과 댓글을 읽고 한번 정리해볼 필요가 있다고 생각했다. 댓글로 달려드 모두가 REST나 API를 바라보는 관점이 다르고, 댓글을 읽으면서 ‘그래,">
+<meta property="og:image" content="http://i.stack.imgur.com/whhD1.png">
+<meta property="og:updated_time" content="2017-06-12T12:47:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="rest-the-big-lie">
+<meta name="twitter:description" content="REST에 관한 끊이지 않는 논쟁자신을 “SPA (UI/UX/server) architect and author”라고 소개하고 있는Michael S. Mikowski의 REST the big lie라는 자극적인 글과 댓글을 읽고 한번 정리해볼 필요가 있다고 생각했다. 댓글로 달려드 모두가 REST나 API를 바라보는 관점이 다르고, 댓글을 읽으면서 ‘그래,">
+<meta name="twitter:image" content="http://i.stack.imgur.com/whhD1.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>rest-the-big-lie</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="ha-ah" type="application/atom+xml" />
+    
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2017/05/22/restful/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
+        
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&text=rest-the-big-lie"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&title=rest-the-big-lie"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&is_video=false&description=rest-the-big-lie"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=rest-the-big-lie&body=Check out this article: https://youngiggy.github.io/2017/06/12/rest-the-big-lie/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&title=rest-the-big-lie"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&title=rest-the-big-lie"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&title=rest-the-big-lie"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&title=rest-the-big-lie"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&name=rest-the-big-lie&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#REST에-관한-끊이지-않는-논쟁"><span class="toc-number">1.</span> <span class="toc-text">REST에 관한 끊이지 않는 논쟁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#블로그-본문"><span class="toc-number">2.</span> <span class="toc-text">블로그 본문</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Problem-1-There-is-little-agreement-on-what-a-RESTful-API-is"><span class="toc-number">2.1.</span> <span class="toc-text">Problem #1: There is little agreement on what a RESTful API is</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#나머지-내용-정리-중…"><span class="toc-number"></span> <span class="toc-text">나머지 내용 정리 중…..</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#논쟁"><span class="toc-number">1.</span> <span class="toc-text">논쟁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-메소드와-응답코드는-모호해서-그-뜻이-정확히-뭘-의미하는지-사람마다-다르게-인식한다"><span class="toc-number">1.1.</span> <span class="toc-text">HTTP 메소드와 응답코드는 모호해서 그 뜻이 정확히 뭘 의미하는지 사람마다 다르게 인식한다.</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#나머지-내용-정리-중…-1"><span class="toc-number"></span> <span class="toc-text">나머지 내용 정리 중…..</span></a>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        rest-the-big-lie
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">ha-ah</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2017-06-12T11:41:23.000Z" itemprop="datePublished">2017-06-12</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/API/">API</a>, <a class="tag-link" href="/tags/REST/">REST</a>, <a class="tag-link" href="/tags/RESTful/">RESTful</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="REST에-관한-끊이지-않는-논쟁"><a href="#REST에-관한-끊이지-않는-논쟁" class="headerlink" title="REST에 관한 끊이지 않는 논쟁"></a>REST에 관한 끊이지 않는 논쟁</h2><p>자신을 “SPA (UI/UX/server) architect and author”라고 소개하고 있는<br><em>Michael S. Mikowski</em>의 <a href="https://mmikowski.github.io/the_lie/" target="_blank" rel="external">REST the big lie</a>라는 자극적인 글과 댓글을 읽고 한번 정리해볼 필요가 있다고 생각했다.</p>
+<p>댓글로 달려드 모두가 REST나 API를 바라보는 관점이 다르고, 댓글을 읽으면서 ‘그래, 그렇지’하면서 나의 관점도 계속 흔들렸다. (결국 REST를 공부한 직후의 관점으로 돌아왔지만…)</p>
+<p>따지고 보면 개싸움이나 다름없지만, 이거야 말로 현실 세계의 문제인 듯!</p>
+<p>주요 논점을 정리해보고, 개발 새발 정리한 버전은 페이지 마지막에 (잘 안 보이게) 붙여놓겠다.</p>
+<h2 id="블로그-본문"><a href="#블로그-본문" class="headerlink" title="블로그 본문"></a>블로그 본문</h2><h3 id="Problem-1-There-is-little-agreement-on-what-a-RESTful-API-is"><a href="#Problem-1-There-is-little-agreement-on-what-a-RESTful-API-is" class="headerlink" title="Problem #1: There is little agreement on what a RESTful API is"></a>Problem #1: There is little agreement on what a RESTful API is</h3><p>HTTP 메소드와 응답코드는 모호해서 그 뜻이 정확히 뭘 의미하는지 사람마다 다르게 인식한다.</p>
+<p>어떤 응답코드를 줄 지는 회사/사람마다 다른 기준이 있을 수 있어서, client 입장에선 정확히 예측하기 어렵다</p>
+<h1 id="나머지-내용-정리-중…"><a href="#나머지-내용-정리-중…" class="headerlink" title="나머지 내용 정리 중….."></a>나머지 내용 정리 중…..</h1><h2 id="논쟁"><a href="#논쟁" class="headerlink" title="논쟁"></a>논쟁</h2><p>블로그 본문과 댓글에서 발화한 여러 논쟁을 크게 묶어 정리해본다.</p>
+<h3 id="HTTP-메소드와-응답코드는-모호해서-그-뜻이-정확히-뭘-의미하는지-사람마다-다르게-인식한다"><a href="#HTTP-메소드와-응답코드는-모호해서-그-뜻이-정확히-뭘-의미하는지-사람마다-다르게-인식한다" class="headerlink" title="HTTP 메소드와 응답코드는 모호해서 그 뜻이 정확히 뭘 의미하는지 사람마다 다르게 인식한다."></a>HTTP 메소드와 응답코드는 모호해서 그 뜻이 정확히 뭘 의미하는지 사람마다 다르게 인식한다.</h3><p>따지고 보면 그걸 모르는 사람의 문제지만, 현실적으로는 맞는 이야기라고 본다.</p>
+<p>어떤 응답 로직을 구현하기 위해 여러번 생각해야하는 것은 일종의 비용이라고 생각하는 편이다.</p>
+<ul>
+<li><a href="https://1ambda.github.io/javascripts/rest-api-put-vs-post/" target="_blank" rel="external">https://1ambda.github.io/javascripts/rest-api-put-vs-post/</a> <ul>
+<li>response code decision tree가 나와있다.<br><img src="http://i.stack.imgur.com/whhD1.png" alt="response code decision tree"></li>
+</ul>
+</li>
+</ul>
+<p>물론 이것은 REST의 문제가 아닌 구현상의 어려움일 뿐이다.</p>
+<ul>
+<li>이 글을 비판하는 진영에서는 ‘아니, 그게 왜 어렵다는 거야?’같은 반응을 보이고 있다.</li>
+<li>사족이지만, npm 개발자인 <a href="http://izs.me/" target="_blank" rel="external">Isaac Z. Schlueter</a>는 세미콜론을 최대한 안 쓰는데, 이런 방식은 버그를 양산할 수 있고 혼란스러울 수 있다고 비판하는 사람들에게 ‘네가 JavaScript 문법을 몰라서 그렇다’고 일침.</li>
+</ul>
+<p>요청 메소드와 응답 코드가 모든 상황을 담아낼 수 없다는 의견도 있는데, </p>
+<p>이 글에 동조하는 사람들은 거대한 엔터프라이즈 환경(ERP, 병원 시스템 등)에서 다양하고 복합적인 리소스를 다루는 상황에 대해 언급한다.</p>
+<p>논쟁을 지켜보며 생각이 드는 것은 - 추측이지만,</p>
+<p>메소드가 충분치 않다는 의견은 특히 <a href="https://ko.wikipedia.org/wiki/%EC%9B%90%EA%B2%A9_%ED%94%84%EB%A1%9C%EC%8B%9C%EC%A0%80_%ED%98%B8%EC%B6%9C" target="_blank" rel="external">RPC</a>를 실행하는 경우,<br>그 리퀘스트를 보내는 대상 리소스가 우리가 흔히 인식하는 리소스, 그러니까 CSS나 이미지같은 소위 정적 리소스나 데이터베이스/도메인 모델과 같은 엔티티 개념을 벗어나는 지점부터 어려워지는 것 같다.<br>예를 들어볼까, 리퀘스트를 날려서 설거지와 빨래와 아이 목욕을 시킨다면, 여기서 리소스란 무엇일까? 이 때는 어떤 메소드를 써야하는가?</p>
+<h1 id="나머지-내용-정리-중…-1"><a href="#나머지-내용-정리-중…-1" class="headerlink" title="나머지 내용 정리 중….."></a>나머지 내용 정리 중…..</h1>
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+    </div>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#REST에-관한-끊이지-않는-논쟁"><span class="toc-number">1.</span> <span class="toc-text">REST에 관한 끊이지 않는 논쟁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#블로그-본문"><span class="toc-number">2.</span> <span class="toc-text">블로그 본문</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Problem-1-There-is-little-agreement-on-what-a-RESTful-API-is"><span class="toc-number">2.1.</span> <span class="toc-text">Problem #1: There is little agreement on what a RESTful API is</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#나머지-내용-정리-중…"><span class="toc-number"></span> <span class="toc-text">나머지 내용 정리 중…..</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#논쟁"><span class="toc-number">1.</span> <span class="toc-text">논쟁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-메소드와-응답코드는-모호해서-그-뜻이-정확히-뭘-의미하는지-사람마다-다르게-인식한다"><span class="toc-number">1.1.</span> <span class="toc-text">HTTP 메소드와 응답코드는 모호해서 그 뜻이 정확히 뭘 의미하는지 사람마다 다르게 인식한다.</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#나머지-내용-정리-중…-1"><span class="toc-number"></span> <span class="toc-text">나머지 내용 정리 중…..</span></a>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&text=rest-the-big-lie"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&title=rest-the-big-lie"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&is_video=false&description=rest-the-big-lie"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=rest-the-big-lie&body=Check out this article: https://youngiggy.github.io/2017/06/12/rest-the-big-lie/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&title=rest-the-big-lie"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&title=rest-the-big-lie"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&title=rest-the-big-lie"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&title=rest-the-big-lie"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&name=rest-the-big-lie&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2017 youngiggy
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-99319001-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'youngiggy-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+

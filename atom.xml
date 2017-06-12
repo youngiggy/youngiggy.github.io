@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://youngiggy.github.io/"/>
-  <updated>2017-06-11T03:13:29.000Z</updated>
+  <updated>2017-06-12T12:47:30.000Z</updated>
   <id>https://youngiggy.github.io/</id>
   
   <author>
@@ -14,6 +14,54 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>rest-the-big-lie</title>
+    <link href="https://youngiggy.github.io/2017/06/12/rest-the-big-lie/"/>
+    <id>https://youngiggy.github.io/2017/06/12/rest-the-big-lie/</id>
+    <published>2017-06-12T11:41:23.000Z</published>
+    <updated>2017-06-12T12:47:30.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="REST에-관한-끊이지-않는-논쟁"><a href="#REST에-관한-끊이지-않는-논쟁" class="headerlink" title="REST에 관한 끊이지 않는 논쟁"></a>REST에 관한 끊이지 않는 논쟁</h2><p>자신을 “SPA (UI/UX/server) architect and author”라고 소개하고 있는<br><em>Michael S. Mikowski</em>의 <a href="https://mmikowski.github.io/the_lie/" target="_blank" rel="external">REST the big lie</a>라는 자극적인 글과 댓글을 읽고 한번 정리해볼 필요가 있다고 생각했다.</p>
+<p>댓글로 달려드 모두가 REST나 API를 바라보는 관점이 다르고, 댓글을 읽으면서 ‘그래, 그렇지’하면서 나의 관점도 계속 흔들렸다. (결국 REST를 공부한 직후의 관점으로 돌아왔지만…)</p>
+<p>따지고 보면 개싸움이나 다름없지만, 이거야 말로 현실 세계의 문제인 듯!</p>
+<p>주요 논점을 정리해보고, 개발 새발 정리한 버전은 페이지 마지막에 (잘 안 보이게) 붙여놓겠다.</p>
+<h2 id="블로그-본문"><a href="#블로그-본문" class="headerlink" title="블로그 본문"></a>블로그 본문</h2><h3 id="Problem-1-There-is-little-agreement-on-what-a-RESTful-API-is"><a href="#Problem-1-There-is-little-agreement-on-what-a-RESTful-API-is" class="headerlink" title="Problem #1: There is little agreement on what a RESTful API is"></a>Problem #1: There is little agreement on what a RESTful API is</h3><p>HTTP 메소드와 응답코드는 모호해서 그 뜻이 정확히 뭘 의미하는지 사람마다 다르게 인식한다.</p>
+<p>어떤 응답코드를 줄 지는 회사/사람마다 다른 기준이 있을 수 있어서, client 입장에선 정확히 예측하기 어렵다</p>
+<h1 id="나머지-내용-정리-중…"><a href="#나머지-내용-정리-중…" class="headerlink" title="나머지 내용 정리 중….."></a>나머지 내용 정리 중…..</h1><h2 id="논쟁"><a href="#논쟁" class="headerlink" title="논쟁"></a>논쟁</h2><p>블로그 본문과 댓글에서 발화한 여러 논쟁을 크게 묶어 정리해본다.</p>
+<h3 id="HTTP-메소드와-응답코드는-모호해서-그-뜻이-정확히-뭘-의미하는지-사람마다-다르게-인식한다"><a href="#HTTP-메소드와-응답코드는-모호해서-그-뜻이-정확히-뭘-의미하는지-사람마다-다르게-인식한다" class="headerlink" title="HTTP 메소드와 응답코드는 모호해서 그 뜻이 정확히 뭘 의미하는지 사람마다 다르게 인식한다."></a>HTTP 메소드와 응답코드는 모호해서 그 뜻이 정확히 뭘 의미하는지 사람마다 다르게 인식한다.</h3><p>따지고 보면 그걸 모르는 사람의 문제지만, 현실적으로는 맞는 이야기라고 본다.</p>
+<p>어떤 응답 로직을 구현하기 위해 여러번 생각해야하는 것은 일종의 비용이라고 생각하는 편이다.</p>
+<ul>
+<li><a href="https://1ambda.github.io/javascripts/rest-api-put-vs-post/" target="_blank" rel="external">https://1ambda.github.io/javascripts/rest-api-put-vs-post/</a> <ul>
+<li>response code decision tree가 나와있다.<br><img src="http://i.stack.imgur.com/whhD1.png" alt="response code decision tree"></li>
+</ul>
+</li>
+</ul>
+<p>물론 이것은 REST의 문제가 아닌 구현상의 어려움일 뿐이다.</p>
+<ul>
+<li>이 글을 비판하는 진영에서는 ‘아니, 그게 왜 어렵다는 거야?’같은 반응을 보이고 있다.</li>
+<li>사족이지만, npm 개발자인 <a href="http://izs.me/" target="_blank" rel="external">Isaac Z. Schlueter</a>는 세미콜론을 최대한 안 쓰는데, 이런 방식은 버그를 양산할 수 있고 혼란스러울 수 있다고 비판하는 사람들에게 ‘네가 JavaScript 문법을 몰라서 그렇다’고 일침.</li>
+</ul>
+<p>요청 메소드와 응답 코드가 모든 상황을 담아낼 수 없다는 의견도 있는데, </p>
+<p>이 글에 동조하는 사람들은 거대한 엔터프라이즈 환경(ERP, 병원 시스템 등)에서 다양하고 복합적인 리소스를 다루는 상황에 대해 언급한다.</p>
+<p>논쟁을 지켜보며 생각이 드는 것은 - 추측이지만,</p>
+<p>메소드가 충분치 않다는 의견은 특히 <a href="https://ko.wikipedia.org/wiki/%EC%9B%90%EA%B2%A9_%ED%94%84%EB%A1%9C%EC%8B%9C%EC%A0%80_%ED%98%B8%EC%B6%9C" target="_blank" rel="external">RPC</a>를 실행하는 경우,<br>그 리퀘스트를 보내는 대상 리소스가 우리가 흔히 인식하는 리소스, 그러니까 CSS나 이미지같은 소위 정적 리소스나 데이터베이스/도메인 모델과 같은 엔티티 개념을 벗어나는 지점부터 어려워지는 것 같다.<br>예를 들어볼까, 리퀘스트를 날려서 설거지와 빨래와 아이 목욕을 시킨다면, 여기서 리소스란 무엇일까? 이 때는 어떤 메소드를 써야하는가?</p>
+<h1 id="나머지-내용-정리-중…-1"><a href="#나머지-내용-정리-중…-1" class="headerlink" title="나머지 내용 정리 중….."></a>나머지 내용 정리 중…..</h1>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;REST에-관한-끊이지-않는-논쟁&quot;&gt;&lt;a href=&quot;#REST에-관한-끊이지-않는-논쟁&quot; class=&quot;headerlink&quot; title=&quot;REST에 관한 끊이지 않는 논쟁&quot;&gt;&lt;/a&gt;REST에 관한 끊이지 않는 논쟁&lt;/h2&gt;&lt;p&gt;자신을 “S
+    
+    </summary>
+    
+    
+      <category term="API" scheme="https://youngiggy.github.io/tags/API/"/>
+    
+      <category term="RESTful" scheme="https://youngiggy.github.io/tags/RESTful/"/>
+    
+      <category term="REST" scheme="https://youngiggy.github.io/tags/REST/"/>
+    
+  </entry>
   
   <entry>
     <title>REST and RESTful</title>
