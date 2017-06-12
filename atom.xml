@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://youngiggy.github.io/"/>
-  <updated>2017-06-11T03:11:09.000Z</updated>
+  <updated>2017-06-11T03:13:29.000Z</updated>
   <id>https://youngiggy.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://youngiggy.github.io/2017/05/22/restful/"/>
     <id>https://youngiggy.github.io/2017/05/22/restful/</id>
     <published>2017-05-21T16:30:00.000Z</published>
-    <updated>2017-06-11T03:11:09.000Z</updated>
+    <updated>2017-06-11T03:13:29.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Representational-State-Transfer"><a href="#Representational-State-Transfer" class="headerlink" title="Representational State Transfer"></a>Representational State Transfer</h2><p><a href="https://blog.npcode.com/2017/03/02/%EB%B0%94%EC%81%9C-%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%93%A4%EC%9D%84-%EC%9C%84%ED%95%9C-rest-%EB%85%BC%EB%AC%B8-%EC%9A%94%EC%95%BD/" target="_blank" rel="external">바쁜 개발자들을 위한 REST 논문 요약</a></p>
 <blockquote>
@@ -158,6 +158,8 @@
 <ul>
 <li>TODO : 내용 추가할 것<br>로이 필딩이 이야기하는 HATEOAS에 관한 이야기<br><a href="http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven" target="_blank" rel="external">http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven</a></li>
 </ul>
+<p>API Conf Panel: The Future of Media API<br><a href="https://www.infoq.com/presentations/media-API" target="_blank" rel="external">https://www.infoq.com/presentations/media-API</a></p>
+<p>GOTO 2014 • REST: I don’t Think it Means What You Think it Does • Stefan Tilkov<br><a href="https://www.youtube.com/watch?v=pspy1H6A3FM" target="_blank" rel="external">https://www.youtube.com/watch?v=pspy1H6A3FM</a></p>
 <h3 id="최대한-RESTful"><a href="#최대한-RESTful" class="headerlink" title="최대한 RESTful"></a>최대한 RESTful</h3><p>간단히 말해서 RESTful하다는 말은 다섯(+1)가지의 제약 조건을 충족시킨다는 의미이다.</p>
 <p>다섯가지의 제약조건을 충족시켰다는 것은 웹의 특성을 잘 살려 일관되고 효율적이며 확장성이 있게 만들었다는 말이다.</p>
 <p>어떤 이는 REST API는 네가지 메소드를 사용해 통신하는 방식을 의미하고, 로이 필딩이 주장하는 디자인은 특별히 RESTful이라고 지칭한다고 말한다.</p>
@@ -199,7 +201,7 @@
     <link href="https://youngiggy.github.io/2017/05/18/learning-api-design/"/>
     <id>https://youngiggy.github.io/2017/05/18/learning-api-design/</id>
     <published>2017-05-18T14:28:44.000Z</published>
-    <updated>2017-05-21T16:35:50.000Z</updated>
+    <updated>2017-06-12T11:39:32.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="API-Design"><a href="#API-Design" class="headerlink" title="API Design"></a>API Design</h2><p>생각해보니 내가 API를 제대로 만들어 본 적이 없었더랬다.</p>
 <p>GraphQL이 재미있어 보이니 써보고는 싶은데, </p>
@@ -224,7 +226,6 @@
 <li>HTTP 완벽가이드로 적당히 완벽히 알기(아하…금새 또 적당히 적당히)</li>
 </ul>
 </li>
-<li>(친절하고 쉽고 자세하고 재미없는) 그림으로 보는 시리즈 읽</li>
 </ul>
 <h2 id="and-how"><a href="#and-how" class="headerlink" title="and how?"></a>and how?</h2><p>어떻게?</p>
 <ul>
