@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://youngiggy.github.io/"/>
-  <updated>2017-06-12T12:47:30.000Z</updated>
+  <updated>2017-06-12T12:55:47.000Z</updated>
   <id>https://youngiggy.github.io/</id>
   
   <author>
@@ -20,15 +20,35 @@
     <link href="https://youngiggy.github.io/2017/06/12/rest-the-big-lie/"/>
     <id>https://youngiggy.github.io/2017/06/12/rest-the-big-lie/</id>
     <published>2017-06-12T11:41:23.000Z</published>
-    <updated>2017-06-12T12:47:30.000Z</updated>
+    <updated>2017-06-12T12:55:47.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="REST에-관한-끊이지-않는-논쟁"><a href="#REST에-관한-끊이지-않는-논쟁" class="headerlink" title="REST에 관한 끊이지 않는 논쟁"></a>REST에 관한 끊이지 않는 논쟁</h2><p>자신을 “SPA (UI/UX/server) architect and author”라고 소개하고 있는<br><em>Michael S. Mikowski</em>의 <a href="https://mmikowski.github.io/the_lie/" target="_blank" rel="external">REST the big lie</a>라는 자극적인 글과 댓글을 읽고 한번 정리해볼 필요가 있다고 생각했다.</p>
 <p>댓글로 달려드 모두가 REST나 API를 바라보는 관점이 다르고, 댓글을 읽으면서 ‘그래, 그렇지’하면서 나의 관점도 계속 흔들렸다. (결국 REST를 공부한 직후의 관점으로 돌아왔지만…)</p>
 <p>따지고 보면 개싸움이나 다름없지만, 이거야 말로 현실 세계의 문제인 듯!</p>
 <p>주요 논점을 정리해보고, 개발 새발 정리한 버전은 페이지 마지막에 (잘 안 보이게) 붙여놓겠다.</p>
-<h2 id="블로그-본문"><a href="#블로그-본문" class="headerlink" title="블로그 본문"></a>블로그 본문</h2><h3 id="Problem-1-There-is-little-agreement-on-what-a-RESTful-API-is"><a href="#Problem-1-There-is-little-agreement-on-what-a-RESTful-API-is" class="headerlink" title="Problem #1: There is little agreement on what a RESTful API is"></a>Problem #1: There is little agreement on what a RESTful API is</h3><p>HTTP 메소드와 응답코드는 모호해서 그 뜻이 정확히 뭘 의미하는지 사람마다 다르게 인식한다.</p>
+<h2 id="블로그-본문"><a href="#블로그-본문" class="headerlink" title="블로그 본문"></a>블로그 본문</h2><p>우선 블로그에서 저자가 주장하는 바를 짧게 정리해보자.</p>
+<h3 id="Problem-1-There-is-little-agreement-on-what-a-RESTful-API-is"><a href="#Problem-1-There-is-little-agreement-on-what-a-RESTful-API-is" class="headerlink" title="Problem #1: There is little agreement on what a RESTful API is"></a>Problem #1: There is little agreement on what a RESTful API is</h3><p>HTTP 메소드와 응답코드는 모호해서 그 뜻이 정확히 뭘 의미하는지 사람마다 다르게 인식한다.</p>
 <p>어떤 응답코드를 줄 지는 회사/사람마다 다른 기준이 있을 수 있어서, client 입장에선 정확히 예측하기 어렵다</p>
-<h1 id="나머지-내용-정리-중…"><a href="#나머지-내용-정리-중…" class="headerlink" title="나머지 내용 정리 중….."></a>나머지 내용 정리 중…..</h1><h2 id="논쟁"><a href="#논쟁" class="headerlink" title="논쟁"></a>논쟁</h2><p>블로그 본문과 댓글에서 발화한 여러 논쟁을 크게 묶어 정리해본다.</p>
+<h3 id="Problem-2-The-REST-vocabulary-is-not-fully-supported"><a href="#Problem-2-The-REST-vocabulary-is-not-fully-supported" class="headerlink" title="Problem #2: The REST vocabulary is not fully supported"></a>Problem #2: The REST vocabulary is not fully supported</h3><p>브라우저는 PUT과 DELETE같은 문법을 지원하지 않는다.</p>
+<p>307 Temporary 같은 애들은 브라우저마다 상이하게 처리되기도 한다. 제대로 지원하는 건 200과 500뿐이다.</p>
+<h3 id="Problem-3-The-REST-vocabulary-is-not-rich-enough-for-APIs"><a href="#Problem-3-The-REST-vocabulary-is-not-rich-enough-for-APIs" class="headerlink" title="Problem #3: The REST vocabulary is not rich enough for APIs"></a>Problem #3: The REST vocabulary is not rich enough for APIs</h3><p>HTTP의 문법은 풍부하지 못해서 모든 어플리케이션의 요청과 응답을 표현할 수 없다</p>
+<h3 id="Problem-4-RESTful-APIs-are-very-hard-to-debug"><a href="#Problem-4-RESTful-APIs-are-very-hard-to-debug" class="headerlink" title="Problem #4: RESTful APIs are very hard to debug"></a>Problem #4: RESTful APIs are very hard to debug</h3><p>그래서 REST로 통신할 때 문제가 생기면 7가지나 되는 조합으로 원인을 파악해야 한다</p>
+<ul>
+<li>HTTP method (GET/POST)</li>
+<li>URI</li>
+<li>실제로 사용하고 싶은 HTTP method (PUT/DELETE..) in payload</li>
+<li>진짜 메시지 in payload</li>
+<li>응답코드</li>
+<li>진짜 받아야 하는 응답코드 in payload </li>
+<li>진짜 메시지 in payload</li>
+</ul>
+<p>이런 한계 때문에 어떤 문제가 발생했을 때, 디버깅을 위해 고려해야할 게 너무나 많다.</p>
+<h3 id="Problem-5-RESTful-APIs-are-usually-tied-to-HTTP"><a href="#Problem-5-RESTful-APIs-are-usually-tied-to-HTTP" class="headerlink" title="Problem #5: RESTful APIs are usually tied to HTTP"></a>Problem #5: RESTful APIs are usually tied to HTTP</h3><p>HTTP에 너무 종속되어 있다.<br>HTTP가 아닌 다른 전송 방식으로 전환하려면 또 저 7가지 조합을 고려해서 만들어야 한다.</p>
+<p>그래서 제안하는 건, JSON-Pure APIs</p>
+<ul>
+<li>이 글이 쓰인 지 3주 후 JSON-Pure APIs에 관한 <a href="https://mmikowski.github.io/json-pure/" target="_blank" rel="external">후속 블로그</a>가 올라온다.</li>
+</ul>
+<h2 id="논쟁"><a href="#논쟁" class="headerlink" title="논쟁"></a>논쟁</h2><p>블로그 본문과 댓글에서 발화한 여러 논쟁을 크게 묶어 정리해본다.</p>
 <h3 id="HTTP-메소드와-응답코드는-모호해서-그-뜻이-정확히-뭘-의미하는지-사람마다-다르게-인식한다"><a href="#HTTP-메소드와-응답코드는-모호해서-그-뜻이-정확히-뭘-의미하는지-사람마다-다르게-인식한다" class="headerlink" title="HTTP 메소드와 응답코드는 모호해서 그 뜻이 정확히 뭘 의미하는지 사람마다 다르게 인식한다."></a>HTTP 메소드와 응답코드는 모호해서 그 뜻이 정확히 뭘 의미하는지 사람마다 다르게 인식한다.</h3><p>따지고 보면 그걸 모르는 사람의 문제지만, 현실적으로는 맞는 이야기라고 본다.</p>
 <p>어떤 응답 로직을 구현하기 위해 여러번 생각해야하는 것은 일종의 비용이라고 생각하는 편이다.</p>
 <ul>
@@ -46,7 +66,7 @@
 <p>이 글에 동조하는 사람들은 거대한 엔터프라이즈 환경(ERP, 병원 시스템 등)에서 다양하고 복합적인 리소스를 다루는 상황에 대해 언급한다.</p>
 <p>논쟁을 지켜보며 생각이 드는 것은 - 추측이지만,</p>
 <p>메소드가 충분치 않다는 의견은 특히 <a href="https://ko.wikipedia.org/wiki/%EC%9B%90%EA%B2%A9_%ED%94%84%EB%A1%9C%EC%8B%9C%EC%A0%80_%ED%98%B8%EC%B6%9C" target="_blank" rel="external">RPC</a>를 실행하는 경우,<br>그 리퀘스트를 보내는 대상 리소스가 우리가 흔히 인식하는 리소스, 그러니까 CSS나 이미지같은 소위 정적 리소스나 데이터베이스/도메인 모델과 같은 엔티티 개념을 벗어나는 지점부터 어려워지는 것 같다.<br>예를 들어볼까, 리퀘스트를 날려서 설거지와 빨래와 아이 목욕을 시킨다면, 여기서 리소스란 무엇일까? 이 때는 어떤 메소드를 써야하는가?</p>
-<h1 id="나머지-내용-정리-중…-1"><a href="#나머지-내용-정리-중…-1" class="headerlink" title="나머지 내용 정리 중….."></a>나머지 내용 정리 중…..</h1>]]></content>
+<h1 id="나머지-내용-정리-중…"><a href="#나머지-내용-정리-중…" class="headerlink" title="나머지 내용 정리 중….."></a>나머지 내용 정리 중…..</h1>]]></content>
     
     <summary type="html">
     
