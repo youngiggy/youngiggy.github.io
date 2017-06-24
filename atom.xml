@@ -250,17 +250,37 @@
     <link href="https://youngiggy.github.io/2017/05/22/rest-the-beginning/"/>
     <id>https://youngiggy.github.io/2017/05/22/rest-the-beginning/</id>
     <published>2017-05-21T16:30:00.000Z</published>
-    <updated>2017-06-11T03:13:29.000Z</updated>
+    <updated>2017-06-24T03:03:53.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Representational-State-Transfer"><a href="#Representational-State-Transfer" class="headerlink" title="Representational State Transfer"></a>Representational State Transfer</h2><p><a href="https://blog.npcode.com/2017/03/02/%EB%B0%94%EC%81%9C-%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%93%A4%EC%9D%84-%EC%9C%84%ED%95%9C-rest-%EB%85%BC%EB%AC%B8-%EC%9A%94%EC%95%BD/" target="_blank" rel="external">바쁜 개발자들을 위한 REST 논문 요약</a></p>
+    <content type="html"><![CDATA[<h2 id="Representational-State-Transfer"><a href="#Representational-State-Transfer" class="headerlink" title="Representational State Transfer"></a>Representational State Transfer</h2><p>논문의 대략적인 내용은 이응준님의 블로그로부터 이해를 했다. 실제 논문은 읽지 못했다.</p>
+<p><a href="https://blog.npcode.com/2017/03/02/%EB%B0%94%EC%81%9C-%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%93%A4%EC%9D%84-%EC%9C%84%ED%95%9C-rest-%EB%85%BC%EB%AC%B8-%EC%9A%94%EC%95%BD/" target="_blank" rel="external">바쁜 개발자들을 위한 REST 논문 요약</a></p>
 <blockquote>
 <p>REST는 Representational State Transfer의 줄임말로, 웹을 위한 네트워크 기반 아키텍처 스타일이다. REST는 Roy T. Fielding이 그의 박사학위 논문 “Architectural Styles and the Design of Network-based Software Architectures” 에서 처음 소개하였다.</p>
 </blockquote>
 <p>아하.</p>
-<h2 id="REST-아키텍처-스타일"><a href="#REST-아키텍처-스타일" class="headerlink" title="REST 아키텍처 스타일"></a>REST 아키텍처 스타일</h2><p>REST 아키텍처에 대한 설명은 온갖 블로그에서 서로 다르게 해석하고 있다.</p>
-<p>작성자의 역량 + 독자의 역량이 오해를 재생산하는가 보다.</p>
+<h2 id="REST-아키텍처-스타일"><a href="#REST-아키텍처-스타일" class="headerlink" title="REST 아키텍처 스타일"></a>REST 아키텍처 스타일</h2><p><code>바쁜 개발자들을 위한 REST 논문 요약</code>을 읽기에도 바쁜 개발자들을 위해 요약하자면,</p>
+<p>논문에서 Roy는 소프트웨어 아키텍처, 네트워크 기반 어플리케이션 아키텍처, 네트워크 기반 아키텍처 스타일 등을 설명하고,</p>
+<p>네트워크 기반 아키텍처의 요구사항, 해결해야할 문제 등을 제시하는데 이에 대한 해결책으로 REST 아키텍처 스타일을 제안한다. </p>
+<p>REST는 소프트웨어 아키텍처가 아닌 <a href="http://www.ics.uci.edu/~fielding/pubs/dissertation/net_arch_styles.htm" target="_blank" rel="external">아키텍처 스타일(architectural style)</a>이라고 정의한다.</p>
+<p>후속으로 올릴 REST에 대한 논쟁에서도 REST는 아키텍처 스타일이라고 여러번 강조한다.</p>
+<p>많은 IT용어가 건축에서 왔는데, 영어권에서는 동일한 단어를 사용하지만 우리말로 번역되면서 서로 다른 단어로 표현되는 게 많다.</p>
+<p>따라서 어떤 IT 용어가 가진, 원래의 단어에서 오는 메타포를 놓치는 경우가 많아 비영어권 국민으로서 참 공부하기 힘들다.</p>
+<p>REST를 이해 못하는 사람들이 좀 더 구체적으로 예시를 들어줄 것을 요구하면, 사람들은 REST가 아키텍처 스타일이라고 강조하는 경우가 많았던 것 같다.</p>
+<p>아키텍처 스타일. 즉, architectural style은 건축양식을 의미한다. </p>
+<p>중세에 고딕양식이 유행을 했다는 말은 고딕양식에 기반해 건물을 설계하고 이 설계를 구현한 건물이 많았다는 말이고(내가 고딕 양식의 문외한임은 미리 고백한다),</p>
+<p>고딕 성당을 지으려는 설계자는 이 양식을 지키는 선에서 ‘알아서’ 설계를 해야한다.</p>
+<p>시장은 설계나 세부 구현에 대한 이해할 필요없이 고딕 양식이라는 틀 안에서 요구사항을 제시할 것이고 그러다보면 설계에서도, 구현에서도 best practice가 퍼지게 되겠지.</p>
+<p>수십개의 성당을 지어야 하는 작업 반장의 커뮤니티에서는 이 세부 구현이 곧 고딕 양식이다라고 인식될 수 있다. 그거 얼마나 뛰어난 반장인지와는 상관없이.</p>
+<p>물론 이런 건축 양식이 시간을 두고 확립되었다면, REST는 태초에 명확한 제약사항이 존재했다는 차이가 있긴 하다.</p>
+<p>기와집이라는 건축양식이 있다고 할 때, 청와대나 청기와 주유소는 과연 기와집인가?</p>
+<p>아니라면 기와집이라는 건축양식을 현대에는 의미를 확장해야할 필요가 있지 않은가? </p>
+<p>어쩌면 사회적 합의를 봐야할 지도 모르겠다.</p>
+<p>문제는 REST의 경우 작성자가 확실하며, 애초에 확실한 제약 사항이 있었다는 것이다.</p>
+<p>REST는 온갖 블로그와 구현체에서 서로 다르게 해석하고 있다.</p>
+<p>작성자의 역량 + 독자의 역량이 오해를 재생산하기도 한다.</p>
 <p>그러니 지금 이 정리를 본 누군가도 역시 오해를 얻어가리라 믿는다. 나 때문이든 당신 때문이든.</p>
-<p>‘바쁜 개발자들을 위한 REST 논문 요약’을 요약 + WhatIsRest.com + 내 생각을 적어보자. </p>
+<p>우선 REST에 대해 좀 더 알아보자.</p>
+<p>‘바쁜 개발자들을 위한 REST 논문 요약’을 요약 + WhatIsRest.com + 지난 며칠간 블로그와 댓글을 뒤져가며 얻은 지식 + 내 생각을 적어보려고 한다.</p>
 <h3 id="REST-제약-조건"><a href="#REST-제약-조건" class="headerlink" title="REST 제약 조건"></a>REST 제약 조건</h3><p>Client-Server</p>
 <ul>
 <li>보통 생각하는 서버-클라이언트를 의미</li>
@@ -431,7 +451,7 @@
     <link href="https://youngiggy.github.io/2017/05/18/learning-api-design/"/>
     <id>https://youngiggy.github.io/2017/05/18/learning-api-design/</id>
     <published>2017-05-18T14:28:44.000Z</published>
-    <updated>2017-06-12T11:40:15.000Z</updated>
+    <updated>2017-06-24T01:55:49.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="API-Design"><a href="#API-Design" class="headerlink" title="API Design"></a>API Design</h2><p>생각해보니 내가 API를 제대로 만들어 본 적이 없었더랬다.</p>
 <p>GraphQL이 재미있어 보이니 써보고는 싶은데, </p>
@@ -453,7 +473,7 @@
 <p>동시에</p>
 <ul>
 <li>HTTP 완벽가이드 릴레이 세미나<ul>
-<li>HTTP 완벽가이드로 적당히 완벽히 알기(아하…금새 또 적당히 적당히)</li>
+<li>HTTP 완벽가이드로 적당히 완벽히 알기(금새 또 적당히 적당히 하려는 버릇이..)</li>
 <li><ul>
 <li>몇가지 간단한 책(그림으로 배우는 시리즈)도 참고로 읽기</li>
 </ul>
@@ -487,13 +507,13 @@
     <link href="https://youngiggy.github.io/2017/05/18/declare/"/>
     <id>https://youngiggy.github.io/2017/05/18/declare/</id>
     <published>2017-05-18T13:02:20.000Z</published>
-    <updated>2017-05-19T13:18:49.000Z</updated>
+    <updated>2017-06-24T01:55:49.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="내가-은연-중-피하려고-했던-것들"><a href="#내가-은연-중-피하려고-했던-것들" class="headerlink" title="내가 은연 중 피하려고 했던 것들"></a>내가 은연 중 피하려고 했던 것들</h2><p>기술 블로그와 신세 한탄이 섞여있겠지만,</p>
 <p>익숙하지 않은 것을 시도해보기로 했다.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">그리고 2017.05.18 오늘</div></pre></td></tr></table></figure>
 <p>오랜만에 제창된 임을 위한 행진곡<br><div class="video-container"><iframe src="//www.youtube.com/embed/UdKgerP9O7Q" frameborder="0" allowfullscreen></iframe></div></p>
-<p>그리고 RIP. Chris Cornell</p>
+<p>RIP. Chris Cornell</p>
 <div class="video-container"><iframe src="//www.youtube.com/embed/W5oH1uMCybA" frameborder="0" allowfullscreen></iframe></div>
 ]]></content>
     
