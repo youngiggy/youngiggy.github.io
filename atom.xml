@@ -426,33 +426,22 @@
     <link href="https://youngiggy.github.io/2017/05/22/rest-the-beginning/"/>
     <id>https://youngiggy.github.io/2017/05/22/rest-the-beginning/</id>
     <published>2017-05-21T16:30:00.000Z</published>
-    <updated>2017-06-24T03:09:48.000Z</updated>
+    <updated>2017-06-25T08:21:38.000Z</updated>
     
     <content type="html"><![CDATA[<p>연재 목록</p>
-<ul>
-<li><ol>
+<ol>
 <li>REST - 로이 필딩의 논문 요약을 통해 REST의 정의를 내려보기</li>
-</ol>
-</li>
-<li><ol>
 <li>REST - 사전 지식 : HTML Form에서 GET/POST만 지원하는 이유</li>
-</ol>
-</li>
-<li><ol>
 <li>REST - REST the big lie를 통해 바라본 개발자들의 논쟁</li>
-</ol>
-</li>
-<li><ol>
 <li>REST - Roy가 쓴 블로그와 REST에 관한 Youtube 동영상 강의</li>
-</ol>
-</li>
-<li><ol>
 <li>REST - 결론 : RESTful 해야할 필요가 있을까?</li>
 </ol>
-</li>
-</ul>
-<h2 id="Representational-State-Transfer"><a href="#Representational-State-Transfer" class="headerlink" title="Representational State Transfer"></a>Representational State Transfer</h2><p>논문의 대략적인 내용은 이응준님의 블로그로부터 이해를 했다. 실제 논문은 읽지 못했다.</p>
-<p><a href="https://blog.npcode.com/2017/03/02/%EB%B0%94%EC%81%9C-%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%93%A4%EC%9D%84-%EC%9C%84%ED%95%9C-rest-%EB%85%BC%EB%AC%B8-%EC%9A%94%EC%95%BD/" target="_blank" rel="external">바쁜 개발자들을 위한 REST 논문 요약</a></p>
+<p>가장 중요한, Roy의 실제 논문은 읽지 못했다. 논문의 대략적인 내용은 이응준님의 블로그로부터 이해를 했다. </p>
+<p>몇 가지 이해 안 되던 부분은 실제 논문으로부터 갈증을 해소하기도 했지만,</p>
+<p>논문 전체를 자세히 해석해 나가기에는 지금은 좀 지쳤으니 (언젠가) 후속으로 정리를 해야겠다.</p>
+<p>지금 시점에는 내가 RESTful하게 설계할 일이 없을 것 같긴 하지만,</p>
+<p>웹을 이해하기에는 꽤 좋은 관점이 들어있(다고 추측이 된)다.</p>
+<h2 id="Representational-State-Transfer"><a href="#Representational-State-Transfer" class="headerlink" title="Representational State Transfer"></a>Representational State Transfer</h2><p><a href="https://blog.npcode.com/2017/03/02/%EB%B0%94%EC%81%9C-%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%93%A4%EC%9D%84-%EC%9C%84%ED%95%9C-rest-%EB%85%BC%EB%AC%B8-%EC%9A%94%EC%95%BD/" target="_blank" rel="external">바쁜 개발자들을 위한 REST 논문 요약</a></p>
 <blockquote>
 <p>REST는 Representational State Transfer의 줄임말로, 웹을 위한 네트워크 기반 아키텍처 스타일이다. REST는 Roy T. Fielding이 그의 박사학위 논문 “Architectural Styles and the Design of Network-based Software Architectures” 에서 처음 소개하였다.</p>
 </blockquote>
@@ -462,35 +451,32 @@
 <p>네트워크 기반 아키텍처의 요구사항, 해결해야할 문제 등을 제시하는데 이에 대한 해결책으로 REST 아키텍처 스타일을 제안한다. </p>
 <p>REST는 소프트웨어 아키텍처가 아닌 <a href="http://www.ics.uci.edu/~fielding/pubs/dissertation/net_arch_styles.htm" target="_blank" rel="external">아키텍처 스타일(architectural style)</a>이라고 정의한다.</p>
 <p>후속으로 올릴 REST에 대한 논쟁에서도 REST는 아키텍처 스타일이라고 여러번 강조한다.</p>
-<p>많은 IT용어가 건축에서 왔는데, 영어권에서는 동일한 단어를 사용하지만 우리말로 번역되면서 서로 다른 단어로 표현되는 게 많다.</p>
+<p>많은 IT 용어가 건축에서 왔는데, 영어권에서는 동일한 단어를 사용하지만 우리말로 번역되면서 서로 다른 단어로 표현되는 게 많다.</p>
 <p>따라서 어떤 IT 용어가 가진, 원래의 단어에서 오는 메타포를 놓치는 경우가 많아 비영어권 국민으로서 참 공부하기 힘들다.</p>
-<p>REST를 이해 못하는 사람들이 좀 더 구체적으로 예시를 들어줄 것을 요구하면, 사람들은 REST가 아키텍처 스타일이라고 강조하는 경우가 많았던 것 같다.</p>
-<p>아키텍처 스타일. 즉, architectural style은 건축양식을 의미한다. </p>
-<p>중세에 고딕양식이 유행을 했다는 말은 고딕양식에 기반해 건물을 설계하고 이 설계를 구현한 건물이 많았다는 말이고(내가 고딕 양식의 문외한임은 미리 고백한다),</p>
+<p>많은 REST 논쟁에서 REST를 이해 못하는 사람들이 좀 더 구체적으로 예시를 들어줄 것을 요구하면, 사람들은 REST가 아키텍처 스타일이라고 강조하는 경우가 많았던 것 같다.</p>
+<p>아키텍처 스타일(architectural style)은 건축양식을 의미한다. </p>
+<p>중세에 고딕양식이 유행을 했다는 말은 고딕양식에 기반해 건물을 설계하고 이 설계를 구현한 건물이 많았다는 말이고(내가 건축 양식의 문외한임은 미리 고백한다),</p>
 <p>고딕 성당을 지으려는 설계자는 이 양식을 지키는 선에서 ‘알아서’ 설계를 해야한다.</p>
 <p>시장은 설계나 세부 구현에 대한 이해할 필요없이 고딕 양식이라는 틀 안에서 요구사항을 제시할 것이고 그러다보면 설계에서도, 구현에서도 best practice가 퍼지게 되겠지.</p>
-<p>수십개의 성당을 지어야 하는 작업 반장의 커뮤니티에서는 이 세부 구현이 곧 고딕 양식이다라고 인식될 수 있다. 그거 얼마나 뛰어난 반장인지와는 상관없이.</p>
-<p>물론 이런 건축 양식이 시간을 두고 확립되었다면, REST는 태초에 명확한 제약사항이 존재했다는 차이가 있긴 하다.</p>
-<p>기와집이라는 건축양식이 있다고 할 때, 청와대나 청기와 주유소는 과연 기와집인가?</p>
+<p>수십개의 성당을 지어야 하는 작업 반장의 커뮤니티에서는 이 세부 구현이 곧 고딕 양식이다라고 인식될 수 있다. 그가 얼마나 뛰어난 반장인지와는 상관없이.</p>
+<p>물론 이런 식의 건축 양식이 시간을 두고 확립되었다면, REST는 태초에 명확한 제약사항이 존재했다는 차이가 있긴 하다.</p>
+<p>기와집이라는 건축양식이 있다고 할 때, 청기와 주유소는 과연 기와집인가? (기와는 맞는데 집이 아닌가?)</p>
 <p>아니라면 기와집이라는 건축양식을 현대에는 의미를 확장해야할 필요가 있지 않은가? </p>
 <p>어쩌면 사회적 합의를 봐야할 지도 모르겠다.</p>
 <p>문제는 REST의 경우 작성자가 확실하며, 애초에 확실한 제약 사항이 있었다는 것이다.</p>
 <p>REST는 온갖 블로그와 구현체에서 서로 다르게 해석하고 있다.</p>
 <p>작성자의 역량 + 독자의 역량이 오해를 재생산하기도 한다.</p>
 <p>그러니 지금 이 정리를 본 누군가도 역시 오해를 얻어가리라 믿는다. 나 때문이든 당신 때문이든.</p>
-<p>우선 REST에 대해 좀 더 알아보자.</p>
+<p>우선 REST에 대해 알아보자.</p>
 ]]></content>
     
     <summary type="html">
     
       &lt;p&gt;연재 목록&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;ol&gt;
+&lt;ol&gt;
 &lt;li&gt;REST - 로이 필딩의 논문 요약을 통해 REST의 정의를 내려보기&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;ol&gt;
-&lt;li&gt;REST - 사전 지식 : HTML Form에서 GET/POST만 지원하
+&lt;li&gt;REST - 사전 지식 : HTML Form에서 GET/POST만 지원하는 이유&lt;/li&gt;
+&lt;li&gt;REST - REST the 
     
     </summary>
     
