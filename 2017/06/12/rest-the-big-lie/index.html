@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="REST에 관한 끊이지 않는 논쟁자신을 “SPA (UI/UX/server) architect and author”라고 소개하고 있는Michael S. Mikowski의 REST the big lie라는 자극적인 글과 댓글을 읽고 한번 정리해볼 필요가 있다고 생각했다. 댓글로 달려드는 모두가 REST나 API를 바라보는 관점이 다르고, 댓글을 읽으면서 ‘그래">
+    <meta name="description" content="이제 개발자들 사이에 널리 퍼진 REST에 대한 오해를 들춰볼 차례이다. 이 블로그의 독자 입장에선 이 정성으로 그냥 논문을 읽지 그러냐는 의문도 들 수 있겠지만, 이 바닥의 수많은 오해를 발견하는 재미도 있었다. 그 모습들이 예전의 나 자신이었기도 하고. REST에 관한 끊이지 않는 논쟁자신을 “SPA (UI/UX/server) architect and">
 <meta name="keywords" content="API,RESTful,REST">
 <meta property="og:type" content="article">
-<meta property="og:title" content="rest-the-big-lie">
+<meta property="og:title" content="REST, 좋아하시네">
 <meta property="og:url" content="https://youngiggy.github.io/2017/06/12/rest-the-big-lie/index.html">
 <meta property="og:site_name" content="ha-ah">
-<meta property="og:description" content="REST에 관한 끊이지 않는 논쟁자신을 “SPA (UI/UX/server) architect and author”라고 소개하고 있는Michael S. Mikowski의 REST the big lie라는 자극적인 글과 댓글을 읽고 한번 정리해볼 필요가 있다고 생각했다. 댓글로 달려드는 모두가 REST나 API를 바라보는 관점이 다르고, 댓글을 읽으면서 ‘그래">
+<meta property="og:description" content="이제 개발자들 사이에 널리 퍼진 REST에 대한 오해를 들춰볼 차례이다. 이 블로그의 독자 입장에선 이 정성으로 그냥 논문을 읽지 그러냐는 의문도 들 수 있겠지만, 이 바닥의 수많은 오해를 발견하는 재미도 있었다. 그 모습들이 예전의 나 자신이었기도 하고. REST에 관한 끊이지 않는 논쟁자신을 “SPA (UI/UX/server) architect and">
 <meta property="og:image" content="http://i.stack.imgur.com/whhD1.png">
-<meta property="og:updated_time" content="2017-06-15T13:40:50.000Z">
+<meta property="og:updated_time" content="2017-06-25T15:34:06.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="rest-the-big-lie">
-<meta name="twitter:description" content="REST에 관한 끊이지 않는 논쟁자신을 “SPA (UI/UX/server) architect and author”라고 소개하고 있는Michael S. Mikowski의 REST the big lie라는 자극적인 글과 댓글을 읽고 한번 정리해볼 필요가 있다고 생각했다. 댓글로 달려드는 모두가 REST나 API를 바라보는 관점이 다르고, 댓글을 읽으면서 ‘그래">
+<meta name="twitter:title" content="REST, 좋아하시네">
+<meta name="twitter:description" content="이제 개발자들 사이에 널리 퍼진 REST에 대한 오해를 들춰볼 차례이다. 이 블로그의 독자 입장에선 이 정성으로 그냥 논문을 읽지 그러냐는 의문도 들 수 있겠지만, 이 바닥의 수많은 오해를 발견하는 재미도 있었다. 그 모습들이 예전의 나 자신이었기도 하고. REST에 관한 끊이지 않는 논쟁자신을 “SPA (UI/UX/server) architect and">
 <meta name="twitter:image" content="http://i.stack.imgur.com/whhD1.png">
     
     
@@ -38,7 +38,7 @@
         
     
     <!-- title -->
-    <title>rest-the-big-lie</title>
+    <title>REST, 좋아하시네</title>
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- rss -->
@@ -70,10 +70,8 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2017/05/22/rest-the-beginning/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
+        <li><a class="icon" href="/2017/05/24/rest-the-dissertation/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
         
-        
-        <li><a class="icon" href="/2017/06/24/rest-the-dissertation/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
         <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
@@ -87,15 +85,15 @@
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&text=rest-the-big-lie"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&title=rest-the-big-lie"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&is_video=false&description=rest-the-big-lie"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=rest-the-big-lie&body=Check out this article: https://youngiggy.github.io/2017/06/12/rest-the-big-lie/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&title=rest-the-big-lie"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&title=rest-the-big-lie"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&title=rest-the-big-lie"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&title=rest-the-big-lie"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&name=rest-the-big-lie&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&text=REST, 좋아하시네"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&title=REST, 좋아하시네"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&is_video=false&description=REST, 좋아하시네"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=REST, 좋아하시네&body=Check out this article: https://youngiggy.github.io/2017/06/12/rest-the-big-lie/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&title=REST, 좋아하시네"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&title=REST, 좋아하시네"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&title=REST, 좋아하시네"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&title=REST, 좋아하시네"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&name=REST, 좋아하시네&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -112,7 +110,7 @@
   <header>
     
     <h1 class="posttitle" itemprop="name headline">
-        rest-the-big-lie
+        REST, 좋아하시네
     </h1>
 
 
@@ -139,10 +137,15 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h2 id="REST에-관한-끊이지-않는-논쟁"><a href="#REST에-관한-끊이지-않는-논쟁" class="headerlink" title="REST에 관한 끊이지 않는 논쟁"></a>REST에 관한 끊이지 않는 논쟁</h2><p>자신을 “SPA (UI/UX/server) architect and author”라고 소개하고 있는<br><em>Michael S. Mikowski</em>의 <a href="https://mmikowski.github.io/the_lie/" target="_blank" rel="external">REST the big lie</a>라는 자극적인 글과 댓글을 읽고 한번 정리해볼 필요가 있다고 생각했다.</p>
-<p>댓글로 달려드는 모두가 REST나 API를 바라보는 관점이 다르고, 댓글을 읽으면서 ‘그래, 그렇지’하면서 나의 관점도 계속 흔들렸다. (결국 REST를 공부한 직후의 관점으로 돌아왔지만…)</p>
-<p>따지고 보면 개싸움이나 다름없지만, 이거야 말로 현실 세계의 문제인 듯!</p>
-<p>주요 논점을 정리해보고, 주요 댓글을 개발 새발 정리한 버전은 페이지 마지막에 (잘 안 보이게) 붙여놓겠다.</p>
+    <p>이제 개발자들 사이에 널리 퍼진 REST에 대한 오해를 들춰볼 차례이다.</p>
+<p>이 블로그의 독자 입장에선 이 정성으로 그냥 논문을 읽지 그러냐는 의문도 들 수 있겠지만,</p>
+<p>이 바닥의 수많은 오해를 발견하는 재미도 있었다. 그 모습들이 예전의 나 자신이었기도 하고.</p>
+<h2 id="REST에-관한-끊이지-않는-논쟁"><a href="#REST에-관한-끊이지-않는-논쟁" class="headerlink" title="REST에 관한 끊이지 않는 논쟁"></a>REST에 관한 끊이지 않는 논쟁</h2><p>자신을 “SPA (UI/UX/server) architect and author”라고 소개하고 있는<br><em>Michael S. Mikowski</em>의 <a href="https://mmikowski.github.io/the_lie/" target="_blank" rel="external">REST the big lie</a>라는 자극적인 글과 댓글을 읽고 한번 정리해볼 필요가 있다고 생각했다.</p>
+<p>댓글로 달려드는 모두가 REST나 API를 바라보는 관점이 다르고, 댓글을 읽으면서 ‘그래, 그렇지’하면서 나의 관점도 계속 흔들렸다.</p>
+<p>내가 흔들렸던 이유는 이 글을 읽을 때는 막 REST에 대해 공부하기 시작했을 때였기도 했고, RESTful한 API를 만들기 위한 현실적인 고민들이 남일 같지 않았기 때문이기도… </p>
+<p>그냥 REST라는 용어만 포기하면 편하다는 결론은 내 후속 블로그 글에서 다시 확인하시고, 일단 개싸움부터 들여다보자.</p>
+<p>사실 REST를 이해하는데는 별로 도움이 안 되는 글이긴 한데, 이거야 말로 현실 세계의 문제인 듯!</p>
+<p>주요 논점을 정리해보고, 딸린 댓글을 개발 새발 정리한 버전은 페이지 마지막에 붙여놓겠다.</p>
 <h2 id="블로그-본문"><a href="#블로그-본문" class="headerlink" title="블로그 본문"></a>블로그 본문</h2><p>우선 블로그에서 저자가 주장하는 바를 짧게 정리해보자.</p>
 <h3 id="Problem-1-There-is-little-agreement-on-what-a-RESTful-API-is"><a href="#Problem-1-There-is-little-agreement-on-what-a-RESTful-API-is" class="headerlink" title="Problem #1: There is little agreement on what a RESTful API is"></a>Problem #1: There is little agreement on what a RESTful API is</h3><p>HTTP 메소드와 응답코드는 모호해서 그 뜻이 정확히 뭘 의미하는지 사람마다 다르게 인식한다.</p>
 <p>어떤 응답코드를 줄 지는 회사/사람마다 다른 기준이 있을 수 있어서, client 입장에선 정확히 예측하기 어렵다</p>
@@ -381,15 +384,15 @@
     <div id="share-footer" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&text=rest-the-big-lie"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&title=rest-the-big-lie"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&is_video=false&description=rest-the-big-lie"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=rest-the-big-lie&body=Check out this article: https://youngiggy.github.io/2017/06/12/rest-the-big-lie/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&title=rest-the-big-lie"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&title=rest-the-big-lie"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&title=rest-the-big-lie"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&title=rest-the-big-lie"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&name=rest-the-big-lie&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&text=REST, 좋아하시네"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&title=REST, 좋아하시네"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&is_video=false&description=REST, 좋아하시네"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=REST, 좋아하시네&body=Check out this article: https://youngiggy.github.io/2017/06/12/rest-the-big-lie/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&title=REST, 좋아하시네"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&title=REST, 좋아하시네"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&title=REST, 좋아하시네"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&title=REST, 좋아하시네"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://youngiggy.github.io/2017/06/12/rest-the-big-lie/&name=REST, 좋아하시네&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
