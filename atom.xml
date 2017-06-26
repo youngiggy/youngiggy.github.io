@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://youngiggy.github.io/"/>
-  <updated>2017-06-26T14:26:41.000Z</updated>
+  <updated>2017-06-26T14:39:51.000Z</updated>
   <id>https://youngiggy.github.io/</id>
   
   <author>
@@ -20,9 +20,10 @@
     <link href="https://youngiggy.github.io/2017/06/26/rest-the-truth/"/>
     <id>https://youngiggy.github.io/2017/06/26/rest-the-truth/</id>
     <published>2017-06-25T15:41:41.000Z</published>
-    <updated>2017-06-26T14:26:41.000Z</updated>
+    <updated>2017-06-26T14:39:51.000Z</updated>
     
-    <content type="html"><![CDATA[<p>‘RESTful APIs, the big lie’의 댓글 마지막 쯤 누군가 추천해 준 컨텐츠 몇 개를 소개해본다. (하지만 아무도 끝까지 안 읽겠지?)</p>
+    <content type="html"><![CDATA[<p>‘RESTful APIs, the big lie’의 댓글 마지막 쯤 누군가 추천해 준 컨텐츠 몇 개를 소개해본다.</p>
+<p><em>이번에도 여전한 오역과 거친 의역에 대해 양해를 구하며..</em></p>
 <h2 id="Untangled"><a href="#Untangled" class="headerlink" title="Untangled"></a>Untangled</h2><p>우선 당사자인 Roy 자신이 쓴 글이 꽤 재미있다.</p>
 <p>“REST APIs must be hypertext-driven”이란 글이 꽤 유명한 것 같지만</p>
 <p>이것 말고도 Roy가 2008년도에 <a href="http://roy.gbiv.com/untangled/tag/rest" target="_blank" rel="external">REST에 관해 쓴 글</a>을 보면 각기 나름의 재미가 있다. </p>
@@ -340,20 +341,14 @@
 </ul>
 </li>
 </ul>
-<p>이외에 Roy가 REST에 관해 쓴 글을 보면<br><a href="http://roy.gbiv.com/untangled/tag/rest" target="_blank" rel="external">http://roy.gbiv.com/untangled/tag/rest</a></p>
-<ul>
-<li><a href="http://roy.gbiv.com/untangled/2009/it-is-okay-to-use-post" target="_blank" rel="external">http://roy.gbiv.com/untangled/2009/it-is-okay-to-use-post</a><ul>
-<li>Tim Bray란 사람이 Sun Cloud용 API를 공개했을 때, 어떤 이가 왜 새로운 VM을 띄우는 데 POST를 사용하냐는 질문이 있었고 이에 대한 설명을 블로그로 남겼다. 재부팅할 때는 상태도 계속 변화하고, 뭔가 내부적으로 많은 일이 일어나는데 이때 POST를 쓰겠다는 이야기가 나온다.</li>
-<li>Roy도 여기에 자신도 POST를 쓰겠다는 이야기를 한다. REST의 논문에선 CRUD에 대한 언급을 안 했으며, 모든 자원에 대해 균일하게 정의되어야 한다 정도를 언급했다. 다만 이 메소드가 본래의 정의에 맞게 사용되기는 해야한다. 모든 상태변화에 PUT만 쓸 필요가 없다. POST는 다른 메소드와 다르게 캐시나 중개자의 오류처리 등을 위한 방법은 제공하지 않지만 여전히 유용한 메소드이다. 자신은 그 리부팅을 위한 버튼에는 POST만 쓸 것이고, 클라이언트가 그 응답으로부터 상태가 변경됐음을 알 수 있도록 함으로써 POST의 부족한 사용성을 보완할 수 있게하겠다..고 했다.</li>
-</ul>
-</li>
-</ul>
+<p>이번에도 별로 대단한 걸 얻은 것 같진 않다면 바로 결론으로 넘어가자. </p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;‘RESTful APIs, the big lie’의 댓글 마지막 쯤 누군가 추천해 준 컨텐츠 몇 개를 소개해본다. (하지만 아무도 끝까지 안 읽겠지?)&lt;/p&gt;
-&lt;h2 id=&quot;Untangled&quot;&gt;&lt;a href=&quot;#Untangled&quot; class=&quot;h
+      &lt;p&gt;‘RESTful APIs, the big lie’의 댓글 마지막 쯤 누군가 추천해 준 컨텐츠 몇 개를 소개해본다.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;이번에도 여전한 오역과 거친 의역에 대해 양해를 구하며..&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Untangled&quot;&gt;&lt;
     
     </summary>
     
@@ -371,7 +366,7 @@
     <link href="https://youngiggy.github.io/2017/06/12/rest-the-big-lie/"/>
     <id>https://youngiggy.github.io/2017/06/12/rest-the-big-lie/</id>
     <published>2017-06-12T11:41:23.000Z</published>
-    <updated>2017-06-25T15:40:57.000Z</updated>
+    <updated>2017-06-26T14:43:47.000Z</updated>
     
     <content type="html"><![CDATA[<p>이제 개발자들 사이에 널리 퍼진 REST에 대한 오해를 들춰볼 차례이다.</p>
 <p>이 블로그의 독자 입장에선 이 정성으로 그냥 논문을 읽지 그러냐는 의문도 들 수 있겠지만,</p>
@@ -380,7 +375,7 @@
 <p>댓글로 달려드는 모두가 REST나 API를 바라보는 관점이 다르고, 댓글을 읽으면서 ‘그래, 그렇지’하면서 나의 관점도 계속 흔들렸다.</p>
 <p>내가 흔들렸던 이유는 이 글을 읽을 때는 막 REST에 대해 공부하기 시작했을 때였기도 했고, RESTful한 API를 만들기 위한 현실적인 고민들이 남일 같지 않았기 때문이기도… </p>
 <p>그냥 REST라는 용어만 포기하면 편하다는 결론은 내 후속 블로그 글에서 다시 확인하시고, 일단 개싸움부터 들여다보자.</p>
-<p>사실 REST를 이해하는데는 별로 도움이 안 되는 글이긴 한데, 이거야 말로 현실 세계의 문제인 듯!</p>
+<p>사실 블로그 자체는 REST를 이해하는데는 별로 도움이 안 되는 글이긴 한데, 이런 개싸움이야 말로 진짜 현실 세계(반 REST 진영이 가장 많이 이야기하는 단어가 ‘real world’이다)의 문제인 듯!</p>
 <p>주요 논점을 정리해보고, 딸린 댓글을 개발 새발 정리한 버전은 페이지 마지막에 붙여놓겠다.</p>
 <h2 id="블로그-본문"><a href="#블로그-본문" class="headerlink" title="블로그 본문"></a>블로그 본문</h2><p>우선 블로그에서 저자가 주장하는 바를 짧게 정리해보자.</p>
 <h3 id="Problem-1-There-is-little-agreement-on-what-a-RESTful-API-is"><a href="#Problem-1-There-is-little-agreement-on-what-a-RESTful-API-is" class="headerlink" title="Problem #1: There is little agreement on what a RESTful API is"></a>Problem #1: There is little agreement on what a RESTful API is</h3><p>HTTP 메소드와 응답코드는 모호해서 그 뜻이 정확히 뭘 의미하는지 사람마다 다르게 인식한다.</p>
@@ -605,8 +600,8 @@
   
   <entry>
     <title>REST, 논문(요약) 훑어보기</title>
-    <link href="https://youngiggy.github.io/2017/05/24/rest-the-dissertation/"/>
-    <id>https://youngiggy.github.io/2017/05/24/rest-the-dissertation/</id>
+    <link href="https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/"/>
+    <id>https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/</id>
     <published>2017-05-24T03:06:17.000Z</published>
     <updated>2017-06-25T15:35:11.000Z</updated>
     
