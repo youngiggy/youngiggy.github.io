@@ -9,13 +9,13 @@
     <meta name="description" content="REST의 사전적인 의미부터 알아보자. ‘바쁜 개발자들을 위한 REST 논문 요약’을 요약 + WhatIsRest.com + 지난 며칠간 블로그와 댓글을 뒤져가며 얻은 지식 + 내 생각을 적어보려고 한다. REST 제약 조건Client-Server  보통 생각하는 서버-클라이언트를 의미 여기서 의문이 들었던 게, Client-Server라는 게 과연 제약조">
 <meta name="keywords" content="API,RESTful,REST">
 <meta property="og:type" content="article">
-<meta property="og:title" content="REST, 논문(요약) 훑어보기">
+<meta property="og:title" content="REST - 논문(요약) 훑어보기">
 <meta property="og:url" content="https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/index.html">
 <meta property="og:site_name" content="ha-ah">
 <meta property="og:description" content="REST의 사전적인 의미부터 알아보자. ‘바쁜 개발자들을 위한 REST 논문 요약’을 요약 + WhatIsRest.com + 지난 며칠간 블로그와 댓글을 뒤져가며 얻은 지식 + 내 생각을 적어보려고 한다. REST 제약 조건Client-Server  보통 생각하는 서버-클라이언트를 의미 여기서 의문이 들었던 게, Client-Server라는 게 과연 제약조">
-<meta property="og:updated_time" content="2017-06-25T15:35:11.000Z">
+<meta property="og:updated_time" content="2017-06-27T14:09:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="REST, 논문(요약) 훑어보기">
+<meta name="twitter:title" content="REST - 논문(요약) 훑어보기">
 <meta name="twitter:description" content="REST의 사전적인 의미부터 알아보자. ‘바쁜 개발자들을 위한 REST 논문 요약’을 요약 + WhatIsRest.com + 지난 며칠간 블로그와 댓글을 뒤져가며 얻은 지식 + 내 생각을 적어보려고 한다. REST 제약 조건Client-Server  보통 생각하는 서버-클라이언트를 의미 여기서 의문이 들었던 게, Client-Server라는 게 과연 제약조">
     
     
@@ -26,17 +26,17 @@
         
         
           
-            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+            <link rel="icon" type="image/png" href="/images/favicon.ico" sizes="192x192">
           
         
         
           
-            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
           
         
     
     <!-- title -->
-    <title>REST, 논문(요약) 훑어보기</title>
+    <title>REST - 논문(요약) 훑어보기</title>
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- rss -->
@@ -68,7 +68,7 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2017/05/22/rest-the-beginning/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
+        <li><a class="icon" href="/2017/05/23/rest-http-method-in-html-form/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
         
         
         <li><a class="icon" href="/2017/06/12/rest-the-big-lie/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
@@ -85,15 +85,15 @@
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/&text=REST, 논문(요약) 훑어보기"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/&title=REST, 논문(요약) 훑어보기"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/&is_video=false&description=REST, 논문(요약) 훑어보기"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=REST, 논문(요약) 훑어보기&body=Check out this article: https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/&title=REST, 논문(요약) 훑어보기"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/&title=REST, 논문(요약) 훑어보기"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/&title=REST, 논문(요약) 훑어보기"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/&title=REST, 논문(요약) 훑어보기"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/&name=REST, 논문(요약) 훑어보기&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/&text=REST - 논문(요약) 훑어보기"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/&title=REST - 논문(요약) 훑어보기"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/&is_video=false&description=REST - 논문(요약) 훑어보기"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=REST - 논문(요약) 훑어보기&body=Check out this article: https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/&title=REST - 논문(요약) 훑어보기"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/&title=REST - 논문(요약) 훑어보기"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/&title=REST - 논문(요약) 훑어보기"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/&title=REST - 논문(요약) 훑어보기"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/&name=REST - 논문(요약) 훑어보기&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -110,7 +110,7 @@
   <header>
     
     <h1 class="posttitle" itemprop="name headline">
-        REST, 논문(요약) 훑어보기
+        REST - 논문(요약) 훑어보기
     </h1>
 
 
@@ -188,7 +188,7 @@
 </ul>
 </li>
 <li>manipulation of resources through representation<ul>
-<li>representation의 개념은 이후에 다시 다룰텐데, 이 역시 <a href="https://blog.npcode.com/2017/04/03/rest%EC%9D%98-representation%EC%9D%B4%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80/" target="_blank" rel="external">이응준님 블로그</a>에서 다루고 있다</li>
+<li>representation의 개념은 <a href="https://blog.npcode.com/2017/04/03/rest%EC%9D%98-representation%EC%9D%B4%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80/" target="_blank" rel="external">이응준님 블로그</a>에서 다루고 있다</li>
 <li>리소스의 표현계층(representation)을 리소스의 식별자(URL)로부터 분리한 것은 REST에서 아주 주요한 관점이다</li>
 <li>RESTful 응용 프로그램은 동일한 URI에서 동일한 자원의 표현을 둘 이상 지원할 수 있다</li>
 </ul>
@@ -217,13 +217,10 @@
 <li>로이의 배경을 생각하면 그는, 하이퍼링크가 없는 HTML 도큐먼트를 상상조차 못할 인물이다</li>
 <li>그가 언급한 Hypermedia란 문서 자체를 의미한다</li>
 <li>로이는 HTTP통신에 Link header를 넣어도 여전히 RESTful 할 수 있지만, 합당한 이유가 있어야 한다고 했다<ul>
-<li>헤더에 넣으면 이를 처리할 수 없는 클라이언트도 있을 수 있기 때문에..라고 했는데 당시에는 LINK가 정식 표준이 아닌 때였기 때문인 것 같음</li>
+<li>역주) 헤더에 넣으면 이를 처리할 수 없는 클라이언트도 있을 수 있기 때문에..라고 했는데 당시에는 LINK가 정식 표준이 아닌 때였기 때문인 것 같음</li>
 </ul>
 </li>
-<li>HATEOAS를 정확히 구현한 것은 문서안에 있는 링크다<ul>
-<li>representation 안이라고 명시하는 것을 보니 header는 representation이라고 표현 안 하는 듯</li>
-</ul>
-</li>
+<li>HATEOAS를 정확히 구현한 것은 문서안에 있는 링크다</li>
 <li>HATEOAS라는 다음 상태 변경을 위한 링크(form 링크 등)를 제공해야 한다는 것</li>
 </ul>
 </li>
@@ -236,7 +233,7 @@
 <li>클라이언트는 서버의 독자적인 진화에 영향을 받아선 안 되며, 서버 상의 구현에 의존하면 안 된다</li>
 </ul>
 </li>
-<li>결국 HATETOAS의 목적은 (서버-클라이언트 간 의존성을 분리해야만 가능한) 독자적인 진화와 확장이라고 봐야하며, hypermedia는 그 목적을 이루는 데 기여해야 한다   </li>
+<li>결국 HATETOAS의 목적은 (서버-클라이언트 간 의존성을 분리해야만 가능한) 독자적인 진화와 확장을 보조하는 것이며, hypermedia는 그 목적을 이루는 데 기여해야 한다   </li>
 </ul>
 </li>
 </ul>
@@ -293,15 +290,15 @@
     <div id="share-footer" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/&text=REST, 논문(요약) 훑어보기"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/&title=REST, 논문(요약) 훑어보기"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/&is_video=false&description=REST, 논문(요약) 훑어보기"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=REST, 논문(요약) 훑어보기&body=Check out this article: https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/&title=REST, 논문(요약) 훑어보기"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/&title=REST, 논문(요약) 훑어보기"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/&title=REST, 논문(요약) 훑어보기"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/&title=REST, 논문(요약) 훑어보기"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/&name=REST, 논문(요약) 훑어보기&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/&text=REST - 논문(요약) 훑어보기"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/&title=REST - 논문(요약) 훑어보기"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/&is_video=false&description=REST - 논문(요약) 훑어보기"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=REST - 논문(요약) 훑어보기&body=Check out this article: https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/&title=REST - 논문(요약) 훑어보기"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/&title=REST - 논문(요약) 훑어보기"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/&title=REST - 논문(요약) 훑어보기"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/&title=REST - 논문(요약) 훑어보기"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/&name=REST - 논문(요약) 훑어보기&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>

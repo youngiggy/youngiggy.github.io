@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://youngiggy.github.io/"/>
-  <updated>2017-06-26T14:39:51.000Z</updated>
+  <updated>2017-06-27T15:42:42.000Z</updated>
   <id>https://youngiggy.github.io/</id>
   
   <author>
@@ -16,11 +16,104 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>REST, Roy가 입을 열다</title>
+    <title>REST - 논문 읽기</title>
+    <link href="https://youngiggy.github.io/2017/06/28/rest-the-dissertation/"/>
+    <id>https://youngiggy.github.io/2017/06/28/rest-the-dissertation/</id>
+    <published>2017-06-27T15:37:46.000Z</published>
+    <updated>2017-06-27T15:42:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>로이 필딩의 논문을 읽지 못해 생긴 부채를 여기 한장에 남겨둔다.</p>
+<p>언젠가 돌아보다 생각나면 진짜 논문을 읽을 날이 오겠지.</p>
+<p>그럼 그 때까지, REST in peace!</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;로이 필딩의 논문을 읽지 못해 생긴 부채를 여기 한장에 남겨둔다.&lt;/p&gt;
+&lt;p&gt;언젠가 돌아보다 생각나면 진짜 논문을 읽을 날이 오겠지.&lt;/p&gt;
+&lt;p&gt;그럼 그 때까지, REST in peace!&lt;/p&gt;
+
+    
+    </summary>
+    
+    
+      <category term="API" scheme="https://youngiggy.github.io/tags/API/"/>
+    
+      <category term="RESTful" scheme="https://youngiggy.github.io/tags/RESTful/"/>
+    
+      <category term="REST" scheme="https://youngiggy.github.io/tags/REST/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>REST - 꼭 RESTful 해야할 필요가 있을까?</title>
+    <link href="https://youngiggy.github.io/2017/06/28/rest-the-coclusion/"/>
+    <id>https://youngiggy.github.io/2017/06/28/rest-the-coclusion/</id>
+    <published>2017-06-27T15:15:16.000Z</published>
+    <updated>2017-06-27T15:35:50.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>사람들이 싸우는 것은 항상 이런 식이다.</p>
+<ul>
+<li>제약 사항을 지키지 않았다면 그것은 REST가 아니다. 세상은 REST와 REST가 아닌 것으로 분류된다</li>
+<li>현실적으로 그걸 다 지키기는 어렵다. Roy 지도 못하면서! 난 내 작품을 REST라고 부를거야</li>
+</ul>
+<p>로이 필딩은 REST에 관한 논문은 전문가를 위한 논문이라고 <a href="http://roy.gbiv.com/untangled/tag/specialization" target="_blank" rel="external">언급</a>한 적이 있다.</p>
+<p>REST는 설계를 위한 지침이지 초심자도 따라할 수 있는 best practice를 제공하는 것이 아니다.</p>
+<h2 id="Hypertext-HATETOAS-for-API"><a href="#Hypertext-HATETOAS-for-API" class="headerlink" title="Hypertext, HATETOAS for API"></a>Hypertext, HATETOAS for API</h2><p>여러 동영상을 찾아보다, <a href="https://www.youtube.com/watch?v=RY_kMXEJZfk" target="_blank" rel="external">2016년에 진행중인 API 스펙들에 관해 이야기하는 강연</a>을 봤다</p>
+<ul>
+<li>REST의 핵심은 hypertext이다</li>
+<li>2016년의 API 스펙들<ul>
+<li>JSONAPI</li>
+<li>HAL</li>
+<li>Hydra (JSON-LD)</li>
+<li>Collection+JSON</li>
+<li>…</li>
+<li>GraphQL</li>
+</ul>
+</li>
+</ul>
+<p>이들 스펙 만으로는 RESTful하다고 볼 수는 없지만, hypertext에 대한 관점에 공감을 하며 이를 표준 스펙을 통해 풀어나가려는 시도가 이어지고 있다.</p>
+<p>좋은 시도이고 꾸준히 발전하길 기원한다.</p>
+<p>그러나 지금까지 다루었던 개발자들의 몰이해는 이런 실질적인 구현체가 없었기 때문인가?</p>
+<p>튜토리얼 몇 번 따라하고 실무에 적용할 만 한가? 그러면 RESTful API가 될 수 있나?</p>
+<p>어렵다고 본다.</p>
+<h2 id="RESTful-gt-RESOURCEful"><a href="#RESTful-gt-RESOURCEful" class="headerlink" title="RESTful -&gt; RESOURCEful"></a>RESTful -&gt; RESOURCEful</h2><p>사실 간단한 해결책이 있다.</p>
+<p>이 모든 혼란은 REST이라는 용어를 쓰지 않으면 해결된다.</p>
+<p>RESTful하지 않다는 것이 실패한 디자인이라는 뜻이 아니다.</p>
+<p>다만, 그동안 통용됐던 의미의 REST를 통칭할 수 있는 새로운 용어가 필요할 수도 있다는 생각이 든다.</p>
+<h2 id="RESTful-gt-RESOURCEful-1"><a href="#RESTful-gt-RESOURCEful-1" class="headerlink" title="RESTful -&gt; RESOURCEful"></a>RESTful -&gt; RESOURCEful</h2><p>마지막으로 이 글을 읽어보자.</p>
+<p>Your API isn’t RESTful — And That’s Good</p>
+<ul>
+<li><a href="https://medium.com/@trevorhreed/you-re-api-isn-t-restful-and-that-s-good-b2662079cf0e" target="_blank" rel="external">https://medium.com/@trevorhreed/you-re-api-isn-t-restful-and-that-s-good-b2662079cf0e</a></li>
+</ul>
+<p>이 글에서 그동안 REST라고 잘못 명명된 몇가지 구현 원칙을 RESOURCEful API라는 새로운 이름으로 재정의하고 있다.</p>
+<h2 id="끝"><a href="#끝" class="headerlink" title="끝"></a>끝</h2><p>(원하신다면 저 마지막 글도 번역해 놓겠다만…..)</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;사람들이 싸우는 것은 항상 이런 식이다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;제약 사항을 지키지 않았다면 그것은 REST가 아니다. 세상은 REST와 REST가 아닌 것으로 분류된다&lt;/li&gt;
+&lt;li&gt;현실적으로 그걸 다 지키기는 어렵다. Roy 지도 못하면서!
+    
+    </summary>
+    
+    
+      <category term="API" scheme="https://youngiggy.github.io/tags/API/"/>
+    
+      <category term="RESTful" scheme="https://youngiggy.github.io/tags/RESTful/"/>
+    
+      <category term="REST" scheme="https://youngiggy.github.io/tags/REST/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>REST - Roy가 입을 열다</title>
     <link href="https://youngiggy.github.io/2017/06/26/rest-the-truth/"/>
     <id>https://youngiggy.github.io/2017/06/26/rest-the-truth/</id>
     <published>2017-06-25T15:41:41.000Z</published>
-    <updated>2017-06-26T14:39:51.000Z</updated>
+    <updated>2017-06-27T14:20:16.000Z</updated>
     
     <content type="html"><![CDATA[<p>‘RESTful APIs, the big lie’의 댓글 마지막 쯤 누군가 추천해 준 컨텐츠 몇 개를 소개해본다.</p>
 <p><em>이번에도 여전한 오역과 거친 의역에 대해 양해를 구하며..</em></p>
@@ -362,15 +455,15 @@
   </entry>
   
   <entry>
-    <title>REST, 좋아하시네</title>
+    <title>REST - 좋아하시네</title>
     <link href="https://youngiggy.github.io/2017/06/12/rest-the-big-lie/"/>
     <id>https://youngiggy.github.io/2017/06/12/rest-the-big-lie/</id>
     <published>2017-06-12T11:41:23.000Z</published>
-    <updated>2017-06-26T14:43:47.000Z</updated>
+    <updated>2017-06-27T14:56:21.000Z</updated>
     
     <content type="html"><![CDATA[<p>이제 개발자들 사이에 널리 퍼진 REST에 대한 오해를 들춰볼 차례이다.</p>
-<p>이 블로그의 독자 입장에선 이 정성으로 그냥 논문을 읽지 그러냐는 의문도 들 수 있겠지만,</p>
-<p>이 바닥의 수많은 오해를 발견하는 재미도 있었다. 그 모습들이 예전의 나 자신이었기도 하고.</p>
+<p>이 정성으로 그냥 논문을 읽지 그러냐는 의문도 들 수 있겠지만,</p>
+<p>이 바닥의 수많은 오해를 발견하는 재미도 있었다.</p>
 <h2 id="REST에-관한-끊이지-않는-논쟁"><a href="#REST에-관한-끊이지-않는-논쟁" class="headerlink" title="REST에 관한 끊이지 않는 논쟁"></a>REST에 관한 끊이지 않는 논쟁</h2><p>자신을 “SPA (UI/UX/server) architect and author”라고 소개하고 있는<br><em>Michael S. Mikowski</em>의 <a href="https://mmikowski.github.io/the_lie/" target="_blank" rel="external">RESTful APIs, the big lie</a>라는 자극적인 글과 댓글을 읽고 한번 정리해볼 필요가 있다고 생각했다.</p>
 <p>댓글로 달려드는 모두가 REST나 API를 바라보는 관점이 다르고, 댓글을 읽으면서 ‘그래, 그렇지’하면서 나의 관점도 계속 흔들렸다.</p>
 <p>내가 흔들렸던 이유는 이 글을 읽을 때는 막 REST에 대해 공부하기 시작했을 때였기도 했고, RESTful한 API를 만들기 위한 현실적인 고민들이 남일 같지 않았기 때문이기도… </p>
@@ -379,11 +472,11 @@
 <p>주요 논점을 정리해보고, 딸린 댓글을 개발 새발 정리한 버전은 페이지 마지막에 붙여놓겠다.</p>
 <h2 id="블로그-본문"><a href="#블로그-본문" class="headerlink" title="블로그 본문"></a>블로그 본문</h2><p>우선 블로그에서 저자가 주장하는 바를 짧게 정리해보자.</p>
 <h3 id="Problem-1-There-is-little-agreement-on-what-a-RESTful-API-is"><a href="#Problem-1-There-is-little-agreement-on-what-a-RESTful-API-is" class="headerlink" title="Problem #1: There is little agreement on what a RESTful API is"></a>Problem #1: There is little agreement on what a RESTful API is</h3><p>HTTP 메소드와 응답코드는 모호해서 그 뜻이 정확히 뭘 의미하는지 사람마다 다르게 인식한다.</p>
-<p>어떤 응답코드를 줄 지는 회사/사람마다 다른 기준이 있을 수 있어서, client 입장에선 정확히 예측하기 어렵다</p>
+<p>어떤 응답코드를 줄 지는 회사/사람마다 다른 기준이 있을 수 있어서, client 입장에선 정확히 예측하기 어렵다.</p>
 <h3 id="Problem-2-The-REST-vocabulary-is-not-fully-supported"><a href="#Problem-2-The-REST-vocabulary-is-not-fully-supported" class="headerlink" title="Problem #2: The REST vocabulary is not fully supported"></a>Problem #2: The REST vocabulary is not fully supported</h3><p>브라우저는 PUT과 DELETE같은 문법을 지원하지 않는다.</p>
 <p>307 Temporary 같은 애들은 브라우저마다 상이하게 처리되기도 한다. 제대로 지원하는 건 200과 500뿐이다.</p>
-<h3 id="Problem-3-The-REST-vocabulary-is-not-rich-enough-for-APIs"><a href="#Problem-3-The-REST-vocabulary-is-not-rich-enough-for-APIs" class="headerlink" title="Problem #3: The REST vocabulary is not rich enough for APIs"></a>Problem #3: The REST vocabulary is not rich enough for APIs</h3><p>HTTP의 문법은 풍부하지 못해서 모든 어플리케이션의 요청과 응답을 표현할 수 없다</p>
-<h3 id="Problem-4-RESTful-APIs-are-very-hard-to-debug"><a href="#Problem-4-RESTful-APIs-are-very-hard-to-debug" class="headerlink" title="Problem #4: RESTful APIs are very hard to debug"></a>Problem #4: RESTful APIs are very hard to debug</h3><p>그래서 REST로 통신할 때 문제가 생기면 7가지나 되는 조합으로 원인을 파악해야 한다</p>
+<h3 id="Problem-3-The-REST-vocabulary-is-not-rich-enough-for-APIs"><a href="#Problem-3-The-REST-vocabulary-is-not-rich-enough-for-APIs" class="headerlink" title="Problem #3: The REST vocabulary is not rich enough for APIs"></a>Problem #3: The REST vocabulary is not rich enough for APIs</h3><p>HTTP의 문법은 풍부하지 못해서 모든 어플리케이션의 요청과 응답을 표현할 수 없다.</p>
+<h3 id="Problem-4-RESTful-APIs-are-very-hard-to-debug"><a href="#Problem-4-RESTful-APIs-are-very-hard-to-debug" class="headerlink" title="Problem #4: RESTful APIs are very hard to debug"></a>Problem #4: RESTful APIs are very hard to debug</h3><p>그래서 REST로 통신할 때 문제가 생기면 7가지나 되는 조합으로 원인을 파악해야 한다.</p>
 <ul>
 <li>HTTP method (GET/POST)</li>
 <li>URI</li>
@@ -395,30 +488,98 @@
 </ul>
 <p>이런 한계 때문에 어떤 문제가 발생했을 때, 디버깅을 위해 고려해야할 게 너무나 많다.</p>
 <h3 id="Problem-5-RESTful-APIs-are-usually-tied-to-HTTP"><a href="#Problem-5-RESTful-APIs-are-usually-tied-to-HTTP" class="headerlink" title="Problem #5: RESTful APIs are usually tied to HTTP"></a>Problem #5: RESTful APIs are usually tied to HTTP</h3><p>HTTP에 너무 종속되어 있다.<br>HTTP가 아닌 다른 전송 방식으로 전환하려면 또 저 7가지 조합을 고려해서 만들어야 한다.</p>
-<p>그래서 제안하는 건, JSON-Pure APIs</p>
+<h3 id="The-way-forward-JSON-Pure-APIs"><a href="#The-way-forward-JSON-Pure-APIs" class="headerlink" title="The way forward: JSON-Pure APIs"></a>The way forward: JSON-Pure APIs</h3><p>그래서 제안하는 건, JSON-Pure APIs</p>
 <ul>
 <li>이 글이 쓰인 지 3주 후 JSON-Pure APIs에 관한 <a href="https://mmikowski.github.io/json-pure/" target="_blank" rel="external">후속 블로그</a>가 올라온다</li>
 </ul>
 <h2 id="논쟁"><a href="#논쟁" class="headerlink" title="논쟁"></a>논쟁</h2><p>블로그 본문과 댓글에서 발화한 여러 논쟁을 크게 묶어 정리해본다.</p>
-<h3 id="HTTP-메소드와-응답코드는-모호해서-그-뜻이-정확히-뭘-의미하는지-사람마다-다르게-인식한다"><a href="#HTTP-메소드와-응답코드는-모호해서-그-뜻이-정확히-뭘-의미하는지-사람마다-다르게-인식한다" class="headerlink" title="HTTP 메소드와 응답코드는 모호해서 그 뜻이 정확히 뭘 의미하는지 사람마다 다르게 인식한다."></a>HTTP 메소드와 응답코드는 모호해서 그 뜻이 정확히 뭘 의미하는지 사람마다 다르게 인식한다.</h3><p>따지고 보면 그걸 모르는 사람의 문제지만, 현실적으로는 맞는 이야기라고 본다.</p>
-<p>어떤 응답 로직을 구현하기 위해 여러번 생각해야하는 것은 일종의 비용이라고 생각하는 편이다.</p>
+<h3 id="HTTP-메소드와-응답코드는-모호해서-그-뜻이-정확히-뭘-의미하는지-사람마다-다르게-인식한다"><a href="#HTTP-메소드와-응답코드는-모호해서-그-뜻이-정확히-뭘-의미하는지-사람마다-다르게-인식한다" class="headerlink" title="HTTP 메소드와 응답코드는 모호해서 그 뜻이 정확히 뭘 의미하는지 사람마다 다르게 인식한다."></a>HTTP 메소드와 응답코드는 모호해서 그 뜻이 정확히 뭘 의미하는지 사람마다 다르게 인식한다.</h3><p>따지고 보면 그걸 모르는 사람의 문제지만, 현실적으로는 이해가 되는 부분도 있다.</p>
+<p>어떤 응답 로직을 구현하기 위해 적합성 여부를 여러번 생각해야하는 것은 어쨌든 일종의 비용이라고 생각한다.</p>
 <ul>
 <li><a href="https://1ambda.github.io/javascripts/rest-api-put-vs-post/" target="_blank" rel="external">https://1ambda.github.io/javascripts/rest-api-put-vs-post/</a> <ul>
-<li>response code decision tree가 나와있다.<br><img src="http://i.stack.imgur.com/whhD1.png" alt="response code decision tree"></li>
+<li>response code decision tree를 볼 수 있을 것이다<br><img src="http://i.stack.imgur.com/whhD1.png" alt="response code decision tree"></li>
 </ul>
 </li>
 </ul>
 <p>물론 이것은 REST의 문제가 아닌 구현상의 어려움일 뿐이다.</p>
 <ul>
-<li>이 글을 비판하는 진영에서는 ‘아니, 그게 왜 어렵다는 거야?’같은 반응을 보이고 있다</li>
-<li>사족이지만, npm 개발자인 <a href="http://izs.me/" target="_blank" rel="external">Isaac Z. Schlueter</a>는 세미콜론을 최대한 안 쓰는데, 이런 방식은 버그를 양산할 수 있고 혼란스러울 수 있다고 비판하는 사람들에게 ‘네가 JavaScript 문법을 몰라서 그렇다’고 일침</li>
+<li>이 글을 비판하는 진영에서는 ‘아니, 그게 왜 어렵다는 거야?’같은 반응을 보이기도 한다</li>
+<li>사족이지만, npm 개발자인 <a href="http://izs.me/" target="_blank" rel="external">Isaac Z. Schlueter</a>는 세미콜론을 최대한 안 쓰는데, 이런 방식은 버그를 양산할 수 있고 혼란스러울 수 있다고 비판하는 사람들에게 ‘네가 JavaScript 문법을 몰라서 그렇다’고 일침하기도 했다</li>
 </ul>
-<p>요청 메소드와 응답 코드가 모든 상황을 담아낼 수 없다는 의견도 있는데, </p>
-<p>이 글에 동조하는 사람들은 거대한 엔터프라이즈 환경(ERP, 병원 시스템 등)에서 다양하고 복합적인 리소스를 다루는 상황에 대해 언급한다.</p>
+<p>요청 메소드와 응답 코드가 모든 상황을 담아낼 수 없다는 의견도 있는데, 이 글에 동조하는 사람들은 거대한 엔터프라이즈 환경(ERP, 병원 시스템 등)에서 다양하고 복합적인 리소스를 다루는 상황에 대해 언급한다.</p>
 <p>논쟁을 지켜보며 생각이 드는 것은 - 추측이지만,</p>
-<p>메소드가 충분치 않다는 의견은 특히 <a href="https://ko.wikipedia.org/wiki/%EC%9B%90%EA%B2%A9_%ED%94%84%EB%A1%9C%EC%8B%9C%EC%A0%80_%ED%98%B8%EC%B6%9C" target="_blank" rel="external">RPC</a>를 실행하는 경우,<br>그 리퀘스트를 보내는 대상 리소스가 우리가 흔히 인식하는 리소스, 그러니까 CSS나 이미지같은 소위 정적 리소스나 데이터베이스/도메인 모델과 같은 엔티티 개념을 벗어나는 지점부터 어려워지는 것 같다. 예를 들어 리퀘스트를 날려서 설거지와 빨래와 아이 목욕을 시킨다면, 여기서 리소스란 무엇일까? 이 때는 어떤 메소드를 써야하는가?</p>
-<h1 id="나머지-내용-정리-중…"><a href="#나머지-내용-정리-중…" class="headerlink" title="나머지 내용 정리 중….."></a>나머지 내용 정리 중…..</h1><h2 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h2><p>REST !== HTTP<br>HTML Form에서는 ‘당연하게’ GET/POST만 지원<br>PUT을 쓰고 싶으면 XHR을 쓸 것<br>Q: 그럼 JavaScript를 비활성하고 어떻게 REST API를 사용하란 말이야? A: 못함</p>
-<h1 id="댓글-정리"><a href="#댓글-정리" class="headerlink" title="댓글 정리"></a>댓글 정리</h1><ul>
+<p>메소드가 충분치 않다는 감정은 특히 <a href="https://ko.wikipedia.org/wiki/%EC%9B%90%EA%B2%A9_%ED%94%84%EB%A1%9C%EC%8B%9C%EC%A0%80_%ED%98%B8%EC%B6%9C" target="_blank" rel="external">RPC</a>를 실행하는 경우,<br>그러니까 내부적으로 복잡한 로직이 섞여있을 때 발생하는 것 같다. </p>
+<p>예를 들어 리퀘스트를 날려서 설거지와 빨래와 아이 목욕을 시킨다면, 여기서 리소스란 무엇일까? 이 때는 어떤 메소드를 써야하는가?</p>
+<p>이 지점부터 한차례 혼란이 오는 것 같은데, 그 리퀘스트를 보내는 대상 리소스가 우리가 흔히 인식하는 리소스, 그러니까 CSS나 이미지같은 소위 정적 리소스 개념을 벗어나는 지점부터 어려워지는 것 같다. </p>
+<p><em>HTTP에서 리소스란 뭐든 지 될 수 있다.</em></p>
+<p>또한 REST를 CRUD로 치환하는 순간 이견은 좁혀지지 않는다. </p>
+<p>조회/등록/수정/삭제를 GET/POST/PUT/DELETE로 처리하는 게 REST라고 생각하면 더 이상의 이성적인 논쟁은 불가능해진다.</p>
+<p>HTTP 메소드가 부족하다고 생각이 드는 건 모든 RPC 요청의 성격을 CRUD에 매핑하려는 시도에 원인이 있다고 본다.</p>
+<p>어떤 기분인 지는 알 것 같다.</p>
+<p>REST API는 GET/POST/PUT/DELETE를 쓰는 것 -&gt; 곧 조회/등록/수정/삭제를 의미 -&gt; RPC 업무는 조회/등록/수정/삭제 네 가지로 단순하게 떨어지지 않아!</p>
+<p>각 HTTP 메소드가 정확히 어떤 의미인지는 각자 (신뢰할 만한 출처에서) 찾아보기로 하고,</p>
+<p>REST 논문에는 애초에 CRUD나 어떤 HTTP 메소드를 써야 한다는 언급이 없었다.</p>
+<p>‘REST API는 GET/POST/PUT/DELETE를 쓰는 것이다’라는 공식은 웹 프레임웍의 잘못된 가이드에도 원인이 있기도 하다.</p>
+<p><a href="http://www.eq8.eu/blogs/37-post-create-and-put-update" target="_blank" rel="external">Ruby on Rails의 예</a>를 보자.</p>
+<ul>
+<li>PUT을 썼더니 방화벽에서 막혔던 사례를 통해 이때 발생할 수 있는 문제를 다루고 레일스의 잘못된 가이드에 대해 언급한다</li>
+<li>마지막 결론쯤에 Rails는 Rails일 뿐이라는 대목이 나온다</li>
+<li>Best practice를 쫓아가면 좋긴하지만, 이해용이성을 조금 포기해야 하기도 한다</li>
+</ul>
+<p>PHP의 Laravel은 </p>
+<ul>
+<li>5.2 버전까지 <a href="https://laravel.com/docs/5.2/controllers#restful-resource-controllers" target="_blank" rel="external">RESTful Resource Controllers</a>라는 용어를 사용했으나,</li>
+<li>5.3 버전부터는 <code>typical &quot;CRUD&quot; routes</code>를 제공한다는 설명과 함께 <a href="https://laravel.com/docs/5.3/controllers#resource-controllers" target="_blank" rel="external">Resource Controllers</a>라고 변경했다. 하지만 여전히 PUT은 UPDATE에 대응이 된다.</li>
+</ul>
+<h3 id="307-Temporary-같은-애들은-브라우저마다-상이하게-처리되기도-한다-제대로-지원하는-건-200과-500뿐이다"><a href="#307-Temporary-같은-애들은-브라우저마다-상이하게-처리되기도-한다-제대로-지원하는-건-200과-500뿐이다" class="headerlink" title="307 Temporary 같은 애들은 브라우저마다 상이하게 처리되기도 한다. 제대로 지원하는 건 200과 500뿐이다."></a>307 Temporary 같은 애들은 브라우저마다 상이하게 처리되기도 한다. 제대로 지원하는 건 200과 500뿐이다.</h3><p>좀 오버하는 감은 있긴 하다.</p>
+<p>하지만 REST에서는 Uniform Interface가 중요한데도 경험적으로 (적어도 HTTP 쪽에서는) 인프라가 충분치 않다는 인식이 있는 것 같다. </p>
+<p>위에 Ruby on Rails의 예에서 언급한 것처럼 보안을 이유로(?) PUT을 지원하지 않는 방화벽이랄지,</p>
+<p>HTTP 응답 코드를 각기 다르게 해석하는 클라이언트 등 현실적인 제약은 다반사인 것 같다.</p>
+<p>구현을 하는 입장에선 아무래도 이런 부분에선 부담이 되는 게 사실이다. (IE 대응을 위해 버려진 수많은 나날을 생각해보자)</p>
+<h3 id="HTTP의-문법은-풍부하지-못해서-모든-어플리케이션의-요청과-응답을-표현할-수-없다"><a href="#HTTP의-문법은-풍부하지-못해서-모든-어플리케이션의-요청과-응답을-표현할-수-없다" class="headerlink" title="HTTP의 문법은 풍부하지 못해서 모든 어플리케이션의 요청과 응답을 표현할 수 없다"></a>HTTP의 문법은 풍부하지 못해서 모든 어플리케이션의 요청과 응답을 표현할 수 없다</h3><p>이것도 사실 각자의 상황에 맞는 Best Practice의 부재 탓이라고 본다.</p>
+<p>HTTP가 끝없는 업계의 요구사항에 매번 응답코드를 추가해줄 수는 없다.</p>
+<p>답답하겠지만 결국 개발자는 결정을 해야한다. 현실 세계의 문제는 원래 그렇다.</p>
+<h3 id="RESTful-API는-디버깅-하기-힘들다"><a href="#RESTful-API는-디버깅-하기-힘들다" class="headerlink" title="RESTful API는 디버깅 하기 힘들다"></a>RESTful API는 디버깅 하기 힘들다</h3><p>이에 대한 반론 중에는 개발자도구나 HTTP client 툴을 사용하면 된다고들 하지만,</p>
+<p>이 블로그 글쓴이의 의도는 요청/응답 시 신경써야 하는 부분이 많다는 것이다.</p>
+<p>난 맞는 지적이라고 생각한다.</p>
+<p>SOAP이나 GraphQL처럼 응답 메시지 본문에서 모든 상황을 지켜보고 싶은 마음을 나도 십분 이해한다.</p>
+<p>하지만 REST는 쉽게 개발하려고 만든 아키텍처 스타일이 아니다.</p>
+<p>웹의 인프라를 충분히 활용해서 효율적으로 동작하고, 독립적으로 진화하고, 확장할 수 있게 설계하기하기 위함이다.</p>
+<p>디버깅을 편하게 하기 위해 설계 원칙을 바꾸는 순간 본래의 목적에서 멀어진다.</p>
+<h3 id="HTTP에-너무-종속되어-있다"><a href="#HTTP에-너무-종속되어-있다" class="headerlink" title="HTTP에 너무 종속되어 있다"></a>HTTP에 너무 종속되어 있다</h3><p>웹에서의 주요 프로토콜이 HTTP이긴 하고, 그 때문에 REST를 구현했다는 사람들이 HTTP를 많이 쓸 뿐이지 REST는 HTTP에 한정되지 않는다.</p>
+<p><a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm#sec_5_3_2" target="_blank" rel="external">5.3.2 Connector View</a> 참고</p>
+<h3 id="아무리-이론적으로는-맞는-말일-지라도-현실적으로는-대부분-HTTP-위에서-REST를-구현할-수-밖에-없잖아"><a href="#아무리-이론적으로는-맞는-말일-지라도-현실적으로는-대부분-HTTP-위에서-REST를-구현할-수-밖에-없잖아" class="headerlink" title="아무리 이론적으로는 맞는 말일 지라도, 현실적으로는 대부분 HTTP 위에서 REST를 구현할 수 밖에 없잖아"></a>아무리 이론적으로는 맞는 말일 지라도, 현실적으로는 대부분 HTTP 위에서 REST를 구현할 수 밖에 없잖아</h3><p>맞다. 웹개발자 입장에선 대부분의 API 설계를 HTTP 위에서 하게 된다.</p>
+<p>하지만 그것이 REST가 HTTP에 종속됐다는 의미는 아니다. HTTP에서 구현하는 게 어려울 뿐이지.</p>
+<h3 id="HTTP를-재발명-하자는-게-아니다-단지-어플리케이션-레벨의-메시지를-HTTP-안에-억지로-끼워넣지-말고-JSON-payload에-담자는-말이다"><a href="#HTTP를-재발명-하자는-게-아니다-단지-어플리케이션-레벨의-메시지를-HTTP-안에-억지로-끼워넣지-말고-JSON-payload에-담자는-말이다" class="headerlink" title="HTTP를 재발명 하자는 게 아니다. 단지 어플리케이션 레벨의 메시지를 HTTP 안에 억지로 끼워넣지 말고 JSON payload에 담자는 말이다."></a>HTTP를 재발명 하자는 게 아니다. 단지 어플리케이션 레벨의 메시지를 HTTP 안에 억지로 끼워넣지 말고 JSON payload에 담자는 말이다.</h3><p>그래도 된다고 생각한다. 다만 그렇게하면 REST라고 부르지 말자는 것이다. REST라고 부를 수 없다고 나쁜 설계는 아니다.</p>
+<p>“json-ld/hydra”와 같은 hypermedia를 사용하는 REST(중의적인 의미) 사람들을 따라하고 있을 뿐이라는 의견도 있다. (지원하는 클라이언트가 얼마 없지만…)</p>
+<p>hypermedia를 구현하기 위한 수많은 API 표준이 존재하는데, 후속 블로그에서 더 다뤄보겠다.</p>
+<h3 id="JavaScript를-비활성하면-REST를-쓸-수가-없다-HTML은-GET-POST밖에-지원하지-않는다"><a href="#JavaScript를-비활성하면-REST를-쓸-수가-없다-HTML은-GET-POST밖에-지원하지-않는다" class="headerlink" title="JavaScript를 비활성하면 REST를 쓸 수가 없다. HTML은 GET/POST밖에 지원하지 않는다."></a>JavaScript를 비활성하면 REST를 쓸 수가 없다. HTML은 GET/POST밖에 지원하지 않는다.</h3><p>계속되는 HTML의 PUT/DELETE 지원 논쟁.</p>
+<p>XHR을 쓰면 된다는 부류와 XHR을 못쓰는 환경이 있는데 어떡하냐는 부류가 자주 부딪힌다.</p>
+<p>미안하지만 REST는 Architectural Styles일 뿐 당신들이 request 하나하나를 어떻게 구현하는지 관심이 없다.</p>
+<p>내 개인적인 생각으로는 어느 시스템이든 각각의 제약 사항은 존재하기 마련이다.</p>
+<p>부족하면 부족한대로 해결해내는 것이 개발자가 할 일이라고 본다.</p>
+<p>그러다보면 REST의 제약사항을 어길 수밖에 없는 상황도 분명 올 수 있겠지.</p>
+<p>다시 말하지만, 그럼 REST라고 안 부르면 된다!</p>
+<p>가장 적당한 디자인을 설계하자.</p>
+<h3 id="가서-SOAP으로-입-좀-행구고-오지-그래"><a href="#가서-SOAP으로-입-좀-행구고-오지-그래" class="headerlink" title="가서 SOAP으로 입 좀 행구고 오지 그래"></a>가서 SOAP으로 입 좀 행구고 오지 그래</h3><p>네가 하려는 건 SOAP과 다를 바 없다는 중의적 의미.</p>
+<p>댓글에서 SOAP과의 비교를 하는 글이 참 많다. <a href="http://greatkim91.tistory.com/79" target="_blank" rel="external">http://greatkim91.tistory.com/79</a> 이렇게 REST와 비교한 글도 참고하자. (이 역시 제대로 REST를 설명하고 있지 않지만)</p>
+<p>‘소위 REST’가 SOAP을 대체해 나간 것처럼 기술이 오래 살아남기 위해선 사람들이 얼마나 쉽게 받아들일 수 있는가도 무시할 수 없는 것 같다.</p>
+<h3 id="결국-누군가-나서서-논쟁을-정리한다"><a href="#결국-누군가-나서서-논쟁을-정리한다" class="headerlink" title="결국 누군가 나서서 논쟁을 정리한다"></a>결국 누군가 나서서 논쟁을 정리한다</h3><p>(좋은 내용인데 이렇게 밖에 해석할 수 밖에 없어서 미안하다)</p>
+<ul>
+<li>REST는 API가 아니야. API를 디자인 하기 위한 패턴이야. 그것은 매우 엄격하게 또는보다 실용적인 방식으로 고수 될 수 있으며 현실 세계에서 구현하기 위한 모범 사례가 무엇인지에 대해 의견 차이가 있지.</li>
+<li>XMLHttpRequest는 모든 CRUD문법을 지원하고 있어. 10년 정도를 넘지 않은 모든 메이저 브라우저는 REST를 완벽하게 지원해.</li>
+<li>REST API는 도메인에 종속된 메시지 교환을 충실히 지원하는게 목적이 아니야. HTTP 레이어가 트랜잭션의 상태에 대한 정보를 갖고 있지. 즉, 일반적인 HTTP client와 프로토콜을 구현할 의무가 있는 서버에게 유용한 방식이야. 이 컴포넌트들이 도메인 특정의 어플리케이션이 도메인에 종속된 로직을 처리하도록 메시지 페이로드를 전달하고 있지. 이건 대부분의 메시지 교환 방식에서 사용하고 있어. 프로토콜에서 하나의 역할을 하는 시스템은 자신이 필요한 부분만 읽고 서브 시스템에게 넘겨주지. TCP/IP 위에서의 HTTP 응답을 예로 들면 IP packet과 TCP 헤더는 HTTP client가 읽기도 전에 TCP client에서 읽히고 처리되지. 단순히 다음 프레임으로 넘어가서 메시지를 해석할 수 있는 어플리케이션 코드에게 메시지를 전달하면 되는데, 왜 굳이 HTTP 프로토콜을 확장해야 하는거지? 모든 REST 원칙은 URL이나 HTTP 동사와 같은 일반적인 개념을 제공하는 HTTP 프로토콜을 이용하고, 이를 페이로드 안에서 재발명하지 않을 것을 권고하고 있어. 그렇게 함으로써 페이로드의 내용을 더 가볍고 간단하게 만들 수 있고, 대부분의 HTTP client가 공짜로 제공해주는 캐싱 같은 이점도 누릴 수 있지.</li>
+<li>네가 언급한 7가지 영역은 사실 모두 요청과 응답이라는 2개의 조각에 나뉘어 있어. 커스텀 JSON에 모두 묻어버릴 때와 같이 말이지. 다른 점이 있다면, 대부분의 개발자는 이미 이 형식에 익숙해서 HTTP 요청과 응답 안의 정확히 어디를 봐야할 지 안다는 사실이지. HTTP 인터렉션을 디버깅을 위한 (네 브라우저에도 있는) 훌륭한 툴을 모두 언급하지는 않을게.</li>
+<li>내가 이미 지적했지만, REST는 API설계를 위한 패턴이지 HTTP로 제한된 건 아니야. RESTful한 디자인 관점은 네 API를 대부분의 전송 프로토콜 안에서 깨끗하고 일관되고 성능도 좋고 캐시하기도 좋게 도와주지. HTTP에서 적용하기 쉬운 이유는 REST의 많은 원칙들이 HTTP로부터 영향을 받았기 때문이야.</li>
+<li>넌 프로토콜과 컨텐츠에 대해 혼란스러워하고 있어. 네가 말하고 있는 건, HTTP 프로토콜의 3가지 information 조각이야. 리소스 식별자, 명령어 동사, 응답 코드. 응답코드가 메시지 컨텐츠로 절대로 볼 수 없다고는 말할 순 없지만, 트랙잭션의 상태를 나타내는 표준 코드는 완전히 프로토콜의 일부야. 나머지 것들도 메시지 교환에서의 보편적인 개념이고 프로토콜 레이어 상에서 이를 명시하는 것은 아무런 해가 되지 않아.</li>
+</ul>
+<h2 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h2><p>사람들은 REST가 좋은 설계라고 생각하면서 REST를 제대로 이해 못한 채 API/서비스를 만들고 여기에 RESTful이라는 표현을 쓰고 있다.<br>그건 REST가 아니라고 말을 해줘도, 그럼 어떻게 구현하냐고 따지고 든다.</p>
+<p><em>꼭 REST라는 용어를 써야만 하는 사람들처럼.</em></p>
+<p>2008년 논문의 저자 Roy도 사람들이 REST에 대해 오해하는 것에 대해 한탄하며 글을 썼다.</p>
+<p>이에 대한 포스트는 다음에 장에서…</p>
+<p>양이 너무 많아서 정말 대충 막 그냥 해석해서 써갈겼지만, 써 놓고 보니 또 아깝고 해서 쓸데 없이 붙여 넣어본다.</p>
+<p>더 궁금하다면 제일 하단 추천 링크도 확인해 볼 것!</p>
+<h2 id="댓글-정리"><a href="#댓글-정리" class="headerlink" title="댓글 정리"></a>댓글 정리</h2><ul>
 <li>이 글에 찬성하는 편 &#128077;</li>
 <li>이 글에 반대하는 편 &#128078;</li>
 <li>쓸데없는 소리 &#128169;</li>
@@ -561,31 +722,67 @@
 </ul>
 </li>
 </ul>
-<h3 id="키베-마무리"><a href="#키베-마무리" class="headerlink" title="키베 마무리"></a>키베 마무리</h3><p>아래는 대부분 비슷한 내용이고, 누군가가 REST를 이해하기 좋은 링크를 추가해 줌</p>
-<ul>
-<li><p>로이 필딩이 이야기하는 HATEOAS에 관한 이야기</p>
+<h2 id="댓글에서-언급된-추천-링크"><a href="#댓글에서-언급된-추천-링크" class="headerlink" title="댓글에서 언급된 추천 링크"></a>댓글에서 언급된 추천 링크</h2><p><em>로이 필딩이 이야기하는 HATEOAS에 관한 이야기</em></p>
 <ul>
 <li><a href="http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven" target="_blank" rel="external">http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven</a></li>
 </ul>
-</li>
-<li><p>API Conf Panel: The Future of Media API</p>
+<p>API Conf Panel: The Future of Media API</p>
 <ul>
 <li><a href="https://www.infoq.com/presentations/media-API" target="_blank" rel="external">https://www.infoq.com/presentations/media-API</a></li>
 </ul>
-</li>
-<li><p>GOTO 2014 • REST: I don’t Think it Means What You Think it Does • Stefan Tilkov</p>
+<p><em>GOTO 2014 • REST: I don’t Think it Means What You Think it Does • Stefan Tilkov</em></p>
 <ul>
 <li><a href="https://www.youtube.com/watch?v=pspy1H6A3FM" target="_blank" rel="external">https://www.youtube.com/watch?v=pspy1H6A3FM</a></li>
 </ul>
-</li>
+<p>JSON-RPC</p>
+<ul>
+<li><a href="http://www.jsonrpc.org/specification" target="_blank" rel="external">http://www.jsonrpc.org/specification</a></li>
+</ul>
+<p>Facebook의 GraphQL</p>
+<ul>
+<li><a href="http://graphql.org/learn/" target="_blank" rel="external">http://graphql.org/learn/</a></li>
+</ul>
+<p>Netflix의 Falcor</p>
+<ul>
+<li><a href="http://netflix.github.io/falcor/" target="_blank" rel="external">http://netflix.github.io/falcor/</a></li>
+</ul>
+<p>RESTful Web API 웹 API를 위한 모범 전략 가이드</p>
+<ul>
+<li><a href="http://www.kyobobook.co.kr/product/detailViewKor.laf?barcode=9788966261635" target="_blank" rel="external">http://www.kyobobook.co.kr/product/detailViewKor.laf?barcode=9788966261635</a></li>
+</ul>
+<p>Hypermedia Web discussion group</p>
+<ul>
+<li><a href="https://groups.google.com/forum/#!forum/hypermedia-web" target="_blank" rel="external">https://groups.google.com/forum/#!forum/hypermedia-web</a></li>
+<li>CRUD와 REST를 구별할 줄 아는 사람들</li>
+</ul>
+<p>API Craft google group</p>
+<ul>
+<li><a href="https://groups.google.com/forum/?hl=ko#!forum/api-craft" target="_blank" rel="external">https://groups.google.com/forum/?hl=ko#!forum/api-craft</a></li>
+</ul>
+<p>Hypermedia Client Tutorial</p>
+<ul>
+<li><a href="https://github.com/apiacademy/2016-07-hyperclient" target="_blank" rel="external">https://github.com/apiacademy/2016-07-hyperclient</a></li>
+</ul>
+<p>From Zero to Hyper in 30 Minutes: Live Coding a Hypermedia Client</p>
+<ul>
+<li><a href="https://www.infoq.com/presentations/http-client-javascript" target="_blank" rel="external">https://www.infoq.com/presentations/http-client-javascript</a></li>
+</ul>
+<p>CODE COMPLETE 2</p>
+<ul>
+<li><a href="http://www.kyobobook.co.kr/product/detailViewKor.laf?barcode=9788956742564" target="_blank" rel="external">http://www.kyobobook.co.kr/product/detailViewKor.laf?barcode=9788956742564</a></li>
+</ul>
+<p><em>Your API isn’t RESTful — And That’s Good</em></p>
+<ul>
+<li><a href="https://medium.com/@trevorhreed/you-re-api-isn-t-restful-and-that-s-good-b2662079cf0e" target="_blank" rel="external">https://medium.com/@trevorhreed/you-re-api-isn-t-restful-and-that-s-good-b2662079cf0e</a></li>
 </ul>
 ]]></content>
     
     <summary type="html">
     
       &lt;p&gt;이제 개발자들 사이에 널리 퍼진 REST에 대한 오해를 들춰볼 차례이다.&lt;/p&gt;
-&lt;p&gt;이 블로그의 독자 입장에선 이 정성으로 그냥 논문을 읽지 그러냐는 의문도 들 수 있겠지만,&lt;/p&gt;
-&lt;p&gt;이 바닥의 수많은 오해를 발견하는 재미도 있었다. 그 모
+&lt;p&gt;이 정성으로 그냥 논문을 읽지 그러냐는 의문도 들 수 있겠지만,&lt;/p&gt;
+&lt;p&gt;이 바닥의 수많은 오해를 발견하는 재미도 있었다.&lt;/p&gt;
+&lt;h2 id=&quot;REST에-
     
     </summary>
     
@@ -599,11 +796,11 @@
   </entry>
   
   <entry>
-    <title>REST, 논문(요약) 훑어보기</title>
+    <title>REST - 논문(요약) 훑어보기</title>
     <link href="https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/"/>
     <id>https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/</id>
     <published>2017-05-24T03:06:17.000Z</published>
-    <updated>2017-06-25T15:35:11.000Z</updated>
+    <updated>2017-06-27T14:09:33.000Z</updated>
     
     <content type="html"><![CDATA[<p>REST의 사전적인 의미부터 알아보자.</p>
 <p>‘바쁜 개발자들을 위한 REST 논문 요약’을 요약 + WhatIsRest.com + 지난 며칠간 블로그와 댓글을 뒤져가며 얻은 지식 + 내 생각을 적어보려고 한다.</p>
@@ -656,7 +853,7 @@
 </ul>
 </li>
 <li>manipulation of resources through representation<ul>
-<li>representation의 개념은 이후에 다시 다룰텐데, 이 역시 <a href="https://blog.npcode.com/2017/04/03/rest%EC%9D%98-representation%EC%9D%B4%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80/" target="_blank" rel="external">이응준님 블로그</a>에서 다루고 있다</li>
+<li>representation의 개념은 <a href="https://blog.npcode.com/2017/04/03/rest%EC%9D%98-representation%EC%9D%B4%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80/" target="_blank" rel="external">이응준님 블로그</a>에서 다루고 있다</li>
 <li>리소스의 표현계층(representation)을 리소스의 식별자(URL)로부터 분리한 것은 REST에서 아주 주요한 관점이다</li>
 <li>RESTful 응용 프로그램은 동일한 URI에서 동일한 자원의 표현을 둘 이상 지원할 수 있다</li>
 </ul>
@@ -685,13 +882,10 @@
 <li>로이의 배경을 생각하면 그는, 하이퍼링크가 없는 HTML 도큐먼트를 상상조차 못할 인물이다</li>
 <li>그가 언급한 Hypermedia란 문서 자체를 의미한다</li>
 <li>로이는 HTTP통신에 Link header를 넣어도 여전히 RESTful 할 수 있지만, 합당한 이유가 있어야 한다고 했다<ul>
-<li>헤더에 넣으면 이를 처리할 수 없는 클라이언트도 있을 수 있기 때문에..라고 했는데 당시에는 LINK가 정식 표준이 아닌 때였기 때문인 것 같음</li>
+<li>역주) 헤더에 넣으면 이를 처리할 수 없는 클라이언트도 있을 수 있기 때문에..라고 했는데 당시에는 LINK가 정식 표준이 아닌 때였기 때문인 것 같음</li>
 </ul>
 </li>
-<li>HATEOAS를 정확히 구현한 것은 문서안에 있는 링크다<ul>
-<li>representation 안이라고 명시하는 것을 보니 header는 representation이라고 표현 안 하는 듯</li>
-</ul>
-</li>
+<li>HATEOAS를 정확히 구현한 것은 문서안에 있는 링크다</li>
 <li>HATEOAS라는 다음 상태 변경을 위한 링크(form 링크 등)를 제공해야 한다는 것</li>
 </ul>
 </li>
@@ -704,7 +898,7 @@
 <li>클라이언트는 서버의 독자적인 진화에 영향을 받아선 안 되며, 서버 상의 구현에 의존하면 안 된다</li>
 </ul>
 </li>
-<li>결국 HATETOAS의 목적은 (서버-클라이언트 간 의존성을 분리해야만 가능한) 독자적인 진화와 확장이라고 봐야하며, hypermedia는 그 목적을 이루는 데 기여해야 한다   </li>
+<li>결국 HATETOAS의 목적은 (서버-클라이언트 간 의존성을 분리해야만 가능한) 독자적인 진화와 확장을 보조하는 것이며, hypermedia는 그 목적을 이루는 데 기여해야 한다   </li>
 </ul>
 </li>
 </ul>
@@ -745,21 +939,112 @@
   </entry>
   
   <entry>
-    <title>REST, 긴 여정의 시작</title>
+    <title>REST - HTML Form에서 GET/POST만 지원하는 이유</title>
+    <link href="https://youngiggy.github.io/2017/05/23/rest-http-method-in-html-form/"/>
+    <id>https://youngiggy.github.io/2017/05/23/rest-http-method-in-html-form/</id>
+    <published>2017-05-23T14:12:12.000Z</published>
+    <updated>2017-06-27T14:19:38.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>쉬어가는 마음으로 다음 장을 위한 사전 지식을 하나 쌓아보자.</p>
+<p><a href="http://jxck.hatenablog.com/entry/why-form-dosent-support-put-delete" target="_blank" rel="external">왜 PUT과 DELETE를 지원하지 않는가</a>에 대한 (일본어로 쓴) 정리</p>
+<ul>
+<li>구글 번역을 돌려보자</li>
+<li>PUT/DELETE를 Form에 넣으려는 시도는 위 글에서 가장 자세히 나오긴 했지만, 일본어라 원본을 알아볼 수가 없으므로…</li>
+</ul>
+<p>대신 stackexchange에 올라온 글로 짧게 정리해봤다.</p>
+<ul>
+<li><a href="https://softwareengineering.stackexchange.com/questions/114156/why-are-there-are-no-put-and-delete-methods-on-html-forms" target="_blank" rel="external">https://softwareengineering.stackexchange.com/questions/114156/why-are-there-are-no-put-and-delete-methods-on-html-forms</a><ul>
+<li>초기 HTML5 draft에는 포함되어 있었고 Firefox의 베타 버전에서는 잠시 구현하기도 했었다.</li>
+<li>W3C는 이 문제를 bug report 10671에서 논의를 했는데,<ul>
+<li><a href="https://www.w3.org/Bugs/Public/show_bug.cgi?id=10671" target="_blank" rel="external">https://www.w3.org/Bugs/Public/show_bug.cgi?id=10671</a> 참고</li>
+<li>Mike Amundsen이란 사람이 언급하길<ul>
+<li>리소스를 수정하기 위해 PUT과 DELETE를 실행하는 건 모던 브라우저의 XmlHttpRequest 객체를 사용하면 간단한데, 스크립트를 사용하지 않는 상황에선 쉽지 않다.</li>
+<li>이 패턴은 많은 일반적인 웹 프레임웍/라이브러리에서 기본으로 구현하고 있다.</li>
+<li>(그리고 이를 우회하는 방식에 대한 문제를 언급함)</li>
+</ul>
+</li>
+<li>Tom Wardrop란 사람도 흥미로운 관점을 제시함<ul>
+<li>HTML은 HTTP와 떼려야 뗄 수 없는 관계다. HTML은 인간을 위한 HTTP 인터페이스다. 따라서  왜 HTTP에서 필요한 메소드를 모두 제공하지 않는 것인가에 대해 자동으로 의문을 가질 수 밖에 없다. 기계는 PUT과 DELETE를 할 수 있으면서 인간은 왜 안 되는가?</li>
+<li>HTML이 시맨틱한 마크 업을 보장하는 데 많은 시간을 할애하면서, 시맨틱한 HTTP 요청을 보장하기 위한 노력을 하지 않았다는 것은 모순이다.</li>
+</ul>
+</li>
+<li>결국 이 버그는 (HTML editor인) Ian Hickson에 의해 고치지 않는 것으로 결정났다.<ul>
+<li>PUT을 form 메소드로 사용한다는 것은 말도 안 된다. 네가 form payload를 통해 PUT을 해야할  일은 없을 것이다. DELETE도 payload가 없어야만 말이 된다. 그러니 역시 form에서 제공할 이유가 없다.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>하지만 추가적으로 드래프트가 올라왔는데…<ul>
+<li><a href="https://www.w3.org/TR/2015/NOTE-form-http-extensions-20150929/#http-put-form" target="_blank" rel="external">https://www.w3.org/TR/2015/NOTE-form-http-extensions-20150929/#http-put-form</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>일본어로 정리된 글에서도 왜 PUT과 DELETE가 Form에서 적합하지 않은지는 모른 채 의아해하고만 있다.</p>
+<p>결국 애초의 HTML Form이 가진 기능/목적을 우회하여 Form을 활용한 PUT/DELETE를 실행할 수 있도록 Form의 기능 확장(extension)을 요구하고 있다.<br>여기에서 DELETE는 크게 이질감이 없지만, PUT의 경우 payload를 통해 헤더를 구성하는 방식을 제안하고 있다.<br>그런데 저 방식은 꽤나 그지같아서 과연 HTML 에디터나 커뮤니티 차원에서 받아들일 수 있을지는 미지수이다.</p>
+<p>Ian Hickson 입장에선 Form에서 PUT/DELETE를 지원하는 게 너무 당연하게 말도 안 되는 일이라고 생각했을 것 같다. 이유는,</p>
+<ul>
+<li>Form은 서버에 정보를 제출하기 위해 존재한다</li>
+<li>GET과 POST는 form에 존재하는 대화형 컨트롤에 입력된 값을 보낸다</li>
+<li>POST와 PUT의 가장 큰 차이<ul>
+<li>RFC2616에서는 ‘요청 URI의 다른 의미’라는 표현을 썼고 <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html" target="_blank" rel="external">https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html</a></li>
+<li>RFC 7231에서는 ‘동봉된 representation에 대한 다른 의도’라는 표현을 썼다 <a href="https://tools.ietf.org/html/rfc7231#section-4.3.4" target="_blank" rel="external">https://tools.ietf.org/html/rfc7231#section-4.3.4</a></li>
+<li>POST에서의 대상 리소스는 동봉된 representation을 처리하려는 의도가 있고</li>
+<li>PUT의 동봉된 representation은 대상 리소스의 상태를 대체한다</li>
+</ul>
+</li>
+<li>따라서<ul>
+<li>GET은 form에 있는 정보를 줄테니 나에게 리소스(representation)를 줘</li>
+<li>POST는 form에 있는 정보를 줄테니 이걸로 처리 좀 해줘</li>
+</ul>
+</li>
+<li>라는 의미가 되지만,<ul>
+<li>DELETE에서 URI는 리소스를 정확하게 식별하고 요청을 보내기 때문에 form을 통해 값을 전달할 게 없으며<ul>
+<li>권한을 획득하기 위해선 header를 이용해야할 것 같다</li>
+</ul>
+</li>
+<li>PUT도 전송해야할 것은 대상 리소스를 대체할 representation 그 자체이지, 대상 리소스더러 조각난 form 데이터를 처리하라고 보낼 수는 없는 노릇</li>
+</ul>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;쉬어가는 마음으로 다음 장을 위한 사전 지식을 하나 쌓아보자.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://jxck.hatenablog.com/entry/why-form-dosent-support-put-delete&quot; target=&quot;_blank&quot; r
+    
+    </summary>
+    
+    
+      <category term="API" scheme="https://youngiggy.github.io/tags/API/"/>
+    
+      <category term="RESTful" scheme="https://youngiggy.github.io/tags/RESTful/"/>
+    
+      <category term="REST" scheme="https://youngiggy.github.io/tags/REST/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>REST - 긴 여정의 시작</title>
     <link href="https://youngiggy.github.io/2017/05/22/rest-the-beginning/"/>
     <id>https://youngiggy.github.io/2017/05/22/rest-the-beginning/</id>
     <published>2017-05-21T16:30:00.000Z</published>
-    <updated>2017-06-25T08:45:46.000Z</updated>
+    <updated>2017-06-27T14:09:22.000Z</updated>
     
     <content type="html"><![CDATA[<p>연재 목록</p>
 <ol>
-<li>REST - 로이 필딩의 논문 요약을 통해 REST의 정의를 내려보기</li>
+<li>REST - 긴 여정의 시작</li>
+<li>REST - 논문(요약) 훑어보기</li>
 <li>REST - 사전 지식 : HTML Form에서 GET/POST만 지원하는 이유</li>
-<li>REST - REST the big lie를 통해 바라본 개발자들의 논쟁</li>
-<li>REST - Roy가 쓴 블로그와 REST에 관한 Youtube 동영상 강의</li>
+<li>REST - REST 좋아하시네</li>
+<li>REST - Roy가 입을 열다</li>
 <li>REST - 결론 : RESTful 해야할 필요가 있을까?</li>
+<li>REST - 논문 읽기</li>
 </ol>
-<h2 id="Representational-State-Transfer"><a href="#Representational-State-Transfer" class="headerlink" title="Representational State Transfer"></a>Representational State Transfer</h2><p>가장 중요한, Roy의 실제 논문은 읽지 못했다. 논문의 대략적인 내용은 이응준님의 블로그로부터 이해를 했다. </p>
+<h2 id="Representational-State-Transfer"><a href="#Representational-State-Transfer" class="headerlink" title="Representational State Transfer"></a>Representational State Transfer</h2><p>가장 중요한, Roy의 실제 논문은 읽지 못했다. 논문의 대략적인 내용은 아래 링크를 걸어둔 이응준님의 블로그로부터 이해를 했다.</p>
+<p>REST와 HTTP를 이해하기 위해 필수적인 representation의 개념도 그 분의 블로그에서 얻을 수 있으니 미리 보고 올 것을 권한다. </p>
 <p>몇 가지 이해 안 되던 부분은 실제 논문으로부터 갈증을 해소하기도 했지만,</p>
 <p>논문 전체를 자세히 해석해 나가기에는 지금 좀 지쳤으니 (언젠가) 후속으로 정리를 해야겠다.</p>
 <p>지금 시점에는 내가 RESTful하게 설계할 일이 없을 것 같긴 하지만,</p>
@@ -774,20 +1059,21 @@
 <p>네트워크 기반 아키텍처의 요구사항, 해결해야할 문제 등을 제시하는데 이에 대한 해결책으로 REST 아키텍처 스타일을 제안한다. </p>
 <p>REST는 소프트웨어 아키텍처가 아닌 <a href="http://www.ics.uci.edu/~fielding/pubs/dissertation/net_arch_styles.htm" target="_blank" rel="external">아키텍처 스타일(architectural style)</a>이라고 정의한다.</p>
 <p>후속으로 올릴 REST에 대한 논쟁에서도 REST는 아키텍처 스타일이라고 여러번 강조한다.</p>
-<p>많은 IT 용어가 건축에서 왔는데, 영어권에서는 동일한 단어를 사용하지만 우리말로 번역되면서 서로 다른 단어로 표현되는 게 많다.</p>
-<p>따라서 어떤 IT 용어가 가진, 원래의 단어에서 오는 메타포를 놓치는 경우가 많아 비영어권 국민으로서 참 공부하기 힘들다.</p>
+<p>많은 IT 용어가 건축에서 왔는데(건축 뿐이겠는가..), 영어권에서는 동일한 단어를 사용하지만 우리말로 번역되면서 서로 다른 단어로 표현되는 게 많다.</p>
+<p>따라서 어떤 IT 용어가 가진, 원래의 단어에서 오는 뉘앙스나 메타포를 놓치는 경우가 많아 비영어권 국민으로서 참 아쉽다.</p>
 <p>많은 REST 논쟁에서 REST를 이해 못하는 사람들이 좀 더 구체적으로 예시를 들어줄 것을 요구하면, 사람들은 REST가 아키텍처 스타일이라고 강조하는 경우가 많았던 것 같다.</p>
 <p>아키텍처 스타일(architectural style)은 건축양식을 의미한다. </p>
 <p>중세에 고딕양식이 유행을 했다는 말은 고딕양식에 기반해 건물을 설계하고 이 설계를 구현한 건물이 많았다는 말이고(내가 건축 양식의 문외한임은 미리 고백한다),</p>
 <p>고딕 성당을 지으려는 설계자는 이 양식을 지키는 선에서 ‘알아서’ 설계를 해야한다.</p>
 <p>시장은 설계나 세부 구현에 대한 이해할 필요없이 고딕 양식이라는 틀 안에서 요구사항을 제시할 것이고 그러다보면 설계에서도, 구현에서도 best practice가 퍼지게 되겠지.</p>
-<p>수십개의 성당을 지어야 하는 작업 반장의 커뮤니티에서는 이 세부 구현이 곧 고딕 양식이다라고 인식될 수 있다. 그가 얼마나 뛰어난 반장인지와는 상관없이.</p>
+<p>수십개의 성당을 지어야 하는 작업 반장의 커뮤니티에서는 이 세부 구현이 곧 고딕 양식이다라고 인식될 수 있다. 그가 얼마나 뛰어난 작업 반장인지와는 상관없이.</p>
 <p>물론 이런 식의 건축 양식이 시간을 두고 확립되었다면, REST는 태초에 명확한 제약사항이 존재했다는 차이가 있긴 하다.</p>
-<p>기와집이라는 건축양식이 있다고 할 때, 청기와 주유소는 과연 기와집인가? (기와는 맞는데 집이 아닌가?)</p>
+<p>기와집이라는 건축양식이 있다고 할 때, 청기와 주유소는 과연 기와집인가? (기와는 맞는데 집이 아닌가? 흠..)</p>
 <p>아니라면 기와집이라는 건축양식을 현대에는 의미를 확장해야할 필요가 있지 않은가? </p>
 <p>어쩌면 사회적 합의를 봐야할 지도 모르겠다.</p>
-<p>문제는 REST의 경우 작성자가 확실하며, 애초에 확실한 제약 사항이 있었다는 것이다.</p>
-<p>REST는 온갖 블로그와 구현체에서 서로 다르게 해석하고 있다.</p>
+<p>REST처럼 작성자가 확실하며, 애초에 확실한 제약 사항이 있는 분야도 합의의 대상인가?</p>
+<hr>
+<p>REST에 관해서는 온갖 블로그와 구현체에서 서로 다르게 해석하고 있다.</p>
 <p>작성자의 역량 + 독자의 역량이 오해를 재생산하기도 한다.</p>
 <p>그러니 지금 이 정리를 본 누군가도 역시 오해를 얻어가리라 믿는다. 나 때문이든 당신 때문이든.</p>
 <p>우선 REST에 대해 알아보자.</p>
@@ -797,9 +1083,10 @@
     
       &lt;p&gt;연재 목록&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;REST - 로이 필딩의 논문 요약을 통해 REST의 정의를 내려보기&lt;/li&gt;
+&lt;li&gt;REST - 긴 여정의 시작&lt;/li&gt;
+&lt;li&gt;REST - 논문(요약) 훑어보기&lt;/li&gt;
 &lt;li&gt;REST - 사전 지식 : HTML Form에서 GET/POST만 지원하는 이유&lt;/li&gt;
-&lt;li&gt;REST - REST the 
+&lt;li&gt;REST - REST
     
     </summary>
     
