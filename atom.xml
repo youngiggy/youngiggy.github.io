@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://youngiggy.github.io/"/>
-  <updated>2017-06-27T15:42:42.000Z</updated>
+  <updated>2017-06-27T16:01:00.000Z</updated>
   <id>https://youngiggy.github.io/</id>
   
   <author>
@@ -20,19 +20,29 @@
     <link href="https://youngiggy.github.io/2017/06/28/rest-the-dissertation/"/>
     <id>https://youngiggy.github.io/2017/06/28/rest-the-dissertation/</id>
     <published>2017-06-27T15:37:46.000Z</published>
-    <updated>2017-06-27T15:42:42.000Z</updated>
+    <updated>2017-06-27T16:01:00.000Z</updated>
     
-    <content type="html"><![CDATA[<p>로이 필딩의 논문을 읽지 못해 생긴 부채를 여기 한장에 남겨둔다.</p>
+    <content type="html"><![CDATA[<p>연재 목록</p>
+<ol>
+<li><a href="/2017/05/22/rest-the-beginning/">REST - 긴 여정의 시작</a></li>
+<li><a href="/2017/05/23/rest-http-method-in-html-form/">REST - HTML Form에서 GET/POST만 지원하는 이유</a></li>
+<li><a href="/2017/05/24/rest-the-dissertation-summary/">REST - 논문(요약) 훑어보기</a></li>
+<li><a href="/2017/06/12/rest-the-big-lie/">REST - REST 좋아하시네</a></li>
+<li><a href="/2017/06/26/rest-the-truth/">REST - Roy가 입을 열다</a></li>
+<li><a href="/2017/06/28/rest-the-coclusion/">REST - 꼭 RESTful 해야할 필요가 있을까?</a></li>
+<li><a href="/2017/06/28/rest-the-dissertation/">REST - 논문 읽기</a></li>
+</ol>
+<h2 id="To-do"><a href="#To-do" class="headerlink" title="To do"></a>To do</h2><p>로이 필딩의 논문을 읽지 못해 생긴 부채를 여기 한장에 남겨둔다.</p>
 <p>언젠가 돌아보다 생각나면 진짜 논문을 읽을 날이 오겠지.</p>
 <p>그럼 그 때까지, REST in peace!</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;로이 필딩의 논문을 읽지 못해 생긴 부채를 여기 한장에 남겨둔다.&lt;/p&gt;
-&lt;p&gt;언젠가 돌아보다 생각나면 진짜 논문을 읽을 날이 오겠지.&lt;/p&gt;
-&lt;p&gt;그럼 그 때까지, REST in peace!&lt;/p&gt;
-
+      &lt;p&gt;연재 목록&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;/2017/05/22/rest-the-beginning/&quot;&gt;REST - 긴 여정의 시작&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/2017/05/23/rest-http-method-in-html-f
     
     </summary>
     
@@ -50,9 +60,19 @@
     <link href="https://youngiggy.github.io/2017/06/28/rest-the-coclusion/"/>
     <id>https://youngiggy.github.io/2017/06/28/rest-the-coclusion/</id>
     <published>2017-06-27T15:15:16.000Z</published>
-    <updated>2017-06-27T15:35:50.000Z</updated>
+    <updated>2017-06-27T16:01:00.000Z</updated>
     
-    <content type="html"><![CDATA[<p>사람들이 싸우는 것은 항상 이런 식이다.</p>
+    <content type="html"><![CDATA[<p>연재 목록</p>
+<ol>
+<li><a href="/2017/05/22/rest-the-beginning/">REST - 긴 여정의 시작</a></li>
+<li><a href="/2017/05/23/rest-http-method-in-html-form/">REST - HTML Form에서 GET/POST만 지원하는 이유</a></li>
+<li><a href="/2017/05/24/rest-the-dissertation-summary/">REST - 논문(요약) 훑어보기</a></li>
+<li><a href="/2017/06/12/rest-the-big-lie/">REST - REST 좋아하시네</a></li>
+<li><a href="/2017/06/26/rest-the-truth/">REST - Roy가 입을 열다</a></li>
+<li><a href="/2017/06/28/rest-the-coclusion/">REST - 꼭 RESTful 해야할 필요가 있을까?</a></li>
+<li><a href="/2017/06/28/rest-the-dissertation/">REST - 논문 읽기</a></li>
+</ol>
+<h2 id="REST-or-not"><a href="#REST-or-not" class="headerlink" title="REST or not"></a>REST or not</h2><p>사람들이 싸우는 것은 항상 이런 식이다.</p>
 <ul>
 <li>제약 사항을 지키지 않았다면 그것은 REST가 아니다. 세상은 REST와 REST가 아닌 것으로 분류된다</li>
 <li>현실적으로 그걸 다 지키기는 어렵다. Roy 지도 못하면서! 난 내 작품을 REST라고 부를거야</li>
@@ -92,10 +112,10 @@
     
     <summary type="html">
     
-      &lt;p&gt;사람들이 싸우는 것은 항상 이런 식이다.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;제약 사항을 지키지 않았다면 그것은 REST가 아니다. 세상은 REST와 REST가 아닌 것으로 분류된다&lt;/li&gt;
-&lt;li&gt;현실적으로 그걸 다 지키기는 어렵다. Roy 지도 못하면서!
+      &lt;p&gt;연재 목록&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;/2017/05/22/rest-the-beginning/&quot;&gt;REST - 긴 여정의 시작&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/2017/05/23/rest-http-method-in-html-f
     
     </summary>
     
@@ -113,11 +133,21 @@
     <link href="https://youngiggy.github.io/2017/06/26/rest-the-truth/"/>
     <id>https://youngiggy.github.io/2017/06/26/rest-the-truth/</id>
     <published>2017-06-25T15:41:41.000Z</published>
-    <updated>2017-06-27T14:20:16.000Z</updated>
+    <updated>2017-06-27T16:01:00.000Z</updated>
     
-    <content type="html"><![CDATA[<p>‘RESTful APIs, the big lie’의 댓글 마지막 쯤 누군가 추천해 준 컨텐츠 몇 개를 소개해본다.</p>
-<p><em>이번에도 여전한 오역과 거친 의역에 대해 양해를 구하며..</em></p>
-<h2 id="Untangled"><a href="#Untangled" class="headerlink" title="Untangled"></a>Untangled</h2><p>우선 당사자인 Roy 자신이 쓴 글이 꽤 재미있다.</p>
+    <content type="html"><![CDATA[<p>연재 목록</p>
+<ol>
+<li><a href="/2017/05/22/rest-the-beginning/">REST - 긴 여정의 시작</a></li>
+<li><a href="/2017/05/23/rest-http-method-in-html-form/">REST - HTML Form에서 GET/POST만 지원하는 이유</a></li>
+<li><a href="/2017/05/24/rest-the-dissertation-summary/">REST - 논문(요약) 훑어보기</a></li>
+<li><a href="/2017/06/12/rest-the-big-lie/">REST - REST 좋아하시네</a></li>
+<li><a href="/2017/06/26/rest-the-truth/">REST - Roy가 입을 열다</a></li>
+<li><a href="/2017/06/28/rest-the-coclusion/">REST - 꼭 RESTful 해야할 필요가 있을까?</a></li>
+<li><a href="/2017/06/28/rest-the-dissertation/">REST - 논문 읽기</a></li>
+</ol>
+<h2 id="Untangled"><a href="#Untangled" class="headerlink" title="Untangled"></a>Untangled</h2><p>‘RESTful APIs, the big lie’의 댓글 마지막 쯤 누군가 추천해 준 컨텐츠 몇 개를 소개해본다.</p>
+<p><em>이번에도 여전한 오역과 거친 의역에 대해 양해를 구하며…</em></p>
+<p>우선 당사자인 Roy 자신이 쓴 글이 꽤 재미있다.</p>
 <p>“REST APIs must be hypertext-driven”이란 글이 꽤 유명한 것 같지만</p>
 <p>이것 말고도 Roy가 2008년도에 <a href="http://roy.gbiv.com/untangled/tag/rest" target="_blank" rel="external">REST에 관해 쓴 글</a>을 보면 각기 나름의 재미가 있다. </p>
 <p>예를 들어 이런 글, “POST 써도 괜찮아”</p>
@@ -439,9 +469,10 @@
     
     <summary type="html">
     
-      &lt;p&gt;‘RESTful APIs, the big lie’의 댓글 마지막 쯤 누군가 추천해 준 컨텐츠 몇 개를 소개해본다.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;이번에도 여전한 오역과 거친 의역에 대해 양해를 구하며..&lt;/em&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Untangled&quot;&gt;&lt;
+      &lt;p&gt;연재 목록&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;/2017/05/22/rest-the-beginning/&quot;&gt;REST - 긴 여정의 시작&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/2017/05/23/rest-http-method-in-html-f
     
     </summary>
     
@@ -455,13 +486,23 @@
   </entry>
   
   <entry>
-    <title>REST - 좋아하시네</title>
+    <title>REST - REST 좋아하시네</title>
     <link href="https://youngiggy.github.io/2017/06/12/rest-the-big-lie/"/>
     <id>https://youngiggy.github.io/2017/06/12/rest-the-big-lie/</id>
     <published>2017-06-12T11:41:23.000Z</published>
-    <updated>2017-06-27T14:56:21.000Z</updated>
+    <updated>2017-06-27T16:00:22.000Z</updated>
     
-    <content type="html"><![CDATA[<p>이제 개발자들 사이에 널리 퍼진 REST에 대한 오해를 들춰볼 차례이다.</p>
+    <content type="html"><![CDATA[<p>연재 목록</p>
+<ol>
+<li><a href="/2017/05/22/rest-the-beginning/">REST - 긴 여정의 시작</a></li>
+<li><a href="/2017/05/23/rest-http-method-in-html-form/">REST - HTML Form에서 GET/POST만 지원하는 이유</a></li>
+<li><a href="/2017/05/24/rest-the-dissertation-summary/">REST - 논문(요약) 훑어보기</a></li>
+<li><a href="/2017/06/12/rest-the-big-lie/">REST - REST 좋아하시네</a></li>
+<li><a href="/2017/06/26/rest-the-truth/">REST - Roy가 입을 열다</a></li>
+<li><a href="/2017/06/28/rest-the-coclusion/">REST - 꼭 RESTful 해야할 필요가 있을까?</a></li>
+<li><a href="/2017/06/28/rest-the-dissertation/">REST - 논문 읽기</a></li>
+</ol>
+<h2 id="RESTful-APIs-the-big-lie"><a href="#RESTful-APIs-the-big-lie" class="headerlink" title="RESTful APIs, the big lie"></a>RESTful APIs, the big lie</h2><p>이제 개발자들 사이에 널리 퍼진 REST에 대한 오해를 들춰볼 차례이다.</p>
 <p>이 정성으로 그냥 논문을 읽지 그러냐는 의문도 들 수 있겠지만,</p>
 <p>이 바닥의 수많은 오해를 발견하는 재미도 있었다.</p>
 <h2 id="REST에-관한-끊이지-않는-논쟁"><a href="#REST에-관한-끊이지-않는-논쟁" class="headerlink" title="REST에 관한 끊이지 않는 논쟁"></a>REST에 관한 끊이지 않는 논쟁</h2><p>자신을 “SPA (UI/UX/server) architect and author”라고 소개하고 있는<br><em>Michael S. Mikowski</em>의 <a href="https://mmikowski.github.io/the_lie/" target="_blank" rel="external">RESTful APIs, the big lie</a>라는 자극적인 글과 댓글을 읽고 한번 정리해볼 필요가 있다고 생각했다.</p>
@@ -779,10 +820,10 @@
     
     <summary type="html">
     
-      &lt;p&gt;이제 개발자들 사이에 널리 퍼진 REST에 대한 오해를 들춰볼 차례이다.&lt;/p&gt;
-&lt;p&gt;이 정성으로 그냥 논문을 읽지 그러냐는 의문도 들 수 있겠지만,&lt;/p&gt;
-&lt;p&gt;이 바닥의 수많은 오해를 발견하는 재미도 있었다.&lt;/p&gt;
-&lt;h2 id=&quot;REST에-
+      &lt;p&gt;연재 목록&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;/2017/05/22/rest-the-beginning/&quot;&gt;REST - 긴 여정의 시작&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/2017/05/23/rest-http-method-in-html-f
     
     </summary>
     
@@ -800,9 +841,19 @@
     <link href="https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/"/>
     <id>https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/</id>
     <published>2017-05-24T03:06:17.000Z</published>
-    <updated>2017-06-27T14:09:33.000Z</updated>
+    <updated>2017-06-27T16:01:00.000Z</updated>
     
-    <content type="html"><![CDATA[<p>REST의 사전적인 의미부터 알아보자.</p>
+    <content type="html"><![CDATA[<p>연재 목록</p>
+<ol>
+<li><a href="/2017/05/22/rest-the-beginning/">REST - 긴 여정의 시작</a></li>
+<li><a href="/2017/05/23/rest-http-method-in-html-form/">REST - HTML Form에서 GET/POST만 지원하는 이유</a></li>
+<li><a href="/2017/05/24/rest-the-dissertation-summary/">REST - 논문(요약) 훑어보기</a></li>
+<li><a href="/2017/06/12/rest-the-big-lie/">REST - REST 좋아하시네</a></li>
+<li><a href="/2017/06/26/rest-the-truth/">REST - Roy가 입을 열다</a></li>
+<li><a href="/2017/06/28/rest-the-coclusion/">REST - 꼭 RESTful 해야할 필요가 있을까?</a></li>
+<li><a href="/2017/06/28/rest-the-dissertation/">REST - 논문 읽기</a></li>
+</ol>
+<h2 id="논문"><a href="#논문" class="headerlink" title="논문"></a>논문</h2><p>REST의 사전적인 의미부터 알아보자.</p>
 <p>‘바쁜 개발자들을 위한 REST 논문 요약’을 요약 + WhatIsRest.com + 지난 며칠간 블로그와 댓글을 뒤져가며 얻은 지식 + 내 생각을 적어보려고 한다.</p>
 <h3 id="REST-제약-조건"><a href="#REST-제약-조건" class="headerlink" title="REST 제약 조건"></a>REST 제약 조건</h3><p>Client-Server</p>
 <ul>
@@ -923,9 +974,10 @@
     
     <summary type="html">
     
-      &lt;p&gt;REST의 사전적인 의미부터 알아보자.&lt;/p&gt;
-&lt;p&gt;‘바쁜 개발자들을 위한 REST 논문 요약’을 요약 + WhatIsRest.com + 지난 며칠간 블로그와 댓글을 뒤져가며 얻은 지식 + 내 생각을 적어보려고 한다.&lt;/p&gt;
-&lt;h3 id=&quot;RES
+      &lt;p&gt;연재 목록&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;/2017/05/22/rest-the-beginning/&quot;&gt;REST - 긴 여정의 시작&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/2017/05/23/rest-http-method-in-html-f
     
     </summary>
     
@@ -943,9 +995,19 @@
     <link href="https://youngiggy.github.io/2017/05/23/rest-http-method-in-html-form/"/>
     <id>https://youngiggy.github.io/2017/05/23/rest-http-method-in-html-form/</id>
     <published>2017-05-23T14:12:12.000Z</published>
-    <updated>2017-06-27T14:19:38.000Z</updated>
+    <updated>2017-06-27T16:01:00.000Z</updated>
     
-    <content type="html"><![CDATA[<p>쉬어가는 마음으로 다음 장을 위한 사전 지식을 하나 쌓아보자.</p>
+    <content type="html"><![CDATA[<p>연재 목록</p>
+<ol>
+<li><a href="/2017/05/22/rest-the-beginning/">REST - 긴 여정의 시작</a></li>
+<li><a href="/2017/05/23/rest-http-method-in-html-form/">REST - HTML Form에서 GET/POST만 지원하는 이유</a></li>
+<li><a href="/2017/05/24/rest-the-dissertation-summary/">REST - 논문(요약) 훑어보기</a></li>
+<li><a href="/2017/06/12/rest-the-big-lie/">REST - REST 좋아하시네</a></li>
+<li><a href="/2017/06/26/rest-the-truth/">REST - Roy가 입을 열다</a></li>
+<li><a href="/2017/06/28/rest-the-coclusion/">REST - 꼭 RESTful 해야할 필요가 있을까?</a></li>
+<li><a href="/2017/06/28/rest-the-dissertation/">REST - 논문 읽기</a></li>
+</ol>
+<h2 id="HTML-Form에서-GET-POST만-지원하는-이유"><a href="#HTML-Form에서-GET-POST만-지원하는-이유" class="headerlink" title="HTML Form에서 GET/POST만 지원하는 이유"></a>HTML Form에서 GET/POST만 지원하는 이유</h2><p>쉬어가는 마음으로 다음 장을 위한 사전 지식을 하나 쌓아보자.</p>
 <p><a href="http://jxck.hatenablog.com/entry/why-form-dosent-support-put-delete" target="_blank" rel="external">왜 PUT과 DELETE를 지원하지 않는가</a>에 대한 (일본어로 쓴) 정리</p>
 <ul>
 <li>구글 번역을 돌려보자</li>
@@ -1012,8 +1074,10 @@
     
     <summary type="html">
     
-      &lt;p&gt;쉬어가는 마음으로 다음 장을 위한 사전 지식을 하나 쌓아보자.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://jxck.hatenablog.com/entry/why-form-dosent-support-put-delete&quot; target=&quot;_blank&quot; r
+      &lt;p&gt;연재 목록&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;/2017/05/22/rest-the-beginning/&quot;&gt;REST - 긴 여정의 시작&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/2017/05/23/rest-http-method-in-html-f
     
     </summary>
     
@@ -1031,17 +1095,17 @@
     <link href="https://youngiggy.github.io/2017/05/22/rest-the-beginning/"/>
     <id>https://youngiggy.github.io/2017/05/22/rest-the-beginning/</id>
     <published>2017-05-21T16:30:00.000Z</published>
-    <updated>2017-06-27T14:09:22.000Z</updated>
+    <updated>2017-06-27T16:01:00.000Z</updated>
     
     <content type="html"><![CDATA[<p>연재 목록</p>
 <ol>
-<li>REST - 긴 여정의 시작</li>
-<li>REST - 논문(요약) 훑어보기</li>
-<li>REST - 사전 지식 : HTML Form에서 GET/POST만 지원하는 이유</li>
-<li>REST - REST 좋아하시네</li>
-<li>REST - Roy가 입을 열다</li>
-<li>REST - 결론 : RESTful 해야할 필요가 있을까?</li>
-<li>REST - 논문 읽기</li>
+<li><a href="/2017/05/22/rest-the-beginning/">REST - 긴 여정의 시작</a></li>
+<li><a href="/2017/05/23/rest-http-method-in-html-form/">REST - HTML Form에서 GET/POST만 지원하는 이유</a></li>
+<li><a href="/2017/05/24/rest-the-dissertation-summary/">REST - 논문(요약) 훑어보기</a></li>
+<li><a href="/2017/06/12/rest-the-big-lie/">REST - REST 좋아하시네</a></li>
+<li><a href="/2017/06/26/rest-the-truth/">REST - Roy가 입을 열다</a></li>
+<li><a href="/2017/06/28/rest-the-coclusion/">REST - 꼭 RESTful 해야할 필요가 있을까?</a></li>
+<li><a href="/2017/06/28/rest-the-dissertation/">REST - 논문 읽기</a></li>
 </ol>
 <h2 id="Representational-State-Transfer"><a href="#Representational-State-Transfer" class="headerlink" title="Representational State Transfer"></a>Representational State Transfer</h2><p>가장 중요한, Roy의 실제 논문은 읽지 못했다. 논문의 대략적인 내용은 아래 링크를 걸어둔 이응준님의 블로그로부터 이해를 했다.</p>
 <p>REST와 HTTP를 이해하기 위해 필수적인 representation의 개념도 그 분의 블로그에서 얻을 수 있으니 미리 보고 올 것을 권한다. </p>
@@ -1083,10 +1147,8 @@
     
       &lt;p&gt;연재 목록&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;REST - 긴 여정의 시작&lt;/li&gt;
-&lt;li&gt;REST - 논문(요약) 훑어보기&lt;/li&gt;
-&lt;li&gt;REST - 사전 지식 : HTML Form에서 GET/POST만 지원하는 이유&lt;/li&gt;
-&lt;li&gt;REST - REST
+&lt;li&gt;&lt;a href=&quot;/2017/05/22/rest-the-beginning/&quot;&gt;REST - 긴 여정의 시작&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/2017/05/23/rest-http-method-in-html-f
     
     </summary>
     
@@ -1104,7 +1166,7 @@
     <link href="https://youngiggy.github.io/2017/05/18/learning-api-design/"/>
     <id>https://youngiggy.github.io/2017/05/18/learning-api-design/</id>
     <published>2017-05-18T14:28:44.000Z</published>
-    <updated>2017-06-24T01:55:49.000Z</updated>
+    <updated>2017-06-27T16:17:29.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="API-Design"><a href="#API-Design" class="headerlink" title="API Design"></a>API Design</h2><p>생각해보니 내가 API를 제대로 만들어 본 적이 없었더랬다.</p>
 <p>GraphQL이 재미있어 보이니 써보고는 싶은데, </p>
@@ -1114,7 +1176,7 @@
 <p>나는 정확히 설명할 수 없다.</p>
 <p>그럼 해야지.</p>
 <p>지금까지는 지식 습득의 드라이브를 발표를 통해 얻었다면, 이제 블로그에 정리하면서 익혀보려고 한다.</p>
-<h2 id="what-to-do"><a href="#what-to-do" class="headerlink" title="what to do"></a>what to do</h2><p>‘정확히 알기’ 그 첫번째 과정으로 API 디자인에 도전해본다.</p>
+<h2 id="What-to-do"><a href="#What-to-do" class="headerlink" title="What to do"></a>What to do</h2><p>‘정확히 알기’ 그 첫번째 과정으로 API 디자인에 도전해본다.</p>
 <p>이 시리즈가 끝날 즈음이면 나는</p>
 <ul>
 <li>API 서버를 구축해서 인증을 붙여본다</li>
@@ -1127,18 +1189,11 @@
 <ul>
 <li>HTTP 완벽가이드 릴레이 세미나<ul>
 <li>HTTP 완벽가이드로 적당히 완벽히 알기(금새 또 적당히 적당히 하려는 버릇이..)</li>
-<li><ul>
-<li>몇가지 간단한 책(그림으로 배우는 시리즈)도 참고로 읽기</li>
+<li>여기에 몇가지 간단한 책(그림으로 배우는 시리즈)도 참고로 읽기</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-<h2 id="and-how"><a href="#and-how" class="headerlink" title="and how?"></a>and how?</h2><p>어떻게?</p>
-<ul>
-<li>검색과 블로그와 책으로부터 얻은 지식을 에버노트에 거칠게 정리한 다음</li>
-<li>블로그에 옮겨 담는다</li>
-</ul>
+<h2 id="And-how"><a href="#And-how" class="headerlink" title="And how?"></a>And how?</h2><p>검색과 블로그와 책으로부터 얻은 지식을 에버노트에 거칠게 정리한 다음 블로그에 옮겨 담기로..</p>
 ]]></content>
     
     <summary type="html">
@@ -1160,14 +1215,13 @@
     <link href="https://youngiggy.github.io/2017/05/18/declare/"/>
     <id>https://youngiggy.github.io/2017/05/18/declare/</id>
     <published>2017-05-18T13:02:20.000Z</published>
-    <updated>2017-06-24T01:55:49.000Z</updated>
+    <updated>2017-06-27T16:15:17.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="내가-은연-중-피하려고-했던-것들"><a href="#내가-은연-중-피하려고-했던-것들" class="headerlink" title="내가 은연 중 피하려고 했던 것들"></a>내가 은연 중 피하려고 했던 것들</h2><p>기술 블로그와 신세 한탄이 섞여있겠지만,</p>
 <p>익숙하지 않은 것을 시도해보기로 했다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">그리고 2017.05.18 오늘</div></pre></td></tr></table></figure>
-<p>오랜만에 제창된 임을 위한 행진곡<br><div class="video-container"><iframe src="//www.youtube.com/embed/UdKgerP9O7Q" frameborder="0" allowfullscreen></iframe></div></p>
+<h2 id="그리고-2017-05-18-오늘"><a href="#그리고-2017-05-18-오늘" class="headerlink" title="그리고 2017.05.18 오늘"></a>그리고 2017.05.18 오늘</h2><p>오랜만에 제창된 임을 위한 행진곡<br><div class="video-container"><iframe src="//www.youtube.com/embed/UdKgerP9O7Q" frameborder="0" allowfullscreen></iframe></div></p>
 <p>RIP. Chris Cornell</p>
-<div class="video-container"><iframe src="//www.youtube.com/embed/W5oH1uMCybA" frameborder="0" allowfullscreen></iframe></div>
+<div class="video-container"><iframe src="//www.youtube.com/embed/IuUDRU9-HRk" frameborder="0" allowfullscreen></iframe></div>
 ]]></content>
     
     <summary type="html">
