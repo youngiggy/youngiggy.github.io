@@ -133,7 +133,7 @@
     <link href="https://youngiggy.github.io/2017/06/26/rest-the-truth/"/>
     <id>https://youngiggy.github.io/2017/06/26/rest-the-truth/</id>
     <published>2017-06-25T15:41:41.000Z</published>
-    <updated>2017-06-27T16:01:00.000Z</updated>
+    <updated>2017-06-29T23:09:43.000Z</updated>
     
     <content type="html"><![CDATA[<p>연재 목록</p>
 <ol>
@@ -146,7 +146,7 @@
 <li><a href="/2017/06/28/rest-the-dissertation/">REST - 논문 읽기</a></li>
 </ol>
 <h2 id="Untangled"><a href="#Untangled" class="headerlink" title="Untangled"></a>Untangled</h2><p>‘RESTful APIs, the big lie’의 댓글 마지막 쯤 누군가 추천해 준 컨텐츠 몇 개를 소개해본다.</p>
-<p><em>이번에도 여전한 오역과 거친 의역에 대해 양해를 구하며…</em></p>
+<p><em>(이번에도 여전한 오역과 거친 의역에 대해 양해를 구하며…)</em></p>
 <p>우선 당사자인 Roy 자신이 쓴 글이 꽤 재미있다.</p>
 <p>“REST APIs must be hypertext-driven”이란 글이 꽤 유명한 것 같지만</p>
 <p>이것 말고도 Roy가 2008년도에 <a href="http://roy.gbiv.com/untangled/tag/rest" target="_blank" rel="external">REST에 관해 쓴 글</a>을 보면 각기 나름의 재미가 있다. </p>
@@ -183,7 +183,7 @@
 </li>
 <li>REST API는 이를 설명하려는 대부분의 노력을, 리소스의 representation과 어플리케이션의 상태를 주도할 media type 이나, 존재하는 media type을 활용해 hypertext가 가능한 마크업이나 관계를 정의하는데 써야 한다.<ul>
 <li>어떤 상황의 URI엔 어떤 메소드를 써야한다고 정의하는데 쓰는 노력은 media type을 처리하는 규칙의 범위 안에 완전히 정의되어야 한다.</li>
-<li>실패하는 경우 : hypertext 대신, 서버와 클라이언트 간 주고받는 범위 밖의 정보를 통해 인터렉션을 주도하면 실패한다</li>
+<li>실패하는 경우 : hypertext 대신, 서버와 클라이언트 간 주고받는 범위 밖의 정보(out-of-band information)를 통해 인터렉션을 주도하면 실패한다</li>
 </ul>
 </li>
 <li>REST API는 고정된 리소스나 계층구조를 고정해서는 안 된다(client와 server 간 명백한 결합이다).<ul>
@@ -345,10 +345,8 @@
 <li>REST는 좋은 URL에 관한 것이다 -&gt; 땡<ul>
 <li>RESTful한 URI 같은 건 없다</li>
 <li>중요한 건 hypermedia context<ul>
-<li>그 URI가 client에게 어떻게 노출되는가<ul>
+<li>그 URI가 client에게 어떻게 노출되는가</li>
 <li>서버는 지가 알아서 잘 한다</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -359,26 +357,17 @@
 </ul>
 </li>
 <li>/v1/이런 버저닝은 바보같은 짓이다 하지말자!<ul>
-<li>Data는 괜찮다.<ul>
-<li>document도 괜찮다. 그것도 data니까.</li>
-</ul>
-</li>
-<li>하지만 API에서는 버저닝은 아무 쓸모가 없다. 그 버전이 얼마나 자주 바뀌는 것 같아? API의 정체성은 거의 바뀌지 않는다. 버전을 URI에 넣는다는 것은 API가 아무 이유없이 계속 바뀐다는 의미로 보인다.</li>
-<li>버전이 바뀐다는 것은 URI 구조가 깨진다는 의미이다.</li>
+<li>Data는 괜찮다. document도 괜찮다. 그것도 data니까</li>
+<li>하지만 API에서는 버저닝은 아무 쓸모가 없다. 그 버전이 얼마나 자주 바뀌는 것 같아? API의 정체성은 거의 바뀌지 않는다. 버전을 URI에 넣는다는 것은 API가 아무 이유없이 계속 바뀐다는 의미로 보인다</li>
+<li>버전이 바뀐다는 것은 URI 구조가 깨진다는 의미이다</li>
 <li>버저닝을 하고 싶을 때<ul>
 <li>다른 것을 리턴하고 싶으면 다른 미디어타입을 사용할 것</li>
-<li>URI에 버전을 넣고 싶으면 리소스 자체에 버전을 매겨라. document 같이.</li>
-<li>API에 새로운 관점이 생긴다면 새로운 리소스를 만들어라<ul>
-<li>새로운 걸 만들고 링크를 걸어라. 그게 웹이 잘하는 거잖아.</li>
-</ul>
-</li>
+<li>URI에 버전을 넣고 싶으면 리소스 자체에 버전을 매겨라. document 같이</li>
+<li>API에 새로운 관점이 생긴다면 새로운 리소스를 만들어라. 새로운 걸 만들고 링크를 걸어라. 그게 웹이 잘하는 거잖아</li>
 <li>링크를 위한 공간을 확보할 것</li>
 <li>API가 아닌 document에 버저닝을 할 것</li>
-<li>청중의 질문<ul>
-<li>그럼 헤더에 버전을 심어서 쓰는 건 어떤가?<ul>
-<li>괜찮다. 네 회사 안에서나 한정된 곳에서는 self-descriptive하고 좋다. 그런데 그건 표준화된 건 아니다. 그래서 누군가 그걸 빼먹거나 이해 못할 가능성이 있다.</li>
-</ul>
-</li>
+<li>청중의 질문 : 그럼 헤더에 버전을 심어서 쓰는 건 어떤가?<ul>
+<li>괜찮다. 네 회사 안에서나 한정된 곳에서는 self-descriptive하고 좋다. 그런데 그건 표준화된 건 아니다. 그래서 누군가 그걸 빼먹거나 이해 못할 가능성이 있다</li>
 </ul>
 </li>
 </ul>
@@ -388,10 +377,8 @@
 <li>안정적인 API를 위해 지켜야할 것<ul>
 <li>Client<ul>
 <li>URI 구조에 의존하지 말것</li>
-<li>모르는 링크를 지원하고 모르는 컨텐츠는 무시할 것<ul>
+<li>모르는 링크를 지원하고 모르는 컨텐츠는 무시할 것</li>
 <li>새로운 링크에 대해선 열려있어야 하고, 내가 모르는 필드가 추가됐다면 그냥 무시하면 된다. API는 바뀌기 마련이니.</li>
-</ul>
-</li>
 </ul>
 </li>
 <li>Server<ul>
@@ -425,17 +412,10 @@
 </li>
 <li>hypermedia apis = Responses with links -&gt; 그게 다가 아니다<ul>
 <li>Rule #1. Don’t have clients build URIs using string concatenation<ul>
-<li>대신, 레시피를 제공하라. 이것도 역시 hypermedia이다.<ul>
-<li>다음에 요청할 URI를 만들 수 있는 템플릿을 제공<ul>
+<li>대신, 레시피를 제공하라. 이것도 역시 hypermedia이다.</li>
+<li>다음에 요청할 URI를 만들 수 있는 템플릿을 제공</li>
 <li>이것도 표준이 있다 : <a href="https://tools.ietf.org/html/rfc6570" target="_blank" rel="external">https://tools.ietf.org/html/rfc6570</a></li>
-</ul>
-</li>
-<li>여기서 더 나아가면 default data를 제공하는 폼을 만들 수 있다.<ul>
-<li><a href="https://youtu.be/pspy1H6A3FM?t=2602" target="_blank" rel="external">https://youtu.be/pspy1H6A3FM?t=2602</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li>여기서 더 나아가면 default data를 제공하는 폼을 만들 수 있다. (<a href="https://youtu.be/pspy1H6A3FM?t=2602" target="_blank" rel="external">43:20 지점</a>)</li>
 </ul>
 </li>
 </ul>
