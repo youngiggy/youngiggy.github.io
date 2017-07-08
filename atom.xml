@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://youngiggy.github.io/"/>
-  <updated>2017-07-08T02:59:53.000Z</updated>
+  <updated>2017-07-08T03:01:57.000Z</updated>
   <id>https://youngiggy.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://youngiggy.github.io/2017/06/28/rest-the-dissertation/"/>
     <id>https://youngiggy.github.io/2017/06/28/rest-the-dissertation/</id>
     <published>2017-06-27T15:37:46.000Z</published>
-    <updated>2017-07-08T02:59:53.000Z</updated>
+    <updated>2017-07-08T03:01:57.000Z</updated>
     
     <content type="html"><![CDATA[<p>연재 목록</p>
 <ol>
@@ -30,7 +30,7 @@
 <li><a href="/2017/06/12/rest-the-big-lie/">REST - REST 좋아하시네</a></li>
 <li><a href="/2017/06/26/rest-the-truth/">REST - Roy가 입을 열다</a></li>
 <li><a href="/2017/06/28/rest-the-coclusion/">REST - 당신이 만든 건 REST가 아니지만 괜찮아</a></li>
-<li><a href="/2017/06/28/rest-the-dissertation/">REST - 논문 읽기</a></li>
+<li><a href="/2017/06/28/rest-the-dissertation/">REST - 논문 읽기(To Do)</a></li>
 </ol>
 <h2 id="To-do"><a href="#To-do" class="headerlink" title="To do"></a>To do</h2><p>로이 필딩의 논문을 읽지 못해 생긴 부채를 여기 한장에 남겨둔다.</p>
 <p>언젠가 돌아보다 생각나면 진짜 논문을 읽을 날이 오겠지.</p>
@@ -60,7 +60,7 @@
     <link href="https://youngiggy.github.io/2017/06/28/rest-the-coclusion/"/>
     <id>https://youngiggy.github.io/2017/06/28/rest-the-coclusion/</id>
     <published>2017-06-27T15:15:16.000Z</published>
-    <updated>2017-07-08T02:58:11.000Z</updated>
+    <updated>2017-07-08T03:01:57.000Z</updated>
     
     <content type="html"><![CDATA[<p>연재 목록</p>
 <ol>
@@ -70,7 +70,7 @@
 <li><a href="/2017/06/12/rest-the-big-lie/">REST - REST 좋아하시네</a></li>
 <li><a href="/2017/06/26/rest-the-truth/">REST - Roy가 입을 열다</a></li>
 <li><a href="/2017/06/28/rest-the-coclusion/">REST - 당신이 만든 건 REST가 아니지만 괜찮아</a></li>
-<li><a href="/2017/06/28/rest-the-dissertation/">REST - 논문 읽기</a></li>
+<li><a href="/2017/06/28/rest-the-dissertation/">REST - 논문 읽기(To Do)</a></li>
 </ol>
 <h2 id="Hypertext-HATETOAS-for-API"><a href="#Hypertext-HATETOAS-for-API" class="headerlink" title="Hypertext, HATETOAS for API"></a>Hypertext, HATETOAS for API</h2><p>여러 동영상을 찾아보다, <a href="https://www.youtube.com/watch?v=RY_kMXEJZfk" target="_blank" rel="external">2016년에 진행중인 API 스펙들에 관해 이야기하는 강연</a>을 봤다</p>
 <ul>
@@ -306,7 +306,7 @@
     <link href="https://youngiggy.github.io/2017/06/26/rest-the-truth/"/>
     <id>https://youngiggy.github.io/2017/06/26/rest-the-truth/</id>
     <published>2017-06-25T15:41:41.000Z</published>
-    <updated>2017-07-08T02:59:53.000Z</updated>
+    <updated>2017-07-08T03:01:19.000Z</updated>
     
     <content type="html"><![CDATA[<p>연재 목록</p>
 <ol>
@@ -316,7 +316,7 @@
 <li><a href="/2017/06/12/rest-the-big-lie/">REST - REST 좋아하시네</a></li>
 <li><a href="/2017/06/26/rest-the-truth/">REST - Roy가 입을 열다</a></li>
 <li><a href="/2017/06/28/rest-the-coclusion/">REST - 당신이 만든 건 REST가 아니지만 괜찮아</a></li>
-<li><a href="/2017/06/28/rest-the-dissertation/">REST - 논문 읽기</a></li>
+<li><a href="/2017/06/28/rest-the-dissertation/">REST - 논문 읽기(To Do)</a></li>
 </ol>
 <h2 id="Untangled"><a href="#Untangled" class="headerlink" title="Untangled"></a>Untangled</h2><p>‘RESTful APIs, the big lie’의 댓글 마지막 쯤 누군가 추천해 준 컨텐츠 몇 개를 소개해본다.</p>
 <p><em>(이번에도 여전한 오역과 거친 의역에 대해 양해를 구하며…)</em></p>
@@ -643,7 +643,7 @@
     <link href="https://youngiggy.github.io/2017/06/12/rest-the-big-lie/"/>
     <id>https://youngiggy.github.io/2017/06/12/rest-the-big-lie/</id>
     <published>2017-06-12T11:41:23.000Z</published>
-    <updated>2017-07-08T02:59:53.000Z</updated>
+    <updated>2017-07-08T03:01:57.000Z</updated>
     
     <content type="html"><![CDATA[<p>연재 목록</p>
 <ol>
@@ -653,7 +653,7 @@
 <li><a href="/2017/06/12/rest-the-big-lie/">REST - REST 좋아하시네</a></li>
 <li><a href="/2017/06/26/rest-the-truth/">REST - Roy가 입을 열다</a></li>
 <li><a href="/2017/06/28/rest-the-coclusion/">REST - 당신이 만든 건 REST가 아니지만 괜찮아</a></li>
-<li><a href="/2017/06/28/rest-the-dissertation/">REST - 논문 읽기</a></li>
+<li><a href="/2017/06/28/rest-the-dissertation/">REST - 논문 읽기(To Do)</a></li>
 </ol>
 <h2 id="RESTful-APIs-the-big-lie"><a href="#RESTful-APIs-the-big-lie" class="headerlink" title="RESTful APIs, the big lie"></a>RESTful APIs, the big lie</h2><p>이제 개발자들 사이에 널리 퍼진 REST에 대한 오해를 들춰볼 차례이다.</p>
 <p>이 정성으로 그냥 논문을 읽지 그러냐는 의문도 들 수 있겠지만,</p>
@@ -995,7 +995,7 @@
     <link href="https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/"/>
     <id>https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/</id>
     <published>2017-05-24T03:06:17.000Z</published>
-    <updated>2017-07-08T02:59:53.000Z</updated>
+    <updated>2017-07-08T03:01:57.000Z</updated>
     
     <content type="html"><![CDATA[<p>연재 목록</p>
 <ol>
@@ -1005,7 +1005,7 @@
 <li><a href="/2017/06/12/rest-the-big-lie/">REST - REST 좋아하시네</a></li>
 <li><a href="/2017/06/26/rest-the-truth/">REST - Roy가 입을 열다</a></li>
 <li><a href="/2017/06/28/rest-the-coclusion/">REST - 당신이 만든 건 REST가 아니지만 괜찮아</a></li>
-<li><a href="/2017/06/28/rest-the-dissertation/">REST - 논문 읽기</a></li>
+<li><a href="/2017/06/28/rest-the-dissertation/">REST - 논문 읽기(To Do)</a></li>
 </ol>
 <h2 id="논문"><a href="#논문" class="headerlink" title="논문"></a>논문</h2><p>REST의 사전적인 의미부터 알아보자.</p>
 <p>‘바쁜 개발자들을 위한 REST 논문 요약’을 요약 + WhatIsRest.com + 지난 며칠간 블로그와 댓글을 뒤져가며 얻은 지식 + 내 생각을 적어보려고 한다.</p>
@@ -1149,7 +1149,7 @@
     <link href="https://youngiggy.github.io/2017/05/23/rest-http-method-in-html-form/"/>
     <id>https://youngiggy.github.io/2017/05/23/rest-http-method-in-html-form/</id>
     <published>2017-05-23T14:12:12.000Z</published>
-    <updated>2017-07-08T02:59:53.000Z</updated>
+    <updated>2017-07-08T03:01:57.000Z</updated>
     
     <content type="html"><![CDATA[<p>연재 목록</p>
 <ol>
@@ -1159,7 +1159,7 @@
 <li><a href="/2017/06/12/rest-the-big-lie/">REST - REST 좋아하시네</a></li>
 <li><a href="/2017/06/26/rest-the-truth/">REST - Roy가 입을 열다</a></li>
 <li><a href="/2017/06/28/rest-the-coclusion/">REST - 당신이 만든 건 REST가 아니지만 괜찮아</a></li>
-<li><a href="/2017/06/28/rest-the-dissertation/">REST - 논문 읽기</a></li>
+<li><a href="/2017/06/28/rest-the-dissertation/">REST - 논문 읽기(To Do)</a></li>
 </ol>
 <h2 id="HTML-Form에서-GET-POST만-지원하는-이유"><a href="#HTML-Form에서-GET-POST만-지원하는-이유" class="headerlink" title="HTML Form에서 GET/POST만 지원하는 이유"></a>HTML Form에서 GET/POST만 지원하는 이유</h2><p>쉬어가는 마음으로 다음 장을 위한 사전 지식을 하나 쌓아보자.</p>
 <p><a href="http://jxck.hatenablog.com/entry/why-form-dosent-support-put-delete" target="_blank" rel="external">왜 PUT과 DELETE를 지원하지 않는가</a>에 대한 (일본어로 쓴) 정리</p>
@@ -1249,7 +1249,7 @@
     <link href="https://youngiggy.github.io/2017/05/22/rest-the-beginning/"/>
     <id>https://youngiggy.github.io/2017/05/22/rest-the-beginning/</id>
     <published>2017-05-21T16:30:00.000Z</published>
-    <updated>2017-07-08T02:59:53.000Z</updated>
+    <updated>2017-07-08T03:01:57.000Z</updated>
     
     <content type="html"><![CDATA[<p>연재 목록</p>
 <ol>
@@ -1259,7 +1259,7 @@
 <li><a href="/2017/06/12/rest-the-big-lie/">REST - REST 좋아하시네</a></li>
 <li><a href="/2017/06/26/rest-the-truth/">REST - Roy가 입을 열다</a></li>
 <li><a href="/2017/06/28/rest-the-coclusion/">REST - 당신이 만든 건 REST가 아니지만 괜찮아</a></li>
-<li><a href="/2017/06/28/rest-the-dissertation/">REST - 논문 읽기</a></li>
+<li><a href="/2017/06/28/rest-the-dissertation/">REST - 논문 읽기(To Do)</a></li>
 </ol>
 <h2 id="Representational-State-Transfer"><a href="#Representational-State-Transfer" class="headerlink" title="Representational State Transfer"></a>Representational State Transfer</h2><p>가장 중요한, Roy의 실제 논문은 읽지 못했다. 논문의 대략적인 내용은 아래 링크를 걸어둔 이응준님의 블로그로부터 이해를 했다.</p>
 <p>REST와 HTTP를 이해하기 위해 필수적인 representation의 개념도 그 분의 블로그에서 얻을 수 있으니 미리 보고 올 것을 권한다. </p>
