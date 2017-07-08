@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://youngiggy.github.io/"/>
-  <updated>2017-06-27T16:01:00.000Z</updated>
+  <updated>2017-07-08T02:59:53.000Z</updated>
   <id>https://youngiggy.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://youngiggy.github.io/2017/06/28/rest-the-dissertation/"/>
     <id>https://youngiggy.github.io/2017/06/28/rest-the-dissertation/</id>
     <published>2017-06-27T15:37:46.000Z</published>
-    <updated>2017-06-27T16:01:00.000Z</updated>
+    <updated>2017-07-08T02:59:53.000Z</updated>
     
     <content type="html"><![CDATA[<p>연재 목록</p>
 <ol>
@@ -29,7 +29,7 @@
 <li><a href="/2017/05/24/rest-the-dissertation-summary/">REST - 논문(요약) 훑어보기</a></li>
 <li><a href="/2017/06/12/rest-the-big-lie/">REST - REST 좋아하시네</a></li>
 <li><a href="/2017/06/26/rest-the-truth/">REST - Roy가 입을 열다</a></li>
-<li><a href="/2017/06/28/rest-the-coclusion/">REST - 꼭 RESTful 해야할 필요가 있을까?</a></li>
+<li><a href="/2017/06/28/rest-the-coclusion/">REST - 당신이 만든 건 REST가 아니지만 괜찮아</a></li>
 <li><a href="/2017/06/28/rest-the-dissertation/">REST - 논문 읽기</a></li>
 </ol>
 <h2 id="To-do"><a href="#To-do" class="headerlink" title="To do"></a>To do</h2><p>로이 필딩의 논문을 읽지 못해 생긴 부채를 여기 한장에 남겨둔다.</p>
@@ -60,7 +60,7 @@
     <link href="https://youngiggy.github.io/2017/06/28/rest-the-coclusion/"/>
     <id>https://youngiggy.github.io/2017/06/28/rest-the-coclusion/</id>
     <published>2017-06-27T15:15:16.000Z</published>
-    <updated>2017-07-08T02:55:58.000Z</updated>
+    <updated>2017-07-08T02:58:11.000Z</updated>
     
     <content type="html"><![CDATA[<p>연재 목록</p>
 <ol>
@@ -270,7 +270,8 @@
 <p>하나만 기억하자,</p>
 <p>서버와 클라이언트가 서로의 눈치를 보며 변화/발전을 두려워 하고 있다면(즉, 서로에게 강한 의존성을 갖고 있다면),</p>
 <p>그건 REST가 아니다.(하지만 괜찮다. REST라고 안 부르면 되니까.)</p>
-<p>서버와 클라이언트는 프로토콜/표준을 통한 약한 의존성을 가져야 한다. </p>
+<p>서버와 클라이언트는 변화에 대응하기 위해 프로토콜/표준을 통한 약한 의존성을 가져야 한다.</p>
+<p>아니 이건 수십년 간 소프트웨어 엔지니어링이 강조하고 있는 것이 아닌가!</p>
 <p>마지막으로 아래의 관점도 생각해볼 만 하다.</p>
 <p><a href="https://www.thoughtworks.com/insights/blog/rest-api-design-resource-modeling" target="_blank" rel="external">REST API Design - Resource Modeling</a></p>
 <ul>
@@ -305,7 +306,7 @@
     <link href="https://youngiggy.github.io/2017/06/26/rest-the-truth/"/>
     <id>https://youngiggy.github.io/2017/06/26/rest-the-truth/</id>
     <published>2017-06-25T15:41:41.000Z</published>
-    <updated>2017-06-29T23:09:43.000Z</updated>
+    <updated>2017-07-08T02:59:53.000Z</updated>
     
     <content type="html"><![CDATA[<p>연재 목록</p>
 <ol>
@@ -314,7 +315,7 @@
 <li><a href="/2017/05/24/rest-the-dissertation-summary/">REST - 논문(요약) 훑어보기</a></li>
 <li><a href="/2017/06/12/rest-the-big-lie/">REST - REST 좋아하시네</a></li>
 <li><a href="/2017/06/26/rest-the-truth/">REST - Roy가 입을 열다</a></li>
-<li><a href="/2017/06/28/rest-the-coclusion/">REST - 꼭 RESTful 해야할 필요가 있을까?</a></li>
+<li><a href="/2017/06/28/rest-the-coclusion/">REST - 당신이 만든 건 REST가 아니지만 괜찮아</a></li>
 <li><a href="/2017/06/28/rest-the-dissertation/">REST - 논문 읽기</a></li>
 </ol>
 <h2 id="Untangled"><a href="#Untangled" class="headerlink" title="Untangled"></a>Untangled</h2><p>‘RESTful APIs, the big lie’의 댓글 마지막 쯤 누군가 추천해 준 컨텐츠 몇 개를 소개해본다.</p>
@@ -642,7 +643,7 @@
     <link href="https://youngiggy.github.io/2017/06/12/rest-the-big-lie/"/>
     <id>https://youngiggy.github.io/2017/06/12/rest-the-big-lie/</id>
     <published>2017-06-12T11:41:23.000Z</published>
-    <updated>2017-06-29T22:48:03.000Z</updated>
+    <updated>2017-07-08T02:59:53.000Z</updated>
     
     <content type="html"><![CDATA[<p>연재 목록</p>
 <ol>
@@ -651,7 +652,7 @@
 <li><a href="/2017/05/24/rest-the-dissertation-summary/">REST - 논문(요약) 훑어보기</a></li>
 <li><a href="/2017/06/12/rest-the-big-lie/">REST - REST 좋아하시네</a></li>
 <li><a href="/2017/06/26/rest-the-truth/">REST - Roy가 입을 열다</a></li>
-<li><a href="/2017/06/28/rest-the-coclusion/">REST - 꼭 RESTful 해야할 필요가 있을까?</a></li>
+<li><a href="/2017/06/28/rest-the-coclusion/">REST - 당신이 만든 건 REST가 아니지만 괜찮아</a></li>
 <li><a href="/2017/06/28/rest-the-dissertation/">REST - 논문 읽기</a></li>
 </ol>
 <h2 id="RESTful-APIs-the-big-lie"><a href="#RESTful-APIs-the-big-lie" class="headerlink" title="RESTful APIs, the big lie"></a>RESTful APIs, the big lie</h2><p>이제 개발자들 사이에 널리 퍼진 REST에 대한 오해를 들춰볼 차례이다.</p>
@@ -994,7 +995,7 @@
     <link href="https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/"/>
     <id>https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/</id>
     <published>2017-05-24T03:06:17.000Z</published>
-    <updated>2017-06-29T22:23:52.000Z</updated>
+    <updated>2017-07-08T02:59:53.000Z</updated>
     
     <content type="html"><![CDATA[<p>연재 목록</p>
 <ol>
@@ -1003,7 +1004,7 @@
 <li><a href="/2017/05/24/rest-the-dissertation-summary/">REST - 논문(요약) 훑어보기</a></li>
 <li><a href="/2017/06/12/rest-the-big-lie/">REST - REST 좋아하시네</a></li>
 <li><a href="/2017/06/26/rest-the-truth/">REST - Roy가 입을 열다</a></li>
-<li><a href="/2017/06/28/rest-the-coclusion/">REST - 꼭 RESTful 해야할 필요가 있을까?</a></li>
+<li><a href="/2017/06/28/rest-the-coclusion/">REST - 당신이 만든 건 REST가 아니지만 괜찮아</a></li>
 <li><a href="/2017/06/28/rest-the-dissertation/">REST - 논문 읽기</a></li>
 </ol>
 <h2 id="논문"><a href="#논문" class="headerlink" title="논문"></a>논문</h2><p>REST의 사전적인 의미부터 알아보자.</p>
@@ -1148,7 +1149,7 @@
     <link href="https://youngiggy.github.io/2017/05/23/rest-http-method-in-html-form/"/>
     <id>https://youngiggy.github.io/2017/05/23/rest-http-method-in-html-form/</id>
     <published>2017-05-23T14:12:12.000Z</published>
-    <updated>2017-06-29T22:20:21.000Z</updated>
+    <updated>2017-07-08T02:59:53.000Z</updated>
     
     <content type="html"><![CDATA[<p>연재 목록</p>
 <ol>
@@ -1157,7 +1158,7 @@
 <li><a href="/2017/05/24/rest-the-dissertation-summary/">REST - 논문(요약) 훑어보기</a></li>
 <li><a href="/2017/06/12/rest-the-big-lie/">REST - REST 좋아하시네</a></li>
 <li><a href="/2017/06/26/rest-the-truth/">REST - Roy가 입을 열다</a></li>
-<li><a href="/2017/06/28/rest-the-coclusion/">REST - 꼭 RESTful 해야할 필요가 있을까?</a></li>
+<li><a href="/2017/06/28/rest-the-coclusion/">REST - 당신이 만든 건 REST가 아니지만 괜찮아</a></li>
 <li><a href="/2017/06/28/rest-the-dissertation/">REST - 논문 읽기</a></li>
 </ol>
 <h2 id="HTML-Form에서-GET-POST만-지원하는-이유"><a href="#HTML-Form에서-GET-POST만-지원하는-이유" class="headerlink" title="HTML Form에서 GET/POST만 지원하는 이유"></a>HTML Form에서 GET/POST만 지원하는 이유</h2><p>쉬어가는 마음으로 다음 장을 위한 사전 지식을 하나 쌓아보자.</p>
@@ -1248,7 +1249,7 @@
     <link href="https://youngiggy.github.io/2017/05/22/rest-the-beginning/"/>
     <id>https://youngiggy.github.io/2017/05/22/rest-the-beginning/</id>
     <published>2017-05-21T16:30:00.000Z</published>
-    <updated>2017-06-27T16:01:00.000Z</updated>
+    <updated>2017-07-08T02:59:53.000Z</updated>
     
     <content type="html"><![CDATA[<p>연재 목록</p>
 <ol>
@@ -1257,7 +1258,7 @@
 <li><a href="/2017/05/24/rest-the-dissertation-summary/">REST - 논문(요약) 훑어보기</a></li>
 <li><a href="/2017/06/12/rest-the-big-lie/">REST - REST 좋아하시네</a></li>
 <li><a href="/2017/06/26/rest-the-truth/">REST - Roy가 입을 열다</a></li>
-<li><a href="/2017/06/28/rest-the-coclusion/">REST - 꼭 RESTful 해야할 필요가 있을까?</a></li>
+<li><a href="/2017/06/28/rest-the-coclusion/">REST - 당신이 만든 건 REST가 아니지만 괜찮아</a></li>
 <li><a href="/2017/06/28/rest-the-dissertation/">REST - 논문 읽기</a></li>
 </ol>
 <h2 id="Representational-State-Transfer"><a href="#Representational-State-Transfer" class="headerlink" title="Representational State Transfer"></a>Representational State Transfer</h2><p>가장 중요한, Roy의 실제 논문은 읽지 못했다. 논문의 대략적인 내용은 아래 링크를 걸어둔 이응준님의 블로그로부터 이해를 했다.</p>
