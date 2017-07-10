@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/index.html">
 <meta property="og:site_name" content="ha-ah">
 <meta property="og:description" content="연재 목록  REST - 긴 여정의 시작 REST - HTML Form에서 GET/POST만 지원하는 이유 REST - 논문(요약) 훑어보기 REST - REST 좋아하시네 REST - Roy가 입을 열다 REST - 당신이 만든 건 REST가 아니지만 괜찮아 REST - 논문 읽기(To Do)  논문REST의 사전적인 의미부터 알아보자. ‘바쁜 개발자들을">
-<meta property="og:updated_time" content="2017-07-10T15:04:10.000Z">
+<meta property="og:updated_time" content="2017-07-10T15:16:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="REST - 논문(요약) 훑어보기">
 <meta name="twitter:description" content="연재 목록  REST - 긴 여정의 시작 REST - HTML Form에서 GET/POST만 지원하는 이유 REST - 논문(요약) 훑어보기 REST - REST 좋아하시네 REST - Roy가 입을 열다 REST - 당신이 만든 건 REST가 아니지만 괜찮아 REST - 논문 읽기(To Do)  논문REST의 사전적인 의미부터 알아보자. ‘바쁜 개발자들을">
@@ -208,6 +208,12 @@
 <p>RESTful 응용 프로그램은 동일한 URI에서 동일한 자원의 표현을 둘 이상 지원할 수 있다.</p>
 <h4 id="3-self-descriptive-messages"><a href="#3-self-descriptive-messages" class="headerlink" title="3. self-descriptive messages"></a>3. self-descriptive messages</h4><p>요청이나 응답 메시지에는 이후 처리를 위한 모든 정보가 들어 있어야 한다.</p>
 <h4 id="4-hypermedia-as-the-engine-of-application-state"><a href="#4-hypermedia-as-the-engine-of-application-state" class="headerlink" title="4. hypermedia as the engine of application state"></a>4. hypermedia as the engine of application state</h4><p>줄여서 HATEOAS라고도 하지만 REST를 사랑하는 이들은 종종 이렇게 줄여부르는 걸 싫어하기도 한다(똑똑하고 재수없게 보이려면 ‘HATEOAS라고 줄여 부르는 건 바보같다’라고 말하면 된다).</p>
+<p>훗날 블로그에서 Roy는 이 부분을 가장 강조하는데, 어쩌면 사람들이 가장 안 지키고 있기 때문일 지도 모르다는 생각을 했다.  </p>
+<p>그리고 이를 언급할 때 주로 hypertext라는 표현을 사용한다.</p>
+<p>논문에서 hypermedia라고 한 것은 단지 text가 아닌 매체를 고려했기 때문이고,</p>
+<p>일반적인 API에서는 거의 hypertext라고 표현하면 된다.</p>
+<p>음? 우리가 HTML 페이지에서 맨날 보는 그 hypertext라는 용어가 맞나?</p>
+<p>맞다. 제시된 hypertext 위에서 application 상태를 변경하는 주체가 client가 되어야 한다는 게 핵심이다.</p>
 <p>조대협님의 블로그에는 <code>HTTP Response에 다음 Action이나 관계되는 리소스에 대한 HTTP Link를 함께 리턴하는 것</code>이라고 언급이 되어 있다.</p>
 <ul>
 <li>뭔가…이상한데…틀렸다고 하기는 뭣 하지만 온전히 이해가 되는 문장은 또 아니다. 다른 사람의 의견을 더 들어보자</li>
