@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://youngiggy.github.io/"/>
-  <updated>2017-07-08T03:01:57.000Z</updated>
+  <updated>2017-07-10T15:38:19.000Z</updated>
   <id>https://youngiggy.github.io/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>REST - 논문 읽기</title>
+    <title>REST - 논문 읽기(To Do)</title>
     <link href="https://youngiggy.github.io/2017/06/28/rest-the-dissertation/"/>
     <id>https://youngiggy.github.io/2017/06/28/rest-the-dissertation/</id>
     <published>2017-06-27T15:37:46.000Z</published>
-    <updated>2017-07-08T03:01:57.000Z</updated>
+    <updated>2017-07-10T15:38:19.000Z</updated>
     
     <content type="html"><![CDATA[<p>연재 목록</p>
 <ol>
@@ -60,7 +60,7 @@
     <link href="https://youngiggy.github.io/2017/06/28/rest-the-coclusion/"/>
     <id>https://youngiggy.github.io/2017/06/28/rest-the-coclusion/</id>
     <published>2017-06-27T15:15:16.000Z</published>
-    <updated>2017-07-09T15:33:43.000Z</updated>
+    <updated>2017-07-10T15:44:56.000Z</updated>
     
     <content type="html"><![CDATA[<p>연재 목록</p>
 <ol>
@@ -114,10 +114,8 @@
 <p>다만, 그동안 통용됐던 의미의 REST를 통칭할 수 있는 새로운 용어가 필요하다는 말이다.</p>
 <p>마지막으로 이 글을 읽어보자.</p>
 <p>이 글에서 그동안 REST라고 잘못 명명된 몇가지 구현 원칙을 RESOURCEful API라는 새로운 이름으로 재정의하고 있다.</p>
-<p>Your API isn’t RESTful — And That’s Good</p>
-<ul>
-<li><a href="https://medium.com/@trevorhreed/you-re-api-isn-t-restful-and-that-s-good-b2662079cf0e" target="_blank" rel="external">https://medium.com/@trevorhreed/you-re-api-isn-t-restful-and-that-s-good-b2662079cf0e</a></li>
-<li>The Background<ul>
+<h2 id="Your-API-isn’t-RESTful-—-And-That’s-Good"><a href="#Your-API-isn’t-RESTful-—-And-That’s-Good" class="headerlink" title="Your API isn’t RESTful — And That’s Good"></a>Your API isn’t RESTful — And That’s Good</h2><p><a href="https://medium.com/@trevorhreed/you-re-api-isn-t-restful-and-that-s-good-b2662079cf0e" target="_blank" rel="external">링크</a></p>
+<h4 id="The-Background"><a href="#The-Background" class="headerlink" title="The Background"></a>The Background</h4><ul>
 <li>2000년에 로이 필딩은 Architectural Styles and the Design of Network-based Software Architectures라는 논문을 발표한다</li>
 <li>비슷한 시기(1999년)에 Web 2.0이니 시맨틱 웹이니 자신들의 아이디어를 더욱 혁신적으로 보이게 만들어주는 유행어가 등장한다</li>
 <li>이 아이디어는 웹 서비스로 이어지고 SOAP이나 XML-RPC같은 웹 서비스를 구현하기 위한 많은 사양이 나타나기 시작했다</li>
@@ -131,8 +129,7 @@
 <li>로이 필딩의 노력에도 불구하고, 인터넷은 REST라는 용어를 납치하여 도망쳤다</li>
 <li>REST, RESTful, REST API 등의 용어는 모든 종류의 API 구현체에 사용되고 있다.</li>
 </ul>
-</li>
-<li>The Problem<ul>
+<h4 id="The-Problem"><a href="#The-Problem" class="headerlink" title="The Problem"></a>The Problem</h4><ul>
 <li>API 개발을 하려는 많은 사람들이 REST를 API 구축을 위한 일련의 베스트 프랙티스로 인식한다</li>
 <li>REST를 제대로 이해한다면, 그게 자신들이 예상한 것과 다르다는 걸 깨닫는다</li>
 <li>이해하는 것과는 상관없이, 그게 자신들이 필요로 하는 것보다 많다는 걸 깨닫는다</li>
@@ -144,14 +141,12 @@
 <li>많은 웹 API는 이와는 대조적으로 클라이언트와 강하게 결합되어 있고 하이퍼미디어가 부족하기 때문에 REST의 원칙을 위한한다</li>
 <li>API의 엔드포인트는 클라이언트가 개발될 때 이미 알고 있고, 클라이언트 안에 하드코딩 되어 있기 때문에, API의 엔드포인트를 발견하기 위한 하이퍼미디어 사용은 불필요하다</li>
 </ul>
-</li>
-<li>The Solution<ul>
+<h4 id="The-Solution"><a href="#The-Solution" class="headerlink" title="The Solution"></a>The Solution</h4><ul>
 <li>우리가 필요로하는 것은 밀접하게 결합 된 웹 API의 일반적인 사용 사례를 공식적으로 정의하고 표준화하는 것이다</li>
 <li>혼란을 종식시키기 위해서는이 개념을 새로 명명해야한다</li>
 <li>이를 통해 커뮤니티는 “REST”의 개념과 혼란과는 별개로 강력한 표준 및 모범 사례를 구축 할 수 있다</li>
 </ul>
-</li>
-<li>RESOURCEful APIs: A New Name, An Old Concept<ul>
+<h4 id="RESOURCEful-APIs-A-New-Name-An-Old-Concept"><a href="#RESOURCEful-APIs-A-New-Name-An-Old-Concept" class="headerlink" title="RESOURCEful APIs: A New Name, An Old Concept"></a>RESOURCEful APIs: A New Name, An Old Concept</h4><ul>
 <li>RESOURCEful API : 새로운 이름, 오래된 개념</li>
 <li>다음의 조건을 만족할 때 RESOURCEful하다고 간주된다<ul>
 <li>API는 HTTP를 전송 레이어로 사용해야만 한다 (MUST)</li>
@@ -182,7 +177,7 @@
 </li>
 <li>또한 아래와 같은 우수 사례를 권장한다<ul>
 <li>URL을 소문자로 만들기</li>
-<li>특정 HTTP 메소드나 상태코드를 지원하지 않는 클라이언트를 위한 대체 수단을 만들기<ul>
+<li>특정 HTTP 메소드나 상태코드를 지원하지 않는 client를 위한 대체 수단을 만들기<ul>
 <li>예를 들어 JSONP는 모든 응답에 200 상태 코드를 필요로 한다</li>
 </ul>
 </li>
@@ -192,8 +187,7 @@
 </ul>
 </li>
 </ul>
-</li>
-<li>Examples &amp; References<ul>
+<h4 id="Examples-amp-References"><a href="#Examples-amp-References" class="headerlink" title="Examples &amp; References"></a>Examples &amp; References</h4><ul>
 <li>일반적인 HTTP 메소드<ul>
 <li>GET — safe, idempotent —요청된 URL에서 리소스의 representation을 검색한다</li>
 <li>POST — not safe, not idempotent — 제출된 리소스의 representation을 요청된 URL 아래 새로운 위치에 생성한다</li>
@@ -236,17 +230,14 @@
 </ul>
 </li>
 </ul>
-</li>
-<li><p>Example: Doctors Office API</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">Resource API Endpoints:</div><div class="line"></div><div class="line">GET    /customers</div><div class="line">POST  /customers</div><div class="line">GET    /customers/&lt;id&gt;</div><div class="line">PUT    /customers/&lt;id&gt;</div><div class="line">PATCH  /customers/&lt;id&gt;</div><div class="line">DELETE /customers/&lt;id&gt;</div><div class="line">GET    /customers/&lt;id&gt;/appointments</div><div class="line">POST  /customers/&lt;id&gt;/appointments</div><div class="line">GET    /customers/&lt;id&gt;/appointments/&lt;id&gt;</div><div class="line">PUT    /customers/&lt;id&gt;/appointments/&lt;id&gt;</div><div class="line">PATCH  /customers/&lt;id&gt;/appointments/&lt;id&gt;</div><div class="line">DELETE /customers/&lt;id&gt;/appointments/&lt;id&gt;</div><div class="line">GET    /customers/&lt;id&gt;/cell_phone</div><div class="line">PUT    /customers/&lt;id&gt;/cell_phone</div><div class="line"></div><div class="line"></div><div class="line">Asynchronous Task Queue API Endpoints:</div><div class="line"></div><div class="line">GET    /outgoing-emails</div><div class="line">POST  /outgoing-emails</div><div class="line">GET    /outgoing-emails/&lt;id&gt;</div><div class="line">PUT    /outgoing-emails/&lt;id&gt;</div><div class="line">PATCH  /outgoing-emails/&lt;id&gt;</div><div class="line">DELETE /outgoing-emails/&lt;id&gt;</div><div class="line"></div><div class="line"></div><div class="line">Synchronous Agent API Endpoints:</div><div class="line"></div><div class="line">GET    /patient-discharger</div><div class="line">GET    /patient-discharger/&lt;id&gt;</div><div class="line">POST  /patient-discharger</div><div class="line">DELETE /patient-discharger/&lt;id&gt;</div></pre></td></tr></table></figure>
-</li>
-<li><p>더 읽을 거리</p>
-<ul>
+<h4 id="Example-Doctors-Office-API"><a href="#Example-Doctors-Office-API" class="headerlink" title="Example: Doctors Office API"></a>Example: Doctors Office API</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">Resource API Endpoints:</div><div class="line"></div><div class="line">GET    /customers</div><div class="line">POST  /customers</div><div class="line">GET    /customers/&lt;id&gt;</div><div class="line">PUT    /customers/&lt;id&gt;</div><div class="line">PATCH  /customers/&lt;id&gt;</div><div class="line">DELETE /customers/&lt;id&gt;</div><div class="line">GET    /customers/&lt;id&gt;/appointments</div><div class="line">POST  /customers/&lt;id&gt;/appointments</div><div class="line">GET    /customers/&lt;id&gt;/appointments/&lt;id&gt;</div><div class="line">PUT    /customers/&lt;id&gt;/appointments/&lt;id&gt;</div><div class="line">PATCH  /customers/&lt;id&gt;/appointments/&lt;id&gt;</div><div class="line">DELETE /customers/&lt;id&gt;/appointments/&lt;id&gt;</div><div class="line">GET    /customers/&lt;id&gt;/cell_phone</div><div class="line">PUT    /customers/&lt;id&gt;/cell_phone</div><div class="line"></div><div class="line"></div><div class="line">Asynchronous Task Queue API Endpoints:</div><div class="line"></div><div class="line">GET    /outgoing-emails</div><div class="line">POST  /outgoing-emails</div><div class="line">GET    /outgoing-emails/&lt;id&gt;</div><div class="line">PUT    /outgoing-emails/&lt;id&gt;</div><div class="line">PATCH  /outgoing-emails/&lt;id&gt;</div><div class="line">DELETE /outgoing-emails/&lt;id&gt;</div><div class="line"></div><div class="line"></div><div class="line">Synchronous Agent API Endpoints:</div><div class="line"></div><div class="line">GET    /patient-discharger</div><div class="line">GET    /patient-discharger/&lt;id&gt;</div><div class="line">POST  /patient-discharger</div><div class="line">DELETE /patient-discharger/&lt;id&gt;</div></pre></td></tr></table></figure>
+<h4 id="더-읽을-거리"><a href="#더-읽을-거리" class="headerlink" title="더 읽을 거리"></a>더 읽을 거리</h4><ul>
 <li>아래와 같은 사이트는 모범사례로써가 아닌 RESTful API에 대한 혼란을 일으키는 사례로 포함시킨다<ul>
 <li><a href="http://www.bitnative.com/2012/08/26/how-restful-is-your-api/" target="_blank" rel="external">http://www.bitnative.com/2012/08/26/how-restful-is-your-api/</a></li>
 <li><a href="http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#method-override" target="_blank" rel="external">http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#method-override</a></li>
 <li><a href="http://vvv.tobiassjosten.net/development/your-api-is-not-restful/" target="_blank" rel="external">http://vvv.tobiassjosten.net/development/your-api-is-not-restful/</a></li>
-<li><a href="https://mmikowski.github.io/the_lie/" target="_blank" rel="external">https://mmikowski.github.io/the_lie/</a></li>
+<li><a href="https://mmikowski.github.io/the_lie/" target="_blank" rel="external">https://mmikowski.github.io/the_lie/</a><ul>
+<li>반가운 얼굴이다!</li>
 </ul>
 </li>
 </ul>
