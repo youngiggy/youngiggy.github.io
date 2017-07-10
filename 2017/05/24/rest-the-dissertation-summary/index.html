@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/index.html">
 <meta property="og:site_name" content="ha-ah">
 <meta property="og:description" content="연재 목록  REST - 긴 여정의 시작 REST - HTML Form에서 GET/POST만 지원하는 이유 REST - 논문(요약) 훑어보기 REST - REST 좋아하시네 REST - Roy가 입을 열다 REST - 당신이 만든 건 REST가 아니지만 괜찮아 REST - 논문 읽기(To Do)  논문REST의 사전적인 의미부터 알아보자. ‘바쁜 개발자들을">
-<meta property="og:updated_time" content="2017-07-09T15:02:29.000Z">
+<meta property="og:updated_time" content="2017-07-10T15:04:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="REST - 논문(요약) 훑어보기">
 <meta name="twitter:description" content="연재 목록  REST - 긴 여정의 시작 REST - HTML Form에서 GET/POST만 지원하는 이유 REST - 논문(요약) 훑어보기 REST - REST 좋아하시네 REST - Roy가 입을 열다 REST - 당신이 만든 건 REST가 아니지만 괜찮아 REST - 논문 읽기(To Do)  논문REST의 사전적인 의미부터 알아보자. ‘바쁜 개발자들을">
@@ -105,7 +105,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#논문"><span class="toc-number">1.</span> <span class="toc-text">논문</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#REST-제약-조건"><span class="toc-number">1.1.</span> <span class="toc-text">REST 제약 조건</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#thanks-to"><span class="toc-number">2.</span> <span class="toc-text">thanks to</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#논문"><span class="toc-number">1.</span> <span class="toc-text">논문</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#REST-제약-조건"><span class="toc-number">2.</span> <span class="toc-text">REST 제약 조건</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Client-Server"><span class="toc-number">2.1.</span> <span class="toc-text">Client-Server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Stateless"><span class="toc-number">2.2.</span> <span class="toc-text">Stateless</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cache"><span class="toc-number">2.3.</span> <span class="toc-text">Cache</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Uniform-Interface"><span class="toc-number">2.4.</span> <span class="toc-text">Uniform Interface</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-identification-of-resources"><span class="toc-number">2.4.1.</span> <span class="toc-text">1. identification of resources</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-manipulation-of-resources-through-representation"><span class="toc-number">2.4.2.</span> <span class="toc-text">2. manipulation of resources through representation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-self-descriptive-messages"><span class="toc-number">2.4.3.</span> <span class="toc-text">3. self-descriptive messages</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-hypermedia-as-the-engine-of-application-state"><span class="toc-number">2.4.4.</span> <span class="toc-text">4. hypermedia as the engine of application state</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Layered-System"><span class="toc-number">2.5.</span> <span class="toc-text">Layered System</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Code-On-Demand-Optional"><span class="toc-number">2.6.</span> <span class="toc-text">Code-On-Demand (Optional)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#thanks-to"><span class="toc-number">3.</span> <span class="toc-text">thanks to</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -156,74 +156,64 @@
 </ol>
 <h2 id="논문"><a href="#논문" class="headerlink" title="논문"></a>논문</h2><p>REST의 사전적인 의미부터 알아보자.</p>
 <p>‘바쁜 개발자들을 위한 REST 논문 요약’을 요약 + WhatIsRest.com + 지난 며칠간 블로그와 댓글을 뒤져가며 얻은 지식 + 내 생각을 적어보려고 한다.</p>
-<h3 id="REST-제약-조건"><a href="#REST-제약-조건" class="headerlink" title="REST 제약 조건"></a>REST 제약 조건</h3><p>Client-Server</p>
+<h2 id="REST-제약-조건"><a href="#REST-제약-조건" class="headerlink" title="REST 제약 조건"></a>REST 제약 조건</h2><p>논문에서는 아무것도 없는 웹 스타일에서 시작해, 제약 조건을 하나씩 추가해 나가며 REST 스타일을 유도해 나가는 과정을 통해 REST를 설명한다.</p>
+<ol>
+<li>Starting with the Null Style</li>
+<li>Client-Server</li>
+<li>Stateless</li>
+<li>Cache</li>
+<li>Uniform Interface</li>
+<li>Layered System</li>
+<li>Code-On-Demand</li>
+</ol>
+<p>각 제약 조건을 취하면서 발생하는 trade-off도 언급하고 있으나 여기서는 넘어가기로 한다.</p>
+<h3 id="Client-Server"><a href="#Client-Server" class="headerlink" title="Client-Server"></a>Client-Server</h3><p>보통 생각하는 서버-클라이언트를 의미.</p>
+<p>여기서 의문이 들었던 게, Client-Server라는 게 과연 제약조건이라고 할 수 있는 건가? 그러니까, 제약 조건을 어기는 게 과연 가능한가?</p>
+<p>이 제약조건은 클라이언트와 서버의 역할을 명확하게 구분한다 정도로 생각하면 될 것 같다.</p>
+<p>서로의 관심사를 분리하여 각각의 로직의 독립적인 진화를 지원해야 한다(중요).</p>
+<h3 id="Stateless"><a href="#Stateless" class="headerlink" title="Stateless"></a>Stateless</h3><p>모든 요청은 필요한 모든 정보를 담고 있어야한다.</p>
+<p>요청 하나만 봐도 바로 뭔지 알 수 있으므로 가시성이 확보된다.</p>
+<p>API 문외한 입장에서 가장 이해가 안 됐던 부분 중 하나였다. 인증을 위해 쿠키를 심고 세션에서 필요한 정보를 가져오는 경우, 이는 stateless인가 아닌가?</p>
 <ul>
-<li>보통 생각하는 서버-클라이언트를 의미</li>
-<li>여기서 의문이 들었던 게, Client-Server라는 게 과연 제약조건이라고 할 수 있는 건가? 그러니까, 제약 조건을 어기는 게 과연 가능한가?</li>
-<li>이 제약조건은 클라이언트와 서버의 역할을 명확하게 구분한다 정도로 생각하면 될 것 같다</li>
-<li>서로의 관심사를 분리하여 각각의 로직의 독립적인 진화를 지원해야 한다(중요)</li>
-</ul>
-<p>Stateless</p>
-<ul>
-<li>모든 요청은 필요한 모든 정보를 담고 있어야한다</li>
-<li>요청 하나만 봐도 바로 뭔지 알 수 있으므로 가시성이 확보된다</li>
-<li>API 문외한 입장에서 가장 이해가 안 됐던 부분 중 하나였다. 인증을 위해 쿠키를 심고 세션에서 필요한 정보를 가져오는 경우, 이는 stateless인가 아닌가?<ul>
 <li>정답 : Session 정보 활용한다면 stateless가 아니다</li>
 </ul>
-</li>
-<li>REST에서는 각각의 요청에 서버가 필요한 정보가 모두 담겨야 한다</li>
-</ul>
-<p>Cache</p>
+<p>REST에서는 각각의 요청에 서버가 필요한 정보가 모두 담겨야 한다.</p>
+<h3 id="Cache"><a href="#Cache" class="headerlink" title="Cache"></a>Cache</h3><p>모든 서버 응답은 캐시 가능한 지 그렇지 않은 지 알 수 있어야 한다.</p>
+<p>캐시를 고려한 설계가 필요하다.</p>
+<h3 id="Uniform-Interface"><a href="#Uniform-Interface" class="headerlink" title="Uniform Interface"></a>Uniform Interface</h3><p>구성요소(클라이언트, 서버 등) 사이의 인터페이스는 균일(uniform)해야한다.</p>
 <ul>
-<li>모든 서버 응답은 캐시 가능한지 그렇지 아닌지 알 수 있어야한다</li>
-<li>캐시를 고려한 설계가 필요하다</li>
-</ul>
-<p>Uniform Interface</p>
-<ul>
-<li>구성요소(클라이언트, 서버 등) 사이의 인터페이스는 균일(uniform)해야한다<ul>
 <li>이것만으로는 무슨 말인지 모르겠다</li>
 </ul>
-</li>
-<li>WhatIsREST.com의 내용을 구글 번역으로 돌려보면<br><code>소비자는 많은 소비자와 서비스에서 표준화 된 방법, 미디어 유형 및 공통 리소스 식별자 구문을 통해 서비스 기능에 액세스합니다</code><br>라고 나오는데, 미디어 유형이나 리소스 식별자 등을 의미하는 문법이 구성요소나 호환 시스템 간 동일해야 한다</li>
-<li><p>균일한 인터페이스가 필요한 것은</p>
+<p>WhatIsREST.com의 내용을 구글 번역으로 돌려보면 </p>
 <ul>
-<li>서버 입장에선 어떤 클라이언트든 상관없이(내가 보내주는 것을 이해할 수 있을까 걱정없이) 표준에 의한 응답을 해줄 수 있고,</li>
-<li>클라이언트 입장에선 hypertext를 통해 다음 상태로의 이동을 해야하는데, 표준화된 방식을 통해 해당 서버의 특성을 알 필요가 없어진다.</li>
-<li>서로의 특성을 알지 못해도 커뮤니케이션이 가능할 수 있어야, 각각 독립적으로 진화할 수 있는 유연한 시스템이 만들어진다. </li>
+<li><code>소비자는 많은 소비자와 서비스에서 표준화 된 방법, 미디어 유형 및 공통 리소스 식별자 구문을 통해 서비스 기능에 액세스합니다</code>라고 나오는데,<br>미디어 유형이나 리소스 식별자 등을 의미하는 문법이 구성요소나 호환 시스템 간 동일해야 한다는 의미</li>
 </ul>
-</li>
-<li><p>REST는 <a href="http://exyus.com/articles/rest-the-short-version/" target="_blank" rel="external">네가지 Interface 제약조건</a>으로 정의된다</p>
+<p>균일한 인터페이스가 필요한 이유는</p>
 <ul>
-<li>identification of resources<ul>
-<li>리소스는 용어는 물리적으로 저장된 특정 객체를 의미하는 게 아니고 하나의 추상적 개념으로 이해해야 한다</li>
-<li>구글 번역으로 좀 더 상세히 살펴보자<ul>
+<li>서버 입장에선 어떤 클라이언트든 상관없이(내가 보내주는 것을 이해할 수 있을까 걱정없이) 표준에 의한 응답을 해줄 수 있고</li>
+<li>클라이언트 입장에선 hypertext를 통해 다음 상태로의 이동을 해야하는데, 표준화된 방식을 통해 해당 서버의 특성을 알 필요가 없어진다</li>
+<li>서로의 특성을 알지 못해도 커뮤니케이션이 가능할 수 있어야, 각각 독립적으로 진화할 수 있는 유연한 시스템이 만들어진다</li>
+</ul>
+<p>REST는 <a href="http://exyus.com/articles/rest-the-short-version/" target="_blank" rel="external">네가지 Interface 제약조건</a>으로 정의된다</p>
+<h4 id="1-identification-of-resources"><a href="#1-identification-of-resources" class="headerlink" title="1. identification of resources"></a>1. identification of resources</h4><p>여기서 리소스라는 용어는 물리적으로 저장된 특정 객체를 의미하는 게 아니고 하나의 추상적 개념으로 이해해야 한다.</p>
+<p><a href="http://exyus.com/articles/rest-the-short-version/" target="_blank" rel="external">네가지 Interface 제약조건</a>에서 언급된 내용을 구글 번역으로 좀 더 상세히 살펴보자.</p>
+<ul>
 <li>이 자원의 추상적 정의는 웹 아키텍처의 핵심 기능을 가능하게 합니다</li>
 <li>유형이나 구현에 따라 인위적으로 구별하지 않고 많은 정보 소스를 포괄함으로써 보편성을 제공합니다 </li>
 <li>표현에 대한 참조의 늦은 바인딩을 허용하여 요청의 특성에 따라 내용 협상을 수행 할 수 있습니다 </li>
 <li>저자는 개념의 단수 표현보다는 개념을 참조 할 수 있으므로 표현이 바뀔 때마다 기존의 모든 링크를 변경할 필요가 없습니다</li>
 </ul>
-</li>
-</ul>
-</li>
-<li>manipulation of resources through representation<ul>
-<li>representation의 개념은 <a href="https://blog.npcode.com/2017/04/03/rest%EC%9D%98-representation%EC%9D%B4%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80/" target="_blank" rel="external">이응준님 블로그</a>에서 다루고 있다</li>
-<li>리소스의 표현계층(representation)을 리소스의 식별자(URL)로부터 분리한 것은 REST에서 아주 주요한 관점이다</li>
-<li>RESTful 응용 프로그램은 동일한 URI에서 동일한 자원의 표현을 둘 이상 지원할 수 있다</li>
-</ul>
-</li>
-<li>self-descriptive messages<ul>
-<li>요청이나 응답 메시지에는 이후 처리를 위한 모든 정보가 들어 있어야 한다</li>
-<li>논문에서 이를 설명하는 문구를 보자<br><code>REST enables intermediate processing by constraining messages to be self-descriptive: interaction is stateless between requests, standard methods and media types are used to indicate semantics and exchange information, and responses explicitly indicate cacheability.</code></li>
-</ul>
-</li>
-<li>hypermedia as the engine of application state<ul>
-<li>= HATEOAS</li>
-<li>조대협님의 블로그에 언급되기를, <code>HTTP Response에 다음 Action이나 관계되는 리소스에 대한 HTTP Link를 함께 리턴하는 것</code><ul>
+<h4 id="2-manipulation-of-resources-through-representation"><a href="#2-manipulation-of-resources-through-representation" class="headerlink" title="2. manipulation of resources through representation"></a>2. manipulation of resources through representation</h4><p>representation의 개념은 <a href="https://blog.npcode.com/2017/04/03/rest%EC%9D%98-representation%EC%9D%B4%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80/" target="_blank" rel="external">이응준님 블로그</a>에서 다루고 있다.</p>
+<p>리소스의 표현계층(representation)을 리소스의 식별자(URL)로부터 분리한 것은 REST에서 아주 주요한 관점이다.</p>
+<p>RESTful 응용 프로그램은 동일한 URI에서 동일한 자원의 표현을 둘 이상 지원할 수 있다.</p>
+<h4 id="3-self-descriptive-messages"><a href="#3-self-descriptive-messages" class="headerlink" title="3. self-descriptive messages"></a>3. self-descriptive messages</h4><p>요청이나 응답 메시지에는 이후 처리를 위한 모든 정보가 들어 있어야 한다.</p>
+<h4 id="4-hypermedia-as-the-engine-of-application-state"><a href="#4-hypermedia-as-the-engine-of-application-state" class="headerlink" title="4. hypermedia as the engine of application state"></a>4. hypermedia as the engine of application state</h4><p>줄여서 HATEOAS라고도 하지만 REST를 사랑하는 이들은 종종 이렇게 줄여부르는 걸 싫어하기도 한다(똑똑하고 재수없게 보이려면 ‘HATEOAS라고 줄여 부르는 건 바보같다’라고 말하면 된다).</p>
+<p>조대협님의 블로그에는 <code>HTTP Response에 다음 Action이나 관계되는 리소스에 대한 HTTP Link를 함께 리턴하는 것</code>이라고 언급이 되어 있다.</p>
+<ul>
 <li>뭔가…이상한데…틀렸다고 하기는 뭣 하지만 온전히 이해가 되는 문장은 또 아니다. 다른 사람의 의견을 더 들어보자</li>
 </ul>
-</li>
-<li><a href="https://community.oracle.com/blogs/mkarg/2010/02/14/what-hateoas-actually-means" target="_blank" rel="external">What HATEOAS actually means</a><ul>
-<li>요약(사실 이 부분은 그냥 안 읽고 통과해도 됨)<ul>
+<p><a href="https://community.oracle.com/blogs/mkarg/2010/02/14/what-hateoas-actually-means" target="_blank" rel="external">What HATEOAS actually means</a></p>
+<ul>
 <li>다들 혼란스러워하는 것 같은데 직접 로이 필딩에게 물어보지 그래?</li>
 <li>로이의 문장은 명확하고, 모호하지도 않으니 그냥 읽어보길 바란다</li>
 <li>로이가 HTTP 표준의 기여자라는 것을 잘 생각해보자</li>
@@ -241,33 +231,18 @@
 <li>HATEOAS를 정확히 구현한 것은 문서안에 있는 링크다</li>
 <li>HATEOAS라는 다음 상태 변경을 위한 링크(form 링크 등)를 제공해야 한다는 것</li>
 </ul>
-</li>
-</ul>
-</li>
-<li>이 문서도 좀 제멋대로 해석한 부분이 있는데, Roy는 단지 HTTP만을 염두에 둔 게 아니다. HTTP이거나 HTML 문서이거나 그런 게 중요한 게 아니다 </li>
-<li>HATEOAS라는 걸 응답에 다음 액션에 관한 링크를 전달하는 것 정도로 생각하면 안 된다<ul>
+<p>이 문서도 좀 제멋대로 해석한 부분이 있는데, Roy는 단지 HTTP만을 염두에 둔 게 아니다. HTTP이거나 HTML 문서이거나 그런 게 중요한 게 아니다.<br>HATEOAS라는 걸 응답에 다음 액션에 관한 링크를 전달하는 것 정도로 생각하면 안 된다.</p>
+<ul>
 <li>응답에 링크를 주렁주렁 달고 다니면 HATEOAS가 되는가? NO!</li>
 <li>서버는 Hypermedia를 통해 다음 액션에 대한 선택지를 클라이언트에게 줘야한다</li>
 <li>클라이언트는 서버의 독자적인 진화에 영향을 받아선 안 되며, 서버 상의 구현에 의존하면 안 된다</li>
 </ul>
-</li>
-<li>결국 HATETOAS의 목적은 (서버-클라이언트 간 의존성을 분리해야만 가능한) 독자적인 진화와 확장을 보조하는 것이며, hypermedia는 그 목적을 이루는 데 기여해야 한다   </li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>Layered System </p>
-<ul>
-<li>클라이언트든 서버든 미들웨어 구성요소를 추가할 수 있는 구조</li>
-<li>하지만 Client-Server 사이에선 그 구성요소가 추가되는지, 다른 서비스와 추가로 통신하는 지 여부는 관심없다</li>
-<li>특정 서비스와 소비자 간의 상호 작용을 일관성있게 유지해야 한다</li>
-</ul>
-<p>Code-On-Demand (Optional)</p>
-<ul>
-<li>서버가 네트워크를 통해 클라이언트에 프로그램을 전달하면 그 프로그램이 클라이언트에서 실행될 수 있어야한다. (Java applet이나 Javascript 같은 것을 말함)</li>
-<li>다만 이 제약조건은 필수는 아니다</li>
-</ul>
+<p>결국 HATETOAS의 목적은 (서버-클라이언트 간 의존성을 분리해야만 가능한) 독자적인 진화와 확장을 보조하는 것이며, hypermedia는 그 목적을 이루는 데 기여해야 한다   </p>
+<h3 id="Layered-System"><a href="#Layered-System" class="headerlink" title="Layered System"></a>Layered System</h3><p>클라이언트든 서버든 미들웨어 구성요소를 추가할 수 있는 구조.</p>
+<p>하지만 Client-Server 사이에선 그 구성요소가 추가되는지, 다른 서비스와 추가로 통신하는 지 여부는 관심없다.</p>
+<p>특정 서비스와 소비자 간의 상호 작용을 일관성있게 유지해야 한다.</p>
+<h3 id="Code-On-Demand-Optional"><a href="#Code-On-Demand-Optional" class="headerlink" title="Code-On-Demand (Optional)"></a>Code-On-Demand (Optional)</h3><p>서버가 네트워크를 통해 클라이언트에 프로그램을 전달하면 그 프로그램이 클라이언트에서 실행될 수 있어야한다. (Java applet이나 Javascript 같은 것을 말함).</p>
+<p>다만 이 제약조건은 필수는 아니다.</p>
 <h2 id="thanks-to"><a href="#thanks-to" class="headerlink" title="thanks to"></a>thanks to</h2><p><a href="http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm" target="_blank" rel="external">로이 필딩의 논문</a></p>
 <p><a href="https://blog.npcode.com/" target="_blank" rel="external">이응준님의 블로그</a>에서 많은 영감을 얻음</p>
 <p><a href="http://whatisrest.com" target="_blank" rel="external">WhatIsREST.com</a></p>
@@ -303,7 +278,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#논문"><span class="toc-number">1.</span> <span class="toc-text">논문</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#REST-제약-조건"><span class="toc-number">1.1.</span> <span class="toc-text">REST 제약 조건</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#thanks-to"><span class="toc-number">2.</span> <span class="toc-text">thanks to</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#논문"><span class="toc-number">1.</span> <span class="toc-text">논문</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#REST-제약-조건"><span class="toc-number">2.</span> <span class="toc-text">REST 제약 조건</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Client-Server"><span class="toc-number">2.1.</span> <span class="toc-text">Client-Server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Stateless"><span class="toc-number">2.2.</span> <span class="toc-text">Stateless</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cache"><span class="toc-number">2.3.</span> <span class="toc-text">Cache</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Uniform-Interface"><span class="toc-number">2.4.</span> <span class="toc-text">Uniform Interface</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-identification-of-resources"><span class="toc-number">2.4.1.</span> <span class="toc-text">1. identification of resources</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-manipulation-of-resources-through-representation"><span class="toc-number">2.4.2.</span> <span class="toc-text">2. manipulation of resources through representation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-self-descriptive-messages"><span class="toc-number">2.4.3.</span> <span class="toc-text">3. self-descriptive messages</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-hypermedia-as-the-engine-of-application-state"><span class="toc-number">2.4.4.</span> <span class="toc-text">4. hypermedia as the engine of application state</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Layered-System"><span class="toc-number">2.5.</span> <span class="toc-text">Layered System</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Code-On-Demand-Optional"><span class="toc-number">2.6.</span> <span class="toc-text">Code-On-Demand (Optional)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#thanks-to"><span class="toc-number">3.</span> <span class="toc-text">thanks to</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
