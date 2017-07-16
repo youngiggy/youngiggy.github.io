@@ -60,7 +60,7 @@
     <link href="https://youngiggy.github.io/2017/06/28/rest-the-coclusion/"/>
     <id>https://youngiggy.github.io/2017/06/28/rest-the-coclusion/</id>
     <published>2017-06-27T15:15:16.000Z</published>
-    <updated>2017-07-16T13:52:57.000Z</updated>
+    <updated>2017-07-16T13:56:28.000Z</updated>
     
     <content type="html"><![CDATA[<p>연재 목록</p>
 <ol>
@@ -143,7 +143,7 @@
 </ul>
 <h4 id="The-Solution"><a href="#The-Solution" class="headerlink" title="The Solution"></a>The Solution</h4><ul>
 <li>우리가 필요로하는 것은 밀접하게 결합 된 웹 API의 일반적인 사용 사례를 공식적으로 정의하고 표준화하는 것이다</li>
-<li>혼란을 종식시키기 위해서는이 개념을 새로 명명해야한다</li>
+<li>혼란을 종식시키기 위해서는 이 개념을 새로 명명해야한다</li>
 <li>이를 통해 커뮤니티는 “REST”의 개념과 혼란과는 별개로 강력한 표준 및 모범 사례를 구축 할 수 있다</li>
 </ul>
 <h4 id="RESOURCEful-APIs-A-New-Name-An-Old-Concept"><a href="#RESOURCEful-APIs-A-New-Name-An-Old-Concept" class="headerlink" title="RESOURCEful APIs: A New Name, An Old Concept"></a>RESOURCEful APIs: A New Name, An Old Concept</h4><ul>
