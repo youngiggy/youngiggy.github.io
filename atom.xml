@@ -60,7 +60,7 @@
     <link href="https://youngiggy.github.io/2017/06/28/rest-the-coclusion/"/>
     <id>https://youngiggy.github.io/2017/06/28/rest-the-coclusion/</id>
     <published>2017-06-27T15:15:16.000Z</published>
-    <updated>2017-07-16T14:24:13.000Z</updated>
+    <updated>2017-07-16T14:26:01.000Z</updated>
     
     <content type="html"><![CDATA[<p>연재 목록</p>
 <ol>
@@ -160,7 +160,7 @@
 </ul>
 </li>
 <li>실제 동작을 나타내는 API 호출은 작업큐 혹은 작업 대행자로 표시되어야 한다. 이 둘은 여전히 명사이다. 이들의 동작을 트리거하는 데는 HTTP POST 메소드가 사용되어야 한다<ul>
-<li>역주) 의역하자면 “동작을 나타내는 API는 그 동작을 명사로 나타내야 하며, 이때 HTTP 메소드는 POST를 사용한다” 정도로 하면 될 것 같다</li>
+<li>역주) 의역하자면 “동작을 나타내는 API는 그 동작 자체를 명사로 나타내야 하며, 이때 HTTP 메소드는 POST를 사용한다” 정도로 하면 될 것 같다</li>
 </ul>
 </li>
 <li>구현된 HTTP 메소드는 HTTP Method sepc에 따라 정의된 목적으로 사용되어야 한다</li>
