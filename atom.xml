@@ -60,7 +60,7 @@
     <link href="https://youngiggy.github.io/2017/06/28/rest-the-coclusion/"/>
     <id>https://youngiggy.github.io/2017/06/28/rest-the-coclusion/</id>
     <published>2017-06-27T15:15:16.000Z</published>
-    <updated>2017-07-16T14:26:01.000Z</updated>
+    <updated>2017-07-16T14:28:09.000Z</updated>
     
     <content type="html"><![CDATA[<p>연재 목록</p>
 <ol>
@@ -163,10 +163,10 @@
 <li>역주) 의역하자면 “동작을 나타내는 API는 그 동작 자체를 명사로 나타내야 하며, 이때 HTTP 메소드는 POST를 사용한다” 정도로 하면 될 것 같다</li>
 </ul>
 </li>
-<li>구현된 HTTP 메소드는 HTTP Method sepc에 따라 정의된 목적으로 사용되어야 한다</li>
+<li>구현된 HTTP 메소드는 HTTP Method spec에 따라 정의된 목적으로 사용되어야 한다</li>
 <li>구현된 HTTP 메소드는 안전함(Safe)과 멱등성(Idempotent) 원칙을 준수해야 한다</li>
 <li>HTTP 상태코드는 정의된 용도에 따라 모든 응답에서 사용되어야 한다<ul>
-<li>200은 다른 가능한 상태코드가 있을 지라도 모든 성공적인 요청 결과의 응답 코드로 사용할 수 있다</li>
+<li>200은 다른 가능한 상태코드가 있을 지라도 모든 성공적인 요청 결과의 응답 코드로 사용 수 있다</li>
 </ul>
 </li>
 <li>요청이나 응답의 본문은 자원, 자원의 모음 혹은 자원의 특성을 나타내야 한다</li>
