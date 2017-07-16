@@ -60,7 +60,7 @@
     <link href="https://youngiggy.github.io/2017/06/28/rest-the-coclusion/"/>
     <id>https://youngiggy.github.io/2017/06/28/rest-the-coclusion/</id>
     <published>2017-06-27T15:15:16.000Z</published>
-    <updated>2017-07-16T13:56:28.000Z</updated>
+    <updated>2017-07-16T14:15:12.000Z</updated>
     
     <content type="html"><![CDATA[<p>연재 목록</p>
 <ol>
@@ -151,7 +151,7 @@
 <li>다음의 조건을 만족할 때 RESOURCEful하다고 간주된다<ul>
 <li>API는 HTTP를 전송 레이어로 사용해야만 한다 (MUST)</li>
 <li>모든 API 엔드 포인트(URL)은 명사로 구성되어야 하며, 리소스, 리소스 모음 또는 리소스 속성을 나타낸다</li>
-<li>주로 컬렉션에 속한 리소스는 컬렉션 URL을 접두어로 하는 URL에서 접근할 수 있어야 한다<ul>
+<li>컬렉션에 속한 리소스는 컬렉션 URL을 접두어로 하는 URL에서 접근할 수 있어야 한다<ul>
 <li>리소스에 속한 서브 컬렉션이나 속성은 리소스의 URL을 접두어로 해서 접근할 수 있어야 한다</li>
 </ul>
 </li>
