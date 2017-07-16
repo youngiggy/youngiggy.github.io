@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://youngiggy.github.io/2017/06/28/rest-the-coclusion/index.html">
 <meta property="og:site_name" content="ha-ah">
 <meta property="og:description" content="연재 목록  REST - 긴 여정의 시작 REST - HTML Form에서 GET/POST만 지원하는 이유 REST - 논문(요약) 훑어보기 REST - REST 좋아하시네 REST - Roy가 입을 열다 REST - 당신이 만든 건 REST가 아니지만 괜찮아 REST - 논문 읽기(To Do)  Hypertext, HATETOAS for API여러 동영상">
-<meta property="og:updated_time" content="2017-07-16T14:15:12.000Z">
+<meta property="og:updated_time" content="2017-07-16T14:24:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="REST - 당신이 만든 건 REST가 아니지만 괜찮아">
 <meta name="twitter:description" content="연재 목록  REST - 긴 여정의 시작 REST - HTML Form에서 GET/POST만 지원하는 이유 REST - 논문(요약) 훑어보기 REST - REST 좋아하시네 REST - Roy가 입을 열다 REST - 당신이 만든 건 REST가 아니지만 괜찮아 REST - 논문 읽기(To Do)  Hypertext, HATETOAS for API여러 동영상">
@@ -242,7 +242,10 @@
 <li>다른 모든 매개변수는 쿼리 문자열 혹은 헤더에 있어야 한다</li>
 </ul>
 </li>
-<li>실제로 동작을 나타내는 API 호출은 작업큐 혹은 작업 대행자로 표시되어야 한다. 이 둘은 여전히 명사이다. 이들의 동작을 트리거하는 데는 HTTP POST 메소드가 사용되어야 한다</li>
+<li>실제 동작을 나타내는 API 호출은 작업큐 혹은 작업 대행자로 표시되어야 한다. 이 둘은 여전히 명사이다. 이들의 동작을 트리거하는 데는 HTTP POST 메소드가 사용되어야 한다<ul>
+<li>역주) 의역하자면 “동작을 나타내는 API는 그 동작을 명사로 나타내야 하며, 이때 HTTP 메소드는 POST를 사용한다” 정도로 하면 될 것 같다</li>
+</ul>
+</li>
 <li>구현된 HTTP 메소드는 HTTP Method sepc에 따라 정의된 목적으로 사용되어야 한다</li>
 <li>구현된 HTTP 메소드는 안전함(Safe)과 멱등성(Idempotent) 원칙을 준수해야 한다</li>
 <li>HTTP 상태코드는 정의된 용도에 따라 모든 응답에서 사용되어야 한다<ul>
