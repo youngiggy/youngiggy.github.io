@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://youngiggy.github.io/"/>
-  <updated>2017-07-26T17:18:46.000Z</updated>
+  <updated>2017-08-03T04:49:56.000Z</updated>
   <id>https://youngiggy.github.io/</id>
   
   <author>
@@ -14,6 +14,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Resource Hints and Preload</title>
+    <link href="https://youngiggy.github.io/2017/08/03/resource-hints-and-preload/"/>
+    <id>https://youngiggy.github.io/2017/08/03/resource-hints-and-preload/</id>
+    <published>2017-08-03T04:41:26.000Z</published>
+    <updated>2017-08-03T04:49:56.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>애드센스 승인을 받으려면 글을 꾸준히 쓰거나 404로 떨어지는 링크가 없어야 한다는 말이 있어서 최근 발표자료나 올려봐야겠다.</p>
+<p>자료 : <a href="https://docs.google.com/presentation/d/1hk4bNM3uqz6TfqYX7fbjwMX6kujaGpYuN6x9b9qK_F0/edit?usp=sharing" target="_blank" rel="external">Resource Hints and Preload</a></p>
+<p>prefetch를 비롯한 resource hints와 preload에 대해 연구한 결과.</p>
+<p>사실 원래 코드에는 회사 소스 구조도 있었지만, 논란이 될 수 있으니 제거하고 공유한다. </p>
+<p>발표일 : 2017년 6월</p>
+<ul>
+<li>사내에서 발표하고 일부 preload 적용</li>
+<li>모던 PHP 유저그룹 정기 모임에서 발표함</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;애드센스 승인을 받으려면 글을 꾸준히 쓰거나 404로 떨어지는 링크가 없어야 한다는 말이 있어서 최근 발표자료나 올려봐야겠다.&lt;/p&gt;
+&lt;p&gt;자료 : &lt;a href=&quot;https://docs.google.com/presentation/d/1hk4bN
+    
+    </summary>
+    
+    
+      <category term="HTML5" scheme="https://youngiggy.github.io/tags/HTML5/"/>
+    
+      <category term="preload" scheme="https://youngiggy.github.io/tags/preload/"/>
+    
+  </entry>
   
   <entry>
     <title>script의 async를 둘러싼 스펙 탐험</title>
