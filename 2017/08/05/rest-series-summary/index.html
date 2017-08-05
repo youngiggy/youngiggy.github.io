@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="ha-ah">
 <meta property="og:description" content="REST에 관해 연구했던 내용을 공개하고 가장 많이 받은 피드백은, ‘간단히 말해보라’는 것이었다. 간단한 문제가 아니라서 여전히 간단히는 말할 수는 없지만, 널리 퍼지기 좋게 몇 가지 문장으로 (자극적으로!) 정리할 필요를 느꼈다. 이 글 조차도 다 읽지 않고 비판하는 사람이 많을 것을 알고 있지만,  “뭘 그렇게 복잡하게 생각해? 피곤한 친구구만”  나">
 <meta property="og:image" content="https://pbs.twimg.com/media/Cvx0q3RXgAUW7FK.jpg">
-<meta property="og:updated_time" content="2017-08-05T03:26:21.000Z">
+<meta property="og:updated_time" content="2017-08-05T14:51:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="REST 연구 요약본">
 <meta name="twitter:description" content="REST에 관해 연구했던 내용을 공개하고 가장 많이 받은 피드백은, ‘간단히 말해보라’는 것이었다. 간단한 문제가 아니라서 여전히 간단히는 말할 수는 없지만, 널리 퍼지기 좋게 몇 가지 문장으로 (자극적으로!) 정리할 필요를 느꼈다. 이 글 조차도 다 읽지 않고 비판하는 사람이 많을 것을 알고 있지만,  “뭘 그렇게 복잡하게 생각해? 피곤한 친구구만”  나">
@@ -106,7 +106,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#REST"><span class="toc-number">1.</span> <span class="toc-text">REST</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Roy-T-Fielding"><span class="toc-number">1.1.</span> <span class="toc-text">Roy T. Fielding</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#REST는-어렵다"><span class="toc-number">1.2.</span> <span class="toc-text">REST는 어렵다</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#REST가-의미하는-것"><span class="toc-number">1.3.</span> <span class="toc-text">REST가 의미하는 것</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RESTful하지-않은-이유"><span class="toc-number">2.</span> <span class="toc-text">RESTful하지 않은 이유</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#클라이언트와-서버가-지나치게-결합되어-있기-때문이다"><span class="toc-number">2.1.</span> <span class="toc-text">클라이언트와 서버가 지나치게 결합되어 있기 때문이다.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hypermedia-as-the-engine-of-application-state"><span class="toc-number">2.2.</span> <span class="toc-text">hypermedia as the engine of application state.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#표준"><span class="toc-number">2.3.</span> <span class="toc-text">표준</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ROA-Resource-Oriented-Architecture"><span class="toc-number">3.</span> <span class="toc-text">ROA(Resource-Oriented Architecture)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#당신이-만든-건-REST가-아니지만-괜찮아"><span class="toc-number">4.</span> <span class="toc-text">당신이 만든 건 REST가 아니지만 괜찮아</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Moder-PHP-User-Group-8월-발표자료"><span class="toc-number">5.</span> <span class="toc-text">Moder PHP User Group 8월 발표자료</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#REST"><span class="toc-number">1.</span> <span class="toc-text">REST</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Roy-T-Fielding"><span class="toc-number">1.1.</span> <span class="toc-text">Roy T. Fielding</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#REST는-어렵다"><span class="toc-number">1.2.</span> <span class="toc-text">REST는 어렵다</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#REST가-의미하는-것"><span class="toc-number">1.3.</span> <span class="toc-text">REST가 의미하는 것</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#그-많은-API가-RESTful하지-않은-이유"><span class="toc-number">2.</span> <span class="toc-text">그 많은 API가 RESTful하지 않은 이유</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#클라이언트와-서버가-지나치게-결합되어-있기-때문이다"><span class="toc-number">2.1.</span> <span class="toc-text">클라이언트와 서버가 지나치게 결합되어 있기 때문이다.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hypermedia-as-the-engine-of-application-state"><span class="toc-number">2.2.</span> <span class="toc-text">hypermedia as the engine of application state.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#표준"><span class="toc-number">2.3.</span> <span class="toc-text">표준</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ROA-Resource-Oriented-Architecture"><span class="toc-number">3.</span> <span class="toc-text">ROA(Resource-Oriented Architecture)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#당신이-만든-건-REST가-아니지만-괜찮아"><span class="toc-number">4.</span> <span class="toc-text">당신이 만든 건 REST가 아니지만 괜찮아</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Moder-PHP-User-Group-8월-발표자료"><span class="toc-number">5.</span> <span class="toc-text">Moder PHP User Group 8월 발표자료</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -173,7 +173,7 @@
 <p><img src="https://pbs.twimg.com/media/Cvx0q3RXgAUW7FK.jpg" alt="RESTfather"> - 그가 만들었으니 그가 옳다!</p>
 <p>몇 가지 잘못 사용되는 수준이 아니라 반대 방향을 바라보고 있다.</p>
 <p>2008년 로이 필딩은 블로그에서 이에 관해 비판했지만, 육아를 시작한 후로 더 이상 이야기가 없다. (<a href="https://twitter.com/fielding" target="_blank" rel="external">트위터</a>에선 여전하시다)</p>
-<p>2008년에 로이가 한 이야기를 해석해본 것이 - <a href="/2017/06/26/rest-the-truth/">5. REST - Roy가 입을 열다</a></p>
+<p>2008년에 로이가 한 이야기를 해석해 본 것이 - <a href="/2017/06/26/rest-the-truth/">5. REST - Roy가 입을 열다</a></p>
 <h3 id="REST는-어렵다"><a href="#REST는-어렵다" class="headerlink" title="REST는 어렵다"></a>REST는 어렵다</h3><p>사람들은 REST가 구현하기 어렵다고 하는데,</p>
 <ul>
 <li>HTTP를 HTML form에서 다루기 힘들거나</li>
@@ -189,43 +189,42 @@
 </ul>
 <p>사람들의 오해를 단적으로 보여주는 글을 읽고, 여기 달린 100여개의 댓글을 번역하고 정리한 것이 - <a href="/2017/06/12/rest-the-big-lie/">4. REST - REST 좋아하시네</a></p>
 <p>그렇다고 REST가 쉽다는 건 아니다. 로이 필딩은 논문이 전문가를 위한 것이라고 언급했다.</p>
-<p>논쟁에서 가장 흔히 등장하는 이야기가 Form에서 GET, POST만 지원해서 REST를 적용하기 어렵다인데,</p>
-<p>이를 위해 특별히 <a href="/2017/05/23/rest-http-method-in-html-form/">2. REST - HTML Form에서 GET/POST만 지원하는 이유</a>도 조사했다.</p>
+<p>논쟁에서 가장 흔히 등장하는 이야기가 Form에서 GET, POST만 지원해서 REST를 적용하기 어렵다인데, 이를 위해 특별히 <a href="/2017/05/23/rest-http-method-in-html-form/">2. REST - HTML Form에서 GET/POST만 지원하는 이유</a>도 조사했다.</p>
 <h3 id="REST가-의미하는-것"><a href="#REST가-의미하는-것" class="headerlink" title="REST가 의미하는 것"></a>REST가 의미하는 것</h3><p>REST가 최종적으로 추구하는 건 <em>효율적이고 확장가능한 시스템</em>이다.</p>
 <p>이를 위해 6가지 제약조건(하나는 optional)을 제시했다.</p>
-<p>조금 비약해서 소개하자</p>
+<p>조금 비약해서 소개하자면 </p>
 <ul>
-<li>client-server로 나누어 UI와 data 저장에 대한 관심사를 분리하면 각기 진화할 수 있어서 좋고</li>
+<li>client-server로 나누어 UI와 data 저장에 대한 관심사를 분리하면 각기 독립적으로 진화할 수 있어서 좋고</li>
 <li>시스템이 커져서 client가 많이 붙으면 서버가 일일이 관리하기 힘드니, payload에 필요한 모든 정보를 넣으면 한번의 요청/응답으로 관계를 정리할 수 있고</li>
 <li>그럼 네트웍에 부하가 갈테니 캐시를 사용해야하고</li>
 <li>복잡한 시스템으로 확장되면 구성요소간 커뮤니케이션에 문제가 생길 수 있으니 동일한 인터페이스를 써야하는데 4가지를 언급한다<ul>
 <li>리소스 식별 방법</li>
 <li>representation을 통한 제어</li>
 <li>요청/응답에 필요한 모든 정보를 넣을 것</li>
-<li>어플리케이션의 상태변경이 hypertext로부터 발생하는 것 </li>
+<li>어플리케이션의 상태 변경이 hypertext로부터 발생하는 것 </li>
 </ul>
 </li>
 <li>시스템이 커지면 중간에 방화벽이나 리버스 프록시같은 미들웨어가 필요하게 되는데 통신하는 client와 server는 이를 모르고 통신할 수 있어야 함</li>
 </ul>
 <p>로이는 네트웍 기반의 효율적이고 확장가능한 시스템을 만들기 위해선 이 제약조건이 필요할 것으로 생각했고, 이 조건을 만족하면 REST한 시스템이라고 할 수 있다.</p>
 <p>이 제약조건에 대해 더 자세히 설명한 것은 - <a href="/2017/05/24/rest-the-dissertation-summary/">3. REST - 논문(요약) 훑어보기</a></p>
-<h2 id="RESTful하지-않은-이유"><a href="#RESTful하지-않은-이유" class="headerlink" title="RESTful하지 않은 이유"></a>RESTful하지 않은 이유</h2><h3 id="클라이언트와-서버가-지나치게-결합되어-있기-때문이다"><a href="#클라이언트와-서버가-지나치게-결합되어-있기-때문이다" class="headerlink" title="클라이언트와 서버가 지나치게 결합되어 있기 때문이다."></a>클라이언트와 서버가 지나치게 결합되어 있기 때문이다.</h3><p>API 문서를 옆에 끼고 개발을 해야만 한다면,</p>
+<h2 id="그-많은-API가-RESTful하지-않은-이유"><a href="#그-많은-API가-RESTful하지-않은-이유" class="headerlink" title="그 많은 API가 RESTful하지 않은 이유"></a>그 많은 API가 RESTful하지 않은 이유</h2><h3 id="클라이언트와-서버가-지나치게-결합되어-있기-때문이다"><a href="#클라이언트와-서버가-지나치게-결합되어-있기-때문이다" class="headerlink" title="클라이언트와 서버가 지나치게 결합되어 있기 때문이다."></a>클라이언트와 서버가 지나치게 결합되어 있기 때문이다.</h3><p>API 문서를 옆에 끼고 개발을 해야만 한다면,</p>
 <p>API를 수정하려는데 클라이언트에 문제가 생기지 않을까 걱정을 하고 있다면,</p>
 <p>UI와 백엔드가 독립적으로 진화할 수 없게 단단히 결합되었다고 볼 수 있다.</p>
 <h3 id="hypermedia-as-the-engine-of-application-state"><a href="#hypermedia-as-the-engine-of-application-state" class="headerlink" title="hypermedia as the engine of application state."></a>hypermedia as the engine of application state.</h3><p>로이 필딩은 hypertext의 역할이 가장 중요하다고 강조한다.</p>
 <p>response에 링크를 쉽게 추가해주는 ‘HATEOAS 지원 라이브러리’같은 것도 꽤 보이는데,   </p>
 <p>단순히 다른 페이지에 대한 링크를 추가하는 것 만으로는 부족하다.</p>
 <p>사실 웹 문서가 아닌 바에야, 시스템 전체를 관통하는 인터페이스로써 hypertext를 설계하기가 쉽지 않다고 생각한다.</p>
-<p>이 부분은 사례 연구가 더 필요하다.</p>
+<p>내가 이 부분을 명확하게 설명하기 위해선 사례 연구가 더 필요하다.</p>
 <h3 id="표준"><a href="#표준" class="headerlink" title="표준"></a>표준</h3><p>로이는 요청/응답 트랜잭션 이외의 영역에서 의존해야할 정보가 있다면, 그건 표준이어야 한다는 생각인 것 같다.</p>
 <p>세상엔 별별 표준이 다 만들어진다.</p>
 <p>API를 내부 시스템으로 한정하면 독자적인 표준도 가능할 것이다.</p>
 <h2 id="ROA-Resource-Oriented-Architecture"><a href="#ROA-Resource-Oriented-Architecture" class="headerlink" title="ROA(Resource-Oriented Architecture)"></a>ROA(Resource-Oriented Architecture)</h2><p>그 똑똑한 개발자들 간 10여년이 넘는 시간 동안 용어를 잘못 쓰고 있는 이유는 나도 의아한데, ROA에서 그나마 원형을 발견할 수 있었다.</p>
-<p>Leonard Richardson의 <a href="http://shop.oreilly.com/product/9780596529260.do" target="_blank" rel="external">RESTful Web Services</a>의 <a href="http://www.kyobobook.co.kr/product/detailViewKor.laf?barcode=9788956744193" target="_blank" rel="external">한국어 번역본</a>은 절판 상태.</p>
+<p>Leonard Richardson의 <a href="http://shop.oreilly.com/product/9780596529260.do" target="_blank" rel="external">RESTful Web Services</a>의 <a href="http://www.kyobobook.co.kr/product/detailViewKor.laf?barcode=9788956744193" target="_blank" rel="external">한국어 번역서</a>은 절판 상태.</p>
 <p><a href="http://greatkim91.tistory.com/13" target="_blank" rel="external">행복한 아빠</a>님의 블로그에 정리된 게 있어서 참고했다.</p>
 <p>마틴 파울러가 <a href="https://martinfowler.com/articles/richardsonMaturityModel.html" target="_blank" rel="external">Richardson의 Maturity Model을 소개한 블로그</a>를 썼는데, 지앤선 블로그에 <a href="http://jinson.tistory.com/190" target="_blank" rel="external">번역</a>이 되어있다.</p>
 <p>REST에서 ROA로, 여기서 개발자들에게 전달되면서 소위 말하는 REST 규칙이 생겨난 것 같다.<br><a href="https://namu.wiki/w/%EA%B0%80%EC%A1%B1%EC%98%A4%EB%9D%BD%EA%B4%80/%EC%97%AD%EB%8C%80%20%EA%B2%8C%EC%9E%84#s-12" target="_blank" rel="external">가족오락관 게임</a>처럼..</p>
-<p>소위 REST라고 하는 것은</p>
+<p>소위 REST라고 할 때 어떤 것을 떠올리는가?</p>
 <ul>
 <li>HTTP의 네가지 메소드를 CRUD에 대응하는 것</li>
 <li>HTTP의 응답코드를 200, 404, 500이 아닌 것으로 리턴하는 것</li>
@@ -234,8 +233,8 @@
 </ul>
 <p>하지만 지금 이 순간부터 REST라는 용어가 나타나면 유심히 살펴보자.</p>
 <p>그 많은 REST라는 용어로부터 확신할 수 있는 형식이 무엇이 있는가?</p>
-<p>‘네가지 이상의 메소드를 쓴다’정도?</p>
-<p>루비와 같은 프레임웍에서 이를 더 부추겼다는 의견도 있다.</p>
+<p>‘CRUD를 위한 네가지 HTTP 메소드를 쓴다’정도?</p>
+<p>루비 온 레일즈와 같은 프레임웍에서 이를 더 부추겼다는 의견도 있다.</p>
 <h2 id="당신이-만든-건-REST가-아니지만-괜찮아"><a href="#당신이-만든-건-REST가-아니지만-괜찮아" class="headerlink" title="당신이 만든 건 REST가 아니지만 괜찮아"></a>당신이 만든 건 REST가 아니지만 괜찮아</h2><p>하지만 난 당신의 API가 REST가 아니라 해도 괜찮다고 말해주고 싶다.</p>
 <p>REST가 아니라도 실패한 디자인이 아니라고 말해주고 싶다.</p>
 <p>난 RESTful API를 만들 생각은 ‘아직’ 없다.</p>
@@ -246,10 +245,10 @@
 <p>여기선 <a href="https://medium.com/@trevorhreed/you-re-api-isn-t-restful-and-that-s-good-b2662079cf0e" target="_blank" rel="external">Your API isn’t RESTful — And That’s Good</a>이라는 블로그의 내용을 번역했는데,</p>
 <p>이런 혼란을 종식 시키고 RESTful 대신 RESOURCEful이라는 용어를 정의해서 모범 사례를 구축하자는 주장이다.</p>
 <p>우리가 원하는 바로 그 API의 모습이 담겨있다.</p>
-<p>최초 누가 주장했는지는 잘 모르겠지만 이 블로그는 2016년 초에 발행됐으며, RESOURCEful이라는 용어는 점점 증가하는 추세다.</p>
+<p>최초 누가 주장했는지는 잘 모르겠지만 이 블로그는 2016년 초에 발행됐으며, RESOURCEful이라는 용어의 사용은 점점 증가하는 추세다.</p>
 <p>Laravel의 문서에서도 5.3버전(2016년 9월)부터 RESTful이라는 용어가 제거됐다.</p>
 <h2 id="Moder-PHP-User-Group-8월-발표자료"><a href="#Moder-PHP-User-Group-8월-발표자료" class="headerlink" title="Moder PHP User Group 8월 발표자료"></a>Moder PHP User Group 8월 발표자료</h2><p>이 내용으로 8월달 MPUG 정기 모임에서 발표한 자료도 걸어둔다.</p>
-<p><a href="https://docs.google.com/presentation/d/1dcoBPsOJvBwZBeyaNxdhFO0ZVeCSjTfdS33rbmRDW0c/edit?usp=sharing" target="_blank" rel="external">링크</a></p>
+<p><a href="https://docs.google.com/presentation/d/1dcoBPsOJvBwZBeyaNxdhFO0ZVeCSjTfdS33rbmRDW0c/edit?usp=sharing" target="_blank" rel="external">당신이 만든 건 REST가 아니지만 괜찮아</a></p>
 
   </div>
 </article>
@@ -280,7 +279,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#REST"><span class="toc-number">1.</span> <span class="toc-text">REST</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Roy-T-Fielding"><span class="toc-number">1.1.</span> <span class="toc-text">Roy T. Fielding</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#REST는-어렵다"><span class="toc-number">1.2.</span> <span class="toc-text">REST는 어렵다</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#REST가-의미하는-것"><span class="toc-number">1.3.</span> <span class="toc-text">REST가 의미하는 것</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RESTful하지-않은-이유"><span class="toc-number">2.</span> <span class="toc-text">RESTful하지 않은 이유</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#클라이언트와-서버가-지나치게-결합되어-있기-때문이다"><span class="toc-number">2.1.</span> <span class="toc-text">클라이언트와 서버가 지나치게 결합되어 있기 때문이다.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hypermedia-as-the-engine-of-application-state"><span class="toc-number">2.2.</span> <span class="toc-text">hypermedia as the engine of application state.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#표준"><span class="toc-number">2.3.</span> <span class="toc-text">표준</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ROA-Resource-Oriented-Architecture"><span class="toc-number">3.</span> <span class="toc-text">ROA(Resource-Oriented Architecture)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#당신이-만든-건-REST가-아니지만-괜찮아"><span class="toc-number">4.</span> <span class="toc-text">당신이 만든 건 REST가 아니지만 괜찮아</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Moder-PHP-User-Group-8월-발표자료"><span class="toc-number">5.</span> <span class="toc-text">Moder PHP User Group 8월 발표자료</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#REST"><span class="toc-number">1.</span> <span class="toc-text">REST</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Roy-T-Fielding"><span class="toc-number">1.1.</span> <span class="toc-text">Roy T. Fielding</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#REST는-어렵다"><span class="toc-number">1.2.</span> <span class="toc-text">REST는 어렵다</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#REST가-의미하는-것"><span class="toc-number">1.3.</span> <span class="toc-text">REST가 의미하는 것</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#그-많은-API가-RESTful하지-않은-이유"><span class="toc-number">2.</span> <span class="toc-text">그 많은 API가 RESTful하지 않은 이유</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#클라이언트와-서버가-지나치게-결합되어-있기-때문이다"><span class="toc-number">2.1.</span> <span class="toc-text">클라이언트와 서버가 지나치게 결합되어 있기 때문이다.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hypermedia-as-the-engine-of-application-state"><span class="toc-number">2.2.</span> <span class="toc-text">hypermedia as the engine of application state.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#표준"><span class="toc-number">2.3.</span> <span class="toc-text">표준</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ROA-Resource-Oriented-Architecture"><span class="toc-number">3.</span> <span class="toc-text">ROA(Resource-Oriented Architecture)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#당신이-만든-건-REST가-아니지만-괜찮아"><span class="toc-number">4.</span> <span class="toc-text">당신이 만든 건 REST가 아니지만 괜찮아</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Moder-PHP-User-Group-8월-발표자료"><span class="toc-number">5.</span> <span class="toc-text">Moder PHP User Group 8월 발표자료</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
