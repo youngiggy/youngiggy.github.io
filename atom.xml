@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://youngiggy.github.io/"/>
-  <updated>2017-08-05T00:13:27.000Z</updated>
+  <updated>2017-08-05T03:18:50.000Z</updated>
   <id>https://youngiggy.github.io/</id>
   
   <author>
@@ -14,6 +14,138 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>REST 연구 요약본</title>
+    <link href="https://youngiggy.github.io/2017/08/05/rest-series-summary/"/>
+    <id>https://youngiggy.github.io/2017/08/05/rest-series-summary/</id>
+    <published>2017-08-05T00:17:49.000Z</published>
+    <updated>2017-08-05T03:18:50.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>REST에 관해 연구했던 내용을 공개하고 가장 많이 받은 피드백은,</p>
+<p>‘간단히 말해보라’는 것이었다.</p>
+<p>간단한 문제가 아니라서 여전히 간단히는 말할 수는 없지만,</p>
+<p>널리 퍼지기 좋게 몇 가지 문장으로 (자극적으로!) 정리할 필요를 느꼈다.</p>
+<p>이 글 조차도 다 읽지 않고 비판하는 사람이 많을 것을 알고 있지만,</p>
+<ul>
+<li>“뭘 그렇게 복잡하게 생각해? 피곤한 친구구만”</li>
+</ul>
+<p>나는 계속 REST라는 용어를 함부로(!) 쓴다고 해서 비난하지 않는다.</p>
+<p>REST라는 용어를 쓰지 말라고도 하지 않고, 잘못 썼다고 그 사람을 폄하하지도 않는다.</p>
+<p>어느 누구도 설득하고 싶지 않다.</p>
+<p>다만 REST가 우리에게 주는, 변화와 확장에 대응하라는 교훈을 좀 더 알리고 알리고 싶다.</p>
+<p>연구했던 내용을 짧게 줄여 한장에 정리해보겠다.(이미 글이 길어진 기분이지만..)</p>
+<p>중간 중간 아래 연재 목록에 어떤 내용이 담겨 있는지 설명한다.</p>
+<ol>
+<li><a href="/2017/05/22/rest-the-beginning/">REST - 긴 여정의 시작</a></li>
+<li><a href="/2017/05/23/rest-http-method-in-html-form/">REST - HTML Form에서 GET/POST만 지원하는 이유</a></li>
+<li><a href="/2017/05/24/rest-the-dissertation-summary/">REST - 논문(요약) 훑어보기</a></li>
+<li><a href="/2017/06/12/rest-the-big-lie/">REST - REST 좋아하시네</a></li>
+<li><a href="/2017/06/26/rest-the-truth/">REST - Roy가 입을 열다</a></li>
+<li><a href="/2017/06/28/rest-the-coclusion/">REST - 당신이 만든 건 REST가 아니지만 괜찮아</a></li>
+<li><a href="/2017/06/28/rest-the-dissertation/">REST - 논문 읽기(To Do)</a></li>
+</ol>
+<h2 id="REST"><a href="#REST" class="headerlink" title="REST"></a>REST</h2><h3 id="Roy-T-Fielding"><a href="#Roy-T-Fielding" class="headerlink" title="Roy T. Fielding"></a>Roy T. Fielding</h3><p><em>Senior Principal Scientist at Adobe, co-founded Apache, authored the REST architectural style and Web standards for URI, HTTP/1.x, and URI Templates.</em></p>
+<p>온라인에서 보게되는 RESTful API라고 부르는 것 대부분은 로이 필딩의 의도에 반한다.</p>
+<p><code>![RESTfather](https://pbs.twimg.com/media/Cvx0q3RXgAUW7FK.jpg) - 그가 만들었으니 그가 옳다!</code></p>
+<p>몇 가지 잘못 사용되는 수준이 아니라 반대 방향을 바라보고 있다.</p>
+<p>2008년 로이 필딩은 블로그에서 이에 관해 비판했지만, 육아를 시작한 후로 더 이상 이야기가 없다. (<a href="https://twitter.com/fielding" target="_blank" rel="external">트위터</a>에선 여전하시다)</p>
+<p>2008년에 로이가 한 이야기를 해석해본 것이 - <a href="/2017/06/26/rest-the-truth/">5. REST - Roy가 입을 열다</a></p>
+<h3 id="REST는-어렵다"><a href="#REST는-어렵다" class="headerlink" title="REST는 어렵다"></a>REST는 어렵다</h3><p>사람들은 REST가 구현하기 어렵다고 하는데,</p>
+<ul>
+<li>HTTP를 HTML form에서 다루기 힘들거나</li>
+<li>RPC에 어떤 메소드를 써야할 지 모르거나</li>
+<li>어떤 응답코드를 써야할 지, 응답코드가 무슨 의미인지 모르거나</li>
+<li>복잡한 기능을 명사로 표현하기 어렵기 때문인 것 같다</li>
+</ul>
+<p>이런 건 REST의 문제가 아니다. 단지,</p>
+<ul>
+<li>HTTP를 이해 못했거나</li>
+<li>리소스를 잘못 설계했거나</li>
+<li>당신의 API가 RESTful할 이유가 없거나</li>
+</ul>
+<p>사람들의 오해를 단적으로 보여주는 글을 읽고, 여기 달린 100여개의 댓글을 번역하고 정리한 것이 - <a href="/2017/06/12/rest-the-big-lie/">4. REST - REST 좋아하시네</a></p>
+<p>그렇다고 REST가 쉽다는 건 아니다. 로이 필딩은 논문이 전문가를 위한 것이라고 언급했다.</p>
+<p>논쟁에서 가장 흔히 등장하는 이야기가 Form에서 GET, POST만 지원해서 REST를 적용하기 어렵다인데,</p>
+<p>이를 위해 특별히 <a href="/2017/05/23/rest-http-method-in-html-form/">2. REST - HTML Form에서 GET/POST만 지원하는 이유</a>도 조사했다.</p>
+<h3 id="REST가-의미하는-것"><a href="#REST가-의미하는-것" class="headerlink" title="REST가 의미하는 것"></a>REST가 의미하는 것</h3><p>REST가 최종적으로 추구하는 건 <em>효율적이고 확장가능한 시스템</em>이다.</p>
+<p>이를 위해 6가지 제약조건(하나는 optional)을 제시했다.</p>
+<p>조금 비약해서 소개하자</p>
+<ul>
+<li>client-server로 나누어 UI와 data 저장에 대한 관심사를 분리하면 각기 진화할 수 있어서 좋고</li>
+<li>시스템이 커져서 client가 많이 붙으면 서버가 일일이 관리하기 힘드니, payload에 필요한 모든 정보를 넣으면 한번의 요청/응답으로 관계를 정리할 수 있고</li>
+<li>그럼 네트웍에 부하가 갈테니 캐시를 사용해야하고</li>
+<li>복잡한 시스템으로 확장되면 구성요소간 커뮤니케이션에 문제가 생길 수 있으니 동일한 인터페이스를 써야하는데 4가지를 언급한다<ul>
+<li>리소스 식별 방법</li>
+<li>representation을 통한 제어</li>
+<li>요청/응답에 필요한 모든 정보를 넣을 것</li>
+<li>어플리케이션의 상태변경이 hypertext로부터 발생하는 것 </li>
+</ul>
+</li>
+<li>시스템이 커지면 중간에 방화벽이나 리버스 프록시같은 미들웨어가 필요하게 되는데 통신하는 client와 server는 이를 모르고 통신할 수 있어야 함</li>
+</ul>
+<p>로이는 네트웍 기반의 효율적이고 확장가능한 시스템을 만들기 위해선 이 제약조건이 필요할 것으로 생각했고, 이 조건을 만족하면 REST한 시스템이라고 할 수 있다.</p>
+<p>이 제약조건에 대해 더 자세히 설명한 것은 - <a href="/2017/05/24/rest-the-dissertation-summary/">3. REST - 논문(요약) 훑어보기</a></p>
+<h2 id="RESTful하지-않은-이유"><a href="#RESTful하지-않은-이유" class="headerlink" title="RESTful하지 않은 이유"></a>RESTful하지 않은 이유</h2><h3 id="클라이언트와-서버가-지나치게-결합되어-있기-때문이다"><a href="#클라이언트와-서버가-지나치게-결합되어-있기-때문이다" class="headerlink" title="클라이언트와 서버가 지나치게 결합되어 있기 때문이다."></a>클라이언트와 서버가 지나치게 결합되어 있기 때문이다.</h3><p>API 문서를 옆에 끼고 개발을 해야만 한다면,</p>
+<p>API를 수정하려는데 클라이언트에 문제가 생기지 않을까 걱정을 하고 있다면,</p>
+<p>UI와 백엔드가 독립적으로 진화할 수 없게 단단히 결합되었다고 볼 수 있다.</p>
+<h3 id="hypermedia-as-the-engine-of-application-state"><a href="#hypermedia-as-the-engine-of-application-state" class="headerlink" title="hypermedia as the engine of application state."></a>hypermedia as the engine of application state.</h3><p>로이 필딩은 hypertext의 역할이 가장 중요하다고 강조한다.</p>
+<p>response에 링크를 쉽게 추가해주는 ‘HATEOAS 지원 라이브러리’같은 것도 꽤 보이는데,   </p>
+<p>단순히 다른 페이지에 대한 링크를 추가하는 것 만으로는 부족하다.</p>
+<p>사실 웹 문서가 아닌 바에야, 시스템 전체를 관통하는 인터페이스로써 hypertext를 설계하기가 쉽지 않다고 생각한다.</p>
+<p>이 부분은 사례 연구가 더 필요하다.</p>
+<h3 id="표준"><a href="#표준" class="headerlink" title="표준"></a>표준</h3><p>로이는 요청/응답 트랜잭션 이외의 영역에서 의존해야할 정보가 있다면, 그건 표준이어야 한다는 생각인 것 같다.</p>
+<p>세상엔 별별 표준이 다 만들어진다.</p>
+<p>API를 내부 시스템으로 한정하면 독자적인 표준도 가능할 것이다.</p>
+<h2 id="ROA-Resource-Oriented-Architecture"><a href="#ROA-Resource-Oriented-Architecture" class="headerlink" title="ROA(Resource-Oriented Architecture)"></a>ROA(Resource-Oriented Architecture)</h2><p>그 똑똑한 개발자들 간 10여년이 넘는 시간 동안 용어를 잘못 쓰고 있는 이유는 나도 의아한데, ROA에서 그나마 원형을 발견할 수 있었다.</p>
+<p>Leonard Richardson의 <a href="http://shop.oreilly.com/product/9780596529260.do" target="_blank" rel="external">RESTful Web Services</a>의 <a href="http://www.kyobobook.co.kr/product/detailViewKor.laf?barcode=9788956744193" target="_blank" rel="external">한국어 번역본</a>은 절판 상태.</p>
+<p><a href="http://greatkim91.tistory.com/13" target="_blank" rel="external">행복한 아빠</a>님의 블로그에 정리된 게 있어서 참고했다.</p>
+<p>마틴 파울러가 <a href="https://martinfowler.com/articles/richardsonMaturityModel.html" target="_blank" rel="external">Richardson의 Maturity Model을 소개한 블로그</a>를 썼는데, 지앤선 블로그에 <a href="http://jinson.tistory.com/190" target="_blank" rel="external">번역</a>이 되어있다.</p>
+<p>REST에서 ROA로, 여기서 개발자들에게 전달되면서 소위 말하는 REST 규칙이 생겨난 것 같다.<br><a href="https://namu.wiki/w/%EA%B0%80%EC%A1%B1%EC%98%A4%EB%9D%BD%EA%B4%80/%EC%97%AD%EB%8C%80%20%EA%B2%8C%EC%9E%84#s-12" target="_blank" rel="external">가족오락관 게임</a>처럼..</p>
+<p>소위 REST라고 하는 것은</p>
+<ul>
+<li>HTTP의 네가지 메소드를 CRUD에 대응하는 것</li>
+<li>HTTP의 응답코드를 200, 404, 500이 아닌 것으로 리턴하는 것</li>
+<li>URL을 계층적으로 구성하는 것</li>
+<li>또 있던가?</li>
+</ul>
+<p>하지만 지금 이 순간부터 REST라는 용어가 나타나면 유심히 살펴보자.</p>
+<p>그 많은 REST라는 용어로부터 확신할 수 있는 형식이 무엇이 있는가?</p>
+<p>‘네가지 이상의 메소드를 쓴다’정도?</p>
+<p>루비와 같은 프레임웍에서 이를 더 부추겼다는 의견도 있다.</p>
+<h2 id="당신이-만든-건-REST가-아니지만-괜찮아"><a href="#당신이-만든-건-REST가-아니지만-괜찮아" class="headerlink" title="당신이 만든 건 REST가 아니지만 괜찮아"></a>당신이 만든 건 REST가 아니지만 괜찮아</h2><p>하지만 난 당신의 API가 REST가 아니라 해도 괜찮다고 말해주고 싶다.</p>
+<p>REST가 아니라도 실패한 디자인이 아니라고 말해주고 싶다.</p>
+<p>난 RESTful API를 만들 생각은 ‘아직’ 없다.</p>
+<ul>
+<li>면접을 본다면 RESTful API를 만들어봤다고 하겠지만 말이다</li>
+</ul>
+<p>이런 이야기를 적은 것이 - <a href="/2017/06/28/rest-the-coclusion/">6. REST - 당신이 만든 건 REST가 아니지만 괜찮아</a></p>
+<p>여기선 <a href="https://medium.com/@trevorhreed/you-re-api-isn-t-restful-and-that-s-good-b2662079cf0e" target="_blank" rel="external">Your API isn’t RESTful — And That’s Good</a>이라는 블로그의 내용을 번역했는데,</p>
+<p>이런 혼란을 종식 시키고 RESTful 대신 RESOURCEful이라는 용어를 정의해서 모범 사례를 구축하자는 주장이다.</p>
+<p>우리가 원하는 바로 그 API의 모습이 담겨있다.</p>
+<p>최초 누가 주장했는지는 잘 모르겠지만 이 블로그는 2016년 초에 발행됐으며, RESOURCEful이라는 용어는 점점 증가하는 추세다.</p>
+<p>Laravel의 문서에서도 5.3버전(2016년 9월)부터 RESTful이라는 용어가 제거됐다.</p>
+<h2 id="Moder-PHP-User-Group-8월-발표자료"><a href="#Moder-PHP-User-Group-8월-발표자료" class="headerlink" title="Moder PHP User Group 8월 발표자료"></a>Moder PHP User Group 8월 발표자료</h2><p>이 내용으로 8월달 MPUG 정기 모임에서 발표한 자료도 걸어둔다.</p>
+<p><a href="https://docs.google.com/presentation/d/1dcoBPsOJvBwZBeyaNxdhFO0ZVeCSjTfdS33rbmRDW0c/edit?usp=sharing" target="_blank" rel="external">링크</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;REST에 관해 연구했던 내용을 공개하고 가장 많이 받은 피드백은,&lt;/p&gt;
+&lt;p&gt;‘간단히 말해보라’는 것이었다.&lt;/p&gt;
+&lt;p&gt;간단한 문제가 아니라서 여전히 간단히는 말할 수는 없지만,&lt;/p&gt;
+&lt;p&gt;널리 퍼지기 좋게 몇 가지 문장으로 (자극적으로!
+    
+    </summary>
+    
+    
+      <category term="API" scheme="https://youngiggy.github.io/tags/API/"/>
+    
+      <category term="RESTful" scheme="https://youngiggy.github.io/tags/RESTful/"/>
+    
+      <category term="REST" scheme="https://youngiggy.github.io/tags/REST/"/>
+    
+  </entry>
   
   <entry>
     <title>당신이 만든 건 REST가 아니지만 괜찮아(MPUG 8월 발표자료)</title>
@@ -1216,7 +1348,7 @@
     <link href="https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/"/>
     <id>https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/</id>
     <published>2017-05-24T03:06:17.000Z</published>
-    <updated>2017-07-16T01:32:40.000Z</updated>
+    <updated>2017-08-05T01:45:07.000Z</updated>
     
     <content type="html"><![CDATA[<p>연재 목록</p>
 <ol>
@@ -1268,8 +1400,7 @@
 <li>클라이언트 입장에선 hypertext를 통해 다음 상태로의 이동을 해야하는데, 표준화된 방식을 통해 해당 서버의 특성을 알 필요가 없어진다</li>
 <li>서로의 특성을 알지 못해도 커뮤니케이션이 가능할 수 있어야, 각각 독립적으로 진화할 수 있는 유연한 시스템이 만들어진다</li>
 </ul>
-<p>REST는 <a href="http://exyus.com/articles/rest-the-short-version/" target="_blank" rel="external">네가지 Interface 제약조건</a>으로 정의된다</p>
-<h4 id="1-identification-of-resources"><a href="#1-identification-of-resources" class="headerlink" title="1. identification of resources"></a>1. identification of resources</h4><p>여기서 리소스라는 용어는 물리적으로 저장된 특정 객체를 의미하는 게 아니고 하나의 추상적 개념으로 이해해야 한다.</p>
+<p>REST는 네가지 Interface 제약조건으로 정의된다</p>
 <p><a href="http://exyus.com/articles/rest-the-short-version/" target="_blank" rel="external">네가지 Interface 제약조건</a>에서 언급된 내용을 구글 번역으로 좀 더 상세히 살펴보자.</p>
 <ul>
 <li>이 자원의 추상적 정의는 웹 아키텍처의 핵심 기능을 가능하게 합니다</li>
@@ -1277,6 +1408,7 @@
 <li>표현에 대한 참조의 늦은 바인딩을 허용하여 요청의 특성에 따라 내용 협상을 수행 할 수 있습니다 </li>
 <li>저자는 개념의 단수 표현보다는 개념을 참조 할 수 있으므로 표현이 바뀔 때마다 기존의 모든 링크를 변경할 필요가 없습니다</li>
 </ul>
+<h4 id="1-identification-of-resources"><a href="#1-identification-of-resources" class="headerlink" title="1. identification of resources"></a>1. identification of resources</h4><p>리소스를 식별하는 방법이 동일해야 한다. 우리는 보통 URI를 쓰기 때문에 어쩐지 당연한 말처럼 느껴진다.</p>
 <h4 id="2-manipulation-of-resources-through-representation"><a href="#2-manipulation-of-resources-through-representation" class="headerlink" title="2. manipulation of resources through representation"></a>2. manipulation of resources through representation</h4><p>representation의 개념은 <a href="https://blog.npcode.com/2017/04/03/rest%EC%9D%98-representation%EC%9D%B4%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80/" target="_blank" rel="external">이응준님 블로그</a>에서 다루고 있다.</p>
 <p>리소스의 표현계층(representation)을 리소스의 식별자(URL)로부터 분리한 것은 REST에서 아주 주요한 관점이다.</p>
 <p>RESTful 응용 프로그램은 동일한 URI에서 동일한 자원의 표현을 둘 이상 지원할 수 있다.</p>
