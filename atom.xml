@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://youngiggy.github.io/"/>
-  <updated>2017-08-05T00:07:27.000Z</updated>
+  <updated>2017-08-05T00:13:27.000Z</updated>
   <id>https://youngiggy.github.io/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>your-api-is-not-restful-and-that-is-good</title>
+    <title>당신이 만든 건 REST가 아니지만 괜찮아(MPUG 8월 발표자료)</title>
     <link href="https://youngiggy.github.io/2017/08/05/rest-your-api-is-not-restful-and-that-is-good/"/>
     <id>https://youngiggy.github.io/2017/08/05/rest-your-api-is-not-restful-and-that-is-good/</id>
     <published>2017-08-05T00:02:09.000Z</published>
-    <updated>2017-08-05T00:07:27.000Z</updated>
+    <updated>2017-08-05T00:13:27.000Z</updated>
     
     <content type="html"><![CDATA[<p>Moder PHP User Group 8월 모임 발표에서 사용한 슬라이드.</p>
 <p>이제 REST 연재 요약본만 쓰면 되겠다.</p>
