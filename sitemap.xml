@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://youngiggy.github.io/2017/08/05/rest-your-api-is-not-restful-and-that-is-good/</loc>
+    
+    <lastmod>2017-08-05T00:07:27.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://youngiggy.github.io/2017/08/04/explain-mysql-explain/</loc>
     
-    <lastmod>2017-08-03T15:48:56.000Z</lastmod>
+    <lastmod>2017-08-05T00:02:13.000Z</lastmod>
     
   </url>
   
