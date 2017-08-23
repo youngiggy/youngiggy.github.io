@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://youngiggy.github.io/"/>
-  <updated>2017-08-05T14:51:09.000Z</updated>
+  <updated>2017-08-23T10:50:29.000Z</updated>
   <id>https://youngiggy.github.io/</id>
   
   <author>
@@ -14,6 +14,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HTTP 완벽가이드 3장</title>
+    <link href="https://youngiggy.github.io/2017/08/23/http-the-definitive-guide-chapter-3/"/>
+    <id>https://youngiggy.github.io/2017/08/23/http-the-definitive-guide-chapter-3/</id>
+    <published>2017-08-23T10:37:15.000Z</published>
+    <updated>2017-08-23T10:50:29.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>회사에서 진행 중인 ‘HTTP 완벽가이드 릴레이 세미나’ 3장 발표 자료.</p>
+<p><a href="https://docs.google.com/presentation/d/1obobW34ipdOqN1oGThDia92hgbKW-q7VVW1T0owHtM8/edit?usp=sharing" target="_blank" rel="external">https://docs.google.com/presentation/d/1obobW34ipdOqN1oGThDia92hgbKW-q7VVW1T0owHtM8/edit?usp=sharing</a></p>
+<p>내용</p>
+<ul>
+<li>HTTP 스펙의 변화</li>
+<li>HTTP 메시지 문법</li>
+<li>HTTP 메소드</li>
+<li>HTTP 응답 코드</li>
+<li>주요 헤더</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;회사에서 진행 중인 ‘HTTP 완벽가이드 릴레이 세미나’ 3장 발표 자료.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://docs.google.com/presentation/d/1obobW34ipdOqN1oGThDia92hgbKW-q7VVW1T0ow
+    
+    </summary>
+    
+    
+      <category term="HTTP" scheme="https://youngiggy.github.io/tags/HTTP/"/>
+    
+  </entry>
   
   <entry>
     <title>REST 연구 요약본</title>
@@ -685,7 +716,7 @@
     <link href="https://youngiggy.github.io/2017/06/26/rest-the-truth/"/>
     <id>https://youngiggy.github.io/2017/06/26/rest-the-truth/</id>
     <published>2017-06-25T15:41:41.000Z</published>
-    <updated>2017-07-10T15:35:58.000Z</updated>
+    <updated>2017-08-23T10:36:57.000Z</updated>
     
     <content type="html"><![CDATA[<p>연재 목록</p>
 <ol>
