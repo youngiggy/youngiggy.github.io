@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://youngiggy.github.io/"/>
-  <updated>2017-08-23T10:50:29.000Z</updated>
+  <updated>2017-08-24T15:11:33.000Z</updated>
   <id>https://youngiggy.github.io/</id>
   
   <author>
@@ -14,6 +14,89 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>정규식으로 (한글) 문자만 골라내기</title>
+    <link href="https://youngiggy.github.io/2017/08/23/alphabetic-letter-validation/"/>
+    <id>https://youngiggy.github.io/2017/08/23/alphabetic-letter-validation/</id>
+    <published>2017-08-23T11:52:36.000Z</published>
+    <updated>2017-08-24T15:11:33.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>오늘 라라벨 꾸준 코딩 모임에서 나왔던 이야기인데, 라라벨의 유효성 검사 규칙 중 <a href="https://laravel.kr/docs/5.5/validation#rule-alpha" target="_blank" rel="external">alpha</a>에 관해 써본다.</p>
+<blockquote>
+<p><em>alpha</em><br><br><br>필드의 값이 완벽하게 (숫자나 기호가 아닌) 알파벳[자음과 모음] 문자로 이루어져야 합니다.<br>(역자주: 영문 알파벳만을 의미하지 않고, 숫자나 기호가 아닌경우에 해당하여, 한글도 허용합니다.)</p>
+</blockquote>
+<p>여기서 자음과 모음이 언급되었길래 그럼 자음과 모음이 없는 중국어는 어떻게 되냐고 여쭤보았고,<br>(중국어에 진짜 자음과 모음이 없는가에 대한 문제는 일단 넘어가자..)</p>
+<p>유니코드의 구간을 정해놓고 validation 처리한 예전 소스를 보여주신 분도 계셨다. 한글을 구분하는 코드였던가?<br>(좀 더 복잡한 소스였지만) 예를 들어 이런 식.</p>
+<p>아래는 persian alphabet을 골라내는 정규식이(란)다.<br>(출처 : <a href="https://github.com/anetwork/validation/blob/master/src/ValidationRules.php#L27" target="_blank" rel="external">anetwork</a>)</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">Alpha</span><span class="params">($attribute, $value, $parameters, $validator)</span></span></div><div class="line">&#123;</div><div class="line">    ValidationMessages::setCustomMessages( $validator );</div><div class="line">    <span class="keyword">$this</span>-&gt;status = (bool) preg_match(<span class="string">"/^[\x&#123;600&#125;-\x&#123;6FF&#125;\x&#123;200c&#125;\x&#123;064b&#125;\x&#123;064d&#125;\x&#123;064c&#125;\x&#123;064e&#125;\x&#123;064f&#125;\x&#123;0650&#125;\x&#123;0651&#125;\s]+$/u"</span>, $value);</div><div class="line">    <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;status ;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>결국 다같이 라라벨 소스를 보게 되었다.<br>막상 코드를 열어보니 단순해서 놀랐는데, 코드는 아래와 같다.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Validate that an attribute contains only alphabetic characters.</div><div class="line"> *</div><div class="line"> * <span class="doctag">@param</span>  string  $attribute</div><div class="line"> * <span class="doctag">@param</span>  mixed   $value</div><div class="line"> * <span class="doctag">@return</span> bool</div><div class="line"> */</div><div class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">validateAlpha</span><span class="params">($attribute, $value)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> is_string($value) &amp;&amp; preg_match(<span class="string">'/^[\pL\pM]+$/u'</span>, $value);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>“아니, 저건 무슨 정규식이죠?!”라며 놀랐지만, 뚫어져라 본다고 알 턱이 없었다.</p>
+<p>그래서 좀 찾아보기로…</p>
+<h2 id="Alphabet"><a href="#Alphabet" class="headerlink" title="Alphabet"></a>Alphabet</h2><p>내가 처음에 혼란스러웠던 것은, 유효성 규칙에 대한 설명에서 ‘알파벳[자음과 모음]’이라는 문자에서 과연 자음과 모음이라는 게 중요한가..라는 의문 때문이었다.</p>
+<p>한국어 위키디피아의 <a href="https://ko.wikipedia.org/wiki/%EC%9D%8C%EC%86%8C%EB%AC%B8%EC%9E%90" target="_blank" rel="external">음소문자</a> 설명부터 보자.</p>
+<blockquote>
+<p>음소문자(音素文字, alphabet)는 하나하나의 문자가 원칙적으로 하나의 자음 또는 모음의 음소(音素)를 나타내는 문자 체계이다. 자음과 모음에 대응하는 각각의 문자가 따로 존재하는게 다른 종류의 문자와의 다른 점이다. 로마 문자, 한글, 키릴 문자, 그리스 문자 같은 것들이 음소 문자 중 하나다.</p>
+</blockquote>
+<p><a href="https://en.wikipedia.org/wiki/Alphabet" target="_blank" rel="external">위키디피아 설명</a>에는 <code>sets of letters used in written languages</code>라는 설명으로 시작해서,</p>
+<p><code>&quot;alphabet&quot; is a script that represents both vowels and consonants as letters equally</code>라는 표현도 나온다.</p>
+<p>자음과 모음을 동일하게 하나의 글자로써 표현하는 것인가 본데…</p>
+<p>라라벨 매뉴얼에서 alphabet을 ‘알파벳[자음과 모음]’이라고 표현하신 건 이제 이해가 됐다.</p>
+<h2 id="Unicode-property"><a href="#Unicode-property" class="headerlink" title="Unicode property"></a>Unicode property</h2><p>유니코드 표준에서는 각 code point마다 여러가지 속성을 부여하는데,</p>
+<p>이를 <a href="https://en.wikipedia.org/wiki/Unicode_character_property#General_Category" target="_blank" rel="external">Unicode character property</a>라고 하고, 이를 통해 Letter인지, Mark인지, Number인지 알 수 있다.</p>
+<p>라라벨의 alpha가 정의하는 유효성 확인 정규식을 다시 보자.</p>
+<blockquote>
+<p>/^[\pL\pM]+$/u</p>
+</blockquote>
+<p><code>\p</code>를 통해 property를 부여할 수 있고, 대문자로 쓰면 반대의 개념이다.</p>
+<p><code>\pL</code>은 문자(Letter)를 가져오고, <code>\PL</code>은 문자가 아닌 것만 가져온다.</p>
+<p><code>\pM</code>은 Mark를 의미하는데, 어디까지가 이 Mark에 부합하는가..가 좀 복잡하다.</p>
+<p>이 중에는 악센트나 옆에 있는 문자를 꾸며주는 역할을 하는 것도 있다. 그러니까 문자(이쯤되니 문자라는 표현이 맞는지도 모르겠다)를 꾸며주는 역할을 하는 걸 의미하는 듯 하다</p>
+<p>더 자세하고 친절한 설명은 역시 <a href="https://stackoverflow.com/questions/6493954/how-to-properly-write-regex-for-unicode-first-name-in-java" target="_blank" rel="external">stackoverflow</a>에 있다.</p>
+<p>그럼 ™ &lt;- 요렇게 생긴 트레이드 ‘마크’는?</p>
+<p><a href="http://www.fileformat.info/info/unicode/char/2122/index.htm" target="_blank" rel="external">http://www.fileformat.info/info/unicode/char/2122/index.htm</a></p>
+<p>UnicodeBlock이 LETTERLIKE_SYMBOLS로 정의되어 있다. 그렇다. 이런 걸 심볼이라 부른다.</p>
+<p><br></p>
+<p>마지막으로 저 정규식에는 u라는 변경자가 붙어있는데,</p>
+<blockquote>
+<p>u (PCRE_UTF8)</p>
+<p>이 변경자는 펄과 호환되지 않는 PCRE의 추가 기능을 사용하게 합니다. 패턴 문자열을 UTF-8으로 취급합니다. 유닉스에서는 PHP 4.1.0부터, win32에서는 PHP 4.2.3부터 사용할 수 있습니다. PHP 4.3.5부터 패턴의 UTF-8 유효성이 검사됩니다.</p>
+</blockquote>
+<p>라고 PHP 매뉴얼에 나와있다.</p>
+<p>이번에 매뉴얼 좀 찾아보다 발견했는데, 아사마루(?)님의 블로그에 이 정규식 부분이 한글화 + 보충 설명되어 있다.</p>
+<p><a href="https://blog.asamaru.net/2017/01/07/php-regex-prolog/" target="_blank" rel="external">PHP 정규식(PCRE)의 모든 것</a></p>
+<ul>
+<li><a href="https://blog.asamaru.net/2017/01/11/php-regex-unicode-character-properties/" target="_blank" rel="external">유니코드 문자 속성</a></li>
+</ul>
+<h2 id="validation-rule-alpha"><a href="#validation-rule-alpha" class="headerlink" title="validation#rule-alpha"></a>validation#rule-alpha</h2><p>비슷한 문제로 2014년에 라라벨 Github에 이슈가 등록됐다.</p>
+<p><a href="https://github.com/laravel/framework/issues/4626" target="_blank" rel="external">validator rules shouldn’t allow unicode</a></p>
+<p>Taylor Otwell은 <code>We can document it.</code> 한마디하고 닫아버린다.<br>(어쩌자는 말인 지 모르겠다.)</p>
+<p>ASCII에 존재하는 라틴 알파벳 만을 매칭하려는 게 아니라면 정규식 자체에는 문제가 없어보이지만,</p>
+<p>여전히 alpha라는 단어를 쓰는 게 맞는 지는 잘 모르겠다.</p>
+<p>Letter에 매칭되는 문자가 모두 알파벳에 속하지 않을테니까.</p>
+<h2 id="Run"><a href="#Run" class="headerlink" title="Run"></a>Run</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$arr = [</div><div class="line">    <span class="string">"x"</span>, <span class="string">"A"</span>, <span class="string">"3"</span>, <span class="string">"\n"</span>, <span class="string">"."</span>, <span class="string">"\t"</span>, <span class="string">"\r"</span>, <span class="string">"\f"</span>,</div><div class="line">    <span class="string">"주"</span>, <span class="string">"$"</span>, <span class="string">"я"</span>, <span class="string">"张"</span>, <span class="string">"@"</span>, <span class="string">"ⓐ"</span>, <span class="string">"à"</span>, </div><div class="line">    <span class="string">"\u&#123;0300&#125;"</span>, <span class="comment">/* COMBINING GRAVE ACCENT */</span></div><div class="line">];</div><div class="line">preg_match_all(<span class="string">'/\pL/u'</span>, implode(<span class="string">''</span>, $arr), $matchesL);</div><div class="line">preg_match_all(<span class="string">'/\pM/u'</span>, implode(<span class="string">''</span>, $arr), $matchesM);</div><div class="line"></div><div class="line">print_r($matchesL);</div><div class="line">print_r($matchesM);</div></pre></td></tr></table></figure>
+<p>결과가 예상 되시나요?</p>
+<p><br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">Array</div><div class="line">(</div><div class="line">    [0] =&gt; Array</div><div class="line">        (</div><div class="line">            [0] =&gt; x</div><div class="line">            [1] =&gt; A</div><div class="line">            [2] =&gt; 주</div><div class="line">            [3] =&gt; я</div><div class="line">            [4] =&gt; 张</div><div class="line">            [5] =&gt; à</div><div class="line">        )</div><div class="line"></div><div class="line">)</div><div class="line">Array</div><div class="line">(</div><div class="line">    [0] =&gt; Array</div><div class="line">        (</div><div class="line">            [0] =&gt; ̀</div><div class="line">        )</div><div class="line"></div><div class="line">)</div></pre></td></tr></table></figure></p>
+<h2 id="한글만-골라내기"><a href="#한글만-골라내기" class="headerlink" title="한글만 골라내기"></a>한글만 골라내기</h2><p>이렇게 유니코드에는 수많은 카테고리가 존재하고, 이 중에는 역시 한글을 표현하는 카테고리도 존재한다.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">preg_match_all(<span class="string">'/\p&#123;Hangul&#125;/u'</span>, implode(<span class="string">''</span>, $arr), $matchesHangul);</div><div class="line"></div><div class="line">print_r($matchesHangul);</div></pre></td></tr></table></figure>
+<p>결과가 예상 되시나요?</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;오늘 라라벨 꾸준 코딩 모임에서 나왔던 이야기인데, 라라벨의 유효성 검사 규칙 중 &lt;a href=&quot;https://laravel.kr/docs/5.5/validation#rule-alpha&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;
+    
+    </summary>
+    
+    
+      <category term="Laravel" scheme="https://youngiggy.github.io/tags/Laravel/"/>
+    
+      <category term="PHP" scheme="https://youngiggy.github.io/tags/PHP/"/>
+    
+      <category term="REGEX" scheme="https://youngiggy.github.io/tags/REGEX/"/>
+    
+  </entry>
   
   <entry>
     <title>HTTP 완벽가이드 3장</title>
@@ -199,9 +282,9 @@
     </summary>
     
     
-      <category term="REST" scheme="https://youngiggy.github.io/tags/REST/"/>
-    
       <category term="PHP" scheme="https://youngiggy.github.io/tags/PHP/"/>
+    
+      <category term="REST" scheme="https://youngiggy.github.io/tags/REST/"/>
     
   </entry>
   
