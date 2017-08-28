@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://youngiggy.github.io/"/>
-  <updated>2017-08-28T05:48:28.000Z</updated>
+  <updated>2017-08-28T05:49:45.000Z</updated>
   <id>https://youngiggy.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://youngiggy.github.io/2017/08/23/alphabetic-letter-validation/"/>
     <id>https://youngiggy.github.io/2017/08/23/alphabetic-letter-validation/</id>
     <published>2017-08-23T11:52:36.000Z</published>
-    <updated>2017-08-28T05:48:28.000Z</updated>
+    <updated>2017-08-28T05:49:45.000Z</updated>
     
     <content type="html"><![CDATA[<p>오늘 라라벨 꾸준 코딩 모임에서 나왔던 이야기인데, 라라벨의 유효성 검사 규칙 중 <a href="https://laravel.kr/docs/5.5/validation#rule-alpha" target="_blank" rel="external">alpha</a>에 관해 써본다.</p>
 <blockquote>
@@ -32,7 +32,7 @@
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">Alpha</span><span class="params">($attribute, $value, $parameters, $validator)</span></span></div><div class="line">&#123;</div><div class="line">    ValidationMessages::setCustomMessages( $validator );</div><div class="line">    <span class="keyword">$this</span>-&gt;status = (bool) preg_match(<span class="string">"/^[\x&#123;600&#125;-\x&#123;6FF&#125;\x&#123;200c&#125;\x&#123;064b&#125;\x&#123;064d&#125;\x&#123;064c&#125;\x&#123;064e&#125;\x&#123;064f&#125;\x&#123;0650&#125;\x&#123;0651&#125;\s]+$/u"</span>, $value);</div><div class="line">    <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;status ;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>결국 다같이 라라벨 소스를 보게 되었다.<br>막상 코드를 열어보니 단순해서 놀랐는데, 코드는 아래와 같다.</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Validate that an attribute contains only alphabetic characters.</div><div class="line"> *</div><div class="line"> * <span class="doctag">@param</span>  string  $attribute</div><div class="line"> * <span class="doctag">@param</span>  mixed   $value</div><div class="line"> * <span class="doctag">@return</span> bool</div><div class="line"> */</div><div class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">validateAlpha</span><span class="params">($attribute, $value)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> is_string($value) &amp;&amp; preg_match(<span class="string">'/^[\pL\pM]+$/u'</span>, $value);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>“아니, 저건 무슨 정규식이죠?!”라며 놀랐지만, 뚫어져라 본다고 알 턱이 없었다.</p>
+<p>“아니, 저건 무슨 정규식이죠?!”라며 놀랐지만, 내가 뚫어져라 본다고 알 턱이 없었다.</p>
 <p>그래서 좀 찾아보기로…</p>
 <h2 id="Alphabet"><a href="#Alphabet" class="headerlink" title="Alphabet"></a>Alphabet</h2><p>내가 처음에 혼란스러웠던 것은, 유효성 규칙에 대한 설명에서 ‘알파벳[자음과 모음]’이라는 문자에서 과연 자음과 모음이라는 게 중요한가..라는 의문 때문이었다.</p>
 <p>한국어 위키디피아의 <a href="https://ko.wikipedia.org/wiki/%EC%9D%8C%EC%86%8C%EB%AC%B8%EC%9E%90" target="_blank" rel="external">음소문자</a> 설명부터 보자.</p>
