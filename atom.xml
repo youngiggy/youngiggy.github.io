@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://youngiggy.github.io/"/>
-  <updated>2017-08-28T05:47:00.000Z</updated>
+  <updated>2017-08-28T05:48:28.000Z</updated>
   <id>https://youngiggy.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://youngiggy.github.io/2017/08/23/alphabetic-letter-validation/"/>
     <id>https://youngiggy.github.io/2017/08/23/alphabetic-letter-validation/</id>
     <published>2017-08-23T11:52:36.000Z</published>
-    <updated>2017-08-28T05:47:00.000Z</updated>
+    <updated>2017-08-28T05:48:28.000Z</updated>
     
     <content type="html"><![CDATA[<p>오늘 라라벨 꾸준 코딩 모임에서 나왔던 이야기인데, 라라벨의 유효성 검사 규칙 중 <a href="https://laravel.kr/docs/5.5/validation#rule-alpha" target="_blank" rel="external">alpha</a>에 관해 써본다.</p>
 <blockquote>
@@ -126,8 +126,9 @@
 <p>메소드 명을 validateAlpha()라고 해놓고 /^[\pL\pM]+$/u로 검사하는 것은 올바른 선택인가?</p>
 <h2 id="thank-to"><a href="#thank-to" class="headerlink" title="thank to"></a>thank to</h2><p><a href="http://blog.gaerae.com/2015/10/postgresql-hangul-regular-expression.html" target="_blank" rel="external">http://blog.gaerae.com/2015/10/postgresql-hangul-regular-expression.html</a><br><a href="http://www.programminginkorean.com/programming/hangul-in-unicode/" target="_blank" rel="external">http://www.programminginkorean.com/programming/hangul-in-unicode/</a></p>
 <ul>
-<li>뭐 이런 사이트가 다 있나 싶은데…이런 사이트도 있다<br><a href="http://advent.perl.kr/2015/2015-12-04.html" target="_blank" rel="external">http://advent.perl.kr/2015/2015-12-04.html</a><br><a href="http://d2.naver.com/helloworld/76650" target="_blank" rel="external">http://d2.naver.com/helloworld/76650</a></li>
+<li>뭐 이런 사이트가 다 있나 싶은데…이런 사이트도 있다</li>
 </ul>
+<p><a href="http://advent.perl.kr/2015/2015-12-04.html" target="_blank" rel="external">http://advent.perl.kr/2015/2015-12-04.html</a><br><a href="http://d2.naver.com/helloworld/76650" target="_blank" rel="external">http://d2.naver.com/helloworld/76650</a></p>
 ]]></content>
     
     <summary type="html">
