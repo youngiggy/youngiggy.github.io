@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://youngiggy.github.io/"/>
-  <updated>2017-08-28T05:49:45.000Z</updated>
+  <updated>2017-08-28T05:57:42.000Z</updated>
   <id>https://youngiggy.github.io/</id>
   
   <author>
@@ -20,11 +20,16 @@
     <link href="https://youngiggy.github.io/2017/08/23/alphabetic-letter-validation/"/>
     <id>https://youngiggy.github.io/2017/08/23/alphabetic-letter-validation/</id>
     <published>2017-08-23T11:52:36.000Z</published>
-    <updated>2017-08-28T05:49:45.000Z</updated>
+    <updated>2017-08-28T05:57:42.000Z</updated>
     
     <content type="html"><![CDATA[<p>오늘 라라벨 꾸준 코딩 모임에서 나왔던 이야기인데, 라라벨의 유효성 검사 규칙 중 <a href="https://laravel.kr/docs/5.5/validation#rule-alpha" target="_blank" rel="external">alpha</a>에 관해 써본다.</p>
+<p>원문에서는 아래와 같이 정의하고 있다. </p>
 <blockquote>
-<p><em>alpha</em><br><br><br>필드의 값이 완벽하게 (숫자나 기호가 아닌) 알파벳[자음과 모음] 문자로 이루어져야 합니다.<br>(역자주: 영문 알파벳만을 의미하지 않고, 숫자나 기호가 아닌경우에 해당하여, 한글도 허용합니다.)</p>
+<p>The field under validation must be entirely alphabetic characters.</p>
+</blockquote>
+<p>이를 정수님이 옮기시면서 역주를 추가하셨는데,</p>
+<blockquote>
+<p>필드의 값이 완벽하게 (숫자나 기호가 아닌) 알파벳[자음과 모음] 문자로 이루어져야 합니다.<br>(역자주: 영문 알파벳만을 의미하지 않고, 숫자나 기호가 아닌경우에 해당하여, 한글도 허용합니다.)</p>
 </blockquote>
 <p>여기서 자음과 모음이 언급되었길래 그럼 자음과 모음이 없는 중국어는 어떻게 되냐고 여쭤보았고,<br>(중국어에 진짜 자음과 모음이 없는가에 대한 문제는 일단 넘어가자..)</p>
 <p>유니코드의 구간을 정해놓고 validation 처리한 예전 소스를 보여주신 분도 계셨다. 한글을 구분하는 코드였던가?<br>(좀 더 복잡한 소스였지만) 예를 들어 이런 식.</p>
