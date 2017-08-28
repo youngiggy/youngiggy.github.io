@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://youngiggy.github.io/"/>
-  <updated>2017-08-28T05:57:42.000Z</updated>
+  <updated>2017-08-28T06:00:22.000Z</updated>
   <id>https://youngiggy.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://youngiggy.github.io/2017/08/23/alphabetic-letter-validation/"/>
     <id>https://youngiggy.github.io/2017/08/23/alphabetic-letter-validation/</id>
     <published>2017-08-23T11:52:36.000Z</published>
-    <updated>2017-08-28T05:57:42.000Z</updated>
+    <updated>2017-08-28T06:00:22.000Z</updated>
     
     <content type="html"><![CDATA[<p>오늘 라라벨 꾸준 코딩 모임에서 나왔던 이야기인데, 라라벨의 유효성 검사 규칙 중 <a href="https://laravel.kr/docs/5.5/validation#rule-alpha" target="_blank" rel="external">alpha</a>에 관해 써본다.</p>
 <p>원문에서는 아래와 같이 정의하고 있다. </p>
@@ -57,7 +57,7 @@
 <p><code>\p</code>를 통해 property를 부여할 수 있고, 대문자로 쓰면 반대의 개념이다.</p>
 <p><code>\pL</code>은 문자(Letter)를 가져오고, <code>\PL</code>은 문자가 아닌 것만 가져온다.</p>
 <p><code>\pM</code>은 Mark를 의미하는데, 어디까지가 이 Mark에 부합하는가..가 좀 복잡하다.</p>
-<p>이 중에는 악센트나 옆에 있는 문자를 꾸며주는 역할을 하는 것도 있다. 그러니까 문자(이쯤되니 문자라는 표현이 맞는지도 모르겠다)를 꾸며주는 역할을 하는 걸 의미하는 듯 하다</p>
+<p>이 중에는 악센트와 같이 옆에 있는 문자를 꾸며주는 역할을 하는 것도 있다. 그러니까 문자(이쯤되니 문자라는 표현이 맞는지도 모르겠다)를 꾸며주는 역할을 하는 걸 의미하는 듯 하다</p>
 <p>더 자세하고 친절한 설명은 역시 <a href="https://stackoverflow.com/questions/6493954/how-to-properly-write-regex-for-unicode-first-name-in-java" target="_blank" rel="external">stackoverflow</a>에 있다.</p>
 <p>그럼 ™ &lt;- 요렇게 생긴 트레이드 ‘마크’는?</p>
 <p><a href="http://www.fileformat.info/info/unicode/char/2122/index.htm" target="_blank" rel="external">http://www.fileformat.info/info/unicode/char/2122/index.htm</a></p>
