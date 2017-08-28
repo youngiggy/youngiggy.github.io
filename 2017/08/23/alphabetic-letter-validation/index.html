@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://youngiggy.github.io/2017/08/23/alphabetic-letter-validation/index.html">
 <meta property="og:site_name" content="ha-ah">
 <meta property="og:description" content="오늘 라라벨 꾸준 코딩 모임에서 나왔던 이야기인데, 라라벨의 유효성 검사 규칙 중 alpha에 관해 써본다.  alpha필드의 값이 완벽하게 (숫자나 기호가 아닌) 알파벳[자음과 모음] 문자로 이루어져야 합니다.(역자주: 영문 알파벳만을 의미하지 않고, 숫자나 기호가 아닌경우에 해당하여, 한글도 허용합니다.)  여기서 자음과 모음이 언급되었길래 그럼 자음과">
-<meta property="og:updated_time" content="2017-08-24T15:11:33.000Z">
+<meta property="og:updated_time" content="2017-08-28T05:47:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="정규식으로 (한글) 문자만 골라내기">
 <meta name="twitter:description" content="오늘 라라벨 꾸준 코딩 모임에서 나왔던 이야기인데, 라라벨의 유효성 검사 규칙 중 alpha에 관해 써본다.  alpha필드의 값이 완벽하게 (숫자나 기호가 아닌) 알파벳[자음과 모음] 문자로 이루어져야 합니다.(역자주: 영문 알파벳만을 의미하지 않고, 숫자나 기호가 아닌경우에 해당하여, 한글도 허용합니다.)  여기서 자음과 모음이 언급되었길래 그럼 자음과">
@@ -104,7 +104,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Alphabet"><span class="toc-number">1.</span> <span class="toc-text">Alphabet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Unicode-property"><span class="toc-number">2.</span> <span class="toc-text">Unicode property</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#validation-rule-alpha"><span class="toc-number">3.</span> <span class="toc-text">validation#rule-alpha</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Run"><span class="toc-number">4.</span> <span class="toc-text">Run</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#한글만-골라내기"><span class="toc-number">5.</span> <span class="toc-text">한글만 골라내기</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Alphabet"><span class="toc-number">1.</span> <span class="toc-text">Alphabet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Unicode-property"><span class="toc-number">2.</span> <span class="toc-text">Unicode property</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#validation-rule-alpha"><span class="toc-number">3.</span> <span class="toc-text">validation#rule-alpha</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Run"><span class="toc-number">4.</span> <span class="toc-text">Run</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#한글만-골라내기"><span class="toc-number">5.</span> <span class="toc-text">한글만 골라내기</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#추가"><span class="toc-number"></span> <span class="toc-text">추가</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#결론"><span class="toc-number">1.</span> <span class="toc-text">결론</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#thank-to"><span class="toc-number">2.</span> <span class="toc-text">thank to</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -202,6 +202,53 @@
 <h2 id="한글만-골라내기"><a href="#한글만-골라내기" class="headerlink" title="한글만 골라내기"></a>한글만 골라내기</h2><p>이렇게 유니코드에는 수많은 카테고리가 존재하고, 이 중에는 역시 한글을 표현하는 카테고리도 존재한다.</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">preg_match_all(<span class="string">'/\p&#123;Hangul&#125;/u'</span>, implode(<span class="string">''</span>, $arr), $matchesHangul);</div><div class="line"></div><div class="line">print_r($matchesHangul);</div></pre></td></tr></table></figure>
 <p>결과가 예상 되시나요?</p>
+<h1 id="추가"><a href="#추가" class="headerlink" title="추가"></a>추가</h1><p>페이스북에서 받은 <a href="https://www.facebook.com/permalink.php?story_fbid=1587990834586231&amp;id=100001259884599&amp;notif_t=like&amp;notif_id=1503590754890689" target="_blank" rel="external">질문</a>을 좀 더 상세히 찾아보려는데,</p>
+<p>역시 유니코드 이 동네는 까면 깔수록 깔 게 많다. </p>
+<p>우선 질문은 “항상 /[가-힣]+/u 을 사용했는데 틀린 건가요?”였는데,</p>
+<p>그 전에 문맥/비즈니스 요구 사항에 관해 반문해야할 게 좀 많다.</p>
+<p>그 기능에서</p>
+<ul>
+<li>자모를 모두 사용한 완성된 글자만 필요한가?</li>
+<li>자모를 개별적으로 입력할 수 있어야 하는가?</li>
+<li>한국어에서 쓰이지 않는 글자 조합을 표시해야 하는가?</li>
+<li>입력한 자음이나 모음이 한글인지 검색해야 하는가?</li>
+</ul>
+<p>유니코드에서 한글이 존재하는 구간은 다음과 같다.</p>
+<p><a href="https://codepoints.net/hangul_jamo" target="_blank" rel="external">Hangul Jamo (U+1100 to U+11FF)</a><br><a href="https://codepoints.net/hangul_compatibility_jamo" target="_blank" rel="external">Hangul Compatibility Jamo (U+3130 to U+318F)</a><br><a href="https://codepoints.net/hangul_jamo_extended-a" target="_blank" rel="external">Hangul Jamo Extended-A (U+A960 to U+A97F)</a><br><a href="https://codepoints.net/hangul_syllables" target="_blank" rel="external">Hangul Syllables (U+AC00 to U+D7AF)</a><br><a href="https://codepoints.net/hangul_jamo_extended-b" target="_blank" rel="external">Hangul Jamo Extended-B (U+D7B0 to U+D7FF)</a></p>
+<p>이중 /가-힣/으로 걸러낼 수 있는 건 <a href="http://d2.naver.com/helloworld/76650" target="_blank" rel="external">한글 소리 마디 (Hangul Syllables)</a>인데,<br>한글 자모 각각을 구별하기 위해선 <a href="https://codepoints.net/hangul_jamo" target="_blank" rel="external">Hangul Jamo (U+1100 to U+11FF)</a>까지 살펴봐야 한다.</p>
+<p>/ㄱ-힣/이라고 쓰는 사람도 많은데, ㄱㄴㄷ..ㅜㅠㅡㅣ까지의 구간과 가나다…힡힢힣까지의 구간 사이에 한자 등 다른 문자가 많이 포함되어 있으므로 금지해야 한다.<br>/ㄱ-ㅣ가-힣/으로 써야 한다.</p>
+<p>페북에서는 옛한글(언급은 안했지만 아래아 같은 걸 염두에 뒀었다)이 현대 한글의 코드 구간 뒤쪽이라고 얘길 했었는데,<br>아래아의 경우는 한글 자모에 속해있다. 이외에 쓰이지 않는 많은 진짜(?) 옛한글은 호환용 한글 자모나 자모 확장 등에서 발견된다.</p>
+<h2 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h2><p>올바른 정규식을 얻기 위해선 뭉뚱그려 ‘한글 문자를 검사하는 기능’ 정도로 설명하지 말고, 정확한 요구사항을 명시하는 게 좋다.  </p>
+<p>자모를 사용한 완성된 글자만 필요한가?</p>
+<ul>
+<li>/가-힣/</li>
+</ul>
+<p>자모를 개별적으로 입력할 수 있어야 하는가?</p>
+<ul>
+<li>/ㄱ-ㅣ가-힣/</li>
+</ul>
+<p>한국어에서 쓰이지 않는 옛한글이나 글자 조합도 표시해야 하는가?</p>
+<ul>
+<li>/\p{Hangul}/u</li>
+</ul>
+<p>입력한 자음이나 모음이 한글인지 검색해야 하는가?</p>
+<ul>
+<li>자음이나 모음을 하나만 입력하고 이게 속해있는 지 검색하는 기능이라면, ‘한글 호환 자모’에 관해서도 알아놔야 한다.<ul>
+<li>참고 : <a href="http://advent.perl.kr/2015/2015-12-04.html" target="_blank" rel="external">http://advent.perl.kr/2015/2015-12-04.html</a></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>한글을 입력할 때 완성된 글자가 아니라 자음이나 모음 하나만 단독으로 입력하는 경우, 그 음소는 유니코드의 ‘한글 호환 자모(Hangul Compatibility Jamo)’ 영역에 있는 것을 사용하게 됩니다.</p>
+</blockquote>
+<p>각자의 비즈니스 요구 사항에 따라 선택하면 될 일이지만,</p>
+<p>향후의 요구 사항을 고려하는 좀 더 세심한 네이밍이 필요할 것 같다.</p>
+<p>라라벨 유효성를 다시 한번 돌아보자.</p>
+<p>메소드 명을 validateAlpha()라고 해놓고 /^[\pL\pM]+$/u로 검사하는 것은 올바른 선택인가?</p>
+<h2 id="thank-to"><a href="#thank-to" class="headerlink" title="thank to"></a>thank to</h2><p><a href="http://blog.gaerae.com/2015/10/postgresql-hangul-regular-expression.html" target="_blank" rel="external">http://blog.gaerae.com/2015/10/postgresql-hangul-regular-expression.html</a><br><a href="http://www.programminginkorean.com/programming/hangul-in-unicode/" target="_blank" rel="external">http://www.programminginkorean.com/programming/hangul-in-unicode/</a></p>
+<ul>
+<li>뭐 이런 사이트가 다 있나 싶은데…이런 사이트도 있다<br><a href="http://advent.perl.kr/2015/2015-12-04.html" target="_blank" rel="external">http://advent.perl.kr/2015/2015-12-04.html</a><br><a href="http://d2.naver.com/helloworld/76650" target="_blank" rel="external">http://d2.naver.com/helloworld/76650</a></li>
+</ul>
 
   </div>
 </article>
@@ -232,7 +279,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Alphabet"><span class="toc-number">1.</span> <span class="toc-text">Alphabet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Unicode-property"><span class="toc-number">2.</span> <span class="toc-text">Unicode property</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#validation-rule-alpha"><span class="toc-number">3.</span> <span class="toc-text">validation#rule-alpha</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Run"><span class="toc-number">4.</span> <span class="toc-text">Run</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#한글만-골라내기"><span class="toc-number">5.</span> <span class="toc-text">한글만 골라내기</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Alphabet"><span class="toc-number">1.</span> <span class="toc-text">Alphabet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Unicode-property"><span class="toc-number">2.</span> <span class="toc-text">Unicode property</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#validation-rule-alpha"><span class="toc-number">3.</span> <span class="toc-text">validation#rule-alpha</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Run"><span class="toc-number">4.</span> <span class="toc-text">Run</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#한글만-골라내기"><span class="toc-number">5.</span> <span class="toc-text">한글만 골라내기</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#추가"><span class="toc-number"></span> <span class="toc-text">추가</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#결론"><span class="toc-number">1.</span> <span class="toc-text">결론</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#thank-to"><span class="toc-number">2.</span> <span class="toc-text">thank to</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
