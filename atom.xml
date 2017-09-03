@@ -4,9 +4,9 @@
   <subtitle>하연이 아빠의 손놀림 샤샤샥</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://youngiggy.github.io/"/>
+  <link href="http://haah.kr/"/>
   <updated>2017-09-03T15:26:05.000Z</updated>
-  <id>https://youngiggy.github.io/</id>
+  <id>http://haah.kr/</id>
   
   <author>
     <name>youngiggy</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>독후감 - 아이의 사생활</title>
-    <link href="https://youngiggy.github.io/2017/09/04/kids-privacy/"/>
-    <id>https://youngiggy.github.io/2017/09/04/kids-privacy/</id>
+    <link href="http://haah.kr/2017/09/04/kids-privacy/"/>
+    <id>http://haah.kr/2017/09/04/kids-privacy/</id>
     <published>2017-09-03T15:03:46.000Z</published>
     <updated>2017-09-03T15:26:05.000Z</updated>
     
@@ -42,16 +42,16 @@
     </summary>
     
     
-      <category term="독후감" scheme="https://youngiggy.github.io/tags/%EB%8F%85%ED%9B%84%EA%B0%90/"/>
+      <category term="독후감" scheme="http://haah.kr/tags/%EB%8F%85%ED%9B%84%EA%B0%90/"/>
     
-      <category term="육아" scheme="https://youngiggy.github.io/tags/%EC%9C%A1%EC%95%84/"/>
+      <category term="육아" scheme="http://haah.kr/tags/%EC%9C%A1%EC%95%84/"/>
     
   </entry>
   
   <entry>
     <title>EIDF 2017</title>
-    <link href="https://youngiggy.github.io/2017/08/30/eidf-2017/"/>
-    <id>https://youngiggy.github.io/2017/08/30/eidf-2017/</id>
+    <link href="http://haah.kr/2017/08/30/eidf-2017/"/>
+    <id>http://haah.kr/2017/08/30/eidf-2017/</id>
     <published>2017-08-30T14:44:58.000Z</published>
     <updated>2017-08-30T16:32:56.000Z</updated>
     
@@ -129,16 +129,16 @@
     </summary>
     
     
-      <category term="영화" scheme="https://youngiggy.github.io/tags/%EC%98%81%ED%99%94/"/>
+      <category term="영화" scheme="http://haah.kr/tags/%EC%98%81%ED%99%94/"/>
     
-      <category term="EIDF" scheme="https://youngiggy.github.io/tags/EIDF/"/>
+      <category term="EIDF" scheme="http://haah.kr/tags/EIDF/"/>
     
   </entry>
   
   <entry>
     <title>정규식으로 (한글) 문자만 골라내기</title>
-    <link href="https://youngiggy.github.io/2017/08/23/alphabetic-letter-validation/"/>
-    <id>https://youngiggy.github.io/2017/08/23/alphabetic-letter-validation/</id>
+    <link href="http://haah.kr/2017/08/23/alphabetic-letter-validation/"/>
+    <id>http://haah.kr/2017/08/23/alphabetic-letter-validation/</id>
     <published>2017-08-23T11:52:36.000Z</published>
     <updated>2017-08-28T06:00:22.000Z</updated>
     
@@ -263,18 +263,18 @@
     </summary>
     
     
-      <category term="REGEX" scheme="https://youngiggy.github.io/tags/REGEX/"/>
+      <category term="REGEX" scheme="http://haah.kr/tags/REGEX/"/>
     
-      <category term="Laravel" scheme="https://youngiggy.github.io/tags/Laravel/"/>
+      <category term="Laravel" scheme="http://haah.kr/tags/Laravel/"/>
     
-      <category term="PHP" scheme="https://youngiggy.github.io/tags/PHP/"/>
+      <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
     
   </entry>
   
   <entry>
     <title>HTTP 완벽가이드 3장</title>
-    <link href="https://youngiggy.github.io/2017/08/23/http-the-definitive-guide-chapter-3/"/>
-    <id>https://youngiggy.github.io/2017/08/23/http-the-definitive-guide-chapter-3/</id>
+    <link href="http://haah.kr/2017/08/23/http-the-definitive-guide-chapter-3/"/>
+    <id>http://haah.kr/2017/08/23/http-the-definitive-guide-chapter-3/</id>
     <published>2017-08-23T10:37:15.000Z</published>
     <updated>2017-08-23T10:50:29.000Z</updated>
     
@@ -298,14 +298,14 @@
     </summary>
     
     
-      <category term="HTTP" scheme="https://youngiggy.github.io/tags/HTTP/"/>
+      <category term="HTTP" scheme="http://haah.kr/tags/HTTP/"/>
     
   </entry>
   
   <entry>
     <title>REST 연구 요약본</title>
-    <link href="https://youngiggy.github.io/2017/08/05/rest-series-summary/"/>
-    <id>https://youngiggy.github.io/2017/08/05/rest-series-summary/</id>
+    <link href="http://haah.kr/2017/08/05/rest-series-summary/"/>
+    <id>http://haah.kr/2017/08/05/rest-series-summary/</id>
     <published>2017-08-05T00:17:49.000Z</published>
     <updated>2017-08-05T14:51:09.000Z</updated>
     
@@ -425,18 +425,18 @@
     </summary>
     
     
-      <category term="API" scheme="https://youngiggy.github.io/tags/API/"/>
+      <category term="API" scheme="http://haah.kr/tags/API/"/>
     
-      <category term="RESTful" scheme="https://youngiggy.github.io/tags/RESTful/"/>
+      <category term="RESTful" scheme="http://haah.kr/tags/RESTful/"/>
     
-      <category term="REST" scheme="https://youngiggy.github.io/tags/REST/"/>
+      <category term="REST" scheme="http://haah.kr/tags/REST/"/>
     
   </entry>
   
   <entry>
     <title>당신이 만든 건 REST가 아니지만 괜찮아(MPUG 8월 발표자료)</title>
-    <link href="https://youngiggy.github.io/2017/08/05/rest-your-api-is-not-restful-and-that-is-good/"/>
-    <id>https://youngiggy.github.io/2017/08/05/rest-your-api-is-not-restful-and-that-is-good/</id>
+    <link href="http://haah.kr/2017/08/05/rest-your-api-is-not-restful-and-that-is-good/"/>
+    <id>http://haah.kr/2017/08/05/rest-your-api-is-not-restful-and-that-is-good/</id>
     <published>2017-08-05T00:02:09.000Z</published>
     <updated>2017-08-05T00:13:27.000Z</updated>
     
@@ -455,16 +455,16 @@
     </summary>
     
     
-      <category term="PHP" scheme="https://youngiggy.github.io/tags/PHP/"/>
+      <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
     
-      <category term="REST" scheme="https://youngiggy.github.io/tags/REST/"/>
+      <category term="REST" scheme="http://haah.kr/tags/REST/"/>
     
   </entry>
   
   <entry>
     <title>Explaining MySQL&#39;s EXPLAIN</title>
-    <link href="https://youngiggy.github.io/2017/08/04/explain-mysql-explain/"/>
-    <id>https://youngiggy.github.io/2017/08/04/explain-mysql-explain/</id>
+    <link href="http://haah.kr/2017/08/04/explain-mysql-explain/"/>
+    <id>http://haah.kr/2017/08/04/explain-mysql-explain/</id>
     <published>2017-08-03T15:26:10.000Z</published>
     <updated>2017-08-05T00:02:13.000Z</updated>
     
@@ -491,16 +491,16 @@
     </summary>
     
     
-      <category term="mysql" scheme="https://youngiggy.github.io/tags/mysql/"/>
+      <category term="mysql" scheme="http://haah.kr/tags/mysql/"/>
     
-      <category term="db" scheme="https://youngiggy.github.io/tags/db/"/>
+      <category term="db" scheme="http://haah.kr/tags/db/"/>
     
   </entry>
   
   <entry>
     <title>Resource Hints and Preload</title>
-    <link href="https://youngiggy.github.io/2017/08/03/resource-hints-and-preload/"/>
-    <id>https://youngiggy.github.io/2017/08/03/resource-hints-and-preload/</id>
+    <link href="http://haah.kr/2017/08/03/resource-hints-and-preload/"/>
+    <id>http://haah.kr/2017/08/03/resource-hints-and-preload/</id>
     <published>2017-08-03T04:41:26.000Z</published>
     <updated>2017-08-03T04:49:56.000Z</updated>
     
@@ -523,16 +523,16 @@
     </summary>
     
     
-      <category term="HTML5" scheme="https://youngiggy.github.io/tags/HTML5/"/>
+      <category term="HTML5" scheme="http://haah.kr/tags/HTML5/"/>
     
-      <category term="preload" scheme="https://youngiggy.github.io/tags/preload/"/>
+      <category term="preload" scheme="http://haah.kr/tags/preload/"/>
     
   </entry>
   
   <entry>
     <title>script의 async를 둘러싼 스펙 탐험</title>
-    <link href="https://youngiggy.github.io/2017/07/22/script-async/"/>
-    <id>https://youngiggy.github.io/2017/07/22/script-async/</id>
+    <link href="http://haah.kr/2017/07/22/script-async/"/>
+    <id>http://haah.kr/2017/07/22/script-async/</id>
     <published>2017-07-21T23:58:09.000Z</published>
     <updated>2017-07-26T17:18:46.000Z</updated>
     
@@ -682,14 +682,14 @@
     </summary>
     
     
-      <category term="JavaScript" scheme="https://youngiggy.github.io/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="http://haah.kr/tags/JavaScript/"/>
     
   </entry>
   
   <entry>
     <title>REST - 논문 읽기(To Do)</title>
-    <link href="https://youngiggy.github.io/2017/06/28/rest-the-dissertation/"/>
-    <id>https://youngiggy.github.io/2017/06/28/rest-the-dissertation/</id>
+    <link href="http://haah.kr/2017/06/28/rest-the-dissertation/"/>
+    <id>http://haah.kr/2017/06/28/rest-the-dissertation/</id>
     <published>2017-06-27T15:37:46.000Z</published>
     <updated>2017-07-10T15:38:19.000Z</updated>
     
@@ -718,18 +718,18 @@
     </summary>
     
     
-      <category term="API" scheme="https://youngiggy.github.io/tags/API/"/>
+      <category term="API" scheme="http://haah.kr/tags/API/"/>
     
-      <category term="RESTful" scheme="https://youngiggy.github.io/tags/RESTful/"/>
+      <category term="RESTful" scheme="http://haah.kr/tags/RESTful/"/>
     
-      <category term="REST" scheme="https://youngiggy.github.io/tags/REST/"/>
+      <category term="REST" scheme="http://haah.kr/tags/REST/"/>
     
   </entry>
   
   <entry>
     <title>REST - 당신이 만든 건 REST가 아니지만 괜찮아</title>
-    <link href="https://youngiggy.github.io/2017/06/28/rest-the-coclusion/"/>
-    <id>https://youngiggy.github.io/2017/06/28/rest-the-coclusion/</id>
+    <link href="http://haah.kr/2017/06/28/rest-the-coclusion/"/>
+    <id>http://haah.kr/2017/06/28/rest-the-coclusion/</id>
     <published>2017-06-27T15:15:16.000Z</published>
     <updated>2017-08-05T14:45:49.000Z</updated>
     
@@ -959,18 +959,18 @@
     </summary>
     
     
-      <category term="API" scheme="https://youngiggy.github.io/tags/API/"/>
+      <category term="API" scheme="http://haah.kr/tags/API/"/>
     
-      <category term="RESTful" scheme="https://youngiggy.github.io/tags/RESTful/"/>
+      <category term="RESTful" scheme="http://haah.kr/tags/RESTful/"/>
     
-      <category term="REST" scheme="https://youngiggy.github.io/tags/REST/"/>
+      <category term="REST" scheme="http://haah.kr/tags/REST/"/>
     
   </entry>
   
   <entry>
     <title>REST - Roy가 입을 열다</title>
-    <link href="https://youngiggy.github.io/2017/06/26/rest-the-truth/"/>
-    <id>https://youngiggy.github.io/2017/06/26/rest-the-truth/</id>
+    <link href="http://haah.kr/2017/06/26/rest-the-truth/"/>
+    <id>http://haah.kr/2017/06/26/rest-the-truth/</id>
     <published>2017-06-25T15:41:41.000Z</published>
     <updated>2017-08-23T10:36:57.000Z</updated>
     
@@ -1269,18 +1269,18 @@
     </summary>
     
     
-      <category term="API" scheme="https://youngiggy.github.io/tags/API/"/>
+      <category term="API" scheme="http://haah.kr/tags/API/"/>
     
-      <category term="RESTful" scheme="https://youngiggy.github.io/tags/RESTful/"/>
+      <category term="RESTful" scheme="http://haah.kr/tags/RESTful/"/>
     
-      <category term="REST" scheme="https://youngiggy.github.io/tags/REST/"/>
+      <category term="REST" scheme="http://haah.kr/tags/REST/"/>
     
   </entry>
   
   <entry>
     <title>REST - REST 좋아하시네</title>
-    <link href="https://youngiggy.github.io/2017/06/12/rest-the-big-lie/"/>
-    <id>https://youngiggy.github.io/2017/06/12/rest-the-big-lie/</id>
+    <link href="http://haah.kr/2017/06/12/rest-the-big-lie/"/>
+    <id>http://haah.kr/2017/06/12/rest-the-big-lie/</id>
     <published>2017-06-12T11:41:23.000Z</published>
     <updated>2017-07-15T23:39:13.000Z</updated>
     
@@ -1621,18 +1621,18 @@
     </summary>
     
     
-      <category term="API" scheme="https://youngiggy.github.io/tags/API/"/>
+      <category term="API" scheme="http://haah.kr/tags/API/"/>
     
-      <category term="RESTful" scheme="https://youngiggy.github.io/tags/RESTful/"/>
+      <category term="RESTful" scheme="http://haah.kr/tags/RESTful/"/>
     
-      <category term="REST" scheme="https://youngiggy.github.io/tags/REST/"/>
+      <category term="REST" scheme="http://haah.kr/tags/REST/"/>
     
   </entry>
   
   <entry>
     <title>REST - 논문(요약) 훑어보기</title>
-    <link href="https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/"/>
-    <id>https://youngiggy.github.io/2017/05/24/rest-the-dissertation-summary/</id>
+    <link href="http://haah.kr/2017/05/24/rest-the-dissertation-summary/"/>
+    <id>http://haah.kr/2017/05/24/rest-the-dissertation-summary/</id>
     <published>2017-05-24T03:06:17.000Z</published>
     <updated>2017-08-05T01:45:07.000Z</updated>
     
@@ -1758,18 +1758,18 @@
     </summary>
     
     
-      <category term="API" scheme="https://youngiggy.github.io/tags/API/"/>
+      <category term="API" scheme="http://haah.kr/tags/API/"/>
     
-      <category term="RESTful" scheme="https://youngiggy.github.io/tags/RESTful/"/>
+      <category term="RESTful" scheme="http://haah.kr/tags/RESTful/"/>
     
-      <category term="REST" scheme="https://youngiggy.github.io/tags/REST/"/>
+      <category term="REST" scheme="http://haah.kr/tags/REST/"/>
     
   </entry>
   
   <entry>
     <title>REST - HTML Form에서 GET/POST만 지원하는 이유</title>
-    <link href="https://youngiggy.github.io/2017/05/23/rest-http-method-in-html-form/"/>
-    <id>https://youngiggy.github.io/2017/05/23/rest-http-method-in-html-form/</id>
+    <link href="http://haah.kr/2017/05/23/rest-http-method-in-html-form/"/>
+    <id>http://haah.kr/2017/05/23/rest-http-method-in-html-form/</id>
     <published>2017-05-23T14:12:12.000Z</published>
     <updated>2017-07-09T14:50:59.000Z</updated>
     
@@ -1852,18 +1852,18 @@
     </summary>
     
     
-      <category term="API" scheme="https://youngiggy.github.io/tags/API/"/>
+      <category term="API" scheme="http://haah.kr/tags/API/"/>
     
-      <category term="RESTful" scheme="https://youngiggy.github.io/tags/RESTful/"/>
+      <category term="RESTful" scheme="http://haah.kr/tags/RESTful/"/>
     
-      <category term="REST" scheme="https://youngiggy.github.io/tags/REST/"/>
+      <category term="REST" scheme="http://haah.kr/tags/REST/"/>
     
   </entry>
   
   <entry>
     <title>REST - 긴 여정의 시작</title>
-    <link href="https://youngiggy.github.io/2017/05/22/rest-the-beginning/"/>
-    <id>https://youngiggy.github.io/2017/05/22/rest-the-beginning/</id>
+    <link href="http://haah.kr/2017/05/22/rest-the-beginning/"/>
+    <id>http://haah.kr/2017/05/22/rest-the-beginning/</id>
     <published>2017-05-21T16:30:00.000Z</published>
     <updated>2017-07-09T14:31:53.000Z</updated>
     
@@ -1926,18 +1926,18 @@
     </summary>
     
     
-      <category term="API" scheme="https://youngiggy.github.io/tags/API/"/>
+      <category term="API" scheme="http://haah.kr/tags/API/"/>
     
-      <category term="RESTful" scheme="https://youngiggy.github.io/tags/RESTful/"/>
+      <category term="RESTful" scheme="http://haah.kr/tags/RESTful/"/>
     
-      <category term="REST" scheme="https://youngiggy.github.io/tags/REST/"/>
+      <category term="REST" scheme="http://haah.kr/tags/REST/"/>
     
   </entry>
   
   <entry>
     <title>API Design을 들여다보다</title>
-    <link href="https://youngiggy.github.io/2017/05/18/learning-api-design/"/>
-    <id>https://youngiggy.github.io/2017/05/18/learning-api-design/</id>
+    <link href="http://haah.kr/2017/05/18/learning-api-design/"/>
+    <id>http://haah.kr/2017/05/18/learning-api-design/</id>
     <published>2017-05-18T14:28:44.000Z</published>
     <updated>2017-06-27T16:17:29.000Z</updated>
     
@@ -1977,16 +1977,16 @@
     </summary>
     
     
-      <category term="API" scheme="https://youngiggy.github.io/tags/API/"/>
+      <category term="API" scheme="http://haah.kr/tags/API/"/>
     
-      <category term="Design" scheme="https://youngiggy.github.io/tags/Design/"/>
+      <category term="Design" scheme="http://haah.kr/tags/Design/"/>
     
   </entry>
   
   <entry>
     <title>블로그를 시작하겠노라고 선언하다</title>
-    <link href="https://youngiggy.github.io/2017/05/18/declare/"/>
-    <id>https://youngiggy.github.io/2017/05/18/declare/</id>
+    <link href="http://haah.kr/2017/05/18/declare/"/>
+    <id>http://haah.kr/2017/05/18/declare/</id>
     <published>2017-05-18T13:02:20.000Z</published>
     <updated>2017-06-27T16:15:17.000Z</updated>
     

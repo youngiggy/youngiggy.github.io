@@ -10,7 +10,7 @@
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="script의 async를 둘러싼 스펙 탐험">
-<meta property="og:url" content="https://youngiggy.github.io/2017/07/22/script-async/index.html">
+<meta property="og:url" content="http://haah.kr/2017/07/22/script-async/index.html">
 <meta property="og:site_name" content="ha-ah">
 <meta property="og:description" content="bsidesoft 블로그에 Jobs에 대한 내용이 올라왔다.  NHN Entertainment에서 쓴 자바스크립트와 이벤트 루프에서도 끝에 언급했었던 내용이니 같이 참고하면 좋겠다.  여튼, Jobs에 대한 글 중간에 12&amp;lt;!--소용없음. 그냥 async 선언과 동일--&amp;gt;&amp;lt;script async=&quot;false&quot; src=&quot;1.js&quot;&amp;gt;&amp;lt">
 <meta property="og:locale" content="ko">
@@ -96,16 +96,16 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://youngiggy.github.io/2017/07/22/script-async/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://youngiggy.github.io/2017/07/22/script-async/&text=script의 async를 둘러싼 스펙 탐험"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://youngiggy.github.io/2017/07/22/script-async/&title=script의 async를 둘러싼 스펙 탐험"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://youngiggy.github.io/2017/07/22/script-async/&is_video=false&description=script의 async를 둘러싼 스펙 탐험"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=script의 async를 둘러싼 스펙 탐험&body=Check out this article: https://youngiggy.github.io/2017/07/22/script-async/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://youngiggy.github.io/2017/07/22/script-async/&title=script의 async를 둘러싼 스펙 탐험"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://youngiggy.github.io/2017/07/22/script-async/&title=script의 async를 둘러싼 스펙 탐험"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://youngiggy.github.io/2017/07/22/script-async/&title=script의 async를 둘러싼 스펙 탐험"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://youngiggy.github.io/2017/07/22/script-async/&title=script의 async를 둘러싼 스펙 탐험"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://youngiggy.github.io/2017/07/22/script-async/&name=script의 async를 둘러싼 스펙 탐험&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://haah.kr/2017/07/22/script-async/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://haah.kr/2017/07/22/script-async/&text=script의 async를 둘러싼 스펙 탐험"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://haah.kr/2017/07/22/script-async/&title=script의 async를 둘러싼 스펙 탐험"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://haah.kr/2017/07/22/script-async/&is_video=false&description=script의 async를 둘러싼 스펙 탐험"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=script의 async를 둘러싼 스펙 탐험&body=Check out this article: http://haah.kr/2017/07/22/script-async/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://haah.kr/2017/07/22/script-async/&title=script의 async를 둘러싼 스펙 탐험"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://haah.kr/2017/07/22/script-async/&title=script의 async를 둘러싼 스펙 탐험"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://haah.kr/2017/07/22/script-async/&title=script의 async를 둘러싼 스펙 탐험"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://haah.kr/2017/07/22/script-async/&title=script의 async를 둘러싼 스펙 탐험"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://haah.kr/2017/07/22/script-async/&name=script의 async를 둘러싼 스펙 탐험&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -319,16 +319,16 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://youngiggy.github.io/2017/07/22/script-async/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://youngiggy.github.io/2017/07/22/script-async/&text=script의 async를 둘러싼 스펙 탐험"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://youngiggy.github.io/2017/07/22/script-async/&title=script의 async를 둘러싼 스펙 탐험"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://youngiggy.github.io/2017/07/22/script-async/&is_video=false&description=script의 async를 둘러싼 스펙 탐험"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=script의 async를 둘러싼 스펙 탐험&body=Check out this article: https://youngiggy.github.io/2017/07/22/script-async/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://youngiggy.github.io/2017/07/22/script-async/&title=script의 async를 둘러싼 스펙 탐험"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://youngiggy.github.io/2017/07/22/script-async/&title=script의 async를 둘러싼 스펙 탐험"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://youngiggy.github.io/2017/07/22/script-async/&title=script의 async를 둘러싼 스펙 탐험"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://youngiggy.github.io/2017/07/22/script-async/&title=script의 async를 둘러싼 스펙 탐험"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://youngiggy.github.io/2017/07/22/script-async/&name=script의 async를 둘러싼 스펙 탐험&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://haah.kr/2017/07/22/script-async/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://haah.kr/2017/07/22/script-async/&text=script의 async를 둘러싼 스펙 탐험"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://haah.kr/2017/07/22/script-async/&title=script의 async를 둘러싼 스펙 탐험"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://haah.kr/2017/07/22/script-async/&is_video=false&description=script의 async를 둘러싼 스펙 탐험"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=script의 async를 둘러싼 스펙 탐험&body=Check out this article: http://haah.kr/2017/07/22/script-async/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://haah.kr/2017/07/22/script-async/&title=script의 async를 둘러싼 스펙 탐험"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://haah.kr/2017/07/22/script-async/&title=script의 async를 둘러싼 스펙 탐험"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://haah.kr/2017/07/22/script-async/&title=script의 async를 둘러싼 스펙 탐험"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://haah.kr/2017/07/22/script-async/&title=script의 async를 둘러싼 스펙 탐험"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://haah.kr/2017/07/22/script-async/&name=script의 async를 둘러싼 스펙 탐험&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
