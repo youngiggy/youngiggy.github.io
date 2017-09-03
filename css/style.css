@@ -525,7 +525,7 @@ body {
 }
 .width {
   width: 100%;
-  max-width: 42rem;
+  max-width: 39rem;
 }
 @media (max-width: 480px) {
   .px3 {
