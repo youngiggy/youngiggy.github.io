@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://youngiggy.github.io/"/>
-  <updated>2017-09-03T15:06:15.000Z</updated>
+  <updated>2017-09-03T15:26:05.000Z</updated>
   <id>https://youngiggy.github.io/</id>
   
   <author>
@@ -16,58 +16,35 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>kids-privacy</title>
-    <link href="https://youngiggy.github.io/2017/09/04/kids-privacy-3/"/>
-    <id>https://youngiggy.github.io/2017/09/04/kids-privacy-3/</id>
-    <published>2017-09-03T15:06:15.000Z</published>
-    <updated>2017-09-03T15:06:15.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>kids-privacy</title>
-    <link href="https://youngiggy.github.io/2017/09/04/kids-privacy-2/"/>
-    <id>https://youngiggy.github.io/2017/09/04/kids-privacy-2/</id>
-    <published>2017-09-03T15:05:38.000Z</published>
-    <updated>2017-09-03T15:05:38.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>kids-privacy</title>
-    <link href="https://youngiggy.github.io/2017/09/04/kids-privacy-1/"/>
-    <id>https://youngiggy.github.io/2017/09/04/kids-privacy-1/</id>
-    <published>2017-09-03T15:04:58.000Z</published>
-    <updated>2017-09-03T15:04:58.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>kids-privacy</title>
+    <title>독후감 - 아이의 사생활</title>
     <link href="https://youngiggy.github.io/2017/09/04/kids-privacy/"/>
     <id>https://youngiggy.github.io/2017/09/04/kids-privacy/</id>
     <published>2017-09-03T15:03:46.000Z</published>
-    <updated>2017-09-03T15:03:46.000Z</updated>
+    <updated>2017-09-03T15:26:05.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://image.kyobobook.co.kr/images/book/large/078/l9788952762078.jpg" alt="아이의 사생활"></p>
+<p>책 자체가 잘 쓰였다고는 생각하지는 않다만,<br>부모로서 스스로 돌아보기에 괜찮은 기회일 수도 있다.</p>
+<p>육아에 대해 큰 고민없이 살거나 고민은 많은데 부모 스스로 감정 조절이 안되거나 지금 내가 하는 게 맞나 싶은 사람이라면 도움이 될 수도 있겠다.</p>
+<p>3장의 목차가 저 모양이라 마음엔 안 들지만<br>(오래 전 책이라 줄을 잘못 섰기도 섰거니와)</p>
+<p>저 부분만 잘 넘어가면 이래저래 생각할 거리는 많다.<br>(3장은 낯 간지러워서 도저히 못 읽겠다!)</p>
+<p>한문장 한문장 읽으면서 내 행동을 돌아보는 용도로 가볍게 읽고 넘어가면 좋을 것 같다.</p>
+<p>읽다보면 이 자존감을 세우는 일은 아이에만 필요한 게 아니다. 내 주위 사람들, 지나간 동료들도 많이 생각이 났다.</p>
+<p>저기 자존감이 높은 대표적인 인물로 꼽힌 안철수가 그…(?) 과정을 거치며 얼마나 자존감이 낮아졌는가, 그 아이가 얼마나 삐뚤어졌나 생각해보자.</p>
+<p>아쉬운 건,<br>이런 저런 연구 결과나 박사 이름을 언급하지만,<br>행동 지침을 도출하게 된 직접적인 근거는 또 아니어서,<br>이렇게 해라 저렇게 해라 하는 게 진짜 근거가 있는지 아닌지 알게 뭐냐는…<br>시간 없는데 할 말이 많은 사람처럼 문장도 좀 산만한 것 같고.<br>잔소리 많은 아는 형님이 조금 취했다고 생각하자.</p>
+<p>하지만 그 형님이 말하는 아이의 사생활도 한번 들어볼 생각.</p>
+]]></content>
     
     <summary type="html">
     
+      &lt;p&gt;&lt;img src=&quot;http://image.kyobobook.co.kr/images/book/large/078/l9788952762078.jpg&quot; alt=&quot;아이의 사생활&quot;&gt;&lt;/p&gt;
+&lt;p&gt;책 자체가 잘 쓰였다고는 생각하지는 않다만,&lt;br&gt;부모로서 스
+    
     </summary>
     
+    
+      <category term="독후감" scheme="https://youngiggy.github.io/tags/%EB%8F%85%ED%9B%84%EA%B0%90/"/>
+    
+      <category term="육아" scheme="https://youngiggy.github.io/tags/%EC%9C%A1%EC%95%84/"/>
     
   </entry>
   
@@ -177,9 +154,9 @@
 <p>여기서 자음과 모음이 언급되었길래 그럼 자음과 모음이 없는 중국어는 어떻게 되냐고 여쭤보았고,<br>(중국어에 진짜 자음과 모음이 없는가에 대한 문제는 일단 넘어가자..)</p>
 <p>유니코드의 구간을 정해놓고 validation 처리한 예전 소스를 보여주신 분도 계셨다. 한글을 구분하는 코드였던가?<br>(좀 더 복잡한 소스였지만) 예를 들어 이런 식.</p>
 <p>아래는 persian alphabet을 골라내는 정규식이(란)다.<br>(출처 : <a href="https://github.com/anetwork/validation/blob/master/src/ValidationRules.php#L27" target="_blank" rel="external">anetwork</a>)</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">Alpha</span><span class="params">($attribute, $value, $parameters, $validator)</span></span></div><div class="line">&#123;</div><div class="line">    ValidationMessages::setCustomMessages( $validator );</div><div class="line">    <span class="keyword">$this</span>-&gt;status = (bool) preg_match(<span class="string">"/^[\x&#123;600&#125;-\x&#123;6FF&#125;\x&#123;200c&#125;\x&#123;064b&#125;\x&#123;064d&#125;\x&#123;064c&#125;\x&#123;064e&#125;\x&#123;064f&#125;\x&#123;0650&#125;\x&#123;0651&#125;\s]+$/u"</span>, $value);</div><div class="line">    <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;status ;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">Alpha</span><span class="params">($attribute, $value, $parameters, $validator)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    ValidationMessages::setCustomMessages( $validator );</div><div class="line">    <span class="keyword">$this</span>-&gt;status = (bool) preg_match(<span class="string">"/^[\x&#123;600&#125;-\x&#123;6FF&#125;\x&#123;200c&#125;\x&#123;064b&#125;\x&#123;064d&#125;\x&#123;064c&#125;\x&#123;064e&#125;\x&#123;064f&#125;\x&#123;0650&#125;\x&#123;0651&#125;\s]+$/u"</span>, $value);</div><div class="line">    <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;status ;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>결국 다같이 라라벨 소스를 보게 되었다.<br>막상 코드를 열어보니 단순해서 놀랐는데, 코드는 아래와 같다.</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Validate that an attribute contains only alphabetic characters.</div><div class="line"> *</div><div class="line"> * <span class="doctag">@param</span>  string  $attribute</div><div class="line"> * <span class="doctag">@param</span>  mixed   $value</div><div class="line"> * <span class="doctag">@return</span> bool</div><div class="line"> */</div><div class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">validateAlpha</span><span class="params">($attribute, $value)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> is_string($value) &amp;&amp; preg_match(<span class="string">'/^[\pL\pM]+$/u'</span>, $value);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * Validate that an attribute contains only alphabetic characters.</span></div><div class="line"><span class="comment"> *</span></div><div class="line"><span class="comment"> * <span class="doctag">@param</span>  string  $attribute</span></div><div class="line"><span class="comment"> * <span class="doctag">@param</span>  mixed   $value</span></div><div class="line"><span class="comment"> * <span class="doctag">@return</span> bool</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">validateAlpha</span><span class="params">($attribute, $value)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">return</span> is_string($value) &amp;&amp; preg_match(<span class="string">'/^[\pL\pM]+$/u'</span>, $value);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>“아니, 저건 무슨 정규식이죠?!”라며 놀랐지만, 내가 뚫어져라 본다고 알 턱이 없었다.</p>
 <p>그래서 좀 찾아보기로…</p>
 <h2 id="Alphabet"><a href="#Alphabet" class="headerlink" title="Alphabet"></a>Alphabet</h2><p>내가 처음에 혼란스러웠던 것은, 유효성 규칙에 대한 설명에서 ‘알파벳[자음과 모음]’이라는 문자에서 과연 자음과 모음이라는 게 중요한가..라는 의문 때문이었다.</p>
@@ -2003,6 +1980,29 @@
       <category term="API" scheme="https://youngiggy.github.io/tags/API/"/>
     
       <category term="Design" scheme="https://youngiggy.github.io/tags/Design/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>블로그를 시작하겠노라고 선언하다</title>
+    <link href="https://youngiggy.github.io/2017/05/18/declare/"/>
+    <id>https://youngiggy.github.io/2017/05/18/declare/</id>
+    <published>2017-05-18T13:02:20.000Z</published>
+    <updated>2017-06-27T16:15:17.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="내가-은연-중-피하려고-했던-것들"><a href="#내가-은연-중-피하려고-했던-것들" class="headerlink" title="내가 은연 중 피하려고 했던 것들"></a>내가 은연 중 피하려고 했던 것들</h2><p>기술 블로그와 신세 한탄이 섞여있겠지만,</p>
+<p>익숙하지 않은 것을 시도해보기로 했다.</p>
+<h2 id="그리고-2017-05-18-오늘"><a href="#그리고-2017-05-18-오늘" class="headerlink" title="그리고 2017.05.18 오늘"></a>그리고 2017.05.18 오늘</h2><p>오랜만에 제창된 임을 위한 행진곡<br><div class="video-container"><iframe src="//www.youtube.com/embed/UdKgerP9O7Q" frameborder="0" allowfullscreen></iframe></div></p>
+<p>RIP. Chris Cornell</p>
+<div class="video-container"><iframe src="//www.youtube.com/embed/IuUDRU9-HRk" frameborder="0" allowfullscreen></iframe></div>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;내가-은연-중-피하려고-했던-것들&quot;&gt;&lt;a href=&quot;#내가-은연-중-피하려고-했던-것들&quot; class=&quot;headerlink&quot; title=&quot;내가 은연 중 피하려고 했던 것들&quot;&gt;&lt;/a&gt;내가 은연 중 피하려고 했던 것들&lt;/h2&gt;&lt;p&gt;기술 블로그
+    
+    </summary>
+    
     
   </entry>
   
