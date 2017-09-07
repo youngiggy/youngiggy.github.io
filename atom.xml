@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://haah.kr/"/>
-  <updated>2017-09-07T16:38:38.000Z</updated>
+  <updated>2017-09-07T16:49:04.000Z</updated>
   <id>http://haah.kr/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://haah.kr/2017/09/08/ambiguous-ampersands/"/>
     <id>http://haah.kr/2017/09/08/ambiguous-ampersands/</id>
     <published>2017-09-07T15:46:22.000Z</published>
-    <updated>2017-09-07T16:38:38.000Z</updated>
+    <updated>2017-09-07T16:49:04.000Z</updated>
     
     <content type="html"><![CDATA[<p>개발하면서 누구나 한번쯤은 궁금해하지만, 아무도 정확히 알려주지 않는 모호한 앰퍼샌드에 대해 얕게 한번 파보았습니다.</p>
 <h2 id="현상"><a href="#현상" class="headerlink" title="현상"></a>현상</h2><p>공고 관리자 페이지에서 reg_mem_type이라는 변수를 검색할 수 있는 옵션을 추가했더니, 페이징 영역을 클릭하면 계속 오류가 발생했다.</p>
@@ -51,7 +51,7 @@
 <h2 id="해결-in-PHP"><a href="#해결-in-PHP" class="headerlink" title="해결 in PHP"></a>해결 in PHP</h2><p>페이징 링크에 들어가는 부분</p>
 <p>$queryString = ‘&amp;’ . http_build_query($params, ‘’, ‘&amp;’) ;</p>
 <p>와 같은 소스를</p>
-<p>$queryString = ‘&amp;’ . http_build_query($params, ‘’, ‘&amp;’) ;</p>
+<p>$queryString = ‘&amp;’ . http_build_query($params, ‘’, ‘&amp;amp;’) ;</p>
 <p>이와 같이 &amp;만을 escape 처리함.</p>
 <h1 id="모호한-앰퍼샌드"><a href="#모호한-앰퍼샌드" class="headerlink" title="모호한 앰퍼샌드"></a>모호한 앰퍼샌드</h1><p>아래는 이 현상을 제대로 이해하기 위해 모호한 앰퍼샌드에 관한 글을 번역한 것이다.</p>
 <p>원문 : <a href="https://mathiasbynens.be/notes/ambiguous-ampersands" target="_blank" rel="external">https://mathiasbynens.be/notes/ambiguous-ampersands</a></p>
@@ -73,15 +73,15 @@
 </blockquote>
 <p>문자 참조에는 여러가지 종류가 있다. HTML4.01 스펙에는 두 개의 그룹으로 나누었지만, 사실 세가지가 있다.</p>
 <ul>
-<li>decimal numeric character references, e.g. &#169;<ul>
+<li>decimal numeric character references, e.g. &amp;#169;<ul>
 <li>정수 문자 참조</li>
 </ul>
 </li>
-<li>hexadecimal numeric character references, e.g. &#xA9;<ul>
+<li>hexadecimal numeric character references, e.g. &amp;#xA9;<ul>
 <li>16진수 문자 참조</li>
 </ul>
 </li>
-<li>named character references, e.g. &copy;<ul>
+<li>named character references, e.g. &amp;copy;<ul>
 <li>명명된 문자 참조</li>
 </ul>
 </li>
@@ -91,9 +91,9 @@
 </blockquote>
 <p>문자 참조는 &amp;로 시작하고 ;로 끝나야 한다.</p>
 <blockquote>
-<p>Fun fact: the list of named character references in the HTML spec includes &amp; and &AMP;, but also &amp;amp and &amp;AMP (without the trailing semicolon). The same goes for a few other entities. This is done for backwards-compatibility reasons. This way, the spec dictates that foo &amp;amp bar should be rendered as “foo &amp; bar”, even though it’s invalid markup (because of the missing trailing semicolon). More on this in a minute…</p>
+<p>Fun fact: the list of named character references in the HTML spec includes &amp;amp; and &amp;AMP;, but also &amp;amp and &amp;AMP (without the trailing semicolon). The same goes for a few other entities. This is done for backwards-compatibility reasons. This way, the spec dictates that foo &amp;amp bar should be rendered as “foo &amp; bar”, even though it’s invalid markup (because of the missing trailing semicolon). More on this in a minute…</p>
 </blockquote>
-<p>재밌는 사실은: HTML 스펙에서 명명된 문자 참조는 &amp;와 &AMP;를 포함하는데, 세미콜론(;)이 뒤에 붙지 않은 &amp;amp와 &amp;AMP도 있다는 것이다. 다른 일부 엔티티도 마찬가지이다. 이건 하위 호환성을 때문에 이렇게 됐다. 이 방식으로, (세미콜론이 빠져있으면) 유효하지 않은 마크업임에도 불구하고, 스펙에선 “foo &amp;amp bar”를 “foo &amp; bar”로 랜더할 수 있게 지시하고 있다. 조금 이따가 다시 다루겠다.</p>
+<p>재밌는 사실은: HTML 스펙에서 명명된 문자 참조는 &amp;amp;와 &amp;AMP;를 포함하는데, 세미콜론(;)이 뒤에 붙지 않은 &amp;amp와 &amp;AMP도 있다는 것이다. 다른 일부 엔티티도 마찬가지이다. 이건 하위 호환성을 때문에 이렇게 됐다. 이 방식으로, (세미콜론이 빠져있으면) 유효하지 않은 마크업임에도 불구하고, 스펙에선 “foo &amp;amp bar”를 “foo &amp; bar”로 랜더할 수 있게 지시하고 있다. 조금 이따가 다시 다루겠다.</p>
 <blockquote>
 <p>In this post, we’ll take a closer look at what happens if there’s an unencoded ampersand that’s not part of a character reference in your HTML code. Is it valid? Is it invalid? And what do “ambiguous ampersands” have to do with all this?</p>
 </blockquote>
