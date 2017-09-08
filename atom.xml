@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://haah.kr/"/>
-  <updated>2017-09-07T16:49:04.000Z</updated>
+  <updated>2017-09-08T12:51:47.000Z</updated>
   <id>http://haah.kr/</id>
   
   <author>
@@ -20,13 +20,13 @@
     <link href="http://haah.kr/2017/09/08/ambiguous-ampersands/"/>
     <id>http://haah.kr/2017/09/08/ambiguous-ampersands/</id>
     <published>2017-09-07T15:46:22.000Z</published>
-    <updated>2017-09-07T16:49:04.000Z</updated>
+    <updated>2017-09-08T12:51:47.000Z</updated>
     
     <content type="html"><![CDATA[<p>개발하면서 누구나 한번쯤은 궁금해하지만, 아무도 정확히 알려주지 않는 모호한 앰퍼샌드에 대해 얕게 한번 파보았습니다.</p>
 <h2 id="현상"><a href="#현상" class="headerlink" title="현상"></a>현상</h2><p>공고 관리자 페이지에서 reg_mem_type이라는 변수를 검색할 수 있는 옵션을 추가했더니, 페이징 영역을 클릭하면 계속 오류가 발생했다.</p>
 <p>®이라는 특수문자가 전송되는 것을 보고 페이징쪽 소스를 보니</p>
 <p>소스보기로는 이상이 없어보이나 개발자도구로는 ®가 찍히는 것을 확인.</p>
-<h2 id="원인"><a href="#원인" class="headerlink" title="원인"></a>원인</h2><p>이는 일부 html entity는 세미콜론이 없어도 전환이 가능하다는 것을 알게 됐다.</p>
+<h2 id="원인"><a href="#원인" class="headerlink" title="원인"></a>원인</h2><p>일부 html entity는 세미콜론이 없어도 전환이 가능하다는 것을 알게 됐다.</p>
 <p>예를 들어,<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;a href=&quot;test?test=test&amp;reg=aa&amp;region=bb&amp;reg_ion=cc&quot;&gt;</div><div class="line">    test?test=test&amp;reg=aa&amp;region=bb&amp;reg_ion=cc</div><div class="line">&lt;/a&gt;</div></pre></td></tr></table></figure></p>
 <p>와 같은 태그는 화면에는</p>
 <p><code>test?test=test®=aa®ion=bb®_ion=cc</code></p>
