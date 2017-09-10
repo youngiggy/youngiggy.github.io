@@ -14,10 +14,12 @@
 <meta property="og:site_name" content="ha-ah">
 <meta property="og:description" content="개발하면서 누구나 한번쯤은 궁금해하지만, 아무도 정확히 알려주지 않는 모호한 앰퍼샌드에 대해 얕게 한번 파보았습니다. 현상공고 관리자 페이지에서 reg_mem_type이라는 변수를 검색할 수 있는 옵션을 추가했더니, 페이징 영역을 클릭하면 계속 오류가 발생했다. ®이라는 특수문자가 전송되는 것을 보고 페이징쪽 소스를 보니 소스보기로는 이상이 없어보이나 개발">
 <meta property="og:locale" content="ko">
-<meta property="og:updated_time" content="2017-09-08T12:51:47.000Z">
+<meta property="og:image" content="https://mathiasbynens.be/_img/ambiguous-ampersands/tool@2x.png">
+<meta property="og:updated_time" content="2017-09-10T22:24:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="모호한 앰퍼샌드(&amp;, ampersand)">
 <meta name="twitter:description" content="개발하면서 누구나 한번쯤은 궁금해하지만, 아무도 정확히 알려주지 않는 모호한 앰퍼샌드에 대해 얕게 한번 파보았습니다. 현상공고 관리자 페이지에서 reg_mem_type이라는 변수를 검색할 수 있는 옵션을 추가했더니, 페이징 영역을 클릭하면 계속 오류가 발생했다. ®이라는 특수문자가 전송되는 것을 보고 페이징쪽 소스를 보니 소스보기로는 이상이 없어보이나 개발">
+<meta name="twitter:image" content="https://mathiasbynens.be/_img/ambiguous-ampersands/tool@2x.png">
     
     
         
@@ -326,6 +328,7 @@
 <p>That said, if you want to find out if an HTML snippet contains any ambiguous ampersands or character references that don’t end with a semicolon (both of which are invalid), feel free to use mothereff.in/ampersands.</p>
 </blockquote>
 <p>즉, HTML 스니펫에 모호한 앰퍼샌드나 세미콜론 (세미콜론으로 끝나지 않는 문자 참조)이 모두 포함되어 있는지 알아 보려면 (둘 다 유효하지 않음) mothereff.in/ampersands를 자유롭게 사용하기 바란다.</p>
+<p><img src="https://mathiasbynens.be/_img/ambiguous-ampersands/tool@2x.png" alt="Ambiguous ampersand checker for HTML"></p>
 <blockquote>
 <p>Note that this is not a complete HTML validator; it will only look for ambiguous ampersands and semicolon-free character references. (Hopefully, bug #841 will be fixed soon, so we can just rely on validator.nu instead.)<br>Understanding what ambiguous ampersands are and how they work is especially important for library authors wishing to deal with HTML entities. Not accounting for these edge cases might result in XSS or other security vulnerabilities in your code.</p>
 </blockquote>
