@@ -940,7 +940,7 @@
     <link href="http://haah.kr/2017/06/28/rest-the-coclusion/"/>
     <id>http://haah.kr/2017/06/28/rest-the-coclusion/</id>
     <published>2017-06-27T15:15:16.000Z</published>
-    <updated>2017-09-11T12:57:21.000Z</updated>
+    <updated>2017-09-11T13:47:03.000Z</updated>
     
     <content type="html"><![CDATA[<p>연재 목록</p>
 <ol>
@@ -997,137 +997,6 @@
 <h2 id="Your-API-isn’t-RESTful-—-And-That’s-Good"><a href="#Your-API-isn’t-RESTful-—-And-That’s-Good" class="headerlink" title="Your API isn’t RESTful — And That’s Good"></a>Your API isn’t RESTful — And That’s Good</h2><p>2016년 3월 31일에 발행된 Trevor Reed이란 사람의 블로그를 읽어보자.</p>
 <p><a href="https://medium.com/@trevorhreed/you-re-api-isn-t-restful-and-that-s-good-b2662079cf0e" target="_blank" rel="external">https://medium.com/@trevorhreed/you-re-api-isn-t-restful-and-that-s-good-b2662079cf0e</a></p>
 <p>현 상황을 가장 명확하게 정리한 글로 보인다(만 의외로 댓글에도 별 반응이 없고, 연결된 트위터 계정도 3 트윗이 전부).</p>
-<h4 id="The-Background"><a href="#The-Background" class="headerlink" title="The Background"></a>The Background</h4><ul>
-<li>2000년에 로이 필딩은 Architectural Styles and the Design of Network-based Software Architectures라는 논문을 발표한다</li>
-<li>비슷한 시기(1999년)에 Web 2.0이니 시맨틱 웹이니 자신들의 아이디어를 더욱 혁신적으로 보이게 만들어주는 유행어가 등장한다</li>
-<li>이 아이디어는 웹 서비스로 이어지고 SOAP이나 XML-RPC같은 웹 서비스를 구현하기 위한 많은 사양이 나타나기 시작했다</li>
-<li>하지만 이는 구현하기 복잡하고 성능 문제도 발생했다</li>
-<li>이런 API 제공을 위한 더 간단한 방식으로 월드 와이드 웹이 제기되었다</li>
-<li>분산 하이퍼미디어 시스템을 위한 고도로 정교한 아키텍처 스타일이 대중적인 아이디어의 원시적인 힘과 충돌한 시점이 바로 이쯤이다.</li>
-<li>사람들은 SOAP 같은 프로토콜 대신 간단하고 표준적인 대안을 원했다</li>
-<li>REST의 아이디어 중 일부는 필요에 잘 부합했지만 전부는 아니었다</li>
-<li>그래서 사람들은 필요한 것을 가져갔고 나머지는 무시했다.</li>
-<li>REST라는 용어는 무시하지 않고 잘도 가져갔다. 그들은 새로운 웹 API 개념을 위해 그 용어를 빌려갔다</li>
-<li>로이 필딩의 노력에도 불구하고, 인터넷은 REST라는 용어를 납치하여 도망쳤다</li>
-<li>REST, RESTful, REST API 등의 용어는 모든 종류의 API 구현체에 사용되고 있다.</li>
-</ul>
-<h4 id="The-Problem"><a href="#The-Problem" class="headerlink" title="The Problem"></a>The Problem</h4><ul>
-<li>API 개발을 하려는 많은 사람들이 REST를 API 구축을 위한 일련의 베스트 프랙티스로 인식한다</li>
-<li>REST를 제대로 이해한다면, 그게 자신들이 예상한 것과 다르다는 걸 깨닫는다</li>
-<li>이해하는 것과는 상관없이, 그게 자신들이 필요로 하는 것보다 많다는 걸 깨닫는다</li>
-<li>그래서 그냥 ‘나름 RESTful’한 API를 만들어 버린다</li>
-<li>REST 유스 케이스는 서버와 클라이언트가 강하게 결합하지 않아야만 한다</li>
-<li>클라이언트는 서버가 제공하는 하이퍼미디어를 탐색하는 방법만 이해하면 된다</li>
-<li>가장 일반적인 예는 월드 와이드 웹이다</li>
-<li>브라우저는 클라이언트이고, URL은 응용프로그램 상태를 나타내며 사용자는 하이퍼미디어를 탐색하는 방법을 결정한다(링크 클릭 등)</li>
-<li>많은 웹 API는 이와는 대조적으로 클라이언트와 강하게 결합되어 있고 하이퍼미디어가 부족하기 때문에 REST의 원칙을 위반한다</li>
-<li>API의 엔드포인트는 클라이언트가 개발될 때 이미 알고 있고, 클라이언트 안에 하드코딩 되어 있기 때문에, API의 엔드포인트를 발견하기 위한 하이퍼미디어 사용은 불필요하다</li>
-</ul>
-<h4 id="The-Solution"><a href="#The-Solution" class="headerlink" title="The Solution"></a>The Solution</h4><ul>
-<li>우리가 필요로하는 것은 밀접하게 결합 된 웹 API의 일반적인 사용 사례를 공식적으로 정의하고 표준화하는 것이다</li>
-<li>혼란을 종식시키기 위해서는 이 개념을 새로 명명해야한다</li>
-<li>이를 통해 커뮤니티는 “REST”의 개념과 혼란과는 별개로 강력한 표준 및 모범 사례를 구축 할 수 있다</li>
-</ul>
-<h4 id="RESOURCEful-APIs-A-New-Name-An-Old-Concept"><a href="#RESOURCEful-APIs-A-New-Name-An-Old-Concept" class="headerlink" title="RESOURCEful APIs: A New Name, An Old Concept"></a>RESOURCEful APIs: A New Name, An Old Concept</h4><ul>
-<li>RESOURCEful API : 새로운 이름, 오래된 개념</li>
-<li>다음의 조건을 만족할 때 RESOURCEful하다고 간주된다<ul>
-<li>API는 HTTP를 전송 레이어로 사용해야만 한다 (MUST)</li>
-<li>모든 API 엔드 포인트(URL)은 명사로 구성되어야 하며, 리소스, 리소스 모음 또는 리소스 속성을 나타낸다</li>
-<li>컬렉션에 속한 리소스는 컬렉션 URL을 접두어로 하는 URL에서 접근할 수 있어야 한다<ul>
-<li>리소스에 속한 서브 컬렉션이나 속성은 리소스의 URL을 접두어로 해서 접근할 수 있어야 한다</li>
-</ul>
-</li>
-<li>API 버전 및 리소스 식별 매개 변수는 URL 경로에 있어야 한다<ul>
-<li>다른 모든 매개변수는 쿼리 문자열 혹은 헤더에 있어야 한다</li>
-</ul>
-</li>
-<li>실제 동작을 나타내는 API 호출은 작업큐 혹은 작업 대행자로 표시되어야 한다. 이 둘은 여전히 명사이다. 이들의 동작을 트리거하는 데는 HTTP POST 메소드가 사용되어야 한다<ul>
-<li>역주) 의역하자면 “동작을 나타내는 API는 그 동작 자체를 명사로 나타내야 하며, 이때 HTTP 메소드는 POST를 사용한다” 정도로 하면 될 것 같다</li>
-</ul>
-</li>
-<li>구현된 HTTP 메소드는 HTTP Method spec에 따라 정의된 목적으로 사용되어야 한다</li>
-<li>구현된 HTTP 메소드는 안전함(Safe)과 멱등성(Idempotent) 원칙을 준수해야 한다</li>
-<li>HTTP 상태코드는 정의된 용도에 따라 모든 응답에서 사용되어야 한다<ul>
-<li>200은 다른 가능한 상태코드가 있을 지라도 모든 성공적인 요청 결과의 응답 코드로 사용 수 있다</li>
-</ul>
-</li>
-<li>요청이나 응답의 본문은 자원, 자원의 모음 혹은 자원의 특성을 나타내야 한다</li>
-<li>요청이나 응답의 본문의 형식은 Content-Type 헤더로 지정해야 한다</li>
-<li>API가 요청 본문의 형식을 지원하지 않으면 415(Unsupported Media Type) 상태를 반환해야 한다</li>
-<li>응답 본문의 형식은 가능하다면 Accept 헤더에서 요청한 형식이어야 한다<ul>
-<li>API가 요청 본문의 형식을 지원하지 않으면 406(Not Acceptable) 상태를 반환해야 한다</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>또한 아래와 같은 우수 사례를 권장한다<ul>
-<li>URL을 소문자로 만들기</li>
-<li>특정 HTTP 메소드나 상태코드를 지원하지 않는 client를 위한 대체 수단을 만들기<ul>
-<li>예를 들어 JSONP는 모든 응답에 200 상태 코드를 필요로 한다</li>
-</ul>
-</li>
-<li>JSON 형식은 항상 지원할 것 - XML은 선택 사항</li>
-<li>항상 HTTPS를 통해 호스팅할 것</li>
-<li>API가 새로운 리소스를 생성할 때는 응답 어딘가에 해당 자원의 식별자를 반환해야 함</li>
-</ul>
-</li>
-</ul>
-<h4 id="Examples-amp-References"><a href="#Examples-amp-References" class="headerlink" title="Examples &amp; References"></a>Examples &amp; References</h4><ul>
-<li>일반적인 HTTP 메소드<ul>
-<li>GET — safe, idempotent —요청된 URL에서 리소스의 representation을 검색한다</li>
-<li>POST — not safe, not idempotent — 제출된 리소스의 representation을 요청된 URL 아래 새로운 위치에 생성한다</li>
-<li>PUT — not safe, idempotent — 제출된 리소스의 representation을 요청된 URL의 위치에 저장하고 이미 존재한다면 대체한다</li>
-<li>PATCH — not safe, not (necessarily) idempotent — 제출된 정보를 통해 요청된 URL의 리소스를 부분적으로 업데이트한다. 존재하지 않는 리소스에 대한 PATCH 시도는 400 상태 코드와 함께 실패해야 한다</li>
-<li>DELETE — not safe, idempotent — 요청된 URL에 있는 리소스를 삭제한다</li>
-</ul>
-</li>
-<li>비동기 작업 큐에서 HTTP 메서드의 동작<ul>
-<li>GET - 큐 또는 큐의 특정 태스크에 대한 정보 검색</li>
-<li>POST - 큐에 작업 추가</li>
-<li>PUT - 큐의 기존 작업 업데이트</li>
-<li>PATCH - 큐에 있는 기존 작업을 부분적으로 업데이트</li>
-<li>DELETE - 큐에서 작업 제거</li>
-</ul>
-</li>
-<li>작업 대행자(agent)에 대한 HTTP 메소드의 동작<ul>
-<li>GET - 에이전트 또는 그의 동작 중 하나의 상태를 검색</li>
-<li>POST - 원하는 동작 트리거</li>
-<li>PUT - 정의되지 않음</li>
-<li>패치 - 정의되지 않음</li>
-<li>DELETE - 가능한 경우 이전에 트리거 된 동작을 취소</li>
-</ul>
-</li>
-<li>공통 HTTP 상태 코드 - 2XX 레벨 상태 코드를 제외한 모든 것이 실패로 간주된다<ul>
-<li>200 OK - 응답 성공</li>
-<li>201 Created - 요청 본문에 제출된 엔티티가 (동기적으로) 생성되었다</li>
-<li>202 Accepted - 요청 본문에 제출된 엔티티가 생성될 것이다(비동기식으로)</li>
-<li>204 No Content - 뷰를 업데이트할 필요가 없음</li>
-<li>205 Reset Content - 클라이언트가 뷰를 재설정해야 한다</li>
-<li>206 Partial Content - 반환된 부분 콘텐츠 (예 : 구간 설정된 혹은 페이지 별 콘텐츠)</li>
-<li>400 Bad Request - 요청이 잘못되었음</li>
-<li>401 Unauthorized - 클라이언트가 서버에 인증되지 않음</li>
-<li>403 Forbidden - 클라이언트는 서버에 인증되었지만 요청된 자원에 대해 요청된 작업을 수행할 수있는 권한이 없음</li>
-<li>405 Method Not Allowed - 요청된 URL에 사용된 HTTP 메소드가 허용되지 않음</li>
-<li>409 Conflict - 작업을 수행할 때 충돌이 발생함. 예를 들어 요청이 이미 변경된 자원을 업데이트하려고 시도함</li>
-<li>500 Internal Server Error - 서버의 오류가 발생했으나 처리되지 않음</li>
-<li>501 Not Implemented - 요청된 자원에 대해 HTTP 메소드가 현재 구현되지 않음</li>
-<li>503 Service Unavailable - 서버 또는 그것의 종속성 중 하나(예 : 데이터베이스)가 과부하, 정전 등으로 인해 응답 할 수 없음</li>
-</ul>
-</li>
-</ul>
-<h4 id="Example-Doctors-Office-API"><a href="#Example-Doctors-Office-API" class="headerlink" title="Example: Doctors Office API"></a>Example: Doctors Office API</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">Resource API Endpoints:</div><div class="line"></div><div class="line">GET    /customers</div><div class="line">POST  /customers</div><div class="line">GET    /customers/&lt;id&gt;</div><div class="line">PUT    /customers/&lt;id&gt;</div><div class="line">PATCH  /customers/&lt;id&gt;</div><div class="line">DELETE /customers/&lt;id&gt;</div><div class="line">GET    /customers/&lt;id&gt;/appointments</div><div class="line">POST  /customers/&lt;id&gt;/appointments</div><div class="line">GET    /customers/&lt;id&gt;/appointments/&lt;id&gt;</div><div class="line">PUT    /customers/&lt;id&gt;/appointments/&lt;id&gt;</div><div class="line">PATCH  /customers/&lt;id&gt;/appointments/&lt;id&gt;</div><div class="line">DELETE /customers/&lt;id&gt;/appointments/&lt;id&gt;</div><div class="line">GET    /customers/&lt;id&gt;/cell_phone</div><div class="line">PUT    /customers/&lt;id&gt;/cell_phone</div><div class="line"></div><div class="line"></div><div class="line">Asynchronous Task Queue API Endpoints:</div><div class="line"></div><div class="line">GET    /outgoing-emails</div><div class="line">POST  /outgoing-emails</div><div class="line">GET    /outgoing-emails/&lt;id&gt;</div><div class="line">PUT    /outgoing-emails/&lt;id&gt;</div><div class="line">PATCH  /outgoing-emails/&lt;id&gt;</div><div class="line">DELETE /outgoing-emails/&lt;id&gt;</div><div class="line"></div><div class="line"></div><div class="line">Synchronous Agent API Endpoints:</div><div class="line"></div><div class="line">GET    /patient-discharger</div><div class="line">GET    /patient-discharger/&lt;id&gt;</div><div class="line">POST  /patient-discharger</div><div class="line">DELETE /patient-discharger/&lt;id&gt;</div></pre></td></tr></table></figure>
-<h4 id="더-읽을-거리"><a href="#더-읽을-거리" class="headerlink" title="더 읽을 거리"></a>더 읽을 거리</h4><ul>
-<li>아래와 같은 사이트는 모범사례로써가 아닌 RESTful API에 대한 혼란을 일으키는 사례로 포함시킨다<ul>
-<li><a href="http://www.bitnative.com/2012/08/26/how-restful-is-your-api/" target="_blank" rel="external">http://www.bitnative.com/2012/08/26/how-restful-is-your-api/</a></li>
-<li><a href="http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#method-override" target="_blank" rel="external">http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#method-override</a></li>
-<li><a href="http://vvv.tobiassjosten.net/development/your-api-is-not-restful/" target="_blank" rel="external">http://vvv.tobiassjosten.net/development/your-api-is-not-restful/</a></li>
-<li><a href="https://mmikowski.github.io/the_lie/" target="_blank" rel="external">https://mmikowski.github.io/the_lie/</a><ul>
-<li>반가운 얼굴이다!</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
 <h2 id="미신"><a href="#미신" class="headerlink" title="미신"></a>미신</h2><p>여기부터는 REST를 알지 못하는 사람들을 이해해보려 좀 더 검색한 내용을 적어볼텐데, 대단한 근거는 없다.</p>
 <p>나는 그토록 뛰어난 개발자들이, 게다가 영어권에 살면서 얼마든지 로이의 논문을 비오는 일요일 오후에 슬쩍 읽어볼 수 있을 사람들이 왜 이렇게 일관된(?) 오해를 하고 있는지 궁금했다.</p>
 <p>그 기원을 좀 더 찾아보려고 뒤져본 바, ROA(Resource-Oriented Architecture)에서 찾을 수 있었다.</p>
