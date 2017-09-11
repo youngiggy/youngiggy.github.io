@@ -788,7 +788,7 @@
     <link href="http://haah.kr/2017/06/28/rest-the-coclusion/"/>
     <id>http://haah.kr/2017/06/28/rest-the-coclusion/</id>
     <published>2017-06-27T15:15:16.000Z</published>
-    <updated>2017-08-05T14:45:49.000Z</updated>
+    <updated>2017-09-11T12:55:18.000Z</updated>
     
     <content type="html"><![CDATA[<p>연재 목록</p>
 <ol>
@@ -842,7 +842,9 @@
 <p>다만, 그동안 통용됐던 의미의 REST를 통칭할 수 있는 새로운 용어가 필요하다는 말이다.</p>
 <p>마지막으로 이 글을 읽어보자.</p>
 <p>이 글에서 그동안 REST라고 잘못 명명된 몇가지 구현 원칙을 RESOURCEful API라는 새로운 이름으로 재정의하고 있다.</p>
-<h2 id="Your-API-isn’t-RESTful-—-And-That’s-Good"><a href="#Your-API-isn’t-RESTful-—-And-That’s-Good" class="headerlink" title="Your API isn’t RESTful — And That’s Good"></a>Your API isn’t RESTful — And That’s Good</h2><p><a href="https://medium.com/@trevorhreed/you-re-api-isn-t-restful-and-that-s-good-b2662079cf0e" target="_blank" rel="external">링크</a></p>
+<h2 id="Your-API-isn’t-RESTful-—-And-That’s-Good"><a href="#Your-API-isn’t-RESTful-—-And-That’s-Good" class="headerlink" title="Your API isn’t RESTful — And That’s Good"></a>Your API isn’t RESTful — And That’s Good</h2><p>2016년 3월 31일에 발행된 Trevor ReedFollow이란 사람의 블로그를 읽어보자.</p>
+<p><a href="https://medium.com/@trevorhreed/you-re-api-isn-t-restful-and-that-s-good-b2662079cf0e" target="_blank" rel="external">https://medium.com/@trevorhreed/you-re-api-isn-t-restful-and-that-s-good-b2662079cf0e</a></p>
+<p>현 상황을 가장 명확하게 정리한 글로 보인다(만 의외로 댓글에도 별 반응이 없고, 연결된 트위터 계정도 3 트윗이 전부).</p>
 <h4 id="The-Background"><a href="#The-Background" class="headerlink" title="The Background"></a>The Background</h4><ul>
 <li>2000년에 로이 필딩은 Architectural Styles and the Design of Network-based Software Architectures라는 논문을 발표한다</li>
 <li>비슷한 시기(1999년)에 Web 2.0이니 시맨틱 웹이니 자신들의 아이디어를 더욱 혁신적으로 보이게 만들어주는 유행어가 등장한다</li>
