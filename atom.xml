@@ -940,7 +940,7 @@
     <link href="http://haah.kr/2017/06/28/rest-the-coclusion/"/>
     <id>http://haah.kr/2017/06/28/rest-the-coclusion/</id>
     <published>2017-06-27T15:15:16.000Z</published>
-    <updated>2017-09-11T23:57:10.000Z</updated>
+    <updated>2017-09-12T00:01:13.000Z</updated>
     
     <content type="html"><![CDATA[<p>연재 목록</p>
 <ol>
@@ -952,6 +952,8 @@
 <li><a href="/2017/06/28/rest-the-coclusion/">REST - 당신이 만든 건 REST가 아니지만 괜찮아</a></li>
 <li><a href="/2017/06/28/rest-the-dissertation/">REST - 논문 읽기(To Do)</a></li>
 </ol>
+<p>Update: “Your API isn’t RESTful — And That’s Good”에 대한 요약번역본은 숨겨놨다가, 원문을 쓴 Trevor Reed에게 요약본을 번역하여 퍼뜨리는 것에 대해 댓글로 문의한 후, 재배포함.  </p>
+<hr>
 <h2 id="Hypertext-HATETOAS-for-API"><a href="#Hypertext-HATETOAS-for-API" class="headerlink" title="Hypertext, HATETOAS for API"></a>Hypertext, HATETOAS for API</h2><p>여러 동영상을 찾아보다, <a href="https://www.youtube.com/watch?v=RY_kMXEJZfk" target="_blank" rel="external">2016년에 진행중인 API 스펙들에 관해 이야기하는 강연</a>을 봤다</p>
 <ul>
 <li>REST의 핵심은 hypertext이다</li>
