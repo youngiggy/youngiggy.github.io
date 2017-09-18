@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://haah.kr/"/>
-  <updated>2017-09-11T13:03:58.000Z</updated>
+  <updated>2017-09-18T13:47:06.000Z</updated>
   <id>http://haah.kr/</id>
   
   <author>
@@ -14,6 +14,41 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>독후감 - 세상물정의 물리학</title>
+    <link href="http://haah.kr/2017/09/18/book-978-89-6262-115-0/"/>
+    <id>http://haah.kr/2017/09/18/book-978-89-6262-115-0/</id>
+    <published>2017-09-18T13:26:33.000Z</published>
+    <updated>2017-09-18T13:47:06.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>6월 말에 개발과 관련없는 책을 읽어보려고 집어왔던 책.<br>올해 8월 제천 영화제에 들고가서 조금 읽고 왔던 책.</p>
+<p>그 당시 감상으로 ‘좌파 교수(좋은 의미로)가 쓴 책’ 정도로 이야기 했지만,<br>그건 정말 초반에 (의도는 좋지만 = 선하지만) 재미가 없어서 했던 말이었다.</p>
+<p>이번에 날씨가 너무 좋아 점심시간에 책보러 카페로, 작은 공원(?)으로 다니며 읽었는데, 이번엔 또 너무 재미있는 거다. </p>
+<p>책은 세 챕터로 나뉘는데,</p>
+<ol>
+<li>‘지금 여기’를 말하는 사회물리학의 세계</li>
+<li>복잡한 세상을 꿰뚫어 보는 통계물리학의 아름다움 </li>
+<li>물리학자는 세상물정을 모른다고? </li>
+</ol>
+<p>두번째 챕터부터 신나게 읽었던 것 같다.</p>
+<p>작은 호기심을 증명해내고야 마는 집념.<br>이전에 읽었던 책 ‘아이의 사생활’에 비해 근거로 충만하고 같이 실험했던 사람들의 이름도 꼬박꼬박 넣어주는 친절함.<br>은근 코드가 맞는 개그감.<br>최대한 이해하기 쉽게 설명하는 물리 개념.<br>그리고 과학자로서의 열정과 자부심을 드러내는 지점에선 일부 공감과 반성을 하곤 했었다. </p>
+<p>글을 굉장히 잘 쓰신다.<br>요즘 나는 기술책만 너무 많이 보다 눈높이가 꽤 낮아진 관계로…<br>문학을 즐기는 분들이 보기엔 어떨지 모르겠다.<br>하지만 (과연 이게 칭찬이 될 지는 모르겠지만) 이공계 중에선 수준급이다! </p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;6월 말에 개발과 관련없는 책을 읽어보려고 집어왔던 책.&lt;br&gt;올해 8월 제천 영화제에 들고가서 조금 읽고 왔던 책.&lt;/p&gt;
+&lt;p&gt;그 당시 감상으로 ‘좌파 교수(좋은 의미로)가 쓴 책’ 정도로 이야기 했지만,&lt;br&gt;그건 정말 초반에 (의도는 좋지
+    
+    </summary>
+    
+    
+      <category term="독후감" scheme="http://haah.kr/tags/%EB%8F%85%ED%9B%84%EA%B0%90/"/>
+    
+      <category term="과학" scheme="http://haah.kr/tags/%EA%B3%BC%ED%95%99/"/>
+    
+  </entry>
   
   <entry>
     <title>모호한 앰퍼샌드(&amp;, ampersand)</title>
@@ -218,9 +253,9 @@
     </summary>
     
     
-      <category term="HTML" scheme="http://haah.kr/tags/HTML/"/>
-    
       <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
+    
+      <category term="HTML" scheme="http://haah.kr/tags/HTML/"/>
     
   </entry>
   
@@ -472,11 +507,11 @@
     </summary>
     
     
-      <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
-    
       <category term="REGEX" scheme="http://haah.kr/tags/REGEX/"/>
     
       <category term="Laravel" scheme="http://haah.kr/tags/Laravel/"/>
+    
+      <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
     
   </entry>
   
