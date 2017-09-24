@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://haah.kr/2017/09/22/mac-filename-normalization/</loc>
+    
+    <lastmod>2017-09-24T00:30:57.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://haah.kr/2017/07/22/script-async/</loc>
+    
+    <lastmod>2017-09-23T22:47:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://haah.kr/2017/09/18/book-979-11-85890-85-2/</loc>
     
     <lastmod>2017-09-18T14:34:36.000Z</lastmod>
@@ -96,13 +110,6 @@
     <loc>http://haah.kr/2017/08/03/resource-hints-and-preload/</loc>
     
     <lastmod>2017-08-03T04:49:56.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://haah.kr/2017/07/22/script-async/</loc>
-    
-    <lastmod>2017-07-26T17:18:46.000Z</lastmod>
     
   </url>
   

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://haah.kr/"/>
-  <updated>2017-09-18T14:34:36.000Z</updated>
+  <updated>2017-09-24T00:30:57.000Z</updated>
   <id>http://haah.kr/</id>
   
   <author>
@@ -14,6 +14,71 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mac에서 올린 한글 파일명(NFD 정규화) 문제</title>
+    <link href="http://haah.kr/2017/09/22/mac-filename-normalization/"/>
+    <id>http://haah.kr/2017/09/22/mac-filename-normalization/</id>
+    <published>2017-09-22T03:09:48.000Z</published>
+    <updated>2017-09-24T00:30:57.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>이전 <a href="/2017/08/23/alphabetic-letter-validation/">유니코드를 다뤘던 글</a>을 올렸을 때 모던 PHP 그룹에서 댓글로 잠시 언급되었던,</p>
+<p>NFD 정규화 문제.</p>
+<p>맥에서 올린 파일이 다운로드 안된다는 VOC(고객의 소리)가 들어와서 원인 파악 겸 정리해봤다.</p>
+<p>맥에서 ‘한글.txt’ 파일을 올리고 윈도에서 다운로드 받으면 ‘ㅎㅏㄴㄱㅡㄹ.txt’로 보이게된다.</p>
+<p>유니코드 상에서 한글을 표현하는 방법은 첫가끝(처음가운데끝)이라고도 하는 한글 자모를 조합하는 방식과 완성형으로 표시하는 방법 등이 있다. </p>
+<p>맥에서는 파일명을 저장할 때 NFD 방식. 즉, 한글 자모를 따로따로 받아 조합하는 방식으로 정규화를 하는데,</p>
+<p>이 현상에 관해선 다른 분들이 열심히 글을 써주셨으니 더이상 설명하진 않겠다.</p>
+<ul>
+<li><a href="https://blog.asamaru.net/2016/11/15/php-nfd-to-nfc/" target="_blank" rel="external">PHP에서 NFD(Normalization Form D) / NFC(Normalization Form C) 변환</a></li>
+</ul>
+<h2 id="Normalizer-Class-설치"><a href="#Normalizer-Class-설치" class="headerlink" title="Normalizer Class 설치"></a>Normalizer Class 설치</h2><p>PHP 5.3부터 <a href="http://php.net/manual/en/class.normalizer.php" target="_blank" rel="external">Normalizer Class</a>를 사용할 수 있는데,</p>
+<p>Internationalization Functions에 포함되어 이 확장 모듈을 설치해야 한다.</p>
+<ul>
+<li><p>이건 ICU 라이브러리의 wrapper인 관계로 ICU를 먼저 설치해야할 수 있다(libicu-devel , libicu 등)</p>
+</li>
+<li><p>Windows 시스템에선 php_intl.dll을 구해야하고, XAMPP를 쓴다면 모듈은 이미 ext에 존재할 것이다. </p>
+</li>
+<li>Linux 기반 시스템이라면<ul>
+<li>apt-get install php-intl (for ubuntu-based linux)</li>
+<li>yum install php-intl (for CentOS)</li>
+<li>php7.x-intl 등 php 버전에 따라 다를 수 있으니 알맞게 설치할 것</li>
+</ul>
+</li>
+<li>Mac에서 brew를 사용한다면 brew install php71-intl</li>
+</ul>
+<p>이후 php.ini에서 extension=php_intl.(dll|so)을 활성화 시켜야 한다. 즉, 맨 앞의; 제거하기.</p>
+<h2 id="처리-방법"><a href="#처리-방법" class="headerlink" title="처리 방법"></a>처리 방법</h2><p>잘 설치됐는지 확인해보자.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">testNormalizer</span><span class="params">($str)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">echo</span> <span class="string">'-------------------------'</span> . PHP_EOL;</div><div class="line">    $urlencodedInitialStr = urlencode($str);</div><div class="line"> </div><div class="line">    <span class="keyword">echo</span> $str . PHP_EOL;</div><div class="line"> </div><div class="line">    <span class="keyword">echo</span> ( Normalizer::isNormalized($str, Normalizer::FORM_C) ) ? <span class="string">"normalized : FORM_C"</span> : <span class="string">"not normalized : FORM_C"</span>;</div><div class="line">    <span class="keyword">echo</span> PHP_EOL;</div><div class="line">    <span class="keyword">echo</span> ( Normalizer::isNormalized($str, Normalizer::FORM_D) ) ? <span class="string">"normalized : FORM_D"</span> : <span class="string">"not normalized : FORM_D"</span>;</div><div class="line">    <span class="keyword">echo</span> PHP_EOL;</div><div class="line"> </div><div class="line">    $str = Normalizer::normalize($str, Normalizer::FORM_C);</div><div class="line">    <span class="keyword">echo</span> <span class="string">'normalize to FORM_C : '</span> . $str . PHP_EOL;</div><div class="line"> </div><div class="line">    <span class="keyword">echo</span> <span class="string">'urlencoded before: '</span> . $urlencodedInitialStr . PHP_EOL;</div><div class="line">    <span class="keyword">echo</span> <span class="string">'urlencoded after~: '</span> . urlencode($str) . PHP_EOL;</div><div class="line">    <span class="keyword">echo</span> PHP_EOL;</div><div class="line">&#125;</div><div class="line"> </div><div class="line">$name1=<span class="string">'recruit/recruit/201709/21/owlupr_58qh-1meg1s6_recruit.pdf'</span>;<span class="comment">//일반 ASCII 문자열</span></div><div class="line">$name2=urldecode(<span class="string">'%E1%84%86%E1%85%A2%E1%86%A8%E1%84%8B%E1%85%A6%E1%84%89%E1%85%A5%E1%84%90%E1%85%A6%E1%84%89%E1%85%B3%E1%84%90%E1%85%B3_%E1%84%8C%E1%85%AE%E1%86%BC%E1%84%8B%E1%85%B5%E1%84%82%E1%85%A6.pdf'</span>);<span class="comment">//NFD로 정규화된 파일명을 urlencode해서 받을 경우</span></div><div class="line">$name3=<span class="string">'테스트.pdf'</span>;<span class="comment">//일반 한글 문자열</span></div><div class="line"> </div><div class="line">testNormalizer($name1);</div><div class="line">testNormalizer($name2);</div><div class="line">testNormalizer($name3);</div></pre></td></tr></table></figure>
+<p>결과는<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">-------------------------</div><div class="line">recruit/recruit/201709/21/owlupr_58qh-1meg1s6_recruit.pdf</div><div class="line">normalized : FORM_C</div><div class="line">normalized : FORM_D</div><div class="line">normalize to FORM_C : recruit/recruit/201709/21/owlupr_58qh-1meg1s6_recruit.pdf</div><div class="line">urlencoded before: recruit%2Frecruit%2F201709%2F21%2Fowlupr_58qh-1meg1s6_recruit.pdf</div><div class="line">urlencoded after~: recruit%2Frecruit%2F201709%2F21%2Fowlupr_58qh-1meg1s6_recruit.pdf</div><div class="line"></div><div class="line">-------------------------</div><div class="line">맥에서테스트_중이네.pdf</div><div class="line">not normalized : FORM_C</div><div class="line">normalized : FORM_D</div><div class="line">normalize to FORM_C : 맥에서테스트_중이네.pdf</div><div class="line">urlencoded before: %E1%84%86%E1%85%A2%E1%86%A8%E1%84%8B%E1%85%A6%E1%84%89%E1%85%A5%E1%84%90%E1%85%A6%E1%84%89%E1%85%B3%E1%84%90%E1%85%B3_%E1%84%8C%E1%85%AE%E1%86%BC%E1%84%8B%E1%85%B5%E1%84%82%E1%85%A6.pdf</div><div class="line">urlencoded after~: %EB%A7%A5%EC%97%90%EC%84%9C%ED%85%8C%EC%8A%A4%ED%8A%B8_%EC%A4%91%EC%9D%B4%EB%84%A4.pdf</div><div class="line"></div><div class="line">-------------------------</div><div class="line">테스트.pdf</div><div class="line">normalized : FORM_C</div><div class="line">not normalized : FORM_D</div><div class="line">normalize to FORM_C : 테스트.pdf</div><div class="line">urlencoded before: %ED%85%8C%EC%8A%A4%ED%8A%B8.pdf</div><div class="line">urlencoded after~: %ED%85%8C%EC%8A%A4%ED%8A%B8.pdf</div></pre></td></tr></table></figure></p>
+<p>소스에는 아래와 같이 적용 해놓으면 된다.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (class_exists(<span class="string">'Normalizer'</span>)) &#123;</div><div class="line">    <span class="keyword">if</span> (Normalizer::isNormalized($filename, Normalizer::FORM_D)) &#123;</div><div class="line">        $filename = Normalizer::normalize($filename, Normalizer::FORM_C);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>파일명을 DB에 입력할 때 NFC로 넣는 것이 깔끔하겠지만,<br>이미 NFD 정규화된 파일명이 들어가있다면, 다운로드 시에도 파일명을 바꿔주면 된다.</p>
+<h3 id="한숨"><a href="#한숨" class="headerlink" title="한숨"></a>한숨</h3><p>이 밖에 파일 다운로드 관련 코드를 보면 별별 예외처리가 많이 들어가 세월의 흔적을 느낄 수 있다.</p>
+<p>IE라면 파일명을 또 MS949로 변경해줘야 해야만 한다.<br>OS 별로 <a href="https://ko.wikipedia.org/wiki/%ED%8C%8C%EC%9D%BC_%EC%9D%B4%EB%A6%84" target="_blank" rel="external">파일명에 들어갈 수 있는 특수문자</a>도 다르다.<br>기타 등등.</p>
+<p>특정 OS는 점유율이 낮아서, 시스템이 낡아서, 인력이 부족해서, 개발자 역량이 부족해서, 지금은 더 급한 게 있어서…<br>cross-platform 대응은 항상 어렵다.</p>
+<h3 id="참고"><a href="#참고" class="headerlink" title="참고"></a>참고</h3><ul>
+<li><a href="http://php.net/manual/en/class.normalizer.php" target="_blank" rel="external">http://php.net/manual/en/class.normalizer.php</a></li>
+<li><a href="http://php.net/manual/en/intro.intl.php" target="_blank" rel="external">http://php.net/manual/en/intro.intl.php</a></li>
+<li><a href="https://blog.asamaru.net/2016/11/15/php-nfd-to-nfc/" target="_blank" rel="external">https://blog.asamaru.net/2016/11/15/php-nfd-to-nfc/</a></li>
+<li><a href="https://www.dotkernel.com/php-troubleshooting/where-is-the-intl-php-extension-problem-solved/" target="_blank" rel="external">https://www.dotkernel.com/php-troubleshooting/where-is-the-intl-php-extension-problem-solved/</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;이전 &lt;a href=&quot;/2017/08/23/alphabetic-letter-validation/&quot;&gt;유니코드를 다뤘던 글&lt;/a&gt;을 올렸을 때 모던 PHP 그룹에서 댓글로 잠시 언급되었던,&lt;/p&gt;
+&lt;p&gt;NFD 정규화 문제.&lt;/p&gt;
+&lt;p&gt;맥에서 올린 
+    
+    </summary>
+    
+    
+      <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
+    
+      <category term="Mac" scheme="http://haah.kr/tags/Mac/"/>
+    
+  </entry>
   
   <entry>
     <title>독후감 - 클린 소프트웨어</title>
@@ -307,9 +372,9 @@
     </summary>
     
     
-      <category term="HTML" scheme="http://haah.kr/tags/HTML/"/>
-    
       <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
+    
+      <category term="HTML" scheme="http://haah.kr/tags/HTML/"/>
     
   </entry>
   
@@ -561,11 +626,11 @@
     </summary>
     
     
-      <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
-    
       <category term="REGEX" scheme="http://haah.kr/tags/REGEX/"/>
     
       <category term="Laravel" scheme="http://haah.kr/tags/Laravel/"/>
+    
+      <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
     
   </entry>
   
@@ -832,7 +897,7 @@
     <link href="http://haah.kr/2017/07/22/script-async/"/>
     <id>http://haah.kr/2017/07/22/script-async/</id>
     <published>2017-07-21T23:58:09.000Z</published>
-    <updated>2017-07-26T17:18:46.000Z</updated>
+    <updated>2017-09-23T22:47:53.000Z</updated>
     
     <content type="html"><![CDATA[<p>bsidesoft 블로그에 <a href="http://www.bsidesoft.com/?p=5385" target="_blank" rel="external">Jobs</a>에 대한 내용이 올라왔다.</p>
 <ul>
@@ -962,7 +1027,6 @@
 <p>결국 async는 비동기 다운로드와는 관계가 없고, 애초에 실행 순서만 관련있었던 것 같다.</p>
 <p><code>async - Execute script in parallel</code></p>
 <p>스펙에 써있는 그대로다.</p>
-<p>(틀린 부분이 있다면 누가 제발 얘기 좀…)</p>
 <p>참고</p>
 <ul>
 <li><a href="https://www.w3.org/TR/html51/semantics-scripting.html" target="_blank" rel="external">https://www.w3.org/TR/html51/semantics-scripting.html</a></li>
@@ -2233,55 +2297,6 @@
       <category term="RESTful" scheme="http://haah.kr/tags/RESTful/"/>
     
       <category term="REST" scheme="http://haah.kr/tags/REST/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>API Design을 들여다보다</title>
-    <link href="http://haah.kr/2017/05/18/learning-api-design/"/>
-    <id>http://haah.kr/2017/05/18/learning-api-design/</id>
-    <published>2017-05-18T14:28:44.000Z</published>
-    <updated>2017-06-27T16:17:29.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="API-Design"><a href="#API-Design" class="headerlink" title="API Design"></a>API Design</h2><p>생각해보니 내가 API를 제대로 만들어 본 적이 없었더랬다.</p>
-<p>GraphQL이 재미있어 보이니 써보고는 싶은데, </p>
-<p>사실 난 인증을 붙인 프로덕션 레벨의 코드를 만들어 본 적이 없다.</p>
-<p>왜 좋은가를 설명하려면 널리 퍼진 아키텍처 스타일을 기반으로 설명하면 좋을텐데,</p>
-<p>나는 REST는 설명할 수 있던가? HTTP는?</p>
-<p>나는 정확히 설명할 수 없다.</p>
-<p>그럼 해야지.</p>
-<p>지금까지는 지식 습득의 드라이브를 발표를 통해 얻었다면, 이제 블로그에 정리하면서 익혀보려고 한다.</p>
-<h2 id="What-to-do"><a href="#What-to-do" class="headerlink" title="What to do"></a>What to do</h2><p>‘정확히 알기’ 그 첫번째 과정으로 API 디자인에 도전해본다.</p>
-<p>이 시리즈가 끝날 즈음이면 나는</p>
-<ul>
-<li>API 서버를 구축해서 인증을 붙여본다</li>
-<li>전통적인 RESTful API와 GraphQL 서버 모두 구현</li>
-<li>REST에 대해 제대로 설명하게 된다</li>
-<li>여러 인증 과정을 경험해본다</li>
-<li>HTTP에 대해 설명을 할 수 있게 된다</li>
-</ul>
-<p>동시에</p>
-<ul>
-<li>HTTP 완벽가이드 릴레이 세미나<ul>
-<li>HTTP 완벽가이드로 적당히 완벽히 알기(금새 또 적당히 적당히 하려는 버릇이..)</li>
-<li>여기에 몇가지 간단한 책(그림으로 배우는 시리즈)도 참고로 읽기</li>
-</ul>
-</li>
-</ul>
-<h2 id="And-how"><a href="#And-how" class="headerlink" title="And how?"></a>And how?</h2><p>검색과 블로그와 책으로부터 얻은 지식을 에버노트에 거칠게 정리한 다음 블로그에 옮겨 담기로..</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;API-Design&quot;&gt;&lt;a href=&quot;#API-Design&quot; class=&quot;headerlink&quot; title=&quot;API Design&quot;&gt;&lt;/a&gt;API Design&lt;/h2&gt;&lt;p&gt;생각해보니 내가 API를 제대로 만들어 본 적이 없었더랬다.&lt;/p&gt;
-
-    
-    </summary>
-    
-    
-      <category term="API" scheme="http://haah.kr/tags/API/"/>
-    
-      <category term="Design" scheme="http://haah.kr/tags/Design/"/>
     
   </entry>
   
