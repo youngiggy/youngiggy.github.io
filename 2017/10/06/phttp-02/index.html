@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="ha-ah">
 <meta property="og:description" content="Stream wrapper class시행착오를 최대한 줄이기 위해 앞에서 소개했던 HTTPServer부터 분석을 해보기로 했다. composer.json에 있는 php-cgi binary에 대한 의존성 때문인데(HTTPServer requires the php-cgi binary), 이 놈을 왜 넣었을까 궁금했다. 이 서버는 4개의 파일로 구성됐다.  cg">
 <meta property="og:locale" content="ko">
-<meta property="og:updated_time" content="2017-10-12T10:09:18.000Z">
+<meta property="og:updated_time" content="2017-10-14T03:05:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP로 HTTP 서버 구현하기 - 02">
 <meta name="twitter:description" content="Stream wrapper class시행착오를 최대한 줄이기 위해 앞에서 소개했던 HTTPServer부터 분석을 해보기로 했다. composer.json에 있는 php-cgi binary에 대한 의존성 때문인데(HTTPServer requires the php-cgi binary), 이 놈을 왜 넣었을까 궁금했다. 이 서버는 4개의 파일로 구성됐다.  cg">
@@ -189,7 +189,7 @@
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> ($existed) &#123;</div><div class="line">    stream_wrapper_restore(<span class="string">"var"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>다 썼으면 초기화 한다. 만약,</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">stream_wrapper_register(&quot;var&quot;, &quot;VariableStream&quot;);</div><div class="line">stream_wrapper_unregister(&quot;var&quot;);</div><div class="line">stream_wrapper_restore(&quot;var&quot;);</div></pre></td></tr></table></figure>
-<p>이려면 뭐 달라질까? 방금 등록한 <code>var</code> wrapper는 built-in이 아니기 때문에 restore해도 아무 의미 없다.</p>
+<p>이러면 뭐 달라질까? 방금 등록한 <code>var</code> wrapper는 built-in이 아니기 때문에 restore해도 아무 의미 없다.</p>
 <p>사용하는 방법은 특별할 게 없으므로, VariableStream이란 클래스를 어떻게 구현하면 될지 살펴보자.</p>
 <h2 id="Stream-wrapper"><a href="#Stream-wrapper" class="headerlink" title="Stream wrapper"></a>Stream wrapper</h2><p><a href="http://php.net/manual/en/class.streamwrapper.php" target="_blank" rel="external">Stream wrapper class</a>는 넓은 의미의 인터페이스지만,</p>
 <p>implements 할 수 있는 interface는 아니다. 실제 존재하는 클래스가 아니라 어떻게 동작하는 지를 보여주기 위한 prototype일 뿐이다.</p>
