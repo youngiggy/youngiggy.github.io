@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang=ko>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="이제부터 하나씩 기능을 붙여가며 commit &amp;amp; push를 할 예정이다. PHP7.1 / 맥북 환경에서 공부한 결과를 적는 거라서, 윈도 머신에선 안 통하는 설명도 있으리라. 소스 위치는 https://github.com/youngiggy/phttp PHP로 HTTP 서버 구현하기 - 01에서 언급한 가장 간단한 서버부터 시작해볼까? 가장 간단한 서">
+<meta name="keywords" content="PHP,HTTP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP로 HTTP 서버 구현하기 - 04">
+<meta property="og:url" content="http://haah.kr/2017/10/16/phttp-04/index.html">
+<meta property="og:site_name" content="ha-ah">
+<meta property="og:description" content="이제부터 하나씩 기능을 붙여가며 commit &amp;amp; push를 할 예정이다. PHP7.1 / 맥북 환경에서 공부한 결과를 적는 거라서, 윈도 머신에선 안 통하는 설명도 있으리라. 소스 위치는 https://github.com/youngiggy/phttp PHP로 HTTP 서버 구현하기 - 01에서 언급한 가장 간단한 서버부터 시작해볼까? 가장 간단한 서">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="https://media.tenor.com/images/5746acedc3829ed1e2e569c8d525c6f9/tenor.gif">
+<meta property="og:updated_time" content="2017-10-16T14:50:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP로 HTTP 서버 구현하기 - 04">
+<meta name="twitter:description" content="이제부터 하나씩 기능을 붙여가며 commit &amp;amp; push를 할 예정이다. PHP7.1 / 맥북 환경에서 공부한 결과를 적는 거라서, 윈도 머신에선 안 통하는 설명도 있으리라. 소스 위치는 https://github.com/youngiggy/phttp PHP로 HTTP 서버 구현하기 - 01에서 언급한 가장 간단한 서버부터 시작해볼까? 가장 간단한 서">
+<meta name="twitter:image" content="https://media.tenor.com/images/5746acedc3829ed1e2e569c8d525c6f9/tenor.gif">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon.ico" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+          
+        
+    
+    <!-- title -->
+    <title>PHP로 HTTP 서버 구현하기 - 04</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="ha-ah" type="application/atom+xml" />
+    
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-1318599740881033",
+            enable_page_level_ads: true
+        });
+    </script>
+
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2017/10/14/book-979-11-85152-65-3/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://haah.kr/2017/10/16/phttp-04/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://haah.kr/2017/10/16/phttp-04/&text=PHP로 HTTP 서버 구현하기 - 04"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://haah.kr/2017/10/16/phttp-04/&title=PHP로 HTTP 서버 구현하기 - 04"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://haah.kr/2017/10/16/phttp-04/&is_video=false&description=PHP로 HTTP 서버 구현하기 - 04"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=PHP로 HTTP 서버 구현하기 - 04&body=Check out this article: http://haah.kr/2017/10/16/phttp-04/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://haah.kr/2017/10/16/phttp-04/&title=PHP로 HTTP 서버 구현하기 - 04"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://haah.kr/2017/10/16/phttp-04/&title=PHP로 HTTP 서버 구현하기 - 04"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://haah.kr/2017/10/16/phttp-04/&title=PHP로 HTTP 서버 구현하기 - 04"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://haah.kr/2017/10/16/phttp-04/&title=PHP로 HTTP 서버 구현하기 - 04"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://haah.kr/2017/10/16/phttp-04/&name=PHP로 HTTP 서버 구현하기 - 04&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#가장-간단한-서버"><span class="toc-number">1.</span> <span class="toc-text">가장 간단한 서버</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#가장-간단한-클라이언트"><span class="toc-number">2.</span> <span class="toc-text">가장 간단한 클라이언트</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#실행"><span class="toc-number">3.</span> <span class="toc-text">실행</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#결론"><span class="toc-number">4.</span> <span class="toc-text">결론</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        PHP로 HTTP 서버 구현하기 - 04
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">ha-ah</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2017-10-16T12:37:43.000Z" itemprop="datePublished">2017-10-16</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/HTTP/">HTTP</a>, <a class="tag-link" href="/tags/PHP/">PHP</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>이제부터 하나씩 기능을 붙여가며 commit &amp; push를 할 예정이다.</p>
+<p>PHP7.1 / 맥북 환경에서 공부한 결과를 적는 거라서, 윈도 머신에선 안 통하는 설명도 있으리라.</p>
+<p>소스 위치는 <a href="https://github.com/youngiggy/phttp" target="_blank" rel="external">https://github.com/youngiggy/phttp</a></p>
+<p><a href="/2017/10/06/phttp-02">PHP로 HTTP 서버 구현하기 - 01</a>에서 언급한 가장 간단한 서버부터 시작해볼까?</p>
+<h2 id="가장-간단한-서버"><a href="#가장-간단한-서버" class="headerlink" title="가장 간단한 서버"></a>가장 간단한 서버</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$server = stream_socket_server(<span class="string">"tcp://127.0.0.1:1337"</span>, $errno, $errorMessage);</div><div class="line"></div><div class="line"><span class="keyword">if</span> ($server === <span class="keyword">false</span>) &#123;</div><div class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> UnexpectedValueException(<span class="string">"Could not bind to socket: $errorMessage"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</div><div class="line">    $client = @stream_socket_accept($server);</div><div class="line"></div><div class="line">    <span class="keyword">if</span> ($client) &#123;</div><div class="line">        stream_copy_to_stream($client, $client);</div><div class="line">        fclose($client);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>딱 봐도 어려울 것 없는 코드다.</p>
+<p>127.0.0.1이란 IP에 1337 포트를 열었다. </p>
+<p>왜 하필 1337이냐고? 그냥! 저 블로그 쓴 사람이 그렇게 써서 따라했다. </p>
+<p>사용하는 프로그램에 따라 이미 포트가 선점되었을 수도 있다.</p>
+<ul>
+<li>기본으로 이 포트를 쓰는 프로그램이 있는지 <a href="https://www.speedguide.net/port.php?port=1337" target="_blank" rel="external">이런 곳</a>에서 찾아봐도 좋고</li>
+<li>쉘에서 <code>lsof -PiTCP -sTCP:LISTEN</code> 포트가 열려있는지 확인해봐도 좋다</li>
+</ul>
+<p>그 다음 while 루프로 뱅글뱅글 돌면서 연결이 들어오는 지 확인한다.</p>
+<p><code>stream_socket_accept</code> 함수가 말을 못하게 @로 입을 막자.</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=u5CVsCnxyXg" target="_blank" rel="external">&#9834;</a> No alarms and no surprises </li>
+<li>하지만 안 막는다고 뭐 대단한 걸 볼 일은 없을 것이다</li>
+</ul>
+<p>연결이 된 클라이언트가 있다면, <code>stream_copy_to_stream</code>를 통해 클라이언트가 보낸 스트림을 고스란히 돌려주자.</p>
+<p>고스란히…</p>
+<p><img src="https://media.tenor.com/images/5746acedc3829ed1e2e569c8d525c6f9/tenor.gif" alt="주고 받기"></p>
+<ul>
+<li><a href="https://tenor.com/view/kdrama-korean-slap-anger-angry-gif-9330050" target="_blank" rel="external">https://tenor.com/view/kdrama-korean-slap-anger-angry-gif-9330050</a></li>
+</ul>
+<h2 id="가장-간단한-클라이언트"><a href="#가장-간단한-클라이언트" class="headerlink" title="가장 간단한 클라이언트"></a>가장 간단한 클라이언트</h2><p>가장 간단한 서버가 완성됐으니 터미널을 열어 <code>php ./app/server.php</code>로 일을 시키고 돌아오자.</p>
+<p>새로운 터미널을 열어 <code>echo &quot;hello hello&quot; | nc 127.0.0.1 1337</code>를 입력하면 <code>hello hello</code>라고 반갑게 인사하는 것이 보일 것이다.</p>
+<p>너무 시시하니까 가장 간단한 클라이언트를 만들어 잘 돌아가는 지 구경해보자.</p>
+<p>아직 브라우저에서 HTTP 프로토콜로 붙을 상황은 아니므로 간단한 TCP 연결 클라이언트로 테스트 한다.</p>
+<p>역시 <a href="https://www.christophh.net/2012/07/24/php-socket-programming/" target="_blank" rel="external">PHP Socket Programming, done the Right Way</a>에서 예시로 보여준 것을 기본으로 시작한다.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$client = stream_socket_client(<span class="string">"tcp://127.0.0.1:1337"</span>, $errno, $errorMessage);</div><div class="line"><span class="keyword">if</span> ($client === <span class="keyword">false</span>) &#123;</div><div class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> UnexpectedValueException(<span class="string">"Failed to connect: $errno - $errorMessage"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment"> * generate a message</span></div><div class="line"><span class="comment"> */</span></div><div class="line">$startLine = <span class="string">'GET / HTTP/1.0'</span>;</div><div class="line"></div><div class="line">$headers = [</div><div class="line">    <span class="string">'Host: localhost'</span>,</div><div class="line">    <span class="string">'Accept: */*'</span>,</div><div class="line">];</div><div class="line">$header = implode(PHP_EOL, $headers);</div><div class="line"></div><div class="line">$emptyLine = PHP_EOL;</div><div class="line"></div><div class="line">$body = <span class="string">''</span>;</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment"> * request</span></div><div class="line"><span class="comment"> */</span></div><div class="line">$message = implode(PHP_EOL, [</div><div class="line">    $startLine,</div><div class="line">    $header,</div><div class="line">    $emptyLine,</div><div class="line">    $body,</div><div class="line">]);</div><div class="line">fwrite($client, $message);</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment"> * response</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">echo</span> stream_get_contents($client);</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment"> * bye bye</span></div><div class="line"><span class="comment"> */</span></div><div class="line">fclose($client);</div></pre></td></tr></table></figure>
+<p>역시 별 거 없는 코드다.</p>
+<p><code>stream_socket_client</code>으로 연결을 시도하고,</p>
+<p>HTTP 메시지를 만들어 준다.</p>
+<ul>
+<li>HTTP 메시지는 시작줄, 헤더, 공백, 바디로 이뤄졌다. <a href="/2017/08/23/http-the-definitive-guide-chapter-3">참고</a></li>
+</ul>
+<p>이 메시지를 fwrite를 통해 스트림에 써 준다.</p>
+<p><a href="/2017/10/06/phttp-02">02편</a>에서 얘기한 것처럼, <code>stream_socket_client</code>이 리턴하는 stream resource에는 fopen, fread같은 filesystem 함수를 사용할 수 있다.</p>
+<h2 id="실행"><a href="#실행" class="headerlink" title="실행"></a>실행</h2><p>터미널을 하나 열고 <code>php ./app/client.php</code>로 클라이언트를 실행해보자.</p>
+<p>아무 반응이 없을 것이다.</p>
+<p>하지만 조금만 더 기다려보면, 1분 후 timeout으로 client가 종료되고 자신이 서버에 전송한 값이 화면에 찍한다.</p>
+<p>왜 그럴까?</p>
+<p>다르게 재현해보자.</p>
+<p>서버를 다시 실행하고 클라이언트를 다시 실행한 후, 이번엔 서버를 죽여보자.</p>
+<p>이때도 클라이언트와 연결이 바로 끊어지고 서버에 전송한 값이 되돌아와 화면에 찍힌다.</p>
+<p>우선 timeout 1분은 환경마다 다를 수 있는데, php.ini에 default_socket_timeout에 정의되어 있다.</p>
+<p>client 소스의 response 부분을 아래와 같이 바꿔보자.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment"> * response</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</div><div class="line">    <span class="keyword">if</span> (!($response = stream_get_contents($client, <span class="number">4</span>))) &#123;</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">echo</span> $response . <span class="string">'|'</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>그럼 아래와 같이 나오던 것이<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">GET / HTTP/1.0</div><div class="line">Host: localhost</div><div class="line">Accept: *</div></pre></td></tr></table></figure></p>
+<p>아래와 같이 바로 찍힌다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">GET |/ HT|TP/1|.0</div><div class="line">H|ost:| loc|alho|st</div><div class="line">A|ccep|t: *|/*</div></pre></td></tr></table></figure></p>
+<p><code>stream_get_contents</code>의 두번째 인자는 maxlength라서 지정한 만큼만 스트림에서 읽어온다.</p>
+<p>그래서 읽어온 만큼 바로바로 화면에 echo 하는 것이다. </p>
+<ul>
+<li>보기 좋으라고(?)뒤에 |를 붙여봤다.</li>
+</ul>
+<p>하지만 이렇게 해도 클라이언트는 종료되지 않는다.</p>
+<p><code>stream_get_contents</code>가 계속 스트림에 뭔가 들어오는지 지켜보고 있어서 while loop가 끝나지 않는다.</p>
+<p>이 악순환의 고리를 끊으려면 서버에서 연결을 끊어버리면 간단한데, 우리 코드에선 클라이언트로 들어오는 스트림을 바로 돌려주기 때문에 쉽지 않다.</p>
+<p>클라이언트에서 loop를 종료하려면 어디가 끝인지를 확인해야만 한다.</p>
+<p>서버가 Content-Length를 돌려주게끔 해주면 좋겠지만 우리 서버는 아직 바보니까 클라이언트가 좀 더 고생을 하자. </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$messageLenth = strlen($message);</div><div class="line">$totalLenth = <span class="number">0</span>;</div><div class="line"><span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</div><div class="line">    $response = stream_get_contents($client, <span class="number">1</span>);</div><div class="line">    <span class="keyword">echo</span> $response;</div><div class="line">    $totalLenth += strlen($response);</div><div class="line">    <span class="keyword">if</span> ($messageLenth &lt;= $totalLenth) &#123;</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h2><p>아주 간단한 서버와 아주 간단한 클라이언트를 아주 간단히 살펴봤다.</p>
+<p>도저히 못 써먹겠으니 다음 글에서는 이를 좀 더 개선해보자.<br>(뭘 어떻게 바꿀 지는 아직 계획없음)</p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+    </div>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#가장-간단한-서버"><span class="toc-number">1.</span> <span class="toc-text">가장 간단한 서버</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#가장-간단한-클라이언트"><span class="toc-number">2.</span> <span class="toc-text">가장 간단한 클라이언트</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#실행"><span class="toc-number">3.</span> <span class="toc-text">실행</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#결론"><span class="toc-number">4.</span> <span class="toc-text">결론</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://haah.kr/2017/10/16/phttp-04/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://haah.kr/2017/10/16/phttp-04/&text=PHP로 HTTP 서버 구현하기 - 04"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://haah.kr/2017/10/16/phttp-04/&title=PHP로 HTTP 서버 구현하기 - 04"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://haah.kr/2017/10/16/phttp-04/&is_video=false&description=PHP로 HTTP 서버 구현하기 - 04"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=PHP로 HTTP 서버 구현하기 - 04&body=Check out this article: http://haah.kr/2017/10/16/phttp-04/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://haah.kr/2017/10/16/phttp-04/&title=PHP로 HTTP 서버 구현하기 - 04"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://haah.kr/2017/10/16/phttp-04/&title=PHP로 HTTP 서버 구현하기 - 04"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://haah.kr/2017/10/16/phttp-04/&title=PHP로 HTTP 서버 구현하기 - 04"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://haah.kr/2017/10/16/phttp-04/&title=PHP로 HTTP 서버 구현하기 - 04"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://haah.kr/2017/10/16/phttp-04/&name=PHP로 HTTP 서버 구현하기 - 04&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2017 youngiggy
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-99319001-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'youngiggy-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
