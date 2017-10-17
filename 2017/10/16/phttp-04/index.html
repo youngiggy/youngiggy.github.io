@@ -6,19 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="이제부터 하나씩 기능을 붙여가며 commit &amp;amp; push를 할 예정이다. PHP7.1 / 맥북 환경에서 공부한 결과를 적는 거라서, 윈도 머신에선 안 통하는 설명도 있으리라. 소스 위치는 https://github.com/youngiggy/phttp PHP로 HTTP 서버 구현하기 - 01에서 언급한 가장 간단한 서버부터 시작해볼까? 가장 간단한 서">
+    <meta name="description" content="Updated (2017.10.18)이번 글과 관련된 내용이라 조금 더 추가해봤습니다. 하단 Updated 참고. 가장 간단한 서버이제부터 하나씩 기능을 붙여가며 commit &amp;amp; push를 할 예정이다. PHP7.1/mac 환경에서 공부한 결과를 적는 거라서, 윈도 머신에선 안 통하는 설명도 있으리라. 소스 위치는 https://github.com/">
 <meta name="keywords" content="PHP,HTTP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PHP로 HTTP 서버 구현하기 - 04">
 <meta property="og:url" content="http://haah.kr/2017/10/16/phttp-04/index.html">
 <meta property="og:site_name" content="ha-ah">
-<meta property="og:description" content="이제부터 하나씩 기능을 붙여가며 commit &amp;amp; push를 할 예정이다. PHP7.1 / 맥북 환경에서 공부한 결과를 적는 거라서, 윈도 머신에선 안 통하는 설명도 있으리라. 소스 위치는 https://github.com/youngiggy/phttp PHP로 HTTP 서버 구현하기 - 01에서 언급한 가장 간단한 서버부터 시작해볼까? 가장 간단한 서">
+<meta property="og:description" content="Updated (2017.10.18)이번 글과 관련된 내용이라 조금 더 추가해봤습니다. 하단 Updated 참고. 가장 간단한 서버이제부터 하나씩 기능을 붙여가며 commit &amp;amp; push를 할 예정이다. PHP7.1/mac 환경에서 공부한 결과를 적는 거라서, 윈도 머신에선 안 통하는 설명도 있으리라. 소스 위치는 https://github.com/">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https://media.tenor.com/images/5746acedc3829ed1e2e569c8d525c6f9/tenor.gif">
-<meta property="og:updated_time" content="2017-10-16T14:50:56.000Z">
+<meta property="og:updated_time" content="2017-10-17T22:52:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP로 HTTP 서버 구현하기 - 04">
-<meta name="twitter:description" content="이제부터 하나씩 기능을 붙여가며 commit &amp;amp; push를 할 예정이다. PHP7.1 / 맥북 환경에서 공부한 결과를 적는 거라서, 윈도 머신에선 안 통하는 설명도 있으리라. 소스 위치는 https://github.com/youngiggy/phttp PHP로 HTTP 서버 구현하기 - 01에서 언급한 가장 간단한 서버부터 시작해볼까? 가장 간단한 서">
+<meta name="twitter:description" content="Updated (2017.10.18)이번 글과 관련된 내용이라 조금 더 추가해봤습니다. 하단 Updated 참고. 가장 간단한 서버이제부터 하나씩 기능을 붙여가며 commit &amp;amp; push를 할 예정이다. PHP7.1/mac 환경에서 공부한 결과를 적는 거라서, 윈도 머신에선 안 통하는 설명도 있으리라. 소스 위치는 https://github.com/">
 <meta name="twitter:image" content="https://media.tenor.com/images/5746acedc3829ed1e2e569c8d525c6f9/tenor.gif">
     
     
@@ -108,7 +108,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#가장-간단한-서버"><span class="toc-number">1.</span> <span class="toc-text">가장 간단한 서버</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#가장-간단한-클라이언트"><span class="toc-number">2.</span> <span class="toc-text">가장 간단한 클라이언트</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#실행"><span class="toc-number">3.</span> <span class="toc-text">실행</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#결론"><span class="toc-number">4.</span> <span class="toc-text">결론</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Updated-2017-10-18"><span class="toc-number">1.</span> <span class="toc-text">Updated (2017.10.18)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#가장-간단한-서버"><span class="toc-number"></span> <span class="toc-text">가장 간단한 서버</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#가장-간단한-클라이언트"><span class="toc-number"></span> <span class="toc-text">가장 간단한 클라이언트</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#실행"><span class="toc-number"></span> <span class="toc-text">실행</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Updated"><span class="toc-number"></span> <span class="toc-text">Updated</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#결론"><span class="toc-number"></span> <span class="toc-text">결론</span></a>
     </div>
   </span>
 </div>
@@ -147,11 +147,13 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p>이제부터 하나씩 기능을 붙여가며 commit &amp; push를 할 예정이다.</p>
-<p>PHP7.1 / 맥북 환경에서 공부한 결과를 적는 거라서, 윈도 머신에선 안 통하는 설명도 있으리라.</p>
+    <h3 id="Updated-2017-10-18"><a href="#Updated-2017-10-18" class="headerlink" title="Updated (2017.10.18)"></a>Updated (2017.10.18)</h3><p>이번 글과 관련된 내용이라 조금 더 추가해봤습니다.</p>
+<p>하단 <a href="#Updated">Updated</a> 참고.</p>
+<h2 id="가장-간단한-서버"><a href="#가장-간단한-서버" class="headerlink" title="가장 간단한 서버"></a>가장 간단한 서버</h2><p>이제부터 하나씩 기능을 붙여가며 commit &amp; push를 할 예정이다.</p>
+<p>PHP7.1/mac 환경에서 공부한 결과를 적는 거라서, 윈도 머신에선 안 통하는 설명도 있으리라.</p>
 <p>소스 위치는 <a href="https://github.com/youngiggy/phttp" target="_blank" rel="external">https://github.com/youngiggy/phttp</a></p>
 <p><a href="/2017/10/06/phttp-02">PHP로 HTTP 서버 구현하기 - 01</a>에서 언급한 가장 간단한 서버부터 시작해볼까?</p>
-<h2 id="가장-간단한-서버"><a href="#가장-간단한-서버" class="headerlink" title="가장 간단한 서버"></a>가장 간단한 서버</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$server = stream_socket_server(<span class="string">"tcp://127.0.0.1:1337"</span>, $errno, $errorMessage);</div><div class="line"></div><div class="line"><span class="keyword">if</span> ($server === <span class="keyword">false</span>) &#123;</div><div class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> UnexpectedValueException(<span class="string">"Could not bind to socket: $errorMessage"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</div><div class="line">    $client = @stream_socket_accept($server);</div><div class="line"></div><div class="line">    <span class="keyword">if</span> ($client) &#123;</div><div class="line">        stream_copy_to_stream($client, $client);</div><div class="line">        fclose($client);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$server = stream_socket_server(<span class="string">"tcp://127.0.0.1:1337"</span>, $errno, $errorMessage);</div><div class="line"></div><div class="line"><span class="keyword">if</span> ($server === <span class="keyword">false</span>) &#123;</div><div class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> UnexpectedValueException(<span class="string">"Could not bind to socket: $errorMessage"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</div><div class="line">    $client = @stream_socket_accept($server);</div><div class="line"></div><div class="line">    <span class="keyword">if</span> ($client) &#123;</div><div class="line">        stream_copy_to_stream($client, $client);</div><div class="line">        fclose($client);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>딱 봐도 어려울 것 없는 코드다.</p>
 <p>127.0.0.1이란 IP에 1337 포트를 열었다. </p>
 <p>왜 하필 1337이냐고? 그냥! 저 블로그 쓴 사람이 그렇게 써서 따라했다. </p>
@@ -209,6 +211,33 @@
 <p>클라이언트에서 loop를 종료하려면 어디가 끝인지를 확인해야만 한다.</p>
 <p>서버가 Content-Length를 돌려주게끔 해주면 좋겠지만 우리 서버는 아직 바보니까 클라이언트가 좀 더 고생을 하자. </p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$messageLenth = strlen($message);</div><div class="line">$totalLenth = <span class="number">0</span>;</div><div class="line"><span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</div><div class="line">    $response = stream_get_contents($client, <span class="number">1</span>);</div><div class="line">    <span class="keyword">echo</span> $response;</div><div class="line">    $totalLenth += strlen($response);</div><div class="line">    <span class="keyword">if</span> ($messageLenth &lt;= $totalLenth) &#123;</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Updated"><a href="#Updated" class="headerlink" title="Updated"></a>Updated</h2><p>이 글 이후로 좀 더 진행해보다가 meta 정보를 이용하는 방법까지는 여기에 묻어두는 것이 좋을 것 같아서 내용을 추가한다.</p>
+<p><code>stream_get_contents</code>으로 데이터를 가져온 다음 현재 스트림의 상태를 보려면 <a href="http://php.net/manual/en/function.stream-get-meta-data.php" target="_blank" rel="external">stream_get_meta_data</a>를 통해 확인할 수 있다.</p>
+<p>여기에는 다음과 같은 정보가 리턴된다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Array</div><div class="line">(</div><div class="line">    [timed_out] =&gt; </div><div class="line">    [blocked] =&gt; 1</div><div class="line">    [eof] =&gt; </div><div class="line">    [stream_type] =&gt; tcp_socket/ssl</div><div class="line">    [mode] =&gt; r+</div><div class="line">    [unread_bytes] =&gt; 1</div><div class="line">    [seekable] =&gt; </div><div class="line">)</div></pre></td></tr></table></figure>
+<p>어쩐지 eof나 unread_bytes를 쓰면 될 것 같다.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment"> * response</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</div><div class="line">    $response = stream_get_contents($client, <span class="number">1</span>);</div><div class="line">    <span class="keyword">echo</span> $response;</div><div class="line">    $info = stream_get_meta_data($client);</div><div class="line">    <span class="keyword">if</span> ($info[<span class="string">'eof'</span>] || $info[<span class="string">'unread_bytes'</span>] === <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    &#125;</div><div class="line">&#125; </div></pre></td></tr></table></figure>
+<p>이렇게 하니 소중한 고객님의 연결이 끊겼습니다.</p>
+<p>그러나,</p>
+<p><a href="http://php.net/manual/en/function.stream-get-meta-data.php" target="_blank" rel="external">문서</a>를 보면 unread_bytes가 의미하는 것은,</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">unread_bytes (int) - the number of bytes currently contained in the PHP&apos;s own internal buffer.</div></pre></td></tr></table></figure>
+<p>즉, PHP 자체의 내부 버퍼의 내용을 보여주는 것이라서 스크립트에서 활용하지 않을 것을 추천하고 있다. </p>
+<blockquote>
+<p>Note: You shouldn’t use this value in a script.</p>
+</blockquote>
+<p>그럼 포기하고 다른 방법을 찾아보자.</p>
+<p>우선 client 쪽 소스에서 unread_bytes를 검사하는 부분만 제거한 다음,</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment"> * response</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</div><div class="line">    $response = stream_get_contents($client, <span class="number">1</span>);</div><div class="line">    <span class="keyword">echo</span> $response;</div><div class="line">    $info = stream_get_meta_data($client);</div><div class="line">    <span class="keyword">if</span> ($info[<span class="string">'eof'</span>] || $info[<span class="string">'unread_bytes'</span>] === <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    &#125;</div><div class="line">&#125; </div></pre></td></tr></table></figure>
+<p>연결이 안 끊어지는 것을 반드시 확인하자.</p>
+<p>그 다음,</p>
+<p>서버쪽 소스에서 <a href="http://php.net/manual/en/function.stream-set-blocking.php" target="_blank" rel="external">stream_set_blocking</a>으로 non-blocking 모드로 바꿔보자.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">stream_set_blocking($client, <span class="number">0</span>);</div></pre></td></tr></table></figure>
+<p>즉, 서버의 전체 소스는 아래와 같이 변할 것이다.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$server = stream_socket_server(<span class="string">"tcp://127.0.0.1:1337"</span>, $errno, $errorMessage);</div><div class="line"></div><div class="line"><span class="keyword">if</span> ($server === <span class="keyword">false</span>) &#123;</div><div class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> UnexpectedValueException(<span class="string">"Could not bind to socket: $errorMessage"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</div><div class="line">    $client = @stream_socket_accept($server);</div><div class="line"></div><div class="line">    <span class="keyword">if</span> ($client) &#123;</div><div class="line">        stream_set_blocking($client, <span class="keyword">false</span>);<span class="comment">// &lt;-- 여기요 여기</span></div><div class="line">        stream_copy_to_stream($client, $client);</div><div class="line">        fclose($client);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>클라이언트를 실행하면 바로 연결이 끊긴다.</p>
+<p><code>stream_set_blocking</code> 함수의 두번째 인자 mode가 false로 들어가면 non-blocking 모드로 진입하며,</p>
+<p>클라이언트 쪽에서는 스트림으로 더이상의 데이터가 들어오는 것을 기다리지 않는다.</p>
+<p>이렇게 하면 굳이 스트림을 쓸 이유가 없기 때문에 이 역시도 좋은 방법은 아닐 것이다.</p>
 <h2 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h2><p>아주 간단한 서버와 아주 간단한 클라이언트를 아주 간단히 살펴봤다.</p>
 <p>도저히 못 써먹겠으니 다음 글에서는 이를 좀 더 개선해보자.<br>(뭘 어떻게 바꿀 지는 아직 계획없음)</p>
 
@@ -241,7 +270,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#가장-간단한-서버"><span class="toc-number">1.</span> <span class="toc-text">가장 간단한 서버</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#가장-간단한-클라이언트"><span class="toc-number">2.</span> <span class="toc-text">가장 간단한 클라이언트</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#실행"><span class="toc-number">3.</span> <span class="toc-text">실행</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#결론"><span class="toc-number">4.</span> <span class="toc-text">결론</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Updated-2017-10-18"><span class="toc-number">1.</span> <span class="toc-text">Updated (2017.10.18)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#가장-간단한-서버"><span class="toc-number"></span> <span class="toc-text">가장 간단한 서버</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#가장-간단한-클라이언트"><span class="toc-number"></span> <span class="toc-text">가장 간단한 클라이언트</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#실행"><span class="toc-number"></span> <span class="toc-text">실행</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Updated"><span class="toc-number"></span> <span class="toc-text">Updated</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#결론"><span class="toc-number"></span> <span class="toc-text">결론</span></a>
     </div>
 
     <div id="share-footer" style="display: none">
