@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Stream wrapper class시행착오를 최대한 줄이기 위해 앞에서 소개했던 HTTPServer부터 분석을 해보기로 했다. composer.json에 있는 php-cgi binary에 대한 의존성 때문인데(HTTPServer requires the php-cgi binary), 이 놈을 왜 넣었을까 궁금했다. 이 서버는 4개의 파일로 구성됐다.  cg">
-<meta name="keywords" content="PHP,HTTP">
+    <meta name="description" content="연재글 전체 보기  Stream wrapper class시행착오를 최대한 줄이기 위해 앞에서 소개했던 HTTPServer부터 분석을 해보기로 했다. composer.json에 있는 php-cgi binary에 대한 의존성 때문인데(HTTPServer requires the php-cgi binary), 이 놈을 왜 넣었을까 궁금했다. 이 서버는 4개의 파일">
+<meta name="keywords" content="PHP,HTTP,phttp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PHP로 HTTP 서버 구현하기 - 02">
 <meta property="og:url" content="http://haah.kr/2017/10/06/phttp-02/index.html">
 <meta property="og:site_name" content="ha-ah">
-<meta property="og:description" content="Stream wrapper class시행착오를 최대한 줄이기 위해 앞에서 소개했던 HTTPServer부터 분석을 해보기로 했다. composer.json에 있는 php-cgi binary에 대한 의존성 때문인데(HTTPServer requires the php-cgi binary), 이 놈을 왜 넣었을까 궁금했다. 이 서버는 4개의 파일로 구성됐다.  cg">
+<meta property="og:description" content="연재글 전체 보기  Stream wrapper class시행착오를 최대한 줄이기 위해 앞에서 소개했던 HTTPServer부터 분석을 해보기로 했다. composer.json에 있는 php-cgi binary에 대한 의존성 때문인데(HTTPServer requires the php-cgi binary), 이 놈을 왜 넣었을까 궁금했다. 이 서버는 4개의 파일">
 <meta property="og:locale" content="ko">
-<meta property="og:updated_time" content="2017-10-14T03:05:22.000Z">
+<meta property="og:updated_time" content="2017-10-21T02:16:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP로 HTTP 서버 구현하기 - 02">
-<meta name="twitter:description" content="Stream wrapper class시행착오를 최대한 줄이기 위해 앞에서 소개했던 HTTPServer부터 분석을 해보기로 했다. composer.json에 있는 php-cgi binary에 대한 의존성 때문인데(HTTPServer requires the php-cgi binary), 이 놈을 왜 넣었을까 궁금했다. 이 서버는 4개의 파일로 구성됐다.  cg">
+<meta name="twitter:description" content="연재글 전체 보기  Stream wrapper class시행착오를 최대한 줄이기 위해 앞에서 소개했던 HTTPServer부터 분석을 해보기로 했다. composer.json에 있는 php-cgi binary에 대한 의존성 때문인데(HTTPServer requires the php-cgi binary), 이 놈을 왜 넣었을까 궁금했다. 이 서버는 4개의 파일">
     
     
         
@@ -138,7 +138,7 @@
       
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/HTTP/">HTTP</a>, <a class="tag-link" href="/tags/PHP/">PHP</a>
+        <a class="tag-link" href="/tags/HTTP/">HTTP</a>, <a class="tag-link" href="/tags/PHP/">PHP</a>, <a class="tag-link" href="/tags/phttp/">phttp</a>
     </div>
 
 
@@ -147,7 +147,9 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h1 id="Stream-wrapper-class"><a href="#Stream-wrapper-class" class="headerlink" title="Stream wrapper class"></a>Stream wrapper class</h1><p>시행착오를 최대한 줄이기 위해 앞에서 소개했던 <a href="https://github.com/youngj/httpserver" target="_blank" rel="external">HTTPServer</a>부터 분석을 해보기로 했다.</p>
+    <p><a href="/tags/phttp/">연재글 전체 보기</a></p>
+<hr>
+<h1 id="Stream-wrapper-class"><a href="#Stream-wrapper-class" class="headerlink" title="Stream wrapper class"></a>Stream wrapper class</h1><p>시행착오를 최대한 줄이기 위해 앞에서 소개했던 <a href="https://github.com/youngj/httpserver" target="_blank" rel="external">HTTPServer</a>부터 분석을 해보기로 했다.</p>
 <p>composer.json에 있는 php-cgi binary에 대한 의존성 때문인데(<code>HTTPServer requires the php-cgi binary</code>), 이 놈을 왜 넣었을까 궁금했다.</p>
 <p>이 서버는 4개의 파일로 구성됐다.</p>
 <ul>

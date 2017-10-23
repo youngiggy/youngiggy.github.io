@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="지난번에 이어 CGIStream class(HTTPServer 참고)를 살펴보는 시간. 말했지만, 좀 옛스러운 코드니 결벽증이 있는 분은 다음 장으로… 왜 요즘 버전의 소스를 분석하지 않냐는 질문도 할 법 하다. 못 구했다. 일단 이건 정말 공부를 위한 뻘짓이기 때문에 굳이 구현하고 싶은 사람이 없었을 것으로 보인다. 게다가 PHP5.4부터 내장 서버를 지">
-<meta name="keywords" content="PHP,HTTP">
+    <meta name="description" content="연재글 전체 보기  지난번에 이어 CGIStream class(HTTPServer 참고)를 살펴보는 시간. 말했지만, 좀 옛스러운 코드니 결벽증이 있는 분은 다음 장으로… 왜 요즘 버전의 소스를 분석하지 않냐는 질문도 할 법 하다. 못 구했다. 일단 이건 정말 공부를 위한 뻘짓이기 때문에 굳이 구현하고 싶은 사람이 없었을 것으로 보인다. 게다가 PHP5.4">
+<meta name="keywords" content="PHP,HTTP,phttp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PHP로 HTTP 서버 구현하기 - 03">
 <meta property="og:url" content="http://haah.kr/2017/10/12/phttp-03/index.html">
 <meta property="og:site_name" content="ha-ah">
-<meta property="og:description" content="지난번에 이어 CGIStream class(HTTPServer 참고)를 살펴보는 시간. 말했지만, 좀 옛스러운 코드니 결벽증이 있는 분은 다음 장으로… 왜 요즘 버전의 소스를 분석하지 않냐는 질문도 할 법 하다. 못 구했다. 일단 이건 정말 공부를 위한 뻘짓이기 때문에 굳이 구현하고 싶은 사람이 없었을 것으로 보인다. 게다가 PHP5.4부터 내장 서버를 지">
+<meta property="og:description" content="연재글 전체 보기  지난번에 이어 CGIStream class(HTTPServer 참고)를 살펴보는 시간. 말했지만, 좀 옛스러운 코드니 결벽증이 있는 분은 다음 장으로… 왜 요즘 버전의 소스를 분석하지 않냐는 질문도 할 법 하다. 못 구했다. 일단 이건 정말 공부를 위한 뻘짓이기 때문에 굳이 구현하고 싶은 사람이 없었을 것으로 보인다. 게다가 PHP5.4">
 <meta property="og:locale" content="ko">
-<meta property="og:updated_time" content="2017-10-14T03:14:20.000Z">
+<meta property="og:updated_time" content="2017-10-21T02:16:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP로 HTTP 서버 구현하기 - 03">
-<meta name="twitter:description" content="지난번에 이어 CGIStream class(HTTPServer 참고)를 살펴보는 시간. 말했지만, 좀 옛스러운 코드니 결벽증이 있는 분은 다음 장으로… 왜 요즘 버전의 소스를 분석하지 않냐는 질문도 할 법 하다. 못 구했다. 일단 이건 정말 공부를 위한 뻘짓이기 때문에 굳이 구현하고 싶은 사람이 없었을 것으로 보인다. 게다가 PHP5.4부터 내장 서버를 지">
+<meta name="twitter:description" content="연재글 전체 보기  지난번에 이어 CGIStream class(HTTPServer 참고)를 살펴보는 시간. 말했지만, 좀 옛스러운 코드니 결벽증이 있는 분은 다음 장으로… 왜 요즘 버전의 소스를 분석하지 않냐는 질문도 할 법 하다. 못 구했다. 일단 이건 정말 공부를 위한 뻘짓이기 때문에 굳이 구현하고 싶은 사람이 없었을 것으로 보인다. 게다가 PHP5.4">
     
     
         
@@ -138,7 +138,7 @@
       
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/HTTP/">HTTP</a>, <a class="tag-link" href="/tags/PHP/">PHP</a>
+        <a class="tag-link" href="/tags/HTTP/">HTTP</a>, <a class="tag-link" href="/tags/PHP/">PHP</a>, <a class="tag-link" href="/tags/phttp/">phttp</a>
     </div>
 
 
@@ -147,7 +147,9 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p>지난번에 이어 CGIStream class(<a href="https://github.com/youngj/httpserver" target="_blank" rel="external">HTTPServer</a> 참고)를 살펴보는 시간.</p>
+    <p><a href="/tags/phttp/">연재글 전체 보기</a></p>
+<hr>
+<p>지난번에 이어 CGIStream class(<a href="https://github.com/youngj/httpserver" target="_blank" rel="external">HTTPServer</a> 참고)를 살펴보는 시간.</p>
 <p>말했지만, 좀 옛스러운 코드니 결벽증이 있는 분은 다음 장으로…</p>
 <p>왜 요즘 버전의 소스를 분석하지 않냐는 질문도 할 법 하다.</p>
 <p>못 구했다.</p>

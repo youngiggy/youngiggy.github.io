@@ -6,19 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Updated (2017.10.18)이번 글과 관련된 내용이라 조금 더 추가해봤습니다. 하단 Updated 참고. 가장 간단한 서버이제부터 하나씩 기능을 붙여가며 commit &amp;amp; push를 할 예정이다. PHP7.1/mac 환경에서 공부한 결과를 적는 거라서, 윈도 머신에선 안 통하는 설명도 있으리라. 소스 위치는 https://github.com/">
-<meta name="keywords" content="PHP,HTTP">
+    <meta name="description" content="연재글 전체 보기  Updated (2017.10.18)이번 글과 관련된 내용이라 조금 더 추가해봤습니다. 하단 Updated 참고. 가장 간단한 서버이제부터 하나씩 기능을 붙여가며 commit &amp;amp; push를 할 예정이다. PHP7.1/mac 환경에서 공부한 결과를 적는 거라서, 윈도 머신에선 안 통하는 설명도 있으리라. 소스 위치는 https://">
+<meta name="keywords" content="PHP,HTTP,phttp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PHP로 HTTP 서버 구현하기 - 04">
 <meta property="og:url" content="http://haah.kr/2017/10/16/phttp-04/index.html">
 <meta property="og:site_name" content="ha-ah">
-<meta property="og:description" content="Updated (2017.10.18)이번 글과 관련된 내용이라 조금 더 추가해봤습니다. 하단 Updated 참고. 가장 간단한 서버이제부터 하나씩 기능을 붙여가며 commit &amp;amp; push를 할 예정이다. PHP7.1/mac 환경에서 공부한 결과를 적는 거라서, 윈도 머신에선 안 통하는 설명도 있으리라. 소스 위치는 https://github.com/">
+<meta property="og:description" content="연재글 전체 보기  Updated (2017.10.18)이번 글과 관련된 내용이라 조금 더 추가해봤습니다. 하단 Updated 참고. 가장 간단한 서버이제부터 하나씩 기능을 붙여가며 commit &amp;amp; push를 할 예정이다. PHP7.1/mac 환경에서 공부한 결과를 적는 거라서, 윈도 머신에선 안 통하는 설명도 있으리라. 소스 위치는 https://">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https://media.tenor.com/images/5746acedc3829ed1e2e569c8d525c6f9/tenor.gif">
-<meta property="og:updated_time" content="2017-10-17T22:52:32.000Z">
+<meta property="og:updated_time" content="2017-10-22T13:51:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP로 HTTP 서버 구현하기 - 04">
-<meta name="twitter:description" content="Updated (2017.10.18)이번 글과 관련된 내용이라 조금 더 추가해봤습니다. 하단 Updated 참고. 가장 간단한 서버이제부터 하나씩 기능을 붙여가며 commit &amp;amp; push를 할 예정이다. PHP7.1/mac 환경에서 공부한 결과를 적는 거라서, 윈도 머신에선 안 통하는 설명도 있으리라. 소스 위치는 https://github.com/">
+<meta name="twitter:description" content="연재글 전체 보기  Updated (2017.10.18)이번 글과 관련된 내용이라 조금 더 추가해봤습니다. 하단 Updated 참고. 가장 간단한 서버이제부터 하나씩 기능을 붙여가며 commit &amp;amp; push를 할 예정이다. PHP7.1/mac 환경에서 공부한 결과를 적는 거라서, 윈도 머신에선 안 통하는 설명도 있으리라. 소스 위치는 https://">
 <meta name="twitter:image" content="https://media.tenor.com/images/5746acedc3829ed1e2e569c8d525c6f9/tenor.gif">
     
     
@@ -80,6 +80,8 @@
     <span id="actions">
       <ul>
         
+        <li><a class="icon" href="/2017/10/21/phttp-05/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
+        
         
         <li><a class="icon" href="/2017/10/14/book-979-11-85152-65-3/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
         
@@ -138,7 +140,7 @@
       
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/HTTP/">HTTP</a>, <a class="tag-link" href="/tags/PHP/">PHP</a>
+        <a class="tag-link" href="/tags/HTTP/">HTTP</a>, <a class="tag-link" href="/tags/PHP/">PHP</a>, <a class="tag-link" href="/tags/phttp/">phttp</a>
     </div>
 
 
@@ -147,7 +149,9 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h3 id="Updated-2017-10-18"><a href="#Updated-2017-10-18" class="headerlink" title="Updated (2017.10.18)"></a>Updated (2017.10.18)</h3><p>이번 글과 관련된 내용이라 조금 더 추가해봤습니다.</p>
+    <p><a href="/tags/phttp/">연재글 전체 보기</a></p>
+<hr>
+<h3 id="Updated-2017-10-18"><a href="#Updated-2017-10-18" class="headerlink" title="Updated (2017.10.18)"></a>Updated (2017.10.18)</h3><p>이번 글과 관련된 내용이라 조금 더 추가해봤습니다.</p>
 <p>하단 <a href="#Updated">Updated</a> 참고.</p>
 <h2 id="가장-간단한-서버"><a href="#가장-간단한-서버" class="headerlink" title="가장 간단한 서버"></a>가장 간단한 서버</h2><p>이제부터 하나씩 기능을 붙여가며 commit &amp; push를 할 예정이다.</p>
 <p>PHP7.1/mac 환경에서 공부한 결과를 적는 거라서, 윈도 머신에선 안 통하는 설명도 있으리라.</p>
@@ -231,7 +235,7 @@
 <p>연결이 안 끊어지는 것을 반드시 확인하자.</p>
 <p>그 다음,</p>
 <p>서버쪽 소스에서 <a href="http://php.net/manual/en/function.stream-set-blocking.php" target="_blank" rel="external">stream_set_blocking</a>으로 non-blocking 모드로 바꿔보자.</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">stream_set_blocking($client, <span class="number">0</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">stream_set_blocking($client, <span class="keyword">false</span>);</div></pre></td></tr></table></figure>
 <p>즉, 서버의 전체 소스는 아래와 같이 변할 것이다.</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$server = stream_socket_server(<span class="string">"tcp://127.0.0.1:1337"</span>, $errno, $errorMessage);</div><div class="line"></div><div class="line"><span class="keyword">if</span> ($server === <span class="keyword">false</span>) &#123;</div><div class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> UnexpectedValueException(<span class="string">"Could not bind to socket: $errorMessage"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</div><div class="line">    $client = @stream_socket_accept($server);</div><div class="line"></div><div class="line">    <span class="keyword">if</span> ($client) &#123;</div><div class="line">        stream_set_blocking($client, <span class="keyword">false</span>);<span class="comment">// &lt;-- 여기요 여기</span></div><div class="line">        stream_copy_to_stream($client, $client);</div><div class="line">        fclose($client);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>클라이언트를 실행하면 바로 연결이 끊긴다.</p>

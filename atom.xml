@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://haah.kr/"/>
-  <updated>2017-10-17T22:52:32.000Z</updated>
+  <updated>2017-10-23T14:05:21.000Z</updated>
   <id>http://haah.kr/</id>
   
   <author>
@@ -16,13 +16,150 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>PHP로 HTTP 서버 구현하기 - 05</title>
+    <link href="http://haah.kr/2017/10/21/phttp-05/"/>
+    <id>http://haah.kr/2017/10/21/phttp-05/</id>
+    <published>2017-10-21T01:34:46.000Z</published>
+    <updated>2017-10-23T14:05:21.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="/tags/phttp/">연재글 전체 보기</a></p>
+<hr>
+<h2 id="과연-스트리밍이-필요한가"><a href="#과연-스트리밍이-필요한가" class="headerlink" title="과연 스트리밍이 필요한가?"></a>과연 스트리밍이 필요한가?</h2><p>스트리밍 처리를 위해 이리저리 알아보다가 괜찮은 글이 있어 소개한다.</p>
+<p><a href="https://gist.github.com/CMCDragonkai/6bfade6431e9ffb7fe88" target="_blank" rel="external">https://gist.github.com/CMCDragonkai/6bfade6431e9ffb7fe88</a></p>
+<ul>
+<li>스트리밍을 구현할 때 chunk 데이터를 어떻게 보내고, 이를 어떻게 처리해야 하는지</li>
+<li>HTTP 트랜잭션 안의 각 요소(component) 간 buffer는 어떻게 처리되는지</li>
+<li>등등 </li>
+</ul>
+<p>잘 나와있다.</p>
+<p>예전에 댓글로 <a href="https://www.sitepoint.com/php-streaming-output-buffering-explained/" target="_blank" rel="external">아웃 버퍼링에 관한 글</a>도 소개했었는데,</p>
+<p>같은 맥락으로 읽어보면 좋다.</p>
+<p>내가 만들 서버는 아주 가벼운 HTML 파일과 이미지 정도를 보내주기 때문에 굳이 (chunk로 나눠 보내주는) 스트리밍은 필요없다.</p>
+<p>마찬가지로 클라이언트에서도 multi-part chunk 데이터가 들어올 것을 고려할 필요가 없다.</p>
+<p>그럼 이제 HTTP 요청을 받아서 HTTP 응답을 반환해주는 최소한의 구성으로 서버를 하나 만들어보겠다.</p>
+<h2 id="아주-간단한-HTTP-서버"><a href="#아주-간단한-HTTP-서버" class="headerlink" title="아주 간단한 HTTP 서버"></a>아주 간단한 HTTP 서버</h2><p>이전 시간에 만들었던 서버 소스를 조금 수정해서, 클라이언트가 보낸 내용을 읽고 HTTP 응답 메시지로 리턴한다.</p>
+<p>아래는 전체 소스다.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$server = stream_socket_server(<span class="string">"tcp://127.0.0.1:1337"</span>, $errno, $errorMessage);</div><div class="line">    </div><div class="line"><span class="keyword">if</span> ($server === <span class="keyword">false</span>) &#123;</div><div class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> UnexpectedValueException(<span class="string">"Could not bind to socket: $errorMessage"</span>);</div><div class="line">&#125;</div><div class="line">    </div><div class="line"><span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</div><div class="line">    $client = @stream_socket_accept($server);</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> ($client) &#123;</div><div class="line">        $request= fread($client, <span class="number">1024</span>);</div><div class="line">        </div><div class="line">        $response = <span class="string">'HTTP/1.0 200 OK'</span> . PHP_EOL;</div><div class="line">        $response .= <span class="string">'Content-Type: text/html'</span> . PHP_EOL;</div><div class="line">        $response .= PHP_EOL;</div><div class="line">        $response .= <span class="string">'you sent :'</span> . PHP_EOL . $request . PHP_EOL;</div><div class="line">        </div><div class="line">        fwrite($client, $response, strlen($response));</div><div class="line">        fclose($client);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>클라이언트와 연결되면 해당 스트림에서 1024 바이트만큼 읽어온다.</p>
+<p>더 많이 보낼 수 있지 않냐고? 물론이다. 그 문제는 그 때 생각하자.</p>
+<p>그 다음 HTTP 메시지를 만들어 준다.</p>
+<ul>
+<li>말했지만, HTTP 메시지는 시작줄, 헤더, 공백, 본문(message body)으로 이뤄졌다.</li>
+</ul>
+<p>요청할 때는 시작줄에 <code>GET / HTTP/1.1</code>와 같이 메소드, URL, HTTP 버전 순으로 보냈지</p>
+<p>응답할 때의 시작줄에는 <code>HTTP/1.0 200 OK</code>와 같이 HTTP 버전과 상태 코드 그리고 상태 텍스트를 넣어준다.</p>
+<p>여기에 헤더를 추가해줘야 하니 Content-Type을 text/html으로 우선 하나 넣어주고</p>
+<p>메시지 본문과의 구분을 위해 CRLF를 두 개 추가한다. </p>
+<h2 id="첫-HTTP-요청과-응답"><a href="#첫-HTTP-요청과-응답" class="headerlink" title="첫 HTTP 요청과 응답"></a>첫 HTTP 요청과 응답</h2><p>테스트 용으로 만들었던 클라이언트 코드는 이제 버리고,</p>
+<p>진짜 HTTP 클라이언트를 사용해보자.</p>
+<p>브라우저에서 접속해도 괜찮지만 아직은 HTML 파일을 내려보낼 것이 아니므로</p>
+<p><a href="https://www.getpostman.com/" target="_blank" rel="external">Postman</a>같은 클라이언트가 테스트하기 편할 것이다.</p>
+<p><code>GET</code> 메소드로 <code>127.0.0.1:1337</code>에 접근해보자.</p>
+<p><img src="/images/phttp-05/postman01.png" alt="Postman으로 실행한 화면"></p>
+<p>(만약 서버에서 적절한 시작줄을 안 보내주면 Postman은 <code>Could not get any response</code>라며 응답이 오지 않은 것으로 간주한다.) </p>
+<p>Postman에서 받은 응답 메시지 본문은 아래와 같다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">you sent :</div><div class="line">GET / HTTP/1.1</div><div class="line">Host: 127.0.0.1:1337</div><div class="line">Connection: keep-alive</div><div class="line">Cache-Control: no-cache</div><div class="line">User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36</div><div class="line">Postman-Token: df3ef030-2b6f-76c3-30d9-304ebb426a41</div><div class="line">Accept: */*</div><div class="line">Accept-Encoding: gzip, deflate, br</div><div class="line">Accept-Language: ko-KR,ko;q=0.8,en-US;q=0.6,en;q=0.4</div></pre></td></tr></table></figure>
+<p>서버에서 응답 본문 앞에 붙여둔 <code>you sent :</code> 한 주를 제외하면 나머지는 HTTP 클라이언트(여기서는 Postman)가 요청 시 붙여 보낸 것이다.</p>
+<p>크롬에서 보내면?</p>
+<pre><code>you sent :
+GET / HTTP/1.1
+Host: 127.0.0.1:1337
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+Accept-Encoding: gzip, deflate, br
+Accept-Language: ko-KR,ko;q=0.8,en-US;q=0.6,en;q=0.4
+</code></pre><p>다시 서버 소스를 돌아보자.</p>
+<p>지금은 무조건 <code>HTTP/1.0 200 OK</code>라고 응답하게 되어있다.</p>
+<p>클라이언트는 HTTP/1.1을 지원하기 때문에 이 프로토콜 버전을 기준으로 헤더를 붙여 요청했지만</p>
+<p>우리 서버는 ‘난 HTTP/1.0까지만 지원하는 서버라서 1.0 기준의 헤더를 보낼 거야’라는 의미로 응답에 <code>HTTP/1.0 200 OK</code>를 리턴한다.</p>
+<h2 id="브라우저에서-index-html-확인하기"><a href="#브라우저에서-index-html-확인하기" class="headerlink" title="브라우저에서 index.html 확인하기"></a>브라우저에서 index.html 확인하기</h2><p>저기 저 아주 간단한 서버 소스에선 메시지 본문을 클라이언트가 보낸 데이터를 그대로 돌려줬는데,</p>
+<p><code>$response .= &#39;you sent :&#39; . PHP_EOL . $request . PHP_EOL;</code></p>
+<p>이제 예시로 만들어 두었던 index.html 파일을 읽어 클라이언트로 보내기로 한다.</p>
+<p>드디어 브라우저에서 확인해볼 차례다.</p>
+<p>Request를 그대로 돌려주는 서버에서 무조건 index.html을 떨궈주는 서버로 진화해보자. </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 생략</span></div><div class="line">    </div><div class="line"><span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</div><div class="line">    $client = @stream_socket_accept($server);</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> ($client) &#123;</div><div class="line">        <span class="comment">//todo 요청(request) 처리 모듈로 분리하기</span></div><div class="line">        $request= fread($client, <span class="number">1024</span>);</div><div class="line">    </div><div class="line">        $filename = <span class="string">'../public/index.html'</span>;</div><div class="line">        <span class="keyword">if</span> (!($fp = fopen($filename, <span class="string">'r'</span>))) &#123;</div><div class="line">            $response = <span class="string">'HTTP/1.0 404 파일 없음'</span> . PHP_EOL;</div><div class="line">            fwrite($client, $response, strlen($response));</div><div class="line">            fclose($client);</div><div class="line">        &#125;</div><div class="line">        $responseBody = fread($fp, filesize($filename));</div><div class="line">    </div><div class="line">        <span class="comment">//todo 응답(response) 처리 모듈로 분리하기</span></div><div class="line">        $response = <span class="string">'HTTP/1.0 200 OK'</span> . PHP_EOL;</div><div class="line">        $response .= <span class="string">'Content-Type: text/html'</span> . PHP_EOL;</div><div class="line">        $response .= PHP_EOL;</div><div class="line">        $response .= $responseBody . PHP_EOL;</div><div class="line">    </div><div class="line">        fwrite($client, $response, strlen($response));</div><div class="line">        fclose($client);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>todo가 먼저 눈에 띌 것 같은데,</p>
+<p>우리의 아주 간단한 서버가 조금씩 복잡해지기 시작했다(냄새가 난다, 냄새가).</p>
+<p>크게 보면 응답을 받아서 뭔가 하는 역할과 응답을 만들어주는 역할이다.</p>
+<p>리팩토링은 나중에 하기로 하고, 맥주를 한잔 따르고, 성공을 축하하자.</p>
+<p>크롬으로 접속!</p>
+<p><img src="/images/phttp-05/index_html.png" alt="index.html 성공"></p>
+<p>만약 없는 경로의 파일을 찾으려고 하면 404로 응답해주면 된다.</p>
+<p>그 유명한 <code>404 not found</code>다.</p>
+<p>그런데 소스를 보면 <code>HTTP/1.0 404 파일 없음</code>이라고 되어있는데 잘못 쓴 게 아니다.</p>
+<p>클라이언트에게는 404라는 응답코드가 중요하지 메시지는 중요하지 않다.</p>
+<p><code>200 OK</code>나 <code>200 NOT OK</code>나 모두 성공을 의미한다.</p>
+<p>(물론 서비스 운영 시에는 이런 짓은 하지 않는다)</p>
+<p><img src="/images/phttp-05/index_html_404.png" alt="404 not found"></p>
+<p>404 처리도 완벽하게(!?) 됐다.</p>
+<h2 id="이미지-서빙"><a href="#이미지-서빙" class="headerlink" title="이미지 서빙"></a>이미지 서빙</h2><p>첫 요청으로 index.html을 서빙하는 것 까지는 성공했는데, 중간에 이미지가 빠져있는 게 보일 것이다.</p>
+<p>이미지를 노출하려면 몇 가지 더 수정을 해야한다.</p>
+<h3 id="첫째-두-가지의-요청을-처리할-수-있어야-한다"><a href="#첫째-두-가지의-요청을-처리할-수-있어야-한다" class="headerlink" title="첫째, 두 가지의 요청을 처리할 수 있어야 한다."></a>첫째, 두 가지의 요청을 처리할 수 있어야 한다.</h3><p>즉, HTML을 요청하는 것과 이미지를 요청하는 것.</p>
+<p>첫 요청으로 브라우저는 index.html이라는 HTML을 얻었다.</p>
+<p>이 HTML 문서를 파싱하다가 img 태그를 만났고 src가 beer_server.jpg라는 상대 링크이기 때문에 우리의 서버에 다시 요청을 보낸다.</p>
+<p>첫 요청이 <code>GET / HTTP/1.1</code>라면 이어서 <code>GET /beer_server.jpg HTTP/1.1</code>라는 요청이 이어질 것이다.</p>
+<p><code>개발자 도구 &gt; 네트워크</code>를 열어 확인해보자.</p>
+<p><img src="/images/phttp-05/index_html_network.png" alt="index.html의 네트워크"></p>
+<p>(contents_min.css 저 놈은 크롬 확장 프로그램 때문에 날아간 것이니 신경 쓰지 말자 😭)</p>
+<p>favicon.ico는 브라우저 탭에 표시해주는 작은 이미지인데, 최신 브라우저에서는 favicon이 등록되어 있지 않은 사이트일 경우 서버에 /favicon.ico가 있는지 한번 찔러본다.<br>(사실 계속 찔러보기는 하는데..)</p>
+<p>따라서 예상치 못하게 이미지 하나를 더 서비스 해야할 상황이다.</p>
+<ul>
+<li>index.html</li>
+<li>beer_server.png </li>
+<li>favicon.ico</li>
+</ul>
+<p>이제 클라이언트가 보낸 요청을 분석해서 뭘 원하는 지 알아내야 할 판이다.</p>
+<h3 id="둘째-이미지를-읽고-써야한다"><a href="#둘째-이미지를-읽고-써야한다" class="headerlink" title="둘째, 이미지를 읽고 써야한다."></a>둘째, 이미지를 읽고 써야한다.</h3><p>위 소스에서 index.html을 어떻게 찾았는지 살펴보자.</p>
+<p>server.php가 실행된 위치에서 <code>..</code>로 상위 디렉토리로 올리가 <code>public</code>이라는 디렉토리에 있는 파일을 서빙했다.</p>
+<p>이러다 서버 프로그램 위치가 이동한달지 webroot를 변경하면 서버 코드를 수정할 판이다.</p>
+<h2 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h2><p>냄새가 난다, 냄새가.</p>
+<p>index.html 하나 서비스했을 뿐인데 많은 구조적인 문제가 폭발했다.</p>
+<p>클라이언트 요청(request)를 분석하고 html을 줄지 이미지를 줄지 결정해야하고,</p>
+<p>DOCUMENT_ROOT, WEB_ROOT 등 config 설정도 해야할 것 같다.</p>
+<p>200과 404 응답을 만들어주는 코드 모두에 fwrite/fclose 로직이 중복되어 있기도 하다.</p>
+<p>이 모든 걸 담기에는 이미 서버 프로그램이 너무 복잡하다.</p>
+<p>다음 시간부터 이를 하나씩 분리해서 HTTP 완벽가이드 5장에 소개된 ‘진짜 웹 서버가 하는 일’을 구현해볼 생각이다.</p>
+<ol>
+<li>커넥션을 맺는다</li>
+<li>요청을 받는다</li>
+<li>요청을 처리한다</li>
+<li>리소스에 접근한다</li>
+<li>응답을 만든다</li>
+<li>응답을 보낸다</li>
+<li>트랜잭션을 로그로 남긴다</li>
+</ol>
+<p>(1번, 2번 정도는 PHP 함수로 대충 때웠으니 했다고 치자) </p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;/tags/phttp/&quot;&gt;연재글 전체 보기&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;과연-스트리밍이-필요한가&quot;&gt;&lt;a href=&quot;#과연-스트리밍이-필요한가&quot; class=&quot;headerlink&quot; title=&quot;과연 스트리밍이 필요한가?&quot;&gt;&lt;
+    
+    </summary>
+    
+    
+      <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
+    
+      <category term="HTTP" scheme="http://haah.kr/tags/HTTP/"/>
+    
+      <category term="phttp" scheme="http://haah.kr/tags/phttp/"/>
+    
+  </entry>
+  
+  <entry>
     <title>PHP로 HTTP 서버 구현하기 - 04</title>
     <link href="http://haah.kr/2017/10/16/phttp-04/"/>
     <id>http://haah.kr/2017/10/16/phttp-04/</id>
     <published>2017-10-16T12:37:43.000Z</published>
-    <updated>2017-10-17T22:52:32.000Z</updated>
+    <updated>2017-10-22T13:51:33.000Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="Updated-2017-10-18"><a href="#Updated-2017-10-18" class="headerlink" title="Updated (2017.10.18)"></a>Updated (2017.10.18)</h3><p>이번 글과 관련된 내용이라 조금 더 추가해봤습니다.</p>
+    <content type="html"><![CDATA[<p><a href="/tags/phttp/">연재글 전체 보기</a></p>
+<hr>
+<h3 id="Updated-2017-10-18"><a href="#Updated-2017-10-18" class="headerlink" title="Updated (2017.10.18)"></a>Updated (2017.10.18)</h3><p>이번 글과 관련된 내용이라 조금 더 추가해봤습니다.</p>
 <p>하단 <a href="#Updated">Updated</a> 참고.</p>
 <h2 id="가장-간단한-서버"><a href="#가장-간단한-서버" class="headerlink" title="가장 간단한 서버"></a>가장 간단한 서버</h2><p>이제부터 하나씩 기능을 붙여가며 commit &amp; push를 할 예정이다.</p>
 <p>PHP7.1/mac 환경에서 공부한 결과를 적는 거라서, 윈도 머신에선 안 통하는 설명도 있으리라.</p>
@@ -106,7 +243,7 @@
 <p>연결이 안 끊어지는 것을 반드시 확인하자.</p>
 <p>그 다음,</p>
 <p>서버쪽 소스에서 <a href="http://php.net/manual/en/function.stream-set-blocking.php" target="_blank" rel="external">stream_set_blocking</a>으로 non-blocking 모드로 바꿔보자.</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">stream_set_blocking($client, <span class="number">0</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">stream_set_blocking($client, <span class="keyword">false</span>);</div></pre></td></tr></table></figure>
 <p>즉, 서버의 전체 소스는 아래와 같이 변할 것이다.</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$server = stream_socket_server(<span class="string">"tcp://127.0.0.1:1337"</span>, $errno, $errorMessage);</div><div class="line"></div><div class="line"><span class="keyword">if</span> ($server === <span class="keyword">false</span>) &#123;</div><div class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> UnexpectedValueException(<span class="string">"Could not bind to socket: $errorMessage"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</div><div class="line">    $client = @stream_socket_accept($server);</div><div class="line"></div><div class="line">    <span class="keyword">if</span> ($client) &#123;</div><div class="line">        stream_set_blocking($client, <span class="keyword">false</span>);<span class="comment">// &lt;-- 여기요 여기</span></div><div class="line">        stream_copy_to_stream($client, $client);</div><div class="line">        fclose($client);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>클라이언트를 실행하면 바로 연결이 끊긴다.</p>
@@ -119,7 +256,9 @@
     
     <summary type="html">
     
-      &lt;h3 id=&quot;Updated-2017-10-18&quot;&gt;&lt;a href=&quot;#Updated-2017-10-18&quot; class=&quot;headerlink&quot; title=&quot;Updated (2017.10.18)&quot;&gt;&lt;/a&gt;Updated (2017.10.18)&lt;/h3&gt;&lt;p&gt;이번
+      &lt;p&gt;&lt;a href=&quot;/tags/phttp/&quot;&gt;연재글 전체 보기&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;Updated-2017-10-18&quot;&gt;&lt;a href=&quot;#Updated-2017-10-18&quot; class=&quot;headerlink&quot; title=&quot;Updated
     
     </summary>
     
@@ -127,6 +266,8 @@
       <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
     
       <category term="HTTP" scheme="http://haah.kr/tags/HTTP/"/>
+    
+      <category term="phttp" scheme="http://haah.kr/tags/phttp/"/>
     
   </entry>
   
@@ -229,9 +370,11 @@
     <link href="http://haah.kr/2017/10/12/phttp-03/"/>
     <id>http://haah.kr/2017/10/12/phttp-03/</id>
     <published>2017-10-12T10:20:37.000Z</published>
-    <updated>2017-10-14T03:14:20.000Z</updated>
+    <updated>2017-10-21T02:16:46.000Z</updated>
     
-    <content type="html"><![CDATA[<p>지난번에 이어 CGIStream class(<a href="https://github.com/youngj/httpserver" target="_blank" rel="external">HTTPServer</a> 참고)를 살펴보는 시간.</p>
+    <content type="html"><![CDATA[<p><a href="/tags/phttp/">연재글 전체 보기</a></p>
+<hr>
+<p>지난번에 이어 CGIStream class(<a href="https://github.com/youngj/httpserver" target="_blank" rel="external">HTTPServer</a> 참고)를 살펴보는 시간.</p>
 <p>말했지만, 좀 옛스러운 코드니 결벽증이 있는 분은 다음 장으로…</p>
 <p>왜 요즘 버전의 소스를 분석하지 않냐는 질문도 할 법 하다.</p>
 <p>못 구했다.</p>
@@ -283,8 +426,9 @@
     
     <summary type="html">
     
-      &lt;p&gt;지난번에 이어 CGIStream class(&lt;a href=&quot;https://github.com/youngj/httpserver&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;HTTPServer&lt;/a&gt; 참고)를 살펴보는 시간.&lt;/p&gt;
-&lt;p
+      &lt;p&gt;&lt;a href=&quot;/tags/phttp/&quot;&gt;연재글 전체 보기&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;지난번에 이어 CGIStream class(&lt;a href=&quot;https://github.com/youngj/httpserver&quot; target=&quot;_blank&quot; r
     
     </summary>
     
@@ -293,6 +437,8 @@
     
       <category term="HTTP" scheme="http://haah.kr/tags/HTTP/"/>
     
+      <category term="phttp" scheme="http://haah.kr/tags/phttp/"/>
+    
   </entry>
   
   <entry>
@@ -300,9 +446,11 @@
     <link href="http://haah.kr/2017/10/06/phttp-02/"/>
     <id>http://haah.kr/2017/10/06/phttp-02/</id>
     <published>2017-10-06T02:18:47.000Z</published>
-    <updated>2017-10-14T03:05:22.000Z</updated>
+    <updated>2017-10-21T02:16:46.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Stream-wrapper-class"><a href="#Stream-wrapper-class" class="headerlink" title="Stream wrapper class"></a>Stream wrapper class</h1><p>시행착오를 최대한 줄이기 위해 앞에서 소개했던 <a href="https://github.com/youngj/httpserver" target="_blank" rel="external">HTTPServer</a>부터 분석을 해보기로 했다.</p>
+    <content type="html"><![CDATA[<p><a href="/tags/phttp/">연재글 전체 보기</a></p>
+<hr>
+<h1 id="Stream-wrapper-class"><a href="#Stream-wrapper-class" class="headerlink" title="Stream wrapper class"></a>Stream wrapper class</h1><p>시행착오를 최대한 줄이기 위해 앞에서 소개했던 <a href="https://github.com/youngj/httpserver" target="_blank" rel="external">HTTPServer</a>부터 분석을 해보기로 했다.</p>
 <p>composer.json에 있는 php-cgi binary에 대한 의존성 때문인데(<code>HTTPServer requires the php-cgi binary</code>), 이 놈을 왜 넣었을까 궁금했다.</p>
 <p>이 서버는 4개의 파일로 구성됐다.</p>
 <ul>
@@ -368,7 +516,9 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Stream-wrapper-class&quot;&gt;&lt;a href=&quot;#Stream-wrapper-class&quot; class=&quot;headerlink&quot; title=&quot;Stream wrapper class&quot;&gt;&lt;/a&gt;Stream wrapper class&lt;/h1&gt;&lt;
+      &lt;p&gt;&lt;a href=&quot;/tags/phttp/&quot;&gt;연재글 전체 보기&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;Stream-wrapper-class&quot;&gt;&lt;a href=&quot;#Stream-wrapper-class&quot; class=&quot;headerlink&quot; title=&quot;Str
     
     </summary>
     
@@ -377,6 +527,8 @@
     
       <category term="HTTP" scheme="http://haah.kr/tags/HTTP/"/>
     
+      <category term="phttp" scheme="http://haah.kr/tags/phttp/"/>
+    
   </entry>
   
   <entry>
@@ -384,9 +536,11 @@
     <link href="http://haah.kr/2017/10/05/phttp-01/"/>
     <id>http://haah.kr/2017/10/05/phttp-01/</id>
     <published>2017-10-04T16:12:15.000Z</published>
-    <updated>2017-10-06T00:30:03.000Z</updated>
+    <updated>2017-10-21T02:16:46.000Z</updated>
     
-    <content type="html"><![CDATA[<p>HTTP 완벽가이드 5장을 가볍게 읽다가, Perl로 만든 간단한 서버 구현을 보고 이걸 PHP로 구현해보면 좋겠다는 생각을 했다.</p>
+    <content type="html"><![CDATA[<p><a href="/tags/phttp/">연재글 전체 보기</a></p>
+<hr>
+<p>HTTP 완벽가이드 5장을 가볍게 읽다가, Perl로 만든 간단한 서버 구현을 보고 이걸 PHP로 구현해보면 좋겠다는 생각을 했다.</p>
 <p>그 예제는 (대충 봤는데) HTTP 서버라기 보다 소켓 연결해서 응답해주는 수준의 간단한 구현이었던 것 같고, HTTP 서버가 되려면 뭘 해야하는지는 설명으로만 보여준다.</p>
 <p>이응준님은 “<a href="https://blog.npcode.com/2015/06/07/%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EB%A5%BC-%EC%9C%84%ED%95%9C-http-%EC%99%84%EB%B2%BD-%EA%B0%80%EC%9D%B4%EB%93%9C-%EC%9D%BD%EB%8A%94-%EB%B2%95/" target="_blank" rel="external">웹 프로그래머를 위한 HTTP 완벽 가이드 읽는 법</a>“에서</p>
 <blockquote>
@@ -453,8 +607,10 @@
     
     <summary type="html">
     
-      &lt;p&gt;HTTP 완벽가이드 5장을 가볍게 읽다가, Perl로 만든 간단한 서버 구현을 보고 이걸 PHP로 구현해보면 좋겠다는 생각을 했다.&lt;/p&gt;
-&lt;p&gt;그 예제는 (대충 봤는데) HTTP 서버라기 보다 소켓 연결해서 응답해주는 수준의 간단한 구현이었던 
+      &lt;p&gt;&lt;a href=&quot;/tags/phttp/&quot;&gt;연재글 전체 보기&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;HTTP 완벽가이드 5장을 가볍게 읽다가, Perl로 만든 간단한 서버 구현을 보고 이걸 PHP로 구현해보면 좋겠다는 생각을 했다.&lt;/p&gt;
+&lt;p&gt;그 예제는 (
     
     </summary>
     
@@ -462,6 +618,8 @@
       <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
     
       <category term="HTTP" scheme="http://haah.kr/tags/HTTP/"/>
+    
+      <category term="phttp" scheme="http://haah.kr/tags/phttp/"/>
     
   </entry>
   
@@ -1518,251 +1676,6 @@
 <h2 id="To-do"><a href="#To-do" class="headerlink" title="To do"></a>To do</h2><p>로이 필딩의 논문을 읽지 못해 생긴 부채를 여기 한장에 남겨둔다.</p>
 <p>언젠가 돌아보다 생각나면 진짜 논문을 읽을 날이 오겠지.</p>
 <p>그럼 그 때까지, REST in peace!</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;연재 목록&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&quot;/2017/05/22/rest-the-beginning/&quot;&gt;REST - 긴 여정의 시작&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/2017/05/23/rest-http-method-in-html-f
-    
-    </summary>
-    
-    
-      <category term="API" scheme="http://haah.kr/tags/API/"/>
-    
-      <category term="RESTful" scheme="http://haah.kr/tags/RESTful/"/>
-    
-      <category term="REST" scheme="http://haah.kr/tags/REST/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>REST - 당신이 만든 건 REST가 아니지만 괜찮아</title>
-    <link href="http://haah.kr/2017/06/28/rest-the-coclusion/"/>
-    <id>http://haah.kr/2017/06/28/rest-the-coclusion/</id>
-    <published>2017-06-27T15:15:16.000Z</published>
-    <updated>2017-09-12T00:01:13.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>연재 목록</p>
-<ol>
-<li><a href="/2017/05/22/rest-the-beginning/">REST - 긴 여정의 시작</a></li>
-<li><a href="/2017/05/23/rest-http-method-in-html-form/">REST - HTML Form에서 GET/POST만 지원하는 이유</a></li>
-<li><a href="/2017/05/24/rest-the-dissertation-summary/">REST - 논문(요약) 훑어보기</a></li>
-<li><a href="/2017/06/12/rest-the-big-lie/">REST - REST 좋아하시네</a></li>
-<li><a href="/2017/06/26/rest-the-truth/">REST - Roy가 입을 열다</a></li>
-<li><a href="/2017/06/28/rest-the-coclusion/">REST - 당신이 만든 건 REST가 아니지만 괜찮아</a></li>
-<li><a href="/2017/06/28/rest-the-dissertation/">REST - 논문 읽기(To Do)</a></li>
-</ol>
-<p>Update: “Your API isn’t RESTful — And That’s Good”에 대한 요약번역본은 숨겨놨다가, 원문을 쓴 Trevor Reed에게 요약본을 번역하여 퍼뜨리는 것에 대해 댓글로 문의한 후, 재배포함.  </p>
-<hr>
-<h2 id="Hypertext-HATETOAS-for-API"><a href="#Hypertext-HATETOAS-for-API" class="headerlink" title="Hypertext, HATETOAS for API"></a>Hypertext, HATETOAS for API</h2><p>여러 동영상을 찾아보다, <a href="https://www.youtube.com/watch?v=RY_kMXEJZfk" target="_blank" rel="external">2016년에 진행중인 API 스펙들에 관해 이야기하는 강연</a>을 봤다</p>
-<ul>
-<li>REST의 핵심은 hypertext이다</li>
-<li>2016년의 API 스펙들<ul>
-<li>JSONAPI</li>
-<li>HAL</li>
-<li>Hydra (JSON-LD)</li>
-<li>Collection+JSON</li>
-<li>…</li>
-<li>GraphQL</li>
-</ul>
-</li>
-</ul>
-<p>이들 스펙 만으로는 RESTful하다고 볼 수는 없지만, hypertext에 대한 관점에 공감을 하며 이를 표준 스펙을 통해 풀어나가려는 시도가 이어지고 있다.</p>
-<p>좋은 시도이고 꾸준히 발전하길 기원한다.</p>
-<p>그러나 지금까지 다루었던 개발자들의 몰이해는 이런 실질적인 구현체가 없었기 때문인가?</p>
-<p>튜토리얼 몇 번 따라하고 실무에 적용할 만 한가? 그러면 RESTful API가 될 수 있나?</p>
-<p>어렵다고 본다.</p>
-<h2 id="REST-or-not"><a href="#REST-or-not" class="headerlink" title="REST or not"></a>REST or not</h2><p>사람들이 싸우는 것은 항상 이런 식이다.</p>
-<ul>
-<li>제약 사항을 지키지 않았다면 그것은 REST가 아니다. 세상은 REST와 REST가 아닌 것으로 분류된다</li>
-<li>현실적으로 그걸 다 지키기는 어렵다. Roy 지도 못하면서! 난 내 작품을 REST라고 부를거야</li>
-</ul>
-<p>수많은 논쟁을 지켜보면 든 생각은, REST에 대해 잘못 알고있는 사람들(어쩌면 당신과 나)을 비난하며 선을 긋지 말자는 것이다.</p>
-<p>인터넷에 돌아다니는 99%의 글이, 그 좋은 회사(트위터, 페이스북…)에서 통용되는 용어들이, 단지 몇가지 URL 규칙과 HTTP 메소드가 필요했을 뿐인 사람들이 REST란 용어를 납치했다.</p>
-<p>비슷한(?) 예로, 선풍기를 쐬고 자면 죽는다는 미신은 증명하기는 너무나 어렵고 오랜기간 광범위하게 퍼졌으며 전문가들도 경고했으며 모두가 믿기 때문에, 많은 이가 오늘도 타이머를 맞추고 잔다.</p>
-<p>그러니까 난 지금 선풍기를 쐬고 자도 안 죽는다는 미신을 숭배하고 있다. 여전히 난 어떤 게 미신인지 증명할 수 없다.</p>
-<p>REST뿐 아니라, IT뿐 아니라, 우리는 많은 것을 블랙박스 안에 넣어놓거나 혹은 추상화된 개념으로 이해하고 넘어간다.</p>
-<p>블랙박스를 열어보니 다른 게 들어있었다면, 그저 예상과 달랐다고 담백하게 말해보자.</p>
-<p>REST를 잘못 알고 있다고 해서, 그가 실력도 없고 뭔가를 자세히 알아볼 생각도 없는 겉멋든 사람이라고 할 수는 없다.</p>
-<p>‘난 XX를 안다고 착각하는 부류를 알고 있어. 그런 사람들은 보통 XX한 사람들이지’라며 선풍기 타이머를 돌리지 말자는 이야기다. (물론 난 다른 이유로 타이머를 애용한다)</p>
-<p>특정 관점이 다른 사람들을 경계 밖으로 몰아내 모든 교류를 끊지 않았으면 한다.</p>
-<hr>
-<p>로이 필딩은 REST에 관한 논문은 전문가를 위한 논문이라고 <a href="http://roy.gbiv.com/untangled/tag/specialization" target="_blank" rel="external">언급</a>한 적이 있다.</p>
-<p>REST는 설계를 위한 지침이지 초심자도 따라할 수 있는 best practice를 제공하는 것이 아니다.</p>
-<p>쉽게 말해, 어렵다.</p>
-<h2 id="RESTful-gt-RESOURCEful"><a href="#RESTful-gt-RESOURCEful" class="headerlink" title="RESTful -&gt; RESOURCEful"></a>RESTful -&gt; RESOURCEful</h2><p>사실 간단한 해결책이 있다.</p>
-<p>이 모든 혼란은 REST이라는 용어를 쓰지 않으면 해결된다.</p>
-<p>RESTful하지 않다는 것이 실패한 디자인이라는 뜻이 아니다.</p>
-<p>다만, 그동안 통용됐던 의미의 REST를 통칭할 수 있는 새로운 용어가 필요하다는 말이다.</p>
-<p>마지막으로 이 글을 읽어보자.</p>
-<p>이 글에서 그동안 REST라고 잘못 명명된 몇가지 구현 원칙을 RESOURCEful API라는 새로운 이름으로 재정의하고 있다.</p>
-<h2 id="Your-API-isn’t-RESTful-—-And-That’s-Good"><a href="#Your-API-isn’t-RESTful-—-And-That’s-Good" class="headerlink" title="Your API isn’t RESTful — And That’s Good"></a>Your API isn’t RESTful — And That’s Good</h2><p>2016년 3월 31일에 발행된 Trevor Reed이란 사람의 블로그를 읽어보자.</p>
-<p><a href="https://medium.com/@trevorhreed/you-re-api-isn-t-restful-and-that-s-good-b2662079cf0e" target="_blank" rel="external">https://medium.com/@trevorhreed/you-re-api-isn-t-restful-and-that-s-good-b2662079cf0e</a></p>
-<p>현 상황을 가장 명확하게 정리한 글로 보인다.</p>
-<h4 id="The-Background"><a href="#The-Background" class="headerlink" title="The Background"></a>The Background</h4><ul>
-<li>2000년에 로이 필딩은 Architectural Styles and the Design of Network-based Software Architectures라는 논문을 발표한다</li>
-<li>비슷한 시기(1999년)에 Web 2.0이니 시맨틱 웹이니 자신들의 아이디어를 더욱 혁신적으로 보이게 만들어주는 유행어가 등장한다</li>
-<li>이 아이디어는 웹 서비스로 이어지고 SOAP이나 XML-RPC같은 웹 서비스를 구현하기 위한 많은 사양이 나타나기 시작했다</li>
-<li>하지만 이는 구현하기 복잡하고 성능 문제도 발생했다</li>
-<li>이런 API 제공을 위한 더 간단한 방식으로 월드 와이드 웹이 제기되었다</li>
-<li>분산 하이퍼미디어 시스템을 위한 고도로 정교한 아키텍처 스타일이 대중적인 아이디어의 원시적인 힘과 충돌한 시점이 바로 이쯤이다.</li>
-<li>사람들은 SOAP 같은 프로토콜 대신 간단하고 표준적인 대안을 원했다</li>
-<li>REST의 아이디어 중 일부는 필요에 잘 부합했지만 전부는 아니었다</li>
-<li>그래서 사람들은 필요한 것을 가져갔고 나머지는 무시했다.</li>
-<li>REST라는 용어는 무시하지 않고 잘도 가져갔다. 그들은 새로운 웹 API 개념을 위해 그 용어를 빌려갔다</li>
-<li>로이 필딩의 노력에도 불구하고, 인터넷은 REST라는 용어를 납치하여 도망쳤다</li>
-<li>REST, RESTful, REST API 등의 용어는 모든 종류의 API 구현체에 사용되고 있다.</li>
-</ul>
-<h4 id="The-Problem"><a href="#The-Problem" class="headerlink" title="The Problem"></a>The Problem</h4><ul>
-<li>API 개발을 하려는 많은 사람들이 REST를 API 구축을 위한 일련의 베스트 프랙티스로 인식한다</li>
-<li>REST를 제대로 이해한다면, 그게 자신들이 예상한 것과 다르다는 걸 깨닫는다</li>
-<li>이해하는 것과는 상관없이, 그게 자신들이 필요로 하는 것보다 많다는 걸 깨닫는다</li>
-<li>그래서 그냥 ‘나름 RESTful’한 API를 만들어 버린다</li>
-<li>REST 유스 케이스는 서버와 클라이언트가 강하게 결합하지 않아야만 한다</li>
-<li>클라이언트는 서버가 제공하는 하이퍼미디어를 탐색하는 방법만 이해하면 된다</li>
-<li>가장 일반적인 예는 월드 와이드 웹이다</li>
-<li>브라우저는 클라이언트이고, URL은 응용프로그램 상태를 나타내며 사용자는 하이퍼미디어를 탐색하는 방법을 결정한다(링크 클릭 등)</li>
-<li>많은 웹 API는 이와는 대조적으로 클라이언트와 강하게 결합되어 있고 하이퍼미디어가 부족하기 때문에 REST의 원칙을 위반한다</li>
-<li>API의 엔드포인트는 클라이언트가 개발될 때 이미 알고 있고, 클라이언트 안에 하드코딩 되어 있기 때문에, API의 엔드포인트를 발견하기 위한 하이퍼미디어 사용은 불필요하다</li>
-</ul>
-<h4 id="The-Solution"><a href="#The-Solution" class="headerlink" title="The Solution"></a>The Solution</h4><ul>
-<li>우리가 필요로하는 것은 밀접하게 결합 된 웹 API의 일반적인 사용 사례를 공식적으로 정의하고 표준화하는 것이다</li>
-<li>혼란을 종식시키기 위해서는 이 개념을 새로 명명해야한다</li>
-<li>이를 통해 커뮤니티는 “REST”의 개념과 혼란과는 별개로 강력한 표준 및 모범 사례를 구축 할 수 있다</li>
-</ul>
-<h4 id="RESOURCEful-APIs-A-New-Name-An-Old-Concept"><a href="#RESOURCEful-APIs-A-New-Name-An-Old-Concept" class="headerlink" title="RESOURCEful APIs: A New Name, An Old Concept"></a>RESOURCEful APIs: A New Name, An Old Concept</h4><ul>
-<li>RESOURCEful API : 새로운 이름, 오래된 개념</li>
-<li>다음의 조건을 만족할 때 RESOURCEful하다고 간주된다<ul>
-<li>API는 HTTP를 전송 레이어로 사용해야만 한다 (MUST)</li>
-<li>모든 API 엔드 포인트(URL)은 명사로 구성되어야 하며, 리소스, 리소스 모음 또는 리소스 속성을 나타낸다</li>
-<li>컬렉션에 속한 리소스는 컬렉션 URL을 접두어로 하는 URL에서 접근할 수 있어야 한다<ul>
-<li>리소스에 속한 서브 컬렉션이나 속성은 리소스의 URL을 접두어로 해서 접근할 수 있어야 한다</li>
-</ul>
-</li>
-<li>API 버전 및 리소스 식별 매개 변수는 URL 경로에 있어야 한다<ul>
-<li>다른 모든 매개변수는 쿼리 문자열 혹은 헤더에 있어야 한다</li>
-</ul>
-</li>
-<li>실제 동작을 나타내는 API 호출은 작업큐 혹은 작업 대행자로 표시되어야 한다. 이 둘은 여전히 명사이다. 이들의 동작을 트리거하는 데는 HTTP POST 메소드가 사용되어야 한다<ul>
-<li>역주) 의역하자면 “동작을 나타내는 API는 그 동작 자체를 명사로 나타내야 하며, 이때 HTTP 메소드는 POST를 사용한다” 정도로 하면 될 것 같다</li>
-</ul>
-</li>
-<li>구현된 HTTP 메소드는 HTTP Method spec에 따라 정의된 목적으로 사용되어야 한다</li>
-<li>구현된 HTTP 메소드는 안전함(Safe)과 멱등성(Idempotent) 원칙을 준수해야 한다</li>
-<li>HTTP 상태코드는 정의된 용도에 따라 모든 응답에서 사용되어야 한다<ul>
-<li>200은 다른 가능한 상태코드가 있을 지라도 모든 성공적인 요청 결과의 응답 코드로 사용 수 있다</li>
-</ul>
-</li>
-<li>요청이나 응답의 본문은 자원, 자원의 모음 혹은 자원의 특성을 나타내야 한다</li>
-<li>요청이나 응답의 본문의 형식은 Content-Type 헤더로 지정해야 한다</li>
-<li>API가 요청 본문의 형식을 지원하지 않으면 415(Unsupported Media Type) 상태를 반환해야 한다</li>
-<li>응답 본문의 형식은 가능하다면 Accept 헤더에서 요청한 형식이어야 한다<ul>
-<li>API가 요청 본문의 형식을 지원하지 않으면 406(Not Acceptable) 상태를 반환해야 한다</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>또한 아래와 같은 우수 사례를 권장한다<ul>
-<li>URL을 소문자로 만들기</li>
-<li>특정 HTTP 메소드나 상태코드를 지원하지 않는 client를 위한 대체 수단을 만들기<ul>
-<li>예를 들어 JSONP는 모든 응답에 200 상태 코드를 필요로 한다</li>
-</ul>
-</li>
-<li>JSON 형식은 항상 지원할 것 - XML은 선택 사항</li>
-<li>항상 HTTPS를 통해 호스팅할 것</li>
-<li>API가 새로운 리소스를 생성할 때는 응답 어딘가에 해당 자원의 식별자를 반환해야 함</li>
-</ul>
-</li>
-</ul>
-<h4 id="Examples-amp-References"><a href="#Examples-amp-References" class="headerlink" title="Examples &amp; References"></a>Examples &amp; References</h4><ul>
-<li>일반적인 HTTP 메소드<ul>
-<li>GET — safe, idempotent —요청된 URL에서 리소스의 representation을 검색한다</li>
-<li>POST — not safe, not idempotent — 제출된 리소스의 representation을 요청된 URL 아래 새로운 위치에 생성한다</li>
-<li>PUT — not safe, idempotent — 제출된 리소스의 representation을 요청된 URL의 위치에 저장하고 이미 존재한다면 대체한다</li>
-<li>PATCH — not safe, not (necessarily) idempotent — 제출된 정보를 통해 요청된 URL의 리소스를 부분적으로 업데이트한다. 존재하지 않는 리소스에 대한 PATCH 시도는 400 상태 코드와 함께 실패해야 한다</li>
-<li>DELETE — not safe, idempotent — 요청된 URL에 있는 리소스를 삭제한다</li>
-</ul>
-</li>
-<li>비동기 작업 큐에서 HTTP 메서드의 동작<ul>
-<li>GET - 큐 또는 큐의 특정 태스크에 대한 정보 검색</li>
-<li>POST - 큐에 작업 추가</li>
-<li>PUT - 큐의 기존 작업 업데이트</li>
-<li>PATCH - 큐에 있는 기존 작업을 부분적으로 업데이트</li>
-<li>DELETE - 큐에서 작업 제거</li>
-</ul>
-</li>
-<li>작업 대행자(agent)에 대한 HTTP 메소드의 동작<ul>
-<li>GET - 에이전트 또는 그의 동작 중 하나의 상태를 검색</li>
-<li>POST - 원하는 동작 트리거</li>
-<li>PUT - 정의되지 않음</li>
-<li>패치 - 정의되지 않음</li>
-<li>DELETE - 가능한 경우 이전에 트리거 된 동작을 취소</li>
-</ul>
-</li>
-<li>공통 HTTP 상태 코드 - 2XX 레벨 상태 코드를 제외한 모든 것이 실패로 간주된다<ul>
-<li>200 OK - 응답 성공</li>
-<li>201 Created - 요청 본문에 제출된 엔티티가 (동기적으로) 생성되었다</li>
-<li>202 Accepted - 요청 본문에 제출된 엔티티가 생성될 것이다(비동기식으로)</li>
-<li>204 No Content - 뷰를 업데이트할 필요가 없음</li>
-<li>205 Reset Content - 클라이언트가 뷰를 재설정해야 한다</li>
-<li>206 Partial Content - 반환된 부분 콘텐츠 (예 : 구간 설정된 혹은 페이지 별 콘텐츠)</li>
-<li>400 Bad Request - 요청이 잘못되었음</li>
-<li>401 Unauthorized - 클라이언트가 서버에 인증되지 않음</li>
-<li>403 Forbidden - 클라이언트는 서버에 인증되었지만 요청된 자원에 대해 요청된 작업을 수행할 수있는 권한이 없음</li>
-<li>405 Method Not Allowed - 요청된 URL에 사용된 HTTP 메소드가 허용되지 않음</li>
-<li>409 Conflict - 작업을 수행할 때 충돌이 발생함. 예를 들어 요청이 이미 변경된 자원을 업데이트하려고 시도함</li>
-<li>500 Internal Server Error - 서버의 오류가 발생했으나 처리되지 않음</li>
-<li>501 Not Implemented - 요청된 자원에 대해 HTTP 메소드가 현재 구현되지 않음</li>
-<li>503 Service Unavailable - 서버 또는 그것의 종속성 중 하나(예 : 데이터베이스)가 과부하, 정전 등으로 인해 응답 할 수 없음</li>
-</ul>
-</li>
-</ul>
-<h4 id="Example-Doctors-Office-API"><a href="#Example-Doctors-Office-API" class="headerlink" title="Example: Doctors Office API"></a>Example: Doctors Office API</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">Resource API Endpoints:</div><div class="line"></div><div class="line">GET    /customers</div><div class="line">POST  /customers</div><div class="line">GET    /customers/&lt;id&gt;</div><div class="line">PUT    /customers/&lt;id&gt;</div><div class="line">PATCH  /customers/&lt;id&gt;</div><div class="line">DELETE /customers/&lt;id&gt;</div><div class="line">GET    /customers/&lt;id&gt;/appointments</div><div class="line">POST  /customers/&lt;id&gt;/appointments</div><div class="line">GET    /customers/&lt;id&gt;/appointments/&lt;id&gt;</div><div class="line">PUT    /customers/&lt;id&gt;/appointments/&lt;id&gt;</div><div class="line">PATCH  /customers/&lt;id&gt;/appointments/&lt;id&gt;</div><div class="line">DELETE /customers/&lt;id&gt;/appointments/&lt;id&gt;</div><div class="line">GET    /customers/&lt;id&gt;/cell_phone</div><div class="line">PUT    /customers/&lt;id&gt;/cell_phone</div><div class="line"></div><div class="line"></div><div class="line">Asynchronous Task Queue API Endpoints:</div><div class="line"></div><div class="line">GET    /outgoing-emails</div><div class="line">POST  /outgoing-emails</div><div class="line">GET    /outgoing-emails/&lt;id&gt;</div><div class="line">PUT    /outgoing-emails/&lt;id&gt;</div><div class="line">PATCH  /outgoing-emails/&lt;id&gt;</div><div class="line">DELETE /outgoing-emails/&lt;id&gt;</div><div class="line"></div><div class="line"></div><div class="line">Synchronous Agent API Endpoints:</div><div class="line"></div><div class="line">GET    /patient-discharger</div><div class="line">GET    /patient-discharger/&lt;id&gt;</div><div class="line">POST  /patient-discharger</div><div class="line">DELETE /patient-discharger/&lt;id&gt;</div></pre></td></tr></table></figure>
-<h4 id="더-읽을-거리"><a href="#더-읽을-거리" class="headerlink" title="더 읽을 거리"></a>더 읽을 거리</h4><ul>
-<li>아래와 같은 사이트는 모범사례로써가 아닌 RESTful API에 대한 혼란을 일으키는 사례로 포함시킨다<ul>
-<li><a href="http://www.bitnative.com/2012/08/26/how-restful-is-your-api/" target="_blank" rel="external">http://www.bitnative.com/2012/08/26/how-restful-is-your-api/</a></li>
-<li><a href="http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#method-override" target="_blank" rel="external">http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#method-override</a></li>
-<li><a href="http://vvv.tobiassjosten.net/development/your-api-is-not-restful/" target="_blank" rel="external">http://vvv.tobiassjosten.net/development/your-api-is-not-restful/</a></li>
-<li><a href="https://mmikowski.github.io/the_lie/" target="_blank" rel="external">https://mmikowski.github.io/the_lie/</a><ul>
-<li>반가운 얼굴이다!</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="미신"><a href="#미신" class="headerlink" title="미신"></a>미신</h2><p>여기부터는 REST를 알지 못하는 사람들을 이해해보려 좀 더 검색한 내용을 적어볼텐데, 대단한 근거는 없다.</p>
-<p>나는 그토록 뛰어난 개발자들이, 게다가 영어권에 살면서 얼마든지 로이의 논문을 비오는 일요일 오후에 슬쩍 읽어볼 수 있을 사람들이 왜 이렇게 일관된(?) 오해를 하고 있는지 궁금했다.</p>
-<p>그 기원을 좀 더 찾아보려고 뒤져본 바, ROA(Resource-Oriented Architecture)에서 찾을 수 있었다.</p>
-<p>앞에서 잠시 언급했던 <a href="http://greatkim91.tistory.com/13" target="_blank" rel="external">행복한 아빠</a>님의 블로그를 보자.</p>
-<blockquote>
-<p>REST(Representational State Transfer)는 HTTP의 주요 저자인 Roy Fielding의 2000년 논문에 의해 소개가 된 네트워크 아키텍처를 위한 구조이다. REST가 화두가 되면서 RET의 정체를 알아보기 위해 “RESTfull Web Services”를 읽고 이 책에서 말하는 Resource-Oriented Architecure(이하 ROA)를 나름대로 정리해 보았다.</p>
-<p>ROA는 REST 기반(이하 RESTful) 웹서비스를 만들기 위한 문제점을 해결하는 방법을 제공한다.<br>ROA는 RESTful 아키텍처이다.</p>
-</blockquote>
-<p>(충분히 못 찾은 것일 수도 있지만) 난 2008년도에 쓰인 이 글이 한국어로 된 것 중에 REST에 대해 이해하기 가장 좋은 글이라고 생각한다.</p>
-<p>이 분이 공부했다는 것이 Leonard Richardson의 <a href="http://shop.oreilly.com/product/9780596529260.do" target="_blank" rel="external">RESTful Web Services</a>인데<br><a href="http://www.kyobobook.co.kr/product/detailViewKor.laf?barcode=9788956744193" target="_blank" rel="external">한국어 번역서</a>은 절판 상태.</p>
-<p>대신 마틴 파울러가 <a href="https://martinfowler.com/articles/richardsonMaturityModel.html" target="_blank" rel="external">이를 소개한 블로그</a>를 썼는데, 마침 지앤선이 <a href="http://jinson.tistory.com/190" target="_blank" rel="external">번역</a>을 해놓았다(중간중간 이해하기 어려운 문장이 보인다면 원문을 참조하기 바란다).</p>
-<p>여기까지 와도 아직 REST가 잘못 이해되진 않았다. 제대로 이해하고 구현하려는 시도로 보인다.</p>
-<p>위에 소개한 “Your API isn’t RESTful — And That’s Good”에서 언급된 대로,</p>
-<p>REST를 이루기 위한 여러 복합적인 요소/방법 중 자신의 결과물과 몇 가지 구현상의 공통점을 발견하고 REST란 용어만 납치했다고 봐야할 것 같다.</p>
-<p>구현하기 쉬운 부분만 골라서 best practice set이 만들어진 게 아닐까.</p>
-<p>하나만 기억하자,</p>
-<p>서버와 클라이언트가 서로의 눈치를 보며 변화/발전을 두려워 하고 있다면(즉, 서로에게 강한 의존성을 갖고 있다면),</p>
-<p>그건 REST가 아니다.(하지만 괜찮다. REST라고 안 부르면 되니까.)</p>
-<p>서버와 클라이언트는 변화에 대응하기 위해 프로토콜/표준을 통한 약한 의존성을 가져야 한다.</p>
-<p>아니 이건 수십년 간 소프트웨어 엔지니어링이 강조하고 있는 것이 아닌가!</p>
-<p>마지막으로 아래의 관점도 생각해볼 만 하다.</p>
-<p><a href="https://www.thoughtworks.com/insights/blog/rest-api-design-resource-modeling" target="_blank" rel="external">REST API Design - Resource Modeling</a></p>
-<ul>
-<li>현실적으로 REST API를 어떻게 다루어야 하는지 이야기하고 있다</li>
-<li>“REST without PUT”이라고도 하는 기법은, 상태 변화를 위한 요청(mutation)에서 PUT을 통한 새로운 상태를 전송하지 않고, 상태 변화 자체를 리소스로 올려first class citizen noun) 사용하자는 의미이다. </li>
-<li>예를 들어, 고객 주소를 갱신할 때의 대상 리소스는 customer가 아닌 ChangeOfAddress라고 정의한다 </li>
-<li>이것이 CQRS 적용에 있어 부가적인 효과를 얻을 수 있다고도 하지만, 내가 CQRS나 이벤트 소싱을 알지 못하기 때문에 더 이상의 언급은 피해야겠다</li>
-<li>다만 앞으로 다룰 예정인 GraphQL을 이 관점에서 바라보면 재미있을 것 같다</li>
-</ul>
-<h2 id="끝"><a href="#끝" class="headerlink" title="끝"></a>끝</h2><p>혹시라도 이 긴 여정을 충실히 따라오신 독자가 있다면, 진심으로 고마움과 존경을 표한다.</p>
 ]]></content>
     
     <summary type="html">
