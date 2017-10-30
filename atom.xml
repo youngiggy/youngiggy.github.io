@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://haah.kr/"/>
-  <updated>2017-10-30T10:35:03.000Z</updated>
+  <updated>2017-10-30T14:27:00.000Z</updated>
   <id>http://haah.kr/</id>
   
   <author>
@@ -14,6 +14,109 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PHP로 HTTP 서버 구현하기 - 07</title>
+    <link href="http://haah.kr/2017/10/30/phttp-07/"/>
+    <id>http://haah.kr/2017/10/30/phttp-07/</id>
+    <published>2017-10-30T10:39:10.000Z</published>
+    <updated>2017-10-30T14:27:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="/tags/phttp/">연재글 전체 보기</a></p>
+<hr>
+<h1 id="테스트-주도로-시작하기"><a href="#테스트-주도로-시작하기" class="headerlink" title="테스트 주도로 시작하기"></a>테스트 주도로 시작하기</h1><p>지금까지의 Request 분석 클래스는 아래와 같다.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">    </div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Request</span></span></div><div class="line"><span class="class"></span>&#123;</div><div class="line">    <span class="keyword">private</span> $requestMessage;</div><div class="line">    </div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($requestMessage)</span></span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        <span class="comment">//하지만 아직 쓰진 않지</span></div><div class="line">        <span class="keyword">$this</span>-&gt;requestMessage = $requestMessage;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getResponse</span><span class="params">()</span></span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        $filename = PROJECT_ROOT . <span class="string">'/public/index.html'</span>;</div><div class="line">        <span class="keyword">if</span> (!($fp = fopen($filename, <span class="string">'r'</span>))) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="string">'HTTP/1.0 404 파일 없음'</span> . PHP_EOL;</div><div class="line">        &#125;</div><div class="line">        $responseBody = fread($fp, filesize($filename));</div><div class="line">    </div><div class="line">        $response = <span class="string">'HTTP/1.0 200 OK'</span> . PHP_EOL;</div><div class="line">        $response .= <span class="string">'Content-Type: text/html'</span> . PHP_EOL;</div><div class="line">        $response .= PHP_EOL;</div><div class="line">        $response .= $responseBody . PHP_EOL;</div><div class="line">    </div><div class="line">        <span class="keyword">return</span> $response;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="첫-테스트"><a href="#첫-테스트" class="headerlink" title="첫 테스트"></a>첫 테스트</h2><p>의미 없는 코드지만 테스트가 존재하면 성공하는지나 살펴보자.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">    </div><div class="line"><span class="keyword">use</span> <span class="title">PHPUnit</span>\<span class="title">Framework</span>\<span class="title">TestCase</span>;</div><div class="line">    </div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">RequestTest</span> <span class="keyword">extends</span> <span class="title">TestCase</span></span></div><div class="line"><span class="class"></span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">testCanBeCreated</span><span class="params">()</span>: <span class="title">void</span></span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        <span class="keyword">$this</span>-&gt;assertInstanceOf(</div><div class="line">            Request::class,</div><div class="line">            <span class="keyword">new</span> Request([])</div><div class="line">        );</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>결과는,</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Testing started at PM 7:57 ...</div><div class="line">PHPUnit 6.4.3 by Sebastian Bergmann and contributors.</div><div class="line">    </div><div class="line">Time: 59 ms, Memory: 4.00MB</div><div class="line">    </div><div class="line">OK (1 test, 1 assertion)</div></pre></td></tr></table></figure>
+<p>이건 너무 당연한 테스트 코드라서 낭비다. 지워버리고 의미있는 테스트를 만들어보자.</p>
+<h2 id="다시-첫-테스트"><a href="#다시-첫-테스트" class="headerlink" title="다시 첫 테스트"></a>다시 첫 테스트</h2><p><code>server.php</code>에서 <code>Request.php</code>으로 기능을 가져왔으니 뭔가 테스트할 거리가 있을 것 같다.</p>
+<p>우선 <code>__construct</code>.</p>
+<p>하는 일이라곤 생성자로 전달된 값을 private 변수에 담는 것 뿐인데, 이걸 테스트로 만들 필요가 있을까?</p>
+<p>물론 테스트는 만들 수 있다.</p>
+<p>굳이 굳이 <code>Request</code> 클래스에 private 변수를 꺼내올 수 있는 public method를 만들 수도 있고.</p>
+<p>Request.php :<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getRequestMessage</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;requestMessage;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>RequestTest.php :<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">testConstructByGetter</span><span class="params">()</span> : <span class="title">void</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    $requestMessage = [<span class="string">'testKey'</span> =&gt; <span class="string">'testVal'</span>];</div><div class="line">    $request = <span class="keyword">new</span> Request($requestMessage);</div><div class="line">    </div><div class="line">    $valueByGetter = $request-&gt;getRequestMessage();</div><div class="line">    </div><div class="line">    <span class="keyword">$this</span>-&gt;assertEquals(</div><div class="line">        serialize($requestMessage), </div><div class="line">        serialize($valueByGetter)</div><div class="line">    );</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>(하긴 막 짜려면 gettter도 필요없이 <code>requestMessage</code> 변수를 public으로 만들고 <code>$request-&gt;requestMessage;</code>처럼 막 갖다 써도..)</p>
+<p>또한, 굳이 굳이 Reflection으로 private 변수를 들여다 볼 수 도 있다.</p>
+<p>RequestTest.php :<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">testConstructByReflection</span><span class="params">()</span> : <span class="title">void</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    $requestMessage = [<span class="string">'testKey'</span> =&gt; <span class="string">'testVal'</span>];</div><div class="line">    $request = <span class="keyword">new</span> Request($requestMessage);</div><div class="line">    $reflectionClass = <span class="keyword">new</span> \ReflectionClass($request);</div><div class="line">    </div><div class="line">    $reflectionProperty = $reflectionClass-&gt;getProperty(<span class="string">'requestMessage'</span>);</div><div class="line">    $reflectionProperty-&gt;setAccessible(<span class="keyword">true</span>);</div><div class="line">    $privateVal = $reflectionProperty-&gt;getValue($request);</div><div class="line">    </div><div class="line">    <span class="keyword">$this</span>-&gt;assertEquals(</div><div class="line">        serialize($requestMessage),</div><div class="line">        serialize($privateVal)</div><div class="line">    );</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>다시 질문. <code>이걸 테스트로 만들 필요가 있을까?</code></p>
+<p>생성자에 받은 녀석을 그대로 멤버 변수에 넣었는데 이게 잘 들어갔는지 확인할 필요는 없어보인다. 그 과정에서 이에 간섭하는 코드가 없기 때문이다.</p>
+<p>그리고 private 변수의 접근 제한 수준을 억지로 공개해서 은닉성을 포기할 만큼 가치있는 일인가?</p>
+<p>비슷한 관점으로 (그러나 명확하게 설명된) 이 글을 참고해도 좋겠다.</p>
+<p><a href="https://justhackem.wordpress.com/2017/09/29/should-private-methods-be-tested/" target="_blank" rel="external">비공개 메서드를 테스트 해야 하는가?</a></p>
+<blockquote>
+<p>테스트 케이스는 클라이언트 코드다</p>
+</blockquote>
+<p>억지로 만든 테스트는 다 지워버리자.</p>
+<h2 id="역할-나누기"><a href="#역할-나누기" class="headerlink" title="역할 나누기"></a>역할 나누기</h2><p>계속된 첫 테스트 작성 실패에 주눅들 것 없이 찬찬히 코드를 돌아보자.</p>
+<p>진짜 진짜 첫 테스트를 작성 하려고 보니, <code>Request</code> 클래스 안에 <code>getResponse()</code> 메소드만 덩그러니 있는 것이 마음에 걸린다.</p>
+<p><code>server.php</code>에서 기능을 분리한 것은 좋았지만, 클래스 명이 <code>Request</code>인데 여기서 응답 문자열을 만들어주는 모양이 어색하다.</p>
+<p>자연스럽게(서로 짝이 맞게) <code>Response</code>라는 클래스를 만들어야겠다는 생각이 든다. </p>
+<p>어떤 기준으로 나눠야 할지 현재의 <code>Request</code> 클래스의 코드를 기준으로 각각의 임무를 적어보자.</p>
+<p>Request</p>
+<ul>
+<li>요청된 문자열을 파싱해서 시작줄, 헤더(여러줄), 본문 등 필요한 포맷으로 정리한다</li>
+<li>해석할 수 없는 요청이라면 예외를 발생시킨다</li>
+<li>분석 결과, 클라이언트가 요청한 리소스 위치를 리턴한다 </li>
+<li>‘/‘라는 요청이 오면 ‘index.html’이라는 파일을 읽어야 하는 것을 알고 있다</li>
+</ul>
+<p>Response</p>
+<ul>
+<li>도큐먼트 root의 절대 경로를 알고 있다</li>
+<li>파일이 존재하는지 확인하고 없으면 예외를 발생한다</li>
+<li>파일을 읽는다</li>
+<li>처리 결과를 정리한다 </li>
+<li>클라이언트에 전달할 HTTP 응답 메시지를 리턴한다</li>
+</ul>
+<p>나중에 여기서 더 더 분리가 되겠지만, 현재 코드에서 예상할 수 있는 기능을 크게 둘로 나오면 이 정도라고 생각한다.</p>
+<p>그럼 이런 흐름이 될 것이다.</p>
+<ol>
+<li><code>server.php</code>에선 클라이언트가 보낸 raw 메시지를 <code>Request</code> 클래스에 전달하고,</li>
+<li><code>Request</code> 클래스는 이를 파싱해서 내부에 저장하고,</li>
+<li><code>Response</code> 클래스는 여기서 리소스 경로를 받아 읽고 <code>server.php</code>에 최종 결과물을 리턴한다.</li>
+</ol>
+<p>이제 <code>Request</code> 클래스는 raw 메시지를 받아 특정 경로를 반환하도록 고치고</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Request</span></span></div><div class="line"><span class="class"></span>&#123;</div><div class="line">    <span class="keyword">private</span> $requestMessage;</div><div class="line">    </div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($requestMessage)</span></span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        <span class="comment">//하지만 아직 쓰진 않지</span></div><div class="line">        <span class="keyword">$this</span>-&gt;requestMessage = $requestMessage;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getResourcePath</span><span class="params">()</span></span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">'/index.html'</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>서버는 이걸 받아 <code>Response</code>에게 던지고</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// ... 생략 ...</span></div><div class="line"><span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</div><div class="line">    $client = @stream_socket_accept($server);</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> ($client) &#123;</div><div class="line">        $clientSentData = fread($client, <span class="number">1024</span>);</div><div class="line">        </div><div class="line">        $resourcePath = (<span class="keyword">new</span> Request($clientSentData))-&gt;getResourcePath();</div><div class="line">        $response = (<span class="keyword">new</span> Response())-&gt;getResponse($resourcePath);</div><div class="line">        </div><div class="line">        fwrite($client, $response, strlen($response));</div><div class="line">        fclose($client);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>Response</code>는 클라이언트에 보낼 메시지를 조합한다.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Response</span></span></div><div class="line"><span class="class"></span>&#123;</div><div class="line">    <span class="keyword">private</span> $docRoot = PROJECT_ROOT . <span class="string">'/public'</span>;</div><div class="line">    </div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getResponse</span><span class="params">($resourcePath)</span></span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        $filename = <span class="keyword">$this</span>-&gt;docRoot . $resourcePath;</div><div class="line">        <span class="keyword">if</span> (!($fp = fopen($filename, <span class="string">'r'</span>))) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="string">'HTTP/1.0 404 파일 없음'</span> . PHP_EOL;</div><div class="line">        &#125;</div><div class="line">        $responseBody = fread($fp, filesize($filename));</div><div class="line">        </div><div class="line">        $response = <span class="string">'HTTP/1.0 200 OK'</span> . PHP_EOL;</div><div class="line">        $response .= <span class="string">'Content-Type: text/html'</span> . PHP_EOL;</div><div class="line">        $response .= PHP_EOL;</div><div class="line">        $response .= $responseBody . PHP_EOL;</div><div class="line">        </div><div class="line">        <span class="keyword">return</span> $response;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>이제 브라우저에서 <code>http://127.0.0.1:1337/</code>에 접근해보고 문제없이 동작하는 것을 확인한다.</p>
+<p>드디어 진짜 진짜 첫 테스트를 작성할 차례다.</p>
+<h2 id="진짜-진짜-첫-테스트"><a href="#진짜-진짜-첫-테스트" class="headerlink" title="진짜 진짜 첫 테스트"></a>진짜 진짜 첫 테스트</h2><p>진짜 진짜 첫 테스트의 대상은 <code>Request</code>의 <code>getResourcePath()</code> 메소드로 정했다.</p>
+<p>사실 TDD의 정석대로 하자면, 메소드를 추가하기 전에 </p>
+<ul>
+<li>Red : 실패하는 테스트를 작성하고, 실패하는 것을 확인</li>
+<li>Green : 이를 통과하는 최소한의 코드를 작성하고</li>
+<li>Refactor : 리팩토링하는 과정</li>
+</ul>
+<p>을 겪어야 했지만, 이미 잘 돌아가는 코드가 존재했고 Request-Response로 분리하는 과정에서 믿을 수 있는 건 수동 테스트 밖에 없었기 때문에,</p>
+<p>수동 테스트가 성공하는 범위 안에서 최소한의 변경으로 코드로 분리하고자 했다.</p>
+<p>좀 늦긴 했지만 <code>getResourcePath()</code> 메소드에 대한 테스트를 작성해보자.</p>
+<p>tests/RequestTest.php :<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="keyword">use</span> <span class="title">PHPUnit</span>\<span class="title">Framework</span>\<span class="title">TestCase</span>;</div><div class="line">    </div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">RequestTest</span> <span class="keyword">extends</span> <span class="title">TestCase</span></span></div><div class="line"><span class="class"></span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">testGetResourcePath</span><span class="params">()</span>: <span class="title">void</span></span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        $request = <span class="keyword">new</span> Request([]);</div><div class="line">        <span class="keyword">$this</span>-&gt;assertEquals(<span class="string">'/index.html'</span>, $request-&gt;getResourcePath());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">OK (1 test, 1 assertion)</div></pre></td></tr></table></figure>
+<h2 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h2><p>7화 만에 진짜 진짜 첫 테스트를 만들다니…</p>
+<p>다음 시간에는 Request를 파싱해서 실제 동작하는(잊지 않았겠지! 클라이언트는 html과 image와 favicon을 요청할 것이다) HTTP 요청 메시지 파서를 만들 것이다. 당연히 최소한으로 동작하는..</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;/tags/phttp/&quot;&gt;연재글 전체 보기&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;테스트-주도로-시작하기&quot;&gt;&lt;a href=&quot;#테스트-주도로-시작하기&quot; class=&quot;headerlink&quot; title=&quot;테스트 주도로 시작하기&quot;&gt;&lt;/a&gt;테
+    
+    </summary>
+    
+    
+      <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
+    
+      <category term="HTTP" scheme="http://haah.kr/tags/HTTP/"/>
+    
+      <category term="phttp" scheme="http://haah.kr/tags/phttp/"/>
+    
+  </entry>
   
   <entry>
     <title>PHP로 HTTP 서버 구현하기 - 06</title>
@@ -1598,162 +1701,6 @@ Accept-Language: ko-KR,ko;q=0.8,en-US;q=0.6,en;q=0.4
       <category term="HTML5" scheme="http://haah.kr/tags/HTML5/"/>
     
       <category term="preload" scheme="http://haah.kr/tags/preload/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>script의 async를 둘러싼 스펙 탐험</title>
-    <link href="http://haah.kr/2017/07/22/script-async/"/>
-    <id>http://haah.kr/2017/07/22/script-async/</id>
-    <published>2017-07-21T23:58:09.000Z</published>
-    <updated>2017-09-23T22:47:53.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>bsidesoft 블로그에 <a href="http://www.bsidesoft.com/?p=5385" target="_blank" rel="external">Jobs</a>에 대한 내용이 올라왔다.</p>
-<ul>
-<li>NHN Entertainment에서 쓴 <a href="https://github.com/nhnent/fe.javascript/wiki/June-13-June-17,-2016" target="_blank" rel="external">자바스크립트와 이벤트 루프</a>에서도 끝에 언급했었던 내용이니 같이 참고하면 좋겠다.</li>
-</ul>
-<p>여튼, Jobs에 대한 글 중간에</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--소용없음. 그냥 async 선언과 동일--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">async</span>=<span class="string">"false"</span> <span class="attr">src</span>=<span class="string">"1.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>“안타깝게도 이 옵션은 직접 태그에 쓰면 소용없고 동적으로 스크립트를 만든 경우에만 적용할 수 있습니다.”라고 나와있어서,</p>
-<p>스펙에서는 어디에 나와있는가 질문을 드렸더니 다음과 같은 답변이 달렸다.</p>
-<blockquote><p>…www.w3.org/TR/html51/semantics-scripting.html…</p>
-<p>여기에 가시면 script엘리먼트객체의 속성인 async IDL attribute에 대한 작동에 대해 자세히 기술하고 있습니다.</p>
-<p>The async IDL attribute controls whether the element will execute in parallel or not. If the element’s “non-blocking” flag is set, then, on getting, the async IDL attribute must return true, and on setting, the “non-blocking” flag must first be unset, and then the content attribute must be removed if the IDL attribute’s new value is false, and must be set to the empty string if the IDL attribute’s new value is true. If the element’s “non-blocking” flag is not set, the IDL attribute must reflect the async content attribute.</p>
-</blockquote>
-<p>분명 훑어보았던 부분인데 IDL attribute를 이해 못해서 그냥 넘어갔던 부분이다.</p>
-<p>반성의 의미로 스펙을 좀 더 읽고 내 질문에 대한 답을 정리해본다.</p>
-<h1 id="async-attribute"><a href="#async-attribute" class="headerlink" title="async attribute"></a>async attribute</h1><p>우선 <code>&lt;script async=&quot;false&quot; src=&quot;1.js&quot;&gt;&lt;/script&gt;</code>에서 async가 false로 설정 안 되는 이유.</p>
-<p><a href="https://www.w3.org/TR/html51/semantics-scripting.html#element-attrdef-script-async" target="_blank" rel="external">script element 스펙</a>에는 “The async and defer attributes are <a href="http://w3c.github.io/html/infrastructure.html#boolean-attribute" target="_blank" rel="external">boolean attributes</a>“라는 말이 나오는데,</p>
-<p>boolean-attribute란 attribute로 명시하는 것 만으로 true가 된다.</p>
-<p>즉, async=”true”든 async=”false”든 모두 async가 설정된 것으로 본다.</p>
-<p>checked, disabled 같은 애들이 다 boolean-attribute다.</p>
-<p>따라서 스크립트를 추가된 순서대로 실행하려면 attribute에서 async를 생략해야 하지만,</p>
-<p>그렇게 하면 또 병렬(parallel) 로 로드가 안 되는 문제가 생기게 된다.</p>
-<p>그럼 동적으로 삽입된 스크립트에서 가능한 이유는 뭘까?</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//js에서 동적로딩하는 경우</span></div><div class="line"><span class="keyword">const</span> s = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</div><div class="line">s.src = <span class="string">'1.js'</span>;</div><div class="line">s.async = <span class="literal">false</span>; <span class="comment">//효과 있음</span></div><div class="line"><span class="built_in">document</span>.body.appendChild(s);</div></pre></td></tr></table></figure>
-<p><a href="https://www.w3.org/TR/html51/semantics-scripting.html#element-attrdef-script-async" target="_blank" rel="external">script element 스펙</a>에 나오는 문장을 이해하기 위해 IDL attribute부터 알아보자.</p>
-<h1 id="content-attribute와-IDL-attribute"><a href="#content-attribute와-IDL-attribute" class="headerlink" title="content attribute와 IDL attribute"></a>content attribute와 IDL attribute</h1><p>스택오버플로우에서 답을 찾아봤다.</p>
-<ul>
-<li><a href="https://stackoverflow.com/questions/12354918/what-does-idl-attribute-mean-in-the-whatwg-html5-standard-document" target="_blank" rel="external">https://stackoverflow.com/questions/12354918/what-does-idl-attribute-mean-in-the-whatwg-html5-standard-document</a></li>
-</ul>
-<hr>
-<p>IDL이란 말은 <a href="https://heycam.github.io/webidl/" target="_blank" rel="external">Web IDL spec</a>에서 왔습니다.</p>
-<blockquote><p>이 문서는 Web IDL이라는 인터페이스 정의 언어를 정의하고, 이는 웹 브라우저 내에서 구현하려는 인터페이스를 설명하는데 사용될 수 있습니다.<br>Web IDL은 IDL의 일종으로 웹 플랫폼에서의 공통적인 스크립트 객체의 동작을 보다 쉽게 정의될 수 있게 해주는 많은 기능을 갖추고 있습니다.<br>Web IDL로 설명된 인터페이스가 ECMAScript 실행 환경 내의 구조에 어떻게 대응되는지 또한 이 문서에서 자세히 설명합니다.</p>
-</blockquote>
-<p>Contents attibute란 마크업에서 나타나는 attribute입니다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;mydiv&quot; class=&quot;example&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
-<p>여기서 id와 class는 attribute죠. 일반적으로 content attribute는 이에 상응하는 IDL attribute를 갖고 있습니다.</p>
-<p>…생략</p>
-<p>JavaScript 안에서 IDL attribute는 종종 property라고 불리는데, JavaScript에게는 DOM 객체의 property로써 노출되기 때문입니다.</p>
-<p>보통 content attribute와 IDL attribute는 짝을 이루지만, 반드시 둘이 호환되는 건 아닙니다.</p>
-<p>…생략 (&lt;option&gt; element의 초기값을 예로 든다)</p>
-<hr>
-<p>결국 우리가 JavaScript 개발자로서 인식하는 property가 바로 IDL attribute란 개념을 가리키고 있다.<br>contents attribute라 함은 일반적으로 attribute라고 생각하는 그 마크업 상에 노출되는 바로 그것.</p>
-<h1 id="script-element"><a href="#script-element" class="headerlink" title="script element"></a>script element</h1><p>이제 async에 관한 HTML5.1의 script쪽 명세를 다시 보자.</p>
-<blockquote><p>The async IDL attribute controls whether the element will execute in parallel or not.<br>Async IDL attribute는 element가 병렬로 실행될 지를 결정한다.</p>
-<p><br></p>
-<p>If the element’s “non-blocking” flag is set, then, on getting, the async IDL attribute must return true, and on setting, the “non-blocking” flag must first be unset, and then the content attribute must be removed if the IDL attribute’s new value is false, and must be set to the empty string if the IDL attribute’s new value is true.<br>Element의 “non-blocking” 플래그가 설정되면, 값을 가져올 때는 async IDL attribute가 true를 반환해야만 하고, 설정할 때는 “non-blocking” 플래그는 일단 해제한다. 이후 IDL attribute의 새로운 값이 false이면 content attribute는 제거, true이면 빈 값을 설정한다.</p>
-<p><br></p>
-<p>If the element’s “non-blocking” flag is not set, the IDL attribute must reflect the async content attribute.<br>Element의 “non-blocking” 플래그가 설정되지 않았다면, IDL attribute는 반드시 async content attribute를 반영(연동)해야 한다.</p>
-</blockquote>
-<p>참고로 값을 가져올 때 현재 content attribute 값을 리턴해야 하는 경우 reflect란 용어를 쓰고 있는데 나는 이를 ‘반영(연동)’이라고 번역했다.</p>
-<ul>
-<li><a href="https://www.w3.org/TR/html51/infrastructure.html#reflecting-content-attributes-in-idl-attributes" target="_blank" rel="external">reflecting-content-attributes-in-idl-attributes</a>)</li>
-</ul>
-<p>간단히 console 창에서 테스트해보자.</p>
-<p><code>var s = document.createElement(&#39;script&#39;);</code>를 통해 생성한 후 바로 <code>s.async</code>를 보면 true가 나온다.</p>
-<p>처음 스크립트가 생성될 때는 “non-blocking” 플래그가 설정되기 때문이다.</p>
-<blockquote><p>Element의 “non-blocking” 플래그가 설정되면, 값을 가져올 때는 async IDL attribute가 true를 반환해야만…</p>
-</blockquote>
-<p>이제 한 문장은 이해한 것 같은데, 어려운 용어가 더 생겼다.</p>
-<p>“non-blocking” 플래그라는 게 뭘까?</p>
-<h1 id="parsing-script-tag"><a href="#parsing-script-tag" class="headerlink" title="parsing script tag"></a>parsing script tag</h1><p>“non-blocking” 상태를 이해하기 위해 우선 <a href="https://dev.w3.org/html5/spec-LC/parsing.html" target="_blank" rel="external">HTML 도큐먼트의 파싱</a>과정을 보자.</p>
-<p><img src="http://dev.w3.org/html5/spec/images/parsing-model-overview.png" alt="parsing-model-overview"></p>
-<p>“non-blocking”에서 block하는 대상은 HTML의 파싱이다.</p>
-<p>보통 네트웍 계층에서 input stream으로 데이터를 넘겨주지만, 실행중인 스크립트로부터 받아들이기도 한다.    </p>
-<p>document.write가 대표적인데, 여기서 쓰는 데이터는 input stream에 섞여 들어간다.</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(<span class="string">'&lt;li&gt;hello&lt;/li&gt;'</span>);</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>ul 사이에 li가 제대로 자릴 잡기 위해선 input stream으로부터 가 나타나기 전까지만 데이터를 읽어들이고,</p>
-<p>document.write가 포함된 스크립트 구문 실행하면 <code>&lt;li&gt;hello&lt;/li&gt;</code> 부분이 input stream에 추가되고,</p>
-<p>파서가 non-block 상태가 되면 다시 input stream으로부터 문자를 받아오는데,</p>
-<p><code>&lt;li&gt;hello&lt;/li&gt;\n&lt;/ul&gt;</code> 순으로 가져오게 된다.</p>
-<p>이런 이유로 script 태그는 기본적으로 HTML 파싱을 막는다.</p>
-<p>외부 스크립트도 마찬가지인데,</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"external.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>파서는 를 만나면 src에 명시된 파일을 다운로드하고, 실행하기를 기다린 후에야 파싱을 재개할 수 있다. </p>
-<h1 id="“non-blocking”-flag"><a href="#“non-blocking”-flag" class="headerlink" title="“non-blocking” flag"></a>“non-blocking” flag</h1><p>그럼 <a href="https://www.w3.org/TR/html51/semantics-scripting.html#non-blocking" target="_blank" rel="external">“non-blocking” 상태</a>는 스펙에서 어떻게 설명하는지 보자.</p>
-<blockquote><p>Initially, script elements must have this flag set.<br>Script element는 초기 플래그 값으로 non-block으로 설정된다.<br><br><br>It is unset by the HTML parser and the XML parser on script elements they insert.<br>HTML/XML 파서가 script element를 삽입하면서 이 플래그가 해제된다.</p>
-</blockquote>
-<p>그러니까 HTML 파서에 의해 생성된 스크립트 태그는 기본적으로 fetch/실행하는 동안 HTML 파서를 block 블럭하게 된다. </p>
-<blockquote><p>In addition, whenever a script element whose “non-blocking” flag is set has an async content attribute added, the element’s “non-blocking” flag must be unset.<br>추가적으로, “non-blocking” 플래그가 설정된 script element에 async content attribute가 추가되면, element의 “non-blocking” 플래그는 해제된다.</p>
-</blockquote>
-<p>이 부분은 script element 쪽에서도 언급이 되니 같이 살펴보자.</p>
-<h1 id="다시-script-element"><a href="#다시-script-element" class="headerlink" title="다시 script element"></a>다시 script element</h1><blockquote><p>If the element’s “non-blocking” flag is set, then, on getting, the async IDL attribute must return true, and on setting, the “non-blocking” flag must first be unset, and then the content attribute must be removed if the IDL attribute’s new value is false, and must be set to the empty string if the IDL attribute’s new value is true.<br>Element의 “non-blocking” 플래그가 설정되면, 값을 가져올 때는 async IDL attribute가 true를 반환해야만 하고, 설정할 때는 “non-blocking” 플래그는 일단 해제한다. 이후 IDL attribute의 새로운 값이 false이면 content attribute는 제거, true이면 빈 값을 설정한다.</p>
-</blockquote>
-<p>최초 script element를 생성할 때는 “non-blocking” 플래그가 설정되기 때문에 async가 true를 반환하는 것은 이미 확인했다.</p>
-<blockquote><p>…설정할 때는 “non-blocking” 플래그는 일단 해제한다.</p>
-</blockquote>
-<p>이 글을 한참이나 쓰고 있는 이유가 이 때문인데, async를 추가하는데 왜 “non-blocking”을 해제하는 걸까? 이런 의문으로 너무 혼란스러웠다.</p>
-<p>그러니까, async가 “non-blocking” 상태 아님?하는 의문이다.</p>
-<p>나만 빼고 다들 잘 이해를 하고 있는지, “non-blocking” 플래그에 대한 질문도 찾기 쉽지 않다.</p>
-<p>여러가지 가정을 하고 스펙을 여러번 읽어본 결과,</p>
-<p>브라우저는 “non-blocking” 플래그가 없어도 async로 병렬처리 여부를 확인할 수 있다라고 나름의 결론을 냈다.</p>
-<p>왜 병렬로 다운로드 받는가에 대해선 스펙상에서 찾을 수는 없었는데, 어쩌면 다운로드를 병렬로 받는 건 중요하지 않겠다는 생각도 든다.</p>
-<p>다운로드는 왜 병렬로 처리되는 걸까?</p>
-<p>스펙에서 찾은 건 아니지만, 원래 다운로드는 그냥 알아서 병렬로 다운받는 거 아닌가?</p>
-<p>브라우저 별로 동시 다운로드 받을 수 있는 개수가 다르긴 한데, 어쨌든 아래와 같은 일반적인 script 태그를 써도 동시에 다운로드 받는 걸 볼 수 있다.</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"small.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"small2.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"small3.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"small4.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>현대 브라우저에서 외부 리소스를 다운로드할 때는 fetcher라는 놈에게 위임하고,<br>(<a href="https://www.chromium.org/developers/design-documents/network-stack/network-stack-use-in-chromium" target="_blank" rel="external">아마 이런 놈들</a>) </p>
-<p>Fetcher는 캐시를 확인하거나 각종 다운로드 받을 파일을 나름의 <a href="https://docs.google.com/document/d/1bCDuq9H1ih9iNjgzyAL0gpwNFiEP4TZS-YLRp_RuMlc/edit" target="_blank" rel="external">우선순위</a>로 다운로드 한다.</p>
-<p>그럼 fetch는 어차피 병렬이 기본인 거고(혹은 브라우저 마음일테고), </p>
-<p>async도 “non-blocking” 플래그와 마찬가지로 HTML 파서가 스크립트를 해석하는 순서, 즉 실행 순서를 결정 짓는 것 뿐이란 말인가.</p>
-<p>아직 자신은 없다.</p>
-<p>차근 차근 각 상황을 되짚어 보자.</p>
-<p>우선 async가 없는 일반적인 동적 스크립트 생성 시</p>
-<ol>
-<li>스크립트에서 동적으로 script element를 생성하면 기본적으로 “non-blocking” 플래그 설정됨</li>
-<li>xxx.async를 찍어보면 true를 리턴하는 상태</li>
-<li>다운로드 자체는 fetcher가 알아서 동적으로 다운로드 받겠지</li>
-<li>“non-blocking” 상태라서 HTML 파서는 나중에 추가된 스크립트의 존재를 알고 있겠지</li>
-<li>그럼 준비된(먼저 들어온) 놈부터 실행하라고 JS 엔진에게 던질 수 있겠지.</li>
-</ol>
-<p>다음으로 async가 true로 설정되는 경우</p>
-<ol>
-<li>스크립트에서 동적으로 script element를 생성하면 기본적으로 “non-blocking” 플래그 설정됨</li>
-<li>xxx.async = true하면 “non-blocking” 플래그 해제</li>
-<li>HTML 내에 async attribute를 넣어 정적으로 삽입된 것 혹은 동적 스크립트 생성의 경우과 동일하게 동작함</li>
-<li>그래서 다운로드 되는 놈부터 실행</li>
-</ol>
-<p>다음으로 스크립트로 <code>xxx.async = false</code>로 처리하면 왜 병렬로 fetch하고 실행은 순서대로 하는지 살펴보자.</p>
-<p>스펙에 의하면 async는 병렬로 ‘실행’할지를 제어한다.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">bigScript.async = <span class="literal">false</span>;</div><div class="line"><span class="built_in">document</span>.body.appendChild(bigScript);</div><div class="line">smallScript.async = <span class="literal">false</span>;</div><div class="line"><span class="built_in">document</span>.body.appendChild(smallScript);</div></pre></td></tr></table></figure>
-<ol>
-<li>그럼 script는 bigScript, smallScript 순으로 추가가 될 것이고</li>
-<li>xxx.async = false;로 했으니 “non-blocking” 플래그 해제된 상태</li>
-<li>smallScript가 먼저 로드가 되거나 말거나 blocking 상태에선 현재 script 블럭을 처리하기 전까지는 파서는 다음 script를 읽어들이지 않는다 </li>
-<li>그러니 bigScript의 소스를 js 엔진이 지지고 볶은 후, 파서는 다음 스크립트인 smallScript를 해치운다</li>
-</ol>
-<p>OK. 실행이 순서대로 되는 건 알겠다.</p>
-<p>결국 async는 비동기 다운로드와는 관계가 없고, 애초에 실행 순서만 관련있었던 것 같다.</p>
-<p><code>async - Execute script in parallel</code></p>
-<p>스펙에 써있는 그대로다.</p>
-<p>참고</p>
-<ul>
-<li><a href="https://www.w3.org/TR/html51/semantics-scripting.html" target="_blank" rel="external">https://www.w3.org/TR/html51/semantics-scripting.html</a></li>
-<li><a href="https://css-tricks.com/async-attribute-scripts-bottom/" target="_blank" rel="external">https://css-tricks.com/async-attribute-scripts-bottom/</a></li>
-<li><a href="https://stackoverflow.com/questions/42092688/how-to-understand-the-term-non-blocking-of-script-tag-in-spec" target="_blank" rel="external">https://stackoverflow.com/questions/42092688/how-to-understand-the-term-non-blocking-of-script-tag-in-spec</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;bsidesoft 블로그에 &lt;a href=&quot;http://www.bsidesoft.com/?p=5385&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Jobs&lt;/a&gt;에 대한 내용이 올라왔다.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;NHN Entertai
-    
-    </summary>
-    
-    
-      <category term="JavaScript" scheme="http://haah.kr/tags/JavaScript/"/>
     
   </entry>
   
