@@ -6,22 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Request 분리autoload우선 클라이언트로부터 받은 request 메시를 분석하는 클래스부터 만들기로 했다. Project root에 libs 디렉토리를 만들어 놓고, 여기에 Request라는 클래스를 하나 만들어야겠다. 그럼 autoload도 적용해야 하니 composer를 이용해야겠다. 대충 composer init해서 파일을 만들고, libs">
+    <meta name="description" content="연재글 전체 보기  Request 분리autoload우선 클라이언트로부터 받은 request 메시를 분석하는 클래스부터 만들기로 했다. Project root에 libs 디렉토리를 만들어 놓고, 여기에 Request라는 클래스를 하나 만들어야겠다. 그럼 autoload도 적용해야 하니 composer를 이용해야겠다. 대충 composer init해서 파일을">
 <meta name="keywords" content="PHP,HTTP,phttp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PHP로 HTTP 서버 구현하기 - 06">
 <meta property="og:url" content="http://haah.kr/2017/10/25/phttp-06/index.html">
 <meta property="og:site_name" content="ha-ah">
-<meta property="og:description" content="Request 분리autoload우선 클라이언트로부터 받은 request 메시를 분석하는 클래스부터 만들기로 했다. Project root에 libs 디렉토리를 만들어 놓고, 여기에 Request라는 클래스를 하나 만들어야겠다. 그럼 autoload도 적용해야 하니 composer를 이용해야겠다. 대충 composer init해서 파일을 만들고, libs">
+<meta property="og:description" content="연재글 전체 보기  Request 분리autoload우선 클라이언트로부터 받은 request 메시를 분석하는 클래스부터 만들기로 했다. Project root에 libs 디렉토리를 만들어 놓고, 여기에 Request라는 클래스를 하나 만들어야겠다. 그럼 autoload도 적용해야 하니 composer를 이용해야겠다. 대충 composer init해서 파일을">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="http://haah.kr/images/phttp-06/01_composer_init.png">
 <meta property="og:image" content="http://haah.kr/images/phttp-06/run_edit_phpunit.png">
 <meta property="og:image" content="http://haah.kr/images/phttp-06/run_edit_phpunit_tf.png">
 <meta property="og:image" content="http://haah.kr/images/phttp-06/set_autotest_delay.png">
-<meta property="og:updated_time" content="2017-10-29T02:51:05.000Z">
+<meta property="og:updated_time" content="2017-10-30T10:35:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP로 HTTP 서버 구현하기 - 06">
-<meta name="twitter:description" content="Request 분리autoload우선 클라이언트로부터 받은 request 메시를 분석하는 클래스부터 만들기로 했다. Project root에 libs 디렉토리를 만들어 놓고, 여기에 Request라는 클래스를 하나 만들어야겠다. 그럼 autoload도 적용해야 하니 composer를 이용해야겠다. 대충 composer init해서 파일을 만들고, libs">
+<meta name="twitter:description" content="연재글 전체 보기  Request 분리autoload우선 클라이언트로부터 받은 request 메시를 분석하는 클래스부터 만들기로 했다. Project root에 libs 디렉토리를 만들어 놓고, 여기에 Request라는 클래스를 하나 만들어야겠다. 그럼 autoload도 적용해야 하니 composer를 이용해야겠다. 대충 composer init해서 파일을">
 <meta name="twitter:image" content="http://haah.kr/images/phttp-06/01_composer_init.png">
     
     
@@ -150,7 +150,9 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h1 id="Request-분리"><a href="#Request-분리" class="headerlink" title="Request 분리"></a>Request 분리</h1><h2 id="autoload"><a href="#autoload" class="headerlink" title="autoload"></a>autoload</h2><p>우선 클라이언트로부터 받은 request 메시를 분석하는 클래스부터 만들기로 했다.</p>
+    <p><a href="/tags/phttp/">연재글 전체 보기</a></p>
+<hr>
+<h1 id="Request-분리"><a href="#Request-분리" class="headerlink" title="Request 분리"></a>Request 분리</h1><h2 id="autoload"><a href="#autoload" class="headerlink" title="autoload"></a>autoload</h2><p>우선 클라이언트로부터 받은 request 메시를 분석하는 클래스부터 만들기로 했다.</p>
 <p>Project root에 <code>libs</code> 디렉토리를 만들어 놓고, 여기에 <code>Request</code>라는 클래스를 하나 만들어야겠다.</p>
 <p>그럼 autoload도 적용해야 하니 composer를 이용해야겠다.</p>
 <p>대충 <code>composer init</code>해서 파일을 만들고, <code>libs</code> 디렉토리를 psr-4 기반으로 autoload 하도록 설정해주자. </p>

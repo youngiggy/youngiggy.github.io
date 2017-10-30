@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://haah.kr/"/>
-  <updated>2017-10-29T02:51:05.000Z</updated>
+  <updated>2017-10-30T10:35:03.000Z</updated>
   <id>http://haah.kr/</id>
   
   <author>
@@ -20,9 +20,11 @@
     <link href="http://haah.kr/2017/10/25/phttp-06/"/>
     <id>http://haah.kr/2017/10/25/phttp-06/</id>
     <published>2017-10-24T22:27:32.000Z</published>
-    <updated>2017-10-29T02:51:05.000Z</updated>
+    <updated>2017-10-30T10:35:03.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Request-분리"><a href="#Request-분리" class="headerlink" title="Request 분리"></a>Request 분리</h1><h2 id="autoload"><a href="#autoload" class="headerlink" title="autoload"></a>autoload</h2><p>우선 클라이언트로부터 받은 request 메시를 분석하는 클래스부터 만들기로 했다.</p>
+    <content type="html"><![CDATA[<p><a href="/tags/phttp/">연재글 전체 보기</a></p>
+<hr>
+<h1 id="Request-분리"><a href="#Request-분리" class="headerlink" title="Request 분리"></a>Request 분리</h1><h2 id="autoload"><a href="#autoload" class="headerlink" title="autoload"></a>autoload</h2><p>우선 클라이언트로부터 받은 request 메시를 분석하는 클래스부터 만들기로 했다.</p>
 <p>Project root에 <code>libs</code> 디렉토리를 만들어 놓고, 여기에 <code>Request</code>라는 클래스를 하나 만들어야겠다.</p>
 <p>그럼 autoload도 적용해야 하니 composer를 이용해야겠다.</p>
 <p>대충 <code>composer init</code>해서 파일을 만들고, <code>libs</code> 디렉토리를 psr-4 기반으로 autoload 하도록 설정해주자. </p>
@@ -99,7 +101,9 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Request-분리&quot;&gt;&lt;a href=&quot;#Request-분리&quot; class=&quot;headerlink&quot; title=&quot;Request 분리&quot;&gt;&lt;/a&gt;Request 분리&lt;/h1&gt;&lt;h2 id=&quot;autoload&quot;&gt;&lt;a href=&quot;#autoload&quot; cla
+      &lt;p&gt;&lt;a href=&quot;/tags/phttp/&quot;&gt;연재글 전체 보기&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;Request-분리&quot;&gt;&lt;a href=&quot;#Request-분리&quot; class=&quot;headerlink&quot; title=&quot;Request 분리&quot;&gt;&lt;/a&gt;Request
     
     </summary>
     
