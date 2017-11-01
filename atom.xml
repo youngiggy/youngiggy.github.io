@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://haah.kr/"/>
-  <updated>2017-10-30T14:27:00.000Z</updated>
+  <updated>2017-11-01T14:03:30.000Z</updated>
   <id>http://haah.kr/</id>
   
   <author>
@@ -14,6 +14,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>베이킹 - 준비 완료</title>
+    <link href="http://haah.kr/2017/11/01/baking-00/"/>
+    <id>http://haah.kr/2017/11/01/baking-00/</id>
+    <published>2017-11-01T13:51:24.000Z</published>
+    <updated>2017-11-01T14:03:30.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/baking-00/iAmReady.jpg" alt="베이킹 준비 완료 이미지"></p>
+<h2 id="베이킹의-세계로"><a href="#베이킹의-세계로" class="headerlink" title="베이킹의 세계로"></a>베이킹의 세계로</h2><p>토비 이일민 님이 추천하신 책 <code>밀가루 물 소금 이스트</code>라는 책을 읽고 진짜로 한번 해봐야겠다는 생각이 들어 장비를 구입하기 시작.</p>
+<p>책이 정말 정말 좋다. 처음에 너무 몰라서 ‘클린 소프트웨어’처럼 느껴지던 책이, (아직 기본빵까지 읽었지만) 두번 세번 읽으니 잘 이해가 된다. 이러다보니 내가 어렵다고 생각했던 책도 두 세번 읽으면 이해가 잘 되었을텐데 왜 그렇게 지쳤었나 모르겠다. 스터디라서 (어쩔 수 없이) 이해하려고 몇번이나 읽었던 책은 확실히 이해도가 높았는데…좋은 책 몇 권 골라서 다시 읽어야 할 듯.</p>
+<p>자, 이제 주물 냄비 시즈닝도 마치고, 금요일 첫 베이킹을 앞두고 머릿속으로 쉐도우 복싱 중이다. 유럽식 빵과 우유 식빵 두가지 도전하기로…</p>
+<p>유럽식 빵은 <code>밀가루 물 소금 이스트</code>의 레시피를 보고 만들 생각이고<br><img src="http://image.kyobobook.co.kr/images/book/large/883/l9788971905883.jpg" alt="밀가루 물 소금 이스트 이미지"></p>
+<p>식빵은 <code>후암동 식빵</code>의 레시피를 참고할 것이다.<br><img src="http://image.kyobobook.co.kr/images/book/large/142/l9791187320142.jpg" alt="후암동 식빵 이미지"></p>
+<p>둘 다 사전 발표를 충분히 해서 만드는 게 공통점이나, 역시 설명은 <code>밀가루 물 소금 이스트</code>만 한 게 없다.</p>
+<p>이제 우리 집은 주말엔 빵이 주식이다! (단호)</p>
+<h2 id="₩163-500"><a href="#₩163-500" class="headerlink" title="₩163,500"></a>₩163,500</h2><p>재료 소개를 하자면, 일부는 방산 시장에서 건져오고, 인터넷으로 산 건 오늘의 로켓 배송으로 모두 도착했다. 진짜 최소한으로 필요한 것만 샀다.</p>
+<p>라바 주물 냄비(24cm)는 쿠팡에 87,000원에 뜬 걸 보고 얼른 구매했고, 요리용 온도계와 저울은 드레텍 사의 것으로 각각 12,000원, 21,000원. 오븐용 온도계 8,000원. 1/8까지 있는 계량스푼 4,400원. 실리콘패드 11,250원. 사프인스턴트 드라이이스트 125g 1,900원. 큐원 강력 밀가루 1kg 1,550원 3개, 프랑스 밀가루 T55, T65 각각 1kg 2,500원, 2,900원 2개씩.</p>
+<p>총 163,500원. 선방했다. 밀가루 하나는 덧가루용으로 쓰고, 저 6kg 안에서 제대로 하나라도 맛있게 구우면 성공이라고 생각.</p>
+<p><br></p>
+<p>(애드센스로 돈 벌 생각 하느니 주위에 빵을 만들어 파는 게 더 빠르겠다)</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/images/baking-00/iAmReady.jpg&quot; alt=&quot;베이킹 준비 완료 이미지&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;베이킹의-세계로&quot;&gt;&lt;a href=&quot;#베이킹의-세계로&quot; class=&quot;headerlink&quot; title=&quot;베이킹의 세
+    
+    </summary>
+    
+    
+      <category term="요리" scheme="http://haah.kr/tags/%EC%9A%94%EB%A6%AC/"/>
+    
+      <category term="베이킹" scheme="http://haah.kr/tags/%EB%B2%A0%EC%9D%B4%ED%82%B9/"/>
+    
+  </entry>
   
   <entry>
     <title>PHP로 HTTP 서버 구현하기 - 07</title>
@@ -1669,38 +1705,6 @@ Accept-Language: ko-KR,ko;q=0.8,en-US;q=0.6,en;q=0.4
       <category term="mysql" scheme="http://haah.kr/tags/mysql/"/>
     
       <category term="db" scheme="http://haah.kr/tags/db/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Resource Hints and Preload</title>
-    <link href="http://haah.kr/2017/08/03/resource-hints-and-preload/"/>
-    <id>http://haah.kr/2017/08/03/resource-hints-and-preload/</id>
-    <published>2017-08-03T04:41:26.000Z</published>
-    <updated>2017-08-03T04:49:56.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>애드센스 승인을 받으려면 글을 꾸준히 쓰거나 404로 떨어지는 링크가 없어야 한다는 말이 있어서 최근 발표자료나 올려봐야겠다.</p>
-<p>자료 : <a href="https://docs.google.com/presentation/d/1hk4bNM3uqz6TfqYX7fbjwMX6kujaGpYuN6x9b9qK_F0/edit?usp=sharing" target="_blank" rel="external">Resource Hints and Preload</a></p>
-<p>prefetch를 비롯한 resource hints와 preload에 대해 연구한 결과.</p>
-<p>사실 원래 코드에는 회사 소스 구조도 있었지만, 논란이 될 수 있으니 제거하고 공유한다. </p>
-<p>발표일 : 2017년 6월</p>
-<ul>
-<li>사내에서 발표하고 일부 preload 적용</li>
-<li>모던 PHP 유저그룹 정기 모임에서 발표함</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;애드센스 승인을 받으려면 글을 꾸준히 쓰거나 404로 떨어지는 링크가 없어야 한다는 말이 있어서 최근 발표자료나 올려봐야겠다.&lt;/p&gt;
-&lt;p&gt;자료 : &lt;a href=&quot;https://docs.google.com/presentation/d/1hk4bN
-    
-    </summary>
-    
-    
-      <category term="HTML5" scheme="http://haah.kr/tags/HTML5/"/>
-    
-      <category term="preload" scheme="http://haah.kr/tags/preload/"/>
     
   </entry>
   
