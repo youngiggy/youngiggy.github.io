@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://haah.kr/"/>
-  <updated>2017-11-01T14:05:41.000Z</updated>
+  <updated>2017-11-01T14:06:27.000Z</updated>
   <id>http://haah.kr/</id>
   
   <author>
@@ -20,11 +20,11 @@
     <link href="http://haah.kr/2017/11/01/baking-00/"/>
     <id>http://haah.kr/2017/11/01/baking-00/</id>
     <published>2017-11-01T13:51:24.000Z</published>
-    <updated>2017-11-01T14:05:41.000Z</updated>
+    <updated>2017-11-01T14:06:27.000Z</updated>
     
     <content type="html"><![CDATA[<p>여기가 개발 블로그인 줄 아시는 분은 당황스러우시겠지만…</p>
-<p><img src="/images/baking-00/iAmReady.jpg" alt="베이킹 준비 완료 이미지"></p>
-<h2 id="베이킹의-세계로"><a href="#베이킹의-세계로" class="headerlink" title="베이킹의 세계로"></a>베이킹의 세계로</h2><p>토비 이일민 님이 추천하신 책 <code>밀가루 물 소금 이스트</code>라는 책을 읽고 진짜로 한번 해봐야겠다는 생각이 들어 장비를 구입하기 시작.</p>
+<h2 id="베이킹의-세계로"><a href="#베이킹의-세계로" class="headerlink" title="베이킹의 세계로"></a>베이킹의 세계로</h2><p><img src="/images/baking-00/iAmReady.jpg" alt="베이킹 준비 완료 이미지"></p>
+<p>토비 이일민 님이 추천하신 책 <code>밀가루 물 소금 이스트</code>라는 책을 읽고 진짜로 한번 해봐야겠다는 생각이 들어 장비를 구입하기 시작.</p>
 <p>책이 정말 정말 좋다. 처음에 너무 몰라서 ‘클린 소프트웨어’처럼 느껴지던 책이, (아직 기본빵까지 읽었지만) 두번 세번 읽으니 잘 이해가 된다. 이러다보니 내가 어렵다고 생각했던 책도 두 세번 읽으면 이해가 잘 되었을텐데 왜 그렇게 지쳤었나 모르겠다. 스터디라서 (어쩔 수 없이) 이해하려고 몇번이나 읽었던 책은 확실히 이해도가 높았는데…좋은 책 몇 권 골라서 다시 읽어야 할 듯.</p>
 <p>자, 이제 주물 냄비 시즈닝도 마치고, 금요일 첫 베이킹을 앞두고 머릿속으로 쉐도우 복싱 중이다. 유럽식 빵과 우유 식빵 두가지 도전하기로…</p>
 <p>유럽식 빵은 <code>밀가루 물 소금 이스트</code>의 레시피를 보고 만들 생각이고<br><img src="http://image.kyobobook.co.kr/images/book/large/883/l9788971905883.jpg" alt="밀가루 물 소금 이스트 이미지"></p>
@@ -41,8 +41,7 @@
     <summary type="html">
     
       &lt;p&gt;여기가 개발 블로그인 줄 아시는 분은 당황스러우시겠지만…&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/images/baking-00/iAmReady.jpg&quot; alt=&quot;베이킹 준비 완료 이미지&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;베이킹의-세계로&quot;&gt;&lt;a href=&quot;#베이킹
+&lt;h2 id=&quot;베이킹의-세계로&quot;&gt;&lt;a href=&quot;#베이킹의-세계로&quot; class=&quot;headerlink&quot; title=&quot;베이킹의 세계로&quot;&gt;&lt;/a&gt;베이킹의 세계로&lt;/h2&gt;&lt;p&gt;&lt;img sr
     
     </summary>
     
