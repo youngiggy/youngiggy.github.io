@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://haah.kr/"/>
-  <updated>2017-11-02T10:04:06.794Z</updated>
+  <updated>2017-11-01T15:12:51.000Z</updated>
   <id>http://haah.kr/</id>
   
   <author>
@@ -14,37 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>PHP로 HTTP 서버 구현하기 - 08 - 요청 메시지 파싱</title>
-    <link href="http://haah.kr/2017/11/02/phttp-08-parsing-request-message/"/>
-    <id>http://haah.kr/2017/11/02/phttp-08-parsing-request-message/</id>
-    <published>2017-11-02T09:58:31.000Z</published>
-    <updated>2017-11-02T10:04:06.794Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="/tags/phttp/">연재글 전체 보기</a></p>
-<hr>
-<p>지금까지의 소스</p>
-<p><a href="https://github.com/youngiggy/phttp/blob/398f18ee98f0e6f9c00fe7bb262d82f9c5282f68/libs/Request.php" target="_blank" rel="external">https://github.com/youngiggy/phttp/blob/398f18ee98f0e6f9c00fe7bb262d82f9c5282f68/libs/Request.php</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;/tags/phttp/&quot;&gt;연재글 전체 보기&lt;/a&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;지금까지의 소스&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/youngiggy/phttp/blob/398f18ee98f0e6f9c00fe7b
-    
-    </summary>
-    
-    
-      <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
-    
-      <category term="HTTP" scheme="http://haah.kr/tags/HTTP/"/>
-    
-      <category term="phttp" scheme="http://haah.kr/tags/phttp/"/>
-    
-  </entry>
   
   <entry>
     <title>베이킹 - 준비 완료</title>
@@ -1707,6 +1676,42 @@ Accept-Language: ko-KR,ko;q=0.8,en-US;q=0.6,en;q=0.4
       <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
     
       <category term="REST" scheme="http://haah.kr/tags/REST/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Explaining MySQL&#39;s EXPLAIN</title>
+    <link href="http://haah.kr/2017/08/04/explain-mysql-explain/"/>
+    <id>http://haah.kr/2017/08/04/explain-mysql-explain/</id>
+    <published>2017-08-03T15:26:10.000Z</published>
+    <updated>2017-08-05T00:02:13.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>예전 발표자료 정리하기 2탄</p>
+<p><a href="https://docs.google.com/presentation/d/1N27u5EYSXjZZeYhYDMI24zptpoIvrPV009SgIOWVdg4/edit?usp=sharing" target="_blank" rel="external">Explaining MySQL’s EXPLAIN</a></p>
+<p>한번 훑어주면 튜닝하는 데 꽤 도움된다.(그 동안 개판으로 튜닝했다는 말)</p>
+<p>Real MySQL이란 책에서 explain 부분만 대략 보고 정리했는데, 일단은 회사에서 innodb만 쓰니까 관련 부분만 훑어봤다.</p>
+<p>오늘 누가 MyISAM이랑 차이가 뭐냐고 물어봤을 때, 입력이 느리다고 말을 했던가?</p>
+<p>뭐 틀린 말은 아닌 것 같은데;; table-level lock 때문에.</p>
+<p>암튼 트랜잭션 지원 안 함. (아 이걸 이야기 할 것을…)</p>
+<p>MyISAM은 외래키 지원도 안 되는구만. 본 것도 같고.</p>
+<p>새로 이사온 집에 뚫어놓은 하수구에 물 내려가듯 지식이 빠져나가 큰일이다.</p>
+<p>브랜든 아이크나 제임스 고슬링 이런 사람들은 나이가 먹어도 뇌가 잘 돌아가겠지? 기억력도 유지되는지 참 궁금하다.</p>
+<p>그 사람들은 술을 안 먹기라도 하는 걸까?</p>
+<p>라는 질문을 맥주를 마시면서 하고 있는데, 예거 쯔비켈이라는 맥주가 편의점에서 8월에만 6캔 9,900원에 팔고 있다.</p>
+<p>1,650원에 마시기에는 꽤꽤꽤 괜찮은 맥주임! </p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;예전 발표자료 정리하기 2탄&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://docs.google.com/presentation/d/1N27u5EYSXjZZeYhYDMI24zptpoIvrPV009SgIOWVdg4/edit?usp=sharing&quot; tar
+    
+    </summary>
+    
+    
+      <category term="mysql" scheme="http://haah.kr/tags/mysql/"/>
+    
+      <category term="db" scheme="http://haah.kr/tags/db/"/>
     
   </entry>
   
