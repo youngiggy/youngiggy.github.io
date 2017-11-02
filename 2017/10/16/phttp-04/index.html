@@ -9,15 +9,15 @@
     <meta name="description" content="연재글 전체 보기  Updated (2017.10.18)이번 글과 관련된 내용이라 조금 더 추가해봤습니다. 하단 Updated 참고. 가장 간단한 서버이제부터 하나씩 기능을 붙여가며 commit &amp;amp; push를 할 예정이다. PHP7.1/mac 환경에서 공부한 결과를 적는 거라서, 윈도 머신에선 안 통하는 설명도 있으리라. 소스 위치는 https://">
 <meta name="keywords" content="PHP,HTTP,phttp">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PHP로 HTTP 서버 구현하기 - 04">
+<meta property="og:title" content="PHP로 HTTP 서버 구현하기 - 04 - 가장 간단한 서버">
 <meta property="og:url" content="http://haah.kr/2017/10/16/phttp-04/index.html">
 <meta property="og:site_name" content="ha-ah">
 <meta property="og:description" content="연재글 전체 보기  Updated (2017.10.18)이번 글과 관련된 내용이라 조금 더 추가해봤습니다. 하단 Updated 참고. 가장 간단한 서버이제부터 하나씩 기능을 붙여가며 commit &amp;amp; push를 할 예정이다. PHP7.1/mac 환경에서 공부한 결과를 적는 거라서, 윈도 머신에선 안 통하는 설명도 있으리라. 소스 위치는 https://">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https://media.tenor.com/images/5746acedc3829ed1e2e569c8d525c6f9/tenor.gif">
-<meta property="og:updated_time" content="2017-10-22T13:51:33.000Z">
+<meta property="og:updated_time" content="2017-11-02T10:14:45.966Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PHP로 HTTP 서버 구현하기 - 04">
+<meta name="twitter:title" content="PHP로 HTTP 서버 구현하기 - 04 - 가장 간단한 서버">
 <meta name="twitter:description" content="연재글 전체 보기  Updated (2017.10.18)이번 글과 관련된 내용이라 조금 더 추가해봤습니다. 하단 Updated 참고. 가장 간단한 서버이제부터 하나씩 기능을 붙여가며 commit &amp;amp; push를 할 예정이다. PHP7.1/mac 환경에서 공부한 결과를 적는 거라서, 윈도 머신에선 안 통하는 설명도 있으리라. 소스 위치는 https://">
 <meta name="twitter:image" content="https://media.tenor.com/images/5746acedc3829ed1e2e569c8d525c6f9/tenor.gif">
     
@@ -39,7 +39,7 @@
         
     
     <!-- title -->
-    <title>PHP로 HTTP 서버 구현하기 - 04</title>
+    <title>PHP로 HTTP 서버 구현하기 - 04 - 가장 간단한 서버</title>
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- rss -->
@@ -95,15 +95,15 @@
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://haah.kr/2017/10/16/phttp-04/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://haah.kr/2017/10/16/phttp-04/&text=PHP로 HTTP 서버 구현하기 - 04"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://haah.kr/2017/10/16/phttp-04/&title=PHP로 HTTP 서버 구현하기 - 04"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://haah.kr/2017/10/16/phttp-04/&is_video=false&description=PHP로 HTTP 서버 구현하기 - 04"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=PHP로 HTTP 서버 구현하기 - 04&body=Check out this article: http://haah.kr/2017/10/16/phttp-04/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://haah.kr/2017/10/16/phttp-04/&title=PHP로 HTTP 서버 구현하기 - 04"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://haah.kr/2017/10/16/phttp-04/&title=PHP로 HTTP 서버 구현하기 - 04"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://haah.kr/2017/10/16/phttp-04/&title=PHP로 HTTP 서버 구현하기 - 04"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://haah.kr/2017/10/16/phttp-04/&title=PHP로 HTTP 서버 구현하기 - 04"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://haah.kr/2017/10/16/phttp-04/&name=PHP로 HTTP 서버 구현하기 - 04&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://haah.kr/2017/10/16/phttp-04/&text=PHP로 HTTP 서버 구현하기 - 04 - 가장 간단한 서버"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://haah.kr/2017/10/16/phttp-04/&title=PHP로 HTTP 서버 구현하기 - 04 - 가장 간단한 서버"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://haah.kr/2017/10/16/phttp-04/&is_video=false&description=PHP로 HTTP 서버 구현하기 - 04 - 가장 간단한 서버"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=PHP로 HTTP 서버 구현하기 - 04 - 가장 간단한 서버&body=Check out this article: http://haah.kr/2017/10/16/phttp-04/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://haah.kr/2017/10/16/phttp-04/&title=PHP로 HTTP 서버 구현하기 - 04 - 가장 간단한 서버"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://haah.kr/2017/10/16/phttp-04/&title=PHP로 HTTP 서버 구현하기 - 04 - 가장 간단한 서버"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://haah.kr/2017/10/16/phttp-04/&title=PHP로 HTTP 서버 구현하기 - 04 - 가장 간단한 서버"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://haah.kr/2017/10/16/phttp-04/&title=PHP로 HTTP 서버 구현하기 - 04 - 가장 간단한 서버"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://haah.kr/2017/10/16/phttp-04/&name=PHP로 HTTP 서버 구현하기 - 04 - 가장 간단한 서버&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -120,7 +120,7 @@
   <header>
     
     <h1 class="posttitle" itemprop="name headline">
-        PHP로 HTTP 서버 구현하기 - 04
+        PHP로 HTTP 서버 구현하기 - 04 - 가장 간단한 서버
     </h1>
 
 
@@ -276,15 +276,15 @@
     <div id="share-footer" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://haah.kr/2017/10/16/phttp-04/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://haah.kr/2017/10/16/phttp-04/&text=PHP로 HTTP 서버 구현하기 - 04"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://haah.kr/2017/10/16/phttp-04/&title=PHP로 HTTP 서버 구현하기 - 04"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://haah.kr/2017/10/16/phttp-04/&is_video=false&description=PHP로 HTTP 서버 구현하기 - 04"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=PHP로 HTTP 서버 구현하기 - 04&body=Check out this article: http://haah.kr/2017/10/16/phttp-04/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://haah.kr/2017/10/16/phttp-04/&title=PHP로 HTTP 서버 구현하기 - 04"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://haah.kr/2017/10/16/phttp-04/&title=PHP로 HTTP 서버 구현하기 - 04"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://haah.kr/2017/10/16/phttp-04/&title=PHP로 HTTP 서버 구현하기 - 04"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://haah.kr/2017/10/16/phttp-04/&title=PHP로 HTTP 서버 구현하기 - 04"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://haah.kr/2017/10/16/phttp-04/&name=PHP로 HTTP 서버 구현하기 - 04&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://haah.kr/2017/10/16/phttp-04/&text=PHP로 HTTP 서버 구현하기 - 04 - 가장 간단한 서버"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://haah.kr/2017/10/16/phttp-04/&title=PHP로 HTTP 서버 구현하기 - 04 - 가장 간단한 서버"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://haah.kr/2017/10/16/phttp-04/&is_video=false&description=PHP로 HTTP 서버 구현하기 - 04 - 가장 간단한 서버"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=PHP로 HTTP 서버 구현하기 - 04 - 가장 간단한 서버&body=Check out this article: http://haah.kr/2017/10/16/phttp-04/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://haah.kr/2017/10/16/phttp-04/&title=PHP로 HTTP 서버 구현하기 - 04 - 가장 간단한 서버"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://haah.kr/2017/10/16/phttp-04/&title=PHP로 HTTP 서버 구현하기 - 04 - 가장 간단한 서버"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://haah.kr/2017/10/16/phttp-04/&title=PHP로 HTTP 서버 구현하기 - 04 - 가장 간단한 서버"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://haah.kr/2017/10/16/phttp-04/&title=PHP로 HTTP 서버 구현하기 - 04 - 가장 간단한 서버"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://haah.kr/2017/10/16/phttp-04/&name=PHP로 HTTP 서버 구현하기 - 04 - 가장 간단한 서버&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>

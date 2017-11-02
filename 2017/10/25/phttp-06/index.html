@@ -9,7 +9,7 @@
     <meta name="description" content="연재글 전체 보기  Request 분리autoload우선 클라이언트로부터 받은 request 메시를 분석하는 클래스부터 만들기로 했다. Project root에 libs 디렉토리를 만들어 놓고, 여기에 Request라는 클래스를 하나 만들어야겠다. 그럼 autoload도 적용해야 하니 composer를 이용해야겠다. 대충 composer init해서 파일을">
 <meta name="keywords" content="PHP,HTTP,phttp">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PHP로 HTTP 서버 구현하기 - 06">
+<meta property="og:title" content="PHP로 HTTP 서버 구현하기 - 06 - Request 분리, autoload, PHPUnit">
 <meta property="og:url" content="http://haah.kr/2017/10/25/phttp-06/index.html">
 <meta property="og:site_name" content="ha-ah">
 <meta property="og:description" content="연재글 전체 보기  Request 분리autoload우선 클라이언트로부터 받은 request 메시를 분석하는 클래스부터 만들기로 했다. Project root에 libs 디렉토리를 만들어 놓고, 여기에 Request라는 클래스를 하나 만들어야겠다. 그럼 autoload도 적용해야 하니 composer를 이용해야겠다. 대충 composer init해서 파일을">
@@ -18,9 +18,9 @@
 <meta property="og:image" content="http://haah.kr/images/phttp-06/run_edit_phpunit.png">
 <meta property="og:image" content="http://haah.kr/images/phttp-06/run_edit_phpunit_tf.png">
 <meta property="og:image" content="http://haah.kr/images/phttp-06/set_autotest_delay.png">
-<meta property="og:updated_time" content="2017-10-30T10:35:03.000Z">
+<meta property="og:updated_time" content="2017-11-02T10:16:59.167Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PHP로 HTTP 서버 구현하기 - 06">
+<meta name="twitter:title" content="PHP로 HTTP 서버 구현하기 - 06 - Request 분리, autoload, PHPUnit">
 <meta name="twitter:description" content="연재글 전체 보기  Request 분리autoload우선 클라이언트로부터 받은 request 메시를 분석하는 클래스부터 만들기로 했다. Project root에 libs 디렉토리를 만들어 놓고, 여기에 Request라는 클래스를 하나 만들어야겠다. 그럼 autoload도 적용해야 하니 composer를 이용해야겠다. 대충 composer init해서 파일을">
 <meta name="twitter:image" content="http://haah.kr/images/phttp-06/01_composer_init.png">
     
@@ -42,7 +42,7 @@
         
     
     <!-- title -->
-    <title>PHP로 HTTP 서버 구현하기 - 06</title>
+    <title>PHP로 HTTP 서버 구현하기 - 06 - Request 분리, autoload, PHPUnit</title>
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- rss -->
@@ -98,15 +98,15 @@
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://haah.kr/2017/10/25/phttp-06/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://haah.kr/2017/10/25/phttp-06/&text=PHP로 HTTP 서버 구현하기 - 06"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://haah.kr/2017/10/25/phttp-06/&title=PHP로 HTTP 서버 구현하기 - 06"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://haah.kr/2017/10/25/phttp-06/&is_video=false&description=PHP로 HTTP 서버 구현하기 - 06"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=PHP로 HTTP 서버 구현하기 - 06&body=Check out this article: http://haah.kr/2017/10/25/phttp-06/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://haah.kr/2017/10/25/phttp-06/&title=PHP로 HTTP 서버 구현하기 - 06"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://haah.kr/2017/10/25/phttp-06/&title=PHP로 HTTP 서버 구현하기 - 06"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://haah.kr/2017/10/25/phttp-06/&title=PHP로 HTTP 서버 구현하기 - 06"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://haah.kr/2017/10/25/phttp-06/&title=PHP로 HTTP 서버 구현하기 - 06"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://haah.kr/2017/10/25/phttp-06/&name=PHP로 HTTP 서버 구현하기 - 06&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://haah.kr/2017/10/25/phttp-06/&text=PHP로 HTTP 서버 구현하기 - 06 - Request 분리, autoload, PHPUnit"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://haah.kr/2017/10/25/phttp-06/&title=PHP로 HTTP 서버 구현하기 - 06 - Request 분리, autoload, PHPUnit"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://haah.kr/2017/10/25/phttp-06/&is_video=false&description=PHP로 HTTP 서버 구현하기 - 06 - Request 분리, autoload, PHPUnit"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=PHP로 HTTP 서버 구현하기 - 06 - Request 분리, autoload, PHPUnit&body=Check out this article: http://haah.kr/2017/10/25/phttp-06/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://haah.kr/2017/10/25/phttp-06/&title=PHP로 HTTP 서버 구현하기 - 06 - Request 분리, autoload, PHPUnit"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://haah.kr/2017/10/25/phttp-06/&title=PHP로 HTTP 서버 구현하기 - 06 - Request 분리, autoload, PHPUnit"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://haah.kr/2017/10/25/phttp-06/&title=PHP로 HTTP 서버 구현하기 - 06 - Request 분리, autoload, PHPUnit"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://haah.kr/2017/10/25/phttp-06/&title=PHP로 HTTP 서버 구현하기 - 06 - Request 분리, autoload, PHPUnit"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://haah.kr/2017/10/25/phttp-06/&name=PHP로 HTTP 서버 구현하기 - 06 - Request 분리, autoload, PHPUnit&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -123,7 +123,7 @@
   <header>
     
     <h1 class="posttitle" itemprop="name headline">
-        PHP로 HTTP 서버 구현하기 - 06
+        PHP로 HTTP 서버 구현하기 - 06 - Request 분리, autoload, PHPUnit
     </h1>
 
 
@@ -259,15 +259,15 @@
     <div id="share-footer" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://haah.kr/2017/10/25/phttp-06/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://haah.kr/2017/10/25/phttp-06/&text=PHP로 HTTP 서버 구현하기 - 06"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://haah.kr/2017/10/25/phttp-06/&title=PHP로 HTTP 서버 구현하기 - 06"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://haah.kr/2017/10/25/phttp-06/&is_video=false&description=PHP로 HTTP 서버 구현하기 - 06"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=PHP로 HTTP 서버 구현하기 - 06&body=Check out this article: http://haah.kr/2017/10/25/phttp-06/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://haah.kr/2017/10/25/phttp-06/&title=PHP로 HTTP 서버 구현하기 - 06"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://haah.kr/2017/10/25/phttp-06/&title=PHP로 HTTP 서버 구현하기 - 06"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://haah.kr/2017/10/25/phttp-06/&title=PHP로 HTTP 서버 구현하기 - 06"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://haah.kr/2017/10/25/phttp-06/&title=PHP로 HTTP 서버 구현하기 - 06"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://haah.kr/2017/10/25/phttp-06/&name=PHP로 HTTP 서버 구현하기 - 06&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://haah.kr/2017/10/25/phttp-06/&text=PHP로 HTTP 서버 구현하기 - 06 - Request 분리, autoload, PHPUnit"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://haah.kr/2017/10/25/phttp-06/&title=PHP로 HTTP 서버 구현하기 - 06 - Request 분리, autoload, PHPUnit"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://haah.kr/2017/10/25/phttp-06/&is_video=false&description=PHP로 HTTP 서버 구현하기 - 06 - Request 분리, autoload, PHPUnit"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=PHP로 HTTP 서버 구현하기 - 06 - Request 분리, autoload, PHPUnit&body=Check out this article: http://haah.kr/2017/10/25/phttp-06/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://haah.kr/2017/10/25/phttp-06/&title=PHP로 HTTP 서버 구현하기 - 06 - Request 분리, autoload, PHPUnit"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://haah.kr/2017/10/25/phttp-06/&title=PHP로 HTTP 서버 구현하기 - 06 - Request 분리, autoload, PHPUnit"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://haah.kr/2017/10/25/phttp-06/&title=PHP로 HTTP 서버 구현하기 - 06 - Request 분리, autoload, PHPUnit"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://haah.kr/2017/10/25/phttp-06/&title=PHP로 HTTP 서버 구현하기 - 06 - Request 분리, autoload, PHPUnit"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://haah.kr/2017/10/25/phttp-06/&name=PHP로 HTTP 서버 구현하기 - 06 - Request 분리, autoload, PHPUnit&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
