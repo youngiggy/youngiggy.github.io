@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://haah.kr/"/>
-  <updated>2017-11-25T07:10:35.055Z</updated>
+  <updated>2017-12-02T03:38:27.057Z</updated>
   <id>http://haah.kr/</id>
   
   <author>
@@ -14,6 +14,45 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>독후감 - 객체지향의 사실과 오해</title>
+    <link href="http://haah.kr/2017/12/02/book-978-89-98139-76-6/"/>
+    <id>http://haah.kr/2017/12/02/book-978-89-98139-76-6/</id>
+    <published>2017-12-02T03:17:37.000Z</published>
+    <updated>2017-12-02T03:38:27.057Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://image.kyobobook.co.kr/images/book/xlarge/766/x9788998139766.jpg" alt="객체지향의 사실과 오해"></p>
+<p>그동안 객체지향을 오해한 기억이 별로 없어서 그런지 특별히 재밌고 감동적이고 그렇지는 않았다.<br>(난 오해한 적은 없고 이해한 적이 없었으니..)</p>
+<p>비교적 얇은 <code>책</code>임에도 불구하고 설명이 꽤나 장황하다. </p>
+<p>학교 다닐 때 과제 분량 맞추려고 문장을 늘려쓰곤 했던 사람이라면 의심의 눈초리를 거둘 수 없을텐데, </p>
+<p>지루함을 견디고 끝까지 읽었을 때 비로소 이해가 갔다.</p>
+<p>용어를 최대한 정확하게 표현하려 애쓴 흔적이 역력하다.</p>
+<p>표현의 근거도 일일이 제시하고 내 수준에서는 특별히 틀렸다고 생각할 만한 지점이 없었다.</p>
+<p>쉬운 이야기를 썼지만 저자의 내공이 매우 깊은가보다 생각이 든다.</p>
+<p>하지만 이 책을 추천하는지 질문을 받는다면 뜻밖의 지점에서 고민하게 될 터인데,</p>
+<p>좀…아재 감성이다.</p>
+<p>그 감성을 풀어내는 방식도 좀 장황하기도 하고, 젠더 감수성을 운운할 정도까지인지는 모르겠으나 가끔 공대 개그 같은 묘한 냄새가 난다(smell).</p>
+<p>내가 명확하게 정의 내려 입 밖에 내 본 적이 없는 수많은 개념과 용어를 한번 더 정리하는 기분으로 읽어냈고,</p>
+<p>그 경험이 나쁘진 않았다.</p>
+<p>조금 더 짧은 호흡으로 쓰였다면, 종종 뒤적거리며 개념 정리하기 좋았을 것 같다.</p>
+<p>결론은,</p>
+<p>추천하긴 하지만 선뜻 다시 손이 안 갈 것 같다.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://image.kyobobook.co.kr/images/book/xlarge/766/x9788998139766.jpg&quot; alt=&quot;객체지향의 사실과 오해&quot;&gt;&lt;/p&gt;
+&lt;p&gt;그동안 객체지향을 오해한 기억이 별로 없어서 그런지
+    
+    </summary>
+    
+    
+      <category term="독후감" scheme="http://haah.kr/tags/%EB%8F%85%ED%9B%84%EA%B0%90/"/>
+    
+      <category term="OOP" scheme="http://haah.kr/tags/OOP/"/>
+    
+  </entry>
   
   <entry>
     <title>PHP로 HTTP 서버 구현하기 - 10 - 요청 메시지 파싱 3</title>
@@ -1989,37 +2028,6 @@ Accept-Language: ko-KR,ko;q=0.8,en-US;q=0.6,en;q=0.4
       <category term="Laravel" scheme="http://haah.kr/tags/Laravel/"/>
     
       <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTTP 완벽가이드 3장</title>
-    <link href="http://haah.kr/2017/08/23/http-the-definitive-guide-chapter-3/"/>
-    <id>http://haah.kr/2017/08/23/http-the-definitive-guide-chapter-3/</id>
-    <published>2017-08-23T10:37:15.000Z</published>
-    <updated>2017-08-23T10:50:29.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>회사에서 진행 중인 ‘HTTP 완벽가이드 릴레이 세미나’ 3장 발표 자료.</p>
-<p><a href="https://docs.google.com/presentation/d/1obobW34ipdOqN1oGThDia92hgbKW-q7VVW1T0owHtM8/edit?usp=sharing" target="_blank" rel="external">https://docs.google.com/presentation/d/1obobW34ipdOqN1oGThDia92hgbKW-q7VVW1T0owHtM8/edit?usp=sharing</a></p>
-<p>내용</p>
-<ul>
-<li>HTTP 스펙의 변화</li>
-<li>HTTP 메시지 문법</li>
-<li>HTTP 메소드</li>
-<li>HTTP 응답 코드</li>
-<li>주요 헤더</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;회사에서 진행 중인 ‘HTTP 완벽가이드 릴레이 세미나’ 3장 발표 자료.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://docs.google.com/presentation/d/1obobW34ipdOqN1oGThDia92hgbKW-q7VVW1T0ow
-    
-    </summary>
-    
-    
-      <category term="HTTP" scheme="http://haah.kr/tags/HTTP/"/>
     
   </entry>
   
