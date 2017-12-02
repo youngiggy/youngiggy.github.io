@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://haah.kr/"/>
-  <updated>2017-12-02T03:38:27.057Z</updated>
+  <updated>2017-12-02T03:39:02.520Z</updated>
   <id>http://haah.kr/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://haah.kr/2017/12/02/book-978-89-98139-76-6/"/>
     <id>http://haah.kr/2017/12/02/book-978-89-98139-76-6/</id>
     <published>2017-12-02T03:17:37.000Z</published>
-    <updated>2017-12-02T03:38:27.057Z</updated>
+    <updated>2017-12-02T03:39:02.520Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="http://image.kyobobook.co.kr/images/book/xlarge/766/x9788998139766.jpg" alt="객체지향의 사실과 오해"></p>
+    <content type="html"><![CDATA[<h2 id="역할-책임-협력-관점에서-본-객체지향"><a href="#역할-책임-협력-관점에서-본-객체지향" class="headerlink" title="역할, 책임, 협력 관점에서 본 객체지향"></a>역할, 책임, 협력 관점에서 본 객체지향</h2><p><img src="http://image.kyobobook.co.kr/images/book/xlarge/766/x9788998139766.jpg" alt="객체지향의 사실과 오해"></p>
 <p>그동안 객체지향을 오해한 기억이 별로 없어서 그런지 특별히 재밌고 감동적이고 그렇지는 않았다.<br>(난 오해한 적은 없고 이해한 적이 없었으니..)</p>
 <p>비교적 얇은 <code>책</code>임에도 불구하고 설명이 꽤나 장황하다. </p>
 <p>학교 다닐 때 과제 분량 맞추려고 문장을 늘려쓰곤 했던 사람이라면 의심의 눈초리를 거둘 수 없을텐데, </p>
@@ -42,8 +42,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;http://image.kyobobook.co.kr/images/book/xlarge/766/x9788998139766.jpg&quot; alt=&quot;객체지향의 사실과 오해&quot;&gt;&lt;/p&gt;
-&lt;p&gt;그동안 객체지향을 오해한 기억이 별로 없어서 그런지
+      &lt;h2 id=&quot;역할-책임-협력-관점에서-본-객체지향&quot;&gt;&lt;a href=&quot;#역할-책임-협력-관점에서-본-객체지향&quot; class=&quot;headerlink&quot; title=&quot;역할, 책임, 협력 관점에서 본 객체지향&quot;&gt;&lt;/a&gt;역할, 책임, 협력 관점에서 본 객체지향&lt;/
     
     </summary>
     
