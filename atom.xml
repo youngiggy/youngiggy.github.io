@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://haah.kr/"/>
-  <updated>2017-12-02T03:39:02.520Z</updated>
+  <updated>2017-12-10T15:19:27.026Z</updated>
   <id>http://haah.kr/</id>
   
   <author>
@@ -14,6 +14,47 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>에고라는 적</title>
+    <link href="http://haah.kr/2017/12/10/book-9788965962090-%EC%97%90%EA%B3%A0%EB%9D%BC%EB%8A%94%EC%A0%81/"/>
+    <id>http://haah.kr/2017/12/10/book-9788965962090-에고라는적/</id>
+    <published>2017-12-10T14:12:53.000Z</published>
+    <updated>2017-12-10T15:19:27.026Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://image.kyobobook.co.kr/images/book/large/090/l9788965962090.jpg" alt="에고라는 적"></p>
+<p>이 책도 역시 <a href="http://jhrogue.blogspot.kr/2017/10/blog-post_6.html" target="_blank" rel="external">컴퓨터 vs 책</a>에서 소개되어 알게 됐고,</p>
+<p>서점에서 잠깐 보고 나서 ‘좋은 책인 것 같으나 나에겐 필요 없을 듯’과 같은 식으로 건방진 메모를 하고 있다가,</p>
+<p>딱 이 시점에 읽기 좋은 책이라 생각하며 사서 3~4일 정도에 후다닥 읽어버렸다. (내 최고 기록은 2~3일 만에 읽은 ‘의뢰인’이었던 것 같다)</p>
+<p>그렇다고 이게 엄청 재밌는 건 아닌데, 자신을 돌아보며 적극적으로 읽어나가야 공감이 많이 될 것이다. </p>
+<p>맨 처음에 언급한 독후감에 좋은 문구와 동영상과 감상평을 많이 추려 놓으셨는데, 이 분의 결론에 격한 공감을 한다.</p>
+<blockquote>
+<p>결론: 에고 때문에 혼쭐이 나신 분이라면(과연 안 그런 분이 계실까?) 이 책을 읽으면서 여러 가지 감상에 젖을 것이다. 강력 추천!</p>
+</blockquote>
+<p>희대의 잔소리꾼 라이언 홀리데이(작가의 이름)는 위인전에서 위인들의 내면을 다루지 않고 그 사람들의 인생의 단면만을 나열한다고 불만인 것 같으나, 그가 에고가 튼실한 위인을 다루는 방식도 크게 다르지 않은 것 같다.</p>
+<p>수많은 명언과 예시를 쏟아내며 잔소리에 잔소리를 거듭하지만 그가 옳다는 근거를 찾기는 힘들다.</p>
+<p>그런데 그 잔소리가 꽤 설득력은 있어서 내 과거, 내 선택, 지금 내 생각을 하나하나 짚어가며 들여다보는 재미가 있기도 했다. </p>
+<p>나는 <code>에고</code>가 뭔지 정확히 정의를 못 내리겠지만, 이 사람은 에고를 ‘모든 마음의 소리’ 정도로 해석하는 것 같다.</p>
+<p>내가 해야 할 올바른 선택을 방해하는 모든 마음의 소리. </p>
+<p>그 올바르다는 기준은 미래 시점에 알고 보니 옳았던 선택이 아니고, 합리적인 선택을 의미한다. 충분한 근거로. 더 큰 목표를 갖고. 자신을 객관적으로 바라보면서.</p>
+<p>항상 명심하기 위해 작가처럼 ‘에고가 나쁜 놈이네’라고 문신을 새길 순 없지만, 허리를 펼 때면 ‘에고 허리야’ 소리라도 낼까.</p>
+<p>아니면 가끔이라도 내 마음의 소리가 내 선택, 내 행동을 잘못 이끌고 있는지 돌아보는 용도로 이 책을 다시 읽으면 좋을 것 같다.</p>
+<p>과한 자기 확신으로 책 한권을 채운 잔소리를 3일 내내 읽다보니, (책 뒤표지나 추천사에서) 왜 그토록 많은 뛰어난 인물들이 책을 추천하는 지 알 것 같았다.</p>
+<p>읽고 추천한 사람들이 참 뛰어났기 때문이다.</p>
+<p>이상한 결론이지만, 나도 이 책을 추천하면서 끝을 내기로…</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://image.kyobobook.co.kr/images/book/large/090/l9788965962090.jpg&quot; alt=&quot;에고라는 적&quot;&gt;&lt;/p&gt;
+&lt;p&gt;이 책도 역시 &lt;a href=&quot;http://jhrogue.blo
+    
+    </summary>
+    
+    
+      <category term="독후감" scheme="http://haah.kr/tags/%EB%8F%85%ED%9B%84%EA%B0%90/"/>
+    
+  </entry>
   
   <entry>
     <title>독후감 - 객체지향의 사실과 오해</title>
@@ -1768,9 +1809,9 @@ Accept-Language: ko-KR,ko;q=0.8,en-US;q=0.6,en;q=0.4
     </summary>
     
     
-      <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
-    
       <category term="HTML" scheme="http://haah.kr/tags/HTML/"/>
+    
+      <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
     
   </entry>
   
@@ -1891,142 +1932,6 @@ Accept-Language: ko-KR,ko;q=0.8,en-US;q=0.6,en;q=0.4
       <category term="영화" scheme="http://haah.kr/tags/%EC%98%81%ED%99%94/"/>
     
       <category term="EIDF" scheme="http://haah.kr/tags/EIDF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>정규식으로 (한글) 문자만 골라내기</title>
-    <link href="http://haah.kr/2017/08/23/alphabetic-letter-validation/"/>
-    <id>http://haah.kr/2017/08/23/alphabetic-letter-validation/</id>
-    <published>2017-08-23T11:52:36.000Z</published>
-    <updated>2017-08-28T06:00:22.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>오늘 라라벨 꾸준 코딩 모임에서 나왔던 이야기인데, 라라벨의 유효성 검사 규칙 중 <a href="https://laravel.kr/docs/5.5/validation#rule-alpha" target="_blank" rel="external">alpha</a>에 관해 써본다.</p>
-<p>원문에서는 아래와 같이 정의하고 있다. </p>
-<blockquote>
-<p>The field under validation must be entirely alphabetic characters.</p>
-</blockquote>
-<p>이를 정수님이 옮기시면서 역주를 추가하셨는데,</p>
-<blockquote>
-<p>필드의 값이 완벽하게 (숫자나 기호가 아닌) 알파벳[자음과 모음] 문자로 이루어져야 합니다.<br>(역자주: 영문 알파벳만을 의미하지 않고, 숫자나 기호가 아닌경우에 해당하여, 한글도 허용합니다.)</p>
-</blockquote>
-<p>여기서 자음과 모음이 언급되었길래 그럼 자음과 모음이 없는 중국어는 어떻게 되냐고 여쭤보았고,<br>(중국어에 진짜 자음과 모음이 없는가에 대한 문제는 일단 넘어가자..)</p>
-<p>유니코드의 구간을 정해놓고 validation 처리한 예전 소스를 보여주신 분도 계셨다. 한글을 구분하는 코드였던가?<br>(좀 더 복잡한 소스였지만) 예를 들어 이런 식.</p>
-<p>아래는 persian alphabet을 골라내는 정규식이(란)다.<br>(출처 : <a href="https://github.com/anetwork/validation/blob/master/src/ValidationRules.php#L27" target="_blank" rel="external">anetwork</a>)</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">Alpha</span><span class="params">($attribute, $value, $parameters, $validator)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    ValidationMessages::setCustomMessages( $validator );</div><div class="line">    <span class="keyword">$this</span>-&gt;status = (bool) preg_match(<span class="string">"/^[\x&#123;600&#125;-\x&#123;6FF&#125;\x&#123;200c&#125;\x&#123;064b&#125;\x&#123;064d&#125;\x&#123;064c&#125;\x&#123;064e&#125;\x&#123;064f&#125;\x&#123;0650&#125;\x&#123;0651&#125;\s]+$/u"</span>, $value);</div><div class="line">    <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;status ;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>결국 다같이 라라벨 소스를 보게 되었다.<br>막상 코드를 열어보니 단순해서 놀랐는데, 코드는 아래와 같다.</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * Validate that an attribute contains only alphabetic characters.</span></div><div class="line"><span class="comment"> *</span></div><div class="line"><span class="comment"> * <span class="doctag">@param</span>  string  $attribute</span></div><div class="line"><span class="comment"> * <span class="doctag">@param</span>  mixed   $value</span></div><div class="line"><span class="comment"> * <span class="doctag">@return</span> bool</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">validateAlpha</span><span class="params">($attribute, $value)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">return</span> is_string($value) &amp;&amp; preg_match(<span class="string">'/^[\pL\pM]+$/u'</span>, $value);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>“아니, 저건 무슨 정규식이죠?!”라며 놀랐지만, 내가 뚫어져라 본다고 알 턱이 없었다.</p>
-<p>그래서 좀 찾아보기로…</p>
-<h2 id="Alphabet"><a href="#Alphabet" class="headerlink" title="Alphabet"></a>Alphabet</h2><p>내가 처음에 혼란스러웠던 것은, 유효성 규칙에 대한 설명에서 ‘알파벳[자음과 모음]’이라는 문자에서 과연 자음과 모음이라는 게 중요한가..라는 의문 때문이었다.</p>
-<p>한국어 위키디피아의 <a href="https://ko.wikipedia.org/wiki/%EC%9D%8C%EC%86%8C%EB%AC%B8%EC%9E%90" target="_blank" rel="external">음소문자</a> 설명부터 보자.</p>
-<blockquote>
-<p>음소문자(音素文字, alphabet)는 하나하나의 문자가 원칙적으로 하나의 자음 또는 모음의 음소(音素)를 나타내는 문자 체계이다. 자음과 모음에 대응하는 각각의 문자가 따로 존재하는게 다른 종류의 문자와의 다른 점이다. 로마 문자, 한글, 키릴 문자, 그리스 문자 같은 것들이 음소 문자 중 하나다.</p>
-</blockquote>
-<p><a href="https://en.wikipedia.org/wiki/Alphabet" target="_blank" rel="external">위키디피아 설명</a>에는 <code>sets of letters used in written languages</code>라는 설명으로 시작해서,</p>
-<p><code>&quot;alphabet&quot; is a script that represents both vowels and consonants as letters equally</code>라는 표현도 나온다.</p>
-<p>자음과 모음을 동일하게 하나의 글자로써 표현하는 것인가 본데…</p>
-<p>라라벨 매뉴얼에서 alphabet을 ‘알파벳[자음과 모음]’이라고 표현하신 건 이제 이해가 됐다.</p>
-<h2 id="Unicode-property"><a href="#Unicode-property" class="headerlink" title="Unicode property"></a>Unicode property</h2><p>유니코드 표준에서는 각 code point마다 여러가지 속성을 부여하는데,</p>
-<p>이를 <a href="https://en.wikipedia.org/wiki/Unicode_character_property#General_Category" target="_blank" rel="external">Unicode character property</a>라고 하고, 이를 통해 Letter인지, Mark인지, Number인지 알 수 있다.</p>
-<p>라라벨의 alpha가 정의하는 유효성 확인 정규식을 다시 보자.</p>
-<blockquote>
-<p>/^[\pL\pM]+$/u</p>
-</blockquote>
-<p><code>\p</code>를 통해 property를 부여할 수 있고, 대문자로 쓰면 반대의 개념이다.</p>
-<p><code>\pL</code>은 문자(Letter)를 가져오고, <code>\PL</code>은 문자가 아닌 것만 가져온다.</p>
-<p><code>\pM</code>은 Mark를 의미하는데, 어디까지가 이 Mark에 부합하는가..가 좀 복잡하다.</p>
-<p>이 중에는 악센트와 같이 옆에 있는 문자를 꾸며주는 역할을 하는 것도 있다. 그러니까 문자(이쯤되니 문자라는 표현이 맞는지도 모르겠다)를 꾸며주는 역할을 하는 걸 의미하는 듯 하다</p>
-<p>더 자세하고 친절한 설명은 역시 <a href="https://stackoverflow.com/questions/6493954/how-to-properly-write-regex-for-unicode-first-name-in-java" target="_blank" rel="external">stackoverflow</a>에 있다.</p>
-<p>그럼 ™ &lt;- 요렇게 생긴 트레이드 ‘마크’는?</p>
-<p><a href="http://www.fileformat.info/info/unicode/char/2122/index.htm" target="_blank" rel="external">http://www.fileformat.info/info/unicode/char/2122/index.htm</a></p>
-<p>UnicodeBlock이 LETTERLIKE_SYMBOLS로 정의되어 있다. 그렇다. 이런 걸 심볼이라 부른다.</p>
-<p><br></p>
-<p>마지막으로 저 정규식에는 u라는 변경자가 붙어있는데,</p>
-<blockquote>
-<p>u (PCRE_UTF8)</p>
-<p>이 변경자는 펄과 호환되지 않는 PCRE의 추가 기능을 사용하게 합니다. 패턴 문자열을 UTF-8으로 취급합니다. 유닉스에서는 PHP 4.1.0부터, win32에서는 PHP 4.2.3부터 사용할 수 있습니다. PHP 4.3.5부터 패턴의 UTF-8 유효성이 검사됩니다.</p>
-</blockquote>
-<p>라고 PHP 매뉴얼에 나와있다.</p>
-<p>이번에 매뉴얼 좀 찾아보다 발견했는데, 아사마루(?)님의 블로그에 이 정규식 부분이 한글화 + 보충 설명되어 있다.</p>
-<p><a href="https://blog.asamaru.net/2017/01/07/php-regex-prolog/" target="_blank" rel="external">PHP 정규식(PCRE)의 모든 것</a></p>
-<ul>
-<li><a href="https://blog.asamaru.net/2017/01/11/php-regex-unicode-character-properties/" target="_blank" rel="external">유니코드 문자 속성</a></li>
-</ul>
-<h2 id="validation-rule-alpha"><a href="#validation-rule-alpha" class="headerlink" title="validation#rule-alpha"></a>validation#rule-alpha</h2><p>비슷한 문제로 2014년에 라라벨 Github에 이슈가 등록됐다.</p>
-<p><a href="https://github.com/laravel/framework/issues/4626" target="_blank" rel="external">validator rules shouldn’t allow unicode</a></p>
-<p>Taylor Otwell은 <code>We can document it.</code> 한마디하고 닫아버린다.<br>(어쩌자는 말인 지 모르겠다.)</p>
-<p>ASCII에 존재하는 라틴 알파벳 만을 매칭하려는 게 아니라면 정규식 자체에는 문제가 없어보이지만,</p>
-<p>여전히 alpha라는 단어를 쓰는 게 맞는 지는 잘 모르겠다.</p>
-<p>Letter에 매칭되는 문자가 모두 알파벳에 속하지 않을테니까.</p>
-<h2 id="Run"><a href="#Run" class="headerlink" title="Run"></a>Run</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$arr = [</div><div class="line">    <span class="string">"x"</span>, <span class="string">"A"</span>, <span class="string">"3"</span>, <span class="string">"\n"</span>, <span class="string">"."</span>, <span class="string">"\t"</span>, <span class="string">"\r"</span>, <span class="string">"\f"</span>,</div><div class="line">    <span class="string">"주"</span>, <span class="string">"$"</span>, <span class="string">"я"</span>, <span class="string">"张"</span>, <span class="string">"@"</span>, <span class="string">"ⓐ"</span>, <span class="string">"à"</span>, </div><div class="line">    <span class="string">"\u&#123;0300&#125;"</span>, <span class="comment">/* COMBINING GRAVE ACCENT */</span></div><div class="line">];</div><div class="line">preg_match_all(<span class="string">'/\pL/u'</span>, implode(<span class="string">''</span>, $arr), $matchesL);</div><div class="line">preg_match_all(<span class="string">'/\pM/u'</span>, implode(<span class="string">''</span>, $arr), $matchesM);</div><div class="line"></div><div class="line">print_r($matchesL);</div><div class="line">print_r($matchesM);</div></pre></td></tr></table></figure>
-<p>결과가 예상 되시나요?</p>
-<p><br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">Array</div><div class="line">(</div><div class="line">    [0] =&gt; Array</div><div class="line">        (</div><div class="line">            [0] =&gt; x</div><div class="line">            [1] =&gt; A</div><div class="line">            [2] =&gt; 주</div><div class="line">            [3] =&gt; я</div><div class="line">            [4] =&gt; 张</div><div class="line">            [5] =&gt; à</div><div class="line">        )</div><div class="line"></div><div class="line">)</div><div class="line">Array</div><div class="line">(</div><div class="line">    [0] =&gt; Array</div><div class="line">        (</div><div class="line">            [0] =&gt; ̀</div><div class="line">        )</div><div class="line"></div><div class="line">)</div></pre></td></tr></table></figure></p>
-<h2 id="한글만-골라내기"><a href="#한글만-골라내기" class="headerlink" title="한글만 골라내기"></a>한글만 골라내기</h2><p>이렇게 유니코드에는 수많은 카테고리가 존재하고, 이 중에는 역시 한글을 표현하는 카테고리도 존재한다.</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">preg_match_all(<span class="string">'/\p&#123;Hangul&#125;/u'</span>, implode(<span class="string">''</span>, $arr), $matchesHangul);</div><div class="line"></div><div class="line">print_r($matchesHangul);</div></pre></td></tr></table></figure>
-<p>결과가 예상 되시나요?</p>
-<h1 id="추가"><a href="#추가" class="headerlink" title="추가"></a>추가</h1><p>페이스북에서 받은 <a href="https://www.facebook.com/permalink.php?story_fbid=1587990834586231&amp;id=100001259884599&amp;notif_t=like&amp;notif_id=1503590754890689" target="_blank" rel="external">질문</a>을 좀 더 상세히 찾아보려는데,</p>
-<p>역시 유니코드 이 동네는 까면 깔수록 깔 게 많다. </p>
-<p>우선 질문은 “항상 /[가-힣]+/u 을 사용했는데 틀린 건가요?”였는데,</p>
-<p>그 전에 문맥/비즈니스 요구 사항에 관해 반문해야할 게 좀 많다.</p>
-<p>그 기능에서</p>
-<ul>
-<li>자모를 모두 사용한 완성된 글자만 필요한가?</li>
-<li>자모를 개별적으로 입력할 수 있어야 하는가?</li>
-<li>한국어에서 쓰이지 않는 글자 조합을 표시해야 하는가?</li>
-<li>입력한 자음이나 모음이 한글인지 검색해야 하는가?</li>
-</ul>
-<p>유니코드에서 한글이 존재하는 구간은 다음과 같다.</p>
-<p><a href="https://codepoints.net/hangul_jamo" target="_blank" rel="external">Hangul Jamo (U+1100 to U+11FF)</a><br><a href="https://codepoints.net/hangul_compatibility_jamo" target="_blank" rel="external">Hangul Compatibility Jamo (U+3130 to U+318F)</a><br><a href="https://codepoints.net/hangul_jamo_extended-a" target="_blank" rel="external">Hangul Jamo Extended-A (U+A960 to U+A97F)</a><br><a href="https://codepoints.net/hangul_syllables" target="_blank" rel="external">Hangul Syllables (U+AC00 to U+D7AF)</a><br><a href="https://codepoints.net/hangul_jamo_extended-b" target="_blank" rel="external">Hangul Jamo Extended-B (U+D7B0 to U+D7FF)</a></p>
-<p>이중 /가-힣/으로 걸러낼 수 있는 건 <a href="http://d2.naver.com/helloworld/76650" target="_blank" rel="external">한글 소리 마디 (Hangul Syllables)</a>인데,<br>한글 자모 각각을 구별하기 위해선 <a href="https://codepoints.net/hangul_jamo" target="_blank" rel="external">Hangul Jamo (U+1100 to U+11FF)</a>까지 살펴봐야 한다.</p>
-<p>/ㄱ-힣/이라고 쓰는 사람도 많은데, ㄱㄴㄷ..ㅜㅠㅡㅣ까지의 구간과 가나다…힡힢힣까지의 구간 사이에 한자 등 다른 문자가 많이 포함되어 있으므로 금지해야 한다.<br>/ㄱ-ㅣ가-힣/으로 써야 한다.</p>
-<p>페북에서는 옛한글(언급은 안했지만 아래아 같은 걸 염두에 뒀었다)이 현대 한글의 코드 구간 뒤쪽이라고 얘길 했었는데,<br>아래아의 경우는 한글 자모에 속해있다. 이외에 쓰이지 않는 많은 진짜(?) 옛한글은 호환용 한글 자모나 자모 확장 등에서 발견된다.</p>
-<h2 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h2><p>올바른 정규식을 얻기 위해선 뭉뚱그려 ‘한글 문자를 검사하는 기능’ 정도로 설명하지 말고, 정확한 요구사항을 명시하는 게 좋다.  </p>
-<p>자모를 사용한 완성된 글자만 필요한가?</p>
-<ul>
-<li>/가-힣/</li>
-</ul>
-<p>자모를 개별적으로 입력할 수 있어야 하는가?</p>
-<ul>
-<li>/ㄱ-ㅣ가-힣/</li>
-</ul>
-<p>한국어에서 쓰이지 않는 옛한글이나 글자 조합도 표시해야 하는가?</p>
-<ul>
-<li>/\p{Hangul}/u</li>
-</ul>
-<p>입력한 자음이나 모음이 한글인지 검색해야 하는가?</p>
-<ul>
-<li>자음이나 모음을 하나만 입력하고 이게 속해있는 지 검색하는 기능이라면, ‘한글 호환 자모’에 관해서도 알아놔야 한다.<ul>
-<li>참고 : <a href="http://advent.perl.kr/2015/2015-12-04.html" target="_blank" rel="external">http://advent.perl.kr/2015/2015-12-04.html</a></li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>한글을 입력할 때 완성된 글자가 아니라 자음이나 모음 하나만 단독으로 입력하는 경우, 그 음소는 유니코드의 ‘한글 호환 자모(Hangul Compatibility Jamo)’ 영역에 있는 것을 사용하게 됩니다.</p>
-</blockquote>
-<p>각자의 비즈니스 요구 사항에 따라 선택하면 될 일이지만,</p>
-<p>향후의 요구 사항을 고려하는 좀 더 세심한 네이밍이 필요할 것 같다.</p>
-<p>라라벨 유효성를 다시 한번 돌아보자.</p>
-<p>메소드 명을 validateAlpha()라고 해놓고 /^[\pL\pM]+$/u로 검사하는 것은 올바른 선택인가?</p>
-<h2 id="thank-to"><a href="#thank-to" class="headerlink" title="thank to"></a>thank to</h2><p><a href="http://blog.gaerae.com/2015/10/postgresql-hangul-regular-expression.html" target="_blank" rel="external">http://blog.gaerae.com/2015/10/postgresql-hangul-regular-expression.html</a><br><a href="http://www.programminginkorean.com/programming/hangul-in-unicode/" target="_blank" rel="external">http://www.programminginkorean.com/programming/hangul-in-unicode/</a></p>
-<ul>
-<li>뭐 이런 사이트가 다 있나 싶은데…이런 사이트도 있다</li>
-</ul>
-<p><a href="http://advent.perl.kr/2015/2015-12-04.html" target="_blank" rel="external">http://advent.perl.kr/2015/2015-12-04.html</a><br><a href="http://d2.naver.com/helloworld/76650" target="_blank" rel="external">http://d2.naver.com/helloworld/76650</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;오늘 라라벨 꾸준 코딩 모임에서 나왔던 이야기인데, 라라벨의 유효성 검사 규칙 중 &lt;a href=&quot;https://laravel.kr/docs/5.5/validation#rule-alpha&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;
-    
-    </summary>
-    
-    
-      <category term="REGEX" scheme="http://haah.kr/tags/REGEX/"/>
-    
-      <category term="Laravel" scheme="http://haah.kr/tags/Laravel/"/>
-    
-      <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
     
   </entry>
   
