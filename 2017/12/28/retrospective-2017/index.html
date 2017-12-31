@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang=ko>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="읽은 책 01월 자바스크립트 패턴과 테스트 02월 헤드퍼스트 디자인패턴 03월 표현의 기술 04월 RealMySQL (~explain까지) 04월 클린 코더 05월 브이 포 벤데타 05월 HTTP 완벽가이드 05월 코드골프 - 중도 포기 05월 모던 웹사이트 디자인의 정석(s68 HTML &amp;amp; CSS) 09월 아이의 사생활 09월 세상 물정의 물리학">
+<meta name="keywords" content="회고">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2017년 회고">
+<meta property="og:url" content="http://haah.kr/2017/12/28/retrospective-2017/index.html">
+<meta property="og:site_name" content="ha-ah">
+<meta property="og:description" content="읽은 책 01월 자바스크립트 패턴과 테스트 02월 헤드퍼스트 디자인패턴 03월 표현의 기술 04월 RealMySQL (~explain까지) 04월 클린 코더 05월 브이 포 벤데타 05월 HTTP 완벽가이드 05월 코드골프 - 중도 포기 05월 모던 웹사이트 디자인의 정석(s68 HTML &amp;amp; CSS) 09월 아이의 사생활 09월 세상 물정의 물리학">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="http://haah.kr/images/retrospective2017/BakingNote.png">
+<meta property="og:updated_time" content="2017-12-31T00:04:13.711Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2017년 회고">
+<meta name="twitter:description" content="읽은 책 01월 자바스크립트 패턴과 테스트 02월 헤드퍼스트 디자인패턴 03월 표현의 기술 04월 RealMySQL (~explain까지) 04월 클린 코더 05월 브이 포 벤데타 05월 HTTP 완벽가이드 05월 코드골프 - 중도 포기 05월 모던 웹사이트 디자인의 정석(s68 HTML &amp;amp; CSS) 09월 아이의 사생활 09월 세상 물정의 물리학">
+<meta name="twitter:image" content="http://haah.kr/images/retrospective2017/BakingNote.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon.ico" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+          
+        
+    
+    <!-- title -->
+    <title>2017년 회고</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="ha-ah" type="application/atom+xml" />
+    
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-1318599740881033",
+            enable_page_level_ads: true
+        });
+    </script>
+
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2017/12/18/book-9788993827446-ddd-start/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://haah.kr/2017/12/28/retrospective-2017/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://haah.kr/2017/12/28/retrospective-2017/&text=2017년 회고"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://haah.kr/2017/12/28/retrospective-2017/&title=2017년 회고"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://haah.kr/2017/12/28/retrospective-2017/&is_video=false&description=2017년 회고"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=2017년 회고&body=Check out this article: http://haah.kr/2017/12/28/retrospective-2017/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://haah.kr/2017/12/28/retrospective-2017/&title=2017년 회고"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://haah.kr/2017/12/28/retrospective-2017/&title=2017년 회고"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://haah.kr/2017/12/28/retrospective-2017/&title=2017년 회고"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://haah.kr/2017/12/28/retrospective-2017/&title=2017년 회고"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://haah.kr/2017/12/28/retrospective-2017/&name=2017년 회고&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#읽은-책"><span class="toc-number">1.</span> <span class="toc-text">읽은 책</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#아쉬운-점"><span class="toc-number">1.1.</span> <span class="toc-text">아쉬운 점</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#좋았던-책"><span class="toc-number">1.2.</span> <span class="toc-text">좋았던 책</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#공부"><span class="toc-number">2.</span> <span class="toc-text">공부</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#베이킹"><span class="toc-number">3.</span> <span class="toc-text">베이킹</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        2017년 회고
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">ha-ah</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2017-12-28T00:17:34.000Z" itemprop="datePublished">2017-12-28</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/회고/">회고</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="읽은-책"><a href="#읽은-책" class="headerlink" title="읽은 책"></a>읽은 책</h2><ul>
+<li>01월 자바스크립트 패턴과 테스트</li>
+<li>02월 헤드퍼스트 디자인패턴</li>
+<li>03월 표현의 기술</li>
+<li>04월 RealMySQL (~explain까지)</li>
+<li>04월 클린 코더</li>
+<li>05월 브이 포 벤데타</li>
+<li>05월 HTTP 완벽가이드</li>
+<li>05월 코드골프 - 중도 포기</li>
+<li>05월 모던 웹사이트 디자인의 정석(s68 HTML &amp; CSS)</li>
+<li>09월 아이의 사생활</li>
+<li>09월 세상 물정의 물리학</li>
+<li>09월 클린 소프트웨어</li>
+<li>09월 이와 손톱</li>
+<li>10월 내 문장이 그렇게 이상한가요?</li>
+<li>11월 밀가루 물 소금 이스트</li>
+<li>11월 후암동 식빵</li>
+<li>11월 객체지향의 사실과 오해</li>
+<li>12월 에고라는 적</li>
+<li>12월 DDD Start!</li>
+<li>12월 AWS 패턴별 구축 운용 가이드</li>
+</ul>
+<h3 id="아쉬운-점"><a href="#아쉬운-점" class="headerlink" title="아쉬운 점"></a>아쉬운 점</h3><p>계속 뭔가 책을 한권씩 들고는 있었던 것 같은데 이것 밖에 없다니.</p>
+<p>여기서 딱 두 배를 더 읽거나 두 번씩 읽거나 해서 늘려봐야겠다.</p>
+<p>디자인패턴은 올 초에만 좀 공부하고 특별히 다음 단계로 나아가지 못한 것은 아쉽다.</p>
+<p>이것저것 공부를 해야한다는 강박에 ‘코드 골프’를 중간에 포기한 것도 아쉽다. 시간을 너무 뺐긴다는 이유였지만 그건 어려웠기 때문이었고 이 어려운 건 앞으로 계속 어려울텐데 조금의 진전도 없었기 때문에 아쉽다. 그렇다고 앞으로 그런 여유가 주어질 지는 잘 모르겠다.</p>
+<p>RealMySQL은 좋은 책인데 역시 중간에 필요한 것만 봐서 아쉽다. 책이 나온 이후로 MySQL도 제법 버전업이 많이 되었는데 책이 더 늙기 전에 마저 읽어야겠다.</p>
+<p>회사에서 진행중인 완벽가이드 릴레이 세미나를 미처 끝내지 못한 것도 아쉽다. 5장 서버 만들기는 블로그에 연재한답시고 글만 길어져서 잠시 쉬는 중.</p>
+<p>아이의 사생활을 읽고 육아 관련 책을 더 읽어보려 했는데, 또 잊어버리고 석달이 지났다.</p>
+<h3 id="좋았던-책"><a href="#좋았던-책" class="headerlink" title="좋았던 책"></a>좋았던 책</h3><p>다 좋았다. 제일 좋았던 하나는 커녕 다섯을 꼽기에도 어려울 정도.</p>
+<p>물론 ‘아이의 자존감’에서 리더쉽을 이야기하며 반기문과 안철수를 예로 든다거나,</p>
+<p>무려 세곳에서 레시피를 잘못 넣은 ‘후암동 식빵’은 절대 추천할 리 없지만,</p>
+<p>그래도 개인적으로는 어떤 면에서 도움이 된 책들이다.</p>
+<h2 id="공부"><a href="#공부" class="headerlink" title="공부"></a>공부</h2><p>공부를 어떻게 해야할 지 조금씩 감을 잡기 시작한 해라고 본다.</p>
+<p>절대적인 양도 늘려야 하고 집중력도 더 키워야 하는 건 당연하고, 보는 문서/책에 있는 모든 용어를 대충 그냥 건너 뛰지 말고 알고 지나야 한다. 알지만 잘 못하고 있는 분야인데, 역시 정리를 하면서 봐야겠다는 생각이 들었다.</p>
+<p>타임라인에 계속 올라오는 ‘완벽한 공부법’은 시간별로 정리하고 기록하는 것 같은데, 그걸 읽기 전에 우선 내 스스로 시도를 한번 해봐야겠다.</p>
+<p>올해부터 주 20시간 이상을 공부에 투자하겠다는 다짐을 했던가? 잘 지켜지는 것 같고 아내가 배려도 해주고 있다.</p>
+<p>습관은 잘 만들어나간 해지만 실속은 좀 부족하지 않았나 생각도 해본다.</p>
+<p>그나마 블로그를 시작한 것은 꽤 잘한 짓인 것 같다. 처음에는 별로 쓸 게 없어 고민이었는데,</p>
+<p>REST 시리즈와 PHP로 서버만들기 시리즈로 뭔가를 깊게 들어가보는 계기가 되기도 했다. 어쩌면 지나치게 많은 시간을 투자한 것도 같지만 특히 REST는 고생한 보람이 있을 정도로 내 지식이 된 것 같다.</p>
+<p>이외에도 몰랐던 지식을 조금 깊게 파보는 글이 남기도 많이 남고 남에게도 도움되고 블로그에 가치를 더한다.</p>
+<p>지금부터 지켜나갈 것</p>
+<ul>
+<li>의도적으로 집중하기</li>
+<li>책 읽는 시간 늘리기</li>
+<li>정리하기</li>
+<li>집중하는 시간 측정하기</li>
+</ul>
+<h2 id="베이킹"><a href="#베이킹" class="headerlink" title="베이킹"></a>베이킹</h2><p><img src="/images/retrospective2017/BakingNote.png" alt="BakingNote 구글시트"></p>
+<p>총 12번 빵을 만들었다. 실패는 3번.</p>
+<p>한국에서 즐겨 먹는 스타일이 아니어서 그런지 인기가 매우 좋았다. 다른 빵에 도전하기보다 이 빵을 더 잘 만들어야 하는가 싶을 정도로.</p>
+<p>덕분에 주말 공부 시간을 조금 뺐기기도 했는데, 대신 아내 방에서 문닫고 공부하는 것도 할 만 하다는 것을 깨닳음. 딸아이가 의외로 규칙을 잘 지키는데, 그래도 왔다갔다 하거나 문 밖에서 소리치는 건 여전해서 역시 이어폰을 껴야할 듯.</p>
+<p>회사나 다른 집에 갖다 주기도 했는데, 막 구웠을 때의 감동을 최종 소비자까지 어떻게 전달할 수 있을지 고민이지만 답이 안 나온다.</p>
+<p>수입되는 프랑스 밀가루는 세금 문제로 밀가루 외에 이것저것 많이 포함(3.025%)되었는데, 이 때문인지 지나치게 묽어 진다는 사실도 비싼 라우크 밀가루를 써보고 깨닳았다.  </p>
+<p>함량은 브랜드마다 차이가 있지만 내가 쓰는 밀가루는, ‘밀가루 96.975%, 밀글루텐, 비타민c, 효소(리파아제,지일라나아제,알파 아밀라아제:비세균성)’ 성분으로 되어 있다.</p>
+<p>이 재료들이 어떤 역할을 하는지 더 찾아봐야 한다.</p>
+<p>그래서 여러가지 테스트를 해보기로 했다</p>
+<ul>
+<li>각 추가 성분(밀글루텐, 효소 등)이 어떤 역할을 하는지 찾아보자</li>
+<li>다른 밀가루와 섞어 만들어보자</li>
+<li>레시피의 물 함량보다 조금 낮추어 만들어보자</li>
+<li>한국 밀가루(강력분, 단백질 함량 13% 정도)로 만들어 본다</li>
+<li>독일 밀가루(비타민C만 포함된 제품을 판매함)</li>
+</ul>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+    </div>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#읽은-책"><span class="toc-number">1.</span> <span class="toc-text">읽은 책</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#아쉬운-점"><span class="toc-number">1.1.</span> <span class="toc-text">아쉬운 점</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#좋았던-책"><span class="toc-number">1.2.</span> <span class="toc-text">좋았던 책</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#공부"><span class="toc-number">2.</span> <span class="toc-text">공부</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#베이킹"><span class="toc-number">3.</span> <span class="toc-text">베이킹</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://haah.kr/2017/12/28/retrospective-2017/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://haah.kr/2017/12/28/retrospective-2017/&text=2017년 회고"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://haah.kr/2017/12/28/retrospective-2017/&title=2017년 회고"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://haah.kr/2017/12/28/retrospective-2017/&is_video=false&description=2017년 회고"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=2017년 회고&body=Check out this article: http://haah.kr/2017/12/28/retrospective-2017/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://haah.kr/2017/12/28/retrospective-2017/&title=2017년 회고"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://haah.kr/2017/12/28/retrospective-2017/&title=2017년 회고"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://haah.kr/2017/12/28/retrospective-2017/&title=2017년 회고"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://haah.kr/2017/12/28/retrospective-2017/&title=2017년 회고"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://haah.kr/2017/12/28/retrospective-2017/&name=2017년 회고&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2017 youngiggy
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-99319001-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'youngiggy-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
