@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://haah.kr/"/>
-  <updated>2017-12-31T00:04:13.711Z</updated>
+  <updated>2018-01-06T01:52:45.900Z</updated>
   <id>http://haah.kr/</id>
   
   <author>
@@ -14,6 +14,82 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>뉴스 아카이브 2018-01-06</title>
+    <link href="http://haah.kr/2018/01/06/news-archive-2018-01-06/"/>
+    <id>http://haah.kr/2018/01/06/news-archive-2018-01-06/</id>
+    <published>2018-01-06T01:47:27.000Z</published>
+    <updated>2018-01-06T01:52:45.900Z</updated>
+    
+    <content type="html"><![CDATA[<p>얼마전 <a href="http://news.inews24.com/php/news_view.php?g_serial=1070038&amp;g_menu=020200" target="_blank" rel="external">가비아 DNS 장애</a>가 있었는데, ‘그렇다면 내 블로그는!?’ 하면서 들어가봤더니 역시나 접속이 안됐다.</p>
+<p>최근 한달 이상 커뮤니티에 글을 안 올렸으므로 방문자 수는 바닥을 기고 있는데,</p>
+<p>집에 두고온 휴대폰에 부재중 하나 없는 상황 같다고 농을 치다 보니 이러면 안되겠다는 생각이 들었다.</p>
+<p>마침 퇴사할 때 기슐 뉴스 공유글이라도 좀 보내 달라고 하셨던 분도 계셔서 겸사겸사 기슐뉴스라도 꾸준히 올리자는 생각을 했다.</p>
+<p>내가 기술 뉴스를 접하는 곳은</p>
+<ul>
+<li>이제 서비스를 접은 다음 LENS에서 제공하던 OPML로부터 RSS 피드를 받고 (여기에 내가 직접 추가한 열댓개의 사이트)</li>
+<li>난하님의 <a href="http://readtrend.com/" target="_blank" rel="external">READTREND</a></li>
+<li><a href="https://blog.outsider.ne.kr/" target="_blank" rel="external">아웃사이더</a>님의 기술 뉴스</li>
+<li><a href="http://jhrogue.blogspot.kr/" target="_blank" rel="external">B급 프로그래머</a>님의 소식 (이것도 RSS 피드에 있었다)</li>
+<li>기타 페이스북 커뮤니티에 올라온 글</li>
+<li>엄청난 좋아요와 공유를 하시는 몇몇 페친분들</li>
+</ul>
+<p>이쯤 되면 어지간히 이슈가 되는 글은 대충 보게 되는 것 같다. (사실 트위터를 해야 완벽하지만 거긴 내 삶을 바쳐야할 것 같은 느낌이라…)</p>
+<p>이 수많은 글을 다 읽는 건 아니고, </p>
+<p>내가 관심이 가는 주제만 읽고 링크를 저장하는 수준이라서 매우 편향적이고 그 조차도 일부만 여기에 옮겨 놓으려고 한다.</p>
+<p>저장 폴더에 몇달 째 쌓여만 있는 글도 허다하다. </p>
+<p>그러니 제대로된 기술 뉴스를 접하시려거든 위에 언급한 방법을 쓰시는 게 적당하다는 생각이다.</p>
+<p>이전 회사에서 글을 공유할 때는 회사 문화를 바꾸는 데 도움이 되는 글이나, 회사 기술과 더 밀접한 글을 올리기도 했고, 내 글을 열심히 읽는다고 피드백 해주는 사람들이 좋아할 만한 글을 고르기도 했다. 그러니까 나만 좋아하는 글은 공유 안 했다는 말이다. (그…랬겠지?)</p>
+<p>이제 내 개인 블로그니까 내가 재밌었고 내가 기억하고 싶은 글만 남겨봐야겠다.</p>
+<p>사실 이렇게 기술 공유 글을 어딘가에 저장해 놓으면 내가 다시 찾아보기도 편해서 에버노트에도 꾸준히 백업해 놨었더랬다.</p>
+<p>그럼 기슐 뉴스…아니지 뉴스라고 하기에는 너무 오래된 링크 모음이라서…</p>
+<p>그냥 뉴스 아카이브라고 해야겠다.</p>
+<h2 id="넷플릭스에서-play를-누르면-일어나는-일"><a href="#넷플릭스에서-play를-누르면-일어나는-일" class="headerlink" title="넷플릭스에서 play를 누르면 일어나는 일"></a>넷플릭스에서 play를 누르면 일어나는 일</h2><p><a href="http://highscalability.com/blog/2017/12/11/netflix-what-happens-when-you-press-play.html" target="_blank" rel="external">http://highscalability.com/blog/2017/12/11/netflix-what-happens-when-you-press-play.html</a></p>
+<p>아웃사이더님의 기술뉴스에서 본 글인데 매우 길고 영어라서 읽을까 말까 하다가</p>
+<p>나는 클라우드 쪽 지식이 미천하므로 출퇴근 시 읽어보기로 했다.</p>
+<p>그런데 이 글은 <a href="https://www.amazon.com/Explain-Cloud-Like-Im-10-ebook/dp/B0765C4SNR?pldnSite=1" target="_blank" rel="external">Explain the Cloud Like I’m 10</a>이라는 책에서 온 것이라고 하고, 클라우드를 처음 접한 사람들을 위한 책이었다고 한다. 댓글을 보니 글을 쓴 이후 뭔가 바뀐 게 있어서 몇가지 더 추가/변경한 것으로 보인다.</p>
+<p>책 제목처럼(혹은 책의 표지처럼) 굉장히 쉽게 쓴 글이다.</p>
+<p>아마 진짜로 10살을 위한 책은 아닐텐데, 용어가 꽤 어려운 편이다. 그냥 클라우드 쪽에만 newby인 사람들을 위한 책 같기도.</p>
+<p>그래서 여기서 딱히 나에게 기술적인 욕구를 채웠는가 하면 그건 아니고, 이 양반이 글을 쓰는 방식이 매우 좋았다. </p>
+<p>매우 쉽고, 조금 어려워 지는가 싶으면 다시 개념을 짚어준다. </p>
+<p>계속 ‘그래, 글은 이렇게 써야 해’ 외치면서 봤다.</p>
+<p>넷플릭스의 변화와 시도를 읽는 재미도 있어서 매우 추천하고 싶은 글이다.</p>
+<p>한동안 영어로 된 글을 거의 접하지 않았기 때문에 다 읽고 한결 더 뿌듯했다.</p>
+<p>지금은 <a href="https://www.theverge.com/2018/1/4/16805216/google-chrome-only-sites-internet-explorer-6-web-standards" target="_blank" rel="external">Chrome is turning into the new Internet Explorer 6</a> 이런 글을 읽는 중.</p>
+<h2 id="유사과학-탐구영역"><a href="#유사과학-탐구영역" class="headerlink" title="유사과학 탐구영역"></a>유사과학 탐구영역</h2><p><a href="http://webtoon.daum.net/webtoon/view/PseudoScience" target="_blank" rel="external">http://webtoon.daum.net/webtoon/view/PseudoScience</a></p>
+<p>문과 vs 이과를 다루는 농담처럼 좀 촌스럽거나 이과 부심을 부리는 장면도 보인다만</p>
+<p>이과 입장에서야 속이 후련한 좋은 시도라고 생각한다.</p>
+<p>(알쓸신잡에서 다루는 내용도 이렇게 좀 짚어주면 좋겠다는 생각을…)</p>
+<p>여기서 말하는 것 역시도 틀린 얘기일 수 있는데, 이럴 때는 댓글을 보면 된다. 진지한 사람들 엄청 출동해 계신다.</p>
+<h2 id="ECMAScript와-TC39"><a href="#ECMAScript와-TC39" class="headerlink" title="ECMAScript와 TC39"></a>ECMAScript와 TC39</h2><p><a href="http://ahnheejong.name/articles/ecmascript-tc39/" target="_blank" rel="external">http://ahnheejong.name/articles/ecmascript-tc39/</a></p>
+<p>예전에 맹선생님이 <a href="https://www.facebook.com/groups/jslounge/permalink/1715095665177600/" target="_blank" rel="external">페북 그룹에 쓰신 글</a>에서 stage에 대해 언급하셨는데,</p>
+<p>대충만 알고 있다가 이제 그 의미를 제대로 이해할 수 있게 됐다.</p>
+<h2 id="질문해도-되나요"><a href="#질문해도-되나요" class="headerlink" title="질문해도 되나요?"></a>질문해도 되나요?</h2><p><a href="https://brunch.co.kr/@hyungsukkim/7" target="_blank" rel="external">https://brunch.co.kr/@hyungsukkim/7</a></p>
+<p>(저작권을 보호하기 위해 복사하기를 막은) 브런치에 올라온 글이다.</p>
+<p>페이스북에서 진행되는 Mark’s Q&amp;A에 대한 글이고,</p>
+<p>배민에서도 진행하는 것으로 알고 있다. 링크를 못 찾겠네.</p>
+<p>나를 포함 우리나라 사람들이 질문을 참 못하는 경향이 있는데, 배민에서의 시도는 조금 더 한국적이라는 생각도 든다.</p>
+<p>아무런 질문이나 해보는 경험으로 신뢰를 쌓고 의사소통으로 이어지고…</p>
+<p>조직에서 질문을 못하는 이유는 부끄러움도 있을 수 있는데 상대방을 신뢰하지 않아서 생기기도 한다. 아마 그 상대는 보통 ‘윗 사람’ 혹은 기득권자겠고.</p>
+<p>페이스북이든 배민이든 내부에는 ‘저래 봤자 지들 하고 싶은대로 하겠지’라고 생각하는 사람은 많을 것 같다만,</p>
+<p>좋은 시도라고 생각한다.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;얼마전 &lt;a href=&quot;http://news.inews24.com/php/news_view.php?g_serial=1070038&amp;amp;g_menu=020200&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;가비아 DNS 장애&lt;/a&gt;가
+    
+    </summary>
+    
+    
+      <category term="news" scheme="http://haah.kr/tags/news/"/>
+    
+      <category term="archive" scheme="http://haah.kr/tags/archive/"/>
+    
+      <category term="뉴스아카이브" scheme="http://haah.kr/tags/%EB%89%B4%EC%8A%A4%EC%95%84%EC%B9%B4%EC%9D%B4%EB%B8%8C/"/>
+    
+  </entry>
   
   <entry>
     <title>2017년 회고</title>
@@ -1741,215 +1817,6 @@ Accept-Language: ko-KR,ko;q=0.8,en-US;q=0.6,en;q=0.4
       <category term="독후감" scheme="http://haah.kr/tags/%EB%8F%85%ED%9B%84%EA%B0%90/"/>
     
       <category term="과학" scheme="http://haah.kr/tags/%EA%B3%BC%ED%95%99/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>모호한 앰퍼샌드(&amp;, ampersand)</title>
-    <link href="http://haah.kr/2017/09/08/ambiguous-ampersands/"/>
-    <id>http://haah.kr/2017/09/08/ambiguous-ampersands/</id>
-    <published>2017-09-07T15:46:22.000Z</published>
-    <updated>2017-09-11T13:03:58.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Update: ‘<a href="https://mathiasbynens.be/notes/ambiguous-ampersands" target="_blank" rel="external">모호한 앰퍼샌드</a>‘ 원작자에게 허락을 구해 해당 글의 번역본을 추가함. </p>
-<hr>
-<p>개발하면서 누구나 한번쯤은 궁금해하지만, 아무도 정확히 알려주지 않는 모호한 앰퍼샌드에 대해 얕게 한번 파보았습니다.</p>
-<h2 id="현상"><a href="#현상" class="headerlink" title="현상"></a>현상</h2><p>공고 관리자 페이지에서 reg_mem_type이라는 변수를 검색할 수 있는 옵션을 추가했더니, 페이징 영역을 클릭하면 계속 오류가 발생했다.</p>
-<p>®이라는 특수문자가 전송되는 것을 보고 페이징쪽 소스를 보니</p>
-<p>소스보기로는 이상이 없어보이나 개발자도구로는 ®가 찍히는 것을 확인.</p>
-<h2 id="원인"><a href="#원인" class="headerlink" title="원인"></a>원인</h2><p>일부 html entity는 세미콜론이 없어도 전환이 가능하다는 것을 알게 됐다.</p>
-<p>예를 들어,<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;a href=&quot;test?test=test&amp;reg=aa&amp;region=bb&amp;reg_ion=cc&quot;&gt;</div><div class="line">    test?test=test&amp;reg=aa&amp;region=bb&amp;reg_ion=cc</div><div class="line">&lt;/a&gt;</div></pre></td></tr></table></figure></p>
-<p>와 같은 태그는 화면에는</p>
-<p><code>test?test=test®=aa®ion=bb®_ion=cc</code></p>
-<p>처럼 보이고, 개발자 도구에서 보면</p>
-<p><code>test?test=test&amp;reg=aa&amp;region=bb®_ion=cc</code></p>
-<p>처럼 보인다.</p>
-<p>이는 화면에 보여줄 때는 &amp;reg가 세미콜론이 없어도 마크로 변환해줄 수 있기 때문이며,</p>
-<p>이게 attribute의 값으로 들어갈 때는 변환이 되지 않는다.</p>
-<p>다만, &amp;reg_ion 처럼 &amp;reg 다음에 특수문자나 공백 등이 올 경우, 이는 ®마크로 변환이 된다.</p>
-<h2 id="세미콜론-없어도-변환해주는-경우"><a href="#세미콜론-없어도-변환해주는-경우" class="headerlink" title="세미콜론 없어도 변환해주는 경우"></a>세미콜론 없어도 변환해주는 경우</h2><p>세미콜론이 없어도 마크로 변환해주는 경우가 어디에 정의되어 있는지를 잘 모르겠다.</p>
-<p>이런 현상에 관한 질문을 좀 찾아봤다.</p>
-<p><a href="https://stackoverflow.com/questions/15532252/why-is-reg-being-rendered-as-without-the-bounding-semicolon" target="_blank" rel="external">https://stackoverflow.com/questions/15532252/why-is-reg-being-rendered-as-without-the-bounding-semicolon</a></p>
-<p>여기서는 <a href="https://html.spec.whatwg.org/multipage/named-characters.html#named-character-references" target="_blank" rel="external">named-character-references</a>를 예로 들며, 세미콜론이 없어도 되는 문자 참조를 아래와 같이 정의한다.</p>
-<blockquote>
-<p>AElig, AMP, Aacute, Acirc, Agrave, Aring, Atilde, Auml, COPY, Ccedil, ETH, Eacute, Ecirc, Egrave, Euml, GT, Iacute, Icirc, Igrave, Iuml, LT, Ntilde, Oacute, Ocirc, Ograve, Oslash, Otilde, Ouml, QUOT, REG, THORN, Uacute, Ucirc, Ugrave, Uuml, Yacute, aacute, acirc, acute, aelig, agrave, amp, aring, atilde, auml, brvbar, ccedil, cedil, cent, copy, curren, deg, divide, eacute, ecirc, egrave, eth, euml, frac12, frac14, frac34, gt, iacute, icirc, iexcl, igrave, iquest, iuml, laquo, lt, macr, micro, middot, nbsp, not, ntilde, oacute, ocirc, ograve, ordf, ordm, oslash, otilde, ouml, para, plusmn, pound, quot, raquo, reg, sect, shy, sup1, sup2, sup3, szlig, thorn, times, uacute, ucirc, ugrave, uml, uuml, yacute, yen, yuml</p>
-</blockquote>
-<p>그런데 위에 언급한 named-character-references에서의 리스트와는 꽤 다르다.</p>
-<p>예를 들어, 이 references에서 정의된 ycirc는 &amp;ycirc_라고 해도 attribute에서 변환되지 않는다.</p>
-<p>아직 브라우저가 구현을 안 한 것인지, HTML4 버전 때 정의된 것 만 세미콜론으로 안 끝나도 되는지는 잘 모르겠다.</p>
-<p>아직 정확한 근거를 못 찾았는데, 누가 좀 알려줬으면 좋겠다.</p>
-<p>정 궁금하면 더 찾아봤을텐데, 정확한 리스트를 안다고 달라질 게 없기 때문에 해결책으로 넘어간다.</p>
-<h2 id="해결-in-PHP"><a href="#해결-in-PHP" class="headerlink" title="해결 in PHP"></a>해결 in PHP</h2><p>페이징 링크에 들어가는 부분</p>
-<p>$queryString = ‘&amp;’ . http_build_query($params, ‘’, ‘&amp;’) ;</p>
-<p>와 같은 소스를</p>
-<p>$queryString = ‘&amp;’ . http_build_query($params, ‘’, ‘&amp;amp;’) ;</p>
-<p>이와 같이 &amp;만을 escape 처리함.</p>
-<h1 id="모호한-앰퍼샌드"><a href="#모호한-앰퍼샌드" class="headerlink" title="모호한 앰퍼샌드"></a>모호한 앰퍼샌드</h1><p>아래는 이 현상을 제대로 이해하기 위해 모호한 앰퍼샌드에 관한 글을 번역한 것이다.</p>
-<p>원문 : <a href="https://mathiasbynens.be/notes/ambiguous-ampersands" target="_blank" rel="external">https://mathiasbynens.be/notes/ambiguous-ampersands</a></p>
-<p>각 용어는 아래와 같이 번역함(<a href="http://www.clearboth.org/" target="_blank" rel="external">clearboth</a>에서 번역한 문서 참고해서 맞춤)</p>
-<ul>
-<li>Ambiguous : 모호한<ul>
-<li>모호한이라는 뜻으로 주로 쓰이는 것 같고, 여러 뜻으로 해석할 수 있는..이라는 의미도 될 수 있음</li>
-</ul>
-</li>
-<li>named character : 명명된 문자 </li>
-</ul>
-<h2 id="Character-references-in-HTML"><a href="#Character-references-in-HTML" class="headerlink" title="Character references in HTML"></a>Character references in HTML</h2><p>HTML안에서의 문자 참조</p>
-<blockquote>
-<p>Before explaining what ambiguous ampersands are, let’s talk about character references.</p>
-</blockquote>
-<p>모호한 앰퍼샌드가 뭔지 설명하기 전에 문자 참조에 대해 이야기 해보자</p>
-<blockquote>
-<p>There are different kinds of character references. The HTML 4.01 spec divides them in two groups, but really there are three:</p>
-</blockquote>
-<p>문자 참조에는 여러가지 종류가 있다. HTML4.01 스펙에는 두 개의 그룹으로 나누었지만, 사실 세가지가 있다.</p>
-<ul>
-<li>decimal numeric character references, e.g. &amp;#169;<ul>
-<li>정수 문자 참조</li>
-</ul>
-</li>
-<li>hexadecimal numeric character references, e.g. &amp;#xA9;<ul>
-<li>16진수 문자 참조</li>
-</ul>
-</li>
-<li>named character references, e.g. &amp;copy;<ul>
-<li>명명된 문자 참조</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>Character references should always start with a U+0026 AMPERSAND character (&amp;) and end with a U+003B SEMICOLON character (;).</p>
-</blockquote>
-<p>문자 참조는 &amp;로 시작하고 ;로 끝나야 한다.</p>
-<blockquote>
-<p>Fun fact: the list of named character references in the HTML spec includes &amp;amp; and &amp;AMP;, but also &amp;amp and &amp;AMP (without the trailing semicolon). The same goes for a few other entities. This is done for backwards-compatibility reasons. This way, the spec dictates that foo &amp;amp bar should be rendered as “foo &amp; bar”, even though it’s invalid markup (because of the missing trailing semicolon). More on this in a minute…</p>
-</blockquote>
-<p>재밌는 사실은: HTML 스펙에서 명명된 문자 참조는 &amp;amp;와 &amp;AMP;를 포함하는데, 세미콜론(;)이 뒤에 붙지 않은 &amp;amp와 &amp;AMP도 있다는 것이다. 다른 일부 엔티티도 마찬가지이다. 이건 하위 호환성을 때문에 이렇게 됐다. 이 방식으로, (세미콜론이 빠져있으면) 유효하지 않은 마크업임에도 불구하고, 스펙에선 “foo &amp;amp bar”를 “foo &amp; bar”로 랜더할 수 있게 지시하고 있다. 조금 이따가 다시 다루겠다.</p>
-<blockquote>
-<p>In this post, we’ll take a closer look at what happens if there’s an unencoded ampersand that’s not part of a character reference in your HTML code. Is it valid? Is it invalid? And what do “ambiguous ampersands” have to do with all this?</p>
-</blockquote>
-<p>이 포스트에선, HTML안에 지정된 문자 참조의 일부가 아니면서 인코드도 안 된 앰퍼샌드가 있을 때 어떤 일이 벌어지는 지 좀 더 자세히 살펴볼 것이다. 그게 유효한 문법인가? 아니면 유효하지 않은가? 모호한 앰퍼샌드는 이 모든 것과 어떤 관계가 있는가?</p>
-<h2 id="Unencoded-ampersands-in-HTML4"><a href="#Unencoded-ampersands-in-HTML4" class="headerlink" title="Unencoded ampersands in HTML4"></a>Unencoded ampersands in HTML4</h2><p>인코딩되지 않은 앰퍼샌드</p>
-<blockquote>
-<p>The HTML 4.01 spec mentions this:</p>
-</blockquote>
-<p>HTML 4.01 스펙에서 이를 언급하기를:</p>
-<blockquote>
-<p>The URI that is constructed when a form is submitted may be used as an anchor-style link (e.g., the href attribute for the &lt;a&gt; element). Unfortunately, the use of the &amp; character to separate form fields interacts with its use in SGML attribute values to delimit character entity references. For example, to use the URI http&colon;//host/?x=1&amp;y=2 as a linking URI, it must be written as &lt;a href=”http&colon;//host/?x=1&amp;#38;y=2”&gt; or &lt;a href=”http&colon;//host/?x=1&amp;amp;y=2”&gt;.</p>
-</blockquote>
-<p>Form 전송 시 만들어지는 URI는 anchor 스타일 링크(예를 들어 a 엘리먼트의 href attribute)를 사용하게 된다. 불행히도, 폼 필드를 구분지으려고 &amp;를 사용하는 것은, 문자 엔티티 참조를 위한 SGML(역주: HTML, XML등의 부모뻘 되는 언어) attribute 안에서 사용하는 것과 상호작용을 하게된다. 예를 들어, 링크를 위한 http&colon;//host/?x=1&amp;y=2 이라는 URI는, 반드시 &lt;a href=”http&colon;//host/?x=1&amp;#38;y=2”&gt;  혹은 &lt;a href=”http&colon;//host/?x=1&amp;amp;y=2”&gt; 으로 쓰여야 한다.</p>
-<blockquote>
-<p>This means you can’t just copy-paste URLs into your HTML4 document if you want it to be valid — you’ll have to encode any ampersand characters first.</p>
-</blockquote>
-<p>이 말은 당신이 HTML4 문서에 URL을 단순히 복사-붙여넣기를 해서만은 유효하진 않을 거라는 의미이다 - 앰퍼샌드를 인코딩 해야할 거다.</p>
-<h2 id="Ambiguous-ampersands-in-HTML5"><a href="#Ambiguous-ampersands-in-HTML5" class="headerlink" title="Ambiguous ampersands in HTML5"></a>Ambiguous ampersands in HTML5</h2><p>HTML5에서의 모호한 앰퍼샌드</p>
-<blockquote>
-<p>In HTML5, the first definition for ambiguous ampersands was added:</p>
-</blockquote>
-<p>HTML5에서 모호한 ampersand에 대한 정의가 처음으로 추가됐다.</p>
-<blockquote>
-<p>An ambiguous ampersand is a U+0026 AMPERSAND (&amp;) character that is not the last character in the file, that is not followed by a space character, that is not followed by a start tag that has not been omitted, and that is not followed by another U+0026 AMPERSAND (&amp;) character.</p>
-</blockquote>
-<p>모호한 앰퍼샌드는 파일의 마지막 문자가 아니며, 공백 문자가 뒤이어 나오지 않고, 생략되지 않은 시작 태그가 뒤에 오지 않고 다른 앰퍼샌드 문자가 뒤따르지 않는다.</p>
-<blockquote>
-<p>Ambiguous ampersands are non-conforming (invalid); unambiguous ampersands are generally conforming (valid). (As mentioned before: ampersands that are part of a named character reference that doesn’t end with a semicolon are unambiguous, but still invalid.)</p>
-</blockquote>
-<p>모호한 앰퍼샌드는 …(역주: 번역하기 어려워 생략)…(이전에 언급한 것처럼: 세미콜론으로 끝나지 않는 명명된 문자 참조의 일부로써 앰퍼샌드는 모호하진 않지만, 아직 유효하진 않다.</p>
-<blockquote>
-<p>In other words, if an unencoded ampersand is followed by EOF, a space character, &lt;, or &amp;, it’s perfectly valid.</p>
-</blockquote>
-<p>다시 말해, 인코드 안 된 앰퍼샌드 뒤로 EOF, 공백문자, &lt;, &amp;가 있다면 이건 완전히 유효하다.</p>
-<blockquote>
-<p>According to this definition, the ampersands in this example are all ambiguous, and thus invalid:</p>
-</blockquote>
-<p>이 정의에 의하면, 아래 예시에서 모든 앰퍼샌드는 모호하고, 그러므로 유효하지 않다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;a href=&quot;https://example.com/?x=1&amp;y=2&quot;;&gt;foo&lt;/a&gt;</div><div class="line">&amp;123</div><div class="line">&amp;abc</div><div class="line">foo &amp;0 bar</div><div class="line">foo &amp;lolwat bar</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>However, this is valid HTML:</p>
-</blockquote>
-<p>그러나, 이건 또 유효한 HTML이다</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">foo &amp; bar</div><div class="line">foo&amp;&lt;i&gt;bar&lt;/i&gt;</div><div class="line">foo&amp;&amp;&amp; bar</div></pre></td></tr></table></figure>
-<blockquote>
-<p>Later the spec was changed, and the HTML spec now defines ambiguous ampersands as follows:</p>
-</blockquote>
-<p>나중에 스펙은 수정되고 현재 HTML 스펙은 아래와 같이 정의되어 있다.</p>
-<blockquote>
-<p>An ambiguous ampersand is a U+0026 AMPERSAND character (&amp;) that is followed by one or more characters in the range U+0030 DIGIT ZERO (0) to U+0039 DIGIT NINE (9), U+0061 LATIN SMALL LETTER A to U+007A LATIN SMALL LETTER Z, and U+0041 LATIN CAPITAL LETTER A to U+005A LATIN CAPITAL LETTER Z, followed by a U+003B SEMICOLON character (;), where these characters do not match any of the names given in the named character references section.</p>
-</blockquote>
-<p>모호한 앰퍼샌드는 하나 이상의 0~9 숫자, 대/소문자 라틴 문자와 세미콜론으로 이어지는 엠퍼샌드를 의미하고, 이 문자들은 명명된 문자 참조 영역에 있는 이름에 매칭되지 않는다.</p>
-<blockquote>
-<p>This definition is probably easier to grok as a regular expression: a string contains an ambiguous ampersand if it matches /&amp;([0-9a-zA-Z]+;)/ and if the first back-reference ($1) is not a known character reference.</p>
-</blockquote>
-<p>이 정의는 아마 정규식으로 더 이해하기 쉬울 것 같다. 앰퍼샌드가 포함된 문자열이 /&amp;([0-9a-zA-Z]+;)/ 에 매치되고, back-reference 된 값(역주: 정규식에서 괄호안에 매칭되는 값)이 알려진 문자 참조가 아니어야 한다.</p>
-<blockquote>
-<p>The ampersands in this example are all ambiguous, and thus invalid:</p>
-</blockquote>
-<p>아래 앰퍼샌드는 모두 모호하다. 따라서 유효한 문법이 아니다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&amp;123;</div><div class="line">&amp;abc;</div><div class="line">foo &amp;0; bar</div><div class="line">foo &amp;lolwat; bar</div></pre></td></tr></table></figure>
-<blockquote>
-<p>However, all these are unambiguous:</p>
-</blockquote>
-<p>그러나 아래는 모두 명확하다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">foo &amp; bar</div><div class="line">foo&amp;&lt;i&gt;bar&lt;/i&gt;</div><div class="line">foo&amp;&amp;&amp; bar</div></pre></td></tr></table></figure>
-<blockquote>
-<p>…even the ones that were invalid as per the old definition, are now valid:</p>
-</blockquote>
-<p>…예전의 정의로는 유효하진 않지만, 현재 유효한 것은:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;a href=&quot;http://example.com/?x=1&amp;y=2&quot;;&gt;foo&lt;/a&gt;</div><div class="line">&amp;123</div><div class="line">&amp;abc</div><div class="line">foo &amp;0 bar</div><div class="line">foo &amp;lolwat bar</div></pre></td></tr></table></figure>
-<blockquote>
-<p>With the new definition, this is perfectly valid HTML — even though no HTML validator I know of recognizes this yet.</p>
-</blockquote>
-<p>새로운 정의에 의해서는, 완벽하게 유효한 HTML이다 - HTML 유효성 검사기가 아직 이걸 모른다 하더라도 말이다.</p>
-<blockquote>
-<p>So we’ve established that not all ampersand characters require escaping in HTML. Semi-related fun fact: In most cases, there’s no need to escape the &gt; character either. It has no special meaning (and is thus unambiguous) unless it’s part of a tag or an unquoted attribute value. For example, &lt;p&gt;foo &gt; bar&lt;/p&gt; is perfectly valid and reliable HTML.</p>
-</blockquote>
-<p>이제 우리는 HTML안에서 모든 앰퍼샌드가 escape 될 필요는 없다는 게 확실해졌다. 크게 관련은 없지만 재밌는 사실은: &gt; 문자도 escape할 필요가 없다는 사실이다. 따옴표 없는 attribute값이나 태그의 일부가 아닌 이상 특수한 의미가 있지는 않다(모호하지 않음). 예를 들어, &lt;p&gt;foo &gt; bar&lt;/p&gt;는 완전히 유효하며 믿을만 한 HTML이다.</p>
-<h2 id="The-pedantic-nitty-gritty"><a href="#The-pedantic-nitty-gritty" class="headerlink" title="The pedantic nitty-gritty"></a>The pedantic nitty-gritty</h2><p>학술적인 핵심</p>
-<blockquote>
-<p>As mentioned before, some named character references work without a trailing semicolon (e.g. &amp;amp) even though it’s invalid markup. What complicates things even more is that these entities are handled differently in attribute values.</p>
-</blockquote>
-<p>말했지만, 일부 명명된 문자 참조는 세미콜론이 뒤에 붙지 않아도(그게 유효하지 않은 마크업 문법이라도) 동작한다. 이걸 더 복잡하게 만드는 건, 이 엔티티들이 attribute 값에서는 다르게 작동한다는 사실이다.</p>
-<blockquote>
-<p>If the character reference is being consumed as part of an attribute, and the last character matched is not a U+003B SEMICOLON character (;), and the next character is either a U+003D EQUALS SIGN character (=) or an alphanumeric ASCII character, then, for historical reasons, all the characters that were matched after the U+0026 AMPERSAND character (&amp;) must be unconsumed, and nothing is returned. However, if this next character is in fact a U+003D EQUALS SIGN character (=), then this is a parse error, because some legacy user agents will misinterpret the markup in those cases.</p>
-</blockquote>
-<p>만약 문자 참조가 attribute안에서 사용되고 세미콜론으로 끝나지 않으며 다음 글자가 =나 알파벳, 숫자일 경우, 관행적으로, &amp; 이후 매칭되는 모든 문자들은 처리되지 않고 아무것도 리턴되지 않는다. 그러나 이 ‘다음 문자’가 =이라면, parse error가 발생하는데, 오래된 user agent가 오역할 수 있기 때문이다.</p>
-<blockquote>
-<p>Take this (obviously invalid) HTML, for example:</p>
-</blockquote>
-<p>예를 들어, 명백히 유효하지 않은 다음 HTML을 보라</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;p title=&quot;foo&amp;ampbar&quot;&gt;</div><div class="line">foo&amp;ampbar</div><div class="line">&lt;/p&gt;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>Try it out in your browser. You’ll see that the paragraph’s text content displays as “foo&amp;bar”, while the titleattribute value is displayed as “foo&amp;ampbar”.</p>
-</blockquote>
-<p>네 브라우저에서 시도해봐라. 내용은 “foo&amp;bar”라고 나오지만, title attribute 값은 foo&amp;ampbar로 나올 것이다.</p>
-<h2 id="Mothereffing-ambiguous-ampersands"><a href="#Mothereffing-ambiguous-ampersands" class="headerlink" title="Mothereffing ambiguous ampersands"></a>Mothereffing ambiguous ampersands</h2><p>형편없는 모호한 앰퍼샌드</p>
-<blockquote>
-<p>To summarize: there’s a difference between unencoded ampersands (sometimes valid), ambiguous ampersands (always invalid) and encoded ampersands (always valid). An unencoded ampersand is not always an ambiguous ampersand. An unambiguous ampersand can still be invalid.</p>
-</blockquote>
-<p>요약하자면: 인코딩 안 된 앰퍼샌드(가끔 유효한), 모호한 앰퍼샌드(언제나 유효하지 않은), 그리고 인코딩된 앰퍼샌드(언제나 유효한) 사이에는 차이점이 있다. 인코딩이 안 된 앰퍼샌드가 항상 모호한 앰퍼샌드인 건 아니다. 모호하지 않은 앰퍼샌드도 여전히 유효하지 않을 수 있다.</p>
-<blockquote>
-<p>In my opinion, this is all a bit confusing. But it doesn’t have to be! When in doubt, just encode your effin’ ampersands.</p>
-</blockquote>
-<p>내 생각에, 이것들은 좀 헷갈린다. 하지만 그럴 필요는 없다! 의심스러우면, 망할 앰퍼샌드를 인코딩해라.</p>
-<blockquote>
-<p>That said, if you want to find out if an HTML snippet contains any ambiguous ampersands or character references that don’t end with a semicolon (both of which are invalid), feel free to use mothereff.in/ampersands.</p>
-</blockquote>
-<p>즉, HTML 스니펫에 모호한 앰퍼샌드나 세미콜론 (세미콜론으로 끝나지 않는 문자 참조)이 모두 포함되어 있는지 알아 보려면 (둘 다 유효하지 않음) mothereff.in/ampersands를 자유롭게 사용하기 바란다.</p>
-<p><img src="https://mathiasbynens.be/_img/ambiguous-ampersands/tool@2x.png" alt="Ambiguous ampersand checker for HTML"></p>
-<blockquote>
-<p>Note that this is not a complete HTML validator; it will only look for ambiguous ampersands and semicolon-free character references. (Hopefully, bug #841 will be fixed soon, so we can just rely on validator.nu instead.)<br>Understanding what ambiguous ampersands are and how they work is especially important for library authors wishing to deal with HTML entities. Not accounting for these edge cases might result in XSS or other security vulnerabilities in your code.</p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Update: ‘&lt;a href=&quot;https://mathiasbynens.be/notes/ambiguous-ampersands&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;모호한 앰퍼샌드&lt;/a&gt;‘ 원작자에게 허락을 구해 해당 글의 번역
-    
-    </summary>
-    
-    
-      <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
-    
-      <category term="HTML" scheme="http://haah.kr/tags/HTML/"/>
     
   </entry>
   
