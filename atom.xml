@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://haah.kr/"/>
-  <updated>2018-01-07T23:32:38.552Z</updated>
+  <updated>2018-02-10T02:54:33.906Z</updated>
   <id>http://haah.kr/</id>
   
   <author>
@@ -14,6 +14,77 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>뉴스 아카이브 2018-02-10</title>
+    <link href="http://haah.kr/2018/02/10/news-archive-2018-02-10/"/>
+    <id>http://haah.kr/2018/02/10/news-archive-2018-02-10/</id>
+    <published>2018-02-10T01:06:20.000Z</published>
+    <updated>2018-02-10T02:54:33.906Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="자바스크립트의-동작원리-엔진-런타임-호출-스택"><a href="#자바스크립트의-동작원리-엔진-런타임-호출-스택" class="headerlink" title="자바스크립트의 동작원리: 엔진, 런타임, 호출 스택"></a>자바스크립트의 동작원리: 엔진, 런타임, 호출 스택</h2><p><a href="https://joshua1988.github.io/web-development/translation/javascript/how-js-works-inside-engine/" target="_blank" rel="external">https://joshua1988.github.io/web-development/translation/javascript/how-js-works-inside-engine/</a></p>
+<p>매번 봐도 또 매번 까먹거나 입으로 설명이 안 튀어나오는 자바스크립트의 호출 스택 </p>
+<p><a href="http://sculove.github.io/blog/2018/01/18/javascriptflow/" target="_blank" rel="external">자바스크립트 비동기 처리 과정과 RxJS Scheduler</a>라는 글에서도 비슷한 내용을 다루는데 둘 다 이해하기 쉽게 쓰여 있다.</p>
+<h2 id="Mac-Work-맥을-기반으로-한-업무-10년-경험의-추천-앱-모음"><a href="#Mac-Work-맥을-기반으로-한-업무-10년-경험의-추천-앱-모음" class="headerlink" title="Mac@Work 맥을 기반으로 한 업무 10년 경험의 추천 앱 모음"></a>Mac@Work 맥을 기반으로 한 업무 10년 경험의 추천 앱 모음</h2><p>업무에서 Mac을 본격적으로 다루기 시작한 지 이제 막 한달이 됐다.</p>
+<p>수년 동안 Mac을 사용한 사람들의 노하우는 항상 궁금한데, 꽤 과하다 싶을 정도로 많이 쓰고 계신 분의 글을 오래오래 들춰보고자 저장.</p>
+<p>윈도우는 킬러앱이 고만고만한 편인데, 맥은 너무 다양해서 둘러보는 데도 지친다.</p>
+<p>난 일단 버티고 버티다가 생산성 안 나오면 앱을 찾는 편인데,</p>
+<p>최근에는 결국 뽀모도로앱 <a href="https://itunes.apple.com/kr/app/just-focus/id1142151959?mt=12" target="_blank" rel="external">Just Focus</a>과 달력 앱 <a href="http://macnews.tistory.com/3023" target="_blank" rel="external">Itsycal</a>을 설치했다.</p>
+<p>이제 화면 분할 앱을 찾고 있는데, 단축키 충돌로 잘 안 쓰게 됐던 <a href="https://www.educloud.co.kr/archives/21230" target="_blank" rel="external">Spectacle</a>을 다시 깔아야 고민 중.</p>
+<p>물론 당분간 <a href="http://macnews.tistory.com/3860" target="_blank" rel="external">스플릿 뷰(Split View)</a>로 버틸 수 있을 것 같기도.</p>
+<p>이외에도 무료 앱 소개 페이지는 엄청 많고 세상은 넓고 앱은 많다.</p>
+<p><a href="http://macnews.tistory.com/4267" target="_blank" rel="external">국내 맥 사용자에게 추천하는 무료 앱 12선</a></p>
+<h2 id="복잡한-기술-스택이-경영진에게-주는-시사점"><a href="#복잡한-기술-스택이-경영진에게-주는-시사점" class="headerlink" title="복잡한 기술 스택이 경영진에게 주는 시사점"></a>복잡한 기술 스택이 경영진에게 주는 시사점</h2><p><a href="http://www.popit.kr/복잡한-기술-스택이-경영진에게-주는-시사점/" target="_blank" rel="external">http://www.popit.kr/복잡한-기술-스택이-경영진에게-주는-시사점/</a></p>
+<p>만약 복잡한 기술 스택이 굳이 필요하다면 말이지만.</p>
+<p>기술 분야는 노인 경영인에게 절대적으로 불리하다는 생각도 든다. 노인 폄하인가? 꼰대라는 용어가 적당할 지도.</p>
+<p>성공의 의미를 떠나 회사가 돈을 버느냐는 또 기술과는 별개인 경우가 많지만,</p>
+<p>아무래도 비용 면에서 이놈의 기술 스택은 부담이 많이 된다. 하드웨어/소프트웨어/인건비 등등.</p>
+<p>경영인이 기술 스택을 이해하기는 어렵기도 하고 결국 약은 약사에게 기술은 CTO에게.</p>
+<p><a href="http://www.mimul.com/pebble/default/2018/01/23/1516704882980.html" target="_blank" rel="external">CTO는 무슨 일을 하나?</a>라는 글에서는 (좀 많이 큰 회사의 CTO의 역할을 이야기 하는 것 같지만) CEO와 기술자 사이에서 어떤 역할을 해야하는지 잘 나와있다.</p>
+<p>그런 역할을 잘 할 수 있는 CTO를 구하기는 너무나 어렵다는 걸 잘 알고 있고,</p>
+<p>그렇다고 내가 저런 CTO의 역할을 할 수 있을 거라 생각도 안 하지만 그 고생을 하며 더 얻고 싶은 것도 없어서,</p>
+<p>큰 욕심 안 부리고 평직원으로 오래오래 살아야 겠다.   </p>
+<h2 id="케이스-접근법에-대하여"><a href="#케이스-접근법에-대하여" class="headerlink" title="케이스 접근법에 대하여"></a>케이스 접근법에 대하여</h2><p><a href="http://seoworld.net/wp/?p=3085" target="_blank" rel="external">http://seoworld.net/wp/?p=3085</a></p>
+<p>새로 옮긴 회사는 태초부터 미국물이 섞인 회사라서 그런지 어떤 회의나 세미나에서도 질문이나 자기 의견을 거침없이 말하는 경우가 흔하다. 외국 생활을 한 사람일 수록.</p>
+<p>나는 질문이나 의견 내는 것에 심리적인 거부감이 (한국인 치고는) 덜한 편인데,</p>
+<p>남들의 의견을 들으면서 동시에 질문이 막 샘솟지는 않는다. 특히 세미나 발표를 들으면 막 몰입해서 듣지 이건 왜 이럴까 저건 왜 저럴까 궁금하지 않다가 질문 시간이 끝나면 하나 둘씩 궁금한 게 생기기도.</p>
+<p>영화를 볼 때도 어지간한 반전에는 다 놀랄 정도로 남들이 전해주는 흐름에 흠뻑 빠지는 편이기도 하다.</p>
+<p>어쩌면 정보를 메모리에 올리고 정리하는 시간이 늦는 것 같기도 하고.</p>
+<p>독서토론회 같은 데를 가면 좀 나아지려나? 회사일에 어느정도 익숙해지면 꼭 참여해보고 싶다.</p>
+<h2 id="가독성-높은-글을-쓰는-노하우"><a href="#가독성-높은-글을-쓰는-노하우" class="headerlink" title="가독성 높은 글을 쓰는 노하우"></a>가독성 높은 글을 쓰는 노하우</h2><p><a href="https://steemit.com/writing/@pelexus/6462nh" target="_blank" rel="external">https://steemit.com/writing/@pelexus/6462nh</a></p>
+<p>공감이 많이 된다. 이 분의 글쓰기 원칙은 SRP을 비롯 클린 아키텍쳐를 지향하고 있…</p>
+<h2 id="프런트엔드-개발자가-되고-싶지-않았던-프런트엔드-개발자의-이직기"><a href="#프런트엔드-개발자가-되고-싶지-않았던-프런트엔드-개발자의-이직기" class="headerlink" title="프런트엔드 개발자가 되고 싶지 않았던 프런트엔드 개발자의 이직기"></a>프런트엔드 개발자가 되고 싶지 않았던 프런트엔드 개발자의 이직기</h2><p><a href="https://milooy.wordpress.com/2018/02/07/moving-job/" target="_blank" rel="external">https://milooy.wordpress.com/2018/02/07/moving-job/</a></p>
+<p>이 양반이 대단한 개발자는 ‘아직’ 아니겠지만, 꽤 좋은 작가인 것 같다.</p>
+<p>내가 많은 여성 작가들에게 느끼는 건데, 섬세하고 감성적인데 친절하고 자기 주관이 있는 글을 쓰신다. 그러니까 ‘여성 작가’ 느낌이다.</p>
+<p>여혐 논란이 있을 순 있겠지만, 굳이 여성을 언급한 것은…이 느낌은 정말 남성 작가에게는 발견되지 않는 것 같다. 게이 작가라면 모르겠다. 어쨌든 마초성 0%의 글이라고 하는 게 좋을 지도.</p>
+<p>내가 문학이랑은 담을 쌓았기 때문에 글의 예술성은 모르겠고, 기능적으로 참 좋다는 생각이다.</p>
+<p>이 분의 글이나 발표는 항상 타이밍도 좋고 자신을 낮추면서 자랑도 잘하고 공감도 잘 된다. </p>
+<p>이 분의 업계 포지션(?)이 성장 가능성이 큰 풋풋한 어린 개발자라고 생각하는데, 아이유가 갖고 있었던 그런 느낌이랄까. 감히 ‘IT계의 아이유’ 따위의 자극적인 표현을 쓰려는 건 아니고, 참 테크를 잘 타고 있다 정도로. </p>
+<p>아무튼 저기 나온 회사들 반 정도는 알 것 같은데, 선망의 대상이 되는 회사(재벌의 소유물이 아닌)가 꾸준히 느는 것 같아서 기분이 좋다.</p>
+<p>대기업 다니는 친구들을 만나고 오면 더욱 여실히 느낀다. </p>
+<h2 id="왜-카카오뱅크에-주목하는가-1-2"><a href="#왜-카카오뱅크에-주목하는가-1-2" class="headerlink" title="왜 카카오뱅크에 주목하는가 (1/2)"></a>왜 카카오뱅크에 주목하는가 (1/2)</h2><p><a href="https://brunch.co.kr/@usdlab/13" target="_blank" rel="external">https://brunch.co.kr/@usdlab/13</a></p>
+<p>왜냐면 비교 대상이 엉망이라서…라고 생각도 하지만 카카오뱅크는 꽤 공을 들인 느낌도 많이 든다.</p>
+<p>퇴직금도 들어왔으니 올해는 카카오뱅크와 토스를 입출금 외에도 조금 써볼까.</p>
+<h2 id="오렌지-주스-테스트"><a href="#오렌지-주스-테스트" class="headerlink" title="오렌지 주스 테스트"></a>오렌지 주스 테스트</h2><p><a href="https://johngrib.github.io/wiki/orange-juice-test/" target="_blank" rel="external">https://johngrib.github.io/wiki/orange-juice-test/</a></p>
+<p>남에게 요구하면 완전 개꼰대. 스스로에게는 독촉해야할 문제라고 생각. 생각은 해도 쉽지 않은 문제.</p>
+<h2 id="DDD"><a href="#DDD" class="headerlink" title="DDD"></a>DDD</h2><p>최근 DDD 관련 저장해 놓았던 링크들..인데 읽지 않음</p>
+<p><a href="https://www.facebook.com/fupfin.geek/posts/688083858247267" target="_blank" rel="external">Learning DDD as a Team을 소개한 포스트</a><br><a href="https://www.facebook.com/gyuwon.yi/posts/1667316739978209" target="_blank" rel="external">Eric Evans의 DDD와 Microservices에 대한 발표를 소개한 포스트</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;자바스크립트의-동작원리-엔진-런타임-호출-스택&quot;&gt;&lt;a href=&quot;#자바스크립트의-동작원리-엔진-런타임-호출-스택&quot; class=&quot;headerlink&quot; title=&quot;자바스크립트의 동작원리: 엔진, 런타임, 호출 스택&quot;&gt;&lt;/a&gt;자바스크립트의 
+    
+    </summary>
+    
+    
+      <category term="news" scheme="http://haah.kr/tags/news/"/>
+    
+      <category term="archive" scheme="http://haah.kr/tags/archive/"/>
+    
+      <category term="뉴스아카이브" scheme="http://haah.kr/tags/%EB%89%B4%EC%8A%A4%EC%95%84%EC%B9%B4%EC%9D%B4%EB%B8%8C/"/>
+    
+  </entry>
   
   <entry>
     <title>독후감 - 심플을 생각한다</title>
@@ -1776,59 +1847,6 @@ Accept-Language: ko-KR,ko;q=0.8,en-US;q=0.6,en;q=0.4
       <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
     
       <category term="Mac" scheme="http://haah.kr/tags/Mac/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>독후감 - 클린 소프트웨어</title>
-    <link href="http://haah.kr/2017/09/18/book-979-11-85890-85-2/"/>
-    <id>http://haah.kr/2017/09/18/book-979-11-85890-85-2/</id>
-    <published>2017-09-18T13:50:30.000Z</published>
-    <updated>2017-09-18T14:34:36.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="http://image.kyobobook.co.kr/images/book/large/852/l9791185890852.jpg" alt="클린 소프트웨어"></p>
-<p>이 책에 인쇄된 문자를 거의 다 읽긴 했으나,<br>내가 이 책을 읽었다고 할 수 있을까 생각이 드는 책이다.</p>
-<p>목차</p>
-<ul>
-<li>PART 1 애자일 개발 </li>
-<li>PART 2 애자일 설계</li>
-<li>PART 3 급여 관리 사례 연구</li>
-<li>PART 4 급여 관리 시스템 패키징</li>
-<li>PART 5 기상 관측기 사례 연구</li>
-<li>PART 6 ETS 사례 연구</li>
-<li>APPENDIX A UML 표기법 I: CGI 예제</li>
-<li>APPENDIX B UML 표기법 II: 스태트먹스</li>
-<li>APPENDIX C 두 기업에 대한 풍자</li>
-<li>APPENDIX D 소스 코드는 곧 설계다</li>
-</ul>
-<p>먼 나라 이야기라고 생각이 드는 PART 1에서 작은 고민을 얻어왔다면</p>
-<p>PART 2에서는 SOLID 원칙을 제대로 이해하기 위한 색다른 관점이 좋았고(그런데 10여 년 전에 출간된 이 책을 두고 색다르다고 해도 실례가 안 되려나).</p>
-<p>PART 3부터 익숙치 않은 C++ 문법과 더 익숙치 않은 UML 문법 때문에 눈이 뻑뻑해지기 시작했는데, 결국 부록의 UML 표기법을 먼저 보고올 수 밖에 없었다. 그런데 이 책을 읽는데 별로 도움 안되는 것 같고, 그냥 간단한 규칙 정도만 찾아보고 책을 한번 더 읽는 것이 좋겠다는 생각이 들었다. 아무래도 밥아저씨의 UML 책을 읽어야겠구나 싶을 정도로 UML로부터 설계를 해나가는 모습이 꽤 매력적으로 느껴졌다(현실은 시궁창일 걸 알면서 말이다). </p>
-<p>PART 4는 방금 늪에서 빠져나온 여우마냥 숨 좀 고를 수 있는 챕터였지만, PHP/JavaScript를 쓰는 상황에서 패키징에 대한 글을 읽자니 남일 같아서 마음이 편했다.</p>
-<p>PART 5에선 PART 3의 급여 관리 사례와 비슷한 포맷이긴 한데, 일단 급여 관리에서 빠져나와 새 인생을 시작한 기분이었으므로 나름 재미있게 읽었던 것 같다.</p>
-<p>PART 6도 완벽하게 이해는 못했지만 다시 읽으면 그럭저럭 이해는 될 것 같긴 하다.</p>
-<p>APPENDIX B는 전혀 모르겠고..</p>
-<p>APPENDIX C가 꽤 인상적이었다. 두 기업에 대한 풍자라고 하는데, 왼쪽엔 그지같은 기업, 오른쪽엔 이상적인 기업을 나란히 덧대어 놓았다. 그동안 왼쪽같은 문화에서만 살았고(그리고 아마 10월부터 또 겪어야 할텐데..), 오른쪽같은 문화를 꿈꾸지만 경험은 없는 상태. 이 책을 힘겹게 읽으면서 좀 지쳤는데, 이 부록을 읽으며 다시 전의가 불타올랐다(하지만 이제 곧 잘 시간). 조금이라도 시도해 보리라 다짐을 해봤다(현실은 시궁창일 걸 알면서 말이다).  </p>
-<p>APPENDIX D도 너무 좋았다. 10년 전에 쓴 이 책에 10년 전에 썼다는 글을 소개한 내용인데, 공학에서의 최종 결과물은 문서가 되어야 하고, 소프트웨어 공학에서의 문서라 함은 코드 자체라는 주장이다. 그냥 자기계발서 같은 글인가 싶었는데, 이 양반은 진심이었고 다 읽고 나선 진심 공감이 됐다.   </p>
-<h2 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h2><p>다시 읽어야 한다.</p>
-<p>읽기 시작하면서부터 몇 번을 다시 읽어야 할까 생각이 들었던 책이다. 지금 바로 다시 읽어야 이 책을 읽기나 했다고 어디가서 얘기라도 할텐데…</p>
-<p>내년에 다시 읽어보기로 했다. 누구 안 주고 책장에 잘 모셔두고 내년 초에 다시 읽어보겠다.</p>
-<p>실무에서 좀 더 부딪혀보고, 실습해보고, 다시 보면 이해하는 폭이 더 넓어지리라 생각이 든다(현실은 시궁창일 걸 알면서 말이다).</p>
-<h2 id="원몰띵"><a href="#원몰띵" class="headerlink" title="원몰띵"></a>원몰띵</h2><p>이런 책을 읽으면서 항상 느끼는 거지만…</p>
-<p>테스트가 주도하지 않고도 제대로된 소프트웨어를 만드는 게 가능이나 한가…뭐 그런 생각이 든다.</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://image.kyobobook.co.kr/images/book/large/852/l9791185890852.jpg&quot; alt=&quot;클린 소프트웨어&quot;&gt;&lt;/p&gt;
-&lt;p&gt;이 책에 인쇄된 문자를 거의 다 읽긴 했으나,&lt;br&gt;내가 이
-    
-    </summary>
-    
-    
-      <category term="설계" scheme="http://haah.kr/tags/%EC%84%A4%EA%B3%84/"/>
-    
-      <category term="객체지향" scheme="http://haah.kr/tags/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/"/>
     
   </entry>
   
