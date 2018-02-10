@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://haah.kr/"/>
-  <updated>2018-02-10T02:54:33.906Z</updated>
+  <updated>2018-02-10T03:12:40.110Z</updated>
   <id>http://haah.kr/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://haah.kr/2018/02/10/news-archive-2018-02-10/"/>
     <id>http://haah.kr/2018/02/10/news-archive-2018-02-10/</id>
     <published>2018-02-10T01:06:20.000Z</published>
-    <updated>2018-02-10T02:54:33.906Z</updated>
+    <updated>2018-02-10T03:12:40.110Z</updated>
     
     <content type="html"><![CDATA[<h2 id="자바스크립트의-동작원리-엔진-런타임-호출-스택"><a href="#자바스크립트의-동작원리-엔진-런타임-호출-스택" class="headerlink" title="자바스크립트의 동작원리: 엔진, 런타임, 호출 스택"></a>자바스크립트의 동작원리: 엔진, 런타임, 호출 스택</h2><p><a href="https://joshua1988.github.io/web-development/translation/javascript/how-js-works-inside-engine/" target="_blank" rel="external">https://joshua1988.github.io/web-development/translation/javascript/how-js-works-inside-engine/</a></p>
 <p>매번 봐도 또 매번 까먹거나 입으로 설명이 안 튀어나오는 자바스크립트의 호출 스택 </p>
@@ -69,6 +69,14 @@
 <p>남에게 요구하면 완전 개꼰대. 스스로에게는 독촉해야할 문제라고 생각. 생각은 해도 쉽지 않은 문제.</p>
 <h2 id="DDD"><a href="#DDD" class="headerlink" title="DDD"></a>DDD</h2><p>최근 DDD 관련 저장해 놓았던 링크들..인데 읽지 않음</p>
 <p><a href="https://www.facebook.com/fupfin.geek/posts/688083858247267" target="_blank" rel="external">Learning DDD as a Team을 소개한 포스트</a><br><a href="https://www.facebook.com/gyuwon.yi/posts/1667316739978209" target="_blank" rel="external">Eric Evans의 DDD와 Microservices에 대한 발표를 소개한 포스트</a></p>
+<h2 id="바지는-내리고-치마는-올리고"><a href="#바지는-내리고-치마는-올리고" class="headerlink" title="바지는 내리고! 치마는 올리고!"></a>바지는 내리고! 치마는 올리고!</h2><p><a href="http://deulpul.net/4146438" target="_blank" rel="external">http://deulpul.net/4146438</a></p>
+<blockquote>
+<p>분명한 것은 이러한 사회적 반성의 과정을 통해 인간 세상이 한 단계 업그레이드되고 있다는 점이다. 인류 역사가 진보의 과정이라는 것을 믿지 않는 사람이라도 이런 점을 부정하기는 어렵지 않을까.</p>
+</blockquote>
+<p>나는 죽을 때까지 건배사를 안한다 하더라도 한치의 아쉬움도 없다.</p>
+<p>여기서 언급된 건 건배사와 성희롱이 섞인 문제이고, 그 둘이 별개인 것처럼 보여도, 그 둘이 득세하게 된 건 결국 기득권의 가학적 취향 탓이라고 본다.</p>
+<p>아무 계획 없던 고등학생에서 어쩌다 IT 업계를 택하게 일하게 된 내 삶은 쉽진 않았지만 꽤 운이 좋았다는 생각이다.</p>
+<p>대기업 다니는 친구들을 만나고 오면 더욱 여실히 느낀다.</p>
 ]]></content>
     
     <summary type="html">
