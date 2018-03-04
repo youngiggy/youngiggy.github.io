@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://haah.kr/"/>
-  <updated>2018-02-10T03:12:40.110Z</updated>
+  <updated>2018-03-04T15:29:41.263Z</updated>
   <id>http://haah.kr/</id>
   
   <author>
@@ -16,11 +16,63 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>독후감 - 대량살상 수학무기</title>
+    <link href="http://haah.kr/2018/03/04/book-9788965962359-wmd/"/>
+    <id>http://haah.kr/2018/03/04/book-9788965962359-wmd/</id>
+    <published>2018-03-04T13:58:37.000Z</published>
+    <updated>2018-03-04T15:29:41.263Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>&lt;사피엔스&gt; 저자, 유발 하라리 강력 추천</p>
+</blockquote>
+<p>이라는 문구에 묻어가야 했던 안타까운 책.</p>
+<p><img src="http://image.kyobobook.co.kr/images/book/large/359/l9788965962359.jpg" alt="대량살상 수학무기"></p>
+<p>유능한 수학 박사이자 종신 교수로 지내다 현실 세계에 수학을 활용한다는 아이디어에 매료되어 헤지펀드 회사에서 퀀트로 지내다 금융계의 몰락(아직 정신 못차렸지만)을 체험하고 수학이 얼마나 파괴적으로 쓰일 수 있는지 충격도 받고 지금은 월가점거운동의 하위조직에서 알고리즘을 감사하고 위험성을 측정하는 기업에서 일하고 있다는 캐시 오닐의 책이다.</p>
+<p>꽤나 매력적인 좌파 선생님이다. 번역이 꽤나 깔끔해서 잘 읽히는 것도 있겠지만, 이 양반 글솜씨가 꽤 좋다.</p>
+<p>대량 살상 무기(weapons of mass destruction)를 비틀어 대량 살상 수학 무기(weapons of math destruction)라는 용어를 만들고 이를 대량 살상 무기와 같은 무게감을 느끼게 하기 위해서인지 그와 똑같은 축약어 WMD를 꾸준히 사용한다.</p>
+<p>WMD가 되기위한 최소 조건으로 불투명성, 확장성, 피해를 든다. WMD들은 어떤 조건으로 수학 모형을 만드는 지 알 길이 없고, 이를 통한 결정으로 발생한 득실을 따져보고 데이터를 조정하는 피드백 과정이 없다. 피해를 받은 사람은 여기서 끝나지 않고 이 데이터를 활용한 또 다른 파괴적 피드백 루프에 빨려 들어간다. 그리고 피해를 받는 것은 사회적 약자들부터.</p>
+<p>매우 합리적으로 보이는 빅데이터 기반의 판단/의사결정이 인간의 편견이 그대로 들어간 대리 데이터(직접적인 인과관계를 나타내는 데이터를 구할 수 없어 선택하는, 상관있어 보이는 다른 데이터)를 활용해 불투명하게 관리되고 확장해 나가는 모습을 교육/노동/치안/정치 등 다양한 방면에서 찾아 보여준다. 그리고 WMD들은 서로 데이터나 모형을 가져다 응용하기도.</p>
+<p>난 마치 다큐멘터리처럼 빅데이터도 모으는 사람, 분석하는 사람의 관점이 들어갔을 거라는 생각은 많이 해봤지만, 거기서 피해를 받는 사람을 이렇게 깊이 생각해보지는 않았던 것 같다.</p>
+<p>그리고 의외로 미국의 교육이나 노동 현실은 우리나라 못지 않게 비인간적이라는 생각도 든다. 우리나라만이 아니라 미국도 이미 약자들에게는 헬이다. 정말 우리나라와 많이 닮았다는 생각이 들었다. 거기다 이 분 남편이 집안일도 안 도와주는 것을 언급하는데, 아…이런 고향의 맛이라니.</p>
+<p>사실 중간이후로는 조금 지루하기도 했는데, 이 썩은 시스템이 너무 뻔한 수작을 부리고 있기 때문이다. 다 그렇게 약자부터 빨아먹고 약자부터 약자부터.</p>
+<h2 id="인적성검사"><a href="#인적성검사" class="headerlink" title="인적성검사"></a>인적성검사</h2><p>이중에 매우 가슴에 와닿은 한가지는 인적성검사인데, </p>
+<p>이직하기 전 회사에서 인적성검사를 구인 프로세스에 붙이는 일도 했었지만, 나는 인적성검사를 매우매우 싫어한다. 그 회사 들어갈 때도 검사를 봤는데, 긴장을 했는지 시간 계산을 잘못해서 완전 개판으로 쳐놨다. 아마 100점 만점에 30점 나왔던 것 같은데…<br>그럼에도 불구하고 날 뽑아다 써주신 건 감사한데, 회사 입장에서 그게 잘 한건지 아닌지는 잘 모르겠지만 내가 적어도 30점짜리 직원은 아니었던 건 확실하다.</p>
+<p>인적성검사를 만드는 회사를 보면 이런저런 연구진이 막 열심히 엄청 대단하게 만드는 것처럼 해놨는데, 누가 어떻게 만드는지도 모르겠고 그게 얼마나 효과가 있는지 오류가 정말 없는지 알 길이 없다. 인적성검사 자체는 그렇다치고 그게 업무에 도대체 무슨 연관이 있는지도 모르겠다. 검사를 개판으로 치고 들어왔는데 좋은 직원이거나 아니면 검사는 잘 봤는데 막상 들어와보니 그지같은 직원이었다면, 그 검사에 피드백을 줘야 하지않나? 하지만 그럴리가 없다. 그 검사는 회사 업무와는 전혀 상관없고 영업기밀이라 밝힐 수 없는 내부 알고리즘이며 한두 업체에 커스터마이징 해주기에는 단가도 너무 낮고 각 업체는 영세하다. (검사 결과를 이해하는 인사팀 내부 정책에 피드백을 줄 수 있긴 하다)</p>
+<p>나도 가끔 면접에 들어갈 때 인적성검사 표를 들고 가는데, 뭔가 그 사람이 마음에 안들면 괜히 인적성검사에서도 안 좋게 나온 부분을 찾기도 했다. 이건 뭐랄까 혈액형 심리테스트에서 맞아맞아 이건 내 이야기야라고 생각하는 심리 같기도. 요즘 추세는 인적성검사가 등수를 나누는 게 아니고 성향 분석을 해주는 것이라고는 하지만, 어차피 각 기업에서는 그걸로 등수를 만들어주기를 원한다. 난 쓰레기만 걸러내면 좋아요 같은 느낌이랄까, 혹은 이왕이면 다홍치마랄까.</p>
+<p>결국 제대로된 인사팀이라면 인적성검사로는 충분한 해답을 못 얻는 게 정상이고, 그냥 참고하는 용도로만 받거나 데이터를 쌓아 나중에는 인적성검사 결과를 활용할 수도 있을 거라는 희망을 갖는 수준일 것이다. 과연 도움이 될까 모르겠지만 말이다. 어쩌면 매년 절에서 부적 하나씩 받아오는 어머님 심정으로 인적성검사를 받는 것인지도 모르겠다. 이걸 통과하면 훌륭한 직원이 될 것입니다. 비나이다.</p>
+<p>결국 평범한 직원이 유리한 게임같기도 하다. 훌륭한 인재를 놓치는 것보다는 똥같은 직원을 걸러내는 것이 더 중요한 회사도 분명 있으니까 절대 쓰지 말라고는 못하겠다. 인재는 중요하고 그만큼 간절한데 부적하나 걸어두는 것이 뭐가 그리 문제인가 싶기도 하다.</p>
+<p>하지만 내가 다니는, 내가 다닐 회사는 데이터에 기반한 결정을 하되 그 데이터를 의심할 줄 아는 회사였으면 좋겠다. </p>
+<p>이걸 보는 각계의 인사팀은 우리가 그렇게 아마추어처럼 일을 하겠니라며 혀를 끌끌 차겠지만, 인적성검사가 유의미한 데이터가 될 수 없다는 것 하나는 양보를 못하겠다.</p>
+<h2 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h2><p>뜬금없이 인적성검사에 열을 올렸지만, 스스로 합리적으로 판단하는 모습을 보여주려는 인간들의 논리에 얼마나 많은 빈틈이 있는지 너무 생생하게 콕콕 잘 짚어주는 책이었다는 걸 말하고 싶고, 많은 데이터를 다뤄야 할 때나 가설을 세울 때 특히나 피해받는 사람이 생길 가능성이 있다면 더욱 신중해야겠다는 교훈을 <a href="https://en.wikipedia.org/wiki/South_Park_and_Philosophy:_You_Know,_I_Learned_Something_Today" target="_blank" rel="external">You Know, I Learned Something Today</a> 하면서 마칠까 한다. </p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;&amp;lt;사피엔스&amp;gt; 저자, 유발 하라리 강력 추천&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;이라는 문구에 묻어가야 했던 안타까운 책.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://image.kyobobook.co.kr/ima
+    
+    </summary>
+    
+    
+      <category term="독후감" scheme="http://haah.kr/tags/%EB%8F%85%ED%9B%84%EA%B0%90/"/>
+    
+      <category term="수학" scheme="http://haah.kr/tags/%EC%88%98%ED%95%99/"/>
+    
+      <category term="통계" scheme="http://haah.kr/tags/%ED%86%B5%EA%B3%84/"/>
+    
+      <category term="사회" scheme="http://haah.kr/tags/%EC%82%AC%ED%9A%8C/"/>
+    
+  </entry>
+  
+  <entry>
     <title>뉴스 아카이브 2018-02-10</title>
     <link href="http://haah.kr/2018/02/10/news-archive-2018-02-10/"/>
     <id>http://haah.kr/2018/02/10/news-archive-2018-02-10/</id>
     <published>2018-02-10T01:06:20.000Z</published>
-    <updated>2018-02-10T03:12:40.110Z</updated>
+    <updated>2018-02-13T06:27:02.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="자바스크립트의-동작원리-엔진-런타임-호출-스택"><a href="#자바스크립트의-동작원리-엔진-런타임-호출-스택" class="headerlink" title="자바스크립트의 동작원리: 엔진, 런타임, 호출 스택"></a>자바스크립트의 동작원리: 엔진, 런타임, 호출 스택</h2><p><a href="https://joshua1988.github.io/web-development/translation/javascript/how-js-works-inside-engine/" target="_blank" rel="external">https://joshua1988.github.io/web-development/translation/javascript/how-js-works-inside-engine/</a></p>
 <p>매번 봐도 또 매번 까먹거나 입으로 설명이 안 튀어나오는 자바스크립트의 호출 스택 </p>
@@ -96,10 +148,10 @@
   
   <entry>
     <title>독후감 - 심플을 생각한다</title>
-    <link href="http://haah.kr/2018/01/07/book-9791130606484-%EC%8B%AC%ED%94%8C%EC%9D%84%EC%83%9D%EA%B0%81%ED%95%9C%EB%8B%A4/"/>
-    <id>http://haah.kr/2018/01/07/book-9791130606484-심플을생각한다/</id>
+    <link href="http://haah.kr/2018/01/07/book-9791130606484-%E1%84%89%E1%85%B5%E1%86%B7%E1%84%91%E1%85%B3%E1%86%AF%E1%84%8B%E1%85%B3%E1%86%AF%E1%84%89%E1%85%A2%E1%86%BC%E1%84%80%E1%85%A1%E1%86%A8%E1%84%92%E1%85%A1%E1%86%AB%E1%84%83%E1%85%A1/"/>
+    <id>http://haah.kr/2018/01/07/book-9791130606484-심플을생각한다/</id>
     <published>2018-01-07T13:55:15.000Z</published>
-    <updated>2018-01-07T23:32:38.552Z</updated>
+    <updated>2018-02-13T06:27:02.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://image.kyobobook.co.kr/images/book/large/484/l9791130606484.jpg" alt="심플을 생각한다 표지"></p>
 <p>새로운 회사에서 필독서라고 나눠준 책.</p>
@@ -147,7 +199,7 @@
     <link href="http://haah.kr/2018/01/06/news-archive-2018-01-06/"/>
     <id>http://haah.kr/2018/01/06/news-archive-2018-01-06/</id>
     <published>2018-01-06T01:47:27.000Z</published>
-    <updated>2018-01-06T01:52:45.900Z</updated>
+    <updated>2018-02-13T06:27:02.000Z</updated>
     
     <content type="html"><![CDATA[<p>얼마전 <a href="http://news.inews24.com/php/news_view.php?g_serial=1070038&amp;g_menu=020200" target="_blank" rel="external">가비아 DNS 장애</a>가 있었는데, ‘그렇다면 내 블로그는!?’ 하면서 들어가봤더니 역시나 접속이 안됐다.</p>
 <p>최근 한달 이상 커뮤니티에 글을 안 올렸으므로 방문자 수는 바닥을 기고 있는데,</p>
@@ -223,7 +275,7 @@
     <link href="http://haah.kr/2017/12/28/retrospective-2017/"/>
     <id>http://haah.kr/2017/12/28/retrospective-2017/</id>
     <published>2017-12-28T00:17:34.000Z</published>
-    <updated>2017-12-31T00:04:13.711Z</updated>
+    <updated>2018-02-13T06:27:02.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="읽은-책"><a href="#읽은-책" class="headerlink" title="읽은 책"></a>읽은 책</h2><ul>
 <li>01월 자바스크립트 패턴과 테스트</li>
@@ -310,7 +362,7 @@
     <link href="http://haah.kr/2017/12/18/book-9788993827446-ddd-start/"/>
     <id>http://haah.kr/2017/12/18/book-9788993827446-ddd-start/</id>
     <published>2017-12-18T14:41:19.000Z</published>
-    <updated>2017-12-18T15:23:06.648Z</updated>
+    <updated>2018-02-13T06:27:02.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://image.kyobobook.co.kr/images/book/large/446/l9788993827446.jpg" alt="DDD Start"></p>
 <p>톡특한 책이다. 1장부터 개념보다는 소스가 훅 들어와서 당혹스러웠다. </p>
@@ -358,10 +410,10 @@
   
   <entry>
     <title>독후감 - 에고라는 적</title>
-    <link href="http://haah.kr/2017/12/10/book-9788965962090-%EC%97%90%EA%B3%A0%EB%9D%BC%EB%8A%94%EC%A0%81/"/>
-    <id>http://haah.kr/2017/12/10/book-9788965962090-에고라는적/</id>
+    <link href="http://haah.kr/2017/12/10/book-9788965962090-%E1%84%8B%E1%85%A6%E1%84%80%E1%85%A9%E1%84%85%E1%85%A1%E1%84%82%E1%85%B3%E1%86%AB%E1%84%8C%E1%85%A5%E1%86%A8/"/>
+    <id>http://haah.kr/2017/12/10/book-9788965962090-에고라는적/</id>
     <published>2017-12-10T14:12:53.000Z</published>
-    <updated>2017-12-10T15:22:07.471Z</updated>
+    <updated>2018-02-13T06:27:02.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://image.kyobobook.co.kr/images/book/large/090/l9788965962090.jpg" alt="에고라는 적"></p>
 <p>이 책도 역시 <a href="http://jhrogue.blogspot.kr/2017/10/blog-post_6.html" target="_blank" rel="external">컴퓨터 vs 책</a>에서 소개되어 알게 됐고,</p>
@@ -402,7 +454,7 @@
     <link href="http://haah.kr/2017/12/02/book-978-89-98139-76-6/"/>
     <id>http://haah.kr/2017/12/02/book-978-89-98139-76-6/</id>
     <published>2017-12-02T03:17:37.000Z</published>
-    <updated>2017-12-02T03:39:02.520Z</updated>
+    <updated>2018-02-13T06:27:02.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="역할-책임-협력-관점에서-본-객체지향"><a href="#역할-책임-협력-관점에서-본-객체지향" class="headerlink" title="역할, 책임, 협력 관점에서 본 객체지향"></a>역할, 책임, 협력 관점에서 본 객체지향</h2><p><img src="http://image.kyobobook.co.kr/images/book/xlarge/766/x9788998139766.jpg" alt="객체지향의 사실과 오해"></p>
 <p>그동안 객체지향을 오해한 기억이 별로 없어서 그런지 특별히 재밌고 감동적이고 그렇지는 않았다.<br>(난 오해한 적은 없고 이해한 적이 없었으니..)</p>
@@ -440,7 +492,7 @@
     <link href="http://haah.kr/2017/11/20/phttp-10-parsing-request-message-03/"/>
     <id>http://haah.kr/2017/11/20/phttp-10-parsing-request-message-03/</id>
     <published>2017-11-20T10:27:12.000Z</published>
-    <updated>2017-11-25T07:10:35.055Z</updated>
+    <updated>2018-02-13T06:27:02.000Z</updated>
     
     <content type="html"><![CDATA[<p><a href="/tags/phttp/">연재글 전체 보기</a></p>
 <hr>
@@ -650,7 +702,7 @@
     <link href="http://haah.kr/2017/11/08/phttp-09-parsing-request-message-02/"/>
     <id>http://haah.kr/2017/11/08/phttp-09-parsing-request-message-02/</id>
     <published>2017-11-08T10:22:06.000Z</published>
-    <updated>2017-11-11T02:15:16.746Z</updated>
+    <updated>2018-02-13T06:27:02.000Z</updated>
     
     <content type="html"><![CDATA[<p><a href="/tags/phttp/">연재글 전체 보기</a></p>
 <hr>
@@ -796,7 +848,7 @@
     <link href="http://haah.kr/2017/11/02/phttp-08-parsing-request-message-01/"/>
     <id>http://haah.kr/2017/11/02/phttp-08-parsing-request-message-01/</id>
     <published>2017-11-02T09:58:31.000Z</published>
-    <updated>2017-11-02T15:23:21.075Z</updated>
+    <updated>2018-02-13T06:27:02.000Z</updated>
     
     <content type="html"><![CDATA[<p><a href="/tags/phttp/">연재글 전체 보기</a></p>
 <hr>
@@ -943,7 +995,7 @@
     <link href="http://haah.kr/2017/11/01/baking-00/"/>
     <id>http://haah.kr/2017/11/01/baking-00/</id>
     <published>2017-11-01T13:51:24.000Z</published>
-    <updated>2017-11-01T15:12:51.000Z</updated>
+    <updated>2018-02-13T06:27:02.000Z</updated>
     
     <content type="html"><![CDATA[<p>여기가 개발 블로그인 줄 아시는 분은 당황스러우시겠지만…</p>
 <h2 id="베이킹의-세계로"><a href="#베이킹의-세계로" class="headerlink" title="베이킹의 세계로"></a>베이킹의 세계로</h2><p><img src="/images/baking-00/iAmReady.jpg" alt="베이킹 준비 완료 이미지"></p>
@@ -986,7 +1038,7 @@
     <link href="http://haah.kr/2017/10/30/phttp-07/"/>
     <id>http://haah.kr/2017/10/30/phttp-07/</id>
     <published>2017-10-30T10:39:10.000Z</published>
-    <updated>2017-11-02T10:17:25.170Z</updated>
+    <updated>2018-02-13T06:27:02.000Z</updated>
     
     <content type="html"><![CDATA[<p><a href="/tags/phttp/">연재글 전체 보기</a></p>
 <hr>
@@ -1089,7 +1141,7 @@
     <link href="http://haah.kr/2017/10/25/phttp-06/"/>
     <id>http://haah.kr/2017/10/25/phttp-06/</id>
     <published>2017-10-24T22:27:32.000Z</published>
-    <updated>2017-11-02T10:16:59.167Z</updated>
+    <updated>2018-02-13T06:27:02.000Z</updated>
     
     <content type="html"><![CDATA[<p><a href="/tags/phttp/">연재글 전체 보기</a></p>
 <hr>
@@ -1190,7 +1242,7 @@
     <link href="http://haah.kr/2017/10/21/phttp-05/"/>
     <id>http://haah.kr/2017/10/21/phttp-05/</id>
     <published>2017-10-21T01:34:46.000Z</published>
-    <updated>2017-11-02T10:16:19.064Z</updated>
+    <updated>2018-02-13T06:27:02.000Z</updated>
     
     <content type="html"><![CDATA[<p><a href="/tags/phttp/">연재글 전체 보기</a></p>
 <hr>
@@ -1325,7 +1377,7 @@ Accept-Language: ko-KR,ko;q=0.8,en-US;q=0.6,en;q=0.4
     <link href="http://haah.kr/2017/10/16/phttp-04/"/>
     <id>http://haah.kr/2017/10/16/phttp-04/</id>
     <published>2017-10-16T12:37:43.000Z</published>
-    <updated>2017-11-02T10:14:45.966Z</updated>
+    <updated>2018-02-13T06:27:02.000Z</updated>
     
     <content type="html"><![CDATA[<p><a href="/tags/phttp/">연재글 전체 보기</a></p>
 <hr>
@@ -1446,7 +1498,7 @@ Accept-Language: ko-KR,ko;q=0.8,en-US;q=0.6,en;q=0.4
     <link href="http://haah.kr/2017/10/14/book-979-11-85152-65-3/"/>
     <id>http://haah.kr/2017/10/14/book-979-11-85152-65-3/</id>
     <published>2017-10-14T02:09:26.000Z</published>
-    <updated>2017-10-14T02:47:31.000Z</updated>
+    <updated>2018-02-13T06:27:02.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://image.kyobobook.co.kr/images/book/large/431/l9791185152431.jpg" alt="내 문장이 그렇게 이상한가요?"></p>
 <p>개발자들 사이에서 꽤 화제가 된 책이라 한번 가볍게 읽어봤다.</p>
@@ -1540,7 +1592,7 @@ Accept-Language: ko-KR,ko;q=0.8,en-US;q=0.6,en;q=0.4
     <link href="http://haah.kr/2017/10/12/phttp-03/"/>
     <id>http://haah.kr/2017/10/12/phttp-03/</id>
     <published>2017-10-12T10:20:37.000Z</published>
-    <updated>2017-11-02T10:14:45.970Z</updated>
+    <updated>2018-02-13T06:27:02.000Z</updated>
     
     <content type="html"><![CDATA[<p><a href="/tags/phttp/">연재글 전체 보기</a></p>
 <hr>
@@ -1616,7 +1668,7 @@ Accept-Language: ko-KR,ko;q=0.8,en-US;q=0.6,en;q=0.4
     <link href="http://haah.kr/2017/10/06/phttp-02/"/>
     <id>http://haah.kr/2017/10/06/phttp-02/</id>
     <published>2017-10-06T02:18:47.000Z</published>
-    <updated>2017-11-02T10:13:41.794Z</updated>
+    <updated>2018-02-13T06:27:02.000Z</updated>
     
     <content type="html"><![CDATA[<p><a href="/tags/phttp/">연재글 전체 보기</a></p>
 <hr>
@@ -1706,7 +1758,7 @@ Accept-Language: ko-KR,ko;q=0.8,en-US;q=0.6,en;q=0.4
     <link href="http://haah.kr/2017/10/05/phttp-01/"/>
     <id>http://haah.kr/2017/10/05/phttp-01/</id>
     <published>2017-10-04T16:12:15.000Z</published>
-    <updated>2017-11-02T10:13:41.790Z</updated>
+    <updated>2018-02-13T06:27:02.000Z</updated>
     
     <content type="html"><![CDATA[<p><a href="/tags/phttp/">연재글 전체 보기</a></p>
 <hr>
@@ -1790,71 +1842,6 @@ Accept-Language: ko-KR,ko;q=0.8,en-US;q=0.6,en;q=0.4
       <category term="HTTP" scheme="http://haah.kr/tags/HTTP/"/>
     
       <category term="phttp" scheme="http://haah.kr/tags/phttp/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mac에서 올린 한글 파일명(NFD 정규화) 문제</title>
-    <link href="http://haah.kr/2017/09/22/mac-filename-normalization/"/>
-    <id>http://haah.kr/2017/09/22/mac-filename-normalization/</id>
-    <published>2017-09-22T03:09:48.000Z</published>
-    <updated>2017-09-24T00:30:57.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>이전 <a href="/2017/08/23/alphabetic-letter-validation/">유니코드를 다뤘던 글</a>을 올렸을 때 모던 PHP 그룹에서 댓글로 잠시 언급되었던,</p>
-<p>NFD 정규화 문제.</p>
-<p>맥에서 올린 파일이 다운로드 안된다는 VOC(고객의 소리)가 들어와서 원인 파악 겸 정리해봤다.</p>
-<p>맥에서 ‘한글.txt’ 파일을 올리고 윈도에서 다운로드 받으면 ‘ㅎㅏㄴㄱㅡㄹ.txt’로 보이게된다.</p>
-<p>유니코드 상에서 한글을 표현하는 방법은 첫가끝(처음가운데끝)이라고도 하는 한글 자모를 조합하는 방식과 완성형으로 표시하는 방법 등이 있다. </p>
-<p>맥에서는 파일명을 저장할 때 NFD 방식. 즉, 한글 자모를 따로따로 받아 조합하는 방식으로 정규화를 하는데,</p>
-<p>이 현상에 관해선 다른 분들이 열심히 글을 써주셨으니 더이상 설명하진 않겠다.</p>
-<ul>
-<li><a href="https://blog.asamaru.net/2016/11/15/php-nfd-to-nfc/" target="_blank" rel="external">PHP에서 NFD(Normalization Form D) / NFC(Normalization Form C) 변환</a></li>
-</ul>
-<h2 id="Normalizer-Class-설치"><a href="#Normalizer-Class-설치" class="headerlink" title="Normalizer Class 설치"></a>Normalizer Class 설치</h2><p>PHP 5.3부터 <a href="http://php.net/manual/en/class.normalizer.php" target="_blank" rel="external">Normalizer Class</a>를 사용할 수 있는데,</p>
-<p>Internationalization Functions에 포함되어 이 확장 모듈을 설치해야 한다.</p>
-<ul>
-<li><p>이건 ICU 라이브러리의 wrapper인 관계로 ICU를 먼저 설치해야할 수 있다(libicu-devel , libicu 등)</p>
-</li>
-<li><p>Windows 시스템에선 php_intl.dll을 구해야하고, XAMPP를 쓴다면 모듈은 이미 ext에 존재할 것이다. </p>
-</li>
-<li>Linux 기반 시스템이라면<ul>
-<li>apt-get install php-intl (for ubuntu-based linux)</li>
-<li>yum install php-intl (for CentOS)</li>
-<li>php7.x-intl 등 php 버전에 따라 다를 수 있으니 알맞게 설치할 것</li>
-</ul>
-</li>
-<li>Mac에서 brew를 사용한다면 brew install php71-intl</li>
-</ul>
-<p>이후 php.ini에서 extension=php_intl.(dll|so)을 활성화 시켜야 한다. 즉, 맨 앞의; 제거하기.</p>
-<h2 id="처리-방법"><a href="#처리-방법" class="headerlink" title="처리 방법"></a>처리 방법</h2><p>잘 설치됐는지 확인해보자.</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">testNormalizer</span><span class="params">($str)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">echo</span> <span class="string">'-------------------------'</span> . PHP_EOL;</div><div class="line">    $urlencodedInitialStr = urlencode($str);</div><div class="line"> </div><div class="line">    <span class="keyword">echo</span> $str . PHP_EOL;</div><div class="line"> </div><div class="line">    <span class="keyword">echo</span> ( Normalizer::isNormalized($str, Normalizer::FORM_C) ) ? <span class="string">"normalized : FORM_C"</span> : <span class="string">"not normalized : FORM_C"</span>;</div><div class="line">    <span class="keyword">echo</span> PHP_EOL;</div><div class="line">    <span class="keyword">echo</span> ( Normalizer::isNormalized($str, Normalizer::FORM_D) ) ? <span class="string">"normalized : FORM_D"</span> : <span class="string">"not normalized : FORM_D"</span>;</div><div class="line">    <span class="keyword">echo</span> PHP_EOL;</div><div class="line"> </div><div class="line">    $str = Normalizer::normalize($str, Normalizer::FORM_C);</div><div class="line">    <span class="keyword">echo</span> <span class="string">'normalize to FORM_C : '</span> . $str . PHP_EOL;</div><div class="line"> </div><div class="line">    <span class="keyword">echo</span> <span class="string">'urlencoded before: '</span> . $urlencodedInitialStr . PHP_EOL;</div><div class="line">    <span class="keyword">echo</span> <span class="string">'urlencoded after~: '</span> . urlencode($str) . PHP_EOL;</div><div class="line">    <span class="keyword">echo</span> PHP_EOL;</div><div class="line">&#125;</div><div class="line"> </div><div class="line">$name1=<span class="string">'recruit/recruit/201709/21/owlupr_58qh-1meg1s6_recruit.pdf'</span>;<span class="comment">//일반 ASCII 문자열</span></div><div class="line">$name2=urldecode(<span class="string">'%E1%84%86%E1%85%A2%E1%86%A8%E1%84%8B%E1%85%A6%E1%84%89%E1%85%A5%E1%84%90%E1%85%A6%E1%84%89%E1%85%B3%E1%84%90%E1%85%B3_%E1%84%8C%E1%85%AE%E1%86%BC%E1%84%8B%E1%85%B5%E1%84%82%E1%85%A6.pdf'</span>);<span class="comment">//NFD로 정규화된 파일명을 urlencode해서 받을 경우</span></div><div class="line">$name3=<span class="string">'테스트.pdf'</span>;<span class="comment">//일반 한글 문자열</span></div><div class="line"> </div><div class="line">testNormalizer($name1);</div><div class="line">testNormalizer($name2);</div><div class="line">testNormalizer($name3);</div></pre></td></tr></table></figure>
-<p>결과는<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">-------------------------</div><div class="line">recruit/recruit/201709/21/owlupr_58qh-1meg1s6_recruit.pdf</div><div class="line">normalized : FORM_C</div><div class="line">normalized : FORM_D</div><div class="line">normalize to FORM_C : recruit/recruit/201709/21/owlupr_58qh-1meg1s6_recruit.pdf</div><div class="line">urlencoded before: recruit%2Frecruit%2F201709%2F21%2Fowlupr_58qh-1meg1s6_recruit.pdf</div><div class="line">urlencoded after~: recruit%2Frecruit%2F201709%2F21%2Fowlupr_58qh-1meg1s6_recruit.pdf</div><div class="line"></div><div class="line">-------------------------</div><div class="line">맥에서테스트_중이네.pdf</div><div class="line">not normalized : FORM_C</div><div class="line">normalized : FORM_D</div><div class="line">normalize to FORM_C : 맥에서테스트_중이네.pdf</div><div class="line">urlencoded before: %E1%84%86%E1%85%A2%E1%86%A8%E1%84%8B%E1%85%A6%E1%84%89%E1%85%A5%E1%84%90%E1%85%A6%E1%84%89%E1%85%B3%E1%84%90%E1%85%B3_%E1%84%8C%E1%85%AE%E1%86%BC%E1%84%8B%E1%85%B5%E1%84%82%E1%85%A6.pdf</div><div class="line">urlencoded after~: %EB%A7%A5%EC%97%90%EC%84%9C%ED%85%8C%EC%8A%A4%ED%8A%B8_%EC%A4%91%EC%9D%B4%EB%84%A4.pdf</div><div class="line"></div><div class="line">-------------------------</div><div class="line">테스트.pdf</div><div class="line">normalized : FORM_C</div><div class="line">not normalized : FORM_D</div><div class="line">normalize to FORM_C : 테스트.pdf</div><div class="line">urlencoded before: %ED%85%8C%EC%8A%A4%ED%8A%B8.pdf</div><div class="line">urlencoded after~: %ED%85%8C%EC%8A%A4%ED%8A%B8.pdf</div></pre></td></tr></table></figure></p>
-<p>소스에는 아래와 같이 적용 해놓으면 된다.</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (class_exists(<span class="string">'Normalizer'</span>)) &#123;</div><div class="line">    <span class="keyword">if</span> (Normalizer::isNormalized($filename, Normalizer::FORM_D)) &#123;</div><div class="line">        $filename = Normalizer::normalize($filename, Normalizer::FORM_C);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>파일명을 DB에 입력할 때 NFC로 넣는 것이 깔끔하겠지만,<br>이미 NFD 정규화된 파일명이 들어가있다면, 다운로드 시에도 파일명을 바꿔주면 된다.</p>
-<h3 id="한숨"><a href="#한숨" class="headerlink" title="한숨"></a>한숨</h3><p>이 밖에 파일 다운로드 관련 코드를 보면 별별 예외처리가 많이 들어가 세월의 흔적을 느낄 수 있다.</p>
-<p>IE라면 파일명을 또 MS949로 변경해줘야 해야만 한다.<br>OS 별로 <a href="https://ko.wikipedia.org/wiki/%ED%8C%8C%EC%9D%BC_%EC%9D%B4%EB%A6%84" target="_blank" rel="external">파일명에 들어갈 수 있는 특수문자</a>도 다르다.<br>기타 등등.</p>
-<p>특정 OS는 점유율이 낮아서, 시스템이 낡아서, 인력이 부족해서, 개발자 역량이 부족해서, 지금은 더 급한 게 있어서…<br>cross-platform 대응은 항상 어렵다.</p>
-<h3 id="참고"><a href="#참고" class="headerlink" title="참고"></a>참고</h3><ul>
-<li><a href="http://php.net/manual/en/class.normalizer.php" target="_blank" rel="external">http://php.net/manual/en/class.normalizer.php</a></li>
-<li><a href="http://php.net/manual/en/intro.intl.php" target="_blank" rel="external">http://php.net/manual/en/intro.intl.php</a></li>
-<li><a href="https://blog.asamaru.net/2016/11/15/php-nfd-to-nfc/" target="_blank" rel="external">https://blog.asamaru.net/2016/11/15/php-nfd-to-nfc/</a></li>
-<li><a href="https://www.dotkernel.com/php-troubleshooting/where-is-the-intl-php-extension-problem-solved/" target="_blank" rel="external">https://www.dotkernel.com/php-troubleshooting/where-is-the-intl-php-extension-problem-solved/</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;이전 &lt;a href=&quot;/2017/08/23/alphabetic-letter-validation/&quot;&gt;유니코드를 다뤘던 글&lt;/a&gt;을 올렸을 때 모던 PHP 그룹에서 댓글로 잠시 언급되었던,&lt;/p&gt;
-&lt;p&gt;NFD 정규화 문제.&lt;/p&gt;
-&lt;p&gt;맥에서 올린 
-    
-    </summary>
-    
-    
-      <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
-    
-      <category term="Mac" scheme="http://haah.kr/tags/Mac/"/>
     
   </entry>
   
