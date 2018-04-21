@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang=ko>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="XdebugDocker for Mac 새 직장(아…그 사람 구한다는 메쉬코리아?)에서의 개발환경은 나로서는 꽤 도전적이었는데, 뭐하나 익숙한 게 없었다. Backend만 개발하며, PHP7.0, AWS, Mac… UI가 없는 순수 백엔드(API)만 개발 하다보니 Postman이 주 테스트 도구(혹은 진입점)가 된다. 윈도나 리눅스 remote 서버에 올려">
+<meta name="keywords" content="PHP,Mac,Xdebug,Docker">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker for Mac에서 Xdebug 연동">
+<meta property="og:url" content="http://haah.kr/2018/04/20/xdebug-on-docker-for-mac/index.html">
+<meta property="og:site_name" content="ha-ah">
+<meta property="og:description" content="XdebugDocker for Mac 새 직장(아…그 사람 구한다는 메쉬코리아?)에서의 개발환경은 나로서는 꽤 도전적이었는데, 뭐하나 익숙한 게 없었다. Backend만 개발하며, PHP7.0, AWS, Mac… UI가 없는 순수 백엔드(API)만 개발 하다보니 Postman이 주 테스트 도구(혹은 진입점)가 된다. 윈도나 리눅스 remote 서버에 올려">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="http://haah.kr/images/xdebug-on-docker-for-mac/dbgp-setup.gif">
+<meta property="og:image" content="http://haah.kr/images/xdebug-on-docker-for-mac/dbgp-setup2.gif">
+<meta property="og:image" content="http://haah.kr/images/xdebug-on-docker-for-mac/xdebug_setting.png">
+<meta property="og:image" content="http://haah.kr/images/xdebug-on-docker-for-mac/DBGp_proxy.png">
+<meta property="og:image" content="http://haah.kr/images/xdebug-on-docker-for-mac/server_path_mapping.png">
+<meta property="og:image" content="http://haah.kr/images/xdebug-on-docker-for-mac/postman_cookie.png">
+<meta property="og:image" content="http://haah.kr/images/xdebug-on-docker-for-mac/postman_header.png">
+<meta property="og:image" content="http://haah.kr/images/xdebug-on-docker-for-mac/test_on_break_point.png">
+<meta property="og:updated_time" content="2018-04-21T10:57:08.372Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Docker for Mac에서 Xdebug 연동">
+<meta name="twitter:description" content="XdebugDocker for Mac 새 직장(아…그 사람 구한다는 메쉬코리아?)에서의 개발환경은 나로서는 꽤 도전적이었는데, 뭐하나 익숙한 게 없었다. Backend만 개발하며, PHP7.0, AWS, Mac… UI가 없는 순수 백엔드(API)만 개발 하다보니 Postman이 주 테스트 도구(혹은 진입점)가 된다. 윈도나 리눅스 remote 서버에 올려">
+<meta name="twitter:image" content="http://haah.kr/images/xdebug-on-docker-for-mac/dbgp-setup.gif">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon.ico" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+          
+        
+    
+    <!-- title -->
+    <title>Docker for Mac에서 Xdebug 연동</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="ha-ah" type="application/atom+xml" />
+    
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-1318599740881033",
+            enable_page_level_ads: true
+        });
+    </script>
+
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2018/04/20/rest-speaking-at-mesh-2018/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://haah.kr/2018/04/20/xdebug-on-docker-for-mac/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://haah.kr/2018/04/20/xdebug-on-docker-for-mac/&text=Docker for Mac에서 Xdebug 연동"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://haah.kr/2018/04/20/xdebug-on-docker-for-mac/&title=Docker for Mac에서 Xdebug 연동"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://haah.kr/2018/04/20/xdebug-on-docker-for-mac/&is_video=false&description=Docker for Mac에서 Xdebug 연동"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Docker for Mac에서 Xdebug 연동&body=Check out this article: http://haah.kr/2018/04/20/xdebug-on-docker-for-mac/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://haah.kr/2018/04/20/xdebug-on-docker-for-mac/&title=Docker for Mac에서 Xdebug 연동"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://haah.kr/2018/04/20/xdebug-on-docker-for-mac/&title=Docker for Mac에서 Xdebug 연동"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://haah.kr/2018/04/20/xdebug-on-docker-for-mac/&title=Docker for Mac에서 Xdebug 연동"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://haah.kr/2018/04/20/xdebug-on-docker-for-mac/&title=Docker for Mac에서 Xdebug 연동"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://haah.kr/2018/04/20/xdebug-on-docker-for-mac/&name=Docker for Mac에서 Xdebug 연동&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Xdebug-설정하기"><span class="toc-number">1.</span> <span class="toc-text">Xdebug 설정하기</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#원리"><span class="toc-number">1.1.</span> <span class="toc-text">원리</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Communication-Set-up"><span class="toc-number">1.2.</span> <span class="toc-text">Communication Set-up</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#기대-효과"><span class="toc-number">2.</span> <span class="toc-text">기대 효과</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-for-mac에서의-설정-방법"><span class="toc-number">3.</span> <span class="toc-text">Docker for mac에서의 설정 방법</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#설정-확인"><span class="toc-number">3.1.</span> <span class="toc-text">설정 확인</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#XDebug-옵션-설정"><span class="toc-number">3.2.</span> <span class="toc-text">XDebug 옵션 설정</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IDE-설정"><span class="toc-number">3.3.</span> <span class="toc-text">IDE 설정</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Client-쿠키-설정"><span class="toc-number">3.4.</span> <span class="toc-text">Client 쿠키 설정</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#테스트-중인-모습"><span class="toc-number">4.</span> <span class="toc-text">테스트 중인 모습</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#삽질"><span class="toc-number">5.</span> <span class="toc-text">삽질</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Docker for Mac에서 Xdebug 연동
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">ha-ah</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2018-04-20T14:58:22.000Z" itemprop="datePublished">2018-04-20</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Docker/">Docker</a>, <a class="tag-link" href="/tags/Mac/">Mac</a>, <a class="tag-link" href="/tags/PHP/">PHP</a>, <a class="tag-link" href="/tags/Xdebug/">Xdebug</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p><a href="https://xdebug.org/" target="_blank" rel="external">Xdebug</a><br><a href="https://www.docker.com/docker-mac" target="_blank" rel="external">Docker for Mac</a></p>
+<p>새 직장(아…그 사람 구한다는 메쉬코리아?)에서의 개발환경은 나로서는 꽤 도전적이었는데, 뭐하나 익숙한 게 없었다.</p>
+<p>Backend만 개발하며, PHP7.0, AWS, Mac…</p>
+<p>UI가 없는 순수 백엔드(API)만 개발 하다보니 <a href="https://www.getpostman.com/" target="_blank" rel="external">Postman</a>이 주 테스트 도구(혹은 진입점)가 된다.</p>
+<p>윈도나 리눅스 remote 서버에 올려 하던 식으로 해봤더니 뭐가 잘 안되곤 해서 매번 dd, var_dump, Log::xxxx() 식으로 코드를 망가뜨리며 테스트를 했었다. 위험하고 불편하다. 그럼 그럴 시간에 잠시 짬을 내서 Xdebug 설정을 완료하는데 노력을 했어야 하지 않았냐는 의문도 들 수 있다. 그런데 일단 대안(코드에 찍어 확인하기)이 있긴 했고, 다른 많은 것을 익혀야 했기 때문에 우선 순위가 밀리고 밀렸다.</p>
+<p>그런데 도저히 안되겠다 싶어서 최근에 다시 후벼 파기 시작했고 성과가 있었다.</p>
+<p>회사 위키에 적은 것을 조금 바꿔 공유해본다.</p>
+<h2 id="Xdebug-설정하기"><a href="#Xdebug-설정하기" class="headerlink" title="Xdebug 설정하기"></a>Xdebug 설정하기</h2><h3 id="원리"><a href="#원리" class="headerlink" title="원리"></a>원리</h3><p>IDE에서 XDebug 모듈로부터 들어오는 연결 요청을 받기 위해 특정 port를 띄우고 기다린다</p>
+<p>Client(브라우저, Postman 등)에서 HTTP request를 할 때 헤더로 XDEBUG_SESSION이라는 쿠키를 실어 보낸다.</p>
+<p>PHP 엔진(+XDebug module)에서 XDEBUG_SESSION을 감지하면 config에 설정된 remote host와 port를 찾아 연결을 시도한다</p>
+<p>DBGp 프로토콜로 두 모듈 간 통신을 하게 된다(break point로 라인 단위 실행 등)</p>
+<h3 id="Communication-Set-up"><a href="#Communication-Set-up" class="headerlink" title="Communication Set-up"></a>Communication Set-up</h3><p><strong>With a static IP/single developer</strong></p>
+<p>With remote debugging, Xdebug embedded in PHP acts like the client, and the IDE as the server. The following animation shows how the communication channel is set-up:</p>
+<p><img src="/images/xdebug-on-docker-for-mac/dbgp-setup.gif" alt="comm. With a static IP/single developer image"></p>
+<ul>
+<li>he IP of the server is 10.0.1.2 with HTTP on port 80</li>
+<li>he IDE is on IP 10.0.1.42, so xdebug.remote_host is set to 10.0.1.42</li>
+<li>he IDE listens on port 9000, so xdebug.remote_port is set to 9000</li>
+<li>he HTTP request is started on the machine running the IDE</li>
+<li>debug connects to 10.0.1.42:9000</li>
+<li>ebugging runs, HTTP Response provided</li>
+</ul>
+<p><img src="/images/xdebug-on-docker-for-mac/dbgp-setup2.gif" alt="comm. With an unknown IP/multiple developers image"></p>
+<ul>
+<li>The IP of the server is 10.0.1.2 with HTTP on port 80</li>
+<li>The IDE is on an unknown IP, so xdebug.remote_connect_back is set to 1</li>
+<li>The IDE listens on port 9000, so xdebug.remote_port is set to 9000</li>
+<li>The HTTP request is made, Xdebug detects the IP addres from the HTTP headers</li>
+<li>Xdebug connects to the detected IP (10.0.1.42) on port 9000</li>
+<li>Debugging runs, HTTP Response provided</li>
+</ul>
+<h2 id="기대-효과"><a href="#기대-효과" class="headerlink" title="기대 효과"></a>기대 효과</h2><ol>
+<li><p>dd(dump and die) 등의 프로세스 종료 코드나 로그 확인을 위한 코드 변경을 하지 않고 많은 context 정보를 확인할 수 있다.</p>
+</li>
+<li><p>제시된 context 정보를 통해 실시간 evaluate/watch도 가능하다.</p>
+</li>
+<li><p>코드를 완벽히 이해하지 않아도 차례차례 순서대로 한줄씩 실행해보면서 전체 프로세스를 익힐 수 있다.</p>
+</li>
+</ol>
+<h2 id="Docker-for-mac에서의-설정-방법"><a href="#Docker-for-mac에서의-설정-방법" class="headerlink" title="Docker for mac에서의 설정 방법"></a>Docker for mac에서의 설정 방법</h2><p>회사에서는 표준 컨테이너 하나를 띄우고 쓴다</p>
+<h3 id="설정-확인"><a href="#설정-확인" class="headerlink" title="설정 확인"></a>설정 확인</h3><p>host 환경에도 php가 설치되어 있을텐데, 이건 IDE가 사용하는 cli이고 container 안의 php로 확인해야 한다</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">❯ docker exec -it 컨테이너명 bash</div><div class="line">root@0829de89a35f:/var/www/html#</div></pre></td></tr></table></figure>
+<p>xdebug 설치 여부 확인</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">root@0829de89a35f:/var/www/html# php -v</div><div class="line">PHP 7.0.22-0ubuntu0.16.04.1 (cli) ( NTS )</div><div class="line">Copyright (c) 1997-2017 The PHP Group</div><div class="line">Zend Engine v3.0.0, Copyright (c) 1998-2017 Zend Technologies</div><div class="line">    with Zend OPcache v7.0.22-0ubuntu0.16.04.1, Copyright (c) 1999-2017, by Zend Technologies</div><div class="line">    with Xdebug v2.4.0, Copyright (c) 2002-2016, by Derick Rethans</div></pre></td></tr></table></figure>
+<p>xdebug 설치 여부 및 설정 파일(xdebug.ini, php.ini 등) 위치 확인</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">root@0829de89a35f:/var/www/html# php -i | grep xdebug</div><div class="line">/etc/php/7.0/cli/conf.d/20-xdebug.ini,</div></pre></td></tr></table></figure>
+<h3 id="XDebug-옵션-설정"><a href="#XDebug-옵션-설정" class="headerlink" title="XDebug 옵션 설정"></a>XDebug 옵션 설정</h3><ul>
+<li><a href="https://xdebug.org/docs/basic" target="_blank" rel="external">https://xdebug.org/docs/basic</a> 참고</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">zend_extension=xdebug.so # to load extension</div><div class="line">xdebug.remote_log=/tmp/xdebug.log # 로그 파일 위치. 첫 연동이라면 실패를 대비해서 로그 파일 위치를 지정하자</div><div class="line">xdebug.idekey=PHPSTORM # XDEBUG_SESSION 쿠키에 value로 들어갈 문자열</div><div class="line">xdebug.remote_enable=1 # remote host에서의 연결을 허용할지 여부</div><div class="line">xdebug.remote_host=host.docker.internal # remote host의 주소. container 안에서 호스트로 접근할 때는 이대로 입력하자</div><div class="line">xdebug.remote_port=9003 # remote host에서 어떤 port로 연동할지</div></pre></td></tr></table></figure>
+<p>저장 후 apache 재시동</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">root@0829de89a35f:/var/www/html# supervisorctl restart apache2</div></pre></td></tr></table></figure>
+<p>(자기 환경에 맞춰 알아서 재시작 하자)</p>
+<h3 id="IDE-설정"><a href="#IDE-설정" class="headerlink" title="IDE 설정"></a>IDE 설정</h3><p><img src="/images/xdebug-on-docker-for-mac/xdebug_setting.png" alt="IDE - Xdebug 설정 이미지"></p>
+<p><img src="/images/xdebug-on-docker-for-mac/DBGp_proxy.png" alt="IDE - DBGp proxy 설정 이미지"></p>
+<p><strong>Preferences &gt; Languages &amp; Frameworks &gt; PHP &gt; Debug</strong></p>
+<ul>
+<li>debug port 입력. 기본 9000번. 충돌이 나는지 확인하고 다른 port를 입력해도 된다</li>
+<li>단, 위에서 설정한 옵션 xdebug.remote_port=xxxx 와 맞춰야 한다</li>
+<li>Force break at the first line when no path mapping specified 옵션<ul>
+<li>path mapping이 되지 않으면 이 옵션을 켜야만 한다</li>
+<li>매번 최초의 php script 위치부터 시작하므로 매우 귀찮다</li>
+<li>아래 server 설정을 추가하자</li>
+</ul>
+</li>
+</ul>
+<p><strong>Preferences &gt; Languages &amp; Frameworks &gt; PHP &gt; Server</strong></p>
+<p><img src="/images/xdebug-on-docker-for-mac/server_path_mapping.png" alt="Server - path mapping 설정 이미지"></p>
+<h3 id="Client-쿠키-설정"><a href="#Client-쿠키-설정" class="headerlink" title="Client 쿠키 설정"></a>Client 쿠키 설정</h3><p><strong>브라우저</strong></p>
+<ul>
+<li>크롬이나 FF라면 helper를 이용하면 편하다<ul>
+<li><a href="https://chrome.google.com/webstore/detail/xdebug-helper/eadndfjplgieldjbigjakmdgkmoaaaoc" target="_blank" rel="external">https://chrome.google.com/webstore/detail/xdebug-helper/eadndfjplgieldjbigjakmdgkmoaaaoc</a></li>
+<li><a href="https://addons.mozilla.org/en-US/firefox/addon/xdebug-helper-for-firefox/" target="_blank" rel="external">https://addons.mozilla.org/en-US/firefox/addon/xdebug-helper-for-firefox/</a></li>
+</ul>
+</li>
+</ul>
+<p><strong>Postman</strong></p>
+<ul>
+<li>host별 cookie에 설정<ul>
+<li>XDEBUG_SESSION=PHPSTORM; path=/; domain=localhost; Expires=Tue, 19 Jan 2038 03:14:07 GMT;</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/xdebug-on-docker-for-mac/postman_cookie.png" alt="Postman - cookie 설정 이미지"></p>
+<ul>
+<li>일부 request에만 추가하려면 header에 설정</li>
+</ul>
+<p><img src="/images/xdebug-on-docker-for-mac/postman_header.png" alt="Postman - header 설정 이미지"></p>
+<h2 id="테스트-중인-모습"><a href="#테스트-중인-모습" class="headerlink" title="테스트 중인 모습"></a>테스트 중인 모습</h2><p><img src="/images/xdebug-on-docker-for-mac/test_on_break_point.png" alt="테스트 중인 모습 이미지"></p>
+<h2 id="삽질"><a href="#삽질" class="headerlink" title="삽질"></a>삽질</h2><p>나는 Mac도 잘 몰랐고, Docker도 잘 몰랐으므로 도대체 어디서 문제가 생긴 건지 알 수가 없었다. 여러가지 검색을 통해 힌트를 얻을 수도 있었지만, 나는 영어도 잘 모르지 않는가! 꽤 초기에 발견했던 커뮤니티 글을 다시 한번 찬찬히 읽어보고 결정적인 힌트를 얻게 되는데…</p>
+<p>linux나 windows에선 xdebug.remote_connect_back=1을 설정하면 remote_host를 지정할 필요도 없이 쉽게 연동되나 Docker for Mac에서는 이 방식이 동작하지 않는다. 이건 Docker for Mac의 구조적인 문제라고 한다.</p>
+<p>결국 remote host를 지정해야 하는데 그 방법으로 IP alias를 생성하라는 글이 아주 많은데,</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo ifconfig en0 alias 10.254.254.254 255.255.255.0</div></pre></td></tr></table></figure>
+<p>이렇게 하고 remote_host의 값을 10.254.254.254을 지정하면 동작은 잘된다.</p>
+<p>그런데 이때 Mac에서 인터넷 연결이 끊기는 문제가 발생했다. 이유는 도저히 모르겠다. 뭔가 충돌이 나는 IP일 수도…</p>
+<p>그러다 Docker for Mac의 <a href="https://docs.docker.com/docker-for-mac/networking/#httphttps-proxy-support" target="_blank" rel="external">공식 문서</a>를 보고 해결책을 찾았는데, </p>
+<p>Dcker에서는 container 안에서 호스트로 접근할 수 있는 host.docker.internal라는 특별한 DNS name을 제공한다는 것이다. 따라서 위에 설정한 대로 <code>xdebug.remote_host=host.docker.internal</code>을 입력하면 호스트(IDE를 띄워놓은)에 접근 가능하다.</p>
+<p>이 과정에서 문제가 무엇인지는 xdebug.remote_log에서 지정된 로그 파일로부터 얻었다. 연동이 잘 안된다면 맨 위에 설명한 것처럼 DBGp로 연결이 이뤄지기까지 어느 단계에서 문제가 생겼는지 확인해보는 게 좋다.</p>
+<ul>
+<li>XDEBUG_SESSION이 잘 세팅되었다면 쿠키/헤더 설정을 확인해보자</li>
+<li>PHP(+Xdebug) 엔진 단에서 XDEBUG_SESSION을 인식을 못한다면, Xdebug 모듈이 로드 안됐을 수 있으니 <code>php -v</code>나 <code>phpinfo()</code>로 확인하자</li>
+<li>XDEBUG_SESSION을 인식은 했는데 request 들어온 곳을 찾아가지 못하는 경우라면,<ul>
+<li>IDE에서 Xdebug connection을 listen하지 않거나</li>
+<li>container 내부에서 호스트에 연결할 수 없는 상황…은 다양하긴 하다</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+    </div>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Xdebug-설정하기"><span class="toc-number">1.</span> <span class="toc-text">Xdebug 설정하기</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#원리"><span class="toc-number">1.1.</span> <span class="toc-text">원리</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Communication-Set-up"><span class="toc-number">1.2.</span> <span class="toc-text">Communication Set-up</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#기대-효과"><span class="toc-number">2.</span> <span class="toc-text">기대 효과</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-for-mac에서의-설정-방법"><span class="toc-number">3.</span> <span class="toc-text">Docker for mac에서의 설정 방법</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#설정-확인"><span class="toc-number">3.1.</span> <span class="toc-text">설정 확인</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#XDebug-옵션-설정"><span class="toc-number">3.2.</span> <span class="toc-text">XDebug 옵션 설정</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IDE-설정"><span class="toc-number">3.3.</span> <span class="toc-text">IDE 설정</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Client-쿠키-설정"><span class="toc-number">3.4.</span> <span class="toc-text">Client 쿠키 설정</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#테스트-중인-모습"><span class="toc-number">4.</span> <span class="toc-text">테스트 중인 모습</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#삽질"><span class="toc-number">5.</span> <span class="toc-text">삽질</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://haah.kr/2018/04/20/xdebug-on-docker-for-mac/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://haah.kr/2018/04/20/xdebug-on-docker-for-mac/&text=Docker for Mac에서 Xdebug 연동"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://haah.kr/2018/04/20/xdebug-on-docker-for-mac/&title=Docker for Mac에서 Xdebug 연동"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://haah.kr/2018/04/20/xdebug-on-docker-for-mac/&is_video=false&description=Docker for Mac에서 Xdebug 연동"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Docker for Mac에서 Xdebug 연동&body=Check out this article: http://haah.kr/2018/04/20/xdebug-on-docker-for-mac/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://haah.kr/2018/04/20/xdebug-on-docker-for-mac/&title=Docker for Mac에서 Xdebug 연동"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://haah.kr/2018/04/20/xdebug-on-docker-for-mac/&title=Docker for Mac에서 Xdebug 연동"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://haah.kr/2018/04/20/xdebug-on-docker-for-mac/&title=Docker for Mac에서 Xdebug 연동"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://haah.kr/2018/04/20/xdebug-on-docker-for-mac/&title=Docker for Mac에서 Xdebug 연동"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://haah.kr/2018/04/20/xdebug-on-docker-for-mac/&name=Docker for Mac에서 Xdebug 연동&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2018 youngiggy
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-99319001-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'youngiggy-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
