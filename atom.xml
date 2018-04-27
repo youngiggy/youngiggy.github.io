@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://haah.kr/"/>
-  <updated>2018-04-21T10:57:08.372Z</updated>
+  <updated>2018-04-27T01:10:06.616Z</updated>
   <id>http://haah.kr/</id>
   
   <author>
@@ -20,9 +20,17 @@
     <link href="http://haah.kr/2018/04/20/xdebug-on-docker-for-mac/"/>
     <id>http://haah.kr/2018/04/20/xdebug-on-docker-for-mac/</id>
     <published>2018-04-20T14:58:22.000Z</published>
-    <updated>2018-04-21T10:57:08.372Z</updated>
+    <updated>2018-04-27T01:10:06.616Z</updated>
     
-    <content type="html"><![CDATA[<p><a href="https://xdebug.org/" target="_blank" rel="external">Xdebug</a><br><a href="https://www.docker.com/docker-mac" target="_blank" rel="external">Docker for Mac</a></p>
+    <content type="html"><![CDATA[<h2 id="updated"><a href="#updated" class="headerlink" title="updated"></a>updated</h2><p>이 글이 의외로 인기(인기란 상대적인 것)가 있어서 여기저기 공유가 되고 있는데, 다시 읽어보니 메쉬코리아의 다른 분들은 어떻게 테스트를 하고 있었다는 건지 궁금할 수도 있겠다. 나는 분명 dd 찍는 게 위험하다고 했는데 말이다.</p>
+<p>일단 dd를 찍어 놓고 production에 배포할 일은 쉽게 일어나진 않는다. 다수의 리뷰어가 지켜보고 있기도 하고, (커버리지에 속해 있다면) 유닛 테스트가 돌아가기도 하고, QA를 거치기도 하고, 그렇게 막 배포하지 않을 사람을 뽑기도 한다.</p>
+<p>개발 환경은 통일되어 있지 않아서(굳이 다 docker로 맞출 필요가 없다) 각자 마음대로 해도 되고, 이미 xdebug같은 툴을 쓰시는 분도 계실 것이다. 나는 이걸 표준 개발 환경 안에 넣으려고 시도했던 것이고.</p>
+<p>내가 이전에 거쳐간 회사에서도 별다른 도구 없이 그냥 코드를 이해하고 개발 잘하시는 분이 많았다. 가끔 찍어볼 일이야 생기긴 하지만 나처럼 자주 breakpoint 걸어 확인하는 스타일은 아니었다. 디버깅을 편하게(편하다는 것은 상대적인 것) 한다고 좋은 코드를 만들어 내는 건 아니다.</p>
+<p>그럼에도 불구하고 나처럼 덤벙거리고 부족한 사람(여기서 내가 PHP 개발 경력이 제일 많은데, 제일 못한다!)은 팀에서는 여러 안전장치 안에서 개발하는 습관을 둬야 한다고 생각한다.<br><br></p>
+<hr>
+<h2 id="새로운-환경에-적응하기"><a href="#새로운-환경에-적응하기" class="headerlink" title="새로운 환경에 적응하기"></a>새로운 환경에 적응하기</h2><ul>
+<li><a href="https://xdebug.org/" target="_blank" rel="external">Xdebug</a>와 <a href="https://www.docker.com/docker-mac" target="_blank" rel="external">Docker for Mac</a></li>
+</ul>
 <p>새 직장(아…그 사람 구한다는 메쉬코리아?)에서의 개발환경은 나로서는 꽤 도전적이었는데, 뭐하나 익숙한 게 없었다.</p>
 <p>Backend만 개발하며, PHP7.0, AWS, Mac…</p>
 <p>UI가 없는 순수 백엔드(API)만 개발 하다보니 <a href="https://www.getpostman.com/" target="_blank" rel="external">Postman</a>이 주 테스트 도구(혹은 진입점)가 된다.</p>
@@ -37,12 +45,12 @@
 <p>With remote debugging, Xdebug embedded in PHP acts like the client, and the IDE as the server. The following animation shows how the communication channel is set-up:</p>
 <p><img src="/images/xdebug-on-docker-for-mac/dbgp-setup.gif" alt="comm. With a static IP/single developer image"></p>
 <ul>
-<li>he IP of the server is 10.0.1.2 with HTTP on port 80</li>
-<li>he IDE is on IP 10.0.1.42, so xdebug.remote_host is set to 10.0.1.42</li>
-<li>he IDE listens on port 9000, so xdebug.remote_port is set to 9000</li>
-<li>he HTTP request is started on the machine running the IDE</li>
-<li>debug connects to 10.0.1.42:9000</li>
-<li>ebugging runs, HTTP Response provided</li>
+<li>the IP of the server is 10.0.1.2 with HTTP on port 80</li>
+<li>the IDE is on IP 10.0.1.42, so xdebug.remote_host is set to 10.0.1.42</li>
+<li>the IDE listens on port 9000, so xdebug.remote_port is set to 9000</li>
+<li>the HTTP request is started on the machine running the IDE</li>
+<li>Xdebug connects to 10.0.1.42:9000</li>
+<li>Debugging runs, HTTP Response provided</li>
 </ul>
 <p><img src="/images/xdebug-on-docker-for-mac/dbgp-setup2.gif" alt="comm. With an unknown IP/multiple developers image"></p>
 <ul>
@@ -121,7 +129,7 @@
 <p>Dcker에서는 container 안에서 호스트로 접근할 수 있는 host.docker.internal라는 특별한 DNS name을 제공한다는 것이다. 따라서 위에 설정한 대로 <code>xdebug.remote_host=host.docker.internal</code>을 입력하면 호스트(IDE를 띄워놓은)에 접근 가능하다.</p>
 <p>이 과정에서 문제가 무엇인지는 xdebug.remote_log에서 지정된 로그 파일로부터 얻었다. 연동이 잘 안된다면 맨 위에 설명한 것처럼 DBGp로 연결이 이뤄지기까지 어느 단계에서 문제가 생겼는지 확인해보는 게 좋다.</p>
 <ul>
-<li>XDEBUG_SESSION이 잘 세팅되었다면 쿠키/헤더 설정을 확인해보자</li>
+<li>XDEBUG_SESSION이 잘 세팅되지 않았다면 쿠키/헤더 설정을 확인해보자</li>
 <li>PHP(+Xdebug) 엔진 단에서 XDEBUG_SESSION을 인식을 못한다면, Xdebug 모듈이 로드 안됐을 수 있으니 <code>php -v</code>나 <code>phpinfo()</code>로 확인하자</li>
 <li>XDEBUG_SESSION을 인식은 했는데 request 들어온 곳을 찾아가지 못하는 경우라면,<ul>
 <li>IDE에서 Xdebug connection을 listen하지 않거나</li>
@@ -133,7 +141,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;a href=&quot;https://xdebug.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Xdebug&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://www.docker.com/docker-mac&quot; target=&quot;_blank&quot; re
+      &lt;h2 id=&quot;updated&quot;&gt;&lt;a href=&quot;#updated&quot; class=&quot;headerlink&quot; title=&quot;updated&quot;&gt;&lt;/a&gt;updated&lt;/h2&gt;&lt;p&gt;이 글이 의외로 인기(인기란 상대적인 것)가 있어서 여기저기 공유가 되고 있는데, 다시 읽
     
     </summary>
     
