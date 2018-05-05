@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://haah.kr/"/>
-  <updated>2018-04-28T03:57:51.627Z</updated>
+  <updated>2018-05-05T14:40:46.978Z</updated>
   <id>http://haah.kr/</id>
   
   <author>
@@ -14,6 +14,128 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PHP의 output_buffering</title>
+    <link href="http://haah.kr/2018/05/01/streaming-and-output-buffering-in-PHP/"/>
+    <id>http://haah.kr/2018/05/01/streaming-and-output-buffering-in-PHP/</id>
+    <published>2018-05-01T02:38:20.000Z</published>
+    <updated>2018-05-05T14:40:46.978Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Streaming-amp-Buffering"><a href="#Streaming-amp-Buffering" class="headerlink" title="Streaming &amp; Buffering"></a>Streaming &amp; Buffering</h2><p>Streaming이란 응답을 한번에 보내지 않고 chunk로 나누어 보내는 것.</p>
+<p>이를 downstream(브라우저 같은 client만을 의미하지 않고 upstream에서 만들어진 데이터를 받는 쪽을 의미하는 상대적인 개념)에서 사용하거나 또 다른 downstream으로 전달하기 위해 설정된 크기만큼 모으는 행위를 buffering이라고 한다. (내 생각이고 정확한 정의는 아니다)</p>
+<p>브라우저에서는 body 태그가 나타난 이후 스트림으로 받는 컨텐츠를 받는 족족 화면에 추가해준다. 이 때문에 뒤늦게 추가되는 CSS가 있다면 모든 요소의 로드가 끝날 때까지 스타일이 계속 변하는 페이지도 많이 볼 수 있다. 바로 이놈의 블로그 테마처럼! 곧 갈아치우던가 해야지.</p>
+<p>(이렇게 잘못 설계하면 불편함을 초래하지만) 이런 매커니즘은 다운로드를 최종 완료하는 시점을 더 늦추는 대신 빠른 반응 속도를 제공할 수 있고, 사용자들은 더 빨리 로드되는 것처럼 느끼게 된다.<br>그리고 보내는 쪽에서도 유익한 것이, 서버의 메모리 제한에 상관없이 전체 데이터를 메모리에 두지 않고도 거대한 파일을 클라이언트에 보낼 수 있다.<br>반면 너무 작은 크기로 잘라 계속 보내게 되면, 네트웍으로 전송하는 비용과 chunk로 자르는 비용과 chunk를 분석하는 비용이 추가가 된다.</p>
+<p>괜히 있어야 할 말인 것 같아서 쓸데없이 당연한 말 좀 써봤다.</p>
+<h2 id="output-buffering-옵션"><a href="#output-buffering-옵션" class="headerlink" title="output_buffering 옵션"></a>output_buffering 옵션</h2><p>php.ini에서 많이 만나봤던 그 옵션이다. output buffering이란 PHP 엔진에서 downstream이라고 부를 수 있는 다음 단계인 apache(mod_php), FastCGI, CLI 등에 즉시 응답을 주는 대신 일정 크기의 버퍼에 데이터를 쌓고, 버퍼가 다 채워지거나 PHP 스크립트의 실행이 끝날 때 전달해주는 옵션이다.</p>
+<p>이런 느낌.</p>
+<p><img src="/images/streaming-and-output-buffering-in-PHP/big_chunk_buffer.jpg" alt="big_chunk_buffer image"></p>
+<p>공식 매뉴얼을 읽어보면,</p>
+<blockquote>
+<p>You can enable output buffering for all files by setting this directive to ‘On’. If you wish to limit the size of the buffer to a certain size - you can use a maximum number of bytes instead of ‘On’, as a value for this directive (e.g., output_buffering=4096). As of PHP 4.3.5, this directive is always Off in PHP-CLI.</p>
+</blockquote>
+<p>default가 “0”이고, “1”로 설정하면 “On”과 동일하기 때문에 메모리가 허용하는 선까지 버퍼링하는데, 이는 위험하니 보통 4096으로 설정하는 것 같다. 왜 4096이란 숫자가 나왔는지 궁금한데 잘 모르겠다. 보통 이렇게 기본 설정으로 해놓는 듯. 왜??</p>
+<p>4096 bytes(4KB)로 설정하면 PHP는 echo나 print 등의 출력을 하더라도 바로 다음 단계로 넘기지 않고 4KB까지 들고 있는다는 말이다.</p>
+<p>중요한 점은 PHP-CLI에서는 PHP 4.3.5 버전 이후로 항상 “Off”란다.</p>
+<p>이제 로컬 머신에 어떻게 설정이 되어있는지 확인해보자.</p>
+<p>서버를 띄우고 phpinfo()를 찍는다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; echo &quot;&lt;?php phpinfo();&quot; &gt; output.php</div><div class="line">&gt; php -S localhost:8888</div></pre></td></tr></table></figure>
+<p><img src="/images/streaming-and-output-buffering-in-PHP/phpinfo_output_buff.png" alt="phpinfo_output_buffering option image"></p>
+<p>내친김에 CLI는 정말 항상 0이 되는지도 확인.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">❯ php -i | grep buff</div><div class="line">output_buffering =&gt; 0 =&gt; 0</div></pre></td></tr></table></figure>
+<h2 id="buffering-실험-PHP-엔진"><a href="#buffering-실험-PHP-엔진" class="headerlink" title="buffering 실험 - PHP 엔진"></a>buffering 실험 - PHP 엔진</h2><p><a href="https://www.sitepoint.com/php-streaming-output-buffering-explained/" target="_blank" rel="external">PHP Streaming and Output Buffering Explained</a>라는 글에서 실험 방법과 코드를 가져왔다.</p>
+<p>아까 띄웠던 서버는 죽일 필요없이 output.php를 열어 아래와 같이 수정한다.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">    <span class="keyword">echo</span> <span class="string">"Hello "</span>;</div><div class="line">    sleep(<span class="number">5</span>);</div><div class="line">    <span class="keyword">echo</span> <span class="string">"World!"</span>;</div></pre></td></tr></table></figure>
+<p>브라우저로 <a href="http://localhost:8888/output.php에" target="_blank" rel="external">http://localhost:8888/output.php에</a> 접근해보면, 5초후 <code>Hello World!</code>가 동시에 노출된다. “Hello “가 output_buffering 제한보다 짧아서 echo를 했음에도 아직 버퍼에만 쌓여있는 상태이기 때문이다.</p>
+<p>아까 CLI는 output_buffering이 항상 꺼져있다고 했는데, CLI에서 돌려보면 어떻게 될까? 당연히 “Hello “가 먼저 화면에 찍힐 것을 예상할 수 있다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">❯ php output.php</div></pre></td></tr></table></figure>
+<p>그럼 이제 output_buffering 설정값인, 4KB를 다 채우는 실험을 해보자.</p>
+<p>output.php파일의 내용을 아래 소스로 바꿔준다.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$multiplier = <span class="number">1</span>;</div><div class="line">$size = <span class="number">1024</span> * $multiplier;</div><div class="line"><span class="keyword">for</span>($i = <span class="number">1</span>; $i &lt;= $size; $i++) &#123;</div><div class="line">    <span class="keyword">echo</span> <span class="string">"."</span>;</div><div class="line">&#125;</div><div class="line">sleep(<span class="number">5</span>);</div><div class="line"><span class="keyword">echo</span> <span class="string">" Hello World "</span>;</div></pre></td></tr></table></figure>
+<p>(buffering limit에 한참 모자라는) 1024 byte만 채우고 5초를 쉬기 때문에 이번에도 역시 <code>Hello World!</code>가 동시에 보인다.</p>
+<p>$multiplier를 4로 늘려 다시 실행해보자. 이번에는 점(.) 4096개가 먼저 화면에 노출되는 것을 볼 수 있다. </p>
+<p>만약 시킨대로 <code>php -S</code>로 서버를 구동하지 않고 웹서버를 통해 서비스했다면, 이런 현상은 못 볼 수도 있다. 아마 8KB로 늘려야 할 지도 모른다. 서버 설정에 관해선 잠시 후에 더 다룰 것이다.</p>
+<h2 id="ob-flush-flush"><a href="#ob-flush-flush" class="headerlink" title="ob_flush(); flush();"></a>ob_flush(); flush();</h2><p>ob_flush와 flush는 데이터를 상위 레이어로 보내는 built-in method이다.<br>버퍼된 데이터는 버퍼가 꽉 차거나 php 실행이 끝나지 않는 이상 비워지지 않는데, 이 메소드가 버퍼를 비우는 일을 한다.</p>
+<p>눈으로 확인하기 위해 <code>sleep(5);</code> 전에 <code>ob_flush(); flush();</code> 를 심자.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$multiplier = <span class="number">4</span>;</div><div class="line">$size = <span class="number">1024</span> * $multiplier - <span class="number">1</span>;</div><div class="line"><span class="keyword">for</span>($i = <span class="number">1</span>; $i &lt;= $size; $i++) &#123;</div><div class="line">    <span class="keyword">echo</span> <span class="string">"."</span>;</div><div class="line">&#125;</div><div class="line">ob_flush(); flush();</div><div class="line">sleep(<span class="number">5</span>);</div><div class="line"><span class="keyword">echo</span> <span class="string">" Hello World "</span>;</div></pre></td></tr></table></figure>
+<p><code>$size = 1024 * $multiplier - 1;</code>를 했기 때문에 output 버퍼에 다 차지 않았지만, flush를 했기 때문에 4095개의 점(.)이 화면에 먼저 뿌려지는 걸 볼 수 있다.</p>
+<p>ob_flush(); flush(); 두 메소드를 같이 쓴 이유?</p>
+<p><a href="http://php.net/manual/en/function.flush.php" target="_blank" rel="external">flush</a></p>
+<blockquote>
+<p>Flushes the system write buffers of PHP and whatever backend PHP is using (CGI, a web server, etc)</p>
+</blockquote>
+<p><a href="http://php.net/manual/en/function.ob-flush.php" target="_blank" rel="external">ob_flush</a></p>
+<blockquote>
+<p>This function will send the contents of the output buffer</p>
+</blockquote>
+<p><code>flush</code>는 PHP를 사용하는 백엔드, 즉 다음 단계로 데이터를 전달하는 역할을 한다.</p>
+<p>output_buffering 설정이 되어 있지 않아도 <code>ob_start</code>를 호출하면 자체적으로 output buffering을 사용할 수 있는데(이 때는 output_buffering으로 설정한 크기를 넘어서도 버퍼에 저장할 수 있다), 이때 쌓인 버퍼가 있다면 <code>ob_flush</code>를 해줘야 한다. 따라서 ob_flush는 flush보다 앞서 실행해야 한다.</p>
+<h2 id="웹서버-설정"><a href="#웹서버-설정" class="headerlink" title="웹서버 설정"></a>웹서버 설정</h2><p>초반에 PHP 엔진에서 버퍼가 다 차면 그 데이터를 다음 단계(downstream)로 전달한다고 이야기 했는데,</p>
+<p>그 다음 단계가 웹서버라고 하면, 웹서버에서는 이렇게 받은 걸 바로 클라이언트로 전달해줄까? 미안하지만 웹서버도 자체 버퍼링을 한다. 그 다음에 끼어 있는 프록시는? ISP는? 브라우저는? 모두 나름의 버퍼링 메커니즘을 갖고 있다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">클라이언트(브라우저 등) - ISP - Proxy - Web Server - Application Server - DB</div></pre></td></tr></table></figure>
+<p>웹서버는 보통 다음과 같이 사용하게 될텐데,</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">브라우저 - php 내장서버</div><div class="line">브라우저 - Apache - mod_php</div><div class="line">브라우저 - nginx - fastcgi + php</div><div class="line">...생략</div></pre></td></tr></table></figure>
+<p>위애서 본 대로 php의 내장서버를 사용하면 자체 버퍼를 두지 않고 바로 클라이언트에 데이터를 보낸다. </p>
+<p>Apache + mod_php에서 mod_php에서는 버퍼링을 하지 않지만, Apache는 버퍼링을 한다.</p>
+<p>FastCGI는 Apache에 붙여서 사용하든 nginx에서 사용하든 버퍼링 옵션이 있는데,</p>
+<p>nginx에서는 4KB(32bit 머신) 혹은 8KB(64bit 머신)의 버피링을 갖고,<br>Apache에서는 (Apache에서 FastCGI를 물려본 적은 없지만) <a href="https://httpd.apache.org/mod_fcgid/mod/mod_fcgid.html#fcgidoutputbuffersize" target="_blank" rel="external">문서</a>에 따르면 65536(64KB)이나 된다. (default가 너무 커서 내가 과연 제대로 찾은 건가 싶기도 한데..)</p>
+<p>웹서버가 버퍼링하는 모습을 확인하기 위해 아파치를 띄우고 새로운 파일을 만들어 서비스 해보자.</p>
+<ul>
+<li>아파치를 띄우는 건 알아서…</li>
+<li>나의 실행환경은 PHP Version 7.0.25-0ubuntu0.16.04.1, Apache/2.4.18 (Ubuntu)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd 웹서버띄운디렉토리</div><div class="line">vim webserver.php</div></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$multiplier = <span class="number">1</span>;</div><div class="line">$size = <span class="number">1024</span> * $multiplier;</div><div class="line"><span class="keyword">for</span>($i = <span class="number">1</span>; $i &lt;= $size; $i++) &#123;</div><div class="line">    <span class="keyword">echo</span> <span class="string">"."</span>;</div><div class="line">&#125;</div><div class="line">flush();</div><div class="line">sleep(<span class="number">5</span>);</div><div class="line"><span class="keyword">echo</span> <span class="string">" Hello World "</span>;</div></pre></td></tr></table></figure>
+<p>이제 브라우저에서 열어본다. </p>
+<ul>
+<li><a href="http://localhost/webserver.php" target="_blank" rel="external">http://localhost/webserver.php</a></li>
+<li>웹서버를 몇 번 port에서 열였는지에 따라 URL은 달라질 것이다</li>
+</ul>
+<p>output_buffering이 4096으로 설정된 상태이고 echo “.”;을 1024번 했으나, flush()를 실행했기 때문에 바로 화면에 점(.) 1024개가 찍힐 것으로 기대했을 것이다. 그런데 점(.)과 “ Hello World “는 동시에 나타난다. $multiplier를 4로 늘려 4096개의 점을 찍으면 이번에는 점(.)부터 화면에 노출된다.</p>
+<p>즉, 아파치에서 클라이언트로 결과를 보내기 전 4096의 버퍼가 존재한다.</p>
+<p>gzip 같은 압축 전송의 경우 클라이언트로 보낼 데이터를 모두 모은 후 압축해서 한번에 보낼 수도 있기 때문에 꺼둬야 한다. </p>
+<p>gzip을 설정 파일에서도 끌 수 있고, PHP 스크립트에서 <code>@apache_setenv(&#39;no-gzip&#39;, 1);</code>로 끌 수도 있다.</p>
+<p>nginx + FastCGI를 사용할 때는, 아래 설정을 추가해야 가능하다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">fastcgi_buffer_size   1k;                              </div><div class="line">fastcgi_buffers       128 1k;  # up to 1k + 128 * 1k</div><div class="line">fastcgi_max_temp_file_size 0;</div><div class="line">gzip off;</div></pre></td></tr></table></figure>
+<p>buffer는 PHP 엔진에서 넘어오는 것보다 작게 두고, 이를 넘어가면 파일에 쓰지 않도록 fastcgi_max_temp_file_size를 0으로 설정한다.</p>
+<h2 id="주의"><a href="#주의" class="headerlink" title="주의"></a>주의</h2><p>압축 전송 모드를 꺼버리는 것은 버퍼링 테스트를 할 때만 참고하자. 실제 서비스에서는 서비스의 성격에 따라 결정해야 한다.</p>
+<p>nginx에서는 <code>header(&#39;X-Accel-Buffering: no’);</code>를 통해 특정 response에만 적용할 수 있다. Vanish 같은 데선 <code>header(&#39;Surrogate-Control: BigPipe/1.0&#39;);</code>. (아파치도 이런게 있었던 것 같은데…)</p>
+<p>데이터를 만들어지는 대로 flush하고 chunk로 나누어 보내기 시작하면, 클라이언트에 200번대 응답을 주고 전송하기 시작할 것이다. 그런데 한번 200 code 응답을 보냈음에도 중간에 오류가 발생해서 보내지 못할 수가 있다. 각오하자.</p>
+<p>데이터가 쌓이는대로 클라이언트에 전달해주면, 보낼 컨텐츠의 전체 길이를 알지 못하게 된다. 전체 길이를 알면 부분 다운로드나 이어받기가 가능해지므로, 상황에 따라 미리 컨텐츠의 데이터 크기를 알아두는 것도 도움이 된다. 여기서 또 주의할 점은 Content-Length는 Content-Encoding(gzip, deflate 등)을 한 이후의 길이를 의미한다는 것이다.</p>
+<p>동적으로 생성될 경우 전형적인 압축 스트림은 아래와 같은 헤더를 갖는다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Content-Type: text/html</div><div class="line">Content-Encoding: gzip</div><div class="line">Transfer-Encoding: chunked</div></pre></td></tr></table></figure>
+<p>또 어떤 경우에는 chunk의 크기를 결정해야할 수도 있다. 컨텐츠의 크기나 네트웍 상황에 따라 작은 chunk로 여러번 보내거나 큰 chunk로 적게 보내는 걸 결정해야 하는데, 버퍼 크기를 늘리면 커넥션마다 메모리를 더 많이 사용하게 되고, OS의 메모리 한계에 다다르면 out of memory나 disk에 쓰기 시작할 것이다. chunk가 작으면 chunk를 만들고 분석하는 비용이 더 들 수도 있다.</p>
+<p>온갖 곳에 버퍼가 있기 때문에 chunk를 작게 자른다 하더라도 한 트랜잭션 내 어딘가에서 전체 데이터를 버퍼링하고 있다면 앞서 자른 의미가 없어지기도 한다.</p>
+<h2 id="브라우저"><a href="#브라우저" class="headerlink" title="브라우저"></a>브라우저</h2><p>브라우저에서도 서버가 주는 데이터를 바로바로 화면에 표시하지 않고 어느 정도 모아서 주곤 했는데, 2013년도 <a href="http://stackoverflow.com/a/16909228/582917" target="_blank" rel="external">stackoverflow의 글</a>에 비해 많이 달라진 것 같다. </p>
+<p>여기에 따르면 FF는 1024라고 되어 있지만 현재는 FF도 매우 낮다.</p>
+<p>현재의 크롬(65.0.3325.181)은 2byte(= 2byte가 넘으면 렌더링 시작).<br>FF(58.0.2)는 1byte(= 1byte가 넘으면 렌더링 시작).<br>curl은 여전히 4096.</p>
+<h2 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h2><p>버퍼는 어디에나 있다.</p>
+<p><br><br><br></p>
+<hr>
+<p>참고 :</p>
+<ul>
+<li><a href="https://www.sitepoint.com/php-streaming-output-buffering-explained/" target="_blank" rel="external">PHP Streaming and Output Buffering Explained</a></li>
+<li><a href="https://www.jeffgeerling.com/blog/2016/streaming-php-disabling-output-buffering-php-apache-nginx-and-varnish" target="_blank" rel="external">Streaming PHP - disabling output buffering in PHP, Apache, Nginx, and Varnish</a></li>
+<li><a href="https://gist.github.com/CMCDragonkai/6bfade6431e9ffb7fe88" target="_blank" rel="external">HTTP Streaming (or Chunked vs Store &amp; Forward)</a></li>
+</ul>
+<p>이미지 출처 :</p>
+<ul>
+<li><a href="http://zzoy.co/wp-content/uploads/2017/10/great-wolf-lodge-water-park-map-grapevine.jpg" target="_blank" rel="external">big_chunk_buffer.jpg</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Streaming-amp-Buffering&quot;&gt;&lt;a href=&quot;#Streaming-amp-Buffering&quot; class=&quot;headerlink&quot; title=&quot;Streaming &amp;amp; Buffering&quot;&gt;&lt;/a&gt;Streaming &amp;amp;
+    
+    </summary>
+    
+    
+      <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
+    
+      <category term="stream" scheme="http://haah.kr/tags/stream/"/>
+    
+  </entry>
   
   <entry>
     <title>뉴스 아카이브 2018-04-28</title>
@@ -1563,141 +1685,6 @@
       &lt;p&gt;&lt;a href=&quot;/tags/phttp/&quot;&gt;연재글 전체 보기&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h1 id=&quot;Request-분리&quot;&gt;&lt;a href=&quot;#Request-분리&quot; class=&quot;headerlink&quot; title=&quot;Request 분리&quot;&gt;&lt;/a&gt;Request
-    
-    </summary>
-    
-    
-      <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
-    
-      <category term="HTTP" scheme="http://haah.kr/tags/HTTP/"/>
-    
-      <category term="phttp" scheme="http://haah.kr/tags/phttp/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PHP로 HTTP 서버 구현하기 - 05 - 아주 간단한 HTTP 서버로 첫 요청과 응답</title>
-    <link href="http://haah.kr/2017/10/21/phttp-05/"/>
-    <id>http://haah.kr/2017/10/21/phttp-05/</id>
-    <published>2017-10-21T01:34:46.000Z</published>
-    <updated>2018-02-13T06:27:02.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="/tags/phttp/">연재글 전체 보기</a></p>
-<hr>
-<h2 id="과연-스트리밍이-필요한가"><a href="#과연-스트리밍이-필요한가" class="headerlink" title="과연 스트리밍이 필요한가?"></a>과연 스트리밍이 필요한가?</h2><p>스트리밍 처리를 위해 이리저리 알아보다가 괜찮은 글이 있어 소개한다.</p>
-<p><a href="https://gist.github.com/CMCDragonkai/6bfade6431e9ffb7fe88" target="_blank" rel="external">https://gist.github.com/CMCDragonkai/6bfade6431e9ffb7fe88</a></p>
-<ul>
-<li>스트리밍을 구현할 때 chunk 데이터를 어떻게 보내고, 이를 어떻게 처리해야 하는지</li>
-<li>HTTP 트랜잭션 안의 각 요소(component) 간 buffer는 어떻게 처리되는지</li>
-<li>등등 </li>
-</ul>
-<p>잘 나와있다.</p>
-<p>예전에 댓글로 <a href="https://www.sitepoint.com/php-streaming-output-buffering-explained/" target="_blank" rel="external">아웃 버퍼링에 관한 글</a>도 소개했었는데,</p>
-<p>같은 맥락으로 읽어보면 좋다.</p>
-<p>내가 만들 서버는 아주 가벼운 HTML 파일과 이미지 정도를 보내주기 때문에 굳이 (chunk로 나눠 보내주는) 스트리밍은 필요없다.</p>
-<p>마찬가지로 클라이언트에서도 multi-part chunk 데이터가 들어올 것을 고려할 필요가 없다.</p>
-<p>그럼 이제 HTTP 요청을 받아서 HTTP 응답을 반환해주는 최소한의 구성으로 서버를 하나 만들어보겠다.</p>
-<h2 id="아주-간단한-HTTP-서버"><a href="#아주-간단한-HTTP-서버" class="headerlink" title="아주 간단한 HTTP 서버"></a>아주 간단한 HTTP 서버</h2><p>이전 시간에 만들었던 서버 소스를 조금 수정해서, 클라이언트가 보낸 내용을 읽고 HTTP 응답 메시지로 리턴한다.</p>
-<p>아래는 전체 소스다.</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$server = stream_socket_server(<span class="string">"tcp://127.0.0.1:1337"</span>, $errno, $errorMessage);</div><div class="line">    </div><div class="line"><span class="keyword">if</span> ($server === <span class="keyword">false</span>) &#123;</div><div class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> UnexpectedValueException(<span class="string">"Could not bind to socket: $errorMessage"</span>);</div><div class="line">&#125;</div><div class="line">    </div><div class="line"><span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</div><div class="line">    $client = @stream_socket_accept($server);</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> ($client) &#123;</div><div class="line">        $request= fread($client, <span class="number">1024</span>);</div><div class="line">        </div><div class="line">        $response = <span class="string">'HTTP/1.0 200 OK'</span> . PHP_EOL;</div><div class="line">        $response .= <span class="string">'Content-Type: text/html'</span> . PHP_EOL;</div><div class="line">        $response .= PHP_EOL;</div><div class="line">        $response .= <span class="string">'you sent :'</span> . PHP_EOL . $request . PHP_EOL;</div><div class="line">        </div><div class="line">        fwrite($client, $response, strlen($response));</div><div class="line">        fclose($client);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>클라이언트와 연결되면 해당 스트림에서 1024 바이트만큼 읽어온다.</p>
-<p>더 많이 보낼 수 있지 않냐고? 물론이다. 그 문제는 그 때 생각하자.</p>
-<p>그 다음 HTTP 메시지를 만들어 준다.</p>
-<ul>
-<li>말했지만, HTTP 메시지는 시작줄, 헤더, 공백, 본문(message body)으로 이뤄졌다.</li>
-</ul>
-<p>요청할 때는 시작줄에 <code>GET / HTTP/1.1</code>와 같이 메소드, URL, HTTP 버전 순으로 보냈지만 </p>
-<p>응답할 때의 시작줄에는 <code>HTTP/1.0 200 OK</code>와 같이 HTTP 버전과 상태 코드 그리고 상태 텍스트를 넣어준다.</p>
-<p>여기에 헤더를 추가해줘야 하니 Content-Type을 text/html으로 우선 하나 넣어주고</p>
-<p>메시지 본문과의 구분을 위해 CRLF를 두 개 추가한다. </p>
-<h2 id="첫-HTTP-요청과-응답"><a href="#첫-HTTP-요청과-응답" class="headerlink" title="첫 HTTP 요청과 응답"></a>첫 HTTP 요청과 응답</h2><p>테스트 용으로 만들었던 클라이언트 코드는 이제 버리고,</p>
-<p>진짜 HTTP 클라이언트를 사용해보자.</p>
-<p>브라우저에서 접속해도 괜찮지만 아직은 HTML 파일을 내려보낼 것이 아니므로</p>
-<p><a href="https://www.getpostman.com/" target="_blank" rel="external">Postman</a>같은 클라이언트가 테스트하기 편할 것이다.</p>
-<p><code>GET</code> 메소드로 <code>127.0.0.1:1337</code>에 접근해보자.</p>
-<p><img src="/images/phttp-05/postman01.png" alt="Postman으로 실행한 화면"></p>
-<p>(만약 서버에서 적절한 시작줄을 안 보내주면 Postman은 <code>Could not get any response</code>라며 응답이 오지 않은 것으로 간주한다.) </p>
-<p>Postman에서 받은 응답 메시지 본문은 아래와 같다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">you sent :</div><div class="line">GET / HTTP/1.1</div><div class="line">Host: 127.0.0.1:1337</div><div class="line">Connection: keep-alive</div><div class="line">Cache-Control: no-cache</div><div class="line">User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36</div><div class="line">Postman-Token: df3ef030-2b6f-76c3-30d9-304ebb426a41</div><div class="line">Accept: */*</div><div class="line">Accept-Encoding: gzip, deflate, br</div><div class="line">Accept-Language: ko-KR,ko;q=0.8,en-US;q=0.6,en;q=0.4</div></pre></td></tr></table></figure>
-<p>서버에서 응답 본문 앞에 붙여둔 <code>you sent :</code> 한 주를 제외하면 나머지는 HTTP 클라이언트(여기서는 Postman)가 요청 시 붙여 보낸 것이다.</p>
-<p>크롬에서 보내면?</p>
-<pre><code>you sent :
-GET / HTTP/1.1
-Host: 127.0.0.1:1337
-Connection: keep-alive
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36
-Upgrade-Insecure-Requests: 1
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
-Accept-Encoding: gzip, deflate, br
-Accept-Language: ko-KR,ko;q=0.8,en-US;q=0.6,en;q=0.4
-</code></pre><p>다시 서버 소스를 돌아보자.</p>
-<p>지금은 무조건 <code>HTTP/1.0 200 OK</code>라고 응답하게 되어있다.</p>
-<p>클라이언트는 HTTP/1.1을 지원하기 때문에 이 프로토콜 버전을 기준으로 헤더를 붙여 요청했지만</p>
-<p>우리 서버는 ‘난 HTTP/1.0까지만 지원하는 서버라서 1.0 기준의 헤더를 보낼 거야’라는 의미로 응답에 <code>HTTP/1.0 200 OK</code>를 리턴한다.</p>
-<h2 id="브라우저에서-index-html-확인하기"><a href="#브라우저에서-index-html-확인하기" class="headerlink" title="브라우저에서 index.html 확인하기"></a>브라우저에서 index.html 확인하기</h2><p>저기 저 아주 간단한 서버 소스에선 메시지 본문을 클라이언트가 보낸 데이터를 그대로 돌려줬는데,</p>
-<p><code>$response .= &#39;you sent :&#39; . PHP_EOL . $request . PHP_EOL;</code></p>
-<p>이제 예시로 만들어 두었던 index.html 파일을 읽어 클라이언트로 보내기로 한다.</p>
-<p>드디어 브라우저에서 확인해볼 차례다.</p>
-<p>Request를 그대로 돌려주는 서버에서 무조건 index.html을 떨궈주는 서버로 진화해보자. </p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 생략</span></div><div class="line">    </div><div class="line"><span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</div><div class="line">    $client = @stream_socket_accept($server);</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> ($client) &#123;</div><div class="line">        <span class="comment">//todo 요청(request) 처리 모듈로 분리하기</span></div><div class="line">        $request= fread($client, <span class="number">1024</span>);</div><div class="line">    </div><div class="line">        $filename = <span class="string">'../public/index.html'</span>;</div><div class="line">        <span class="keyword">if</span> (!($fp = fopen($filename, <span class="string">'r'</span>))) &#123;</div><div class="line">            $response = <span class="string">'HTTP/1.0 404 파일 없음'</span> . PHP_EOL;</div><div class="line">            fwrite($client, $response, strlen($response));</div><div class="line">            fclose($client);</div><div class="line">        &#125;</div><div class="line">        $responseBody = fread($fp, filesize($filename));</div><div class="line">    </div><div class="line">        <span class="comment">//todo 응답(response) 처리 모듈로 분리하기</span></div><div class="line">        $response = <span class="string">'HTTP/1.0 200 OK'</span> . PHP_EOL;</div><div class="line">        $response .= <span class="string">'Content-Type: text/html'</span> . PHP_EOL;</div><div class="line">        $response .= PHP_EOL;</div><div class="line">        $response .= $responseBody . PHP_EOL;</div><div class="line">    </div><div class="line">        fwrite($client, $response, strlen($response));</div><div class="line">        fclose($client);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>todo가 먼저 눈에 띌 것 같은데,</p>
-<p>우리의 아주 간단한 서버가 조금씩 복잡해지기 시작했다(냄새가 난다, 냄새가).</p>
-<p>크게 보면 응답을 받아서 뭔가 하는 역할과 응답을 만들어주는 역할이다.</p>
-<p>리팩토링은 나중에 하기로 하고, 맥주를 한잔 따르고, 성공을 축하하자.</p>
-<p>크롬으로 접속!</p>
-<p><img src="/images/phttp-05/index_html.png" alt="index.html 성공"></p>
-<p>만약 없는 경로의 파일을 찾으려고 하면 404로 응답해주면 된다.</p>
-<p>그 유명한 <code>404 not found</code>다.</p>
-<p>그런데 소스를 보면 <code>HTTP/1.0 404 파일 없음</code>이라고 되어있는데 잘못 쓴 게 아니다.</p>
-<p>클라이언트에게는 404라는 응답코드가 중요하지 메시지는 중요하지 않다.</p>
-<p><code>200 OK</code>나 <code>200 NOT OK</code>나 모두 성공을 의미한다.</p>
-<p>(물론 서비스 운영 시에는 이런 짓은 하지 않는다)</p>
-<p><img src="/images/phttp-05/index_html_404.png" alt="404 not found"></p>
-<p>404 처리도 완벽하게(!?) 됐다.</p>
-<h2 id="이미지-서빙"><a href="#이미지-서빙" class="headerlink" title="이미지 서빙"></a>이미지 서빙</h2><p>첫 요청으로 index.html을 서빙하는 것 까지는 성공했는데, 중간에 이미지가 빠져있는 게 보일 것이다.</p>
-<p>이미지를 노출하려면 몇 가지 더 수정을 해야한다.</p>
-<h3 id="첫째-두-가지의-요청을-처리할-수-있어야-한다"><a href="#첫째-두-가지의-요청을-처리할-수-있어야-한다" class="headerlink" title="첫째, 두 가지의 요청을 처리할 수 있어야 한다."></a>첫째, 두 가지의 요청을 처리할 수 있어야 한다.</h3><p>즉, HTML을 요청하는 것과 이미지를 요청하는 것.</p>
-<p>첫 요청으로 브라우저는 index.html이라는 HTML을 얻었다.</p>
-<p>이 HTML 문서를 파싱하다가 img 태그를 만났고 src가 beer_server.jpg라는 상대 링크이기 때문에 우리의 서버에 다시 요청을 보낸다.</p>
-<p>첫 요청이 <code>GET / HTTP/1.1</code>라면 이어서 <code>GET /beer_server.jpg HTTP/1.1</code>라는 요청이 이어질 것이다.</p>
-<p><code>개발자 도구 &gt; 네트워크</code>를 열어 확인해보자.</p>
-<p><img src="/images/phttp-05/index_html_network.png" alt="index.html의 네트워크"></p>
-<p>(contents_min.css 저 놈은 크롬 확장 프로그램 때문에 날아간 것이니 신경 쓰지 말자 😭)</p>
-<p>favicon.ico는 브라우저 탭에 표시해주는 작은 이미지인데, 최신 브라우저에서는 favicon이 등록되어 있지 않은 사이트일 경우 서버에 /favicon.ico가 있는지 한번 찔러본다.<br>(사실 계속 찔러보기는 하는데..)</p>
-<p>따라서 예상치 못하게 이미지 하나를 더 서비스 해야할 상황이다.</p>
-<ul>
-<li>index.html</li>
-<li>beer_server.png </li>
-<li>favicon.ico</li>
-</ul>
-<p>이제 클라이언트가 보낸 요청을 분석해서 뭘 원하는 지 알아내야 할 판이다.</p>
-<h3 id="둘째-이미지를-읽고-써야한다"><a href="#둘째-이미지를-읽고-써야한다" class="headerlink" title="둘째, 이미지를 읽고 써야한다."></a>둘째, 이미지를 읽고 써야한다.</h3><p>위 소스에서 index.html을 어떻게 찾았는지 살펴보자.</p>
-<p>server.php가 실행된 위치에서 <code>..</code>로 상위 디렉토리로 올리가 <code>public</code>이라는 디렉토리에 있는 파일을 서빙했다.</p>
-<p>이러다 서버 프로그램 위치가 이동한달지 webroot를 변경하면 서버 코드를 수정할 판이다.</p>
-<h2 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h2><p>냄새가 난다, 냄새가.</p>
-<p>index.html 하나 서비스했을 뿐인데 많은 구조적인 문제가 폭발했다.</p>
-<p>클라이언트 요청(request)를 분석하고 html을 줄지 이미지를 줄지 결정해야하고,</p>
-<p>DOCUMENT_ROOT, WEB_ROOT 등 config 설정도 해야할 것 같다.</p>
-<p>200과 404 응답을 만들어주는 코드 모두에 fwrite/fclose 로직이 중복되어 있기도 하다.</p>
-<p>이 모든 걸 담기에는 이미 서버 프로그램이 너무 복잡하다.</p>
-<p>다음 시간부터 이를 하나씩 분리해서 HTTP 완벽가이드 5장에 소개된 ‘진짜 웹 서버가 하는 일’을 구현해볼 생각이다.</p>
-<ol>
-<li>커넥션을 맺는다</li>
-<li>요청을 받는다</li>
-<li>요청을 처리한다</li>
-<li>리소스에 접근한다</li>
-<li>응답을 만든다</li>
-<li>응답을 보낸다</li>
-<li>트랜잭션을 로그로 남긴다</li>
-</ol>
-<p>(1번, 2번 정도는 PHP 함수로 대충 때웠으니 했다고 치자) </p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;/tags/phttp/&quot;&gt;연재글 전체 보기&lt;/a&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;과연-스트리밍이-필요한가&quot;&gt;&lt;a href=&quot;#과연-스트리밍이-필요한가&quot; class=&quot;headerlink&quot; title=&quot;과연 스트리밍이 필요한가?&quot;&gt;&lt;
     
     </summary>
     
