@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://haah.kr/"/>
-  <updated>2018-05-10T14:53:32.033Z</updated>
+  <updated>2018-06-06T02:17:10.432Z</updated>
   <id>http://haah.kr/</id>
   
   <author>
@@ -14,6 +14,57 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Modern PHP Without a Framework</title>
+    <link href="http://haah.kr/2018/06/06/modern-php-without-a-framework/"/>
+    <id>http://haah.kr/2018/06/06/modern-php-without-a-framework/</id>
+    <published>2018-06-06T01:29:34.000Z</published>
+    <updated>2018-06-06T02:17:10.432Z</updated>
+    
+    <content type="html"><![CDATA[<p>간만에 모던PHP 모임에서 발표한 자료.</p>
+<p><a href="https://github.com/ModernPUG/meetup/tree/master/2018_06" target="_blank" rel="external">https://github.com/ModernPUG/meetup/tree/master/2018_06</a></p>
+<p>발표 코드와 큰 흐름은 Kevin Smith의 <a href="https://kevinsmith.io/modern-php-without-a-framework" target="_blank" rel="external">Modern PHP Without a Framework</a>이라는 글에서 가져왔고, 여기에 이런 저런 설명을 붙여서 발표했다.</p>
+<p>발표 자료 만드는 도중에 엄청난 고민에 빠졌는데, 문제는 DI(Dependency Injection, 의존성 주입)였다.</p>
+<p>DI container를 설명하면서 (내가 만들지 않은) 아래 코드를 예로 들게 되었는데,</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">AwesomeClass</span></span></div><div class="line"><span class="class"></span>&#123;</div><div class="line">    <span class="keyword">private</span> $dbConnection;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">(\PDO $dbConnection)</span></span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        <span class="keyword">$this</span>-&gt;dbConnection = $dbConnection;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">doSomethingAwesome</span><span class="params">()</span></span></div><div class="line"><span class="function">    </span>&#123;        </div><div class="line">        <span class="comment">// Make magic happen with $this-&gt;dbConnection</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>이 코드는 DI인가, 아닌가?</p>
+<p>이 코드는 의존성이 주입되지 않았다. 의존하는 객체를 생성자를 받은 것 뿐이다. 이미 이 ‘대단한’ 클래스는 PDO에 강하게 의존하고 있다.</p>
+<p>그럼 DI란? 간단히 설명하면, 의존 관계(토비님은 이 표현이 적당하다고 생각하시는 듯)를 런타임에 맺어주는 것.</p>
+<p>그래서 의존성 주입의 적당한 예로 아래처럼 다른 코드로 바꿀까 고민을 많이 했었다.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">PizzaDelivery</span></span></div><div class="line"><span class="class"></span>&#123;</div><div class="line">    <span class="keyword">private</span> $pizza;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">(PizzaInterface $pizza)</span></span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        <span class="keyword">$this</span>-&gt;pizza = $pizza;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">deliver</span><span class="params">()</span></span></div><div class="line"><span class="function">    </span>&#123;        </div><div class="line">        <span class="comment">// vroong!</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>런타임에 HawaiianPizza 인스턴스가 들어온다고 가정을 해보자.</p>
+<p>‘의존성을 제거한다’라는 말을 들으면, 예전에는 ‘어차피 이런 코드도 PizzaInterface에 의존을 하고 있구만. 의존성을 제거할 순 없지’이라만 생각을 했는데, 여기저기 찾아보니 의존성 주입에서의 ‘의존성(Dependency)’은 특정 상황을 나타내는 고유명사로 생각하는 게 속이 편하겠다는 생각이 들었다.(이건 논란의 여지를 피해 또 논란 거리를 만드는 건가?)</p>
+<p>PizzaDelivery는 HawaiianPizza와의 의존성이 없다. HawaiianPizza와 의존 관계가 만들어지는 건 런타임이다. 그래서 이 코드는 의존성이 주입되는 예시가 된다.</p>
+<p>발표에서 PHP-DI라는 DI container라고 스스로 이야기하는 툴을 DI로도 쓰고, Service Locator로도 쓰기도 하는 것에 어째 이물감이 생겼다. 남들을 더 혼란스럼게 하나 싶기도 하고.</p>
+<p>생성자에 뭔가를 넘기는 것을 의존성 주입이라고 퉁치는 경우가 많기 때문에, 이것도 REST처럼 정확히 따지고 들자면 꼰대가 되는 것 같지만, 한번쯤 DI의 의미를 깊이 생각해볼 필요가 있을 것 같다.</p>
+<p>여기까지가 DI에 대해 공부했던 내용이고, 그 출처는 아래 링크에서 많은 도움을 받았다.</p>
+<p>(공부는진행중…)</p>
+<h2 id="도움받은-글"><a href="#도움받은-글" class="headerlink" title="도움받은 글"></a>도움받은 글</h2><p><a href="http://jwchung.github.io/DI는-IoC를-사용하지-않아도-된다" target="_blank" rel="external">http://jwchung.github.io/DI는-IoC를-사용하지-않아도-된다</a></p>
+<ul>
+<li>Martin Folwer의 Inversion of Control Containers and the Dependency Injection pattern(<a href="http://gyumee.egloos.com/2512493" target="_blank" rel="external">박성철님의 번역본</a> 참고), Mark Seemann의 주장(<a href="https://www.haruair.com/blog/3880" target="_blank" rel="external">haruair님의 번역본</a> 참고)등을 예로 든 DI에 관한 글이 있었는데, 이 글과 댓글을 읽고 많은 생각을 하게 됐다.</li>
+</ul>
+<p><a href="https://justhackem.wordpress.com/2016/05/13/dependency-inversion-terms/" target="_blank" rel="external">https://justhackem.wordpress.com/2016/05/13/dependency-inversion-terms/</a></p>
+<ul>
+<li>그 댓글에서 논쟁을 벌였던 이규원님의 글 ‘의존성 역전 원리(Dependency Inversion Principle) 관련 용어’</li>
+</ul>
+<p><a href="http://toby.epril.com/?p=808" target="_blank" rel="external">http://toby.epril.com/?p=808</a></p>
+<ul>
+<li>토비님의 DI에서 dependency를 어떻게 번역할 것인가에 대한 글</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;간만에 모던PHP 모임에서 발표한 자료.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/ModernPUG/meetup/tree/master/2018_06&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://gi
+    
+    </summary>
+    
+    
+      <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
+    
+  </entry>
   
   <entry>
     <title>독후감 - 2018년 3~5월</title>
@@ -1544,109 +1595,6 @@
       <category term="요리" scheme="http://haah.kr/tags/%EC%9A%94%EB%A6%AC/"/>
     
       <category term="베이킹" scheme="http://haah.kr/tags/%EB%B2%A0%EC%9D%B4%ED%82%B9/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PHP로 HTTP 서버 구현하기 - 07 - 첫 테스트, Response 분리</title>
-    <link href="http://haah.kr/2017/10/30/phttp-07/"/>
-    <id>http://haah.kr/2017/10/30/phttp-07/</id>
-    <published>2017-10-30T10:39:10.000Z</published>
-    <updated>2018-02-13T06:27:02.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="/tags/phttp/">연재글 전체 보기</a></p>
-<hr>
-<h1 id="테스트-주도로-시작하기"><a href="#테스트-주도로-시작하기" class="headerlink" title="테스트 주도로 시작하기"></a>테스트 주도로 시작하기</h1><p>지금까지의 Request 분석 클래스는 아래와 같다.</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">    </div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Request</span></span></div><div class="line"><span class="class"></span>&#123;</div><div class="line">    <span class="keyword">private</span> $requestMessage;</div><div class="line">    </div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($requestMessage)</span></span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        <span class="comment">//하지만 아직 쓰진 않지</span></div><div class="line">        <span class="keyword">$this</span>-&gt;requestMessage = $requestMessage;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getResponse</span><span class="params">()</span></span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        $filename = PROJECT_ROOT . <span class="string">'/public/index.html'</span>;</div><div class="line">        <span class="keyword">if</span> (!($fp = fopen($filename, <span class="string">'r'</span>))) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="string">'HTTP/1.0 404 파일 없음'</span> . PHP_EOL;</div><div class="line">        &#125;</div><div class="line">        $responseBody = fread($fp, filesize($filename));</div><div class="line">    </div><div class="line">        $response = <span class="string">'HTTP/1.0 200 OK'</span> . PHP_EOL;</div><div class="line">        $response .= <span class="string">'Content-Type: text/html'</span> . PHP_EOL;</div><div class="line">        $response .= PHP_EOL;</div><div class="line">        $response .= $responseBody . PHP_EOL;</div><div class="line">    </div><div class="line">        <span class="keyword">return</span> $response;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="첫-테스트"><a href="#첫-테스트" class="headerlink" title="첫 테스트"></a>첫 테스트</h2><p>의미 없는 코드지만 테스트가 존재하면 성공하는지나 살펴보자.</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">    </div><div class="line"><span class="keyword">use</span> <span class="title">PHPUnit</span>\<span class="title">Framework</span>\<span class="title">TestCase</span>;</div><div class="line">    </div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">RequestTest</span> <span class="keyword">extends</span> <span class="title">TestCase</span></span></div><div class="line"><span class="class"></span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">testCanBeCreated</span><span class="params">()</span>: <span class="title">void</span></span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        <span class="keyword">$this</span>-&gt;assertInstanceOf(</div><div class="line">            Request::class,</div><div class="line">            <span class="keyword">new</span> Request([])</div><div class="line">        );</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>결과는,</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Testing started at PM 7:57 ...</div><div class="line">PHPUnit 6.4.3 by Sebastian Bergmann and contributors.</div><div class="line">    </div><div class="line">Time: 59 ms, Memory: 4.00MB</div><div class="line">    </div><div class="line">OK (1 test, 1 assertion)</div></pre></td></tr></table></figure>
-<p>이건 너무 당연한 테스트 코드라서 낭비다. 지워버리고 의미있는 테스트를 만들어보자.</p>
-<h2 id="다시-첫-테스트"><a href="#다시-첫-테스트" class="headerlink" title="다시 첫 테스트"></a>다시 첫 테스트</h2><p><code>server.php</code>에서 <code>Request.php</code>으로 기능을 가져왔으니 뭔가 테스트할 거리가 있을 것 같다.</p>
-<p>우선 <code>__construct</code>.</p>
-<p>하는 일이라곤 생성자로 전달된 값을 private 변수에 담는 것 뿐인데, 이걸 테스트로 만들 필요가 있을까?</p>
-<p>물론 테스트는 만들 수 있다.</p>
-<p>굳이 굳이 <code>Request</code> 클래스에 private 변수를 꺼내올 수 있는 public method를 만들 수도 있고.</p>
-<p>Request.php :<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getRequestMessage</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;requestMessage;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>RequestTest.php :<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">testConstructByGetter</span><span class="params">()</span> : <span class="title">void</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    $requestMessage = [<span class="string">'testKey'</span> =&gt; <span class="string">'testVal'</span>];</div><div class="line">    $request = <span class="keyword">new</span> Request($requestMessage);</div><div class="line">    </div><div class="line">    $valueByGetter = $request-&gt;getRequestMessage();</div><div class="line">    </div><div class="line">    <span class="keyword">$this</span>-&gt;assertEquals(</div><div class="line">        serialize($requestMessage), </div><div class="line">        serialize($valueByGetter)</div><div class="line">    );</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>(하긴 막 짜려면 gettter도 필요없이 <code>requestMessage</code> 변수를 public으로 만들고 <code>$request-&gt;requestMessage;</code>처럼 막 갖다 써도..)</p>
-<p>또한, 굳이 굳이 Reflection으로 private 변수를 들여다 볼 수 도 있다.</p>
-<p>RequestTest.php :<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">testConstructByReflection</span><span class="params">()</span> : <span class="title">void</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    $requestMessage = [<span class="string">'testKey'</span> =&gt; <span class="string">'testVal'</span>];</div><div class="line">    $request = <span class="keyword">new</span> Request($requestMessage);</div><div class="line">    $reflectionClass = <span class="keyword">new</span> \ReflectionClass($request);</div><div class="line">    </div><div class="line">    $reflectionProperty = $reflectionClass-&gt;getProperty(<span class="string">'requestMessage'</span>);</div><div class="line">    $reflectionProperty-&gt;setAccessible(<span class="keyword">true</span>);</div><div class="line">    $privateVal = $reflectionProperty-&gt;getValue($request);</div><div class="line">    </div><div class="line">    <span class="keyword">$this</span>-&gt;assertEquals(</div><div class="line">        serialize($requestMessage),</div><div class="line">        serialize($privateVal)</div><div class="line">    );</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>다시 질문. <code>이걸 테스트로 만들 필요가 있을까?</code></p>
-<p>생성자에 받은 녀석을 그대로 멤버 변수에 넣었는데 이게 잘 들어갔는지 확인할 필요는 없어보인다. 그 과정에서 이에 간섭하는 코드가 없기 때문이다.</p>
-<p>그리고 private 변수의 접근 제한 수준을 억지로 공개해서 은닉성을 포기할 만큼 가치있는 일인가?</p>
-<p>비슷한 관점으로 (그러나 명확하게 설명된) 이 글을 참고해도 좋겠다.</p>
-<p><a href="https://justhackem.wordpress.com/2017/09/29/should-private-methods-be-tested/" target="_blank" rel="external">비공개 메서드를 테스트 해야 하는가?</a></p>
-<blockquote>
-<p>테스트 케이스는 클라이언트 코드다</p>
-</blockquote>
-<p>억지로 만든 테스트는 다 지워버리자.</p>
-<h2 id="역할-나누기"><a href="#역할-나누기" class="headerlink" title="역할 나누기"></a>역할 나누기</h2><p>계속된 첫 테스트 작성 실패에 주눅들 것 없이 찬찬히 코드를 돌아보자.</p>
-<p>진짜 진짜 첫 테스트를 작성 하려고 보니, <code>Request</code> 클래스 안에 <code>getResponse()</code> 메소드만 덩그러니 있는 것이 마음에 걸린다.</p>
-<p><code>server.php</code>에서 기능을 분리한 것은 좋았지만, 클래스 명이 <code>Request</code>인데 여기서 응답 문자열을 만들어주는 모양이 어색하다.</p>
-<p>자연스럽게(서로 짝이 맞게) <code>Response</code>라는 클래스를 만들어야겠다는 생각이 든다. </p>
-<p>어떤 기준으로 나눠야 할지 현재의 <code>Request</code> 클래스의 코드를 기준으로 각각의 임무를 적어보자.</p>
-<p>Request</p>
-<ul>
-<li>요청된 문자열을 파싱해서 시작줄, 헤더(여러줄), 본문 등 필요한 포맷으로 정리한다</li>
-<li>해석할 수 없는 요청이라면 예외를 발생시킨다</li>
-<li>분석 결과, 클라이언트가 요청한 리소스 위치를 리턴한다 </li>
-<li>‘/‘라는 요청이 오면 ‘index.html’이라는 파일을 읽어야 하는 것을 알고 있다</li>
-</ul>
-<p>Response</p>
-<ul>
-<li>도큐먼트 root의 절대 경로를 알고 있다</li>
-<li>파일이 존재하는지 확인하고 없으면 예외를 발생한다</li>
-<li>파일을 읽는다</li>
-<li>처리 결과를 정리한다 </li>
-<li>클라이언트에 전달할 HTTP 응답 메시지를 리턴한다</li>
-</ul>
-<p>나중에 여기서 더 더 분리가 되겠지만, 현재 코드에서 예상할 수 있는 기능을 크게 둘로 나오면 이 정도라고 생각한다.</p>
-<p>그럼 이런 흐름이 될 것이다.</p>
-<ol>
-<li><code>server.php</code>에선 클라이언트가 보낸 raw 메시지를 <code>Request</code> 클래스에 전달하고,</li>
-<li><code>Request</code> 클래스는 이를 파싱해서 내부에 저장하고,</li>
-<li><code>Response</code> 클래스는 여기서 리소스 경로를 받아 읽고 <code>server.php</code>에 최종 결과물을 리턴한다.</li>
-</ol>
-<p>이제 <code>Request</code> 클래스는 raw 메시지를 받아 특정 경로를 반환하도록 고치고</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Request</span></span></div><div class="line"><span class="class"></span>&#123;</div><div class="line">    <span class="keyword">private</span> $requestMessage;</div><div class="line">    </div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($requestMessage)</span></span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        <span class="comment">//하지만 아직 쓰진 않지</span></div><div class="line">        <span class="keyword">$this</span>-&gt;requestMessage = $requestMessage;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getResourcePath</span><span class="params">()</span></span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">'/index.html'</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>서버는 이걸 받아 <code>Response</code>에게 던지고</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// ... 생략 ...</span></div><div class="line"><span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</div><div class="line">    $client = @stream_socket_accept($server);</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> ($client) &#123;</div><div class="line">        $clientSentData = fread($client, <span class="number">1024</span>);</div><div class="line">        </div><div class="line">        $resourcePath = (<span class="keyword">new</span> Request($clientSentData))-&gt;getResourcePath();</div><div class="line">        $response = (<span class="keyword">new</span> Response())-&gt;getResponse($resourcePath);</div><div class="line">        </div><div class="line">        fwrite($client, $response, strlen($response));</div><div class="line">        fclose($client);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><code>Response</code>는 클라이언트에 보낼 메시지를 조합한다.</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Response</span></span></div><div class="line"><span class="class"></span>&#123;</div><div class="line">    <span class="keyword">private</span> $docRoot = PROJECT_ROOT . <span class="string">'/public'</span>;</div><div class="line">    </div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getResponse</span><span class="params">($resourcePath)</span></span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        $filename = <span class="keyword">$this</span>-&gt;docRoot . $resourcePath;</div><div class="line">        <span class="keyword">if</span> (!($fp = fopen($filename, <span class="string">'r'</span>))) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="string">'HTTP/1.0 404 파일 없음'</span> . PHP_EOL;</div><div class="line">        &#125;</div><div class="line">        $responseBody = fread($fp, filesize($filename));</div><div class="line">        </div><div class="line">        $response = <span class="string">'HTTP/1.0 200 OK'</span> . PHP_EOL;</div><div class="line">        $response .= <span class="string">'Content-Type: text/html'</span> . PHP_EOL;</div><div class="line">        $response .= PHP_EOL;</div><div class="line">        $response .= $responseBody . PHP_EOL;</div><div class="line">        </div><div class="line">        <span class="keyword">return</span> $response;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>이제 브라우저에서 <code>http://127.0.0.1:1337/</code>에 접근해보고 문제없이 동작하는 것을 확인한다.</p>
-<p>드디어 진짜 진짜 첫 테스트를 작성할 차례다.</p>
-<h2 id="진짜-진짜-첫-테스트"><a href="#진짜-진짜-첫-테스트" class="headerlink" title="진짜 진짜 첫 테스트"></a>진짜 진짜 첫 테스트</h2><p>진짜 진짜 첫 테스트의 대상은 <code>Request</code>의 <code>getResourcePath()</code> 메소드로 정했다.</p>
-<p>사실 TDD의 정석대로 하자면, 메소드를 추가하기 전에 </p>
-<ul>
-<li>Red : 실패하는 테스트를 작성하고, 실패하는 것을 확인</li>
-<li>Green : 이를 통과하는 최소한의 코드를 작성하고</li>
-<li>Refactor : 리팩토링하는 과정</li>
-</ul>
-<p>을 겪어야 했지만, 이미 잘 돌아가는 코드가 존재했고 Request-Response로 분리하는 과정에서 믿을 수 있는 건 수동 테스트 밖에 없었기 때문에,</p>
-<p>수동 테스트가 성공하는 범위 안에서 최소한의 변경으로 코드로 분리하고자 했다.</p>
-<p>좀 늦긴 했지만 <code>getResourcePath()</code> 메소드에 대한 테스트를 작성해보자.</p>
-<p>tests/RequestTest.php :<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="keyword">use</span> <span class="title">PHPUnit</span>\<span class="title">Framework</span>\<span class="title">TestCase</span>;</div><div class="line">    </div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">RequestTest</span> <span class="keyword">extends</span> <span class="title">TestCase</span></span></div><div class="line"><span class="class"></span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">testGetResourcePath</span><span class="params">()</span>: <span class="title">void</span></span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        $request = <span class="keyword">new</span> Request([]);</div><div class="line">        <span class="keyword">$this</span>-&gt;assertEquals(<span class="string">'/index.html'</span>, $request-&gt;getResourcePath());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">OK (1 test, 1 assertion)</div></pre></td></tr></table></figure>
-<h2 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h2><p>7화 만에 진짜 진짜 첫 테스트를 만들다니…</p>
-<p>다음 시간에는 Request를 파싱해서 실제 동작하는(잊지 않았겠지! 클라이언트는 html과 image와 favicon을 요청할 것이다) HTTP 요청 메시지 파서를 만들 것이다. 당연히 최소한으로 동작하는..</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;/tags/phttp/&quot;&gt;연재글 전체 보기&lt;/a&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h1 id=&quot;테스트-주도로-시작하기&quot;&gt;&lt;a href=&quot;#테스트-주도로-시작하기&quot; class=&quot;headerlink&quot; title=&quot;테스트 주도로 시작하기&quot;&gt;&lt;/a&gt;테
-    
-    </summary>
-    
-    
-      <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
-    
-      <category term="HTTP" scheme="http://haah.kr/tags/HTTP/"/>
-    
-      <category term="phttp" scheme="http://haah.kr/tags/phttp/"/>
     
   </entry>
   
