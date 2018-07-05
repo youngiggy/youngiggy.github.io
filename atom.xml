@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://haah.kr/"/>
-  <updated>2018-06-06T02:17:10.432Z</updated>
+  <updated>2018-07-05T14:50:15.148Z</updated>
   <id>http://haah.kr/</id>
   
   <author>
@@ -14,6 +14,84 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>뉴스 아카이브 2018-07-05</title>
+    <link href="http://haah.kr/2018/07/05/news-archive-2018-07-05/"/>
+    <id>http://haah.kr/2018/07/05/news-archive-2018-07-05/</id>
+    <published>2018-07-05T12:17:14.000Z</published>
+    <updated>2018-07-05T14:50:15.148Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="OKKYCON-2017-참석-후기"><a href="#OKKYCON-2017-참석-후기" class="headerlink" title="OKKYCON 2017 참석 후기"></a>OKKYCON 2017 참석 후기</h2><p><a href="http://jojoldu.tistory.com/249" target="_blank" rel="external">http://jojoldu.tistory.com/249</a></p>
+<p>2017년 말 (후기 전문가의) 한 행사 후기를 올 4월에 읽었는데 좋은 내용이 많아 아카이브 하기로.</p>
+<p>4월에 갑자기 스크럼이 본격 도입되고(지금은 음…) 꽤나 혼란이 있었는데, 여기서 좋은 힌트를 얻었었다. 당시 이 링크를 공유하면서 이야기 했던 것이,</p>
+<blockquote>
+<p>가장 아차싶었던 것은 이번 스프린트가 끝났을 때 어떤 결과가 되길 바랐는가 생각이 없었구나 생각했어요…생략…제 티켓은 완료가 되었으나 사실 일이 완료되진 않았고 이번엔 계획하지 않았던 부분을 더 많이 고민했던 스프린트였…생략</p>
+</blockquote>
+<p>우리가 했던 애자일과 툴(JIRA)과 현실은 아구가 잘 맞지 않았고, 이런 저런 시도와 실패를 했고, 급하게 맥이 끊기게 됐지만, 좋은 경험이 됐으니 다음엔 더 제대로 해보고 싶으니, 이 정도면 애자일인가.</p>
+<p>김훈민 님의 <a href="https://www.facebook.com/jeokrang/posts/1695423233840157" target="_blank" rel="external">이런 포스팅</a>을 보면서는 또 다른 공감을 했다. 프로세스가 과연 도움이 되긴 하는가라는 질문인데, 똑똑한 사람들이 모였다면 간단한 프로세스를 만들고 선의를 보이고 협업을 하는 것이 최고겠지. 우리도 아직 소규모라 그런지 잘 해내는 것 같다(xx같은 놈이 팀에 없다고 생각하면 내가 xx이란 말이 있었지).</p>
+<h2 id="NDC18-야생의-땅-듀랑고의-데이터-엔지니어링-이야기-로그-시스템-구축-경험-공유"><a href="#NDC18-야생의-땅-듀랑고의-데이터-엔지니어링-이야기-로그-시스템-구축-경험-공유" class="headerlink" title="[NDC18] 야생의 땅 듀랑고의 데이터 엔지니어링 이야기: 로그 시스템 구축 경험 공유"></a>[NDC18] 야생의 땅 듀랑고의 데이터 엔지니어링 이야기: 로그 시스템 구축 경험 공유</h2><p><a href="https://www.slideshare.net/ssuser380e9c/ndc18-95524337" target="_blank" rel="external">https://www.slideshare.net/ssuser380e9c/ndc18-95524337</a><br><a href="https://www.slideshare.net/ssuser380e9c/ndc18-2-95522893" target="_blank" rel="external">https://www.slideshare.net/ssuser380e9c/ndc18-2-95522893</a></p>
+<p>주제도 참 재밌거니와 발표 자료에 하나 하나 스크립트를 달아놓아 현장감 있고 아쉽게 행사에 참여 못한 사람도 충분히 즐길 수 있는 매우 좋은 자료. 발표를 최대한 효과적으로 하기 위해 그 시간만을 위한 자료를 만드는 사람도 많은데, 매번 행사장을 찾아갈 수 없는 입장에선 조금 아쉽긴 하다. 나의 경우는 좀 귀찮아서 발표자료에 내용이 충분히 안 넣는 편…</p>
+<h2 id="😎한국어로만-선별된-타입스크립트-리소스-리스트-🇰🇷"><a href="#😎한국어로만-선별된-타입스크립트-리소스-리스트-🇰🇷" class="headerlink" title="😎한국어로만 선별된 타입스크립트 리소스 리스트 🇰🇷"></a>😎한국어로만 선별된 타입스크립트 리소스 리스트 🇰🇷</h2><p><a href="https://github.com/typescript-kr/awesome-typescript-korean" target="_blank" rel="external">https://github.com/typescript-kr/awesome-typescript-korean</a></p>
+<p>저 아래 <code>언젠가 쓸모 있을 것 같은 링크 모음</code>에 들어가야할 것 같은 저장소지만, 이런 시도 매우 좋다.</p>
+<p>ES6 시대가 열린 이후로 전혀 실무 경험이 없는데, 날 잡고 읽어봐야겠다. </p>
+<h2 id="수많은-데이터-사이언티스트들이-직장을-떠나는-이유는-무엇인가"><a href="#수많은-데이터-사이언티스트들이-직장을-떠나는-이유는-무엇인가" class="headerlink" title="수많은 데이터 사이언티스트들이 직장을 떠나는 이유는 무엇인가?"></a>수많은 데이터 사이언티스트들이 직장을 떠나는 이유는 무엇인가?</h2><p><a href="https://github.com/youngwoos/etc/blob/master/Here%E2%80%99s%20why%20so%20many%20data%20scientists%20are%20leaving%20their%20jobs.md" target="_blank" rel="external">https://github.com/youngwoos/etc/blob/master/Here%E2%80%99s%20why%20so%20many%20data%20scientists%20are%20leaving%20their%20jobs.md</a></p>
+<p>유망하고 인기있는 분야라서 자금과 뛰어난 인재가 모이고 그런데 자금을 쥔 자들은 그 분야를 잘 모르는데 어린 친구들은 거기서 장미빛 미래를 보니까 학원들이 강좌를 열고 더 어린 친구들이 또 다른 학원에서 쪼이는 세상에서 항상 발생하는 일. 10년 전 모든 개발자가 그랬고, 5년 전 앱/빅데이터 전문가가 그랬고, 최근은 머신러닝과 블록체인인가. 잘하는 놈이 잘한다.</p>
+<p>그 분야 자체도 힘들겠지만 명예나 돈 같은 다른 욕망을 쫓아 갔다면 어디든 버티기 힘들텐데. 나는 진로를 결정(이 결정도 내가 한 건 아니고)할 때부터 아무 욕망이 없었으니 이 실력으로 여지껏 버텼나 싶군. 간간이 만나게 되는 소위 돈 버는 사람들을 보면 볼수록 역시 난 못 벌겠다 싶다.</p>
+<h2 id="딥러닝-간단하게-시작하기"><a href="#딥러닝-간단하게-시작하기" class="headerlink" title="딥러닝 간단하게 시작하기"></a>딥러닝 간단하게 시작하기</h2><p><a href="https://www.facebook.com/dgtgrade/posts/1854447711280753" target="_blank" rel="external">https://www.facebook.com/dgtgrade/posts/1854447711280753</a><br><a href="https://medium.com/daangn/이미지-탐지기-쉽게-구현하기-abd967638c8e" target="_blank" rel="external">https://medium.com/daangn/이미지-탐지기-쉽게-구현하기-abd967638c8e</a></p>
+<p>이정도로 쉽게 시작할 수 있다니. 시작을 시작하기가 더 어려운 세상이다.</p>
+<h2 id="TDD는-죽었는가"><a href="#TDD는-죽었는가" class="headerlink" title="TDD는 죽었는가?"></a>TDD는 죽었는가?</h2><p><a href="http://jinson.tistory.com/m/271" target="_blank" rel="external">http://jinson.tistory.com/m/271</a></p>
+<p>이규원님의 <a href="https://www.facebook.com/gyuwon.yi/posts/1815215271855021" target="_blank" rel="external">포스팅</a>에서 알아낸 번역 페이지. 아니 저 대단한 사람(DHH)이 어쩜 저렇게 TDD에 대해 오해를 했을까 싶을 정도로 놀라운 경험이었다. 정말 토론이라기 보다는 예수님과 부처님이 중생을 달래는 분위기였네. (그렇다고 DHH가 나보다 TDD를 못했겠느냐 그건 아니다)</p>
+<p>DHH의 <a href="http://david.heinemeierhansson.com/2014/tdd-is-dead-long-live-testing.html" target="_blank" rel="external">TDD is dead. Long live testing.</a>은 나도 TDD를 전혀 모르던 시절에 한번 누군가에게 공유했던 기억이 난다. 나는 전혀 모르면서 TDD를 둘러싼 난리법석과 어려움만 얘기 듣고 ‘그래 이건 현실적이지 않아’라고 생각했던 것 같다. 어디서 많이 보던 풍경인데, 그렇지?</p>
+<h2 id="10배-뛰어난-개발자-되기-좋은-동료가-되기-위한-10가지-방법"><a href="#10배-뛰어난-개발자-되기-좋은-동료가-되기-위한-10가지-방법" class="headerlink" title="10배 뛰어난 개발자 되기 - 좋은 동료가 되기 위한 10가지 방법"></a>10배 뛰어난 개발자 되기 - 좋은 동료가 되기 위한 10가지 방법</h2><p><a href="http://muchtrans.com/10xdeveloper.html" target="_blank" rel="external">http://muchtrans.com/10xdeveloper.html</a></p>
+<p>페이지 구성이 참 마음에 드네. 어차피 번역도 괜찮으니 왼쪽 원문은 안 읽을 것 같기도 하지만…</p>
+<p>어쨌든 참 좋은 관점이라고 생각한다. 예전에는 정말 사람이 부족할 때, 실력이 있으면 성격 좀 거칠고 진상 좀 부려도 어느정도 용인할 수 있다는 생각을 했다. 나는 그런 사람과 비교적 잘 지내는 편이었기 때문에 그런 생각도 했겠지? 그런데 팀원들에게도 새로운 사람이 오면 같이 적응하고 변하길 바랐던 건 잘못 판단했다.</p>
+<h2 id="스포카-크리에이터-행동-강령-소개"><a href="#스포카-크리에이터-행동-강령-소개" class="headerlink" title="스포카 크리에이터 행동 강령 소개"></a>스포카 크리에이터 행동 강령 소개</h2><p><a href="https://spoqa.github.io/2018/06/28/code-of-conduct.html" target="_blank" rel="external">https://spoqa.github.io/2018/06/28/code-of-conduct.html</a> </p>
+<p>스포카의 행동강령(이라고 하니까 뭔가 운동권 같은 느낌도 있는데…)입니다. 역시 스포카다. 이 역시 위에서 소개한대로 좋은 동료가 되기 위한 방법.</p>
+<h2 id="좋은-대화를-하기-위한-10가지-비법"><a href="#좋은-대화를-하기-위한-10가지-비법" class="headerlink" title="좋은 대화를 하기 위한 10가지 비법"></a>좋은 대화를 하기 위한 10가지 비법</h2><p><a href="https://www.ted.com/talks/celeste_headlee_10_ways_to_have_a_better_conversation?language=ko" target="_blank" rel="external">https://www.ted.com/talks/celeste_headlee_10_ways_to_have_a_better_conversation?language=ko</a></p>
+<p>xx하기 위한 10가지 비법…이란 제목은 영 마음에 안드는데, 역시 제목을 이렇게 지어야 하나보다. 이 글 제목도 <code>이번달 나를 사로 잡은 10가지 뉴스</code>로 바꿔야 하나.</p>
+<p>페북에도 한번 공유했는데, 꼭 명심하길 바라며 기록에 남기기로 한다.</p>
+<blockquote>
+<p>안 그래도 요즘 얘기하다가 머릿속을 엄청 굴리면서 시선을 다른데로 돌리는 버릇이 재발했는데, 꼭 나중에 생각난다. 누구든 나랑 말하다가 내가 집중하지 않으면 뺨을 찰싹 치..일 것처럼 손을 들어주면 좋겠다.</p>
+</blockquote>
+<p>계속 노력 중.</p>
+<h2 id="SI-대기업에서-스타트업으로-이직하기"><a href="#SI-대기업에서-스타트업으로-이직하기" class="headerlink" title="SI / 대기업에서 스타트업으로 이직하기"></a>SI / 대기업에서 스타트업으로 이직하기</h2><p><a href="https://okky.kr/article/470785" target="_blank" rel="external">https://okky.kr/article/470785</a></p>
+<p>약 파는 이야기 같으면서도 참 공감되면서도 기억해놔야할 것 같다가도 좀 오해도 있으신 것 같고 그러함.</p>
+<h2 id="머리가-하는-노동-손이-하는-노동…’월급-차이는-당연한가’"><a href="#머리가-하는-노동-손이-하는-노동…’월급-차이는-당연한가’" class="headerlink" title="머리가 하는 노동, 손이 하는 노동…’월급 차이는 당연한가’"></a>머리가 하는 노동, 손이 하는 노동…’월급 차이는 당연한가’</h2><p><a href="http://www.hankookilbo.com/v/f7ff09cc4af3477e9218a5c83286815f" target="_blank" rel="external">http://www.hankookilbo.com/v/f7ff09cc4af3477e9218a5c83286815f</a></p>
+<p>별로 생각도 안 해본 주제인데, 나도 은근 편견이 있었구나 싶다. 곧 후기를 쓸 <code>직업의 지리학</code>이란 책에서는 혁신 일자리 주위에 만들어지는 많은 일자리(서빙, 미용실, 의료)는 몇 십년 전이나 지금이나 (시간 관점에서의) 생산성이 거의 변함없다고 지적했다. 결국 수익이나 생산성을 극적으로 높여주는 직군에 더 돈이 모이게되는 시장의 이치. 그리고 누가해도 비슷하고 누구든 쉽게 시작할 수 있다고 여겨지는 직업에는 편견이 쌓이는 것 같고.</p>
+<p>가만, 그러고보니 영화 <code>서칭 포 슈가맨</code>의 그 슈가맨은 엄청 돈을 잘 벌고 있었던 게 아닐런지.</p>
+<p>PS. 공유 당시에는 <code>...&#39;월급 차이&#39;는 당연한가</code>라는 문구가 붙어있었나보다. 문구는 나쁘지 않은데 <code>월급 차이</code>에 왜 따옴표를 붙였을까?</p>
+<h2 id="신규-Web-서비스시-고려해-볼-사항"><a href="#신규-Web-서비스시-고려해-볼-사항" class="headerlink" title="신규 Web 서비스시 고려해 볼 사항"></a>신규 Web 서비스시 고려해 볼 사항</h2><p><a href="http://kwonnam.pe.kr/wiki/web/신규서비스" target="_blank" rel="external">http://kwonnam.pe.kr/wiki/web/신규서비스</a></p>
+<p>오랫동안 정리해오신 것 같다. 신규 서비스 시작할 때 기억해놓고 다시 읽어봐야지.</p>
+<h2 id="게임-디자이너에게-도움이-되는-확률과-통계-이야기"><a href="#게임-디자이너에게-도움이-되는-확률과-통계-이야기" class="headerlink" title="게임 디자이너에게 도움이 되는 확률과 통계 이야기"></a>게임 디자이너에게 도움이 되는 확률과 통계 이야기</h2><p><a href="https://drive.google.com/file/d/1Z71So_Xc-4QBtriYe9G1XlrNM9FoNk3z/view" target="_blank" rel="external">https://drive.google.com/file/d/1Z71So_Xc-4QBtriYe9G1XlrNM9FoNk3z/view</a></p>
+<p>수포자에게도 도움이 됩니다.</p>
+<p>확률를 따져야할 때 기억하고 다시 읽어보기!</p>
+<h2 id="언젠가-쓸모-있을-것-같은-링크-모음"><a href="#언젠가-쓸모-있을-것-같은-링크-모음" class="headerlink" title="언젠가 쓸모 있을 것 같은 링크 모음"></a>언젠가 쓸모 있을 것 같은 링크 모음</h2><p><a href="http://abc1211.tistory.com/m/category/매일코딩/블록체인-자바스크립트" target="_blank" rel="external">자바스크립트로 블록체인 구현 강좌 - 나만의 비트코인 발행하기</a></p>
+<p><a href="https://sujinlee.me/webpack-react-tutorial/" target="_blank" rel="external">[번역] 깊이 있는 리액트 개발 환경 구축하기</a></p>
+<p><a href="https://feel5ny.github.io/2018/05/27/JS_12/" target="_blank" rel="external">File Api와 이미지 용량 줄이기</a></p>
+<p><a href="https://engineering.huiseoul.com/자바스크립트는-어떻게-작동하는가-웹어셈블리와의-비교-언제-웹어셈블리를-사용하는-게-좋은가-cf48a576ca3" target="_blank" rel="external">자바스크립트는 어떻게 작동하는가: 웹어셈블리와의 비교 + 언제 웹어셈블리를 사용하는 게 좋은가</a></p>
+<p><a href="https://github.com/nhnent/fe.javascript/wiki/March-26---March-30,-2018" target="_blank" rel="external">ES modules: 만화로 보는 심층 탐구</a></p>
+<p><a href="https://medium.com/@soonhyungjung/블록체인-공부-자료-정리와-순서-5c390b5323fa" target="_blank" rel="external">블록체인 공부 자료 정리</a></p>
+<p><a href="https://www.slideshare.net/raccoonyy/docker-compose-98851170" target="_blank" rel="external">파이썬 개발환경 구성하기의 끝판왕 - Docker Compose</a></p>
+<p><a href="https://b.luavis.kr/server/linux-performance-analysis" target="_blank" rel="external">리눅스 서버 60초안에 상황파악하기</a></p>
+<p><a href="http://ikimiisoh.tistory.com/778" target="_blank" rel="external">일본 여행 정보</a></p>
+<p><a href="https://mug896.github.io/bash-shell/index.html" target="_blank" rel="external">BASH Shell Script</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;OKKYCON-2017-참석-후기&quot;&gt;&lt;a href=&quot;#OKKYCON-2017-참석-후기&quot; class=&quot;headerlink&quot; title=&quot;OKKYCON 2017 참석 후기&quot;&gt;&lt;/a&gt;OKKYCON 2017 참석 후기&lt;/h2&gt;&lt;p&gt;&lt;a hre
+    
+    </summary>
+    
+    
+      <category term="news" scheme="http://haah.kr/tags/news/"/>
+    
+      <category term="archive" scheme="http://haah.kr/tags/archive/"/>
+    
+      <category term="뉴스아카이브" scheme="http://haah.kr/tags/%EB%89%B4%EC%8A%A4%EC%95%84%EC%B9%B4%EC%9D%B4%EB%B8%8C/"/>
+    
+  </entry>
   
   <entry>
     <title>Modern PHP Without a Framework</title>
@@ -1552,49 +1630,6 @@
       <category term="HTTP" scheme="http://haah.kr/tags/HTTP/"/>
     
       <category term="phttp" scheme="http://haah.kr/tags/phttp/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>베이킹 - 준비 완료</title>
-    <link href="http://haah.kr/2017/11/01/baking-00/"/>
-    <id>http://haah.kr/2017/11/01/baking-00/</id>
-    <published>2017-11-01T13:51:24.000Z</published>
-    <updated>2018-02-13T06:27:02.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>여기가 개발 블로그인 줄 아시는 분은 당황스러우시겠지만…</p>
-<h2 id="베이킹의-세계로"><a href="#베이킹의-세계로" class="headerlink" title="베이킹의 세계로"></a>베이킹의 세계로</h2><p><img src="/images/baking-00/iAmReady.jpg" alt="베이킹 준비 완료 이미지"></p>
-<p>토비 이일민 님이 추천하신 책 <code>밀가루 물 소금 이스트</code>라는 책을 읽고 진짜로 한번 해봐야겠다는 생각이 들어 장비를 구입하기 시작.</p>
-<p>책이 정말 정말 좋다. 처음에 너무 몰라서 ‘클린 소프트웨어’처럼 느껴지던 책이, (아직 기본빵까지 읽었지만) 두번 세번 읽으니 잘 이해가 된다. 이러다보니 내가 어렵다고 생각했던 책도 두 세번 읽으면 이해가 잘 되었을텐데 왜 그렇게 지쳤었나 모르겠다. 스터디라서 (어쩔 수 없이) 이해하려고 몇번이나 읽었던 책은 확실히 이해도가 높았는데…좋은 책 몇 권 골라서 다시 읽어야 할 듯.</p>
-<p>자, 이제 주물 냄비 시즈닝도 마치고, 금요일 첫 베이킹을 앞두고 머릿속으로 쉐도우 복싱 중이다. 유럽식 빵과 우유 식빵 두가지 도전하기로…</p>
-<p>유럽식 빵은 <code>밀가루 물 소금 이스트</code>의 레시피를 보고 만들 생각이고<br><img src="http://image.kyobobook.co.kr/images/book/large/883/l9788971905883.jpg" alt="밀가루 물 소금 이스트 이미지"></p>
-<p>식빵은 <code>후암동 식빵</code>의 레시피를 참고할 것이다.<br><img src="http://image.kyobobook.co.kr/images/book/large/142/l9791187320142.jpg" alt="후암동 식빵 이미지"></p>
-<p>둘 다 사전 발표를 충분히 해서 만드는 게 공통점이나, 역시 설명은 <code>밀가루 물 소금 이스트</code>만 한 게 없다.</p>
-<p>이제 우리 집은 주말엔 빵이 주식이다! (단호)</p>
-<h2 id="₩163-500"><a href="#₩163-500" class="headerlink" title="₩163,500"></a>₩163,500</h2><p>재료 소개를 하자면, 일부는 방산 시장에서 건져오고, 인터넷으로 산 건 오늘의 로켓 배송으로 모두 도착했다. 진짜 최소한으로 필요한 것만 샀다.</p>
-<p>라바 주물 냄비(24cm)는 쿠팡에 87,000원에 뜬 걸 보고 얼른 구매했고, 요리용 온도계와 저울은 드레텍 사의 것으로 각각 12,000원, 21,000원. 오븐용 온도계 8,000원. 1/8까지 있는 계량스푼 4,400원. 실리콘패드 11,250원. 사프인스턴트 드라이이스트 125g 1,900원. 큐원 강력 밀가루 1kg 1,550원 3개, 프랑스 밀가루 T55, T65 각각 1kg 2,500원, 2,900원 2개씩.</p>
-<p>총 163,500원. 선방했다. 밀가루 하나는 덧가루용으로 쓰고, 저 6kg 안에서 제대로 하나라도 맛있게 구우면 성공이라고 생각.</p>
-<p><br></p>
-<p>(애드센스로 돈 벌 생각 하느니 주위에 빵을 만들어 파는 게 더 빠르겠다)</p>
-<h2 id="₩204-600"><a href="#₩204-600" class="headerlink" title="₩204,600"></a>₩204,600</h2><p>글을 올리자 마자 혹시나 하고 찾아본 <code>Cambro RFSCW12</code> 모델. 책에서 추천해준 바로 그 반죽통을 <a href="https://www.amazon.com/Cambro-Capacity-Polycarbonate-Container-Separately/dp/B004NEWCDC" target="_blank" rel="external">아마존</a>보다 싸게 파는 곳이 있는 게 아닌가!</p>
-<p>이건 정말 필수라고 볼 수는 없는데, 큰 반죽통이 필요하긴 해서…</p>
-<p>많이 고민해봤는데 저만한 스댕 반죽통도 2만원은 하기 때문에…</p>
-<p>그래서 꼭 필요하진 않아도 꽤 필요한데…</p>
-<p>여보… </p>
-<p>여보… </p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;여기가 개발 블로그인 줄 아시는 분은 당황스러우시겠지만…&lt;/p&gt;
-&lt;h2 id=&quot;베이킹의-세계로&quot;&gt;&lt;a href=&quot;#베이킹의-세계로&quot; class=&quot;headerlink&quot; title=&quot;베이킹의 세계로&quot;&gt;&lt;/a&gt;베이킹의 세계로&lt;/h2&gt;&lt;p&gt;&lt;img sr
-    
-    </summary>
-    
-    
-      <category term="요리" scheme="http://haah.kr/tags/%EC%9A%94%EB%A6%AC/"/>
-    
-      <category term="베이킹" scheme="http://haah.kr/tags/%EB%B2%A0%EC%9D%B4%ED%82%B9/"/>
     
   </entry>
   
