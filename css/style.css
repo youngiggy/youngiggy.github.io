@@ -344,6 +344,7 @@
 .content h3 {
   font-size: 0.9rem;
   font-weight: bold;
+  text-decoration: underline;
   color: #eee;
 }
 .content h4,
