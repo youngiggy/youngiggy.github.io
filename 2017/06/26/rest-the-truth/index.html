@@ -159,19 +159,19 @@
 <p><em>(이번에도 여전한 오역과 거친 의역에 대해 양해를 구하며…)</em></p>
 <p>우선 당사자인 Roy 자신이 쓴 글이 꽤 재미있다.</p>
 <p>“REST APIs must be hypertext-driven”이란 글이 꽤 유명한 것 같지만</p>
-<p>이것 말고도 Roy가 2008년도에 <a href="http://roy.gbiv.com/untangled/tag/rest" target="_blank" rel="external">REST에 관해 쓴 글</a>을 보면 각기 나름의 재미가 있다. </p>
+<p>이것 말고도 Roy가 2008년도에 <a href="http://roy.gbiv.com/untangled/tag/rest" target="_blank" rel="noopener">REST에 관해 쓴 글</a>을 보면 각기 나름의 재미가 있다. </p>
 <p>예를 들어 이런 글, “POST 써도 괜찮아”</p>
 <ul>
-<li><a href="http://roy.gbiv.com/untangled/2009/it-is-okay-to-use-post" target="_blank" rel="external">http://roy.gbiv.com/untangled/2009/it-is-okay-to-use-post</a><ul>
+<li><a href="http://roy.gbiv.com/untangled/2009/it-is-okay-to-use-post" target="_blank" rel="noopener">http://roy.gbiv.com/untangled/2009/it-is-okay-to-use-post</a><ul>
 <li>Tim Bray란 사람이 Sun Cloud용 API를 공개했을 때, 어떤 이가 왜 새로운 VM을 띄우는 데 POST를 사용하냐는 질문이 있었고 이에 대한 설명을 블로그로 남겼다.<br>재부팅할 때는 상태도 계속 변화하고, 뭔가 내부적으로 많은 일이 일어나는데 이때 POST를 쓰겠다는 이야기가 나온다.</li>
 <li>Roy도 여기에 자신도 POST를 쓰겠다는 이야기를 한다.<br>REST의 논문에선 CRUD에 대한 언급을 안 했으며, 모든 자원에 대해 균일하게 정의되어야 한다 정도를 언급했다. 다만 이 메소드가 본래의 정의에 맞게 사용되기는 해야한다. 모든 상태변화에 PUT만 쓸 필요가 없다.<br>POST는 다른 메소드와 다르게 캐시나 중개자의 오류처리 등을 위한 방법은 제공하지 않지만 여전히 유용한 메소드이다.<br>자신은 그 리부팅을 위한 버튼에는 POST만 쓸 것이고, 클라이언트가 그 응답으로부터 상태가 변경됐음을 알 수 있도록 함으로써 POST의 부족한 사용성을 보완할 수 있게하겠다..고 했다.</li>
 </ul>
 </li>
 </ul>
-<h2 id="REST-APIs-must-be-hypertext-driven"><a href="#REST-APIs-must-be-hypertext-driven" class="headerlink" title="REST APIs must be hypertext-driven"></a>REST APIs must be hypertext-driven</h2><p>그 유명한 “<a href="http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven" target="_blank" rel="external">REST APIs must be hypertext-driven</a>“(REST API는 hypertext가 주도해야만 해)를 읽어보자.</p>
+<h2 id="REST-APIs-must-be-hypertext-driven"><a href="#REST-APIs-must-be-hypertext-driven" class="headerlink" title="REST APIs must be hypertext-driven"></a>REST APIs must be hypertext-driven</h2><p>그 유명한 “<a href="http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven" target="_blank" rel="noopener">REST APIs must be hypertext-driven</a>“(REST API는 hypertext가 주도해야만 해)를 읽어보자.</p>
 <h3 id="요점-정리"><a href="#요점-정리" class="headerlink" title="요점 정리"></a>요점 정리</h3><p>난 사람들이 HTTP기반의 인터페이스를 REST API라고 부르는 것이 실망스럽다. “SocialSite REST API”라고 부르는, 그건 RPC다</p>
 <ul>
-<li>현재 링크는 사라졌으나, 결국 <a href="https://www.w3.org/blog/2014/12/opensocial-foundation-moves-standards-work-to-w3c-social-web-activity/" target="_blank" rel="external">https://www.w3.org/blog/2014/12/opensocial-foundation-moves-standards-work-to-w3c-social-web-activity/</a> 여기를 의미함</li>
+<li>현재 링크는 사라졌으나, 결국 <a href="https://www.w3.org/blog/2014/12/opensocial-foundation-moves-standards-work-to-w3c-social-web-activity/" target="_blank" rel="noopener">https://www.w3.org/blog/2014/12/opensocial-foundation-moves-standards-work-to-w3c-social-web-activity/</a> 여기를 의미함</li>
 </ul>
 <p>API가 hypertext 주도로 동작하지 않는다면, RESTful하지 않고 REST API가 아니다. 어디 잘못된 매뉴얼이라도 돌아다니는 거야?</p>
 <p>API 디자이너들은 당신의 창작물을 REST API라고 부르기 전에 아래 규칙들을 확인하기 바란다</p>
@@ -321,8 +321,8 @@
 </li>
 </ul>
 <p>역주) 이후엔 Roy의 답변이 없고, 블로그 몇 개를 더 썼다. 아래 colinjack이란 사람이 한 말은 의미있다</p>
-<p>colinjack  : DDD와 비교를 하면서, DDD도 오해를 겪고 사람들은 때로 중요하지 않은 부분에 집중을 하지만, Evans의 책이 살아있는 예제를 제공하고 그의 아이디어가 왜 중요한지를 보여준다. 그러나 REST에서는 웹에 많은 컨텐츠가 있지만, REST 전문가가 썼다 하더라도 새로 접하는 사람들에게는 거의 쓸모가 없다. 사실 좋은 REST 예제와 토론은 줄어들고 있고, 아마도 이런 REST라는 용어를 납치하게 된 이유가 된 것 같아. <a href="https://www.infoq.com/articles/webber-rest-workflow#anch33051" target="_blank" rel="external">여기</a>에서 (RESTful하진 않지만) 현실적인 예제가 있긴 하다. (이 링크의 댓글을 보면 ‘REST’에서 ‘RE’는 빼고 ‘ST’에 대한 좋은 글이라는 비아냥이 있다)</p>
-<h2 id="REST-I-don’t-Think-it-Means-What-You-Think-it-Does"><a href="#REST-I-don’t-Think-it-Means-What-You-Think-it-Does" class="headerlink" title="REST: I don’t Think it Means What You Think it Does"></a>REST: I don’t Think it Means What You Think it Does</h2><p><a href="https://www.youtube.com/watch?v=pspy1H6A3FM" target="_blank" rel="external">GOTO 2014 • REST: I don’t Think it Means What You Think it Does • Stefan Tilkov</a></p>
+<p>colinjack  : DDD와 비교를 하면서, DDD도 오해를 겪고 사람들은 때로 중요하지 않은 부분에 집중을 하지만, Evans의 책이 살아있는 예제를 제공하고 그의 아이디어가 왜 중요한지를 보여준다. 그러나 REST에서는 웹에 많은 컨텐츠가 있지만, REST 전문가가 썼다 하더라도 새로 접하는 사람들에게는 거의 쓸모가 없다. 사실 좋은 REST 예제와 토론은 줄어들고 있고, 아마도 이런 REST라는 용어를 납치하게 된 이유가 된 것 같아. <a href="https://www.infoq.com/articles/webber-rest-workflow#anch33051" target="_blank" rel="noopener">여기</a>에서 (RESTful하진 않지만) 현실적인 예제가 있긴 하다. (이 링크의 댓글을 보면 ‘REST’에서 ‘RE’는 빼고 ‘ST’에 대한 좋은 글이라는 비아냥이 있다)</p>
+<h2 id="REST-I-don’t-Think-it-Means-What-You-Think-it-Does"><a href="#REST-I-don’t-Think-it-Means-What-You-Think-it-Does" class="headerlink" title="REST: I don’t Think it Means What You Think it Does"></a>REST: I don’t Think it Means What You Think it Does</h2><p><a href="https://www.youtube.com/watch?v=pspy1H6A3FM" target="_blank" rel="noopener">GOTO 2014 • REST: I don’t Think it Means What You Think it Does • Stefan Tilkov</a></p>
 <p>이것도 ‘RESTful APIs, the big lie’의 댓글에서 추천을 받은 동영상이다.</p>
 <p>‘그건 REST가 아니야’류의 발표나 글은 참 많은데, 제대로 REST를 이야기하는 몇 안 되는 강연 중 하나라고 생각한다.</p>
 <h4 id="REST의-주요-특징"><a href="#REST의-주요-특징" class="headerlink" title="REST의 주요 특징"></a>REST의 주요 특징</h4><ul>
@@ -387,7 +387,7 @@
 <li>Step 1. service document<ul>
 <li>서비스/페이지에서 필요한 링크를 모아놓은 문서</li>
 <li>JSON Home<ul>
-<li>이런 문서도 <a href="https://tools.ietf.org/html/draft-nottingham-json-home-03" target="_blank" rel="external">표준화</a>가 진행중</li>
+<li>이런 문서도 <a href="https://tools.ietf.org/html/draft-nottingham-json-home-03" target="_blank" rel="noopener">표준화</a>가 진행중</li>
 <li>application/json-home</li>
 </ul>
 </li>

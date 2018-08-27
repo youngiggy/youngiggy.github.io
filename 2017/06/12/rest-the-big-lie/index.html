@@ -160,7 +160,7 @@
 <h2 id="RESTful-APIs-the-big-lie"><a href="#RESTful-APIs-the-big-lie" class="headerlink" title="RESTful APIs, the big lie"></a>RESTful APIs, the big lie</h2><p>이제 개발자들 사이에 널리 퍼진 REST에 대한 오해를 들춰볼 차례이다.</p>
 <p>독자 입장에선 이 정성으로 그냥 논문을 읽지 그러냐는 의문도 들 수 있겠지만,</p>
 <p>이 바닥의 수많은 오해를 발견하는 재미도 있었다.</p>
-<h2 id="REST에-관한-끊이지-않는-논쟁"><a href="#REST에-관한-끊이지-않는-논쟁" class="headerlink" title="REST에 관한 끊이지 않는 논쟁"></a>REST에 관한 끊이지 않는 논쟁</h2><p>자신을 “SPA (UI/UX/server) architect and author”라고 소개하고 있는<br><em>Michael S. Mikowski</em>의 <a href="https://mmikowski.github.io/the_lie/" target="_blank" rel="external">RESTful APIs, the big lie</a>라는 자극적인 글과 댓글을 읽고 한번 정리해볼 필요가 있다고 생각했다.</p>
+<h2 id="REST에-관한-끊이지-않는-논쟁"><a href="#REST에-관한-끊이지-않는-논쟁" class="headerlink" title="REST에 관한 끊이지 않는 논쟁"></a>REST에 관한 끊이지 않는 논쟁</h2><p>자신을 “SPA (UI/UX/server) architect and author”라고 소개하고 있는<br><em>Michael S. Mikowski</em>의 <a href="https://mmikowski.github.io/the_lie/" target="_blank" rel="noopener">RESTful APIs, the big lie</a>라는 자극적인 글과 댓글을 읽고 한번 정리해볼 필요가 있다고 생각했다.</p>
 <p>댓글로 달려드는 모두가 REST나 API를 바라보는 관점이 다르고, 댓글을 읽으면서 ‘그래, 그렇지’하면서 나의 관점도 계속 흔들렸다.</p>
 <p>내가 흔들렸던 이유는 이 글을 읽을 때는 막 REST에 대해 공부하기 시작했을 때였기도 했고, RESTful한 API를 만들기 위한 현실적인 고민들이 남일 같지 않았기 때문이기도… </p>
 <p>그냥 REST라는 용어만 포기하면 편하다는 결론은 내 후속 블로그 글에서 다시 확인하시고, 일단 개싸움부터 들여다보자.</p>
@@ -186,13 +186,13 @@
 <h3 id="Problem-5-RESTful-APIs-are-usually-tied-to-HTTP"><a href="#Problem-5-RESTful-APIs-are-usually-tied-to-HTTP" class="headerlink" title="Problem #5: RESTful APIs are usually tied to HTTP"></a>Problem #5: RESTful APIs are usually tied to HTTP</h3><p>HTTP에 너무 종속되어 있다.<br>HTTP가 아닌 다른 전송 방식으로 전환하려면 또 저 7가지 조합을 고려해서 만들어야 한다.</p>
 <h3 id="The-way-forward-JSON-Pure-APIs"><a href="#The-way-forward-JSON-Pure-APIs" class="headerlink" title="The way forward: JSON-Pure APIs"></a>The way forward: JSON-Pure APIs</h3><p>그래서 제안하는 건, JSON-Pure APIs</p>
 <ul>
-<li>이 글이 쓰인 지 3주 후 JSON-Pure APIs에 관한 <a href="https://mmikowski.github.io/json-pure/" target="_blank" rel="external">후속 블로그</a>가 올라온다</li>
+<li>이 글이 쓰인 지 3주 후 JSON-Pure APIs에 관한 <a href="https://mmikowski.github.io/json-pure/" target="_blank" rel="noopener">후속 블로그</a>가 올라온다</li>
 </ul>
 <h2 id="논쟁"><a href="#논쟁" class="headerlink" title="논쟁"></a>논쟁</h2><p>블로그 본문과 댓글에서 발화한 여러 논쟁을 크게 묶어 정리해본다.</p>
 <h3 id="HTTP-메소드와-응답코드는-모호해서-그-뜻이-정확히-뭘-의미하는지-사람마다-다르게-인식한다"><a href="#HTTP-메소드와-응답코드는-모호해서-그-뜻이-정확히-뭘-의미하는지-사람마다-다르게-인식한다" class="headerlink" title="HTTP 메소드와 응답코드는 모호해서 그 뜻이 정확히 뭘 의미하는지 사람마다 다르게 인식한다."></a>HTTP 메소드와 응답코드는 모호해서 그 뜻이 정확히 뭘 의미하는지 사람마다 다르게 인식한다.</h3><p>따지고 보면 그걸 모르는 사람의 문제지만, 현실적으로는 이해가 되는 부분도 있다.</p>
 <p>어떤 응답 로직을 구현하기 위해 적합성 여부를 여러번 생각해야하는 것은 어쨌든 일종의 비용이라고 생각한다.</p>
 <ul>
-<li><a href="https://1ambda.github.io/javascripts/rest-api-put-vs-post/" target="_blank" rel="external">https://1ambda.github.io/javascripts/rest-api-put-vs-post/</a> <ul>
+<li><a href="https://1ambda.github.io/javascripts/rest-api-put-vs-post/" target="_blank" rel="noopener">https://1ambda.github.io/javascripts/rest-api-put-vs-post/</a> <ul>
 <li>여기서 response code decision tree를 볼 수 있을 것이다<br><img src="http://i.stack.imgur.com/whhD1.png" alt="response code decision tree"></li>
 </ul>
 </li>
@@ -200,11 +200,11 @@
 <p>물론 이것은 REST의 문제가 아닌 구현상의 어려움일 뿐이다.</p>
 <ul>
 <li>이 글을 비판하는 진영에서는 ‘아니, 그게 왜 어렵다는 거야?’같은 반응을 보이기도 한다</li>
-<li>사족이지만, npm 개발자인 <a href="http://izs.me/" target="_blank" rel="external">Isaac Z. Schlueter</a>는 세미콜론을 최대한 안 쓰는데, 이런 방식은 버그를 양산할 수 있고 혼란스러울 수 있다고 비판하는 사람들에게 ‘네가 JavaScript 문법을 몰라서 그렇다’고 일침하기도 했다</li>
+<li>사족이지만, npm 개발자인 <a href="http://izs.me/" target="_blank" rel="noopener">Isaac Z. Schlueter</a>는 세미콜론을 최대한 안 쓰는데, 이런 방식은 버그를 양산할 수 있고 혼란스러울 수 있다고 비판하는 사람들에게 ‘네가 JavaScript 문법을 몰라서 그렇다’고 일침하기도 했다</li>
 </ul>
 <p>요청 메소드와 응답 코드가 모든 상황을 담아낼 수 없다는 의견도 있는데, 이 글에 동조하는 사람들은 거대한 엔터프라이즈 환경(ERP, 병원 시스템 등)에서 다양하고 복합적인 리소스를 다루는 상황에 대해 언급한다.</p>
 <p>논쟁을 지켜보며 생각이 드는 것은 - 추측이지만,</p>
-<p>메소드가 충분치 않다는 감정은 특히 <a href="https://ko.wikipedia.org/wiki/%EC%9B%90%EA%B2%A9_%ED%94%84%EB%A1%9C%EC%8B%9C%EC%A0%80_%ED%98%B8%EC%B6%9C" target="_blank" rel="external">RPC</a>를 실행하는 경우,<br>그러니까 내부적으로 복잡한 로직이 섞여있을 때 발생하는 것 같다. </p>
+<p>메소드가 충분치 않다는 감정은 특히 <a href="https://ko.wikipedia.org/wiki/%EC%9B%90%EA%B2%A9_%ED%94%84%EB%A1%9C%EC%8B%9C%EC%A0%80_%ED%98%B8%EC%B6%9C" target="_blank" rel="noopener">RPC</a>를 실행하는 경우,<br>그러니까 내부적으로 복잡한 로직이 섞여있을 때 발생하는 것 같다. </p>
 <p>예를 들어 리퀘스트를 날려서 설거지와 빨래와 아이 목욕을 시킨다면, 여기서 리소스란 무엇일까? 이 때는 어떤 메소드를 써야하는가?</p>
 <p>이 지점부터 한차례 혼란이 오는 것 같은데, 그 리퀘스트를 보내는 대상 리소스가 우리가 흔히 인식하는 리소스, 그러니까 CSS나 이미지같은 소위 정적 리소스 개념을 벗어나는 지점부터 어려워지는 것 같다. </p>
 <p>HTTP에서 <em>리소스란 뭐든 지 될 수 있다.</em></p>
@@ -216,7 +216,7 @@
 <p>각 HTTP 메소드가 정확히 어떤 의미인지는 각자 (제발 신뢰할 만한 출처에서) 찾아보기로 하고,</p>
 <p>REST 논문에는 애초에 CRUD나 어떤 HTTP 메소드를 써야 한다는 언급이 없었다.</p>
 <p>‘REST API는 GET/POST/PUT/DELETE를 쓰는 것이다’라는 공식은 웹 프레임웍의 잘못된 가이드에도 원인이 있기도 하다.</p>
-<p><a href="http://www.eq8.eu/blogs/37-post-create-and-put-update" target="_blank" rel="external">Ruby on Rails의 예</a>를 보자.</p>
+<p><a href="http://www.eq8.eu/blogs/37-post-create-and-put-update" target="_blank" rel="noopener">Ruby on Rails의 예</a>를 보자.</p>
 <ul>
 <li>PUT을 썼더니 방화벽에서 막혔던 사례를 통해 이때 발생할 수 있는 문제를 다루고 레일스의 잘못된 가이드에 대해 언급한다</li>
 <li>마지막 결론쯤에 Rails는 Rails일 뿐이라는 대목이 나온다</li>
@@ -224,8 +224,8 @@
 </ul>
 <p>PHP의 Laravel은 </p>
 <ul>
-<li>5.2 버전까지 <a href="https://laravel.com/docs/5.2/controllers#restful-resource-controllers" target="_blank" rel="external">RESTful Resource Controllers</a>라는 용어를 사용했으나,</li>
-<li>5.3 버전부터는 <code>typical &quot;CRUD&quot; routes</code>를 제공한다는 설명과 함께 <a href="https://laravel.com/docs/5.3/controllers#resource-controllers" target="_blank" rel="external">Resource Controllers</a>라고 변경했다. 하지만 여전히 PUT은 UPDATE에 대응이 된다.</li>
+<li>5.2 버전까지 <a href="https://laravel.com/docs/5.2/controllers#restful-resource-controllers" target="_blank" rel="noopener">RESTful Resource Controllers</a>라는 용어를 사용했으나,</li>
+<li>5.3 버전부터는 <code>typical &quot;CRUD&quot; routes</code>를 제공한다는 설명과 함께 <a href="https://laravel.com/docs/5.3/controllers#resource-controllers" target="_blank" rel="noopener">Resource Controllers</a>라고 변경했다. 하지만 여전히 PUT은 UPDATE에 대응이 된다.</li>
 </ul>
 <h3 id="307-Temporary-같은-애들은-브라우저마다-상이하게-처리되기도-한다-제대로-지원하는-건-200과-500뿐이다"><a href="#307-Temporary-같은-애들은-브라우저마다-상이하게-처리되기도-한다-제대로-지원하는-건-200과-500뿐이다" class="headerlink" title="307 Temporary 같은 애들은 브라우저마다 상이하게 처리되기도 한다. 제대로 지원하는 건 200과 500뿐이다."></a>307 Temporary 같은 애들은 브라우저마다 상이하게 처리되기도 한다. 제대로 지원하는 건 200과 500뿐이다.</h3><p>좀 오버하는 감은 있긴 하다.</p>
 <p>하지만 REST에서는 Uniform Interface가 중요한데도 경험적으로 (적어도 HTTP 쪽에서는) 인프라가 충분치 않다는 인식이 있는 것 같다. </p>
@@ -243,7 +243,7 @@
 <p>웹의 인프라를 충분히 활용해서 효율적으로 동작하고, 독립적으로 진화하고, 확장할 수 있게 설계하기하기 위함이다.</p>
 <p>디버깅을 편하게 하기 위해 설계 원칙을 바꾸는 순간 본래의 목적에서 멀어진다.</p>
 <h3 id="HTTP에-너무-종속되어-있다"><a href="#HTTP에-너무-종속되어-있다" class="headerlink" title="HTTP에 너무 종속되어 있다"></a>HTTP에 너무 종속되어 있다</h3><p>웹에서의 주요 프로토콜이 HTTP이긴 하고, 그 때문에 REST를 구현했다는 사람들이 HTTP를 많이 쓸 뿐이지 REST는 HTTP에 한정되지 않는다.</p>
-<p><a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm#sec_5_3_2" target="_blank" rel="external">5.3.2 Connector View</a> 참고</p>
+<p><a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm#sec_5_3_2" target="_blank" rel="noopener">5.3.2 Connector View</a> 참고</p>
 <h3 id="아무리-이론적으로는-맞는-말일-지라도-현실적으로는-대부분-HTTP-위에서-REST를-구현할-수-밖에-없잖아"><a href="#아무리-이론적으로는-맞는-말일-지라도-현실적으로는-대부분-HTTP-위에서-REST를-구현할-수-밖에-없잖아" class="headerlink" title="아무리 이론적으로는 맞는 말일 지라도, 현실적으로는 대부분 HTTP 위에서 REST를 구현할 수 밖에 없잖아"></a>아무리 이론적으로는 맞는 말일 지라도, 현실적으로는 대부분 HTTP 위에서 REST를 구현할 수 밖에 없잖아</h3><p>맞다. 웹개발자 입장에선 대부분의 API 설계를 HTTP 위에서 하게 된다.</p>
 <p>하지만 그것이 REST가 HTTP에 종속됐다는 의미는 아니다.</p>
 <h3 id="HTTP를-재발명-하자는-게-아니다-단지-어플리케이션-레벨의-메시지를-HTTP-안에-억지로-끼워넣지-말고-JSON-payload에-담자는-말이다"><a href="#HTTP를-재발명-하자는-게-아니다-단지-어플리케이션-레벨의-메시지를-HTTP-안에-억지로-끼워넣지-말고-JSON-payload에-담자는-말이다" class="headerlink" title="HTTP를 재발명 하자는 게 아니다. 단지 어플리케이션 레벨의 메시지를 HTTP 안에 억지로 끼워넣지 말고 JSON payload에 담자는 말이다."></a>HTTP를 재발명 하자는 게 아니다. 단지 어플리케이션 레벨의 메시지를 HTTP 안에 억지로 끼워넣지 말고 JSON payload에 담자는 말이다.</h3><p>그래도 된다고 생각한다. 다만 그렇게하면 REST라고 부르지 말자는 것이다. REST라고 부를 수 없다고 나쁜 설계는 아니다.</p>
@@ -258,8 +258,8 @@
 <p>다시 말하지만, 그럼 REST라고 안 부르면 된다!</p>
 <p>가장 적당한 디자인을 설계하자.</p>
 <h3 id="가서-SOAP으로-입-좀-행구고-오지-그래"><a href="#가서-SOAP으로-입-좀-행구고-오지-그래" class="headerlink" title="가서 SOAP으로 입 좀 행구고 오지 그래"></a>가서 SOAP으로 입 좀 행구고 오지 그래</h3><p>네가 하려는 건 SOAP과 다를 바 없다는 중의적 의미.</p>
-<p>댓글에서 SOAP과의 비교를 하는 사람이 참 많다. 여기 <a href="http://greatkim91.tistory.com/79" target="_blank" rel="external">REST와 비교한 글</a>도 참고하자. </p>
-<p>(이 블로그는 국내에서 보기 드물게 REST에 대해 정확한 표현을 하고 있음에도 이 글에서는 제대로 REST를 설명하고 있지 않는데, 그 이유는 <a href="http://greatkim91.tistory.com/13" target="_blank" rel="external">ROA에 관한 그 분의 다른 글</a>에서 볼 수 있다. 여기서 REST는 아키텍처 스타일, RESTful Web Service는 아키텍처로 구분하고 있는데, 이게 얼마나 신방성 있는지는 좀 더 찾아봐야겠다. ROA는 나중에 다시 다뤄보겠다.)</p>
+<p>댓글에서 SOAP과의 비교를 하는 사람이 참 많다. 여기 <a href="http://greatkim91.tistory.com/79" target="_blank" rel="noopener">REST와 비교한 글</a>도 참고하자. </p>
+<p>(이 블로그는 국내에서 보기 드물게 REST에 대해 정확한 표현을 하고 있음에도 이 글에서는 제대로 REST를 설명하고 있지 않는데, 그 이유는 <a href="http://greatkim91.tistory.com/13" target="_blank" rel="noopener">ROA에 관한 그 분의 다른 글</a>에서 볼 수 있다. 여기서 REST는 아키텍처 스타일, RESTful Web Service는 아키텍처로 구분하고 있는데, 이게 얼마나 신방성 있는지는 좀 더 찾아봐야겠다. ROA는 나중에 다시 다뤄보겠다.)</p>
 <p>‘소위 REST’가 SOAP을 대체해 나간 것처럼 기술이 오래 살아남기 위해선 사람들이 얼마나 쉽게 받아들일 수 있는가도 무시할 수 없는 것 같다.</p>
 <h3 id="결국-누군가-나서서-논쟁을-정리한다"><a href="#결국-누군가-나서서-논쟁을-정리한다" class="headerlink" title="결국 누군가 나서서 논쟁을 정리한다"></a>결국 누군가 나서서 논쟁을 정리한다</h3><p>(좋은 내용인데 이렇게 밖에 해석할 수 밖에 없어서 미안하다)</p>
 <ul>
@@ -341,7 +341,7 @@
 </li>
 <li><p>&#128078; 내가 오해를 하고 있나? 확인해보니 HTML에서 둘 다 잘 지원하는데?</p>
 <ul>
-<li>&#128077; GET, POST, PUT and DELETE 이런 거는 다 HTTP 표준인데, HTML에서 지원하는 건 GET/POST 밖에 없어. 최신 브라우저는 지원할지도 모르겠지만, 대부분의 개발환경은 2010~2013년 시대에 머물러 있어. <a href="http://laraveldaily.com/theres-no-putpatchdelete-method-or-how-to-build-a-laravel-form-manually/" target="_blank" rel="external">http://laraveldaily.com/theres-no-putpatchdelete-method-or-how-to-build-a-laravel-form-manually/</a> 이런 걸 봐.<ul>
+<li>&#128077; GET, POST, PUT and DELETE 이런 거는 다 HTTP 표준인데, HTML에서 지원하는 건 GET/POST 밖에 없어. 최신 브라우저는 지원할지도 모르겠지만, 대부분의 개발환경은 2010~2013년 시대에 머물러 있어. <a href="http://laraveldaily.com/theres-no-putpatchdelete-method-or-how-to-build-a-laravel-form-manually/" target="_blank" rel="noopener">http://laraveldaily.com/theres-no-putpatchdelete-method-or-how-to-build-a-laravel-form-manually/</a> 이런 걸 봐.<ul>
 <li>&#128169; 1970년대에 살고 있으면 비주얼 베이직이나 어셈블러나 하시지. 지금 2017년이야 정신차려.</li>
 </ul>
 </li>
@@ -355,7 +355,7 @@
 <p>&#128078; 마이클! 로이와 그의 논문에 대한 항목은 좀 축소하거나 삭제할 필요가 있어. 당신이 설명하는 것은 HTTP 위에서의 CRUD이지 로이가 설명했던 것과는 달라. 사실 그게 REST라고 불리고는 있지만, 로이의 논문과 관련있는 것은 단지 사람들이 완전히 다른 것을 가져오기 위해 납치한, 그가 사용한 REST란 이름 뿐이라고. REST에 대한 현대적 관행의 결점을 그의 탓으로 돌리는 건 공정하지 않아.</p>
 <ul>
 <li>&#128077; 나도 당신의 의견에 동의하고, 당신이 쓴 그 내용을 서론에 추가해도 좋을 것 같아. 괜찮아? 내가 RESTful web services에 대해 논의했던 모든 웹개발자는 위에 쓴 그대로 REST를 설명하고 있었어. 맞아, 메소드들과 응답코드를 사용하긴 해도  기본적으로는 HTTP위에서의 CRUD일 뿐이지. 다음주에 더 설명해볼게.<ul>
-<li>&#128078; 고마워. hypermedia api를 한번 살펴봐 “RESTful Web API 웹 API를 위한 모범 전략 가이드”란 책이나 <a href="https://groups.google.com/forum/#!forum/hypermedia-web" target="_blank" rel="external">https://groups.google.com/forum/#!forum/hypermedia-web</a> 을 아직 모른다면. 거기선 사람들이 CRUD를 REST와 헷갈리지 않거든. 너도 아마 좋아할거야.</li>
+<li>&#128078; 고마워. hypermedia api를 한번 살펴봐 “RESTful Web API 웹 API를 위한 모범 전략 가이드”란 책이나 <a href="https://groups.google.com/forum/#!forum/hypermedia-web" target="_blank" rel="noopener">https://groups.google.com/forum/#!forum/hypermedia-web</a> 을 아직 모른다면. 거기선 사람들이 CRUD를 REST와 헷갈리지 않거든. 너도 아마 좋아할거야.</li>
 </ul>
 </li>
 </ul>
@@ -412,65 +412,65 @@
 </ul>
 </li>
 </ul>
-<p>&#128169; facebook이 GraphQL 내놓았어 <a href="https://facebook.github.io/react/blog/2015/05/01/graphql-introduction.html" target="_blank" rel="external">링크</a></p>
+<p>&#128169; facebook이 GraphQL 내놓았어 <a href="https://facebook.github.io/react/blog/2015/05/01/graphql-introduction.html" target="_blank" rel="noopener">링크</a></p>
 <ul>
-<li>&#128169; 그럼 이것도 읽어보지 그래? <a href="https://www.pandastrike.com/posts/20151015-rest-vs-relay" target="_blank" rel="external">링크</a><ul>
+<li>&#128169; 그럼 이것도 읽어보지 그래? <a href="https://www.pandastrike.com/posts/20151015-rest-vs-relay" target="_blank" rel="noopener">링크</a><ul>
 <li>역주 : facebook의 글도 REST를 제대로 이해하고 쓴 건 아닌 것 같고, 이를 비판하는 글도 GraphQL을 제대로 이해하는 것 같지는 않음</li>
 </ul>
 </li>
 </ul>
 <h2 id="댓글에서-언급된-추천-링크"><a href="#댓글에서-언급된-추천-링크" class="headerlink" title="댓글에서 언급된 추천 링크"></a>댓글에서 언급된 추천 링크</h2><p><em>로이 필딩이 이야기하는 HATEOAS에 관한 이야기</em></p>
 <ul>
-<li><a href="http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven" target="_blank" rel="external">http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven</a></li>
+<li><a href="http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven" target="_blank" rel="noopener">http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven</a></li>
 </ul>
 <p>API Conf Panel: The Future of Media API</p>
 <ul>
-<li><a href="https://www.infoq.com/presentations/media-API" target="_blank" rel="external">https://www.infoq.com/presentations/media-API</a></li>
+<li><a href="https://www.infoq.com/presentations/media-API" target="_blank" rel="noopener">https://www.infoq.com/presentations/media-API</a></li>
 </ul>
 <p><em>GOTO 2014 • REST: I don’t Think it Means What You Think it Does • Stefan Tilkov</em></p>
 <ul>
-<li><a href="https://www.youtube.com/watch?v=pspy1H6A3FM" target="_blank" rel="external">https://www.youtube.com/watch?v=pspy1H6A3FM</a></li>
+<li><a href="https://www.youtube.com/watch?v=pspy1H6A3FM" target="_blank" rel="noopener">https://www.youtube.com/watch?v=pspy1H6A3FM</a></li>
 </ul>
 <p>JSON-RPC</p>
 <ul>
-<li><a href="http://www.jsonrpc.org/specification" target="_blank" rel="external">http://www.jsonrpc.org/specification</a></li>
+<li><a href="http://www.jsonrpc.org/specification" target="_blank" rel="noopener">http://www.jsonrpc.org/specification</a></li>
 </ul>
 <p>Facebook의 GraphQL</p>
 <ul>
-<li><a href="http://graphql.org/learn/" target="_blank" rel="external">http://graphql.org/learn/</a></li>
+<li><a href="http://graphql.org/learn/" target="_blank" rel="noopener">http://graphql.org/learn/</a></li>
 </ul>
 <p>Netflix의 Falcor</p>
 <ul>
-<li><a href="http://netflix.github.io/falcor/" target="_blank" rel="external">http://netflix.github.io/falcor/</a></li>
+<li><a href="http://netflix.github.io/falcor/" target="_blank" rel="noopener">http://netflix.github.io/falcor/</a></li>
 </ul>
 <p>RESTful Web API 웹 API를 위한 모범 전략 가이드</p>
 <ul>
-<li><a href="http://www.kyobobook.co.kr/product/detailViewKor.laf?barcode=9788966261635" target="_blank" rel="external">http://www.kyobobook.co.kr/product/detailViewKor.laf?barcode=9788966261635</a></li>
+<li><a href="http://www.kyobobook.co.kr/product/detailViewKor.laf?barcode=9788966261635" target="_blank" rel="noopener">http://www.kyobobook.co.kr/product/detailViewKor.laf?barcode=9788966261635</a></li>
 </ul>
 <p>Hypermedia Web discussion group</p>
 <ul>
-<li><a href="https://groups.google.com/forum/#!forum/hypermedia-web" target="_blank" rel="external">https://groups.google.com/forum/#!forum/hypermedia-web</a></li>
+<li><a href="https://groups.google.com/forum/#!forum/hypermedia-web" target="_blank" rel="noopener">https://groups.google.com/forum/#!forum/hypermedia-web</a></li>
 <li>CRUD와 REST를 구별할 줄 아는 사람들</li>
 </ul>
 <p>API Craft google group</p>
 <ul>
-<li><a href="https://groups.google.com/forum/?hl=ko#!forum/api-craft" target="_blank" rel="external">https://groups.google.com/forum/?hl=ko#!forum/api-craft</a></li>
+<li><a href="https://groups.google.com/forum/?hl=ko#!forum/api-craft" target="_blank" rel="noopener">https://groups.google.com/forum/?hl=ko#!forum/api-craft</a></li>
 </ul>
 <p>Hypermedia Client Tutorial</p>
 <ul>
-<li><a href="https://github.com/apiacademy/2016-07-hyperclient" target="_blank" rel="external">https://github.com/apiacademy/2016-07-hyperclient</a></li>
+<li><a href="https://github.com/apiacademy/2016-07-hyperclient" target="_blank" rel="noopener">https://github.com/apiacademy/2016-07-hyperclient</a></li>
 </ul>
 <p>From Zero to Hyper in 30 Minutes: Live Coding a Hypermedia Client</p>
 <ul>
-<li><a href="https://www.infoq.com/presentations/http-client-javascript" target="_blank" rel="external">https://www.infoq.com/presentations/http-client-javascript</a></li>
+<li><a href="https://www.infoq.com/presentations/http-client-javascript" target="_blank" rel="noopener">https://www.infoq.com/presentations/http-client-javascript</a></li>
 </ul>
 <p>CODE COMPLETE 2</p>
 <ul>
-<li><a href="http://www.kyobobook.co.kr/product/detailViewKor.laf?barcode=9788956742564" target="_blank" rel="external">http://www.kyobobook.co.kr/product/detailViewKor.laf?barcode=9788956742564</a></li>
+<li><a href="http://www.kyobobook.co.kr/product/detailViewKor.laf?barcode=9788956742564" target="_blank" rel="noopener">http://www.kyobobook.co.kr/product/detailViewKor.laf?barcode=9788956742564</a></li>
 </ul>
 <p><em>Your API isn’t RESTful — And That’s Good</em></p>
 <ul>
-<li><a href="https://medium.com/@trevorhreed/you-re-api-isn-t-restful-and-that-s-good-b2662079cf0e" target="_blank" rel="external">https://medium.com/@trevorhreed/you-re-api-isn-t-restful-and-that-s-good-b2662079cf0e</a></li>
+<li><a href="https://medium.com/@trevorhreed/you-re-api-isn-t-restful-and-that-s-good-b2662079cf0e" target="_blank" rel="noopener">https://medium.com/@trevorhreed/you-re-api-isn-t-restful-and-that-s-good-b2662079cf0e</a></li>
 </ul>
 
   </div>

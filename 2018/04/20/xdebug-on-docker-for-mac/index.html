@@ -7,7 +7,7 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="updated이 글이 의외로 인기(인기란 상대적인 것)가 있어서 여기저기 공유가 되고 있는데, 다시 읽어보니 메쉬코리아의 다른 분들은 어떻게 테스트를 하고 있었다는 건지 궁금할 수도 있겠다. 나는 분명 dd 찍는 게 위험하다고 했는데 말이다. 일단 dd를 찍어 놓고 production에 배포할 일은 쉽게 일어나진 않는다. 다수의 리뷰어가 지켜보고 있기도 하">
-<meta name="keywords" content="PHP,Mac,Xdebug,Docker">
+<meta name="keywords" content="Mac,PHP,Xdebug,Docker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker for Mac에서 Xdebug 연동">
 <meta property="og:url" content="http://haah.kr/2018/04/20/xdebug-on-docker-for-mac/index.html">
@@ -161,11 +161,11 @@
 <p>그럼에도 불구하고 나처럼 덤벙거리고 부족한 사람(여기서 내가 PHP 개발 경력이 제일 많은데, 제일 못한다!)은 팀에서는 여러 안전장치 안에서 개발하는 습관을 둬야 한다고 생각한다.<br><br></p>
 <hr>
 <h2 id="새로운-환경에-적응하기"><a href="#새로운-환경에-적응하기" class="headerlink" title="새로운 환경에 적응하기"></a>새로운 환경에 적응하기</h2><ul>
-<li><a href="https://xdebug.org/" target="_blank" rel="external">Xdebug</a>와 <a href="https://www.docker.com/docker-mac" target="_blank" rel="external">Docker for Mac</a></li>
+<li><a href="https://xdebug.org/" target="_blank" rel="noopener">Xdebug</a>와 <a href="https://www.docker.com/docker-mac" target="_blank" rel="noopener">Docker for Mac</a></li>
 </ul>
 <p>새 직장(아…그 사람 구한다는 메쉬코리아?)에서의 개발환경은 나로서는 꽤 도전적이었는데, 뭐하나 익숙한 게 없었다.</p>
 <p>Backend만 개발하며, PHP7.0, AWS, Mac…</p>
-<p>UI가 없는 순수 백엔드(API)만 개발 하다보니 <a href="https://www.getpostman.com/" target="_blank" rel="external">Postman</a>이 주 테스트 도구(혹은 진입점)가 된다.</p>
+<p>UI가 없는 순수 백엔드(API)만 개발 하다보니 <a href="https://www.getpostman.com/" target="_blank" rel="noopener">Postman</a>이 주 테스트 도구(혹은 진입점)가 된다.</p>
 <p>윈도나 리눅스 remote 서버에 올려 하던 식으로 해봤더니 뭐가 잘 안되곤 해서 매번 dd, var_dump, Log::xxxx() 식으로 코드를 망가뜨리며 테스트를 했었다. 위험하고 불편하다. 그럼 그럴 시간에 잠시 짬을 내서 Xdebug 설정을 완료하는데 노력을 했어야 하지 않았냐는 의문도 들 수 있다. 그런데 일단 대안(코드에 찍어 확인하기)이 있긴 했고, 다른 많은 것을 익혀야 했기 때문에 우선 순위가 밀리고 밀렸다.</p>
 <p>그런데 도저히 안되겠다 싶어서 최근에 다시 후벼 파기 시작했고 성과가 있었다.</p>
 <p>회사 위키에 적은 것을 조금 바꿔 공유해본다.</p>
@@ -203,17 +203,17 @@
 </ol>
 <h2 id="Docker-for-mac에서의-설정-방법"><a href="#Docker-for-mac에서의-설정-방법" class="headerlink" title="Docker for mac에서의 설정 방법"></a>Docker for mac에서의 설정 방법</h2><p>회사에서는 표준 컨테이너 하나를 띄우고 쓴다</p>
 <h3 id="설정-확인"><a href="#설정-확인" class="headerlink" title="설정 확인"></a>설정 확인</h3><p>host 환경에도 php가 설치되어 있을텐데, 이건 IDE가 사용하는 cli이고 container 안의 php로 확인해야 한다</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">❯ docker exec -it 컨테이너명 bash</div><div class="line">root@0829de89a35f:/var/www/html#</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">❯ docker exec -it 컨테이너명 bash</span><br><span class="line">root@0829de89a35f:/var/www/html#</span><br></pre></td></tr></table></figure>
 <p>xdebug 설치 여부 확인</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">root@0829de89a35f:/var/www/html# php -v</div><div class="line">PHP 7.0.22-0ubuntu0.16.04.1 (cli) ( NTS )</div><div class="line">Copyright (c) 1997-2017 The PHP Group</div><div class="line">Zend Engine v3.0.0, Copyright (c) 1998-2017 Zend Technologies</div><div class="line">    with Zend OPcache v7.0.22-0ubuntu0.16.04.1, Copyright (c) 1999-2017, by Zend Technologies</div><div class="line">    with Xdebug v2.4.0, Copyright (c) 2002-2016, by Derick Rethans</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">root@0829de89a35f:/var/www/html# php -v</span><br><span class="line">PHP 7.0.22-0ubuntu0.16.04.1 (cli) ( NTS )</span><br><span class="line">Copyright (c) 1997-2017 The PHP Group</span><br><span class="line">Zend Engine v3.0.0, Copyright (c) 1998-2017 Zend Technologies</span><br><span class="line">    with Zend OPcache v7.0.22-0ubuntu0.16.04.1, Copyright (c) 1999-2017, by Zend Technologies</span><br><span class="line">    with Xdebug v2.4.0, Copyright (c) 2002-2016, by Derick Rethans</span><br></pre></td></tr></table></figure>
 <p>xdebug 설치 여부 및 설정 파일(xdebug.ini, php.ini 등) 위치 확인</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">root@0829de89a35f:/var/www/html# php -i | grep xdebug</div><div class="line">/etc/php/7.0/cli/conf.d/20-xdebug.ini,</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@0829de89a35f:/var/www/html# php -i | grep xdebug</span><br><span class="line">/etc/php/7.0/cli/conf.d/20-xdebug.ini,</span><br></pre></td></tr></table></figure>
 <h3 id="XDebug-옵션-설정"><a href="#XDebug-옵션-설정" class="headerlink" title="XDebug 옵션 설정"></a>XDebug 옵션 설정</h3><ul>
-<li><a href="https://xdebug.org/docs/basic" target="_blank" rel="external">https://xdebug.org/docs/basic</a> 참고</li>
+<li><a href="https://xdebug.org/docs/basic" target="_blank" rel="noopener">https://xdebug.org/docs/basic</a> 참고</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">zend_extension=xdebug.so # to load extension</div><div class="line">xdebug.remote_log=/tmp/xdebug.log # 로그 파일 위치. 첫 연동이라면 실패를 대비해서 로그 파일 위치를 지정하자</div><div class="line">xdebug.idekey=PHPSTORM # XDEBUG_SESSION 쿠키에 value로 들어갈 문자열</div><div class="line">xdebug.remote_enable=1 # remote host에서의 연결을 허용할지 여부</div><div class="line">xdebug.remote_host=host.docker.internal # remote host의 주소. container 안에서 호스트로 접근할 때는 이대로 입력하자</div><div class="line">xdebug.remote_port=9003 # remote host에서 어떤 port로 연동할지</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">zend_extension=xdebug.so # to load extension</span><br><span class="line">xdebug.remote_log=/tmp/xdebug.log # 로그 파일 위치. 첫 연동이라면 실패를 대비해서 로그 파일 위치를 지정하자</span><br><span class="line">xdebug.idekey=PHPSTORM # XDEBUG_SESSION 쿠키에 value로 들어갈 문자열</span><br><span class="line">xdebug.remote_enable=1 # remote host에서의 연결을 허용할지 여부</span><br><span class="line">xdebug.remote_host=host.docker.internal # remote host의 주소. container 안에서 호스트로 접근할 때는 이대로 입력하자</span><br><span class="line">xdebug.remote_port=9003 # remote host에서 어떤 port로 연동할지</span><br></pre></td></tr></table></figure>
 <p>저장 후 apache 재시동</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">root@0829de89a35f:/var/www/html# supervisorctl restart apache2</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@0829de89a35f:/var/www/html# supervisorctl restart apache2</span><br></pre></td></tr></table></figure>
 <p>(자기 환경에 맞춰 알아서 재시작 하자)</p>
 <h3 id="IDE-설정"><a href="#IDE-설정" class="headerlink" title="IDE 설정"></a>IDE 설정</h3><p><img src="/images/xdebug-on-docker-for-mac/xdebug_setting.png" alt="IDE - Xdebug 설정 이미지"></p>
 <p><img src="/images/xdebug-on-docker-for-mac/DBGp_proxy.png" alt="IDE - DBGp proxy 설정 이미지"></p>
@@ -233,8 +233,8 @@
 <h3 id="Client-쿠키-설정"><a href="#Client-쿠키-설정" class="headerlink" title="Client 쿠키 설정"></a>Client 쿠키 설정</h3><p><strong>브라우저</strong></p>
 <ul>
 <li>크롬이나 FF라면 helper를 이용하면 편하다<ul>
-<li><a href="https://chrome.google.com/webstore/detail/xdebug-helper/eadndfjplgieldjbigjakmdgkmoaaaoc" target="_blank" rel="external">https://chrome.google.com/webstore/detail/xdebug-helper/eadndfjplgieldjbigjakmdgkmoaaaoc</a></li>
-<li><a href="https://addons.mozilla.org/en-US/firefox/addon/xdebug-helper-for-firefox/" target="_blank" rel="external">https://addons.mozilla.org/en-US/firefox/addon/xdebug-helper-for-firefox/</a></li>
+<li><a href="https://chrome.google.com/webstore/detail/xdebug-helper/eadndfjplgieldjbigjakmdgkmoaaaoc" target="_blank" rel="noopener">https://chrome.google.com/webstore/detail/xdebug-helper/eadndfjplgieldjbigjakmdgkmoaaaoc</a></li>
+<li><a href="https://addons.mozilla.org/en-US/firefox/addon/xdebug-helper-for-firefox/" target="_blank" rel="noopener">https://addons.mozilla.org/en-US/firefox/addon/xdebug-helper-for-firefox/</a></li>
 </ul>
 </li>
 </ul>
@@ -254,10 +254,10 @@
 <h2 id="삽질"><a href="#삽질" class="headerlink" title="삽질"></a>삽질</h2><p>나는 Mac도 잘 몰랐고, Docker도 잘 몰랐으므로 도대체 어디서 문제가 생긴 건지 알 수가 없었다. 여러가지 검색을 통해 힌트를 얻을 수도 있었지만, 나는 영어도 잘 모르지 않는가! 꽤 초기에 발견했던 커뮤니티 글을 다시 한번 찬찬히 읽어보고 결정적인 힌트를 얻게 되는데…</p>
 <p>linux나 windows에선 xdebug.remote_connect_back=1을 설정하면 remote_host를 지정할 필요도 없이 쉽게 연동되나 Docker for Mac에서는 이 방식이 동작하지 않는다. 이건 Docker for Mac의 구조적인 문제라고 한다.</p>
 <p>결국 remote host를 지정해야 하는데 그 방법으로 IP alias를 생성하라는 글이 아주 많은데,</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo ifconfig en0 alias 10.254.254.254 255.255.255.0</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ifconfig en0 alias 10.254.254.254 255.255.255.0</span><br></pre></td></tr></table></figure>
 <p>이렇게 하고 remote_host의 값을 10.254.254.254을 지정하면 동작은 잘된다.</p>
 <p>그런데 이때 Mac에서 인터넷 연결이 끊기는 문제가 발생했다. 이유는 도저히 모르겠다. 뭔가 충돌이 나는 IP일 수도…</p>
-<p>그러다 Docker for Mac의 <a href="https://docs.docker.com/docker-for-mac/networking/#httphttps-proxy-support" target="_blank" rel="external">공식 문서</a>를 보고 해결책을 찾았는데, </p>
+<p>그러다 Docker for Mac의 <a href="https://docs.docker.com/docker-for-mac/networking/#httphttps-proxy-support" target="_blank" rel="noopener">공식 문서</a>를 보고 해결책을 찾았는데, </p>
 <p>Dcker에서는 container 안에서 호스트로 접근할 수 있는 host.docker.internal라는 특별한 DNS name을 제공한다는 것이다. 따라서 위에 설정한 대로 <code>xdebug.remote_host=host.docker.internal</code>을 입력하면 호스트(IDE를 띄워놓은)에 접근 가능하다.</p>
 <p>이 과정에서 문제가 무엇인지는 xdebug.remote_log에서 지정된 로그 파일로부터 얻었다. 연동이 잘 안된다면 맨 위에 설명한 것처럼 DBGp로 연결이 이뤄지기까지 어느 단계에서 문제가 생겼는지 확인해보는 게 좋다.</p>
 <ul>

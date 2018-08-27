@@ -7,7 +7,7 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="Update: ‘모호한 앰퍼샌드‘ 원작자에게 허락을 구해 해당 글의 번역본을 추가함.   개발하면서 누구나 한번쯤은 궁금해하지만, 아무도 정확히 알려주지 않는 모호한 앰퍼샌드에 대해 얕게 한번 파보았습니다. 현상공고 관리자 페이지에서 reg_mem_type이라는 변수를 검색할 수 있는 옵션을 추가했더니, 페이징 영역을 클릭하면 계속 오류가 발생했다. ®이라">
-<meta name="keywords" content="HTML,PHP">
+<meta name="keywords" content="PHP,HTML">
 <meta property="og:type" content="article">
 <meta property="og:title" content="모호한 앰퍼샌드(&amp;, ampersand)">
 <meta property="og:url" content="http://haah.kr/2017/09/08/ambiguous-ampersands/index.html">
@@ -147,14 +147,14 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p>Update: ‘<a href="https://mathiasbynens.be/notes/ambiguous-ampersands" target="_blank" rel="external">모호한 앰퍼샌드</a>‘ 원작자에게 허락을 구해 해당 글의 번역본을 추가함. </p>
+    <p>Update: ‘<a href="https://mathiasbynens.be/notes/ambiguous-ampersands" target="_blank" rel="noopener">모호한 앰퍼샌드</a>‘ 원작자에게 허락을 구해 해당 글의 번역본을 추가함. </p>
 <hr>
 <p>개발하면서 누구나 한번쯤은 궁금해하지만, 아무도 정확히 알려주지 않는 모호한 앰퍼샌드에 대해 얕게 한번 파보았습니다.</p>
 <h2 id="현상"><a href="#현상" class="headerlink" title="현상"></a>현상</h2><p>공고 관리자 페이지에서 reg_mem_type이라는 변수를 검색할 수 있는 옵션을 추가했더니, 페이징 영역을 클릭하면 계속 오류가 발생했다.</p>
 <p>®이라는 특수문자가 전송되는 것을 보고 페이징쪽 소스를 보니</p>
 <p>소스보기로는 이상이 없어보이나 개발자도구로는 ®가 찍히는 것을 확인.</p>
 <h2 id="원인"><a href="#원인" class="headerlink" title="원인"></a>원인</h2><p>일부 html entity는 세미콜론이 없어도 전환이 가능하다는 것을 알게 됐다.</p>
-<p>예를 들어,<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;a href=&quot;test?test=test&amp;reg=aa&amp;region=bb&amp;reg_ion=cc&quot;&gt;</div><div class="line">    test?test=test&amp;reg=aa&amp;region=bb&amp;reg_ion=cc</div><div class="line">&lt;/a&gt;</div></pre></td></tr></table></figure></p>
+<p>예를 들어,<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;test?test=test&amp;reg=aa&amp;region=bb&amp;reg_ion=cc&quot;&gt;</span><br><span class="line">    test?test=test&amp;reg=aa&amp;region=bb&amp;reg_ion=cc</span><br><span class="line">&lt;/a&gt;</span><br></pre></td></tr></table></figure></p>
 <p>와 같은 태그는 화면에는</p>
 <p><code>test?test=test®=aa®ion=bb®_ion=cc</code></p>
 <p>처럼 보이고, 개발자 도구에서 보면</p>
@@ -165,8 +165,8 @@
 <p>다만, &amp;reg_ion 처럼 &amp;reg 다음에 특수문자나 공백 등이 올 경우, 이는 ®마크로 변환이 된다.</p>
 <h2 id="세미콜론-없어도-변환해주는-경우"><a href="#세미콜론-없어도-변환해주는-경우" class="headerlink" title="세미콜론 없어도 변환해주는 경우"></a>세미콜론 없어도 변환해주는 경우</h2><p>세미콜론이 없어도 마크로 변환해주는 경우가 어디에 정의되어 있는지를 잘 모르겠다.</p>
 <p>이런 현상에 관한 질문을 좀 찾아봤다.</p>
-<p><a href="https://stackoverflow.com/questions/15532252/why-is-reg-being-rendered-as-without-the-bounding-semicolon" target="_blank" rel="external">https://stackoverflow.com/questions/15532252/why-is-reg-being-rendered-as-without-the-bounding-semicolon</a></p>
-<p>여기서는 <a href="https://html.spec.whatwg.org/multipage/named-characters.html#named-character-references" target="_blank" rel="external">named-character-references</a>를 예로 들며, 세미콜론이 없어도 되는 문자 참조를 아래와 같이 정의한다.</p>
+<p><a href="https://stackoverflow.com/questions/15532252/why-is-reg-being-rendered-as-without-the-bounding-semicolon" target="_blank" rel="noopener">https://stackoverflow.com/questions/15532252/why-is-reg-being-rendered-as-without-the-bounding-semicolon</a></p>
+<p>여기서는 <a href="https://html.spec.whatwg.org/multipage/named-characters.html#named-character-references" target="_blank" rel="noopener">named-character-references</a>를 예로 들며, 세미콜론이 없어도 되는 문자 참조를 아래와 같이 정의한다.</p>
 <blockquote>
 <p>AElig, AMP, Aacute, Acirc, Agrave, Aring, Atilde, Auml, COPY, Ccedil, ETH, Eacute, Ecirc, Egrave, Euml, GT, Iacute, Icirc, Igrave, Iuml, LT, Ntilde, Oacute, Ocirc, Ograve, Oslash, Otilde, Ouml, QUOT, REG, THORN, Uacute, Ucirc, Ugrave, Uuml, Yacute, aacute, acirc, acute, aelig, agrave, amp, aring, atilde, auml, brvbar, ccedil, cedil, cent, copy, curren, deg, divide, eacute, ecirc, egrave, eth, euml, frac12, frac14, frac34, gt, iacute, icirc, iexcl, igrave, iquest, iuml, laquo, lt, macr, micro, middot, nbsp, not, ntilde, oacute, ocirc, ograve, ordf, ordm, oslash, otilde, ouml, para, plusmn, pound, quot, raquo, reg, sect, shy, sup1, sup2, sup3, szlig, thorn, times, uacute, ucirc, ugrave, uml, uuml, yacute, yen, yuml</p>
 </blockquote>
@@ -181,8 +181,8 @@
 <p>$queryString = ‘&amp;’ . http_build_query($params, ‘’, ‘&amp;amp;’) ;</p>
 <p>이와 같이 &amp;만을 escape 처리함.</p>
 <h1 id="모호한-앰퍼샌드"><a href="#모호한-앰퍼샌드" class="headerlink" title="모호한 앰퍼샌드"></a>모호한 앰퍼샌드</h1><p>아래는 이 현상을 제대로 이해하기 위해 모호한 앰퍼샌드에 관한 글을 번역한 것이다.</p>
-<p>원문 : <a href="https://mathiasbynens.be/notes/ambiguous-ampersands" target="_blank" rel="external">https://mathiasbynens.be/notes/ambiguous-ampersands</a></p>
-<p>각 용어는 아래와 같이 번역함(<a href="http://www.clearboth.org/" target="_blank" rel="external">clearboth</a>에서 번역한 문서 참고해서 맞춤)</p>
+<p>원문 : <a href="https://mathiasbynens.be/notes/ambiguous-ampersands" target="_blank" rel="noopener">https://mathiasbynens.be/notes/ambiguous-ampersands</a></p>
+<p>각 용어는 아래와 같이 번역함(<a href="http://www.clearboth.org/" target="_blank" rel="noopener">clearboth</a>에서 번역한 문서 참고해서 맞춤)</p>
 <ul>
 <li>Ambiguous : 모호한<ul>
 <li>모호한이라는 뜻으로 주로 쓰이는 것 같고, 여러 뜻으로 해석할 수 있는..이라는 의미도 될 수 있음</li>
@@ -258,12 +258,12 @@
 <blockquote>
 <p>According to this definition, the ampersands in this example are all ambiguous, and thus invalid:</p>
 </blockquote>
-<p>이 정의에 의하면, 아래 예시에서 모든 앰퍼샌드는 모호하고, 그러므로 유효하지 않다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;a href=&quot;https://example.com/?x=1&amp;y=2&quot;;&gt;foo&lt;/a&gt;</div><div class="line">&amp;123</div><div class="line">&amp;abc</div><div class="line">foo &amp;0 bar</div><div class="line">foo &amp;lolwat bar</div></pre></td></tr></table></figure></p>
+<p>이 정의에 의하면, 아래 예시에서 모든 앰퍼샌드는 모호하고, 그러므로 유효하지 않다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;https://example.com/?x=1&amp;y=2&quot;;&gt;foo&lt;/a&gt;</span><br><span class="line">&amp;123</span><br><span class="line">&amp;abc</span><br><span class="line">foo &amp;0 bar</span><br><span class="line">foo &amp;lolwat bar</span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <p>However, this is valid HTML:</p>
 </blockquote>
 <p>그러나, 이건 또 유효한 HTML이다</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">foo &amp; bar</div><div class="line">foo&amp;&lt;i&gt;bar&lt;/i&gt;</div><div class="line">foo&amp;&amp;&amp; bar</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">foo &amp; bar</span><br><span class="line">foo&amp;&lt;i&gt;bar&lt;/i&gt;</span><br><span class="line">foo&amp;&amp;&amp; bar</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>Later the spec was changed, and the HTML spec now defines ambiguous ampersands as follows:</p>
 </blockquote>
@@ -280,17 +280,17 @@
 <p>The ampersands in this example are all ambiguous, and thus invalid:</p>
 </blockquote>
 <p>아래 앰퍼샌드는 모두 모호하다. 따라서 유효한 문법이 아니다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&amp;123;</div><div class="line">&amp;abc;</div><div class="line">foo &amp;0; bar</div><div class="line">foo &amp;lolwat; bar</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&amp;123;</span><br><span class="line">&amp;abc;</span><br><span class="line">foo &amp;0; bar</span><br><span class="line">foo &amp;lolwat; bar</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>However, all these are unambiguous:</p>
 </blockquote>
 <p>그러나 아래는 모두 명확하다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">foo &amp; bar</div><div class="line">foo&amp;&lt;i&gt;bar&lt;/i&gt;</div><div class="line">foo&amp;&amp;&amp; bar</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">foo &amp; bar</span><br><span class="line">foo&amp;&lt;i&gt;bar&lt;/i&gt;</span><br><span class="line">foo&amp;&amp;&amp; bar</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>…even the ones that were invalid as per the old definition, are now valid:</p>
 </blockquote>
 <p>…예전의 정의로는 유효하진 않지만, 현재 유효한 것은:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;a href=&quot;http://example.com/?x=1&amp;y=2&quot;;&gt;foo&lt;/a&gt;</div><div class="line">&amp;123</div><div class="line">&amp;abc</div><div class="line">foo &amp;0 bar</div><div class="line">foo &amp;lolwat bar</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;http://example.com/?x=1&amp;y=2&quot;;&gt;foo&lt;/a&gt;</span><br><span class="line">&amp;123</span><br><span class="line">&amp;abc</span><br><span class="line">foo &amp;0 bar</span><br><span class="line">foo &amp;lolwat bar</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>With the new definition, this is perfectly valid HTML — even though no HTML validator I know of recognizes this yet.</p>
 </blockquote>
@@ -312,7 +312,7 @@
 <p>Take this (obviously invalid) HTML, for example:</p>
 </blockquote>
 <p>예를 들어, 명백히 유효하지 않은 다음 HTML을 보라</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;p title=&quot;foo&amp;ampbar&quot;&gt;</div><div class="line">foo&amp;ampbar</div><div class="line">&lt;/p&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;p title=&quot;foo&amp;ampbar&quot;&gt;</span><br><span class="line">foo&amp;ampbar</span><br><span class="line">&lt;/p&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>Try it out in your browser. You’ll see that the paragraph’s text content displays as “foo&amp;bar”, while the titleattribute value is displayed as “foo&amp;ampbar”.</p>
 </blockquote>

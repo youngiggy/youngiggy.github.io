@@ -156,15 +156,15 @@
 <li><a href="/2017/06/28/rest-the-dissertation/">REST - 논문 읽기(To Do)</a></li>
 </ol>
 <h2 id="HTML-Form에서-GET-POST만-지원하는-이유"><a href="#HTML-Form에서-GET-POST만-지원하는-이유" class="headerlink" title="HTML Form에서 GET/POST만 지원하는 이유"></a>HTML Form에서 GET/POST만 지원하는 이유</h2><p>쉬어가는 마음으로 다음 장을 위한 사전 지식을 하나 쌓아보자.</p>
-<p><a href="http://jxck.hatenablog.com/entry/why-form-dosent-support-put-delete" target="_blank" rel="external">왜 PUT과 DELETE를 지원하지 않는가</a>에 대한 정리</p>
+<p><a href="http://jxck.hatenablog.com/entry/why-form-dosent-support-put-delete" target="_blank" rel="noopener">왜 PUT과 DELETE를 지원하지 않는가</a>에 대한 정리</p>
 <ul>
 <li>일본어다. 구글 번역기를 돌려보자</li>
 </ul>
 <p>PUT/DELETE를 Form에 넣으려는 시도는 위 글에서 가장 자세히 나오긴 했다.</p>
-<p>(구글 번역이 훌륭하긴 해도) 일본어라 원본을 알아볼 수가 없으므로,<br>대신 <a href="https://softwareengineering.stackexchange.com/questions/114156/why-are-there-are-no-put-and-delete-methods-on-html-forms" target="_blank" rel="external">stackexchange에 올라온 글</a>로 짧게 정리해봤다.</p>
+<p>(구글 번역이 훌륭하긴 해도) 일본어라 원본을 알아볼 수가 없으므로,<br>대신 <a href="https://softwareengineering.stackexchange.com/questions/114156/why-are-there-are-no-put-and-delete-methods-on-html-forms" target="_blank" rel="noopener">stackexchange에 올라온 글</a>로 짧게 정리해봤다.</p>
 <ul>
 <li>초기 HTML5 draft에는 포함되어 있었고 Firefox의 베타 버전에서는 잠시 구현하기도 했었다.</li>
-<li>W3C는 이 문제를 <a href="https://www.w3.org/Bugs/Public/show_bug.cgi?id=10671" target="_blank" rel="external">bug report 10671</a>에서 논의를 했는데,</li>
+<li>W3C는 이 문제를 <a href="https://www.w3.org/Bugs/Public/show_bug.cgi?id=10671" target="_blank" rel="noopener">bug report 10671</a>에서 논의를 했는데,</li>
 <li>Mike Amundsen이란 사람이 언급하길<ul>
 <li>리소스를 수정하기 위해 PUT과 DELETE를 실행하는 건 모던 브라우저의 XmlHttpRequest 객체를 사용하면 간단한데, 스크립트를 사용하지 않는 상황에선 쉽지 않다.</li>
 <li>이 패턴은 많은 일반적인 웹 프레임웍/라이브러리에서 기본으로 구현하고 있다.</li>
@@ -181,7 +181,7 @@
 </ul>
 </li>
 <li>하지만 포기하지 않고 추가 드래프트가 올라와 있다<ul>
-<li><a href="https://www.w3.org/TR/2015/NOTE-form-http-extensions-20150929/#http-put-form" target="_blank" rel="external">https://www.w3.org/TR/2015/NOTE-form-http-extensions-20150929/#http-put-form</a></li>
+<li><a href="https://www.w3.org/TR/2015/NOTE-form-http-extensions-20150929/#http-put-form" target="_blank" rel="noopener">https://www.w3.org/TR/2015/NOTE-form-http-extensions-20150929/#http-put-form</a></li>
 </ul>
 </li>
 </ul>
@@ -192,8 +192,8 @@
 <li>Form은 서버에 정보를 제출하기 위해 존재한다</li>
 <li>GET과 POST는 form에 존재하는 대화형 컨트롤에 입력된 값을 보낸다</li>
 <li>POST와 PUT의 가장 큰 차이<ul>
-<li><a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html" target="_blank" rel="external">RFC2616</a>에서는 ‘요청 URI의 다른 의미’라는 표현을 썼고 </li>
-<li><a href="https://tools.ietf.org/html/rfc7231#section-4.3.4" target="_blank" rel="external">RFC 7231</a>에서는 ‘동봉된 representation에 대한 다른 의도’라는 표현을 썼다 </li>
+<li><a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html" target="_blank" rel="noopener">RFC2616</a>에서는 ‘요청 URI의 다른 의미’라는 표현을 썼고 </li>
+<li><a href="https://tools.ietf.org/html/rfc7231#section-4.3.4" target="_blank" rel="noopener">RFC 7231</a>에서는 ‘동봉된 representation에 대한 다른 의도’라는 표현을 썼다 </li>
 <li>POST에서의 요청 대상 리소스는 동봉된 representation을 ‘처리하는’ 주체이고</li>
 <li>PUT에서는 동봉된 representation은 대상 리소스의 상태를 대체한다. 즉, 리소스 자체가 되어야 한다</li>
 </ul>

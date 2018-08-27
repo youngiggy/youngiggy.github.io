@@ -7,7 +7,7 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="연재글 전체 보기  HTTP 완벽가이드 5장을 가볍게 읽다가, Perl로 만든 간단한 서버 구현을 보고 이걸 PHP로 구현해보면 좋겠다는 생각을 했다. 그 예제는 (대충 봤는데) HTTP 서버라기 보다 소켓 연결해서 응답해주는 수준의 간단한 구현이었던 것 같고, HTTP 서버가 되려면 뭘 해야하는지는 설명으로만 보여준다. 이응준님은 “웹 프로그래머를 위한">
-<meta name="keywords" content="PHP,HTTP,phttp">
+<meta name="keywords" content="HTTP,PHP,phttp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PHP로 HTTP 서버 구현하기 - 01 - 계획">
 <meta property="og:url" content="http://haah.kr/2017/10/05/phttp-01/index.html">
@@ -149,27 +149,27 @@
 <hr>
 <p>HTTP 완벽가이드 5장을 가볍게 읽다가, Perl로 만든 간단한 서버 구현을 보고 이걸 PHP로 구현해보면 좋겠다는 생각을 했다.</p>
 <p>그 예제는 (대충 봤는데) HTTP 서버라기 보다 소켓 연결해서 응답해주는 수준의 간단한 구현이었던 것 같고, HTTP 서버가 되려면 뭘 해야하는지는 설명으로만 보여준다.</p>
-<p>이응준님은 “<a href="https://blog.npcode.com/2015/06/07/%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EB%A5%BC-%EC%9C%84%ED%95%9C-http-%EC%99%84%EB%B2%BD-%EA%B0%80%EC%9D%B4%EB%93%9C-%EC%9D%BD%EB%8A%94-%EB%B2%95/" target="_blank" rel="external">웹 프로그래머를 위한 HTTP 완벽 가이드 읽는 법</a>“에서</p>
+<p>이응준님은 “<a href="https://blog.npcode.com/2015/06/07/%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EB%A5%BC-%EC%9C%84%ED%95%9C-http-%EC%99%84%EB%B2%BD-%EA%B0%80%EC%9D%B4%EB%93%9C-%EC%9D%BD%EB%8A%94-%EB%B2%95/" target="_blank" rel="noopener">웹 프로그래머를 위한 HTTP 완벽 가이드 읽는 법</a>“에서</p>
 <blockquote>
 <p>5장 “웹 서버”는 웹 서버가 어떻게 동작하는지 설명한다. 웹 프로그래머라면 반드시 이해해야 할 것이다.</p>
 </blockquote>
 <p>라고 하셨지만, 사실 책에는 뭐 그리 많은 내용이 있는 건 아니다.</p>
-<p>HTTP 완벽가이드 5장의 내용을 더 알고 싶다면, <a href="https://www.slideshare.net/cinari4/http-ch5-web-server" target="_blank" rel="external">남이 정리한 HTTP 완벽가이드 5장</a> 자료를 찾아봐도 좋겠다.</p>
+<p>HTTP 완벽가이드 5장의 내용을 더 알고 싶다면, <a href="https://www.slideshare.net/cinari4/http-ch5-web-server" target="_blank" rel="noopener">남이 정리한 HTTP 완벽가이드 5장</a> 자료를 찾아봐도 좋겠다.</p>
 <h2 id="구현-목표"><a href="#구현-목표" class="headerlink" title="구현 목표"></a>구현 목표</h2><p>몇부작이 될 지는 모르겠으나 시간날 때마나 기능을 하나씩 추가해볼까 한다.</p>
 <p>단일 쓰레드로 하나의 요청만 처리하는 것부터 시작하기 때문에,</p>
-<p>나중에 ReactPHP나 <a href="http://php.net/manual/en/intro.pthreads.php" target="_blank" rel="external">멀티쓰레딩 처리</a>(PHP 7.2이상 + CLI 모드에선 가능한 듯) 혹은 멀티쓰레딩 흉내를 내는 것까지 갈 것 같다.</p>
+<p>나중에 ReactPHP나 <a href="http://php.net/manual/en/intro.pthreads.php" target="_blank" rel="noopener">멀티쓰레딩 처리</a>(PHP 7.2이상 + CLI 모드에선 가능한 듯) 혹은 멀티쓰레딩 흉내를 내는 것까지 갈 것 같다.</p>
 <p>물론 올 해 안을 목표로 하는 프로젝트도 있기 때문에…한두번 하고 그만둘 수도 있다!<br>(중요/강조/미리죄송)</p>
 <p>지금은 뭔가 신났지만…시작이나 하면 다행.</p>
 <p>1차로 구현하고자 하는 기능은 ‘이미지가 하나 포함된 HTML 파일을 서비스한다’.</p>
 <p>즉, HTML 파일 하나와 이미지 하나 정도 서비스 할 수 있는 능력이면 됐다.</p>
 <p>예를 들어 이런 식.</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"ko"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>PHTTP<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"https://www.engadget.com/media/2006/02/beer_server.jpg"</span> <span class="attr">alt</span>=<span class="string">"beer_server"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
-<h2 id="가장-간단하게-시작하기"><a href="#가장-간단하게-시작하기" class="headerlink" title="가장 간단하게 시작하기"></a>가장 간단하게 시작하기</h2><p><a href="http://php.net/manual/kr/sockets.examples.php" target="_blank" rel="external">php.net의 예제</a></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"ko"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>PHTTP<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"https://www.engadget.com/media/2006/02/beer_server.jpg"</span> <span class="attr">alt</span>=<span class="string">"beer_server"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="가장-간단하게-시작하기"><a href="#가장-간단하게-시작하기" class="headerlink" title="가장 간단하게 시작하기"></a>가장 간단하게 시작하기</h2><p><a href="http://php.net/manual/kr/sockets.examples.php" target="_blank" rel="noopener">php.net의 예제</a></p>
 <ul>
 <li>클래식한 소켓 연결 예제 프로그램</li>
 <li>5년 전 기억을 더듬어 보면 이런 식으로 짰던 것 같기도 하다</li>
 </ul>
-<p><a href="https://www.christophh.net/2012/07/24/php-socket-programming/" target="_blank" rel="external">PHP Socket Programming, done the Right Way</a></p>
+<p><a href="https://www.christophh.net/2012/07/24/php-socket-programming/" target="_blank" rel="noopener">PHP Socket Programming, done the Right Way</a></p>
 <ul>
 <li>여기서는 PHP5.0 부터 사용할 수 있는 stream_socket_* 친구들을 소개한다</li>
 <li>존 레식 닯은 청년이 아주 친절하게 설명해주기 때문에, 누구든 국경을 초월한 지식 습득이 가능하다</li>
@@ -177,7 +177,7 @@
 </ul>
 <p>찾아보니 OOP 방식의 간단한 구현체도 보임</p>
 <ul>
-<li><a href="https://github.com/youngj/httpserver" target="_blank" rel="external">A simple HTTP server</a></li>
+<li><a href="https://github.com/youngj/httpserver" target="_blank" rel="noopener">A simple HTTP server</a></li>
 <li>아마도 위의 저 간단한 서버로 운영을 하다보면 겪을 수많은 고민이 담겨 있다(간단하게 구현 했음에도!)</li>
 <li>하지만 내 수준에서 보면 너무 많이 구현해놓았으니, 간간히 안 풀릴 때 참고만 해보자</li>
 </ul>
@@ -207,9 +207,9 @@
 <li>400, 404, 500 정도 구현할까 싶은데</li>
 <li>에러 페이지는 사치</li>
 </ul>
-<p>경로 조회 공격 방어 [<a href="https://www.ibm.com/support/knowledgecenter/ko/SSB2MG_4.6.2/com.ibm.ips.doc/concepts/wap_path_traversal.htm" target="_blank" rel="external">?</a>]</p>
+<p>경로 조회 공격 방어 [<a href="https://www.ibm.com/support/knowledgecenter/ko/SSB2MG_4.6.2/com.ibm.ips.doc/concepts/wap_path_traversal.htm" target="_blank" rel="noopener">?</a>]</p>
 <p>directory index</p>
-<h2 id="저장소"><a href="#저장소" class="headerlink" title="저장소"></a>저장소</h2><p>GitHub : <a href="https://github.com/youngiggy/phttp" target="_blank" rel="external">https://github.com/youngiggy/phttp</a></p>
+<h2 id="저장소"><a href="#저장소" class="headerlink" title="저장소"></a>저장소</h2><p>GitHub : <a href="https://github.com/youngiggy/phttp" target="_blank" rel="noopener">https://github.com/youngiggy/phttp</a></p>
 
   </div>
 </article>

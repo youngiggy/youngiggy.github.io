@@ -155,13 +155,13 @@
 <p>어쨌든.</p>
 <p>DDD를 아주 기초만 이해한 상태로 정리를 해보면,</p>
 <p>클린코드나 객체지향 원칙을 따르면서 역할을 분리해 나가는 것과 크게 다르지 않다고 본다. </p>
-<p>마침 ‘The Clean Architecture’의 <a href="https://blog.coderifleman.com/2017/12/18/the-clean-architecture/" target="_blank" rel="external">번역글</a>을 읽게 됐는데, 여기서도 비슷한 이야기를 하고 있는 것이다.</p>
+<p>마침 ‘The Clean Architecture’의 <a href="https://blog.coderifleman.com/2017/12/18/the-clean-architecture/" target="_blank" rel="noopener">번역글</a>을 읽게 됐는데, 여기서도 비슷한 이야기를 하고 있는 것이다.</p>
 <blockquote>
 <p>위 아키텍처의 세세한 부분은 모두 다르지만 매우 비슷하기도 하다. 이들은 모두 같은 목적을 갖고 있는데 바로 관심사의 분리다. 소프트웨어를 계층으로 나눔으로써 관심사를 분리한다. 그리고 모두 비즈니스 규칙을 위한 최소 하나 이상의 계층과 인터페이스를 위한 또 다른 계층을 두고 있다.</p>
 </blockquote>
 <p>그러니까 저 다르면서 비슷한 아키텍처는 다들 고통속에 몸부림치다 이제 그만 열반에 들고자 만들어 낸 사리 쯤으로 봐야하는 건가.</p>
 <p>나도 회사에서 (가능하면) 역할별로 클래스를 나누고 컨트롤러에서는 도메인 로직을 제거해나가고 있었는데, DDD에서는 그 역할을 보다 더 분명하게 분리해놨다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">표현 - 응용 - 도메인 - 리포지터리</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">표현 - 응용 - 도메인 - 리포지터리</span><br></pre></td></tr></table></figure>
 <p>(곧 떠날) 회사에 만들어 놓은(💩) 코드는 표현만 분리했지 나머지를 뭉뚱그려 놓은 모습이다. 책을 읽다보니 이렇게 네가지로 분리하는 것도 괜찮겠다는 생각이 든다. 애그리거트로 도메인 모델을 묶고, 애그리거트는 응용서비스에서 조합하며, 한 애그리거트에서 다루기 어려운 경우 도메인 서비스를 구성한다.</p>
 <p>흠…대충 이런 느낌.</p>
 <p>그런데 리포지터리와 모델 매핑 쪽이 이해가 잘 안된다.</p>
@@ -174,7 +174,7 @@
 <p>그러니까 이 책을 보고 DDD 감을 익힐 수 있단 말인가? 그 감은 내가 익힌 감이랑 같은 감인가?</p>
 <p>그런데 DDD가 뭐더라?</p>
 <p>(검색하다 깜짝 놀람. EXID의 노래 ‘덜덜덜’이라니…그러면서 나는 김혜림이란 이름도 기억하고 있다니…)</p>
-<p>어쨌든 그동안 내가 희미하게나마 들어왔던 DDD는 <a href="http://www.zdnet.co.kr/news/news_view.asp?artice_id=00000039170212" target="_blank" rel="external">이런</a> 느낌이었는데,</p>
+<p>어쨌든 그동안 내가 희미하게나마 들어왔던 DDD는 <a href="http://www.zdnet.co.kr/news/news_view.asp?artice_id=00000039170212" target="_blank" rel="noopener">이런</a> 느낌이었는데,</p>
 <p>이 책의 내용은 거대한 숲 안에서 작은 군락 정도만 표현한 것 같은 느낌을 지울 수 없다.</p>
 <p>개발자들이 키보드에 손 올리고 신나게 개발할 준비를 하고 있을 때, ‘업무전문가’는 어디쯤 위치해야 하는가…</p>
 

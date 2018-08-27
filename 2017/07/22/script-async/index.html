@@ -147,39 +147,39 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p>bsidesoft 블로그에 <a href="http://www.bsidesoft.com/?p=5385" target="_blank" rel="external">Jobs</a>에 대한 내용이 올라왔다.</p>
+    <p>bsidesoft 블로그에 <a href="http://www.bsidesoft.com/?p=5385" target="_blank" rel="noopener">Jobs</a>에 대한 내용이 올라왔다.</p>
 <ul>
-<li>NHN Entertainment에서 쓴 <a href="https://github.com/nhnent/fe.javascript/wiki/June-13-June-17,-2016" target="_blank" rel="external">자바스크립트와 이벤트 루프</a>에서도 끝에 언급했었던 내용이니 같이 참고하면 좋겠다.</li>
+<li>NHN Entertainment에서 쓴 <a href="https://github.com/nhnent/fe.javascript/wiki/June-13-June-17,-2016" target="_blank" rel="noopener">자바스크립트와 이벤트 루프</a>에서도 끝에 언급했었던 내용이니 같이 참고하면 좋겠다.</li>
 </ul>
 <p>여튼, Jobs에 대한 글 중간에</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--소용없음. 그냥 async 선언과 동일--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">async</span>=<span class="string">"false"</span> <span class="attr">src</span>=<span class="string">"1.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--소용없음. 그냥 async 선언과 동일--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">async</span>=<span class="string">"false"</span> <span class="attr">src</span>=<span class="string">"1.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>“안타깝게도 이 옵션은 직접 태그에 쓰면 소용없고 동적으로 스크립트를 만든 경우에만 적용할 수 있습니다.”라고 나와있어서,</p>
 <p>스펙에서는 어디에 나와있는가 질문을 드렸더니 다음과 같은 답변이 달렸다.</p>
-<blockquote><p>…www.w3.org/TR/html51/semantics-scripting.html…</p>
+<blockquote><p>…<a href="http://www.w3.org/TR/html51/semantics-scripting.html.." target="_blank" rel="noopener">www.w3.org/TR/html51/semantics-scripting.html..</a>.</p>
 <p>여기에 가시면 script엘리먼트객체의 속성인 async IDL attribute에 대한 작동에 대해 자세히 기술하고 있습니다.</p>
 <p>The async IDL attribute controls whether the element will execute in parallel or not. If the element’s “non-blocking” flag is set, then, on getting, the async IDL attribute must return true, and on setting, the “non-blocking” flag must first be unset, and then the content attribute must be removed if the IDL attribute’s new value is false, and must be set to the empty string if the IDL attribute’s new value is true. If the element’s “non-blocking” flag is not set, the IDL attribute must reflect the async content attribute.</p>
 </blockquote>
 <p>분명 훑어보았던 부분인데 IDL attribute를 이해 못해서 그냥 넘어갔던 부분이다.</p>
 <p>반성의 의미로 스펙을 좀 더 읽고 내 질문에 대한 답을 정리해본다.</p>
 <h1 id="async-attribute"><a href="#async-attribute" class="headerlink" title="async attribute"></a>async attribute</h1><p>우선 <code>&lt;script async=&quot;false&quot; src=&quot;1.js&quot;&gt;&lt;/script&gt;</code>에서 async가 false로 설정 안 되는 이유.</p>
-<p><a href="https://www.w3.org/TR/html51/semantics-scripting.html#element-attrdef-script-async" target="_blank" rel="external">script element 스펙</a>에는 “The async and defer attributes are <a href="http://w3c.github.io/html/infrastructure.html#boolean-attribute" target="_blank" rel="external">boolean attributes</a>“라는 말이 나오는데,</p>
+<p><a href="https://www.w3.org/TR/html51/semantics-scripting.html#element-attrdef-script-async" target="_blank" rel="noopener">script element 스펙</a>에는 “The async and defer attributes are <a href="http://w3c.github.io/html/infrastructure.html#boolean-attribute" target="_blank" rel="noopener">boolean attributes</a>“라는 말이 나오는데,</p>
 <p>boolean-attribute란 attribute로 명시하는 것 만으로 true가 된다.</p>
 <p>즉, async=”true”든 async=”false”든 모두 async가 설정된 것으로 본다.</p>
 <p>checked, disabled 같은 애들이 다 boolean-attribute다.</p>
 <p>따라서 스크립트를 추가된 순서대로 실행하려면 attribute에서 async를 생략해야 하지만,</p>
 <p>그렇게 하면 또 병렬(parallel) 로 로드가 안 되는 문제가 생기게 된다.</p>
 <p>그럼 동적으로 삽입된 스크립트에서 가능한 이유는 뭘까?</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//js에서 동적로딩하는 경우</span></div><div class="line"><span class="keyword">const</span> s = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</div><div class="line">s.src = <span class="string">'1.js'</span>;</div><div class="line">s.async = <span class="literal">false</span>; <span class="comment">//효과 있음</span></div><div class="line"><span class="built_in">document</span>.body.appendChild(s);</div></pre></td></tr></table></figure>
-<p><a href="https://www.w3.org/TR/html51/semantics-scripting.html#element-attrdef-script-async" target="_blank" rel="external">script element 스펙</a>에 나오는 문장을 이해하기 위해 IDL attribute부터 알아보자.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//js에서 동적로딩하는 경우</span></span><br><span class="line"><span class="keyword">const</span> s = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</span><br><span class="line">s.src = <span class="string">'1.js'</span>;</span><br><span class="line">s.async = <span class="literal">false</span>; <span class="comment">//효과 있음</span></span><br><span class="line"><span class="built_in">document</span>.body.appendChild(s);</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.w3.org/TR/html51/semantics-scripting.html#element-attrdef-script-async" target="_blank" rel="noopener">script element 스펙</a>에 나오는 문장을 이해하기 위해 IDL attribute부터 알아보자.</p>
 <h1 id="content-attribute와-IDL-attribute"><a href="#content-attribute와-IDL-attribute" class="headerlink" title="content attribute와 IDL attribute"></a>content attribute와 IDL attribute</h1><p>스택오버플로우에서 답을 찾아봤다.</p>
 <ul>
-<li><a href="https://stackoverflow.com/questions/12354918/what-does-idl-attribute-mean-in-the-whatwg-html5-standard-document" target="_blank" rel="external">https://stackoverflow.com/questions/12354918/what-does-idl-attribute-mean-in-the-whatwg-html5-standard-document</a></li>
+<li><a href="https://stackoverflow.com/questions/12354918/what-does-idl-attribute-mean-in-the-whatwg-html5-standard-document" target="_blank" rel="noopener">https://stackoverflow.com/questions/12354918/what-does-idl-attribute-mean-in-the-whatwg-html5-standard-document</a></li>
 </ul>
 <hr>
-<p>IDL이란 말은 <a href="https://heycam.github.io/webidl/" target="_blank" rel="external">Web IDL spec</a>에서 왔습니다.</p>
+<p>IDL이란 말은 <a href="https://heycam.github.io/webidl/" target="_blank" rel="noopener">Web IDL spec</a>에서 왔습니다.</p>
 <blockquote><p>이 문서는 Web IDL이라는 인터페이스 정의 언어를 정의하고, 이는 웹 브라우저 내에서 구현하려는 인터페이스를 설명하는데 사용될 수 있습니다.<br>Web IDL은 IDL의 일종으로 웹 플랫폼에서의 공통적인 스크립트 객체의 동작을 보다 쉽게 정의될 수 있게 해주는 많은 기능을 갖추고 있습니다.<br>Web IDL로 설명된 인터페이스가 ECMAScript 실행 환경 내의 구조에 어떻게 대응되는지 또한 이 문서에서 자세히 설명합니다.</p>
 </blockquote>
-<p>Contents attibute란 마크업에서 나타나는 attribute입니다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;mydiv&quot; class=&quot;example&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>Contents attibute란 마크업에서 나타나는 attribute입니다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;mydiv&quot; class=&quot;example&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
 <p>여기서 id와 class는 attribute죠. 일반적으로 content attribute는 이에 상응하는 IDL attribute를 갖고 있습니다.</p>
 <p>…생략</p>
 <p>JavaScript 안에서 IDL attribute는 종종 property라고 불리는데, JavaScript에게는 DOM 객체의 property로써 노출되기 때문입니다.</p>
@@ -196,7 +196,7 @@
 </blockquote>
 <p>참고로 값을 가져올 때 현재 content attribute 값을 리턴해야 하는 경우 reflect란 용어를 쓰고 있는데 나는 이를 ‘반영(연동)’이라고 번역했다.</p>
 <ul>
-<li><a href="https://www.w3.org/TR/html51/infrastructure.html#reflecting-content-attributes-in-idl-attributes" target="_blank" rel="external">reflecting-content-attributes-in-idl-attributes</a>)</li>
+<li><a href="https://www.w3.org/TR/html51/infrastructure.html#reflecting-content-attributes-in-idl-attributes" target="_blank" rel="noopener">reflecting-content-attributes-in-idl-attributes</a>)</li>
 </ul>
 <p>간단히 console 창에서 테스트해보자.</p>
 <p><code>var s = document.createElement(&#39;script&#39;);</code>를 통해 생성한 후 바로 <code>s.async</code>를 보면 true가 나온다.</p>
@@ -205,21 +205,21 @@
 </blockquote>
 <p>이제 한 문장은 이해한 것 같은데, 어려운 용어가 더 생겼다.</p>
 <p>“non-blocking” 플래그라는 게 뭘까?</p>
-<h1 id="parsing-script-tag"><a href="#parsing-script-tag" class="headerlink" title="parsing script tag"></a>parsing script tag</h1><p>“non-blocking” 상태를 이해하기 위해 우선 <a href="https://dev.w3.org/html5/spec-LC/parsing.html" target="_blank" rel="external">HTML 도큐먼트의 파싱</a>과정을 보자.</p>
+<h1 id="parsing-script-tag"><a href="#parsing-script-tag" class="headerlink" title="parsing script tag"></a>parsing script tag</h1><p>“non-blocking” 상태를 이해하기 위해 우선 <a href="https://dev.w3.org/html5/spec-LC/parsing.html" target="_blank" rel="noopener">HTML 도큐먼트의 파싱</a>과정을 보자.</p>
 <p><img src="http://dev.w3.org/html5/spec/images/parsing-model-overview.png" alt="parsing-model-overview"></p>
 <p>“non-blocking”에서 block하는 대상은 HTML의 파싱이다.</p>
 <p>보통 네트웍 계층에서 input stream으로 데이터를 넘겨주지만, 실행중인 스크립트로부터 받아들이기도 한다.    </p>
 <p>document.write가 대표적인데, 여기서 쓰는 데이터는 input stream에 섞여 들어간다.</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(<span class="string">'&lt;li&gt;hello&lt;/li&gt;'</span>);</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(<span class="string">'&lt;li&gt;hello&lt;/li&gt;'</span>);</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>ul 사이에 li가 제대로 자릴 잡기 위해선 input stream으로부터 가 나타나기 전까지만 데이터를 읽어들이고,</p>
 <p>document.write가 포함된 스크립트 구문 실행하면 <code>&lt;li&gt;hello&lt;/li&gt;</code> 부분이 input stream에 추가되고,</p>
 <p>파서가 non-block 상태가 되면 다시 input stream으로부터 문자를 받아오는데,</p>
 <p><code>&lt;li&gt;hello&lt;/li&gt;\n&lt;/ul&gt;</code> 순으로 가져오게 된다.</p>
 <p>이런 이유로 script 태그는 기본적으로 HTML 파싱을 막는다.</p>
 <p>외부 스크립트도 마찬가지인데,</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"external.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"external.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>파서는 를 만나면 src에 명시된 파일을 다운로드하고, 실행하기를 기다린 후에야 파싱을 재개할 수 있다. </p>
-<h1 id="“non-blocking”-flag"><a href="#“non-blocking”-flag" class="headerlink" title="“non-blocking” flag"></a>“non-blocking” flag</h1><p>그럼 <a href="https://www.w3.org/TR/html51/semantics-scripting.html#non-blocking" target="_blank" rel="external">“non-blocking” 상태</a>는 스펙에서 어떻게 설명하는지 보자.</p>
+<h1 id="“non-blocking”-flag"><a href="#“non-blocking”-flag" class="headerlink" title="“non-blocking” flag"></a>“non-blocking” flag</h1><p>그럼 <a href="https://www.w3.org/TR/html51/semantics-scripting.html#non-blocking" target="_blank" rel="noopener">“non-blocking” 상태</a>는 스펙에서 어떻게 설명하는지 보자.</p>
 <blockquote><p>Initially, script elements must have this flag set.<br>Script element는 초기 플래그 값으로 non-block으로 설정된다.<br><br><br>It is unset by the HTML parser and the XML parser on script elements they insert.<br>HTML/XML 파서가 script element를 삽입하면서 이 플래그가 해제된다.</p>
 </blockquote>
 <p>그러니까 HTML 파서에 의해 생성된 스크립트 태그는 기본적으로 fetch/실행하는 동안 HTML 파서를 block 블럭하게 된다. </p>
@@ -240,9 +240,9 @@
 <p>다운로드는 왜 병렬로 처리되는 걸까?</p>
 <p>스펙에서 찾은 건 아니지만, 원래 다운로드는 그냥 알아서 병렬로 다운받는 거 아닌가?</p>
 <p>브라우저 별로 동시 다운로드 받을 수 있는 개수가 다르긴 한데, 어쨌든 아래와 같은 일반적인 script 태그를 써도 동시에 다운로드 받는 걸 볼 수 있다.</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"small.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"small2.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"small3.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"small4.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>현대 브라우저에서 외부 리소스를 다운로드할 때는 fetcher라는 놈에게 위임하고,<br>(<a href="https://www.chromium.org/developers/design-documents/network-stack/network-stack-use-in-chromium" target="_blank" rel="external">아마 이런 놈들</a>) </p>
-<p>Fetcher는 캐시를 확인하거나 각종 다운로드 받을 파일을 나름의 <a href="https://docs.google.com/document/d/1bCDuq9H1ih9iNjgzyAL0gpwNFiEP4TZS-YLRp_RuMlc/edit" target="_blank" rel="external">우선순위</a>로 다운로드 한다.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"small.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"small2.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"small3.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"small4.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>현대 브라우저에서 외부 리소스를 다운로드할 때는 fetcher라는 놈에게 위임하고,<br>(<a href="https://www.chromium.org/developers/design-documents/network-stack/network-stack-use-in-chromium" target="_blank" rel="noopener">아마 이런 놈들</a>) </p>
+<p>Fetcher는 캐시를 확인하거나 각종 다운로드 받을 파일을 나름의 <a href="https://docs.google.com/document/d/1bCDuq9H1ih9iNjgzyAL0gpwNFiEP4TZS-YLRp_RuMlc/edit" target="_blank" rel="noopener">우선순위</a>로 다운로드 한다.</p>
 <p>그럼 fetch는 어차피 병렬이 기본인 거고(혹은 브라우저 마음일테고), </p>
 <p>async도 “non-blocking” 플래그와 마찬가지로 HTML 파서가 스크립트를 해석하는 순서, 즉 실행 순서를 결정 짓는 것 뿐이란 말인가.</p>
 <p>아직 자신은 없다.</p>
@@ -264,7 +264,7 @@
 </ol>
 <p>다음으로 스크립트로 <code>xxx.async = false</code>로 처리하면 왜 병렬로 fetch하고 실행은 순서대로 하는지 살펴보자.</p>
 <p>스펙에 의하면 async는 병렬로 ‘실행’할지를 제어한다.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">bigScript.async = <span class="literal">false</span>;</div><div class="line"><span class="built_in">document</span>.body.appendChild(bigScript);</div><div class="line">smallScript.async = <span class="literal">false</span>;</div><div class="line"><span class="built_in">document</span>.body.appendChild(smallScript);</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">bigScript.async = <span class="literal">false</span>;</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(bigScript);</span><br><span class="line">smallScript.async = <span class="literal">false</span>;</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(smallScript);</span><br></pre></td></tr></table></figure>
 <ol>
 <li>그럼 script는 bigScript, smallScript 순으로 추가가 될 것이고</li>
 <li>xxx.async = false;로 했으니 “non-blocking” 플래그 해제된 상태</li>
@@ -277,9 +277,9 @@
 <p>스펙에 써있는 그대로다.</p>
 <p>참고</p>
 <ul>
-<li><a href="https://www.w3.org/TR/html51/semantics-scripting.html" target="_blank" rel="external">https://www.w3.org/TR/html51/semantics-scripting.html</a></li>
-<li><a href="https://css-tricks.com/async-attribute-scripts-bottom/" target="_blank" rel="external">https://css-tricks.com/async-attribute-scripts-bottom/</a></li>
-<li><a href="https://stackoverflow.com/questions/42092688/how-to-understand-the-term-non-blocking-of-script-tag-in-spec" target="_blank" rel="external">https://stackoverflow.com/questions/42092688/how-to-understand-the-term-non-blocking-of-script-tag-in-spec</a></li>
+<li><a href="https://www.w3.org/TR/html51/semantics-scripting.html" target="_blank" rel="noopener">https://www.w3.org/TR/html51/semantics-scripting.html</a></li>
+<li><a href="https://css-tricks.com/async-attribute-scripts-bottom/" target="_blank" rel="noopener">https://css-tricks.com/async-attribute-scripts-bottom/</a></li>
+<li><a href="https://stackoverflow.com/questions/42092688/how-to-understand-the-term-non-blocking-of-script-tag-in-spec" target="_blank" rel="noopener">https://stackoverflow.com/questions/42092688/how-to-understand-the-term-non-blocking-of-script-tag-in-spec</a></li>
 </ul>
 
   </div>
