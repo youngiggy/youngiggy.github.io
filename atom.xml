@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://haah.kr/"/>
-  <updated>2018-09-22T02:01:24.806Z</updated>
+  <updated>2018-09-26T03:06:02.541Z</updated>
   <id>http://haah.kr/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>뉴스 아카이브 2018-09-26</title>
+    <link href="http://haah.kr/2018/09/26/news-archive-2018-09-26/"/>
+    <id>http://haah.kr/2018/09/26/news-archive-2018-09-26/</id>
+    <published>2018-09-26T00:53:48.000Z</published>
+    <updated>2018-09-26T03:06:02.541Z</updated>
+    
+    <content type="html"><![CDATA[<p>뒤늦게 읽은 좋은 글 기억하기</p><h2 id="한글라이즈-재제작기"><a href="#한글라이즈-재제작기" class="headerlink" title="한글라이즈 재제작기"></a>한글라이즈 재제작기</h2><p><a href="https://speakerdeck.com/sublee/remake-of-hangulize" target="_blank" rel="noopener">https://speakerdeck.com/sublee/remake-of-hangulize</a></p><p>내가 아주 좋아하는 형식의 슬라이드. 이흥섭님이 이번엔 한글라이즈를 GO로 다시 만든 과정을 정리해주셨다. 만든 과정 뿐 아니라 외래어나 정규식에 관한 고민 등 내용도 흥미롭고 깔끔하게 지식을 전달하는 능력도 부럽다.</p><h2 id="마이크로서비스-아키텍처-MSA-서비스-개발팀-이야기"><a href="#마이크로서비스-아키텍처-MSA-서비스-개발팀-이야기" class="headerlink" title="마이크로서비스 아키텍처(MSA). 서비스 개발팀 이야기"></a>마이크로서비스 아키텍처(MSA). 서비스 개발팀 이야기</h2><p><a href="https://kihoonkim.github.io/2018/03/25/Microservices%20Architecture/first-msa-retro/" target="_blank" rel="noopener">https://kihoonkim.github.io/2018/03/25/Microservices%20Architecture/first-msa-retro/</a></p><p>결론이 참 재밌다.</p><blockquote><p>참 복잡하고 어렵다. 알아야 할 것도 많다. 우리는 이런 복잡도를 감수하면서 까지 MSA를 적용할 가치가 있는 것일까? 사실 지금도 매일 많은 문제에 부딪히고 있다. 하지만, 이 모든 과정이 좋은 개발 문화를 만들어 가는 밑거름이 되리라고 믿는다. 개발자로서는 정말 재미있는 경험이다. 내가 알고있는 모든 지식을 쏟아 부울수 있는 기회였다. 회사내 많은 제품들이 지속적으로 개선 가능한 구조로 개발될 수 있었으면 좋겠다.</p></blockquote><p>저렇게 시도할 수 있는 능력과 문화는 대단한 것이라 생각. 그런데 이렇게 어려워서야, MSA를 도입한 건 성공적이었다고 할 수 있는 건가? 좋은 개발 문화를 만들어 가는 다른 방법은 없는걸까? 어떤 문제를 해결하기 위한 선택이기 때문에 잘했다 잘못했다 말할 수는 없고, 만족하신다니 다행이지만, 이런 류의 경험담은 거의 똑같은 결론에 이른다. “좋았어, 좋은데 여전히 어렵다.”</p><p>어려운 기술은 얼마나 완벽한 지와는 상관없이 결국 잊혀진다고 생각한다 - 완벽하지 않아서 어려운건가! 잊혀질지도 모르는 기술을 사용할 수 있다는 건 능력 면에서나 문화 면에서나 축복이라고도 생각한다. 겁먹고 익숙한 것만 쓴다는 건 개발자로서 너무 나태하다 - 익숙하다고 좋은 게 아니니까. 그런데 그 수많은 선택에 의한 충격파에 맞서 같이 지탱해줄 멤버가 없을 때는 과한 욕심이라고도 생각한다. MSA의 장점을 취하고 단점을 같이 버텨주기에는 다들 너무 어려워하고 있지 않는가? 저 잘 하는 사람들도 저렇게 어려워하는데 이렇게나 유행이 도는 것이 참말로 희안하다. 불편한 기술(SOAP 같은?)이 유행하는 건 이해할 수 있지만, 대부분(감히 이렇게 말해본다) 어려워하는 아키텍처가 유행하는 게 희안하달까. 우리도 그쪽 방향으로 가고 있지만, 점점 시스템이 쪼개지면서 어떤 문제가 해결됐다는 달콤함은 잠시, 일상적인 불편함이 하나씩 더 늘어날 것으로 보인다 - 그건 잘못된/부족한 설계라고 볼 수도 있겠지만. 나의 불편함은 내가 공부해서 해결하거나 당연한 불편함으로 감당해야겠지. 나는 그렇다치고 새로 들어올 많은 이들에게도 공부하던지 그냥 감당하라고 말하기는 미안한 감이 있다. 나보다 뛰어난 분들이 계속 들어오시길 바랄 뿐.</p><p>내가 우려하는 불편함이 무엇이냐 물어보신다면, ‘로컬에서 충분히 개발/테스트를 할 수 있는가’ 정도? 아이폰에 이어폰 잭이 사라졌을 때와 비슷한 혼란이다. 선 없어서 편한 대신 참 여러가지로 여전히 불편하다.</p><h2 id="Serverless와-기술도입-Backend-Application의-미래"><a href="#Serverless와-기술도입-Backend-Application의-미래" class="headerlink" title="Serverless와 기술도입, Backend Application의 미래"></a>Serverless와 기술도입, Backend Application의 미래</h2><p><a href="https://medium.com/vingle-tech-blog/serverless와-기술도입-backend-application의-미래-8f114a8b00d5" target="_blank" rel="noopener">https://medium.com/vingle-tech-blog/serverless와-기술도입-backend-application의-미래-8f114a8b00d5</a></p><p>MSA에는 의문이 계속되지만 서버리스/cloud computing의 미래엔 의심의 여지가 없다고 생각한다. 이 글의 관점에 99% 공감!</p><h2 id="자바스크립트에서-타임존-다루기"><a href="#자바스크립트에서-타임존-다루기" class="headerlink" title="자바스크립트에서 타임존 다루기"></a>자바스크립트에서 타임존 다루기</h2><p><a href="http://meetup.toast.com/posts/125" target="_blank" rel="noopener">http://meetup.toast.com/posts/125</a></p><p>타임존에 관해 잘 정리된 글. 이렇게 고려할 게 많다니!<br>얼마전 협력사 개발자와 이야기하는데 타임존 개념을 헷갈려서 당황했던 부끄러운 기억이 떠오르기도…</p><h2 id="도커-Docker-컨테이너-로케일-설정"><a href="#도커-Docker-컨테이너-로케일-설정" class="headerlink" title="도커(Docker) 컨테이너 로케일 설정"></a>도커(Docker) 컨테이너 로케일 설정</h2><p><a href="https://www.44bits.io/ko/post/setup_linux_locale_on_ubuntu_and_debian_container" target="_blank" rel="noopener">https://www.44bits.io/ko/post/setup_linux_locale_on_ubuntu_and_debian_container</a></p><blockquote><p>데비안(Debian), 우분투(Ubuntu) 이미지에서 한글 입력 문제</p></blockquote><p>로케일에 대해 이해하기 좋은 글</p><h2 id="여행-프로젝트를-통한-자녀-PM기법-훈련"><a href="#여행-프로젝트를-통한-자녀-PM기법-훈련" class="headerlink" title="여행 프로젝트를 통한 자녀 PM기법 훈련"></a>여행 프로젝트를 통한 자녀 PM기법 훈련</h2><p><a href="https://projectresearch.co.kr/2018/09/14/여행-프로젝트를-통한-자녀-pm기법-훈련-부제-홀로서/" target="_blank" rel="noopener">https://projectresearch.co.kr/2018/09/14/여행-프로젝트를-통한-자녀-pm기법-훈련-부제-홀로서/</a></p><blockquote><p>부제: 홀로서기 프로젝트의 교훈</p></blockquote><p>딸래미와 무얼 한들 즐겁지 아니하겠냐마는, 홀로 설 수 있게 지원하는 PM 아빠의 여행 코칭. 딸과의 관계가 돈독하지 않으면 서로 힘겨운 여행이 될 터. 나도 얼른 해보고 싶긴 하지만 지금처럼 어릴 때의 귀여움 또한 충분히 즐겨야 한다!</p><h2 id="언젠가-쓸모-있을-것-같은-링크-모음"><a href="#언젠가-쓸모-있을-것-같은-링크-모음" class="headerlink" title="언젠가 쓸모 있을 것 같은 링크 모음"></a>언젠가 쓸모 있을 것 같은 링크 모음</h2><p><a href="https://www.enteroa.com/2018/07/23/클라우드-인스턴스-크기-선택/" target="_blank" rel="noopener">AWS 클라우드 인스턴스 크기 선택</a></p><p><a href="https://www.microsoft.com/ko-kr/language/" target="_blank" rel="noopener">Microsoft 용어 검색</a></p><p><a href="http://wit.nts-corp.com/2018/07/27/5274" target="_blank" rel="noopener">flexbox로 만들 수 있는 10가지 레이아웃</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;뒤늦게 읽은 좋은 글 기억하기&lt;/p&gt;
+&lt;h2 id=&quot;한글라이즈-재제작기&quot;&gt;&lt;a href=&quot;#한글라이즈-재제작기&quot; class=&quot;headerlink&quot; title=&quot;한글라이즈 재제작기&quot;&gt;&lt;/a&gt;한글라이즈 재제작기&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https
+      
+    
+    </summary>
+    
+    
+      <category term="news" scheme="http://haah.kr/tags/news/"/>
+    
+      <category term="archive" scheme="http://haah.kr/tags/archive/"/>
+    
+      <category term="뉴스아카이브" scheme="http://haah.kr/tags/%EB%89%B4%EC%8A%A4%EC%95%84%EC%B9%B4%EC%9D%B4%EB%B8%8C/"/>
+    
+  </entry>
   
   <entry>
     <title>독후감 - 2018년 7월부터 9월</title>
@@ -506,31 +534,6 @@
     
     
       <category term="독후감" scheme="http://haah.kr/tags/%EB%8F%85%ED%9B%84%EA%B0%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>독후감 - 객체지향의 사실과 오해</title>
-    <link href="http://haah.kr/2017/12/02/book-978-89-98139-76-6/"/>
-    <id>http://haah.kr/2017/12/02/book-978-89-98139-76-6/</id>
-    <published>2017-12-02T03:17:37.000Z</published>
-    <updated>2018-02-13T06:27:02.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="역할-책임-협력-관점에서-본-객체지향"><a href="#역할-책임-협력-관점에서-본-객체지향" class="headerlink" title="역할, 책임, 협력 관점에서 본 객체지향"></a>역할, 책임, 협력 관점에서 본 객체지향</h2><p><img src="http://image.kyobobook.co.kr/images/book/xlarge/766/x9788998139766.jpg" alt="객체지향의 사실과 오해"></p><p>그동안 객체지향을 오해한 기억이 별로 없어서 그런지 특별히 재밌고 감동적이고 그렇지는 않았다.<br>(난 오해한 적은 없고 이해한 적이 없었으니..)</p><p>비교적 얇은 <code>책</code>임에도 불구하고 설명이 꽤나 장황하다. </p><p>학교 다닐 때 과제 분량 맞추려고 문장을 늘려쓰곤 했던 사람이라면 의심의 눈초리를 거둘 수 없을텐데, </p><p>지루함을 견디고 끝까지 읽었을 때 비로소 이해가 갔다.</p><p>용어를 최대한 정확하게 표현하려 애쓴 흔적이 역력하다.</p><p>표현의 근거도 일일이 제시하고 내 수준에서는 특별히 틀렸다고 생각할 만한 지점이 없었다.</p><p>쉬운 이야기를 썼지만 저자의 내공이 매우 깊은가보다 생각이 든다.</p><p>하지만 이 책을 추천하는지 질문을 받는다면 뜻밖의 지점에서 고민하게 될 터인데,</p><p>좀…아재 감성이다.</p><p>그 감성을 풀어내는 방식도 좀 장황하기도 하고, 젠더 감수성을 운운할 정도까지인지는 모르겠으나 가끔 공대 개그 같은 묘한 냄새가 난다(smell).</p><p>내가 명확하게 정의 내려 입 밖에 내 본 적이 없는 수많은 개념과 용어를 한번 더 정리하는 기분으로 읽어냈고,</p><p>그 경험이 나쁘진 않았다.</p><p>조금 더 짧은 호흡으로 쓰였다면, 종종 뒤적거리며 개념 정리하기 좋았을 것 같다.</p><p>결론은,</p><p>추천하긴 하지만 선뜻 다시 손이 안 갈 것 같다.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;역할-책임-협력-관점에서-본-객체지향&quot;&gt;&lt;a href=&quot;#역할-책임-협력-관점에서-본-객체지향&quot; class=&quot;headerlink&quot; title=&quot;역할, 책임, 협력 관점에서 본 객체지향&quot;&gt;&lt;/a&gt;역할, 책임, 협력 관점에서 본 객체지향&lt;/
-      
-    
-    </summary>
-    
-    
-      <category term="독후감" scheme="http://haah.kr/tags/%EB%8F%85%ED%9B%84%EA%B0%90/"/>
-    
-      <category term="OOP" scheme="http://haah.kr/tags/OOP/"/>
     
   </entry>
   
