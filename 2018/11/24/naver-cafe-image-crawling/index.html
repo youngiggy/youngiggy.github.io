@@ -17,7 +17,7 @@
 <meta property="og:image" content="http://haah.kr/images/naver-cafe-image-crawling/failure-testBasicExample-0.png">
 <meta property="og:image" content="http://haah.kr/images/naver-cafe-image-crawling/naver_cafe_pc.png">
 <meta property="og:image" content="http://haah.kr/images/naver-cafe-image-crawling/execution_on_console.png">
-<meta property="og:updated_time" content="2018-11-24T03:30:05.994Z">
+<meta property="og:updated_time" content="2018-11-24T03:32:53.713Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="네이버 카페 사진을 받아라">
 <meta name="twitter:description" content="간만에 생활코딩 하나. 아이가 다니는 유치원이 문을 닫는다고 해서 혹시나 아이들 활동 사진을 올려주는 카페도 닫을까봐 부랴부랴 크롤러를 만들기 시작했다. 지금은 내년 2월까지는 운영하기로 합의된 상태지만. 사실 올 해 중순 쯤부터 생각했던 건데, 우리뿐 아니라 딸아이 친구들네도 받을 수 있게 웹 인터페이스로 제공하고 싶었다. AWS에다가 내가 여전히 잘 모">
@@ -155,7 +155,7 @@
 <li>빨리 만들어야 한다</li>
 <li>손으로 일일이 다운로드 받는 것보다는 빨라야 한다(당시 사진이 1,000장에서 2,000장 쯤 되겠지라고 생각했기에 가능한 조건이랄까)</li>
 </ul>
-<h2 id="Laravel-Dusk"><a href="#Laravel-Dusk" class="headerlink" title="Laravel Dusk"></a>Laravel Dusk</h2><p>급한대로 시도한 것은 standalone ChromeDriver를 사용하는 <a href="https://laravel.com/docs/5.7/dusk" target="_blank" rel="noopener">Laravel Dusk</a>. 내 노트북의 PHP버전에 맞게 5.5 버전으로 라라벨을 설치하고, Dusk도 추가.</p>
+<h2 id="Laravel-Dusk"><a href="#Laravel-Dusk" class="headerlink" title="Laravel Dusk"></a>Laravel Dusk</h2><p>급한대로 시도한 것은 standalone ChromeDriver를 사용하는 <a href="https://laravel.com/docs/5.7/dusk" target="_blank" rel="noopener">Laravel Dusk</a>. 라라벨을 설치하고, Dusk도 추가.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">composer create-project --prefer-dist laravel/laravel crawlincafe</span><br><span class="line">git init</span><br><span class="line">composer require --dev laravel/dusk:&quot;^2.0&quot;</span><br><span class="line">php artisan dusk:install</span><br></pre></td></tr></table></figure>
 <p>APP_URL을 네이버로 해주고<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">APP_URL=https://cafe.naver.com</span><br></pre></td></tr></table></figure></p>
 <p>dusk install할 때 넣어주는 샘플 테스트를 돌려본다<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">❯ php artisan dusk</span><br><span class="line">PHPUnit 6.5.13 by Sebastian Bergmann and contributors.</span><br><span class="line"></span><br><span class="line">.                                                                   1 / 1 (100%)</span><br><span class="line"></span><br><span class="line">Time: 2.08 seconds, Memory: 12.00MB</span><br><span class="line"></span><br><span class="line">OK (1 test, 1 assertion)</span><br></pre></td></tr></table></figure></p>
