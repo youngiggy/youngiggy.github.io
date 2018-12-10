@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://haah.kr/"/>
-  <updated>2018-12-09T09:23:44.152Z</updated>
+  <updated>2018-12-10T16:54:08.582Z</updated>
   <id>http://haah.kr/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>php-annotated-monthly-december-2018 - 1. News &amp; Releases</title>
+    <link href="http://haah.kr/2018/12/11/php-annotated-monthly-december-2018-1st/"/>
+    <id>http://haah.kr/2018/12/11/php-annotated-monthly-december-2018-1st/</id>
+    <published>2018-12-10T15:06:51.000Z</published>
+    <updated>2018-12-10T16:54:08.582Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2018/12/new_php-annotated-monthly.jpg" alt="Php_annotated_monthly 이미지"></p><p>JetBrains에서 (거의) 매월 발행하는 <a href="https://blog.jetbrains.com/phpstorm/2018/12/php-annotated-monthly-december-2018/" target="_blank" rel="noopener">PHP Annotated Monthly</a>에서 적당히 제 입맛에 맞는 것만 추려 소개합니다. 언제나 그렇듯이 성급한 오역 죄송합니다.</p><p>이번달은 내용이 많아 쪼개서 올리겠습니다. 우선 News &amp; Releases!</p><hr><h2 id="PHP-7-3-0-released"><a href="#PHP-7-3-0-released" class="headerlink" title="PHP 7.3.0 released"></a>PHP 7.3.0 released</h2><p><a href="http://php.net/releases/7_3_0.php" target="_blank" rel="noopener">http://php.net/releases/7_3_0.php</a></p><p>여기서 소개된 7.3의 특징으로는<br>• Flexible Heredoc and Nowdoc syntax RFC<br>• json_encode() and json_decode() function will be throwing exception in case of error and flag set RFC<br>• Trailing comma in functions calls RFC<br>• The new high-resolution monotonic timer function hrtime() PR<br>• New functions, array_key_first() and array_key_last() RFC<br>• Another new function is_countable() RFC<br>• Reference assignment in list() RFC<br>• Garbage collector improved PR<br>• Regexp engine updated to PCRE2 RFC</p><p>몇가지 편리한 기능도 환영할 만 하지만 <a href="https://www.phoronix.com/scan.php?page=news_item&amp;px=PHP-7.3-Performance-Benchmarks" target="_blank" rel="noopener">benchmark tests</a>가 인상적입니다. 벤치마크에 따라 7.2보다 살짝 높거나 10%까지 성능이 좋아졌어요.</p><h2 id="PHP-on-AWS-Lambda"><a href="#PHP-on-AWS-Lambda" class="headerlink" title="PHP on AWS Lambda"></a>PHP on AWS Lambda</h2><p><a href="https://aws.amazon.com/blogs/aws/new-for-aws-lambda-use-any-programming-language-and-share-common-components/" target="_blank" rel="noopener">https://aws.amazon.com/blogs/aws/new-for-aws-lambda-use-any-programming-language-and-share-common-components/</a></p><p>AWS re:Invent 2018 conference에서 좋은 소식이 들려왔습니다. 이제 AWS Lambda에서도 PHP를 쓰기 위해 우회(<a href="https://medium.com/@stephenheron/serverless-php-9da3f00df5de)하지" target="_blank" rel="noopener">https://medium.com/@stephenheron/serverless-php-9da3f00df5de)하지</a> 않아도 정식으로 쓸 수 있게 됐습니다. <a href="https://aws.amazon.com/blogs/aws/new-for-aws-lambda-use-any-programming-language-and-share-common-components/" target="_blank" rel="noopener">Lambda Runtime API</a>를 사용하면 된다고 하는데, <a href="https://github.com/stackery/php-lambda-layer" target="_blank" rel="noopener">stackery/php-lambda-layer</a>를 통해 만들거나 직접 만들 수도 있다고 합니다. 정확히 어떻게 돌아가는 지는 좀 더 알아봐야겠습니다. </p><p>Rasmus Lerdorf가 남긴 글도 소개가 됐네요.</p><blockquote><p>3rd question about severless PHP in as many days. There is no such thing as serverless from the PHP perspective. It’s just a different deploy strategy and provider billing model. There are still servers running your PHP code.</p></blockquote><p>PHP 관점에선 serverless 같은 건 없다는 이야기인데요. PHP 코드 정도 돌리는 서버는 이미 충분하다는 뜻으로 풀이됩니다.(맞죠??)</p><h2 id="PHP-Versions-Stats-2018-2-Edition"><a href="#PHP-Versions-Stats-2018-2-Edition" class="headerlink" title="PHP Versions Stats 2018.2 Edition"></a>PHP Versions Stats 2018.2 Edition</h2><p><a href="https://blog.packagist.com/php-versions-stats-2018-2-edition/" target="_blank" rel="noopener">https://blog.packagist.com/php-versions-stats-2018-2-edition/</a></p><p>Composer가 설치될 때 User-Agent 헤더를 통해 PHP 버전을 전달하는데, 이를 1년에 두번씩 통계로 뽑아낸 보고서입니다. 무섭게들 업데이트 하고 있습니다. 아직 5버전을 쓰고 있다면 당장, 7.0을 쓰고 있다면 올 해 안으로 버전업 계획을 잡는 게 좋겠습니다.</p><h2 id="HTTP-3-over-QUIC"><a href="#HTTP-3-over-QUIC" class="headerlink" title="HTTP/3 over QUIC"></a>HTTP/3 over QUIC</h2><p><a href="https://daniel.haxx.se/blog/2018/11/11/http-3/" target="_blank" rel="noopener">https://daniel.haxx.se/blog/2018/11/11/http-3/</a></p><p>PHP와는 직접적으로 관련은 없지만 새로운 HTTP 표준이 탄생(renamed)했습니다.</p><p>이제 HTTP2를 도입할 때입니다, 여러분.<br><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--0IyP1yFi--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/800/1%2Az5o-mslkNcdDbGzo6G3zqg.jpeg" alt="i guess we should start looking at HTTP2 then"></p><ul><li>출처 : <a href="https://dev.to/grigorkh/what-is-http3--4pib" target="_blank" rel="noopener">https://dev.to/grigorkh/what-is-http3--4pib</a></li></ul><h2 id="Symfony-leaves-PHP-FIG"><a href="#Symfony-leaves-PHP-FIG" class="headerlink" title="Symfony leaves PHP-FIG"></a>Symfony leaves PHP-FIG</h2><p><a href="https://github.com/php-fig/fig-standards/pull/1120/files" target="_blank" rel="noopener">https://github.com/php-fig/fig-standards/pull/1120/files</a></p><p>Symfony의 리더인 Fabien Potencier가 PHP-FIG의 <a href="https://github.com/php-fig/fig-standards/blob/master/personnel.md#member-projects" target="_blank" rel="noopener">Member Projects 목록</a>에서 스스로를 지워버렸다고 합니다. 2년 전에도 Laravel, Propel, Doctrine, Guzzle, Stash, Aura도 이미 떠났다고 하는군요.</p><p>이와 같은 맥락에 있는 2014년에 Anthony Ferrara가 쓴 <a href="https://blog.ircmaxell.com/2014/10/an-open-letter-to-php-fig.html" target="_blank" rel="noopener">open letter to PHP-FIG</a>도 소개가 됐습니다.</p><p>이것 만으로는 떠난 이유가 잘 납득이 되지 않아 Fabien Potencier의 <a href="https://twitter.com/fabpot/status/1064946698089365505" target="_blank" rel="noopener">트윗</a>을 좀 더 읽어봤는데요. 여기 보면 이런 말이 나옵니다.</p><blockquote><p>PHP-FIG is <strong>not</strong> about interoperability anymore, it’s about creating an opinionated framework, a framework by committee…</p></blockquote><p>더이상 상호운용성을 위한 것이 아니라 위원회 중심으로 하나의 큰 프레임웍을 만드는 것 같다는 이야기입니다. 여기에는 PSR은 단지 Recommendations일 뿐이라는 리트윗도 꽤 많이 보이는군요. </p><h2 id="NPM-dependency-hell-comparison-with-Symfony-Laravel-and-API-Platform"><a href="#NPM-dependency-hell-comparison-with-Symfony-Laravel-and-API-Platform" class="headerlink" title="NPM dependency hell: comparison with Symfony, Laravel, and API Platform"></a>NPM dependency hell: comparison with Symfony, Laravel, and API Platform</h2><p><a href="https://dunglas.fr/2018/11/about-the-dependencies-of-symfony/" target="_blank" rel="noopener">https://dunglas.fr/2018/11/about-the-dependencies-of-symfony/</a></p><p>몰랐는데 얼마 전 NPM 진영에서 또 <a href="https://blog.npmjs.org/post/180565383195/details-about-the-event-stream-incident" target="_blank" rel="noopener">사고</a>가 났었나 보군요.</p><p>NPM이 왜 이렇게 취약한지 PHP 프레임웍과 비교한 내용인데, 별로 재미는 없어서 마지막 결론만 언급하겠습니다. 우리도 조심하자!</p><p><a href="https://security.symfony.com/" target="_blank" rel="noopener">PHP security vulnerabilities monitoring</a>에서 테스트 해보아요.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2018/12/new_php-annotated-monthly.jpg&quot; alt=&quot;Php_annotated_monthly 이미지&quot;&gt;&lt;/p
+      
+    
+    </summary>
+    
+    
+      <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
+    
+      <category term="php-annotated-monthly" scheme="http://haah.kr/tags/php-annotated-monthly/"/>
+    
+  </entry>
   
   <entry>
     <title>고정된 IP를 통과해 Elastic Beanstalk 접근하기</title>
@@ -505,33 +530,6 @@
       <category term="통계" scheme="http://haah.kr/tags/%ED%86%B5%EA%B3%84/"/>
     
       <category term="사회" scheme="http://haah.kr/tags/%EC%82%AC%ED%9A%8C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>뉴스 아카이브 2018-02-10</title>
-    <link href="http://haah.kr/2018/02/10/news-archive-2018-02-10/"/>
-    <id>http://haah.kr/2018/02/10/news-archive-2018-02-10/</id>
-    <published>2018-02-10T01:06:20.000Z</published>
-    <updated>2018-02-13T06:27:02.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="자바스크립트의-동작원리-엔진-런타임-호출-스택"><a href="#자바스크립트의-동작원리-엔진-런타임-호출-스택" class="headerlink" title="자바스크립트의 동작원리: 엔진, 런타임, 호출 스택"></a>자바스크립트의 동작원리: 엔진, 런타임, 호출 스택</h2><p><a href="https://joshua1988.github.io/web-development/translation/javascript/how-js-works-inside-engine/" target="_blank" rel="noopener">https://joshua1988.github.io/web-development/translation/javascript/how-js-works-inside-engine/</a></p><p>매번 봐도 또 매번 까먹거나 입으로 설명이 안 튀어나오는 자바스크립트의 호출 스택 </p><p><a href="http://sculove.github.io/blog/2018/01/18/javascriptflow/" target="_blank" rel="noopener">자바스크립트 비동기 처리 과정과 RxJS Scheduler</a>라는 글에서도 비슷한 내용을 다루는데 둘 다 이해하기 쉽게 쓰여 있다.</p><h2 id="Mac-Work-맥을-기반으로-한-업무-10년-경험의-추천-앱-모음"><a href="#Mac-Work-맥을-기반으로-한-업무-10년-경험의-추천-앱-모음" class="headerlink" title="Mac@Work 맥을 기반으로 한 업무 10년 경험의 추천 앱 모음"></a>Mac@Work 맥을 기반으로 한 업무 10년 경험의 추천 앱 모음</h2><p>업무에서 Mac을 본격적으로 다루기 시작한 지 이제 막 한달이 됐다.</p><p>수년 동안 Mac을 사용한 사람들의 노하우는 항상 궁금한데, 꽤 과하다 싶을 정도로 많이 쓰고 계신 분의 글을 오래오래 들춰보고자 저장.</p><p>윈도우는 킬러앱이 고만고만한 편인데, 맥은 너무 다양해서 둘러보는 데도 지친다.</p><p>난 일단 버티고 버티다가 생산성 안 나오면 앱을 찾는 편인데,</p><p>최근에는 결국 뽀모도로앱 <a href="https://itunes.apple.com/kr/app/just-focus/id1142151959?mt=12" target="_blank" rel="noopener">Just Focus</a>과 달력 앱 <a href="http://macnews.tistory.com/3023" target="_blank" rel="noopener">Itsycal</a>을 설치했다.</p><p>이제 화면 분할 앱을 찾고 있는데, 단축키 충돌로 잘 안 쓰게 됐던 <a href="https://www.educloud.co.kr/archives/21230" target="_blank" rel="noopener">Spectacle</a>을 다시 깔아야 고민 중.</p><p>물론 당분간 <a href="http://macnews.tistory.com/3860" target="_blank" rel="noopener">스플릿 뷰(Split View)</a>로 버틸 수 있을 것 같기도.</p><p>이외에도 무료 앱 소개 페이지는 엄청 많고 세상은 넓고 앱은 많다.</p><p><a href="http://macnews.tistory.com/4267" target="_blank" rel="noopener">국내 맥 사용자에게 추천하는 무료 앱 12선</a></p><h2 id="복잡한-기술-스택이-경영진에게-주는-시사점"><a href="#복잡한-기술-스택이-경영진에게-주는-시사점" class="headerlink" title="복잡한 기술 스택이 경영진에게 주는 시사점"></a>복잡한 기술 스택이 경영진에게 주는 시사점</h2><p><a href="http://www.popit.kr/복잡한-기술-스택이-경영진에게-주는-시사점/" target="_blank" rel="noopener">http://www.popit.kr/복잡한-기술-스택이-경영진에게-주는-시사점/</a></p><p>만약 복잡한 기술 스택이 굳이 필요하다면 말이지만.</p><p>기술 분야는 노인 경영인에게 절대적으로 불리하다는 생각도 든다. 노인 폄하인가? 꼰대라는 용어가 적당할 지도.</p><p>성공의 의미를 떠나 회사가 돈을 버느냐는 또 기술과는 별개인 경우가 많지만,</p><p>아무래도 비용 면에서 이놈의 기술 스택은 부담이 많이 된다. 하드웨어/소프트웨어/인건비 등등.</p><p>경영인이 기술 스택을 이해하기는 어렵기도 하고 결국 약은 약사에게 기술은 CTO에게.</p><p><a href="http://www.mimul.com/pebble/default/2018/01/23/1516704882980.html" target="_blank" rel="noopener">CTO는 무슨 일을 하나?</a>라는 글에서는 (좀 많이 큰 회사의 CTO의 역할을 이야기 하는 것 같지만) CEO와 기술자 사이에서 어떤 역할을 해야하는지 잘 나와있다.</p><p>그런 역할을 잘 할 수 있는 CTO를 구하기는 너무나 어렵다는 걸 잘 알고 있고,</p><p>그렇다고 내가 저런 CTO의 역할을 할 수 있을 거라 생각도 안 하지만 그 고생을 하며 더 얻고 싶은 것도 없어서,</p><p>큰 욕심 안 부리고 평직원으로 오래오래 살아야 겠다.   </p><h2 id="케이스-접근법에-대하여"><a href="#케이스-접근법에-대하여" class="headerlink" title="케이스 접근법에 대하여"></a>케이스 접근법에 대하여</h2><p><a href="http://seoworld.net/wp/?p=3085" target="_blank" rel="noopener">http://seoworld.net/wp/?p=3085</a></p><p>새로 옮긴 회사는 태초부터 미국물이 섞인 회사라서 그런지 어떤 회의나 세미나에서도 질문이나 자기 의견을 거침없이 말하는 경우가 흔하다. 외국 생활을 한 사람일 수록.</p><p>나는 질문이나 의견 내는 것에 심리적인 거부감이 (한국인 치고는) 덜한 편인데,</p><p>남들의 의견을 들으면서 동시에 질문이 막 샘솟지는 않는다. 특히 세미나 발표를 들으면 막 몰입해서 듣지 이건 왜 이럴까 저건 왜 저럴까 궁금하지 않다가 질문 시간이 끝나면 하나 둘씩 궁금한 게 생기기도.</p><p>영화를 볼 때도 어지간한 반전에는 다 놀랄 정도로 남들이 전해주는 흐름에 흠뻑 빠지는 편이기도 하다.</p><p>어쩌면 정보를 메모리에 올리고 정리하는 시간이 늦는 것 같기도 하고.</p><p>독서토론회 같은 데를 가면 좀 나아지려나? 회사일에 어느정도 익숙해지면 꼭 참여해보고 싶다.</p><h2 id="가독성-높은-글을-쓰는-노하우"><a href="#가독성-높은-글을-쓰는-노하우" class="headerlink" title="가독성 높은 글을 쓰는 노하우"></a>가독성 높은 글을 쓰는 노하우</h2><p><a href="https://steemit.com/writing/@pelexus/6462nh" target="_blank" rel="noopener">https://steemit.com/writing/@pelexus/6462nh</a></p><p>공감이 많이 된다. 이 분의 글쓰기 원칙은 SRP을 비롯 클린 아키텍쳐를 지향하고 있…</p><h2 id="프런트엔드-개발자가-되고-싶지-않았던-프런트엔드-개발자의-이직기"><a href="#프런트엔드-개발자가-되고-싶지-않았던-프런트엔드-개발자의-이직기" class="headerlink" title="프런트엔드 개발자가 되고 싶지 않았던 프런트엔드 개발자의 이직기"></a>프런트엔드 개발자가 되고 싶지 않았던 프런트엔드 개발자의 이직기</h2><p><a href="https://milooy.wordpress.com/2018/02/07/moving-job/" target="_blank" rel="noopener">https://milooy.wordpress.com/2018/02/07/moving-job/</a></p><p>이 양반이 대단한 개발자는 ‘아직’ 아니겠지만, 꽤 좋은 작가인 것 같다.</p><p>내가 많은 여성 작가들에게 느끼는 건데, 섬세하고 감성적인데 친절하고 자기 주관이 있는 글을 쓰신다. 그러니까 ‘여성 작가’ 느낌이다.</p><p>여혐 논란이 있을 순 있겠지만, 굳이 여성을 언급한 것은…이 느낌은 정말 남성 작가에게는 발견되지 않는 것 같다. 게이 작가라면 모르겠다. 어쨌든 마초성 0%의 글이라고 하는 게 좋을 지도.</p><p>내가 문학이랑은 담을 쌓았기 때문에 글의 예술성은 모르겠고, 기능적으로 참 좋다는 생각이다.</p><p>이 분의 글이나 발표는 항상 타이밍도 좋고 자신을 낮추면서 자랑도 잘하고 공감도 잘 된다. </p><p>이 분의 업계 포지션(?)이 성장 가능성이 큰 풋풋한 어린 개발자라고 생각하는데, 아이유가 갖고 있었던 그런 느낌이랄까. 감히 ‘IT계의 아이유’ 따위의 자극적인 표현을 쓰려는 건 아니고, 참 테크를 잘 타고 있다 정도로. </p><p>아무튼 저기 나온 회사들 반 정도는 알 것 같은데, 선망의 대상이 되는 회사(재벌의 소유물이 아닌)가 꾸준히 느는 것 같아서 기분이 좋다.</p><p>대기업 다니는 친구들을 만나고 오면 더욱 여실히 느낀다. </p><h2 id="왜-카카오뱅크에-주목하는가-1-2"><a href="#왜-카카오뱅크에-주목하는가-1-2" class="headerlink" title="왜 카카오뱅크에 주목하는가 (1/2)"></a>왜 카카오뱅크에 주목하는가 (1/2)</h2><p><a href="https://brunch.co.kr/@usdlab/13" target="_blank" rel="noopener">https://brunch.co.kr/@usdlab/13</a></p><p>왜냐면 비교 대상이 엉망이라서…라고 생각도 하지만 카카오뱅크는 꽤 공을 들인 느낌도 많이 든다.</p><p>퇴직금도 들어왔으니 올해는 카카오뱅크와 토스를 입출금 외에도 조금 써볼까.</p><h2 id="오렌지-주스-테스트"><a href="#오렌지-주스-테스트" class="headerlink" title="오렌지 주스 테스트"></a>오렌지 주스 테스트</h2><p><a href="https://johngrib.github.io/wiki/orange-juice-test/" target="_blank" rel="noopener">https://johngrib.github.io/wiki/orange-juice-test/</a></p><p>남에게 요구하면 완전 개꼰대. 스스로에게는 독촉해야할 문제라고 생각. 생각은 해도 쉽지 않은 문제.</p><h2 id="DDD"><a href="#DDD" class="headerlink" title="DDD"></a>DDD</h2><p>최근 DDD 관련 저장해 놓았던 링크들..인데 읽지 않음</p><p><a href="https://www.facebook.com/fupfin.geek/posts/688083858247267" target="_blank" rel="noopener">Learning DDD as a Team을 소개한 포스트</a><br><a href="https://www.facebook.com/gyuwon.yi/posts/1667316739978209" target="_blank" rel="noopener">Eric Evans의 DDD와 Microservices에 대한 발표를 소개한 포스트</a></p><h2 id="바지는-내리고-치마는-올리고"><a href="#바지는-내리고-치마는-올리고" class="headerlink" title="바지는 내리고! 치마는 올리고!"></a>바지는 내리고! 치마는 올리고!</h2><p><a href="http://deulpul.net/4146438" target="_blank" rel="noopener">http://deulpul.net/4146438</a></p><blockquote><p>분명한 것은 이러한 사회적 반성의 과정을 통해 인간 세상이 한 단계 업그레이드되고 있다는 점이다. 인류 역사가 진보의 과정이라는 것을 믿지 않는 사람이라도 이런 점을 부정하기는 어렵지 않을까.</p></blockquote><p>나는 죽을 때까지 건배사를 안한다 하더라도 한치의 아쉬움도 없다.</p><p>여기서 언급된 건 건배사와 성희롱이 섞인 문제이고, 그 둘이 별개인 것처럼 보여도, 그 둘이 득세하게 된 건 결국 기득권의 가학적 취향 탓이라고 본다.</p><p>아무 계획 없던 고등학생에서 어쩌다 IT 업계를 택하게 일하게 된 내 삶은 쉽진 않았지만 꽤 운이 좋았다는 생각이다.</p><p>대기업 다니는 친구들을 만나고 오면 더욱 여실히 느낀다.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;자바스크립트의-동작원리-엔진-런타임-호출-스택&quot;&gt;&lt;a href=&quot;#자바스크립트의-동작원리-엔진-런타임-호출-스택&quot; class=&quot;headerlink&quot; title=&quot;자바스크립트의 동작원리: 엔진, 런타임, 호출 스택&quot;&gt;&lt;/a&gt;자바스크립트의 
-      
-    
-    </summary>
-    
-    
-      <category term="news" scheme="http://haah.kr/tags/news/"/>
-    
-      <category term="archive" scheme="http://haah.kr/tags/archive/"/>
-    
-      <category term="뉴스아카이브" scheme="http://haah.kr/tags/%EB%89%B4%EC%8A%A4%EC%95%84%EC%B9%B4%EC%9D%B4%EB%B8%8C/"/>
     
   </entry>
   
