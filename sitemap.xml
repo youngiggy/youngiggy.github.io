@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://haah.kr/2018/12/11/php-annotated-monthly-december-2018-2nd/</loc>
+    
+    <lastmod>2018-12-15T06:18:50.705Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://haah.kr/2018/12/11/php-annotated-monthly-december-2018-1st/</loc>
     
     <lastmod>2018-12-10T16:54:08.582Z</lastmod>
@@ -156,21 +163,7 @@
   </url>
   
   <url>
-    <loc>http://haah.kr/2017/12/18/book-9788993827446-ddd-start/</loc>
-    
-    <lastmod>2018-02-13T06:27:02.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://haah.kr/2018/02/10/news-archive-2018-02-10/</loc>
-    
-    <lastmod>2018-02-13T06:27:02.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://haah.kr/2017/09/18/book-978-89-6262-115-0/</loc>
+    <loc>http://haah.kr/2017/10/12/phttp-03/</loc>
     
     <lastmod>2018-02-13T06:27:02.000Z</lastmod>
     
@@ -191,6 +184,20 @@
   </url>
   
   <url>
+    <loc>http://haah.kr/2017/08/04/explain-mysql-explain/</loc>
+    
+    <lastmod>2018-02-13T06:27:02.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://haah.kr/2017/11/01/baking-00/</loc>
+    
+    <lastmod>2018-02-13T06:27:02.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://haah.kr/2018/01/07/book-9791130606484-%E1%84%89%E1%85%B5%E1%86%B7%E1%84%91%E1%85%B3%E1%86%AF%E1%84%8B%E1%85%B3%E1%86%AF%E1%84%89%E1%85%A2%E1%86%BC%E1%84%80%E1%85%A1%E1%86%A8%E1%84%92%E1%85%A1%E1%86%AB%E1%84%83%E1%85%A1/</loc>
     
     <lastmod>2018-02-13T06:27:02.000Z</lastmod>
@@ -205,14 +212,21 @@
   </url>
   
   <url>
-    <loc>http://haah.kr/2017/10/12/phttp-03/</loc>
+    <loc>http://haah.kr/2017/08/23/http-the-definitive-guide-chapter-3/</loc>
     
     <lastmod>2018-02-13T06:27:02.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://haah.kr/2017/11/01/baking-00/</loc>
+    <loc>http://haah.kr/2017/09/18/book-978-89-6262-115-0/</loc>
+    
+    <lastmod>2018-02-13T06:27:02.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://haah.kr/2017/08/03/resource-hints-and-preload/</loc>
     
     <lastmod>2018-02-13T06:27:02.000Z</lastmod>
     
@@ -220,13 +234,6 @@
   
   <url>
     <loc>http://haah.kr/2017/05/23/rest-http-method-in-html-form/</loc>
-    
-    <lastmod>2018-02-13T06:27:02.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://haah.kr/2017/08/04/explain-mysql-explain/</loc>
     
     <lastmod>2018-02-13T06:27:02.000Z</lastmod>
     
@@ -261,7 +268,7 @@
   </url>
   
   <url>
-    <loc>http://haah.kr/2017/08/23/http-the-definitive-guide-chapter-3/</loc>
+    <loc>http://haah.kr/2017/12/10/book-9788965962090-%E1%84%8B%E1%85%A6%E1%84%80%E1%85%A9%E1%84%85%E1%85%A1%E1%84%82%E1%85%B3%E1%86%AB%E1%84%8C%E1%85%A5%E1%86%A8/</loc>
     
     <lastmod>2018-02-13T06:27:02.000Z</lastmod>
     
@@ -275,6 +282,13 @@
   </url>
   
   <url>
+    <loc>http://haah.kr/2017/05/18/learning-api-design/</loc>
+    
+    <lastmod>2018-02-13T06:27:02.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://haah.kr/2017/08/30/eidf-2017/</loc>
     
     <lastmod>2018-02-13T06:27:02.000Z</lastmod>
@@ -282,14 +296,14 @@
   </url>
   
   <url>
-    <loc>http://haah.kr/2017/12/10/book-9788965962090-%E1%84%8B%E1%85%A6%E1%84%80%E1%85%A9%E1%84%85%E1%85%A1%E1%84%82%E1%85%B3%E1%86%AB%E1%84%8C%E1%85%A5%E1%86%A8/</loc>
+    <loc>http://haah.kr/2017/09/22/mac-filename-normalization/</loc>
     
     <lastmod>2018-02-13T06:27:02.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://haah.kr/2017/09/22/mac-filename-normalization/</loc>
+    <loc>http://haah.kr/2018/01/06/news-archive-2018-01-06/</loc>
     
     <lastmod>2018-02-13T06:27:02.000Z</lastmod>
     
@@ -331,14 +345,14 @@
   </url>
   
   <url>
-    <loc>http://haah.kr/2017/11/02/phttp-08-parsing-request-message-01/</loc>
+    <loc>http://haah.kr/2017/11/08/phttp-09-parsing-request-message-02/</loc>
     
     <lastmod>2018-02-13T06:27:02.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://haah.kr/2017/11/08/phttp-09-parsing-request-message-02/</loc>
+    <loc>http://haah.kr/2017/11/02/phttp-08-parsing-request-message-01/</loc>
     
     <lastmod>2018-02-13T06:27:02.000Z</lastmod>
     
@@ -359,6 +373,13 @@
   </url>
   
   <url>
+    <loc>http://haah.kr/2017/12/18/book-9788993827446-ddd-start/</loc>
+    
+    <lastmod>2018-02-13T06:27:02.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://haah.kr/2017/07/22/script-async/</loc>
     
     <lastmod>2018-02-13T06:27:02.000Z</lastmod>
@@ -366,7 +387,7 @@
   </url>
   
   <url>
-    <loc>http://haah.kr/2017/05/18/learning-api-design/</loc>
+    <loc>http://haah.kr/2018/02/10/news-archive-2018-02-10/</loc>
     
     <lastmod>2018-02-13T06:27:02.000Z</lastmod>
     
@@ -374,13 +395,6 @@
   
   <url>
     <loc>http://haah.kr/2017/12/02/book-978-89-98139-76-6/</loc>
-    
-    <lastmod>2018-02-13T06:27:02.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://haah.kr/2018/01/06/news-archive-2018-01-06/</loc>
     
     <lastmod>2018-02-13T06:27:02.000Z</lastmod>
     
@@ -416,13 +430,6 @@
   
   <url>
     <loc>http://haah.kr/2017/06/12/rest-the-big-lie/</loc>
-    
-    <lastmod>2018-02-13T06:27:02.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://haah.kr/2017/08/03/resource-hints-and-preload/</loc>
     
     <lastmod>2018-02-13T06:27:02.000Z</lastmod>
     
