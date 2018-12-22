@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang=ko>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="오랜만에 노트북을 열고 PHP CLI를 실행하는데 아래와 같은 오류 문구가 보이는 겁니다. 1234dyld: Library not loaded: /usr/local/opt/icu4c/lib/libicui18n.62.dylib  Referenced from: /usr/local/Cellar/php@7.0/7.0.31/bin/php  Reason: image">
+<meta name="keywords" content="PHP,Homebrew">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Homebrew에서 php@7.0이 제거되었습니다">
+<meta property="og:url" content="http://haah.kr/2018/12/22/php7-0-removed-from-homebrew/index.html">
+<meta property="og:site_name" content="ha-ah">
+<meta property="og:description" content="오랜만에 노트북을 열고 PHP CLI를 실행하는데 아래와 같은 오류 문구가 보이는 겁니다. 1234dyld: Library not loaded: /usr/local/opt/icu4c/lib/libicui18n.62.dylib  Referenced from: /usr/local/Cellar/php@7.0/7.0.31/bin/php  Reason: image">
+<meta property="og:locale" content="ko">
+<meta property="og:updated_time" content="2018-12-22T03:09:09.206Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Homebrew에서 php@7.0이 제거되었습니다">
+<meta name="twitter:description" content="오랜만에 노트북을 열고 PHP CLI를 실행하는데 아래와 같은 오류 문구가 보이는 겁니다. 1234dyld: Library not loaded: /usr/local/opt/icu4c/lib/libicui18n.62.dylib  Referenced from: /usr/local/Cellar/php@7.0/7.0.31/bin/php  Reason: image">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon.ico" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+          
+        
+    
+    <!-- title -->
+    <title>Homebrew에서 php@7.0이 제거되었습니다</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="ha-ah" type="application/atom+xml" />
+    
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-1318599740881033",
+            enable_page_level_ads: true
+        });
+    </script>
+
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">All Posts</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2018/12/15/php-annotated-monthly-december-2018-3rd/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://haah.kr/2018/12/22/php7-0-removed-from-homebrew/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://haah.kr/2018/12/22/php7-0-removed-from-homebrew/&text=Homebrew에서 php@7.0이 제거되었습니다"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://haah.kr/2018/12/22/php7-0-removed-from-homebrew/&title=Homebrew에서 php@7.0이 제거되었습니다"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://haah.kr/2018/12/22/php7-0-removed-from-homebrew/&is_video=false&description=Homebrew에서 php@7.0이 제거되었습니다"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Homebrew에서 php@7.0이 제거되었습니다&body=Check out this article: http://haah.kr/2018/12/22/php7-0-removed-from-homebrew/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://haah.kr/2018/12/22/php7-0-removed-from-homebrew/&title=Homebrew에서 php@7.0이 제거되었습니다"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://haah.kr/2018/12/22/php7-0-removed-from-homebrew/&title=Homebrew에서 php@7.0이 제거되었습니다"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://haah.kr/2018/12/22/php7-0-removed-from-homebrew/&title=Homebrew에서 php@7.0이 제거되었습니다"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://haah.kr/2018/12/22/php7-0-removed-from-homebrew/&title=Homebrew에서 php@7.0이 제거되었습니다"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://haah.kr/2018/12/22/php7-0-removed-from-homebrew/&name=Homebrew에서 php@7.0이 제거되었습니다&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Homebrew에서-PHP-7-0-설치하기"><span class="toc-number">1.</span> <span class="toc-text">Homebrew에서 PHP@7.0 설치하기</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Homebrew에서 php@7.0이 제거되었습니다
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">ha-ah</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2018-12-22T01:58:10.000Z" itemprop="datePublished">2018-12-22</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Homebrew/">Homebrew</a>, <a class="tag-link" href="/tags/PHP/">PHP</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>오랜만에 노트북을 열고 PHP CLI를 실행하는데 아래와 같은 오류 문구가 보이는 겁니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dyld: Library not loaded: /usr/<span class="built_in">local</span>/opt/icu4c/lib/libicui18n.62.dylib</span><br><span class="line">  Referenced from: /usr/<span class="built_in">local</span>/Cellar/php@7.0/7.0.31/bin/php</span><br><span class="line">  Reason: image not found</span><br><span class="line">[1]    72024 abort      /usr/<span class="built_in">local</span>/Cellar/php@7.0/7.0.31/bin/php</span><br></pre></td></tr></table></figure>
+<p><a href="https://github.com/facebook/react-native/issues/18760" target="_blank" rel="noopener">여기</a>를 읽어보면서 PHP를 다시 설치하려고 했죠.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">❯ brew reinstall php@7.0</span><br><span class="line">==&gt; Reinstalling php@7.0 </span><br><span class="line">Error: An exception occurred within a child process:</span><br><span class="line">  FormulaUnavailableError: No available formula with the name <span class="string">"/usr/local/opt/php@7.0/.brew/php@7.0.rb"</span></span><br></pre></td></tr></table></figure>
+<p>음? 이상한데…하면서 지우고 다시 설치하려고 했습니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">❯ brew install php@7.0</span><br></pre></td></tr></table></figure>
+<p>이런 문구가 보이는 겁니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">php@7.0 was deleted from homebrew/core <span class="keyword">in</span> commit 7e111a877:</span><br><span class="line">  php@7.0 removal due to EOL (https://github.com/Homebrew/homebrew-core/issues/34739)</span><br></pre></td></tr></table></figure>
+<p>PHP7.0은 EOL(End Of Life)이 됐으니 Homebrew에서 제거했다는 이야기.</p>
+<p><a href="http://php.net/supported-versions.php" target="_blank" rel="noopener">Supported Versions</a> 문서에 의하면,<br>PHP5.6은 12월 31일, PHP7.0은 12월 3일까지입니다.</p>
+<p>얼마 전(12.06)에 PHP7.3 나왔다고 설레발치면서 7.0 지원 종료된 건 못봤나 봅니다. 회사에선 (다른 분들이) PHP 버전업을 준비하고는 있지만, 아직 상용 시스템은 7.0을 사용하는 관계로 노트북의 PHP 버전도 이와 동일하게 구성해놓고 있습니다.</p>
+<h2 id="Homebrew에서-PHP-7-0-설치하기"><a href="#Homebrew에서-PHP-7-0-설치하기" class="headerlink" title="Homebrew에서 PHP@7.0 설치하기"></a>Homebrew에서 <a href="mailto:PHP@7.0" target="_blank" rel="noopener">PHP@7.0</a> 설치하기</h2><p>homebrew/core에서 공식 지원하진 않기 때문에 우회해야 합니다.</p>
+<p>Homebrew document에 보시면, <a href="https://docs.brew.sh/How-to-Create-and-Maintain-a-Tap" target="_blank" rel="noopener">How to Create and Maintain a Tap</a>에서 비공식 Tap을 관리하는 방법을 안내하고 있습니다. Tap이란 건 online Git repository일 뿐이고, Github에서 <a href="https://github.com/Homebrew/homebrew-core" target="_blank" rel="noopener">Homebrew/homebrew-core</a> 저장소를 참고해서 설치 파일을 올려두면 된다는 것.</p>
+<p>그래서 저도 core를 fork해서 7.0이 삭제되기 전 시점으로 돌려놓으면 원하는 rb 파일을 얻을 수 있겠다 생각을 했는데…</p>
+<p>reddit에서 <a href="https://www.reddit.com/r/PHP/comments/a4vggg/php_70_removed_from_homebrew/" target="_blank" rel="noopener">PHP 7.0 removed from Homebrew</a>란 글을 읽고 있자니 누군가 먼저 이걸 해결해 놨더군요.</p>
+<p><a href="https://github.com/eXolnet/homebrew-deprecated" target="_blank" rel="noopener">https://github.com/eXolnet/homebrew-deprecated</a></p>
+<p>여기 들어가보시면 7.0.33 버전의 Formula를 얻을 수 있습니다. 곧 같은 배를 타게 될, 5.6 버전도 함께요.</p>
+<p>설치해봅니다.</p>
+<p>저장소 이름의 <code>homebrew-</code>는 homebrew가 인식하기 위한 prefix니까 떼어버리고, 아래처럼 user/저장소/formula 순으로 지정하면 됩니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">❯ brew install eXolnet/deprecated/php@7.0</span><br></pre></td></tr></table></figure>
+<p>그럼 XDebug도 다시 설치해야 하겠죠? 여기부터는 XDebug를 어떻게 설치했는냐에 따라 다르겠습니다만…</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">❯ pecl install xdebug</span><br></pre></td></tr></table></figure>
+<p>저는 XDebug 설정 파일을 /usr/local/etc/php/7.0/conf.d/ext-xdebug.ini 위치에 따로 분리했는데요. 여기서 모듈 위치를 변경해줬습니다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zend_extension=/usr/local/Cellar/php@7.0/7.0.33/pecl/20151012/xdebug.so</span><br></pre></td></tr></table></figure></p>
+<p>확인하기.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">❯ php -v</span><br><span class="line">PHP 7.0.33 (cli) (built: Dec 14 2018 16:20:36) ( NTS )</span><br><span class="line">Copyright (c) 1997-2017 The PHP Group</span><br><span class="line">Zend Engine v3.0.0, Copyright (c) 1998-2017 Zend Technologies</span><br><span class="line">    with Zend OPcache v7.0.33, Copyright (c) 1999-2017, by Zend Technologies</span><br><span class="line">    with Xdebug v2.6.1, Copyright (c) 2002-2018, by Derick Rethans</span><br></pre></td></tr></table></figure>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+    </div>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">All Posts</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Homebrew에서-PHP-7-0-설치하기"><span class="toc-number">1.</span> <span class="toc-text">Homebrew에서 PHP@7.0 설치하기</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://haah.kr/2018/12/22/php7-0-removed-from-homebrew/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://haah.kr/2018/12/22/php7-0-removed-from-homebrew/&text=Homebrew에서 php@7.0이 제거되었습니다"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://haah.kr/2018/12/22/php7-0-removed-from-homebrew/&title=Homebrew에서 php@7.0이 제거되었습니다"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://haah.kr/2018/12/22/php7-0-removed-from-homebrew/&is_video=false&description=Homebrew에서 php@7.0이 제거되었습니다"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Homebrew에서 php@7.0이 제거되었습니다&body=Check out this article: http://haah.kr/2018/12/22/php7-0-removed-from-homebrew/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://haah.kr/2018/12/22/php7-0-removed-from-homebrew/&title=Homebrew에서 php@7.0이 제거되었습니다"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://haah.kr/2018/12/22/php7-0-removed-from-homebrew/&title=Homebrew에서 php@7.0이 제거되었습니다"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://haah.kr/2018/12/22/php7-0-removed-from-homebrew/&title=Homebrew에서 php@7.0이 제거되었습니다"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://haah.kr/2018/12/22/php7-0-removed-from-homebrew/&title=Homebrew에서 php@7.0이 제거되었습니다"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://haah.kr/2018/12/22/php7-0-removed-from-homebrew/&name=Homebrew에서 php@7.0이 제거되었습니다&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2018 youngiggy
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">All Posts</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-99319001-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'youngiggy-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
