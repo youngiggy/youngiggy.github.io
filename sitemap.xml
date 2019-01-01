@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://haah.kr/2019/01/01/retrospective-2018/</loc>
+    
+    <lastmod>2019-01-01T03:38:47.363Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://haah.kr/2018/12/22/php7-0-removed-from-homebrew/</loc>
     
     <lastmod>2018-12-22T03:09:09.206Z</lastmod>
@@ -177,13 +184,6 @@
   </url>
   
   <url>
-    <loc>http://haah.kr/2017/11/01/baking-00/</loc>
-    
-    <lastmod>2018-02-13T06:27:02.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://haah.kr/2017/09/18/book-978-89-6262-115-0/</loc>
     
     <lastmod>2018-02-13T06:27:02.000Z</lastmod>
@@ -191,7 +191,7 @@
   </url>
   
   <url>
-    <loc>http://haah.kr/2017/12/10/book-9788965962090-%E1%84%8B%E1%85%A6%E1%84%80%E1%85%A9%E1%84%85%E1%85%A1%E1%84%82%E1%85%B3%E1%86%AB%E1%84%8C%E1%85%A5%E1%86%A8/</loc>
+    <loc>http://haah.kr/2017/11/01/baking-00/</loc>
     
     <lastmod>2018-02-13T06:27:02.000Z</lastmod>
     
@@ -199,6 +199,13 @@
   
   <url>
     <loc>http://haah.kr/2017/12/02/book-978-89-98139-76-6/</loc>
+    
+    <lastmod>2018-02-13T06:27:02.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://haah.kr/2017/12/10/book-9788965962090-%E1%84%8B%E1%85%A6%E1%84%80%E1%85%A9%E1%84%85%E1%85%A1%E1%84%82%E1%85%B3%E1%86%AB%E1%84%8C%E1%85%A5%E1%86%A8/</loc>
     
     <lastmod>2018-02-13T06:27:02.000Z</lastmod>
     
@@ -226,7 +233,7 @@
   </url>
   
   <url>
-    <loc>http://haah.kr/2017/05/18/declare/</loc>
+    <loc>http://haah.kr/2017/08/23/http-the-definitive-guide-chapter-3/</loc>
     
     <lastmod>2018-02-13T06:27:02.000Z</lastmod>
     
@@ -240,7 +247,7 @@
   </url>
   
   <url>
-    <loc>http://haah.kr/2017/08/23/http-the-definitive-guide-chapter-3/</loc>
+    <loc>http://haah.kr/2017/05/18/declare/</loc>
     
     <lastmod>2018-02-13T06:27:02.000Z</lastmod>
     
@@ -261,13 +268,6 @@
   </url>
   
   <url>
-    <loc>http://haah.kr/2018/01/06/news-archive-2018-01-06/</loc>
-    
-    <lastmod>2018-02-13T06:27:02.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://haah.kr/2018/02/10/news-archive-2018-02-10/</loc>
     
     <lastmod>2018-02-13T06:27:02.000Z</lastmod>
@@ -275,7 +275,7 @@
   </url>
   
   <url>
-    <loc>http://haah.kr/2017/10/05/phttp-01/</loc>
+    <loc>http://haah.kr/2018/01/06/news-archive-2018-01-06/</loc>
     
     <lastmod>2018-02-13T06:27:02.000Z</lastmod>
     
@@ -289,14 +289,14 @@
   </url>
   
   <url>
-    <loc>http://haah.kr/2017/08/03/resource-hints-and-preload/</loc>
+    <loc>http://haah.kr/2017/10/05/phttp-01/</loc>
     
     <lastmod>2018-02-13T06:27:02.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://haah.kr/2017/05/23/rest-http-method-in-html-form/</loc>
+    <loc>http://haah.kr/2017/08/03/resource-hints-and-preload/</loc>
     
     <lastmod>2018-02-13T06:27:02.000Z</lastmod>
     
@@ -311,6 +311,20 @@
   
   <url>
     <loc>http://haah.kr/2017/06/28/rest-the-dissertation/</loc>
+    
+    <lastmod>2018-02-13T06:27:02.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://haah.kr/2017/05/23/rest-http-method-in-html-form/</loc>
+    
+    <lastmod>2018-02-13T06:27:02.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://haah.kr/2017/12/28/retrospective-2017/</loc>
     
     <lastmod>2018-02-13T06:27:02.000Z</lastmod>
     
@@ -352,14 +366,14 @@
   </url>
   
   <url>
-    <loc>http://haah.kr/2017/10/25/phttp-06/</loc>
+    <loc>http://haah.kr/2017/10/21/phttp-05/</loc>
     
     <lastmod>2018-02-13T06:27:02.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://haah.kr/2017/10/21/phttp-05/</loc>
+    <loc>http://haah.kr/2017/10/25/phttp-06/</loc>
     
     <lastmod>2018-02-13T06:27:02.000Z</lastmod>
     
@@ -401,7 +415,7 @@
   </url>
   
   <url>
-    <loc>http://haah.kr/2017/12/28/retrospective-2017/</loc>
+    <loc>http://haah.kr/2017/07/22/script-async/</loc>
     
     <lastmod>2018-02-13T06:27:02.000Z</lastmod>
     
@@ -423,13 +437,6 @@
   
   <url>
     <loc>http://haah.kr/2017/06/26/rest-the-truth/</loc>
-    
-    <lastmod>2018-02-13T06:27:02.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://haah.kr/2017/07/22/script-async/</loc>
     
     <lastmod>2018-02-13T06:27:02.000Z</lastmod>
     
