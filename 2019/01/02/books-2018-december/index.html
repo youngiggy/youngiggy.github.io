@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang=ko>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="리팩토링: 코드 품질을 개선하는 객체지향 사고법  프로그램의 가치를 높이는 코드 정리 기술  많은 분들이 추천해서 관심이 가던 차에 가볍게 읽으려고 샀던 것 같다. 처음에는 분명 엄청 만족스럽게 읽기 시작했는데, 후반부에는 조금 띄엄띄엄 적당히 읽었다. 왜 리팩토링을 해야하는지, 왜 이렇게 바꿔야 하는지, 어떻게 안정감을 얻을 수 있는지 상세하고 꼼꼼하게">
+<meta name="keywords" content="독후감">
+<meta property="og:type" content="article">
+<meta property="og:title" content="독후감 - 2018년 12월">
+<meta property="og:url" content="http://haah.kr/2019/01/02/books-2018-december/index.html">
+<meta property="og:site_name" content="ha-ah">
+<meta property="og:description" content="리팩토링: 코드 품질을 개선하는 객체지향 사고법  프로그램의 가치를 높이는 코드 정리 기술  많은 분들이 추천해서 관심이 가던 차에 가볍게 읽으려고 샀던 것 같다. 처음에는 분명 엄청 만족스럽게 읽기 시작했는데, 후반부에는 조금 띄엄띄엄 적당히 읽었다. 왜 리팩토링을 해야하는지, 왜 이렇게 바꿔야 하는지, 어떻게 안정감을 얻을 수 있는지 상세하고 꼼꼼하게">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="http://image.kyobobook.co.kr/images/book/large/715/l9788979149715.jpg">
+<meta property="og:image" content="http://image.yes24.com/momo/TopCate1808/MidCate006/180559000.jpg">
+<meta property="og:updated_time" content="2019-01-02T15:10:22.262Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="독후감 - 2018년 12월">
+<meta name="twitter:description" content="리팩토링: 코드 품질을 개선하는 객체지향 사고법  프로그램의 가치를 높이는 코드 정리 기술  많은 분들이 추천해서 관심이 가던 차에 가볍게 읽으려고 샀던 것 같다. 처음에는 분명 엄청 만족스럽게 읽기 시작했는데, 후반부에는 조금 띄엄띄엄 적당히 읽었다. 왜 리팩토링을 해야하는지, 왜 이렇게 바꿔야 하는지, 어떻게 안정감을 얻을 수 있는지 상세하고 꼼꼼하게">
+<meta name="twitter:image" content="http://image.kyobobook.co.kr/images/book/large/715/l9788979149715.jpg">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon.ico" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+          
+        
+    
+    <!-- title -->
+    <title>독후감 - 2018년 12월</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="ha-ah" type="application/atom+xml" />
+    
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-1318599740881033",
+            enable_page_level_ads: true
+        });
+    </script>
+
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">All Posts</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2019/01/01/retrospective-2018/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://haah.kr/2019/01/02/books-2018-december/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://haah.kr/2019/01/02/books-2018-december/&text=독후감 - 2018년 12월"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://haah.kr/2019/01/02/books-2018-december/&title=독후감 - 2018년 12월"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://haah.kr/2019/01/02/books-2018-december/&is_video=false&description=독후감 - 2018년 12월"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=독후감 - 2018년 12월&body=Check out this article: http://haah.kr/2019/01/02/books-2018-december/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://haah.kr/2019/01/02/books-2018-december/&title=독후감 - 2018년 12월"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://haah.kr/2019/01/02/books-2018-december/&title=독후감 - 2018년 12월"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://haah.kr/2019/01/02/books-2018-december/&title=독후감 - 2018년 12월"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://haah.kr/2019/01/02/books-2018-december/&title=독후감 - 2018년 12월"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://haah.kr/2019/01/02/books-2018-december/&name=독후감 - 2018년 12월&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#리팩토링-코드-품질을-개선하는-객체지향-사고법"><span class="toc-number">1.</span> <span class="toc-text">리팩토링: 코드 품질을 개선하는 객체지향 사고법</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#최고의-팀은-무엇이-다른가"><span class="toc-number"></span> <span class="toc-text">최고의 팀은 무엇이 다른가</span></a>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        독후감 - 2018년 12월
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">ha-ah</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2019-01-02T14:28:53.000Z" itemprop="datePublished">2019-01-02</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/독후감/">독후감</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="리팩토링-코드-품질을-개선하는-객체지향-사고법"><a href="#리팩토링-코드-품질을-개선하는-객체지향-사고법" class="headerlink" title="리팩토링: 코드 품질을 개선하는 객체지향 사고법"></a>리팩토링: 코드 품질을 개선하는 객체지향 사고법</h2><p><img src="http://image.kyobobook.co.kr/images/book/large/715/l9788979149715.jpg" alt="리팩토링 표지 이미지"></p>
+<blockquote>
+<p>프로그램의 가치를 높이는 코드 정리 기술</p>
+</blockquote>
+<p>많은 분들이 추천해서 관심이 가던 차에 가볍게 읽으려고 샀던 것 같다. 처음에는 분명 엄청 만족스럽게 읽기 시작했는데, 후반부에는 조금 띄엄띄엄 적당히 읽었다. 왜 리팩토링을 해야하는지, 왜 이렇게 바꿔야 하는지, 어떻게 안정감을 얻을 수 있는지 상세하고 꼼꼼하게 소개한다.</p>
+<p>그런데 카탈로그식 구성이라서 중후반부터는 한장 한장 모든 것이 의미있다기 보다는 - 굳이 없다고도 할 수 없지만 - 왜 이런 선택을 하는지 가이드를 받을 수 있는 수준이라고 보면 되겠다. 계속 반복되는 패턴이라 (실무에서 리팩토링이 익숙하게 될 것인가와는 별개로) 책의 전개가 뻔히 보이기 때문에 후반부는 크게 영양가가 없었다는 느낌이다. 다시 읽어보면 다르려나? </p>
+<p>이를 토대로 실무에서 다루는 코드를 리팩토링 하는 스터디를 한다면 매우 좋을 것 같다. 실제로 이 책을 읽은 후에 리팩토링을 더 조심스레 하게 되기도 했던 것 같고, 후련한 커밋도 몇개 날렸더랬다.</p>
+<p>책의 구성은 정말 옛날 책이란 걸 느끼게 해주고, 코드 들여쓰기나 띄어쓰기가 잘못된 부분도 있고, 어색한 번역도 보였던 것 같다.</p>
+<p>저자는 리팩토링 방법을 카탈로그로 만들어 이름을 붙여놓고 책 곳곳에서 참조하고 있다. 일단 번역을 한번 해놓은 단어라서 눈에 잘 들어오지도 않고, 실무에서 그런 용어를 쓸 일도 없기 때문에 적당히 걸러 봐야 한다. 책을 읽는 방법을 추천하라면, 앞부분은 주의깊게 읽고 카탈로그는 도입부를 읽고 바로 예제부터 보라고 하겠다. 예제가 오히려 설명보다 읽기가 수훨하다.</p>
+<h1 id="최고의-팀은-무엇이-다른가"><a href="#최고의-팀은-무엇이-다른가" class="headerlink" title="최고의 팀은 무엇이 다른가"></a>최고의 팀은 무엇이 다른가</h1><p><img src="http://image.yes24.com/momo/TopCate1808/MidCate006/180559000.jpg" alt="최고의 팀은 무엇이 다른가 표지 이미지"></p>
+<blockquote>
+<p>다른 책은 전부 물에 던져 버려라!</p>
+</blockquote>
+<p>왜 하필 물에 던져야 하는지는 잘 모르겠다만, 최고의 팀이 되는 비결을 비교적 간단하게 전파한다.</p>
+<p>CTO님이 추천했으니 열어나 봤지. (4차 산업혁명이란 말을 표지에 꺼내 놓는 류의 책처럼) 제목만 보면 질려서 읽기 싫은 책이었는데, 서점에서 한번 훑어보고 바로 들고 왔다(물론 샀다). 예쁘고(색깔이 좀 들어갔다는 의미) 가볍고 여백도 충분해서 읽기 좋았기도 하고.</p>
+<p>책에서 말하는 최고의 팀이 되는 비결은,</p>
+<ul>
+<li>안정감을 느끼는 것</li>
+<li>서로 이어져 있다는 신호를 쏘는 것</li>
+<li>아날로그 소통법</li>
+<li>공간의 힘</li>
+<li>내 부족한 것을 보여주는 것</li>
+<li>협동의 근육 만들기</li>
+<li>질문을 잘하는 문화</li>
+<li>공동의 이정표</li>
+<li>중요한 가치에 이름 붙이기</li>
+<li>등등</li>
+</ul>
+<p>정확히 저런 소제목은 아니고, 대충 목차보고 골라본 것이다. 이 목록만 보면 아주 진절머리가 날 지경인데, 이게 다 대대로 내려오는 꼰대들이 ‘꼭 필요하다’고 주장하는 것들이다. 초반에 소개되는 안정감을 느끼는 것 등은 비교적 최근에 구글 문화를 통해 좀 널리 퍼지긴 했으나, 다른 모든 항목은 이미 어지간한 중견회사라면 인사팀(요즘은 피플팀이라고 하던가)이나 대표가 입이 침이 마르도록 강조하는 것들이다. 작가는 저런 행동강령이 어색하지만 생활화되면 효과를 발휘한다는 이야기를 곳곳에서 하고 있다.</p>
+<p>그런데 이 책이 좋은 점은 저런 내용을 별 거부감 없이 받아들이게 해준다는 점이다. 실제 사례를 중심으로 관찰 결과를 소개할 뿐이지 훈계하지 않는다는 점이 새로웠던 것 같다.</p>
+<p>최고의 팀이 되는 방법을 우리는 이미 알고 있다고 봐야 하지 않으려나? 나는 그 사람들의 시도가 뭐가 그렇게 싫었는지 잘 생각해봐야겠다.</p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+    </div>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">All Posts</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#리팩토링-코드-품질을-개선하는-객체지향-사고법"><span class="toc-number">1.</span> <span class="toc-text">리팩토링: 코드 품질을 개선하는 객체지향 사고법</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#최고의-팀은-무엇이-다른가"><span class="toc-number"></span> <span class="toc-text">최고의 팀은 무엇이 다른가</span></a>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://haah.kr/2019/01/02/books-2018-december/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://haah.kr/2019/01/02/books-2018-december/&text=독후감 - 2018년 12월"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://haah.kr/2019/01/02/books-2018-december/&title=독후감 - 2018년 12월"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://haah.kr/2019/01/02/books-2018-december/&is_video=false&description=독후감 - 2018년 12월"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=독후감 - 2018년 12월&body=Check out this article: http://haah.kr/2019/01/02/books-2018-december/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://haah.kr/2019/01/02/books-2018-december/&title=독후감 - 2018년 12월"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://haah.kr/2019/01/02/books-2018-december/&title=독후감 - 2018년 12월"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://haah.kr/2019/01/02/books-2018-december/&title=독후감 - 2018년 12월"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://haah.kr/2019/01/02/books-2018-december/&title=독후감 - 2018년 12월"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://haah.kr/2019/01/02/books-2018-december/&name=독후감 - 2018년 12월&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 youngiggy
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">All Posts</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-99319001-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'youngiggy-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
