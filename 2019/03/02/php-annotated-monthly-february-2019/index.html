@@ -15,7 +15,7 @@
 <meta property="og:description" content="JetBrains에서 제공하는 월간 PHP Annotated Monthly 2월호입니다. 이 중에서 몇가지 제 취향 껏 골라 그 안의 내용도 좀 뒤져보고 개발 새발 번역해서 소개합니다.  News &amp;amp; ReleasesPSRhttps://github.com/php-fig/fig-standards/blob/master/proposed/event-disp">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2018/12/new_php-annotated-monthly.jpg">
-<meta property="og:updated_time" content="2019-03-02T08:39:23.292Z">
+<meta property="og:updated_time" content="2019-03-02T09:36:39.627Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php-annotated-monthly-february-2019">
 <meta name="twitter:description" content="JetBrains에서 제공하는 월간 PHP Annotated Monthly 2월호입니다. 이 중에서 몇가지 제 취향 껏 골라 그 안의 내용도 좀 뒤져보고 개발 새발 번역해서 소개합니다.  News &amp;amp; ReleasesPSRhttps://github.com/php-fig/fig-standards/blob/master/proposed/event-disp">
@@ -190,7 +190,7 @@
 <h2 id="RFC-New-custom-object-serialization-mechanism"><a href="#RFC-New-custom-object-serialization-mechanism" class="headerlink" title="[RFC] New custom object serialization mechanism"></a>[RFC] New custom object serialization mechanism</h2><p><a href="https://wiki.php.net/rfc/custom_object_serialization" target="_blank" rel="noopener">https://wiki.php.net/rfc/custom_object_serialization</a></p>
 <p>PHP는 두가지 커스텀 직렬화 매커니즘을 지원하는데요.</p>
 <ul>
-<li><strong>sleep()/</strong>wakeup() magic methods</li>
+<li>__sleep() / __wakeup() magic methods</li>
 <li>Serializable interface</li>
 </ul>
 <p>여기에는 사용성 면에서나 아래 코드처럼 상속관계에서 중첩된 직렬화를 시도할 때 등 몇가지 문제가 있습니다.<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">	...</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">serialize</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> serialize([<span class="keyword">$this</span>-&gt;prop, <span class="keyword">parent</span>::serialize()])</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure></p>
