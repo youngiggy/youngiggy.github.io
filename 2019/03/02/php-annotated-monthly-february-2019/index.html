@@ -15,7 +15,7 @@
 <meta property="og:description" content="JetBrains에서 제공하는 월간 PHP Annotated Monthly 2월호입니다. 이 중에서 몇 가지 제 취향껏 골라 그 안의 내용도 좀 뒤져보고 개발새발 번역해서 소개합니다.  News &amp;amp; ReleasesPSRhttps://github.com/php-fig/fig-standards/blob/master/proposed/event-dispa">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2018/12/new_php-annotated-monthly.jpg">
-<meta property="og:updated_time" content="2019-03-03T00:55:01.845Z">
+<meta property="og:updated_time" content="2019-03-09T04:03:19.609Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php-annotated-monthly-february-2019">
 <meta name="twitter:description" content="JetBrains에서 제공하는 월간 PHP Annotated Monthly 2월호입니다. 이 중에서 몇 가지 제 취향껏 골라 그 안의 내용도 좀 뒤져보고 개발새발 번역해서 소개합니다.  News &amp;amp; ReleasesPSRhttps://github.com/php-fig/fig-standards/blob/master/proposed/event-dispa">
@@ -77,6 +77,8 @@
     <br/>
     <span id="actions">
       <ul>
+        
+        <li><a class="icon" href="/2019/03/19/php-annotated-monthly-march-2019/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
         
         
         <li><a class="icon" href="/2019/01/19/php-annotated-monthly-january-2019/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
@@ -181,8 +183,8 @@
 </blockquote>
 <p>Nikita Popov의 벤치마크에 따르면, 프로젝트(PHP-Parser, amphp/http-server)에 따라 5% ~ 30% 정도의 성능 향상이 있었다고 합니다.</p>
 <p><a href="https://hub.docker.com/r/dmitrybalabka/php-jit/" target="_blank" rel="noopener">php-jit 도커 이미지</a>에서 체험하실 수 있습니다.</p>
-<p>추가로 <a href="https://stitcher.io/blog/php-jit" target="_blank" rel="noopener">PHP JIT에 관한 좋은 글</a>도 소개주고 있는데요. 극단적인 상황에서 PHP7과 PHP-JIT의 성능을 비교주기도 하고, 그러나 웹 어플리케이션에서는 그만큼의 성능 향상을 보일 수는 없고, PHP 사용자나 PHP 언어 자체의 유지보수를 어렵게 할 수 있다고 우려하기도 합니다. 아직 linux 환경에서만 가능하고 일반적인 개발환경(Windows, Mac)에서의 지원 여부도 아직은 불투명한 상황이라고 합니다. </p>
-<h2 id="RFC-Weak-References"><a href="#RFC-Weak-References" class="headerlink" title="[RFC] Weak References"></a>[RFC] Weak References</h2><p>저는 다른 언어에서 Weak References를 써본 적이 없고 왜 필요한 지를 잘 모르겠습니다만, 현재 extension을 통해 PHP에서도 사용할 수는 있다는군요. </p>
+<p>추가로 <a href="https://stitcher.io/blog/php-jit" target="_blank" rel="noopener">PHP JIT에 관한 좋은 글</a>도 소개주고 있는데요. 극단적인 상황에서 PHP7과 PHP-JIT의 성능을 비교해주기도 하고, 그러나 웹 어플리케이션에서는 그만큼의 성능 향상을 보일 수는 없고, PHP 사용자나 PHP 언어 자체의 유지보수를 어렵게 할 수 있다고 우려하기도 합니다. 아직 linux 환경에서만 가능하고 일반적인 개발환경(Windows, Mac)에서의 지원 여부도 아직은 불투명한 상황이라고 합니다. </p>
+<h2 id="RFC-Weak-References"><a href="#RFC-Weak-References" class="headerlink" title="[RFC] Weak References"></a>[RFC] Weak References</h2><p>저는 다른 언어에서 Weak References를 써본 적이 없고 왜 필요한 지는 잘 모르겠습니다만, 현재 extension을 통해 PHP에서도 사용할 수는 있다는군요. </p>
 <h2 id="RFC-Null-Coalescing-Assignment-Operator"><a href="#RFC-Null-Coalescing-Assignment-Operator" class="headerlink" title="[RFC] Null Coalescing Assignment Operator"></a>[RFC] Null Coalescing Assignment Operator</h2><p>2년 전에 accepted된 제안인데, 7.4에 구현되었다고 합니다. </p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">(array $parameters = [])</span> </span>&#123;</span><br><span class="line">    $parameters[<span class="string">'property'</span>] ??= <span class="string">'default'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>이 코드는 아래와 동등합니다.<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">(array $parameters = [])</span> </span>&#123;</span><br><span class="line">    $parameters[<span class="string">'property'</span>] = $parameters[<span class="string">'property'</span>] ?? <span class="string">'default'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
