@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="ha-ah">
 <meta property="og:description" content="연재  TDD 시작하기 - 1 : 스터디 조직, 강의 동영상, TDD 맛보기 TDD 시작하기 - 2 : 행위 검증 vs 상태 검증   행위 검증 vs 상태 검증첫 시간에 동영상을 보며 이야기할 때 몇가지 해소가 안된 문제가 있었는데, 하나는 테스트 더블의 종류와 사용 목적이었고 하나는 행위 검증과 상태 검증이었다. 테스트 더블은 다른 분이 발표했기 때문에">
 <meta property="og:locale" content="ko">
-<meta property="og:updated_time" content="2019-04-21T07:47:08.820Z">
+<meta property="og:updated_time" content="2019-04-21T07:49:06.702Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TDD 시작하기 - 2">
 <meta name="twitter:description" content="연재  TDD 시작하기 - 1 : 스터디 조직, 강의 동영상, TDD 맛보기 TDD 시작하기 - 2 : 행위 검증 vs 상태 검증   행위 검증 vs 상태 검증첫 시간에 동영상을 보며 이야기할 때 몇가지 해소가 안된 문제가 있었는데, 하나는 테스트 더블의 종류와 사용 목적이었고 하나는 행위 검증과 상태 검증이었다. 테스트 더블은 다른 분이 발표했기 때문에">
@@ -362,23 +362,13 @@
 </ul>
 </li>
 </ul>
-<h2 id="기타-더-읽어-볼-것"><a href="#기타-더-읽어-볼-것" class="headerlink" title="기타 더 읽어 볼 것"></a>기타 더 읽어 볼 것</h2><p>Mock에 대해(Test double 포함)</p>
+<h2 id="기타-더-읽어-볼-것"><a href="#기타-더-읽어-볼-것" class="headerlink" title="기타 더 읽어 볼 것"></a>기타 더 읽어 볼 것</h2><p><a href="https://eminentstar.github.io/2017/07/24/about-mock-test.html" target="_blank" rel="noopener">Mock에 대해(Test double 포함)</a></p>
+<p><a href="http://egloos.zum.com/kwon37xi/v/4165915" target="_blank" rel="noopener">왜 Mockito가 좋은가?</a></p>
+<p><a href="https://justhackem.wordpress.com/2018/01/16/is-that-integration-test-really/" target="_blank" rel="noopener">Mockist? Classicist?</a></p>
 <ul>
-<li><a href="https://eminentstar.github.io/2017/07/24/about-mock-test.html" target="_blank" rel="noopener">https://eminentstar.github.io/2017/07/24/about-mock-test.html</a></li>
-</ul>
-<p>왜 Mockito가 좋은가?</p>
-<ul>
-<li><a href="http://egloos.zum.com/kwon37xi/v/4165915" target="_blank" rel="noopener">http://egloos.zum.com/kwon37xi/v/4165915</a></li>
-</ul>
-<p>Mockist? Classicist?</p>
-<ul>
-<li><a href="https://justhackem.wordpress.com/2018/01/16/is-that-integration-test-really/" target="_blank" rel="noopener">https://justhackem.wordpress.com/2018/01/16/is-that-integration-test-really/</a></li>
 <li>“테스트 대역은 일종의 가정이고 가정이 늘어날 수록 실제 결과는 예측하기 어려워진다.” </li>
 </ul>
-<p>Stub vs Mock?</p>
-<ul>
-<li><a href="http://egloos.zum.com/kingori/v/4169398" target="_blank" rel="noopener">http://egloos.zum.com/kingori/v/4169398</a></li>
-</ul>
+<p><a href="http://egloos.zum.com/kingori/v/4169398" target="_blank" rel="noopener">Stub vs Mock?</a></p>
 <h2 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h2><p>마틴 파울러 옹이나 여러 선구자들의 의견을 종합해볼 때 mock을 사용하는 것은 좋지 않다고 생각이 들지도 모르겠다. 그런데 “테스트 주도 개발로 배우는 객체 지향 설계와 실천”에서도 이 분들이 강조하는 소프트웨어 설계 원칙을 매우 강조하면서도 mock을 써야할 이유를 설명한다. Mock을 SUT의 행위를 검증하는 것 정도로만 보지 않고 많은 개발 언어에서 충분히 표현하기 어려운(인터페이스 만으로는 관계를 보여주는데 한계가 있다고도 주장한다) 객체간의 관계를 mock을 통한 테스트로 더 명확히 보여줄 수 있다는 생각이다. 정말 그런 가치가 있을지는 책을 다 읽어보고 판단할 일이다.</p>
 <p>내가 추천하면 아무도 안 믿을테니 켄트백의 추천사 중 일부를 소개해본다.</p>
 <blockquote>
