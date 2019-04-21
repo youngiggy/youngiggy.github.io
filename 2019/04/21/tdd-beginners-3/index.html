@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang=ko>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="연재  TDD 시작하기 - 1 : 스터디 조직, 강의 동영상, TDD 맛보기 TDD 시작하기 - 2 : 행위 검증 vs 상태 검증 TDD 시작하기 - 3 : 교재 1장~2장 정리, 참고 링크     책을 읽기 전에 참고할 것 정오표 정오표의 댓글도 읽어 볼 것   공식 언어별 코드 S66 코드 (es6 + selenium)  이해 안되는 문장에 대한 여러">
+<meta name="keywords" content="TDD">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TDD 시작하기 - 3">
+<meta property="og:url" content="http://haah.kr/2019/04/21/tdd-beginners-3/index.html">
+<meta property="og:site_name" content="ha-ah">
+<meta property="og:description" content="연재  TDD 시작하기 - 1 : 스터디 조직, 강의 동영상, TDD 맛보기 TDD 시작하기 - 2 : 행위 검증 vs 상태 검증 TDD 시작하기 - 3 : 교재 1장~2장 정리, 참고 링크     책을 읽기 전에 참고할 것 정오표 정오표의 댓글도 읽어 볼 것   공식 언어별 코드 S66 코드 (es6 + selenium)  이해 안되는 문장에 대한 여러">
+<meta property="og:locale" content="ko">
+<meta property="og:updated_time" content="2019-04-21T10:03:03.560Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TDD 시작하기 - 3">
+<meta name="twitter:description" content="연재  TDD 시작하기 - 1 : 스터디 조직, 강의 동영상, TDD 맛보기 TDD 시작하기 - 2 : 행위 검증 vs 상태 검증 TDD 시작하기 - 3 : 교재 1장~2장 정리, 참고 링크     책을 읽기 전에 참고할 것 정오표 정오표의 댓글도 읽어 볼 것   공식 언어별 코드 S66 코드 (es6 + selenium)  이해 안되는 문장에 대한 여러">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon.ico" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+          
+        
+    
+    <!-- title -->
+    <title>TDD 시작하기 - 3</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="ha-ah" type="application/atom+xml" />
+    
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-1318599740881033",
+            enable_page_level_ads: true
+        });
+    </script>
+
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">All Posts</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2019/04/21/tdd-beginners-2/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://haah.kr/2019/04/21/tdd-beginners-3/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://haah.kr/2019/04/21/tdd-beginners-3/&text=TDD 시작하기 - 3"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://haah.kr/2019/04/21/tdd-beginners-3/&title=TDD 시작하기 - 3"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://haah.kr/2019/04/21/tdd-beginners-3/&is_video=false&description=TDD 시작하기 - 3"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=TDD 시작하기 - 3&body=Check out this article: http://haah.kr/2019/04/21/tdd-beginners-3/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://haah.kr/2019/04/21/tdd-beginners-3/&title=TDD 시작하기 - 3"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://haah.kr/2019/04/21/tdd-beginners-3/&title=TDD 시작하기 - 3"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://haah.kr/2019/04/21/tdd-beginners-3/&title=TDD 시작하기 - 3"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://haah.kr/2019/04/21/tdd-beginners-3/&title=TDD 시작하기 - 3"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://haah.kr/2019/04/21/tdd-beginners-3/&name=TDD 시작하기 - 3&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#책을-읽기-전에-참고할-것"><span class="toc-number">1.</span> <span class="toc-text">책을 읽기 전에 참고할 것</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#이해-안되는-문장에-대한-여러-의견"><span class="toc-number">1.1.</span> <span class="toc-text">이해 안되는 문장에 대한 여러 의견</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#그래도-이해-안되는-문장이-있다면"><span class="toc-number">2.</span> <span class="toc-text">그래도 이해 안되는 문장이 있다면</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#발표-자료"><span class="toc-number">3.</span> <span class="toc-text">발표 자료</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#참고-자료"><span class="toc-number">4.</span> <span class="toc-text">참고 자료</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#다음-단계는"><span class="toc-number">5.</span> <span class="toc-text">다음 단계는</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        TDD 시작하기 - 3
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">ha-ah</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2019-04-21T07:52:02.000Z" itemprop="datePublished">2019-04-21</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/TDD/">TDD</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>연재</p>
+<ul>
+<li><a href="/2019/04/20/tdd-beginners/">TDD 시작하기 - 1</a> : 스터디 조직, 강의 동영상, TDD 맛보기</li>
+<li><a href="/2019/04/21/tdd-beginners-2/">TDD 시작하기 - 2</a> : 행위 검증 vs 상태 검증</li>
+<li><strong><a href="/2019/04/21/tdd-beginners-3/">TDD 시작하기 - 3</a> : 교재 1장~2장 정리, 참고 링크</strong></li>
+</ul>
+<p><br></p>
+<hr>
+<p><br></p>
+<h2 id="책을-읽기-전에-참고할-것"><a href="#책을-읽기-전에-참고할-것" class="headerlink" title="책을 읽기 전에 참고할 것"></a>책을 읽기 전에 참고할 것</h2><ul>
+<li><a href="http://www.insightbook.co.kr/book/programming-insight/테스트-주도-개발로-배우는-객체-지향-설계와-실천/정오표" target="_blank" rel="noopener">정오표</a><ul>
+<li>정오표의 댓글도 읽어 볼 것</li>
+</ul>
+</li>
+<li><a href="http://www.growing-object-oriented-software.com/code.html" target="_blank" rel="noopener">공식 언어별 코드</a></li>
+<li><a href="https://github.com/projectBS/s66" target="_blank" rel="noopener">S66 코드 (es6 + selenium)</a></li>
+</ul>
+<h3 id="이해-안되는-문장에-대한-여러-의견"><a href="#이해-안되는-문장에-대한-여러-의견" class="headerlink" title="이해 안되는 문장에 대한 여러 의견"></a>이해 안되는 문장에 대한 여러 의견</h3><ol>
+<li>“테스트를 작성하는 동안에는 테스트가 실행되거나 심지어 컴파일되지 않으리라는 사실을 무시하고 테스트 내용에만 집중한다. 즉, 보조적인 역할을 하는 코드로 이미 존재하는 테스트를 실행할 수 있다고 간주한다”</li>
+</ol>
+<ul>
+<li>원문은 <code>we act as if the supporting code to let us run the test already exists</code></li>
+<li>구글 번역하면, <code>우리가 테스트를 실행하게하는 지원 코드가 이미 존재하는 것처럼 행동합니다.</code></li>
+<li>번역하실 때 잘못 띄어 읽으신 것 같음</li>
+</ul>
+<ol start="2">
+<li>“캡슐화와 정보은닉이 직교적인 설계 품질을 가리킨다”</li>
+</ol>
+<ul>
+<li>번역자의 글<ul>
+<li>원문은 이렇습니다.</li>
+<li>“The terms are often used interchangeably but actually refer to two separate, and largely orthogonal, qualities.”</li>
+<li>우선 두 용어 ‘캡슐화’와 ‘정보은닉’이 설계의 품질을 나타내는 별개의 개념이라고 생각하시면 됩니다. 그리고 여기서 직교적이라는 표현은 캡슐화와 정보은닉이 서로 독립적인 설계 품질이라는 의미입니다.</li>
+</ul>
+</li>
+<li>참고 : <a href="https://justhackem.wordpress.com/2017/02/28/encapsulation-and-information-hiding/" target="_blank" rel="noopener">https://justhackem.wordpress.com/2017/02/28/encapsulation-and-information-hiding/</a></li>
+</ul>
+<ol start="3">
+<li>66페이지 하단,<br>“이처럼 ‘가족 같은’ 접근법에서는 각 객체는 자기 역할을 수행하는 데 필요한 만큼 정보를 전달받고 그러한 역할 표현과 부합하는 추상화에 포함된다.”</li>
+</ol>
+<ul>
+<li>번역자의 글<ul>
+<li>원문은 paternalistic이고, 원래는 ‘가족주의적인’으로 번역했었는데, ‘가부장적인’이라는 의미로도 사용되는 표현입니다. 교정/편집 과정을 거치면서 ‘가족 같은’으로 바뀌어서 조금 이해하기 어려워진 것 같네요.</li>
+</ul>
+</li>
+</ul>
+<ol start="4">
+<li>17페이지 중간,<br>“시스템을 그것이 지닌 역학 측면에서 생각해보면,”에서 시스템이 지닌 역학 측면에서 생각한다는 의미</li>
+</ol>
+<ul>
+<li>번역자의 글<ul>
+<li>원문은 이렇습니다. “Thinking of a system in terms of its dynamic, communication structure is a significant mental shift from the static classification that most of us learn when being introduced to objects.” 번역서의 ‘역학’은 이 문장의 dynamic을 옮긴 것인데요, 역학은 국어사전에 “부분을 이루는 요소가 서로 의존적 관계를 가지고 서로 제약하는 현상”이라고 정의돼 있습니다. 따라서 책에서는 시스템을 구성하는 요소들의 관계가 만들어내는 현상으로 이해하시면 될 것 같습니다.</li>
+</ul>
+</li>
+<li>또 다른 어떤 분의 의견<ul>
+<li>우선 2.3절에 도메인이란 얘기가 나오는데 어느 논문에서의 정의를 빌리면( <a href="http://www.springer.com/.../cda.../9783642366536-p1.pdf..." target="_blank" rel="noopener">http://www.springer.com/.../cda.../9783642366536-p1.pdf...</a>) domain is an area of knowledge that uses common concepts for describing phe-<br>nomena, requirements, problems, capabilities, and solutions. 이렇다고 합니다. 그리고 도메인 모델이란게 특정 개념과 행동,의사소통 패턴 등을 공유하는 복잡한 지식의 조각들 간에 관계성을 부여해서 추상화시킨 것이라고 본다면 결국 의사소통 패턴에 속한다는 말과 통하는 부분이 있는것 같고요. </li>
+<li>그럼 시스템을 역학측면에서 본다는 것을 시스템을 정적인 상태가 아닌 동적인 상태(도메인에 속한 객체나 엑터들이 서로 상호작용 하고 있는 상태)로 보는것이라고 해석해 본다면 동적인 측면에서 보여지는 의사소통 구조는 정적인 측면에서 볼때와 상당히 다르고 더 고차원 적이다라는 의미로 느껴집니다. </li>
+<li>다음장에 나오는 게임엔진 예시에서 엔진의 관점과 담당객체의 관점이 믹스될때 상당히 복잡해 보이는 면이 있는데 이것을 앞에서 얘기한 시스템의 정적인 측면과 동적인 측면, 그리고 더 상위의 도메인 모델링으로서 접근으로 나누어 바라보게 되면 시스템의 상태와 관계가 더 명확해 진다는 의미로 어설프게나마 해석이 되는것 같습니다.</li>
+</ul>
+</li>
+</ul>
+<h2 id="그래도-이해-안되는-문장이-있다면"><a href="#그래도-이해-안되는-문장이-있다면" class="headerlink" title="그래도 이해 안되는 문장이 있다면"></a>그래도 이해 안되는 문장이 있다면</h2><p>어려운 책이라 번역하신 분도 고생 많으셨을 것 같다. 원래 어떤 의미로 쓰였는지 확인하는 것이 더 이해 잘되는 경우가 종종 있는데, 구글에서 책의 원제와 함께 확실하다고 생각이 되는 단어 몇개를 같이 검색해보면 books.google.co.kr 사이트의 링크를 찾을 수 있다. 이번에도 교재 본문에 나온 “중첩된 피드백 고리”나 이해 안되는 문장 몇가지가 뭘 의미하는지 궁금해서 책 제목(growing object-oriented software guided by tests)와 몇개의 단어를 조합해서 원문을 찾을 수 있었다. 예를 들어, “growing object-oriented software guided by tests nested loop system”라고 검색하면 검색 결과 내에서 <a href="https://books.google.co.kr/books?id=QJA3dM8Uix0C&amp;pg=PT31&amp;lpg=PT31&amp;dq=growing+object-oriented+software+guided+by+tests+nested+loop+system&amp;source=bl&amp;ots=ztQgGZgBCl&amp;sig=ACfU3U3pMECZ9GKcII4wNDoBbZ4fIqwt_g&amp;hl=ko&amp;sa=X&amp;ved=2ahUKEwiLica92-DhAhXE3mEKHdMBA2AQ6AEwA3oECAkQAQ#v=onepage&amp;q=growing%20object-oriented%20software%20guided%20by%20tests%20nested%20loop%20system&amp;f=false" target="_blank" rel="noopener">이런 링크</a>를 찾을 수 있다. 언제까지 이런 꼼수가 통할 지는 모르겠지만.</p>
+<h2 id="발표-자료"><a href="#발표-자료" class="headerlink" title="발표 자료"></a>발표 자료</h2><p>“테스트 주도 개발로 배우는 객체 지향 설계와 실천 책”의 서문, 1장, 2장까지의 발표는 내가 했다.</p>
+<ul>
+<li><a href="/images/tdd-beginners/growing_object-oriented_software_guided_by_tests_1_2.key">Keynote 버전</a></li>
+<li><a href="/images/tdd-beginners/growing_object-oriented_software_guided_by_tests_1_2.pdf">PDF 버전</a><ul>
+<li>발표자 노트가 같이 붙어있어 보기에 좀 더럽긴…</li>
+</ul>
+</li>
+</ul>
+<h2 id="참고-자료"><a href="#참고-자료" class="headerlink" title="참고 자료"></a>참고 자료</h2><p>이후 8장까지의 발표자료는 내 것이 아니라서 공유할 수 없지만, 이 과정에서 멤버들과 나누었던 이야기가 참 좋았다. 그것도 공유할 수 없는 것이 아쉽긴 한데, 그 이야기 속에서 언급된 링크라도 남긴다.</p>
+<ol>
+<li><a href="https://repo.yona.io/doortts/blog/issue/1" target="_blank" rel="noopener">채수원님이 공개하신 “TDD 실천법과 도구”</a></li>
+</ol>
+<ul>
+<li>각 장별로 추가 코멘트를 달아 놓으셨는데, 이 책이나 PDF를 읽으실 때 참고하면 좋다</li>
+</ul>
+<ol start="2">
+<li><p><a href="http://blog.cleancoder.com/uncle-bob/2016/05/01/TypeWars.html" target="_blank" rel="noopener">TypeWars</a></p>
+</li>
+<li><p>위 글에 처음에 나오는 cleancoders 강의를 보고 <a href="https://www.youtube.com/playlist?list=PLagTY0ogyVkIl2kTr08w-4MLGYWJz7lNK" target="_blank" rel="noopener">백명석님이 올린 강의</a></p>
+</li>
+</ol>
+<ul>
+<li><a href="https://github.com/msbaek/clean-coders-2013" target="_blank" rel="noopener">발표 슬라이드</a></li>
+</ul>
+<ol start="4">
+<li><p><a href="http://jwchung.github.io/testing-oh-my" target="_blank" rel="noopener">Testing, Oh my! by Jin-Wook Chung</a></p>
+</li>
+<li><p><a href="https://nesoy.github.io/articles/2018-10/OKKYCON2018-Real-TDD" target="_blank" rel="noopener">OKKYCON 2018 정리</a></p>
+</li>
+<li><p><a href="https://blog.qodot.me/post/%EB%B2%88%EC%97%AD-unittest-martin-fowler/" target="_blank" rel="noopener">마틴 파울러의 UnitTest를 번역한 글</a></p>
+</li>
+<li><p>TDD에서 외부 자원은 격리 대상이어야 하는가</p>
+</li>
+</ol>
+<ul>
+<li><a href="https://medium.com/@sryu99/단위-테스트-tdd-bdd의-차이점-3d25fab5ccb2" target="_blank" rel="noopener">https://medium.com/@sryu99/단위-테스트-tdd-bdd의-차이점-3d25fab5ccb2</a><ul>
+<li><a href="https://codeutopia.net/blog/2015/03/01/unit-testing-tdd-and-bdd/%0A" target="_blank" rel="noopener">이 글</a>을 번역한 글인데, 외부 자원을 격리해야 한다는 글에 대한 반박이 댓글로 이어진다. 이후 잘못된 내용이 들어있음을 인정하면서 번역본 삭제됨.</li>
+</ul>
+</li>
+</ul>
+<ol start="8">
+<li>DHH의 <a href="https://sangwook.github.io/2014/04/25/tdd-is-dead-long-live-testing.html" target="_blank" rel="noopener">TDD is dead. Long live testing.</a> 논란</li>
+</ol>
+<ul>
+<li><a href="https://justhackem.wordpress.com/2018/06/24/what-tdd-solves/" target="_blank" rel="noopener">Kent Beck의 답</a></li>
+<li>Martin Fowler가 이 둘을 초대해 온라인으로 토론을 벌였다<ul>
+<li>그 내용을 번역한 글 : <a href="http://jinson.tistory.com/271" target="_blank" rel="noopener">한글화 프로젝트 TDD는 죽었는가?</a></li>
+</ul>
+</li>
+<li>TDD는 벌거벗은 임금님의 투명옷인가? 시리즈(정도현)<ul>
+<li>이 논쟁을 중간자 입장에서 정리한 것<ol>
+<li><a href="http://www.moreagile.net/2014/05/IsTDDdead1.html" target="_blank" rel="noopener">TDD는 죽었다. 테스트여 영원하라!</a></li>
+<li><a href="http://www.moreagile.net/2014/07/tdd-2-tdd.html" target="_blank" rel="noopener">TDD의 사망에 대한 검증</a></li>
+<li><a href="http://www.moreagile.net/2014/08/IsTDDdead3.html" target="_blank" rel="noopener">TDD는 UT가 아니다</a></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<ol start="9">
+<li><p><a href="https://developerfarm.wordpress.com/2012/02/03/object_calisthenics_summary/" target="_blank" rel="noopener">객체지향 생활 체조 총정리</a></p>
+</li>
+<li><p><a href="https://gyuwon.github.io/blog/2019/03/03/tdd-is-not-a-design-methodology.html" target="_blank" rel="noopener">DD는 설계 방법론이 아니다</a></p>
+</li>
+<li><p><a href="https://medium.com/@mjspring/번역-tdd-변절자-tdd는-설계-기법이-아니다-2519b05474d0" target="_blank" rel="noopener">TDD 변절자: TDD는 설계 기법이 아니다</a></p>
+</li>
+<li><p><a href="https://www.slideshare.net/UyeongJu/ss-56634188" target="_blank" rel="noopener">서비스를 성공적으로 만드는 방법</a></p>
+</li>
+<li><p><a href="https://deview.kr/2013/detail.nhn?topicSeq=18" target="_blank" rel="noopener">협업 SW개발 플랫폼 Yobi 발표</a></p>
+</li>
+<li><p><a href="http://lnbogen.com/2007/07/04/how-to-mock-static-class-or-static-member-for-testing/" target="_blank" rel="noopener">static 메서드 의존을 제거하고 테스트하는 방법</a></p>
+</li>
+</ol>
+<ul>
+<li>참고한 <a href="https://github.com/mockito/mockito/wiki/FAQ#can-i-mock-static-methods" target="_blank" rel="noopener">다른 글</a></li>
+</ul>
+<ol start="15">
+<li><p><a href="https://www.inflearn.com/course/%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EC%9E%85%EB%AC%B8/" target="_blank" rel="noopener">객체 지향 프로그래밍 입문 - 최범균</a></p>
+<!-- * 정리 : https://gist.github.com/appkr/a13a2172c943dbfd8e8a45fad4ee8045 -->
+</li>
+<li><p><a href="https://softwareengineering.stackexchange.com/questions/308160/differences-between-given-when-then-gwt-and-arrange-act-assert-aaa" target="_blank" rel="noopener">AAA vs GWT</a></p>
+</li>
+<li><p>교재를 읽기 위한 정도의 문법은 이 <a href="https://www.youtube.com/watch?v=n-xAqcBCws4" target="_blank" rel="noopener">영상</a>을 추천합니다(2시간)</p>
+</li>
+</ol>
+<ul>
+<li>Java 문법이 생각이 안난다고 하니 주원님이 추천해주신 영상</li>
+</ul>
+<ol start="18">
+<li><a href="https://www.youtube.com/channel/UCKXBpFPbho1tp-Ntlfc25kA/videos" target="_blank" rel="noopener">코드스피츠</a><!-- * 슬랙에서 소개한 내용 https://meshkorea.slack.com/archives/CFZJTFFCG/p1552698026082000 --></li>
+</ol>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=_JGchAMbPGI" target="_blank" rel="noopener">1회차</a><ul>
+<li>객체와 값객체, 단일 책임의 원칙</li>
+</ul>
+</li>
+<li><a href="https://www.youtube.com/watch?v=TFKt8ZpzPPg" target="_blank" rel="noopener">2회차(1/3)</a><ul>
+<li>프로시저의 특징, 변화율을 다루는 방식, 레이어링</li>
+</ul>
+</li>
+<li><a href="https://www.youtube.com/watch?v=dHbDDIBAc4Y" target="_blank" rel="noopener">4회차</a><ul>
+<li>역할과 책임</li>
+</ul>
+</li>
+</ul>
+<ol start="19">
+<li><p><a href="http://blog.jonasbandi.net/2010/09/acceptance-vs-integration-tests.html" target="_blank" rel="noopener">ATDD</a></p>
+</li>
+<li><p><a href="https://uiandwe.tistory.com/465" target="_blank" rel="noopener">CRC 카드</a></p>
+</li>
+<li><p><a href="https://en.wikipedia.org/wiki/Law_of_Demeter" target="_blank" rel="noopener">LoD(Law of Demeter)</a>의 핵심</p>
+</li>
+</ol>
+<ul>
+<li>LoD는 O.m() 메서드는 아래 열거한 다섯 가지보다 더 많은 내용을 알아서는 안된다고 가이드합니다.<ul>
+<li>O 자신</li>
+<li>m의 파라미터</li>
+<li>m에서 생성된 객체</li>
+<li>O가 필드로 가진 객체</li>
+<li>O.m() 스코프에서 접근할 수 있는 전역 변수</li>
+</ul>
+</li>
+</ul>
+<ol start="22">
+<li><p><a href="https://joont92.github.io/tdd/인수테스트-단위테스트-통합테스트-전-구간-테스트/" target="_blank" rel="noopener">인수테스트, 단위테스트, 통합테스트, 전 구간 테스트</a></p>
+</li>
+<li><p><a href="http://agile.egloos.com/m/5830026" target="_blank" rel="noopener">스터디 모임 방법 몇가지</a> - 김창준</p>
+</li>
+<li><p>private method 테스트</p>
+</li>
+</ol>
+<ul>
+<li><a href="https://www.slipp.net/wiki/pages/viewpage.action?pageId=6160426" target="_blank" rel="noopener">https://www.slipp.net/wiki/pages/viewpage.action?pageId=6160426</a> </li>
+<li><a href="https://justhackem.wordpress.com/2017/09/29/should-private-methods-be-tested/" target="_blank" rel="noopener">https://justhackem.wordpress.com/2017/09/29/should-private-methods-be-tested/</a></li>
+</ul>
+<ol start="25">
+<li>postman을 활용한 자동화 테스트</li>
+</ol>
+<ul>
+<li><a href="https://medium.com/postman-engineering/acing-your-apis-what-you-need-to-know-for-test-automation-e3fdba3519b9" target="_blank" rel="noopener">https://medium.com/postman-engineering/acing-your-apis-what-you-need-to-know-for-test-automation-e3fdba3519b9</a></li>
+<li><a href="https://medium.com/postman-engineering/from-manual-to-automated-testing-the-roadblocks-and-the-journey-6333dfacc5ae" target="_blank" rel="noopener">https://medium.com/postman-engineering/from-manual-to-automated-testing-the-roadblocks-and-the-journey-6333dfacc5ae</a></li>
+<li><a href="https://www.ridicorp.com/blog/2017/11/09/postman-gitlab-ci/" target="_blank" rel="noopener">https://www.ridicorp.com/blog/2017/11/09/postman-gitlab-ci/</a></li>
+</ul>
+<ol start="26">
+<li><p><a href="http://woowabros.github.io/study/2016/07/07/think_object_oriented.html" target="_blank" rel="noopener">생각하라, 객체지향처럼</a></p>
+</li>
+<li><p>RailsConf 09: Robert Martin, <a href="https://youtu.be/YX3iRjKj7C0" target="_blank" rel="noopener">“What Killed Smalltalk Could Kill Ruby, Too”</a></p>
+</li>
+<li><p><a href="http://getoutsidedoor.com/2018/09/03/ports-adapters-architecture/" target="_blank" rel="noopener">ports &amp; adapter 패턴</a></p>
+</li>
+</ol>
+<h2 id="다음-단계는"><a href="#다음-단계는" class="headerlink" title="다음 단계는"></a>다음 단계는</h2><p>기초와 이론 부분에 8주를 써버렸기 때문에 앞으로 책을 다 마치려면 한 3달 ~ 4달은 더 해야 끝날 것 같다는 생각이 들었다. 3달을 넘어가는 건 너무 지치는 일이라서 스터디는 일단 멈추기로 했다. 이후는 각자 책을 읽기로 하고 2주 마다 만나서 각자의 업무에서 도입하거나 공부하는 것을 공유하기로 했다.</p>
+<p>나는 책을 더 읽기로 결정했는데, 갑자기 바빠져서 책을 전혀 못봤다. 이럴 줄 알았지!</p>
+<p>9장부터 코드가 나오기 시작하는데, 역시 쉽지는 않다. 이 블로그 연재도 책을 다 떼면 이어서 쓸텐데…</p>
+<p>과연 할 수 있으려나?</p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+    </div>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">All Posts</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#책을-읽기-전에-참고할-것"><span class="toc-number">1.</span> <span class="toc-text">책을 읽기 전에 참고할 것</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#이해-안되는-문장에-대한-여러-의견"><span class="toc-number">1.1.</span> <span class="toc-text">이해 안되는 문장에 대한 여러 의견</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#그래도-이해-안되는-문장이-있다면"><span class="toc-number">2.</span> <span class="toc-text">그래도 이해 안되는 문장이 있다면</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#발표-자료"><span class="toc-number">3.</span> <span class="toc-text">발표 자료</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#참고-자료"><span class="toc-number">4.</span> <span class="toc-text">참고 자료</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#다음-단계는"><span class="toc-number">5.</span> <span class="toc-text">다음 단계는</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://haah.kr/2019/04/21/tdd-beginners-3/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://haah.kr/2019/04/21/tdd-beginners-3/&text=TDD 시작하기 - 3"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://haah.kr/2019/04/21/tdd-beginners-3/&title=TDD 시작하기 - 3"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://haah.kr/2019/04/21/tdd-beginners-3/&is_video=false&description=TDD 시작하기 - 3"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=TDD 시작하기 - 3&body=Check out this article: http://haah.kr/2019/04/21/tdd-beginners-3/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://haah.kr/2019/04/21/tdd-beginners-3/&title=TDD 시작하기 - 3"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://haah.kr/2019/04/21/tdd-beginners-3/&title=TDD 시작하기 - 3"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://haah.kr/2019/04/21/tdd-beginners-3/&title=TDD 시작하기 - 3"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://haah.kr/2019/04/21/tdd-beginners-3/&title=TDD 시작하기 - 3"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://haah.kr/2019/04/21/tdd-beginners-3/&name=TDD 시작하기 - 3&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 youngiggy
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">All Posts</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-99319001-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'youngiggy-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+

@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="연재  TDD 시작하기 - 1 : 스터디 조직, 강의 동영상, TDD 맛보기 TDD 시작하기 - 2 : 행위 검증 vs 상태 검증   행위 검증 vs 상태 검증첫 시간에 동영상을 보며 이야기할 때 몇가지 해소가 안된 문제가 있었는데, 하나는 테스트 더블의 종류와 사용 목적이었고 하나는 행위 검증과 상태 검증이었다. 테스트 더블은 다른 분이 발표했기 때문에">
+    <meta name="description" content="연재  TDD 시작하기 - 1 : 스터디 조직, 강의 동영상, TDD 맛보기 TDD 시작하기 - 2 : 행위 검증 vs 상태 검증 TDD 시작하기 - 3 : 교재 1장~2장 정리, 참고 링크     행위 검증 vs 상태 검증첫 시간에 동영상을 보며 이야기할 때 몇가지 해소가 안된 문제가 있었는데, 하나는 테스트 더블의 종류와 사용 목적이었고 하나는 행위 검">
 <meta name="keywords" content="TDD">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TDD 시작하기 - 2">
 <meta property="og:url" content="http://haah.kr/2019/04/21/tdd-beginners-2/index.html">
 <meta property="og:site_name" content="ha-ah">
-<meta property="og:description" content="연재  TDD 시작하기 - 1 : 스터디 조직, 강의 동영상, TDD 맛보기 TDD 시작하기 - 2 : 행위 검증 vs 상태 검증   행위 검증 vs 상태 검증첫 시간에 동영상을 보며 이야기할 때 몇가지 해소가 안된 문제가 있었는데, 하나는 테스트 더블의 종류와 사용 목적이었고 하나는 행위 검증과 상태 검증이었다. 테스트 더블은 다른 분이 발표했기 때문에">
+<meta property="og:description" content="연재  TDD 시작하기 - 1 : 스터디 조직, 강의 동영상, TDD 맛보기 TDD 시작하기 - 2 : 행위 검증 vs 상태 검증 TDD 시작하기 - 3 : 교재 1장~2장 정리, 참고 링크     행위 검증 vs 상태 검증첫 시간에 동영상을 보며 이야기할 때 몇가지 해소가 안된 문제가 있었는데, 하나는 테스트 더블의 종류와 사용 목적이었고 하나는 행위 검">
 <meta property="og:locale" content="ko">
-<meta property="og:updated_time" content="2019-04-21T07:50:21.846Z">
+<meta property="og:updated_time" content="2019-04-21T07:55:45.454Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TDD 시작하기 - 2">
-<meta name="twitter:description" content="연재  TDD 시작하기 - 1 : 스터디 조직, 강의 동영상, TDD 맛보기 TDD 시작하기 - 2 : 행위 검증 vs 상태 검증   행위 검증 vs 상태 검증첫 시간에 동영상을 보며 이야기할 때 몇가지 해소가 안된 문제가 있었는데, 하나는 테스트 더블의 종류와 사용 목적이었고 하나는 행위 검증과 상태 검증이었다. 테스트 더블은 다른 분이 발표했기 때문에">
+<meta name="twitter:description" content="연재  TDD 시작하기 - 1 : 스터디 조직, 강의 동영상, TDD 맛보기 TDD 시작하기 - 2 : 행위 검증 vs 상태 검증 TDD 시작하기 - 3 : 교재 1장~2장 정리, 참고 링크     행위 검증 vs 상태 검증첫 시간에 동영상을 보며 이야기할 때 몇가지 해소가 안된 문제가 있었는데, 하나는 테스트 더블의 종류와 사용 목적이었고 하나는 행위 검">
     
     
         
@@ -75,6 +75,8 @@
     <br/>
     <span id="actions">
       <ul>
+        
+        <li><a class="icon" href="/2019/04/21/tdd-beginners-3/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
         
         
         <li><a class="icon" href="/2019/04/20/tdd-beginners/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
@@ -147,8 +149,11 @@
 <ul>
 <li><a href="/2019/04/20/tdd-beginners/">TDD 시작하기 - 1</a> : 스터디 조직, 강의 동영상, TDD 맛보기</li>
 <li><strong><a href="/2019/04/21/tdd-beginners-2/">TDD 시작하기 - 2</a> : 행위 검증 vs 상태 검증</strong></li>
+<li><a href="/2019/04/21/tdd-beginners-3/">TDD 시작하기 - 3</a> : 교재 1장~2장 정리, 참고 링크</li>
 </ul>
+<p><br></p>
 <hr>
+<p><br></p>
 <h2 id="행위-검증-vs-상태-검증"><a href="#행위-검증-vs-상태-검증" class="headerlink" title="행위 검증 vs 상태 검증"></a>행위 검증 vs 상태 검증</h2><p>첫 시간에 동영상을 보며 이야기할 때 몇가지 해소가 안된 문제가 있었는데, 하나는 테스트 더블의 종류와 사용 목적이었고 하나는 행위 검증과 상태 검증이었다.</p>
 <p>테스트 더블은 다른 분이 발표했기 때문에 이 블로그로는 자료를 가져오진 않겠지만, <a href="http://xunitpatterns.com/" target="_blank" rel="noopener">http://xunitpatterns.com/</a> 에서 주요 개념을 알 수 있다.</p>
 <p>OKKYCON의 동영상에서도 행위 검증과 상태 검증에 관함 이야기가 많이 나왔는데, 정확히 언제/왜 사용해야 하는지 명확히 알기가 어려워 조금 더 찾아보게 됐다. 설계든 TDD든 정답이 없는 문제라서 초보자들은 갖은 상황을 떠올리며 이럴 때는 저럴 때는 어떻게 해야 하는가 하면서 논쟁이 지속되었다. 여전히 어렵긴 한데 중간 정리를 한번 해봤다.</p>
