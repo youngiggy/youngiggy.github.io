@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang=ko>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="JetBrains에서 제공하는 월간 PHP Annotated Monthly 5월호입니다. 이 중에서 몇 가지 제 취향껏 골라 그 안의 내용도 좀 뒤져보고 개발새발 번역해서 소개합니다.  News &amp;amp; ReleasesPHP PHP 7.3.5 PHP 7.2.18 PHP 7.1.29  WordPress 5.2 “Jaco”https://wordpress.o">
+<meta name="keywords" content="PHP,php-annotated-monthly">
+<meta property="og:type" content="article">
+<meta property="og:title" content="php-annotated-monthly-may-2019">
+<meta property="og:url" content="http://haah.kr/2019/05/14/php-annotated-monthly-may-2019/index.html">
+<meta property="og:site_name" content="ha-ah">
+<meta property="og:description" content="JetBrains에서 제공하는 월간 PHP Annotated Monthly 5월호입니다. 이 중에서 몇 가지 제 취향껏 골라 그 안의 내용도 좀 뒤져보고 개발새발 번역해서 소개합니다.  News &amp;amp; ReleasesPHP PHP 7.3.5 PHP 7.2.18 PHP 7.1.29  WordPress 5.2 “Jaco”https://wordpress.o">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2018/12/new_php-annotated-monthly.jpg">
+<meta property="og:updated_time" content="2019-05-18T14:27:10.685Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="php-annotated-monthly-may-2019">
+<meta name="twitter:description" content="JetBrains에서 제공하는 월간 PHP Annotated Monthly 5월호입니다. 이 중에서 몇 가지 제 취향껏 골라 그 안의 내용도 좀 뒤져보고 개발새발 번역해서 소개합니다.  News &amp;amp; ReleasesPHP PHP 7.3.5 PHP 7.2.18 PHP 7.1.29  WordPress 5.2 “Jaco”https://wordpress.o">
+<meta name="twitter:image" content="https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2018/12/new_php-annotated-monthly.jpg">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon.ico" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+          
+        
+    
+    <!-- title -->
+    <title>php-annotated-monthly-may-2019</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="ha-ah" type="application/atom+xml" />
+    
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-1318599740881033",
+            enable_page_level_ads: true
+        });
+    </script>
+
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">All Posts</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2019/05/11/books-2019-may/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://haah.kr/2019/05/14/php-annotated-monthly-may-2019/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://haah.kr/2019/05/14/php-annotated-monthly-may-2019/&text=php-annotated-monthly-may-2019"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://haah.kr/2019/05/14/php-annotated-monthly-may-2019/&title=php-annotated-monthly-may-2019"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://haah.kr/2019/05/14/php-annotated-monthly-may-2019/&is_video=false&description=php-annotated-monthly-may-2019"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=php-annotated-monthly-may-2019&body=Check out this article: http://haah.kr/2019/05/14/php-annotated-monthly-may-2019/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://haah.kr/2019/05/14/php-annotated-monthly-may-2019/&title=php-annotated-monthly-may-2019"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://haah.kr/2019/05/14/php-annotated-monthly-may-2019/&title=php-annotated-monthly-may-2019"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://haah.kr/2019/05/14/php-annotated-monthly-may-2019/&title=php-annotated-monthly-may-2019"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://haah.kr/2019/05/14/php-annotated-monthly-may-2019/&title=php-annotated-monthly-may-2019"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://haah.kr/2019/05/14/php-annotated-monthly-may-2019/&name=php-annotated-monthly-may-2019&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#News-amp-Releases"><span class="toc-number">1.</span> <span class="toc-text">News &amp; Releases</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP"><span class="toc-number">1.1.</span> <span class="toc-text">PHP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WordPress-5-2-“Jaco”"><span class="toc-number">1.2.</span> <span class="toc-text">WordPress 5.2 “Jaco”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Codeception-3-0"><span class="toc-number">1.3.</span> <span class="toc-text">Codeception 3.0</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Zend-Framework-transitions-to-Linux-Foundation"><span class="toc-number">1.4.</span> <span class="toc-text">Zend Framework transitions to Linux Foundation</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PHP-Internals"><span class="toc-number">2.</span> <span class="toc-text">PHP Internals</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#RFC-Arrow-Functions-2-0"><span class="toc-number">2.1.</span> <span class="toc-text">[RFC] Arrow Functions 2.0</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RFC-Deprecate-PHP-Short-open-tags"><span class="toc-number">2.2.</span> <span class="toc-text">[RFC] Deprecate PHP Short open tags</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RFC-Spread-Operator-in-Array-Expression"><span class="toc-number">2.3.</span> <span class="toc-text">[RFC] Spread Operator in Array Expression</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RFC-Allow-throwing-exceptions-from-toString"><span class="toc-number">2.4.</span> <span class="toc-text">[RFC] Allow throwing exceptions from __toString()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RFC-Deprecate-left-associative-ternary-operator"><span class="toc-number">2.5.</span> <span class="toc-text">[RFC] Deprecate left-associative ternary operator</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#New-in-PHP-7-4"><span class="toc-number">2.6.</span> <span class="toc-text">New in PHP 7.4.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Derick-Rethans-has-recorded-a-whole-load-of-new-episodes-of-PHP-Internals-News"><span class="toc-number">2.7.</span> <span class="toc-text">Derick Rethans has recorded a whole load of new episodes of PHP Internals News:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Tools"><span class="toc-number">3.</span> <span class="toc-text">Tools</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#기타-읽을-만한-글"><span class="toc-number">4.</span> <span class="toc-text">기타 읽을 만한 글</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-PHP-Compiler-aka-The-FFI-Rabbit-Hole"><span class="toc-number">4.1.</span> <span class="toc-text">A PHP Compiler, aka The FFI Rabbit Hole</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PSR-14-The-series"><span class="toc-number">4.2.</span> <span class="toc-text">PSR-14: The series</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-we-migrated-54-357-lines-of-code-from-Nette-to-Symfony"><span class="toc-number">4.3.</span> <span class="toc-text">How we migrated 54,357 lines of code from Nette to Symfony</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Running-tests-for-PHPUnit-from-within-PhpStorm"><span class="toc-number">4.4.</span> <span class="toc-text">Running tests for PHPUnit from within PhpStorm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#azdanov-php-interview-exercises"><span class="toc-number">4.5.</span> <span class="toc-text">azdanov/php-interview-exercises</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Find-Segfaults-in-PHP-like-a-boss"><span class="toc-number">4.6.</span> <span class="toc-text">Find Segfaults in PHP like a boss</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP-Framework-Trends"><span class="toc-number">4.7.</span> <span class="toc-text">PHP Framework Trends</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Serverless-PHP-With-Bref"><span class="toc-number">4.8.</span> <span class="toc-text">Serverless PHP With Bref</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        php-annotated-monthly-may-2019
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">ha-ah</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2019-05-13T15:11:50.000Z" itemprop="datePublished">2019-05-14</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/PHP/">PHP</a>, <a class="tag-link" href="/tags/php-annotated-monthly/">php-annotated-monthly</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p><img src="https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2018/12/new_php-annotated-monthly.jpg" alt="Php_annotated_monthly 이미지"></p>
+<p>JetBrains에서 제공하는 월간 PHP Annotated Monthly <a href="https://blog.jetbrains.com/phpstorm/2019/05/php-annotated-monthly-may-2019/" target="_blank" rel="noopener">5월호</a>입니다.</p>
+<p>이 중에서 몇 가지 제 취향껏 골라 그 안의 내용도 좀 뒤져보고 개발새발 번역해서 소개합니다.</p>
+<hr>
+<h1 id="News-amp-Releases"><a href="#News-amp-Releases" class="headerlink" title="News &amp; Releases"></a>News &amp; Releases</h1><h2 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h2><ul>
+<li><a href="https://www.php.net/ChangeLog-7.php#7.3.5" target="_blank" rel="noopener">PHP 7.3.5</a></li>
+<li><a href="https://www.php.net/ChangeLog-7.php#7.2.18" target="_blank" rel="noopener">PHP 7.2.18</a></li>
+<li><a href="https://www.php.net/ChangeLog-7.php#7.1.29" target="_blank" rel="noopener">PHP 7.1.29</a></li>
+</ul>
+<h2 id="WordPress-5-2-“Jaco”"><a href="#WordPress-5-2-“Jaco”" class="headerlink" title="WordPress 5.2 “Jaco”"></a>WordPress 5.2 “Jaco”</h2><p><a href="https://wordpress.org/news/2019/05/jaco/" target="_blank" rel="noopener">https://wordpress.org/news/2019/05/jaco/</a></p>
+<p>2013년 10월 24일에 릴리즈 된 WordPress 3.7부터 보안 수정 사항을 자동으로 업데이트 하는 기능이 도입되었는데, 이게 오히려 공격 대상이 되어 가짜 자동 업데이트를 심을 수 있는 위험이 있었다고 합니다. 5.2 버전인 “Jaco”부터는 이를 보완했다는 말인데,</p>
+<blockquote>
+<p>Before WordPress 5.2, if you wanted to infect every WordPress site on the Internet (approximately 33.8% of websites as of this writing), you just had to hack their update server</p>
+</blockquote>
+<p>5.2 이전의 WordPress 웹사이트(전체 인터넷의 33.8%에 해당하는)에는 업데이트 서버만 공격하면 된다고 하는 걸 보니, 해커 여러분들은 5.2 버전이 보급되기 전에 털어야 합니다.</p>
+<h2 id="Codeception-3-0"><a href="#Codeception-3-0" class="headerlink" title="Codeception 3.0"></a>Codeception 3.0</h2><p><a href="https://codeception.com/04-24-2019/codeception-3.0" target="_blank" rel="noopener">https://codeception.com/04-24-2019/codeception-3.0</a></p>
+<blockquote>
+<p>Improved interactive shell, retry steps, PHPUnit 8 support, and other things.</p>
+</blockquote>
+<h2 id="Zend-Framework-transitions-to-Linux-Foundation"><a href="#Zend-Framework-transitions-to-Linux-Foundation" class="headerlink" title="Zend Framework transitions to Linux Foundation"></a>Zend Framework transitions to Linux Foundation</h2><p><a href="https://framework.zend.com/blog/2019-04-17-announcing-laminas.html" target="_blank" rel="noopener">https://framework.zend.com/blog/2019-04-17-announcing-laminas.html</a></p>
+<p>Zend Framework이 리눅스 재단 아래로 들어가면서 <a href="https://getlaminas.org/" target="_blank" rel="noopener">Laminas</a>라는 이름으로 바뀌었다고 합니다. 이 새로운 조직에서 Zend Framework은 물론 <a href="https://getexpressive.org/" target="_blank" rel="noopener">Expressive</a> microframework, <a href="https://apigility.org/" target="_blank" rel="noopener">Apigility</a> 같은 프로젝트를 다루게 된다고 합니다. Repo에는 아직 별 내용은 없지만 몇 달 안으로 전체 전환이 이뤄질 것으로 보입니다.</p>
+<h1 id="PHP-Internals"><a href="#PHP-Internals" class="headerlink" title="PHP Internals"></a>PHP Internals</h1><h2 id="RFC-Arrow-Functions-2-0"><a href="#RFC-Arrow-Functions-2-0" class="headerlink" title="[RFC] Arrow Functions 2.0"></a>[RFC] Arrow Functions 2.0</h2><p><a href="https://wiki.php.net/rfc/arrow_functions_v2#vote" target="_blank" rel="noopener">https://wiki.php.net/rfc/arrow_functions_v2#vote</a></p>
+<p>새로운 화살표 함수에 대한 스펙이 드디어 accepted 됐고, PHP 7.4부터 반영될 것으로 보입니다. fn 키워드를 사용하게 되고, 자동 바인딩 됩니다!!</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$y = <span class="number">1</span>;</span><br><span class="line">$fn = fn($x) =&gt; $x + $y;</span><br></pre></td></tr></table></figure>
+<p>JavaScript와의 사용법은 약간 다르기 때문에 문법을 확실히 익히고 써야할 것입니다.</p>
+<p>2015년 <a href="https://wiki.php.net/rfc/short_closures" target="_blank" rel="noopener">Short Closures</a>, 2016년 <a href="https://wiki.php.net/rfc/arrow_functions" target="_blank" rel="noopener">Arrow Functions</a>까지 많은 논쟁이 있었는데요. 그 동안 왜 통과가 안됐는지에 관해선 <a href="https://www.reddit.com/r/PHP/comments/4mbp3u/arrow_functions/" target="_blank" rel="noopener">reddit에 올라온 글</a>을 참고하셔도 되겠습니다.</p>
+<h2 id="RFC-Deprecate-PHP-Short-open-tags"><a href="#RFC-Deprecate-PHP-Short-open-tags" class="headerlink" title="[RFC] Deprecate PHP Short open tags"></a>[RFC] Deprecate PHP Short open tags</h2><p><a href="https://wiki.php.net/rfc/deprecate_php_short_tags" target="_blank" rel="noopener">https://wiki.php.net/rfc/deprecate_php_short_tags</a></p>
+<p>드디어 <code>&lt;?</code> 태그가 없어지기로 되어 있지만(7.4에서 default OFF, 8.0에서 제거) 여전히 반발이 심하다는군요.</p>
+<h2 id="RFC-Spread-Operator-in-Array-Expression"><a href="#RFC-Spread-Operator-in-Array-Expression" class="headerlink" title="[RFC] Spread Operator in Array Expression"></a>[RFC] Spread Operator in Array Expression</h2><p><a href="https://wiki.php.net/rfc/spread_operator_for_array" target="_blank" rel="noopener">https://wiki.php.net/rfc/spread_operator_for_array</a></p>
+<p>거의 만장일치(43:1)로 통과된 스펙입니다. PHP 7.4부터는 Array에서도 spread 문법을 쓸 수 있어요. </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$parts = [<span class="string">'apple'</span>, <span class="string">'pear'</span>];</span><br><span class="line">$fruits = [<span class="string">'banana'</span>, <span class="string">'orange'</span>, ...$parts, <span class="string">'watermelon'</span>];</span><br><span class="line"><span class="comment">// ['banana', 'orange', 'apple', 'pear', 'watermelon'];</span></span><br></pre></td></tr></table></figure>
+<p>Iterator를 array로 변환하는 용도로도 사용됩니다.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$array = [...$iter];</span><br></pre></td></tr></table></figure>
+<h2 id="RFC-Allow-throwing-exceptions-from-toString"><a href="#RFC-Allow-throwing-exceptions-from-toString" class="headerlink" title="[RFC] Allow throwing exceptions from __toString()"></a>[RFC] Allow throwing exceptions from __toString()</h2><p><a href="https://wiki.php.net/rfc/tostring_exceptions" target="_blank" rel="noopener">https://wiki.php.net/rfc/tostring_exceptions</a></p>
+<p>Nikita가 <a href="http://phpsadness.com/" target="_blank" rel="noopener">“PHP Sadnesses”</a>에 있는 문제를 하나 하나 해결해 나가고 있다고 합니다. PHP 7.4를 목표로 하는 RFC이고 투표가 통과되면 <code>__toString()</code>에서도 exception을 던질 수 있습니다.</p>
+<h2 id="RFC-Deprecate-left-associative-ternary-operator"><a href="#RFC-Deprecate-left-associative-ternary-operator" class="headerlink" title="[RFC] Deprecate left-associative ternary operator"></a>[RFC] Deprecate left-associative ternary operator</h2><p><a href="https://wiki.php.net/rfc/ternary_associativity" target="_blank" rel="noopener">https://wiki.php.net/rfc/ternary_associativity</a></p>
+<p>타 언어와 다르게 동작하는 PHP의 삼항연산자를 개선하고자 중첩된 삼항연산을 deprecated 처리한다는 내용입니다. 이제는(target은 PHP 7.4 혹은 8.0) 중첩된 삼항연산에 명시적으로 괄호를 넣어야 합니다.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> ? <span class="number">2</span> : <span class="number">3</span> ? <span class="number">4</span> : <span class="number">5</span>;   <span class="comment">// deprecated</span></span><br><span class="line">(<span class="number">1</span> ? <span class="number">2</span> : <span class="number">3</span>) ? <span class="number">4</span> : <span class="number">5</span>; <span class="comment">// ok</span></span><br><span class="line"><span class="number">1</span> ? <span class="number">2</span> : (<span class="number">3</span> ? <span class="number">4</span> : <span class="number">5</span>); <span class="comment">// ok</span></span><br></pre></td></tr></table></figure>
+<h2 id="New-in-PHP-7-4"><a href="#New-in-PHP-7-4" class="headerlink" title="New in PHP 7.4."></a>New in PHP 7.4.</h2><p><a href="https://stitcher.io/blog/new-in-php-74" target="_blank" rel="noopener">https://stitcher.io/blog/new-in-php-74</a></p>
+<p><a href="https://wiki.php.net/rfc#php_74" target="_blank" rel="noopener">Accepted 된 RFC</a>를 기준으로 PHP 7.4에는 뭐가 달라지는지 정리한 글입니다. PHP 7.4는 2019년 12월 릴리즈 예정입니다.</p>
+<ul>
+<li>Short closures for cleaner one-liner functions</li>
+<li>Preloading to improve performance</li>
+<li>Typed properties in classes</li>
+<li>Custom object serialization adds a new way of (de)serializing objects</li>
+<li>Improved type variance</li>
+<li>The Null coalescing assignment operator as a shorthand</li>
+<li>FFI opens up new opportunities for extension development in PHP</li>
+<li>Short open tags are deprecated</li>
+<li>Spread operator in arrays</li>
+<li>And more</li>
+</ul>
+<p>어떤 변화가 가장 마음에 드시나요? 저는 Preloading에 거는 기대가 큽니다.</p>
+<h2 id="Derick-Rethans-has-recorded-a-whole-load-of-new-episodes-of-PHP-Internals-News"><a href="#Derick-Rethans-has-recorded-a-whole-load-of-new-episodes-of-PHP-Internals-News" class="headerlink" title="Derick Rethans has recorded a whole load of new episodes of PHP Internals News:"></a>Derick Rethans has recorded a whole load of new episodes of PHP Internals News:</h2><p><a href="https://phpinternals.news/" target="_blank" rel="noopener">https://phpinternals.news/</a></p>
+<p>PHP Internals에 관한 팟캐스트(?)가 있습니다. </p>
+<p>🔈 <a href="https://phpinternals.news/6" target="_blank" rel="noopener">#6</a> — On PHP and extensions quality with Remi Collet.<br>🔈 <a href="https://phpinternals.news/7" target="_blank" rel="noopener">#7</a> — On JIT in PHP 8 and earlier attempts with Zeev Suraski.<br>🔈 <a href="https://phpinternals.news/8" target="_blank" rel="noopener">#8</a> — On Short tags with George Banyard.<br>🔈 <a href="https://phpinternals.news/9" target="_blank" rel="noopener">#9</a> — On bundled extensions with Kalle Nielsen.</p>
+<h1 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h1><p>Tools 항목은 번역 생략합니다.</p>
+<h1 id="기타-읽을-만한-글"><a href="#기타-읽을-만한-글" class="headerlink" title="기타 읽을 만한 글"></a>기타 읽을 만한 글</h1><h2 id="A-PHP-Compiler-aka-The-FFI-Rabbit-Hole"><a href="#A-PHP-Compiler-aka-The-FFI-Rabbit-Hole" class="headerlink" title="A PHP Compiler, aka The FFI Rabbit Hole"></a>A PHP Compiler, aka The FFI Rabbit Hole</h2><p><a href="https://blog.ircmaxell.com/2019/04/compilers-ffi.html" target="_blank" rel="noopener">https://blog.ircmaxell.com/2019/04/compilers-ffi.html</a></p>
+<p><a href="/2019/03/19/php-annotated-monthly-march-2019/">PHP Annotated Monthly 3월호</a>에도 소개됐던 ircmaxell/<a href="https://github.com/ircmaxell/php-compiler" target="_blank" rel="noopener">php-compiler</a>를 만들고 있는 Anthony Ferrara의 글입니다.</p>
+<p>찬찬히 읽어보고 소개해드리려고 보니 엄청난 양이라서 목차나 소개하고 넘어가겠습니다.</p>
+<ol>
+<li>JIT? AOT? VM? What The Heck?<br>1.1. Types of Compilers<br>1.2. Some more definitions</li>
+<li>A bit of (relevant) history</li>
+<li>Enter PHP 7.4 and FFI<br>3.1. FFIMe<br>3.2. PHP-CParser<br>3.3. PHP-Compiler<br>3.4. PHP-Compiler-Toolkit<br>3.5. PHP-LLVM<br>3.6. PHP-ELF-SymbolResolver</li>
+<li>The case for macros</li>
+<li>How do I run any of this?<br>5.1. Running FFIMe:<br>5.2. Running PHP-Compiler Natively<br>5.3. Running PHP-Compiler With Docker</li>
+<li>What’s Next</li>
+</ol>
+<h2 id="PSR-14-The-series"><a href="#PSR-14-The-series" class="headerlink" title="PSR-14: The series"></a>PSR-14: The series</h2><ul>
+<li><a href="https://steemit.com/php/@crell/psr-14-a-major-event-in-php" target="_blank" rel="noopener">A major event in PHP</a></li>
+<li><a href="https://steemit.com/php/@crell/psr-14-all-about-events" target="_blank" rel="noopener">All about Events</a></li>
+<li><a href="https://steemit.com/php/@crell/psr-14-being-a-good-provider" target="_blank" rel="noopener">Being a good Provider</a></li>
+<li><a href="https://steemit.com/php/@crell/psr-14-advanced-providers" target="_blank" rel="noopener">Advanced Providers</a></li>
+<li><a href="https://steemit.com/php/@crell/psr-14-compound-providers" target="_blank" rel="noopener">Compound Providers</a></li>
+<li><a href="https://steemit.com/php/@crell/psr-14-example-access-voting" target="_blank" rel="noopener">Example - Access voting</a></li>
+<li><a href="https://steemit.com/php/@crell/psr-14-example-plugin-registration" target="_blank" rel="noopener">Example - Plugin registration</a></li>
+<li><a href="https://steemit.com/php/@crell/psr-14-example-delayed-events-queues-and-asynchronicity" target="_blank" rel="noopener">Example - Delayed Events, Queues, and Asynchronicity</a></li>
+<li><a href="https://steemit.com/php/@crell/psr-14-in-a-non-blocking-application-server" target="_blank" rel="noopener">Example - PSR-14 in a non-blocking application server</a></li>
+<li><a href="https://steemit.com/php/@crell/psr-14-example-layered-caching" target="_blank" rel="noopener">Example - layered caching</a></li>
+</ul>
+<p>한달 전 쯤 <a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-14-event-dispatcher.md" target="_blank" rel="noopener">PSR-14 Event Dispatcher</a>가 accept 됐는데요. Larry Garfield란 사람이 이 새로운 스펙의 다양한 관점을 시리즈로 풀어냈습니다.</p>
+<h2 id="How-we-migrated-54-357-lines-of-code-from-Nette-to-Symfony"><a href="#How-we-migrated-54-357-lines-of-code-from-Nette-to-Symfony" class="headerlink" title="How we migrated 54,357 lines of code from Nette to Symfony"></a>How we migrated 54,357 lines of code from Nette to Symfony</h2><p><a href="https://pehapkari.cz/blog/2019/04/20/how-we-migrated-54-357-lines-of-code-nette-to-symfony-in-2-people-under-80-hours/" target="_blank" rel="noopener">https://pehapkari.cz/blog/2019/04/20/how-we-migrated-54-357-lines-of-code-nette-to-symfony-in-2-people-under-80-hours/</a></p>
+<p><a href="https://nette.org/" target="_blank" rel="noopener">Nette Framework</a>으로 만들어진 54,357 라인의 코드를 Symfony 기반으로 마이그레이션하는데 둘이서 각각 40시간 정도의 시간을 썼다고 합니다.</p>
+<p>2017년에도 시도하려다 못했는데, 2019년에는 세가지 툴이 있어서 가능했답니다.</p>
+<p><a href="https://github.com/rectorphp/rector" target="_blank" rel="noopener">Rector</a>라는 툴은 이 글을 쓴 Tomáš Votruba라는 사람이 만들었는데, PHP 5.3부터 PHP 5.6까지의 코드를 PHP 7.4 버전으로 마이그레이션/리팩토링 해주고, Symfony는 2.8에서 4.2, Laravel은 static code를 생성자 인젝션으로 패턴을 바꿔줍니다. 이외에 각자 원하는 방식으로 규칙을 추가할 수 있다고 하네요.</p>
+<p>이외에는 NEON(Nette Framework에서 쓰는 듯) 문법을 YAML로, 하나는 Latte files to TWIG syntax 문법 변환을 해주는 툴입니다.</p>
+<p>툴이 많은 걸 해주지만 20%는 수작업으로 해야만 했다고 합니다.</p>
+<h2 id="Running-tests-for-PHPUnit-from-within-PhpStorm"><a href="#Running-tests-for-PHPUnit-from-within-PhpStorm" class="headerlink" title="Running tests for PHPUnit from within PhpStorm"></a>Running tests for PHPUnit from within PhpStorm</h2><p><a href="https://localheinz.com/blog/2019/04/27/running-tests-for-phpunit-itself-from-within-phpstorm/" target="_blank" rel="noopener">https://localheinz.com/blog/2019/04/27/running-tests-for-phpunit-itself-from-within-phpstorm/</a></p>
+<p>다들 테스트 잘 만들고 계시죠? PhpStorm에서 PHPUnit을 설정하는 방법을 설명합니다.</p>
+<h2 id="azdanov-php-interview-exercises"><a href="#azdanov-php-interview-exercises" class="headerlink" title="azdanov/php-interview-exercises"></a>azdanov/php-interview-exercises</h2><p><a href="https://github.com/azdanov/php-interview-exercises" target="_blank" rel="noopener">https://github.com/azdanov/php-interview-exercises</a></p>
+<p>다들 이직 준비는 잘 하고 계시죠? PHP 코딩 인터뷰를 연습할 수 있는 repo입니다. 정답도 있지만 직접 풀어보는 게 좋겠죠?</p>
+<h2 id="Find-Segfaults-in-PHP-like-a-boss"><a href="#Find-Segfaults-in-PHP-like-a-boss" class="headerlink" title="Find Segfaults in PHP like a boss"></a>Find Segfaults in PHP like a boss</h2><p><a href="https://jolicode.com/blog/find-segfaults-in-php-like-a-boss" target="_blank" rel="noopener">https://jolicode.com/blog/find-segfaults-in-php-like-a-boss</a></p>
+<p>종종 발생하는 <a href="https://ko.wikipedia.org/wiki/%EC%84%B8%EA%B7%B8%EB%A9%98%ED%85%8C%EC%9D%B4%EC%85%98_%EC%98%A4%EB%A5%98" target="_blank" rel="noopener">segfault</a> 문제를 파악하는 방법입니다.</p>
+<p><a href="https://www.php.net/manual/en/internals2.opcodes.ticks.php" target="_blank" rel="noopener">Tick</a>이란 건 파서가 low-level tickable statement를 실행할 때마다 발생하는데, 이때마다 실행할 <a href="http://www.phpdig.net/ref/rn62.html" target="_blank" rel="noopener">함수</a>를 등록할 수 있습니다.</p>
+<p>이 블로그에선 그동안 아래와 같이 등록해서 검사했었는데,<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">register_tick_function(<span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    $bt = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, <span class="number">1</span>);</span><br><span class="line">    $last = reset($bt);</span><br><span class="line">    $info = sprintf(<span class="string">"%s +%d\n"</span>, $last[<span class="string">'file'</span>], $last[<span class="string">'line'</span>]);</span><br><span class="line">    file_put_contents(<span class="string">'/tmp/segfault.txt'</span>, $info, FILE_APPEND);</span><br><span class="line">    <span class="comment">// or</span></span><br><span class="line">    <span class="comment">// file_put_contents('php://output', $info, FILE_APPEND);</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">declare</span>(ticks=<span class="number">1</span>);</span><br></pre></td></tr></table></figure></p>
+<p>그건 <a href="https://bugs.php.net/bug.php?id=77901" target="_blank" rel="noopener">PHP의 버그</a> 때문에 발생한 것이었고, PHP 7.0부터는 버그가 수정돼서 사용할 수가 없다고 합니다. declare(ticks=1)은 선언된 파일에만 적용되도록 말이죠. </p>
+<p>그렇다고 모든 PHP 파일마다 이걸 넣기도 싫어서 생각한 방법이 PHP Stream Wrapper와 Stream Filter를 이용하는 방식이라고 합니다. 파일을 메모리에 읽어들일 때 declare(ticks=1)를 넣어줍니다.</p>
+<h2 id="PHP-Framework-Trends"><a href="#PHP-Framework-Trends" class="headerlink" title="PHP Framework Trends"></a>PHP Framework Trends</h2><p><a href="https://www.tomasvotruba.cz/php-framework-trends/" target="_blank" rel="noopener">https://www.tomasvotruba.cz/php-framework-trends/</a></p>
+<p>다운로드 통계를 기반으로 PHP frameworks의 경향을 보여주는 사이트입니다. </p>
+<p><a href="https://www.tomasvotruba.cz/package-downloads-by-version/" target="_blank" rel="noopener">버전별 다운로드 통계</a>도 보실 수 있습니다.</p>
+<h2 id="Serverless-PHP-With-Bref"><a href="#Serverless-PHP-With-Bref" class="headerlink" title="Serverless PHP With Bref"></a>Serverless PHP With Bref</h2><p><a href="https://www.phparch.com/2019/05/serverless-php-with-bref-part-one/" target="_blank" rel="noopener">https://www.phparch.com/2019/05/serverless-php-with-bref-part-one/</a></p>
+<p>AWS Lambda에서 PHP를 실행하는 방법을 설명합니다. </p>
+<p>AWS SAM을 활용하는 Bref라는 툴을 쓰는데요.</p>
+<blockquote>
+<p>Bref provides the tools and documentation to easily deploy and run serverless PHP applications.</p>
+</blockquote>
+<p>문서를 보면 Laravel, Symfony 같은 프레임웍을 올릴 수도 있습니다.</p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+    </div>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">All Posts</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#News-amp-Releases"><span class="toc-number">1.</span> <span class="toc-text">News &amp; Releases</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP"><span class="toc-number">1.1.</span> <span class="toc-text">PHP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WordPress-5-2-“Jaco”"><span class="toc-number">1.2.</span> <span class="toc-text">WordPress 5.2 “Jaco”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Codeception-3-0"><span class="toc-number">1.3.</span> <span class="toc-text">Codeception 3.0</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Zend-Framework-transitions-to-Linux-Foundation"><span class="toc-number">1.4.</span> <span class="toc-text">Zend Framework transitions to Linux Foundation</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PHP-Internals"><span class="toc-number">2.</span> <span class="toc-text">PHP Internals</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#RFC-Arrow-Functions-2-0"><span class="toc-number">2.1.</span> <span class="toc-text">[RFC] Arrow Functions 2.0</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RFC-Deprecate-PHP-Short-open-tags"><span class="toc-number">2.2.</span> <span class="toc-text">[RFC] Deprecate PHP Short open tags</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RFC-Spread-Operator-in-Array-Expression"><span class="toc-number">2.3.</span> <span class="toc-text">[RFC] Spread Operator in Array Expression</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RFC-Allow-throwing-exceptions-from-toString"><span class="toc-number">2.4.</span> <span class="toc-text">[RFC] Allow throwing exceptions from __toString()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RFC-Deprecate-left-associative-ternary-operator"><span class="toc-number">2.5.</span> <span class="toc-text">[RFC] Deprecate left-associative ternary operator</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#New-in-PHP-7-4"><span class="toc-number">2.6.</span> <span class="toc-text">New in PHP 7.4.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Derick-Rethans-has-recorded-a-whole-load-of-new-episodes-of-PHP-Internals-News"><span class="toc-number">2.7.</span> <span class="toc-text">Derick Rethans has recorded a whole load of new episodes of PHP Internals News:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Tools"><span class="toc-number">3.</span> <span class="toc-text">Tools</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#기타-읽을-만한-글"><span class="toc-number">4.</span> <span class="toc-text">기타 읽을 만한 글</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-PHP-Compiler-aka-The-FFI-Rabbit-Hole"><span class="toc-number">4.1.</span> <span class="toc-text">A PHP Compiler, aka The FFI Rabbit Hole</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PSR-14-The-series"><span class="toc-number">4.2.</span> <span class="toc-text">PSR-14: The series</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-we-migrated-54-357-lines-of-code-from-Nette-to-Symfony"><span class="toc-number">4.3.</span> <span class="toc-text">How we migrated 54,357 lines of code from Nette to Symfony</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Running-tests-for-PHPUnit-from-within-PhpStorm"><span class="toc-number">4.4.</span> <span class="toc-text">Running tests for PHPUnit from within PhpStorm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#azdanov-php-interview-exercises"><span class="toc-number">4.5.</span> <span class="toc-text">azdanov/php-interview-exercises</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Find-Segfaults-in-PHP-like-a-boss"><span class="toc-number">4.6.</span> <span class="toc-text">Find Segfaults in PHP like a boss</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP-Framework-Trends"><span class="toc-number">4.7.</span> <span class="toc-text">PHP Framework Trends</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Serverless-PHP-With-Bref"><span class="toc-number">4.8.</span> <span class="toc-text">Serverless PHP With Bref</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://haah.kr/2019/05/14/php-annotated-monthly-may-2019/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://haah.kr/2019/05/14/php-annotated-monthly-may-2019/&text=php-annotated-monthly-may-2019"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://haah.kr/2019/05/14/php-annotated-monthly-may-2019/&title=php-annotated-monthly-may-2019"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://haah.kr/2019/05/14/php-annotated-monthly-may-2019/&is_video=false&description=php-annotated-monthly-may-2019"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=php-annotated-monthly-may-2019&body=Check out this article: http://haah.kr/2019/05/14/php-annotated-monthly-may-2019/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://haah.kr/2019/05/14/php-annotated-monthly-may-2019/&title=php-annotated-monthly-may-2019"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://haah.kr/2019/05/14/php-annotated-monthly-may-2019/&title=php-annotated-monthly-may-2019"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://haah.kr/2019/05/14/php-annotated-monthly-may-2019/&title=php-annotated-monthly-may-2019"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://haah.kr/2019/05/14/php-annotated-monthly-may-2019/&title=php-annotated-monthly-may-2019"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://haah.kr/2019/05/14/php-annotated-monthly-may-2019/&name=php-annotated-monthly-may-2019&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 youngiggy
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">All Posts</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-99319001-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'youngiggy-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
