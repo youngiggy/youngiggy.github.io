@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang=ko>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="JetBrains에서 제공하는 월간 PHP Annotated Monthly 2019년 7월호입니다. 이 중에서 몇 가지 제 취향껏 골라 그 안의 내용도 좀 뒤져보고 개발새발 번역해서 소개합니다.  News &amp;amp; ReleasesPHP 7.3.7나왔습니다. PHP 7.2.20나왔고요. PHP 7.4.0 alpha 3마지막 알파 버전이 나왔습니다. UPG">
+<meta name="keywords" content="PHP,php-annotated-monthly">
+<meta property="og:type" content="article">
+<meta property="og:title" content="php-annotated-monthly-july-2019">
+<meta property="og:url" content="http://haah.kr/2019/07/22/php-annotated-monthly-july-2019/index.html">
+<meta property="og:site_name" content="ha-ah">
+<meta property="og:description" content="JetBrains에서 제공하는 월간 PHP Annotated Monthly 2019년 7월호입니다. 이 중에서 몇 가지 제 취향껏 골라 그 안의 내용도 좀 뒤져보고 개발새발 번역해서 소개합니다.  News &amp;amp; ReleasesPHP 7.3.7나왔습니다. PHP 7.2.20나왔고요. PHP 7.4.0 alpha 3마지막 알파 버전이 나왔습니다. UPG">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2019/07/php_annotated.png">
+<meta property="og:image" content="https://habrastorage.org/webt/yn/xj/rh/ynxjrh97mcw4oskd5pzhde0uwou.png">
+<meta property="og:updated_time" content="2019-07-22T16:22:38.925Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="php-annotated-monthly-july-2019">
+<meta name="twitter:description" content="JetBrains에서 제공하는 월간 PHP Annotated Monthly 2019년 7월호입니다. 이 중에서 몇 가지 제 취향껏 골라 그 안의 내용도 좀 뒤져보고 개발새발 번역해서 소개합니다.  News &amp;amp; ReleasesPHP 7.3.7나왔습니다. PHP 7.2.20나왔고요. PHP 7.4.0 alpha 3마지막 알파 버전이 나왔습니다. UPG">
+<meta name="twitter:image" content="https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2019/07/php_annotated.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon.ico" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+          
+        
+    
+    <!-- title -->
+    <title>php-annotated-monthly-july-2019</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="ha-ah" type="application/atom+xml" />
+    
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-1318599740881033",
+            enable_page_level_ads: true
+        });
+    </script>
+
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">All Posts</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2019/07/20/agile-korea-meetup-190718/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://haah.kr/2019/07/22/php-annotated-monthly-july-2019/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://haah.kr/2019/07/22/php-annotated-monthly-july-2019/&text=php-annotated-monthly-july-2019"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://haah.kr/2019/07/22/php-annotated-monthly-july-2019/&title=php-annotated-monthly-july-2019"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://haah.kr/2019/07/22/php-annotated-monthly-july-2019/&is_video=false&description=php-annotated-monthly-july-2019"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=php-annotated-monthly-july-2019&body=Check out this article: http://haah.kr/2019/07/22/php-annotated-monthly-july-2019/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://haah.kr/2019/07/22/php-annotated-monthly-july-2019/&title=php-annotated-monthly-july-2019"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://haah.kr/2019/07/22/php-annotated-monthly-july-2019/&title=php-annotated-monthly-july-2019"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://haah.kr/2019/07/22/php-annotated-monthly-july-2019/&title=php-annotated-monthly-july-2019"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://haah.kr/2019/07/22/php-annotated-monthly-july-2019/&title=php-annotated-monthly-july-2019"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://haah.kr/2019/07/22/php-annotated-monthly-july-2019/&name=php-annotated-monthly-july-2019&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#News-amp-Releases"><span class="toc-number">1.</span> <span class="toc-text">News &amp; Releases</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP-7-3-7"><span class="toc-number">1.1.</span> <span class="toc-text">PHP 7.3.7</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP-7-2-20"><span class="toc-number">1.2.</span> <span class="toc-text">PHP 7.2.20</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP-7-4-0-alpha-3"><span class="toc-number">1.3.</span> <span class="toc-text">PHP 7.4.0 alpha 3</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PHP-Internals"><span class="toc-number">2.</span> <span class="toc-text">PHP Internals</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#RFC-Normalize-arrays’-“auto-increment”-value-on-copy-on-write"><span class="toc-number">2.1.</span> <span class="toc-text">[RFC] Normalize arrays’ “auto-increment” value on copy on write</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RFC-Strict-operators-directive"><span class="toc-number">2.2.</span> <span class="toc-text">[RFC] Strict operators directive</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Numeric-Literal-Separator"><span class="toc-number">2.3.</span> <span class="toc-text">Numeric Literal Separator.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Strict-Operator-Directive"><span class="toc-number">2.4.</span> <span class="toc-text">Strict Operator Directive.</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#tools"><span class="toc-number">3.</span> <span class="toc-text">tools</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Symfony"><span class="toc-number">4.</span> <span class="toc-text">Symfony</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Laravel"><span class="toc-number">5.</span> <span class="toc-text">Laravel</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Async-PHP"><span class="toc-number">6.</span> <span class="toc-text">Async PHP</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Security"><span class="toc-number">7.</span> <span class="toc-text">Security</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#nbs-system-snuffleupagus"><span class="toc-number">7.1.</span> <span class="toc-text">nbs-system/snuffleupagus</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Abusing-PHP-query-string-parser-to-bypass-IDS-IPS-and-WAF"><span class="toc-number">7.2.</span> <span class="toc-text">Abusing PHP query string parser to bypass IDS, IPS, and WAF.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Magento-2-3-1-Unauthenticated-Stored-XSS-to-RCE"><span class="toc-number">7.3.</span> <span class="toc-text">Magento 2.3.1: Unauthenticated Stored XSS to RCE.</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#기타-읽을-만한-글"><span class="toc-number">8.</span> <span class="toc-text">기타 읽을 만한 글</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Clean-Code-concepts-adapted-for-PHP"><span class="toc-number">8.1.</span> <span class="toc-text">Clean Code concepts adapted for PHP.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Null-Hell-and-How-to-Get-Out-of-It"><span class="toc-number">8.2.</span> <span class="toc-text">Null Hell and How to Get Out of It</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stop-using-DateTime"><span class="toc-number">8.3.</span> <span class="toc-text">Stop using DateTime</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#You-may-not-need-a-query-bus"><span class="toc-number">8.4.</span> <span class="toc-text">You may not need a query bus</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mutation-testing-–-we-are-testing-tests"><span class="toc-number">8.5.</span> <span class="toc-text">Mutation testing – we are testing tests</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-decent-PHP-Wishlist"><span class="toc-number">8.6.</span> <span class="toc-text">A decent PHP Wishlist</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Intro-Guide-to-Dockerfile-Best-Practices"><span class="toc-number">8.7.</span> <span class="toc-text">Intro Guide to Dockerfile Best Practices</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Audio-Video"><span class="toc-number">9.</span> <span class="toc-text">Audio/Video</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        php-annotated-monthly-july-2019
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">ha-ah</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2019-07-22T14:23:38.000Z" itemprop="datePublished">2019-07-22</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/PHP/">PHP</a>, <a class="tag-link" href="/tags/php-annotated-monthly/">php-annotated-monthly</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p><img src="https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2019/07/php_annotated.png" alt="Php_annotated_monthly 이미지"></p>
+<p>JetBrains에서 제공하는 월간 PHP Annotated Monthly <a href="https://blog.jetbrains.com/phpstorm/2019/07/php-annotated-july-2019/" target="_blank" rel="noopener">2019년 7월호</a>입니다.</p>
+<p>이 중에서 몇 가지 제 취향껏 골라 그 안의 내용도 좀 뒤져보고 개발새발 번역해서 소개합니다.</p>
+<hr>
+<h1 id="News-amp-Releases"><a href="#News-amp-Releases" class="headerlink" title="News &amp; Releases"></a>News &amp; Releases</h1><h2 id="PHP-7-3-7"><a href="#PHP-7-3-7" class="headerlink" title="PHP 7.3.7"></a>PHP 7.3.7</h2><p>나왔습니다.</p>
+<h2 id="PHP-7-2-20"><a href="#PHP-7-2-20" class="headerlink" title="PHP 7.2.20"></a>PHP 7.2.20</h2><p>나왔고요.</p>
+<h2 id="PHP-7-4-0-alpha-3"><a href="#PHP-7-4-0-alpha-3" class="headerlink" title="PHP 7.4.0 alpha 3"></a>PHP 7.4.0 alpha 3</h2><p><a href="https://wiki.php.net/todo/php74#timetable" target="_blank" rel="noopener">마지막</a> 알파 버전이 나왔습니다. <a href="https://github.com/php/php-src/blob/php-7.4.0alpha1/UPGRADING" target="_blank" rel="noopener">UPGRADING</a> 문서를 보시면 모든 새로운 feature 목록을 보실 수 있습니다. </p>
+<p><a href="https://stitcher.io/blog/new-in-php-74" target="_blank" rel="noopener">What’s new in PHP 7.4</a>, <a href="https://kinsta.com/blog/php-7-4/" target="_blank" rel="noopener">What’s New in PHP 7.4 (Features, Deprecations, Speed)</a> 등에서 더 많은 정보를 확인하세요.</p>
+<p>PHP 7.4에서 성능을 꽤 향상 시켰음에도 불구하고, PHP 8이야 말로 PHP의 성능 향상을 이루는 진정한 이정표가 될 것이라고 합니다. <a href="https://wiki.php.net/rfc/jit" target="_blank" rel="noopener">JIT</a>이 포함되었기 때문이죠. </p>
+<p>7월 22일에 기능 확정이 되므로 아래 투표 중인 기능만이 더 추가될 가능성이 있습니다(..라고 쓰여있지만 제가 번역하는 날짜가 22일이라서 이미 투표는 끝나고 마지막 하나만 빼고 통과됐습니다).</p>
+<ul>
+<li><a href="https://wiki.php.net/rfc/deprecations_php_7_4" target="_blank" rel="noopener">Deprecations for PHP 7.4</a></li>
+<li><a href="https://wiki.php.net/rfc/pdo_escape_placeholders" target="_blank" rel="noopener">Escape PDO “?” parameter placeholder</a></li>
+<li><a href="https://wiki.php.net/rfc/deprecate_curly_braces_array_access" target="_blank" rel="noopener">Deprecate curly brace syntax for accessing array elements and string offsets</a></li>
+<li><a href="https://wiki.php.net/rfc/add_str_begin_and_end_functions" target="_blank" rel="noopener">Add str_starts_with(), str_ends_with() and related functions.</a></li>
+</ul>
+<p>RFC는 없지만 흥미로운 변화가 추가되기도 했습니다.</p>
+<ul>
+<li>proc_open이 이제 shell을 띄우지 않고도 프로그램을 실행시킬 수 있습니다. <a href="https://twitter.com/nikita_ppv/status/1145684078114549760" target="_blank" rel="noopener">Nikita Popov의 트윗</a>과 반응을 확인하세요.</li>
+<li>이상한 배열 표현식을 쓰면 이제 notice를 던질 것이니 주의하세요.</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$null = <span class="keyword">null</span>;</span><br><span class="line">var_dump($null[<span class="number">0</span>]); <span class="comment">// NULL</span></span><br><span class="line"></span><br><span class="line">$int = <span class="number">42</span>;</span><br><span class="line">var_dump($int[<span class="string">'foo'</span>]); <span class="comment">// NULL</span></span><br><span class="line"></span><br><span class="line">var_dump(<span class="keyword">true</span>[<span class="number">0</span>] === <span class="keyword">false</span>[<span class="number">0</span>]); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h1 id="PHP-Internals"><a href="#PHP-Internals" class="headerlink" title="PHP Internals"></a>PHP Internals</h1><h2 id="RFC-Normalize-arrays’-“auto-increment”-value-on-copy-on-write"><a href="#RFC-Normalize-arrays’-“auto-increment”-value-on-copy-on-write" class="headerlink" title="[RFC] Normalize arrays’ “auto-increment” value on copy on write"></a>[RFC] Normalize arrays’ “auto-increment” value on copy on write</h2><p><a href="https://wiki.php.net/rfc/normalize-array-auto-increment-on-copy-on-write" target="_blank" rel="noopener">https://wiki.php.net/rfc/normalize-array-auto-increment-on-copy-on-write</a></p>
+<p>배열을 복사해도 자동 증가하는 키를 원본과 동일하게 맞추자는 RFC입니다. 저는 여지껏 이런 것도 몰랐고…</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$array = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">unset</span>($array[<span class="number">3</span>], $array[<span class="number">2</span>]);</span><br><span class="line">$arrayCopy = $array;</span><br><span class="line">$arrayCopy[] = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// If the proposal is accepted, the following statement will be true.</span></span><br><span class="line"><span class="comment">// Currently, the arrays below are not equivalent.</span></span><br><span class="line">assert($arrayCopy === [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>]);</span><br></pre></td></tr></table></figure>
+<h2 id="RFC-Strict-operators-directive"><a href="#RFC-Strict-operators-directive" class="headerlink" title="[RFC] Strict operators directive"></a>[RFC] Strict operators directive</h2><p>[RFC] Strict operators directive</p>
+<p>PHP는 대부분의 연산에서 알아서 형 변환을 해주는데요. 비교할 두 값의 형이 맞지 않거나 연산자에 맞지 않는 형일 때 TypeError를 던지도록 하는 RFC가 나왔습니다. RFC 대로라면 <code>declare(strict_operators=1);</code> 처럼 사용하면 됩니다.</p>
+<p>그런데 PHP 7.4에서는 너무 많은 변화가 발생할 수 있어서 PHP 8에나 넣을지 고려한다고 합니다.</p>
+<p><img src="https://habrastorage.org/webt/yn/xj/rh/ynxjrh97mcw4oskd5pzhde0uwou.png" alt="Strict operators directive img"></p>
+<h2 id="Numeric-Literal-Separator"><a href="#Numeric-Literal-Separator" class="headerlink" title="Numeric Literal Separator."></a>Numeric Literal Separator.</h2><ul>
+<li>PHP Internals News #17: With Theodore Brown and Bishop Bettini</li>
+</ul>
+<p><a href="https://phpinternals.news/17" target="_blank" rel="noopener">https://phpinternals.news/17</a></p>
+<p>숫자 리터럴에 자릿수를 표현하는 언더바(_)를 넣자는 RFC입니다.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$threshold = <span class="number">1</span>_000_000_000;  <span class="comment">// a billion!</span></span><br><span class="line">$testValue = ‪<span class="number">107</span>_925_284<span class="number">.88</span>; <span class="comment">// scale is hundreds of millions</span></span><br><span class="line">$discount = <span class="number">135</span>_00;          <span class="comment">// $135, stored as cents</span></span><br></pre></td></tr></table></figure>
+<p>개인적으로 마음에는 안들지만…PHP 7.4에 이미 구현되었습니다.</p>
+<h2 id="Strict-Operator-Directive"><a href="#Strict-Operator-Directive" class="headerlink" title="Strict Operator Directive."></a>Strict Operator Directive.</h2><p>– PHP Internals News #18: With Arnold Daniels</p>
+<p><a href="https://phpinternals.news/18" target="_blank" rel="noopener">https://phpinternals.news/18</a></p>
+<p>위에서 언급한 Strict Operator Directive에 관해 이야기 합니다.</p>
+<h1 id="tools"><a href="#tools" class="headerlink" title="tools"></a>tools</h1><ul>
+<li>자세한 내용은 <a href="https://blog.jetbrains.com/phpstorm/2019/07/php-annotated-july-2019/" target="_blank" rel="noopener">원문 블로그</a>를 통해 확인하세요.</li>
+</ul>
+<p>cycle/orm<br>– A powerful ORM designed specifically for long-running PHP apps. Full documentation is ready, with an example of dynamic schema and relations.</p>
+<p>SerafimArts/pipe<br>– An object-oriented pipe operator implementation for function call chains.</p>
+<p>helhum/dotenv-connector<br>– A Composer plugin that makes values from a .env file available as environment variables.</p>
+<p>thephpleague/commonmark<br>– A markdown parser. Overview of the 1.0 release.</p>
+<p>sebastianfeldmann/phpbu<br>– A database and file backups utility that can encrypt and send backups to cloud storages.</p>
+<p>localheinz/http-method<br>– A constants for HTTP request methods.</p>
+<p>leocarmo/circuit-breaker-php<br>– A Circuit Breaker pattern implementation for PHP. As an alternative also see ackintosh/ganesha.</p>
+<h1 id="Symfony"><a href="#Symfony" class="headerlink" title="Symfony"></a>Symfony</h1><ul>
+<li>자세한 내용은 <a href="https://blog.jetbrains.com/phpstorm/2019/07/php-annotated-july-2019/" target="_blank" rel="noopener">원문 블로그</a>를 통해 확인하세요.</li>
+</ul>
+<p>Symfony Local Web Server, 6 months later</p>
+<p>New Symfony Core Team Member: Yonel Ceruto.</p>
+<p>Improvements for Twig: Better White Space Control, Simpler Macros, Filter, Map and Reduce Features.</p>
+<p>Efficient testing with fixtures on Symfony 4</p>
+<p>Migrating Symfony Project to Kubernetes</p>
+<h1 id="Laravel"><a href="#Laravel" class="headerlink" title="Laravel"></a>Laravel</h1><ul>
+<li>자세한 내용은 <a href="https://blog.jetbrains.com/phpstorm/2019/07/php-annotated-july-2019/" target="_blank" rel="noopener">원문 블로그</a>를 통해 확인하세요.</li>
+</ul>
+<p>Improving assertions on Laravel fakes</p>
+<p>A dive into Laravel’s TestCase to decrease the Kernel boot time by ~50% during a test suite run.</p>
+<p>🎥 Laravel Core Adventures – Accessors &amp; Mutators</p>
+<p>🔈 Taylor’s Laravel Snippet #14 podcast – Laravel Live UK, whereHasMorph, laravel/ui, front-end authorization, performance, and Lumen.</p>
+<p>🎥 Event Sourcing with Laravel and EventSauce</p>
+<h1 id="Async-PHP"><a href="#Async-PHP" class="headerlink" title="Async PHP"></a>Async PHP</h1><ul>
+<li>자세한 내용은 <a href="https://blog.jetbrains.com/phpstorm/2019/07/php-annotated-july-2019/" target="_blank" rel="noopener">원문 블로그</a>를 통해 확인하세요.</li>
+</ul>
+<p>ReactPHP 1.0 LTS<br>– It’s 7 years since the first ReactPHP v0.1.0 release. Now the team has announced releases of 1.0 versions for reactphp/dns, reactphp/cache packages, and reactphp/react meta-package. It means that all the main components in ReactPHP are now stable. The release with LTS marks that they will be supported for at least the next 2 years.</p>
+<p>🎥 Creating a RESTful API with ReactPHP: Plans and First Steps, What is a RESTful API?, Adding routes, Refactoring to controllers, Dummy endpoints, Workflow improvements</p>
+<p>Using ReactPHP to run Drupal tasks</p>
+<p>swoft-cloud/swoft 2.0<br>– A framework based on Swoole for developing microservices, inspired by Spring Cloud. Implements PSR-7, PSR-14, PSR-15, and leverages AOP. See a short introductory post.</p>
+<h1 id="Security"><a href="#Security" class="headerlink" title="Security"></a>Security</h1><h2 id="nbs-system-snuffleupagus"><a href="#nbs-system-snuffleupagus" class="headerlink" title="nbs-system/snuffleupagus"></a>nbs-system/snuffleupagus</h2><p><a href="https://github.com/nbs-system/snuffleupagus" target="_blank" rel="noopener">https://github.com/nbs-system/snuffleupagus</a></p>
+<p>runtime에 잠재적으로 위험한 코드 실행을 막아주는 extension입니다. </p>
+<h2 id="Abusing-PHP-query-string-parser-to-bypass-IDS-IPS-and-WAF"><a href="#Abusing-PHP-query-string-parser-to-bypass-IDS-IPS-and-WAF" class="headerlink" title="Abusing PHP query string parser to bypass IDS, IPS, and WAF."></a>Abusing PHP query string parser to bypass IDS, IPS, and WAF.</h2><p><a href="https://www.secjuice.com/abusing-php-query-string-parser-bypass-ids-ips-waf/" target="_blank" rel="noopener">https://www.secjuice.com/abusing-php-query-string-parser-bypass-ids-ips-waf/</a></p>
+<p>PHP query string parser로 IDS/IPS, 어플리케이션 방화벽을 뚫는 방법을 소개합니다. </p>
+<h2 id="Magento-2-3-1-Unauthenticated-Stored-XSS-to-RCE"><a href="#Magento-2-3-1-Unauthenticated-Stored-XSS-to-RCE" class="headerlink" title="Magento 2.3.1: Unauthenticated Stored XSS to RCE."></a>Magento 2.3.1: Unauthenticated Stored XSS to RCE.</h2><p><a href="https://blog.ripstech.com/2019/magento-rce-via-xss/" target="_blank" rel="noopener">https://blog.ripstech.com/2019/magento-rce-via-xss/</a></p>
+<h1 id="기타-읽을-만한-글"><a href="#기타-읽을-만한-글" class="headerlink" title="기타 읽을 만한 글"></a>기타 읽을 만한 글</h1><h2 id="Clean-Code-concepts-adapted-for-PHP"><a href="#Clean-Code-concepts-adapted-for-PHP" class="headerlink" title="Clean Code concepts adapted for PHP."></a>Clean Code concepts adapted for PHP.</h2><p><a href="https://github.com/jupeter/clean-code-php" target="_blank" rel="noopener">https://github.com/jupeter/clean-code-php</a></p>
+<p>Robert C. Martin의 책인 Clean Code 의 내용을 PHP 버전으로 옮겨놓은 것입니다.</p>
+<h2 id="Null-Hell-and-How-to-Get-Out-of-It"><a href="#Null-Hell-and-How-to-Get-Out-of-It" class="headerlink" title="Null Hell and How to Get Out of It"></a>Null Hell and How to Get Out of It</h2><p><a href="https://afilina.com/null-hell" target="_blank" rel="noopener">https://afilina.com/null-hell</a></p>
+<p>생성자에 넣을 값 중에 optional한 값이 많을 때 null로 채워야 하는 상황에 관한 이야기입니다. 결론은 설계 좀 잘하자.</p>
+<h2 id="Stop-using-DateTime"><a href="#Stop-using-DateTime" class="headerlink" title="Stop using DateTime"></a>Stop using DateTime</h2><p><a href="https://blog.nikolaposa.in.rs/2019/07/01/stop-using-datetime/" target="_blank" rel="noopener">https://blog.nikolaposa.in.rs/2019/07/01/stop-using-datetime/</a></p>
+<p>가능하면 DateTime 대신 DateTimeImmutable을 씁시다!</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$startedAt = <span class="keyword">new</span> DateTime(<span class="string">'2019-06-30 10:00:00'</span>);</span><br><span class="line"></span><br><span class="line">$finishedAt = $startedAt-&gt;add(<span class="keyword">new</span> DateInterval(<span class="string">'PT3M'</span>)); </span><br><span class="line"></span><br><span class="line">var_dump($startedAt-&gt;format(<span class="string">'Y-m-d H:i:s'</span>)); <span class="comment">//2019-06-30 10:03:00 ❌</span></span><br><span class="line">var_dump($finishedAt-&gt;format(<span class="string">'Y-m-d H:i:s'</span>)); <span class="comment">//2019-06-30 10:03:00 ✅</span></span><br></pre></td></tr></table></figure>
+<h2 id="You-may-not-need-a-query-bus"><a href="#You-may-not-need-a-query-bus" class="headerlink" title="You may not need a query bus"></a>You may not need a query bus</h2><p><a href="https://matthiasnoback.nl/2019/06/you-may-not-need-a-query-bus/" target="_blank" rel="noopener">https://matthiasnoback.nl/2019/06/you-may-not-need-a-query-bus/</a></p>
+<p>의미없는 query bus를 태우는 대신 명시적으로 의존성을 추가하자는 주장. 댓글에 반론도 계속 이어지고 있습니다.</p>
+<h2 id="Mutation-testing-–-we-are-testing-tests"><a href="#Mutation-testing-–-we-are-testing-tests" class="headerlink" title="Mutation testing – we are testing tests"></a>Mutation testing – we are testing tests</h2><p><a href="https://sarvendev.com/en/2019/06/mutation-testing-we-are-testing-tests/" target="_blank" rel="noopener">https://sarvendev.com/en/2019/06/mutation-testing-we-are-testing-tests/</a></p>
+<p>오류 기반(?) 테스트 프레임워크인 <a href="https://infection.github.io/" target="_blank" rel="noopener">Infection</a>를 소개합니다.<br>mutation testing에서 가장 유명하다고 합니다.</p>
+<h2 id="A-decent-PHP-Wishlist"><a href="#A-decent-PHP-Wishlist" class="headerlink" title="A decent PHP Wishlist"></a>A decent PHP Wishlist</h2><p><a href="https://medium.com/@liamhammett/my-php-wishlist-dd74c9499591" target="_blank" rel="noopener">https://medium.com/@liamhammett/my-php-wishlist-dd74c9499591</a></p>
+<p>누군가의 PHP 위시리스트!</p>
+<h2 id="Intro-Guide-to-Dockerfile-Best-Practices"><a href="#Intro-Guide-to-Dockerfile-Best-Practices" class="headerlink" title="Intro Guide to Dockerfile Best Practices"></a>Intro Guide to Dockerfile Best Practices</h2><p><a href="https://blog.docker.com/2019/07/intro-guide-to-dockerfile-best-practices/" target="_blank" rel="noopener">https://blog.docker.com/2019/07/intro-guide-to-dockerfile-best-practices/</a></p>
+<h1 id="Audio-Video"><a href="#Audio-Video" class="headerlink" title="Audio/Video"></a>Audio/Video</h1><ul>
+<li>자세한 내용은 <a href="https://blog.jetbrains.com/phpstorm/2019/07/php-annotated-july-2019/" target="_blank" rel="noopener">원문 블로그</a>를 통해 확인하세요. </li>
+</ul>
+<p>🎥 PHP fwdays’19, Kyiv (English talks only)</p>
+<p>🎥 Dutch PHP Conference 2019, Amsterdam</p>
+<p>🎥 PHPDay 2019, Verona</p>
+<p>🎥 PHP Town Hall Episode 67 – On Zend Framework 3 and Laminas with Adam Culp.</p>
+<p>🔈 php[arch] podcast #21: Serverless PHP, Array Functions, and Data Structures.</p>
+<p>🔈 That Podcast Episode 60 – On Twig, Drupal, and Sculpin with Oliver Davies.</p>
+<p>🔈 That Podcast Episode 61 – On a new Symfony’s HTTP Client component with Nicolas Grekas.</p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+    </div>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">All Posts</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#News-amp-Releases"><span class="toc-number">1.</span> <span class="toc-text">News &amp; Releases</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP-7-3-7"><span class="toc-number">1.1.</span> <span class="toc-text">PHP 7.3.7</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP-7-2-20"><span class="toc-number">1.2.</span> <span class="toc-text">PHP 7.2.20</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP-7-4-0-alpha-3"><span class="toc-number">1.3.</span> <span class="toc-text">PHP 7.4.0 alpha 3</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PHP-Internals"><span class="toc-number">2.</span> <span class="toc-text">PHP Internals</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#RFC-Normalize-arrays’-“auto-increment”-value-on-copy-on-write"><span class="toc-number">2.1.</span> <span class="toc-text">[RFC] Normalize arrays’ “auto-increment” value on copy on write</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RFC-Strict-operators-directive"><span class="toc-number">2.2.</span> <span class="toc-text">[RFC] Strict operators directive</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Numeric-Literal-Separator"><span class="toc-number">2.3.</span> <span class="toc-text">Numeric Literal Separator.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Strict-Operator-Directive"><span class="toc-number">2.4.</span> <span class="toc-text">Strict Operator Directive.</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#tools"><span class="toc-number">3.</span> <span class="toc-text">tools</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Symfony"><span class="toc-number">4.</span> <span class="toc-text">Symfony</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Laravel"><span class="toc-number">5.</span> <span class="toc-text">Laravel</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Async-PHP"><span class="toc-number">6.</span> <span class="toc-text">Async PHP</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Security"><span class="toc-number">7.</span> <span class="toc-text">Security</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#nbs-system-snuffleupagus"><span class="toc-number">7.1.</span> <span class="toc-text">nbs-system/snuffleupagus</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Abusing-PHP-query-string-parser-to-bypass-IDS-IPS-and-WAF"><span class="toc-number">7.2.</span> <span class="toc-text">Abusing PHP query string parser to bypass IDS, IPS, and WAF.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Magento-2-3-1-Unauthenticated-Stored-XSS-to-RCE"><span class="toc-number">7.3.</span> <span class="toc-text">Magento 2.3.1: Unauthenticated Stored XSS to RCE.</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#기타-읽을-만한-글"><span class="toc-number">8.</span> <span class="toc-text">기타 읽을 만한 글</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Clean-Code-concepts-adapted-for-PHP"><span class="toc-number">8.1.</span> <span class="toc-text">Clean Code concepts adapted for PHP.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Null-Hell-and-How-to-Get-Out-of-It"><span class="toc-number">8.2.</span> <span class="toc-text">Null Hell and How to Get Out of It</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stop-using-DateTime"><span class="toc-number">8.3.</span> <span class="toc-text">Stop using DateTime</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#You-may-not-need-a-query-bus"><span class="toc-number">8.4.</span> <span class="toc-text">You may not need a query bus</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mutation-testing-–-we-are-testing-tests"><span class="toc-number">8.5.</span> <span class="toc-text">Mutation testing – we are testing tests</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-decent-PHP-Wishlist"><span class="toc-number">8.6.</span> <span class="toc-text">A decent PHP Wishlist</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Intro-Guide-to-Dockerfile-Best-Practices"><span class="toc-number">8.7.</span> <span class="toc-text">Intro Guide to Dockerfile Best Practices</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Audio-Video"><span class="toc-number">9.</span> <span class="toc-text">Audio/Video</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://haah.kr/2019/07/22/php-annotated-monthly-july-2019/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://haah.kr/2019/07/22/php-annotated-monthly-july-2019/&text=php-annotated-monthly-july-2019"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://haah.kr/2019/07/22/php-annotated-monthly-july-2019/&title=php-annotated-monthly-july-2019"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://haah.kr/2019/07/22/php-annotated-monthly-july-2019/&is_video=false&description=php-annotated-monthly-july-2019"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=php-annotated-monthly-july-2019&body=Check out this article: http://haah.kr/2019/07/22/php-annotated-monthly-july-2019/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://haah.kr/2019/07/22/php-annotated-monthly-july-2019/&title=php-annotated-monthly-july-2019"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://haah.kr/2019/07/22/php-annotated-monthly-july-2019/&title=php-annotated-monthly-july-2019"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://haah.kr/2019/07/22/php-annotated-monthly-july-2019/&title=php-annotated-monthly-july-2019"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://haah.kr/2019/07/22/php-annotated-monthly-july-2019/&title=php-annotated-monthly-july-2019"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://haah.kr/2019/07/22/php-annotated-monthly-july-2019/&name=php-annotated-monthly-july-2019&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 youngiggy
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">All Posts</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-99319001-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'youngiggy-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
