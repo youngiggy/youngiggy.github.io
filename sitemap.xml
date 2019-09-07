@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://haah.kr/2018/12/01/accessing-elastic-beanstalk-via-fixed-ip/</loc>
+    
+    <lastmod>2019-09-07T02:06:22.493Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://haah.kr/2019/08/12/php-annotated-monthly-august-2019/</loc>
     
     <lastmod>2019-08-17T02:08:28.545Z</lastmod>
@@ -138,13 +145,6 @@
     <loc>http://haah.kr/2018/12/11/php-annotated-monthly-december-2018-2nd/</loc>
     
     <lastmod>2018-12-15T06:18:50.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://haah.kr/2018/12/01/accessing-elastic-beanstalk-via-fixed-ip/</loc>
-    
-    <lastmod>2018-12-09T09:23:44.000Z</lastmod>
     
   </url>
   

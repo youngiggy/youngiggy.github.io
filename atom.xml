@@ -495,7 +495,7 @@
     <link href="http://haah.kr/2018/12/01/accessing-elastic-beanstalk-via-fixed-ip/"/>
     <id>http://haah.kr/2018/12/01/accessing-elastic-beanstalk-via-fixed-ip/</id>
     <published>2018-12-01T14:33:44.000Z</published>
-    <updated>2018-12-09T09:23:44.000Z</updated>
+    <updated>2019-09-07T02:06:22.493Z</updated>
     
     <summary type="html">
     
@@ -503,7 +503,8 @@
       
         
         
-          &lt;p&gt;이미 정답(혹은 더 좋은 방안)을 알고 계신 분들이라면 답답스럽겠지만 온통 혼란스러웠던 3일을 회고해본다. 그 동안 서버란 서버팀에 맡기는 게 당연한 회사를 다녔으므로 서버를 관리할 일도 거의 없었거니와 올 해 백엔드 개발자로 전향한 뒤에도
+          &lt;p&gt;updated : 2019.09.07&lt;/p&gt;
+&lt;p&gt;최종안이 아래와 같은데,&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span
         
       
     

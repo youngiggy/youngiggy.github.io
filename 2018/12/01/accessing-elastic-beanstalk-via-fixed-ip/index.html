@@ -6,19 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="이미 정답(혹은 더 좋은 방안)을 알고 계신 분들이라면 답답스럽겠지만 온통 혼란스러웠던 3일을 회고해본다. 그 동안 서버란 서버팀에 맡기는 게 당연한 회사를 다녔으므로 서버를 관리할 일도 거의 없었거니와 올 해 백엔드 개발자로 전향한 뒤에도 경험 많은 동료들만 믿고 인프라 관리는 좀처럼 내 일처럼 달려들지 못했다는 점을 고백하고 시작해야겠다. Show me">
+    <meta name="description" content="updated : 2019.09.07 최종안이 아래와 같은데,1Client -&amp;gt; NLB -&amp;gt; Proxy 서버군 -&amp;gt; EB AWS에 계신 분과 이야기를 하면서 Proxy 서버군 대신 ALB를 붙이는 것이 더 좋을 것이라는 이야기를 들었고, 이게 가능할지 테스트를 해보려 했다. 그러나 ALB로 직접 연결할 방법이 딱히 보이지 않아서 검색을 해봤">
 <meta name="keywords" content="AWS,INFRA">
 <meta property="og:type" content="article">
 <meta property="og:title" content="고정된 IP를 통과해 Elastic Beanstalk 접근하기">
 <meta property="og:url" content="http://haah.kr/2018/12/01/accessing-elastic-beanstalk-via-fixed-ip/index.html">
 <meta property="og:site_name" content="ha-ah">
-<meta property="og:description" content="이미 정답(혹은 더 좋은 방안)을 알고 계신 분들이라면 답답스럽겠지만 온통 혼란스러웠던 3일을 회고해본다. 그 동안 서버란 서버팀에 맡기는 게 당연한 회사를 다녔으므로 서버를 관리할 일도 거의 없었거니와 올 해 백엔드 개발자로 전향한 뒤에도 경험 많은 동료들만 믿고 인프라 관리는 좀처럼 내 일처럼 달려들지 못했다는 점을 고백하고 시작해야겠다. Show me">
+<meta property="og:description" content="updated : 2019.09.07 최종안이 아래와 같은데,1Client -&amp;gt; NLB -&amp;gt; Proxy 서버군 -&amp;gt; EB AWS에 계신 분과 이야기를 하면서 Proxy 서버군 대신 ALB를 붙이는 것이 더 좋을 것이라는 이야기를 들었고, 이게 가능할지 테스트를 해보려 했다. 그러나 ALB로 직접 연결할 방법이 딱히 보이지 않아서 검색을 해봤">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="http://haah.kr/images/accessing-elastic-beanstalk-via-fixed-ip/static-ip-to-eb.png">
-<meta property="og:updated_time" content="2018-12-09T09:23:44.000Z">
+<meta property="og:updated_time" content="2019-09-07T02:06:22.493Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="고정된 IP를 통과해 Elastic Beanstalk 접근하기">
-<meta name="twitter:description" content="이미 정답(혹은 더 좋은 방안)을 알고 계신 분들이라면 답답스럽겠지만 온통 혼란스러웠던 3일을 회고해본다. 그 동안 서버란 서버팀에 맡기는 게 당연한 회사를 다녔으므로 서버를 관리할 일도 거의 없었거니와 올 해 백엔드 개발자로 전향한 뒤에도 경험 많은 동료들만 믿고 인프라 관리는 좀처럼 내 일처럼 달려들지 못했다는 점을 고백하고 시작해야겠다. Show me">
+<meta name="twitter:description" content="updated : 2019.09.07 최종안이 아래와 같은데,1Client -&amp;gt; NLB -&amp;gt; Proxy 서버군 -&amp;gt; EB AWS에 계신 분과 이야기를 하면서 Proxy 서버군 대신 ALB를 붙이는 것이 더 좋을 것이라는 이야기를 들었고, 이게 가능할지 테스트를 해보려 했다. 그러나 ALB로 직접 연결할 방법이 딱히 보이지 않아서 검색을 해봤">
 <meta name="twitter:image" content="http://haah.kr/images/accessing-elastic-beanstalk-via-fixed-ip/static-ip-to-eb.png">
     
     
@@ -147,7 +147,20 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p>이미 정답(혹은 더 좋은 방안)을 알고 계신 분들이라면 답답스럽겠지만 온통 혼란스러웠던 3일을 회고해본다. 그 동안 서버란 서버팀에 맡기는 게 당연한 회사를 다녔으므로 서버를 관리할 일도 거의 없었거니와 올 해 백엔드 개발자로 전향한 뒤에도 경험 많은 동료들만 믿고 인프라 관리는 좀처럼 내 일처럼 달려들지 못했다는 점을 고백하고 시작해야겠다.</p>
+    <p>updated : 2019.09.07</p>
+<p>최종안이 아래와 같은데,<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Client -&gt; NLB -&gt; Proxy 서버군 -&gt; EB</span><br></pre></td></tr></table></figure></p>
+<p>AWS에 계신 분과 이야기를 하면서 Proxy 서버군 대신 ALB를 붙이는 것이 더 좋을 것이라는 이야기를 들었고, 이게 가능할지 테스트를 해보려 했다.</p>
+<p>그러나 ALB로 직접 연결할 방법이 딱히 보이지 않아서 검색을 해봤다.</p>
+<p><a href="https://stackoverflow.com/questions/50981864/aws-pass-traffic-from-nlb-to-an-alb" target="_blank" rel="noopener">https://stackoverflow.com/questions/50981864/aws-pass-traffic-from-nlb-to-an-alb</a></p>
+<blockquote>
+<p>The problem is that Application Load Balancers can scale up, out, in, and/or down</p>
+</blockquote>
+<p>여기 나온 것처럼, NLB와 ALB를 직접 연결할 수는 있으나 IP로 연결 해야 한다.<br>그러나 ALB의 특성 상 IP는 계속 변할 여지가 많기 때문에, 람다를 통해 계속 NLB가 바라보는 ALB의 IP를 바꿔줘야 한다.</p>
+<p>그 방법은 여기 잘 나와있다.<br><a href="https://aws.amazon.com/ko/blogs/networking-and-content-delivery/using-static-ip-addresses-for-application-load-balancers/" target="_blank" rel="noopener">https://aws.amazon.com/ko/blogs/networking-and-content-delivery/using-static-ip-addresses-for-application-load-balancers/</a></p>
+<p>AWS 측에서 공식적으로 제안하는 방법이라고 보면 되겠다.</p>
+<p>지금 구성을 고쳐서 이 방식으로 갈아치울 정도로 관리가 편해 보이진 않는다. 다른 곳에서 비슷한 요구를 해 온다면 그때는 이 방식이 훨씬 좋을 수 있다. 다만 IP가 변하는 상황에서 서비스가 안정적으로 유지될 지는 문서를 더 읽어보고 판단해야할 듯 하다.</p>
+<hr>
+<p>이미 정답(혹은 더 좋은 방안)을 알고 계신 분들이라면 답답스럽겠지만 온통 혼란스러웠던 3일을 회고해본다. 그 동안 서버란 서버팀에 맡기는 게 당연한 회사를 다녔으므로 서버를 관리할 일도 거의 없었거니와 올 해 백엔드 개발자로 전향한 뒤에도 경험 많은 동료들만 믿고 인프라 관리는 좀처럼 내 일처럼 달려들지 못했다는 점을 고백하고 시작해야겠다.</p>
 <h2 id="Show-me-the-IP"><a href="#Show-me-the-IP" class="headerlink" title="Show me the IP"></a>Show me the IP</h2><p>모 대기업과 신규 연동을 진행하는데, 상용 오픈을 일주일 남겨두고 방화벽 이야기가 나왔다. 그쪽에서 우리쪽으로 찌르는 request 밖에 없는데, 우리 서버 IP(혹은 대역)을 문의하는 것이었다. 계열사 모두가 같은 정책을 유지하는데, 외부 API로 요청을 보낼 때도 특정 IP나 대역을 지정해야만 한다는 것이다.</p>
 <p>이전에도 몇몇 기업이 IP 대역을 문의하긴 했다. 그땐 우리가 그쪽 서버로 쏘는 상황이었고, 우리는 자동으로 스케일링 되는 환경이라 IP를 정해놓을 수 없다고 알려주곤 했었다 - 이것도 뒤에 얘기할텐데, 이 역시 가능하긴 하다.</p>
 <p>AWS에선 고정 IP를 제공하거나 낭비하는 것에 매우 깐깐하기도 하고, <a href="https://aws.amazon.com/ko/elasticbeanstalk/" target="_blank" rel="noopener">Elastic Beanstalk</a>같은 완전관리형 솔루션은 도메인이나 리소스 이름으로 관리되고 있었다. 그도 그럴 것이, <a href="https://docs.aws.amazon.com/ko_kr/elasticbeanstalk/latest/dg/using-features.CNAMESwap.html" target="_blank" rel="noopener">블루/그린 배포</a>를 한다거나 EB에서 내부적으로 관리하는 로드발란서 같은 놈이 죽으면 새로 띄워 갈아끼워야 하니까 말이다 - <a href="https://aws.amazon.com/ko/message/74876/" target="_blank" rel="noopener">EC2 DNS Resolution 문제</a>가 발생하면 망하는 거지만.</p>
