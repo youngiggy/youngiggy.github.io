@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://haah.kr/"/>
-  <updated>2019-08-17T02:08:28.545Z</updated>
+  <updated>2019-09-15T02:37:57.547Z</updated>
   <id>http://haah.kr/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>php-annotated-monthly-september-2019</title>
+    <link href="http://haah.kr/2019/09/12/php-annotated-monthly-september-2019/"/>
+    <id>http://haah.kr/2019/09/12/php-annotated-monthly-september-2019/</id>
+    <published>2019-09-12T11:51:56.000Z</published>
+    <updated>2019-09-15T02:37:57.547Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;img src=&quot;https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2019/07/php_annotated.png&quot; alt=&quot;Php_annotated_monthly 이미지&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
+    
+      <category term="php-annotated-monthly" scheme="http://haah.kr/tags/php-annotated-monthly/"/>
+    
+  </entry>
   
   <entry>
     <title>php-annotated-monthly-august-2019</title>
@@ -514,34 +541,6 @@
       <category term="AWS" scheme="http://haah.kr/tags/AWS/"/>
     
       <category term="INFRA" scheme="http://haah.kr/tags/INFRA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>네이버 카페 사진을 받아라</title>
-    <link href="http://haah.kr/2018/11/24/naver-cafe-image-crawling/"/>
-    <id>http://haah.kr/2018/11/24/naver-cafe-image-crawling/</id>
-    <published>2018-11-24T02:04:52.000Z</published>
-    <updated>2018-11-24T03:32:53.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;간만에 생활코딩 하나.&lt;/p&gt;
-&lt;p&gt;아이가 다니는 유치원이 문을 닫는다고 해서 혹시나 아이들 활동 사진을 올려주는 카페도 닫을까봐 부랴부랴 크롤러를 만들기 시작했다. 지금은 내년 2월까지는 운영하기로 합의된 상태지만.&lt;/p&gt;
-&lt;p&gt;사실 올 해
-        
-      
-    
-    </summary>
-    
-    
-      <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
-    
-      <category term="생활코딩" scheme="http://haah.kr/tags/%EC%83%9D%ED%99%9C%EC%BD%94%EB%94%A9/"/>
     
   </entry>
   
