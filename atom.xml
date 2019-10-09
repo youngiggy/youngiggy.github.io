@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://haah.kr/"/>
-  <updated>2019-09-15T02:37:57.547Z</updated>
+  <updated>2019-10-09T03:56:18.040Z</updated>
   <id>http://haah.kr/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>php-annotated-monthly-october-2019</title>
+    <link href="http://haah.kr/2019/10/09/php-annotated-monthly-october-2019/"/>
+    <id>http://haah.kr/2019/10/09/php-annotated-monthly-october-2019/</id>
+    <published>2019-10-09T00:51:49.000Z</published>
+    <updated>2019-10-09T03:56:18.040Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;img src=&quot;https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2019/07/php_annotated.png&quot; alt=&quot;Php_annotated_monthly 이미지&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
+    
+      <category term="php-annotated-monthly" scheme="http://haah.kr/tags/php-annotated-monthly/"/>
+    
+  </entry>
   
   <entry>
     <title>php-annotated-monthly-september-2019</title>
@@ -514,33 +541,6 @@
       <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
     
       <category term="php-annotated-monthly" scheme="http://haah.kr/tags/php-annotated-monthly/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>고정된 IP를 통과해 Elastic Beanstalk 접근하기</title>
-    <link href="http://haah.kr/2018/12/01/accessing-elastic-beanstalk-via-fixed-ip/"/>
-    <id>http://haah.kr/2018/12/01/accessing-elastic-beanstalk-via-fixed-ip/</id>
-    <published>2018-12-01T14:33:44.000Z</published>
-    <updated>2019-09-07T02:06:22.493Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;updated : 2019.09.07&lt;/p&gt;
-&lt;p&gt;최종안이 아래와 같은데,&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span
-        
-      
-    
-    </summary>
-    
-    
-      <category term="AWS" scheme="http://haah.kr/tags/AWS/"/>
-    
-      <category term="INFRA" scheme="http://haah.kr/tags/INFRA/"/>
     
   </entry>
   
