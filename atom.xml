@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://haah.kr/"/>
-  <updated>2019-10-25T04:30:14.321Z</updated>
+  <updated>2019-11-04T17:27:22.670Z</updated>
   <id>http://haah.kr/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Serverless PHP (2019년 말)</title>
+    <link href="http://haah.kr/2019/11/05/serverless-php-2019/"/>
+    <id>http://haah.kr/2019/11/05/serverless-php-2019/</id>
+    <published>2019-11-04T17:24:09.000Z</published>
+    <updated>2019-11-04T17:27:22.670Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;https://vapor.laravel.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Laravel Vapor&lt;/a&gt;가 유명세를 떨치고 있는 와중에, 국내에서는 상대적으로 덜 주목받는 프로젝트를
+        
+      
+    
+    </summary>
+    
+    
+      <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
+    
+      <category term="serverless" scheme="http://haah.kr/tags/serverless/"/>
+    
+  </entry>
   
   <entry>
     <title>애자일 코리아 컨퍼런스 2019 후기</title>
@@ -501,32 +527,6 @@
     <id>http://haah.kr/2018/12/15/php-annotated-monthly-december-2018-3rd/</id>
     <published>2018-12-15T06:25:04.000Z</published>
     <updated>2018-12-15T08:03:22.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;&lt;img src=&quot;https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2018/12/new_php-annotated-monthly.jpg&quot; alt=&quot;Php_annotated_monthly
-        
-      
-    
-    </summary>
-    
-    
-      <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
-    
-      <category term="php-annotated-monthly" scheme="http://haah.kr/tags/php-annotated-monthly/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>php-annotated-monthly-december-2018 - 2. PHP Internals</title>
-    <link href="http://haah.kr/2018/12/11/php-annotated-monthly-december-2018-2nd/"/>
-    <id>http://haah.kr/2018/12/11/php-annotated-monthly-december-2018-2nd/</id>
-    <published>2018-12-11T14:22:36.000Z</published>
-    <updated>2018-12-15T06:18:50.000Z</updated>
     
     <summary type="html">
     
