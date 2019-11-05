@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="ha-ah">
 <meta property="og:description" content="Laravel Vapor가 유명세를 떨치고 있는 와중에, 국내에서는 상대적으로 덜 주목받는 프로젝트를 소개합니다. AWS작년 12월 php-annotated-monthly에 Lambda Layers를 소개드린 적이 있습니다. AWS re:Invent 2018 conference에서 발표된 내용에 따르면 AWS Lambda에서도 PHP를 쓰기 위해 우회하지">
 <meta property="og:locale" content="ko">
-<meta property="og:updated_time" content="2019-11-04T17:27:22.670Z">
+<meta property="og:updated_time" content="2019-11-05T14:48:05.408Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Serverless PHP (2019년 말)">
 <meta name="twitter:description" content="Laravel Vapor가 유명세를 떨치고 있는 와중에, 국내에서는 상대적으로 덜 주목받는 프로젝트를 소개합니다. AWS작년 12월 php-annotated-monthly에 Lambda Layers를 소개드린 적이 있습니다. AWS re:Invent 2018 conference에서 발표된 내용에 따르면 AWS Lambda에서도 PHP를 쓰기 위해 우회하지">
@@ -154,8 +154,8 @@
 <p>그렇다면 이미 Serverless 만으로도 PHP 어플리케이션을 띄우는 것이 가능하다는 사실.</p>
 <p><a href="https://serverless.com/examples/" target="_blank" rel="noopener">https://serverless.com/examples/</a></p>
 <p>여기서 PHP나 Java로 검색하면 결과가 하나씩 나옵니다. 상대적으로 관심이 덜한 언어라고 해야할까요?</p>
-<p>어쨌든 <a href="https://github.com/serverless/examples/tree/master/openwhisk-php-simple" target="_blank" rel="noopener">serverless/examples</a> 페이지로 들어가 봅시다. <a href="https://github.com/serverless/examples/blob/master/openwhisk-php-simple/serverless.yml" target="_blank" rel="noopener">serverless.yml</a>을 열어보면 <a href="https://openwhisk.apache.org/" target="_blank" rel="noopener">Apache OpenWhisk</a>가 제공하는 PHP runtime을 활용하는 것을 볼 수 있습니다.</p>
-<p><code>AWS에 쉽게 올리는 PHP 코드</code>와 같은 식의 글은 대부분 이런 식입니다. 결국 AWS에서는 누군가가 만들어 놓은 runtime이 필요하구나…생각하시면 되겠습니다. 물론 직접 만들 수도 있습니다.</p>
+<p>어쨌든 간단한 PHP 예제인 <a href="https://github.com/serverless/examples/tree/master/openwhisk-php-simple" target="_blank" rel="noopener">serverless/examples</a> 페이지로 들어가 봅시다. <a href="https://github.com/serverless/examples/blob/master/openwhisk-php-simple/serverless.yml" target="_blank" rel="noopener">serverless.yml</a>을 열어보면 <a href="https://openwhisk.apache.org/" target="_blank" rel="noopener">Apache OpenWhisk</a>가 제공하는 PHP runtime을 활용하는 것을 볼 수 있습니다.</p>
+<p><code>AWS Lambda에 쉽게 올리는 PHP 코드</code>와 같은 식의 글은 대부분 이런 식입니다. 결국 AWS에서는 누군가가 만들어 놓은 runtime이 필요하구나…생각하시면 되겠습니다. 물론 직접 만들 수도 있습니다.</p>
 <p>AWS의 블로그에 <a href="https://aws.amazon.com/ko/blogs/compute/scripting-languages-for-aws-lambda-running-php-ruby-and-go/" target="_blank" rel="noopener">PHP runtime을 만드는 좋은 글</a>이 있긴 하지만, <a href="https://aws.amazon.com/ko/blogs/apn/aws-lambda-custom-runtime-for-php-a-practical-example/" target="_blank" rel="noopener">PHP 7.3 기반의 runtime을 만들 수 있는 방법을 소개하는 글</a>도 있습니다.</p>
 <ul>
 <li>Lambda Execution Environment의 기초가 되는 AMI를 <a href="https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/lambda-runtimes.html" target="_blank" rel="noopener">여기서</a> 찾아 인스턴스를 띄우고, Lambda function을 관리할 수 있는 IAM Role을 부여한 후, ssh로 접근해서 PHP를 컴파일 합니다. 그리고 나서 이리저리 요래오래 막 하면 됩니다…</li>
@@ -170,7 +170,7 @@
 <p>이슈를 좀 뒤져보면 커뮤니티 내부에서도 좀 혼란스러웠던 것 같습니다.</p>
 <p><a href="https://github.com/brefphp/bref/issues/99" target="_blank" rel="noopener">https://github.com/brefphp/bref/issues/99</a></p>
 <ul>
-<li>Serverless와 SAM 비교</li>
+<li>Serverless와 SAM 비교 (뭐 하나가 특별히 우월하진 않은 모양입니다)</li>
 </ul>
 <p><a href="https://github.com/brefphp/bref/issues/320" target="_blank" rel="noopener">https://github.com/brefphp/bref/issues/320</a></p>
 <ul>
@@ -192,13 +192,13 @@
 </blockquote>
 <h2 id="진짜-Bref-이야기"><a href="#진짜-Bref-이야기" class="headerlink" title="진짜 Bref 이야기"></a>진짜 Bref 이야기</h2><p><a href="https://bref.sh/" target="_blank" rel="noopener">공식 문서</a>에 소개된 글을 읽어보죠.</p>
 <blockquote>
-<p>Bref (프랑스어로 “간호”)는 Composer 패키지로 제공되며 PHP 애플리케이션을 AWS에 배포 하고 AWS Lambda 에서 실행할 수 있도록 도와줍니다</p>
+<p>Bref(Brief를 프랑스어로 한 것)는 Composer 패키지로 제공되며 PHP 애플리케이션을 AWS에 배포 하고 AWS Lambda 에서 실행할 수 있도록 도와줍니다</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Why Bref?</span><br><span class="line">* Bref는 PHP 응용 프로그램을 간단하게 실행하는 것을 목표로합니다</span><br><span class="line">* (모든 요구 사항을 해결하는 대신) 선택을 줄여 문제를 단순화</span><br><span class="line">* (강력한 맞춤형 솔루션을 목표로하는 대신) 간단하고 친숙한 솔루션 제공</span><br><span class="line">* (불완전한 추상화 뒤로 너무 많은 것을 숨기는 대신) 지식을 공유하여 힘을 실어 준다</span><br></pre></td></tr></table></figure>
 <p>대충 뭔가 쉽다는 이야기입니다. (잘 하려면 어렵다는 이야기이기도…)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Bref는 다음을 제공합니다.</span><br><span class="line">* 문서</span><br><span class="line">* AWS Lambda 용 PHP 런타임</span><br><span class="line">* 배포 툴링</span><br><span class="line">* PHP 프레임 워크 통합</span><br></pre></td></tr></table></figure>
 <p>이 정도는 뭐 당연히 제공해야할 것으로 보이긴 합니다.</p>
-<p>구현 사례<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Use cases</span><br><span class="line">* APIs</span><br><span class="line">* workers</span><br><span class="line">* batch processes/scripts</span><br><span class="line">* websites</span><br></pre></td></tr></table></figure></p>
+<p>Bref를 통해 구현할 수 있는 것은<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Use cases</span><br><span class="line">* APIs</span><br><span class="line">* workers</span><br><span class="line">* batch processes/scripts</span><br><span class="line">* websites</span><br></pre></td></tr></table></figure></p>
 <p>이런 다양한 용도로 사용할 수 있다고 하고요. <a href="https://bref.sh/docs/case-studies.html" target="_blank" rel="noopener">구현 사례</a>에 가보시면 더 많은 예제를 보실 수 있습니다. </p>
 <p>최근에는 <a href="https://externals.io/" target="_blank" rel="noopener">externals.io</a>(PHP internals 소식을 외부로 가져오는 서비스)가 Bref로 LAMP에서 Serverless로 성공적으로 옮겨왔다는 소식을 전해드리기도 했었죠. 꽤 유익한 글입니다.</p>
 <p><a href="https://mnapoli.fr/serverless-case-study-externals/" target="_blank" rel="noopener">From LAMP to serverless: case study of externals.io</a></p>
@@ -253,14 +253,6 @@
 <p>역시 이전에 php-annotated-monthly에서 소개됐던 글입니다. </p>
 <p><a href="https://medium.com/firebase-developers/serverless-php-on-app-engine-firestore-c22a119dc608" target="_blank" rel="noopener">Serverless PHP on App Engine + Cloud Firestore and Firevel.</a></p>
 <p>Google App Engine에서 잘 실행될 수 있게, Laravel을 수정해 Firevel이라는 프레임웍을 만들었다고 합니다. Firestore를 DB와 캐시로 사용합니다. Eloquent가 NoSQL을 고려하지 않았기 때문에 이에 대응하는 Firequent라는 패키지도 개발했다고 합니다.</p>
-<p>Laravel과 Firevel의 차이는</p>
-<ul>
-<li>Firestore Session driver</li>
-<li>Firestore Cache driver</li>
-<li>Stack driver log channel</li>
-<li>Laravel Firestore wrapper</li>
-<li>Firequent</li>
-</ul>
 <p>README에 나온 간단한 Installation 정도면 쉽게 서비스를 띄울 수 있습니다. 저는 로컬 환경에서 생소한 gRPC extension 같은 걸 설치하면서 삽질을 좀 했는데, 환경만 준비되면 서버 띄우는 건 쉽습니다.</p>
 <p>그러나 이미 Laravel에 익숙하신 분들에겐 Firequent 등 너무 많은 신지식을 필요로 하기 때문에, ‘굳이 저런 걸…’이라는 생각이 들 수 밖에 없지만 흥미롭긴 합니다. (흥미롭고 안 써야지)</p>
 <h1 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h1><p>고작 Laravel 기본 페이지를 띄워 본 정도라서 얼마나 Laravel의 경험을 그대로 이어갈 수 있을지는 모르겠습니다. Production 레벨로 올리기에는 아마도 삽질을 많이 해야겠지만, 잘 쓰면 편하고 저렴한 비용으로 서비스를 할 수도 있겠습니다.</p>
