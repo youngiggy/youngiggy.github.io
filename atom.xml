@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://haah.kr/"/>
-  <updated>2019-11-10T06:39:33.103Z</updated>
+  <updated>2019-12-15T00:48:59.551Z</updated>
   <id>http://haah.kr/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>php-annotated-december-2019</title>
+    <link href="http://haah.kr/2019/12/14/php-annotated-december-2019/"/>
+    <id>http://haah.kr/2019/12/14/php-annotated-december-2019/</id>
+    <published>2019-12-14T11:01:04.000Z</published>
+    <updated>2019-12-15T00:48:59.551Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;img src=&quot;https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2019/07/php_annotated.png&quot; alt=&quot;Php_annotated_monthly 이미지&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
+    
+      <category term="php-annotated-monthly" scheme="http://haah.kr/tags/php-annotated-monthly/"/>
+    
+  </entry>
   
   <entry>
     <title>php-annotated-november-2019</title>
@@ -518,33 +545,6 @@
     
     
       <category term="회고" scheme="http://haah.kr/tags/%ED%9A%8C%EA%B3%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Homebrew에서 php@7.0이 제거되었습니다</title>
-    <link href="http://haah.kr/2018/12/22/php7-0-removed-from-homebrew/"/>
-    <id>http://haah.kr/2018/12/22/php7-0-removed-from-homebrew/</id>
-    <published>2018-12-22T01:58:10.000Z</published>
-    <updated>2018-12-22T03:09:09.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;오랜만에 노트북을 열고 PHP CLI를 실행하는데 아래와 같은 오류 문구가 보이는 겁니다.&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span
-        
-      
-    
-    </summary>
-    
-    
-      <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
-    
-      <category term="Homebrew" scheme="http://haah.kr/tags/Homebrew/"/>
     
   </entry>
   
