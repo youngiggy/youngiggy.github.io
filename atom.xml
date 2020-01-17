@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://haah.kr/"/>
-  <updated>2019-12-15T00:48:59.551Z</updated>
+  <updated>2020-01-17T00:53:26.696Z</updated>
   <id>http://haah.kr/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>php-annotated-january-2020</title>
+    <link href="http://haah.kr/2020/01/14/php-annotated-january-2020/"/>
+    <id>http://haah.kr/2020/01/14/php-annotated-january-2020/</id>
+    <published>2020-01-14T13:38:27.000Z</published>
+    <updated>2020-01-17T00:53:26.696Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;img src=&quot;https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2020/01/PHP_Annotated_blog_1600x800.png&quot; alt=&quot;Php_annotated_monthly
+        
+      
+    
+    </summary>
+    
+    
+      <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
+    
+      <category term="php-annotated-monthly" scheme="http://haah.kr/tags/php-annotated-monthly/"/>
+    
+  </entry>
   
   <entry>
     <title>php-annotated-december-2019</title>
@@ -518,33 +544,6 @@
     
     
       <category term="독후감" scheme="http://haah.kr/tags/%EB%8F%85%ED%9B%84%EA%B0%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2018년 회고</title>
-    <link href="http://haah.kr/2019/01/01/retrospective-2018/"/>
-    <id>http://haah.kr/2019/01/01/retrospective-2018/</id>
-    <published>2019-01-01T01:17:45.000Z</published>
-    <updated>2019-01-01T03:46:07.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;읽은-책&quot;&gt;&lt;a href=&quot;#읽은-책&quot; class=&quot;headerlink&quot; title=&quot;읽은 책&quot;&gt;&lt;/a&gt;읽은 책&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;01월 심플을 생각한다&lt;/li&gt;
-&lt;li&gt;01월 SQL 코딩의 기술&lt;/li&gt;
-&lt;li&gt;01월 그럼에도
-        
-      
-    
-    </summary>
-    
-    
-      <category term="회고" scheme="http://haah.kr/tags/%ED%9A%8C%EA%B3%A0/"/>
     
   </entry>
   
