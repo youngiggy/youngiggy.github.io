@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://haah.kr/"/>
-  <updated>2020-01-17T09:17:44.463Z</updated>
+  <updated>2020-02-11T15:27:35.139Z</updated>
   <id>http://haah.kr/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>php-annotated-february-2020</title>
+    <link href="http://haah.kr/2020/02/11/php-annotated-february-2020/"/>
+    <id>http://haah.kr/2020/02/11/php-annotated-february-2020/</id>
+    <published>2020-02-11T13:16:57.000Z</published>
+    <updated>2020-02-11T15:27:35.139Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;img src=&quot;https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2020/01/PHP_Annotated_blog_1600x800.png&quot; alt=&quot;Php_annotated_monthly
+        
+      
+    
+    </summary>
+    
+    
+      <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
+    
+      <category term="php-annotated-monthly" scheme="http://haah.kr/tags/php-annotated-monthly/"/>
+    
+  </entry>
   
   <entry>
     <title>php-annotated-january-2020</title>
@@ -520,30 +546,6 @@
       <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
     
       <category term="php-annotated-monthly" scheme="http://haah.kr/tags/php-annotated-monthly/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>독후감 - 2018년 12월</title>
-    <link href="http://haah.kr/2019/01/02/books-2018-december/"/>
-    <id>http://haah.kr/2019/01/02/books-2018-december/</id>
-    <published>2019-01-02T14:28:53.000Z</published>
-    <updated>2019-05-11T03:13:35.760Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;리팩토링-코드-품질을-개선하는-객체지향-사고법&quot;&gt;&lt;a href=&quot;#리팩토링-코드-품질을-개선하는-객체지향-사고법&quot; class=&quot;headerlink&quot; title=&quot;리팩토링: 코드 품질을 개선하는 객체지향 사고법&quot;&gt;&lt;/a&gt;리팩토링: 코드
-        
-      
-    
-    </summary>
-    
-    
-      <category term="독후감" scheme="http://haah.kr/tags/%EB%8F%85%ED%9B%84%EA%B0%90/"/>
     
   </entry>
   
