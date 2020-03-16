@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://haah.kr/"/>
-  <updated>2020-02-11T15:27:35.139Z</updated>
+  <updated>2020-03-16T15:15:10.409Z</updated>
   <id>http://haah.kr/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PHP Annotated – March 2020</title>
+    <link href="http://haah.kr/2020/03/15/php-annotated-march-2020/"/>
+    <id>http://haah.kr/2020/03/15/php-annotated-march-2020/</id>
+    <published>2020-03-15T01:55:31.000Z</published>
+    <updated>2020-03-16T15:15:10.409Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;img src=&quot;https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2020/01/PHP_Annotated_blog_1600x800.png&quot; alt=&quot;Php_annotated_monthly
+        
+      
+    
+    </summary>
+    
+    
+      <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
+    
+      <category term="php-annotated-monthly" scheme="http://haah.kr/tags/php-annotated-monthly/"/>
+    
+  </entry>
   
   <entry>
     <title>php-annotated-february-2020</title>
@@ -503,32 +529,6 @@
     <id>http://haah.kr/2019/03/02/php-annotated-monthly-february-2019/</id>
     <published>2019-03-02T01:30:55.000Z</published>
     <updated>2019-03-09T04:03:19.609Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;&lt;img src=&quot;https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2018/12/new_php-annotated-monthly.jpg&quot; alt=&quot;Php_annotated_monthly
-        
-      
-    
-    </summary>
-    
-    
-      <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
-    
-      <category term="php-annotated-monthly" scheme="http://haah.kr/tags/php-annotated-monthly/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>php-annotated-monthly-January-2019</title>
-    <link href="http://haah.kr/2019/01/19/php-annotated-monthly-january-2019/"/>
-    <id>http://haah.kr/2019/01/19/php-annotated-monthly-january-2019/</id>
-    <published>2019-01-19T03:47:21.000Z</published>
-    <updated>2019-03-03T00:55:03.155Z</updated>
     
     <summary type="html">
     
