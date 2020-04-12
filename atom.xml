@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://haah.kr/"/>
-  <updated>2020-04-12T01:22:52.366Z</updated>
+  <updated>2020-04-12T02:12:45.593Z</updated>
   <id>http://haah.kr/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2019년에 읽은 책</title>
+    <link href="http://haah.kr/2020/04/12/read-2019/"/>
+    <id>http://haah.kr/2020/04/12/read-2019/</id>
+    <published>2020-04-12T01:32:46.000Z</published>
+    <updated>2020-04-12T02:12:45.593Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;2019년에 읽은 책&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1월 사용자를 생각하게 하지마&lt;/li&gt;
+&lt;li&gt;5월 틀리지 않는 법&lt;/li&gt;
+&lt;li&gt;5월 테스트 주도 개발로 배우는 객체 지향 설계와 실천&lt;/li&gt;
+&lt;li&gt;6월 죽기 전까지 걷고 싶다면 스쿼트를
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>고정된 IP를 통과해 Elastic Beanstalk 접근하기 그 두번째</title>
@@ -520,32 +547,6 @@
     
     
       <category term="TDD" scheme="http://haah.kr/tags/TDD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>php-annotated-monthly-march-2019</title>
-    <link href="http://haah.kr/2019/03/19/php-annotated-monthly-march-2019/"/>
-    <id>http://haah.kr/2019/03/19/php-annotated-monthly-march-2019/</id>
-    <published>2019-03-19T13:27:41.000Z</published>
-    <updated>2019-03-24T00:57:01.549Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;&lt;img src=&quot;https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2018/12/new_php-annotated-monthly.jpg&quot; alt=&quot;Php_annotated_monthly
-        
-      
-    
-    </summary>
-    
-    
-      <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
-    
-      <category term="php-annotated-monthly" scheme="http://haah.kr/tags/php-annotated-monthly/"/>
     
   </entry>
   
