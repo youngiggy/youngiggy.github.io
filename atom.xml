@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://haah.kr/"/>
-  <updated>2020-04-12T02:12:45.593Z</updated>
+  <updated>2020-04-25T03:11:39.521Z</updated>
   <id>http://haah.kr/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PHP Annotated – April 2020</title>
+    <link href="http://haah.kr/2020/04/22/php-annotated-april-2020/"/>
+    <id>http://haah.kr/2020/04/22/php-annotated-april-2020/</id>
+    <published>2020-04-22T14:18:30.000Z</published>
+    <updated>2020-04-25T03:11:39.521Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;img src=&quot;https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2020/01/PHP_Annotated_blog_1600x800.png&quot; alt=&quot;Php_annotated_monthly
+        
+      
+    
+    </summary>
+    
+    
+      <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
+    
+      <category term="php-annotated-monthly" scheme="http://haah.kr/tags/php-annotated-monthly/"/>
+    
+  </entry>
   
   <entry>
     <title>2019년에 읽은 책</title>
@@ -513,33 +539,6 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;/2019/04/20/tdd-beginners/&quot;&gt;TDD 시작하기 - 1&lt;/a&gt; : 스터디 조직, 강의 동영상, TDD 맛보기&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-    
-      <category term="TDD" scheme="http://haah.kr/tags/TDD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>TDD 시작하기 - 1</title>
-    <link href="http://haah.kr/2019/04/20/tdd-beginners/"/>
-    <id>http://haah.kr/2019/04/20/tdd-beginners/</id>
-    <published>2019-04-20T09:02:09.000Z</published>
-    <updated>2019-04-21T07:55:35.403Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;연재&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href=&quot;/2019/04/20/tdd-beginners/&quot;&gt;TDD 시작하기 - 1&lt;/a&gt; : 스터디 조직, 강의 동영상, TDD 맛보기&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a
         
       
     
