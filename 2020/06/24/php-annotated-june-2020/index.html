@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang=ko>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Roman Pronskiy가 쓰고 JetBrains에서 제공하는 월간 PHP Annotated 2020년 6월호의 번역/해석본입니다. 이 중에서 몇 가지 제 취향껏 골라 그 안의 내용도 좀 뒤져보고 개발새발 번역해서 소개합니다.  ⚡️ News &amp;amp; ReleasesPHP turned 25https://www.jetbrains.com/lp/php-25">
+<meta name="keywords" content="PHP,php-annotated-monthly">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP Annotated – June 2020">
+<meta property="og:url" content="http://haah.kr/2020/06/24/php-annotated-june-2020/index.html">
+<meta property="og:site_name" content="ha-ah">
+<meta property="og:description" content="Roman Pronskiy가 쓰고 JetBrains에서 제공하는 월간 PHP Annotated 2020년 6월호의 번역/해석본입니다. 이 중에서 몇 가지 제 취향껏 골라 그 안의 내용도 좀 뒤져보고 개발새발 번역해서 소개합니다.  ⚡️ News &amp;amp; ReleasesPHP turned 25https://www.jetbrains.com/lp/php-25">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2020/01/PHP_Annotated_blog_1600x800.png">
+<meta property="og:updated_time" content="2020-06-24T14:53:19.894Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP Annotated – June 2020">
+<meta name="twitter:description" content="Roman Pronskiy가 쓰고 JetBrains에서 제공하는 월간 PHP Annotated 2020년 6월호의 번역/해석본입니다. 이 중에서 몇 가지 제 취향껏 골라 그 안의 내용도 좀 뒤져보고 개발새발 번역해서 소개합니다.  ⚡️ News &amp;amp; ReleasesPHP turned 25https://www.jetbrains.com/lp/php-25">
+<meta name="twitter:image" content="https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2020/01/PHP_Annotated_blog_1600x800.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon.ico" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+          
+        
+    
+    <!-- title -->
+    <title>PHP Annotated – June 2020</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="ha-ah" type="application/atom+xml">
+    
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-1318599740881033",
+            enable_page_level_ads: true
+        });
+    </script>
+
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">All Posts</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2020/04/22/php-annotated-april-2020/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://haah.kr/2020/06/24/php-annotated-june-2020/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://haah.kr/2020/06/24/php-annotated-june-2020/&text=PHP Annotated – June 2020"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://haah.kr/2020/06/24/php-annotated-june-2020/&title=PHP Annotated – June 2020"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://haah.kr/2020/06/24/php-annotated-june-2020/&is_video=false&description=PHP Annotated – June 2020"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=PHP Annotated – June 2020&body=Check out this article: http://haah.kr/2020/06/24/php-annotated-june-2020/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://haah.kr/2020/06/24/php-annotated-june-2020/&title=PHP Annotated – June 2020"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://haah.kr/2020/06/24/php-annotated-june-2020/&title=PHP Annotated – June 2020"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://haah.kr/2020/06/24/php-annotated-june-2020/&title=PHP Annotated – June 2020"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://haah.kr/2020/06/24/php-annotated-june-2020/&title=PHP Annotated – June 2020"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://haah.kr/2020/06/24/php-annotated-june-2020/&name=PHP Annotated – June 2020&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#⚡️-News-amp-Releases"><span class="toc-number">1.</span> <span class="toc-text">⚡️ News &amp; Releases</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP-turned-25"><span class="toc-number">1.1.</span> <span class="toc-text">PHP turned 25</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP-7-4-7"><span class="toc-number">1.2.</span> <span class="toc-text">PHP 7.4.7</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP-7-3-19"><span class="toc-number">1.3.</span> <span class="toc-text">PHP 7.3.19</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Composer-2-0-0-alpha1"><span class="toc-number">1.4.</span> <span class="toc-text">Composer 2.0.0-alpha1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-State-of-Developer-Ecosystem-in-2020"><span class="toc-number">1.5.</span> <span class="toc-text">The State of Developer Ecosystem in 2020</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#🐘-PHP-Internals"><span class="toc-number">2.</span> <span class="toc-text">🐘 PHP Internals</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#✅-RFC-Attribute-Amendments"><span class="toc-number">2.1.</span> <span class="toc-text">✅ [RFC] Attribute Amendments</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#✅-RFC-Ensure-correct-signatures-of-magic-methods"><span class="toc-number">2.2.</span> <span class="toc-text">✅ [RFC] Ensure correct signatures of magic methods</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RFC-Make-sorting-stable"><span class="toc-number">2.3.</span> <span class="toc-text">[RFC] Make sorting stable</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#❌-RFC-Opcache-optimization-without-any-caching"><span class="toc-number">2.4.</span> <span class="toc-text">❌ [RFC] Opcache optimization without any caching</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RFC-Make-constructors-and-destructors-return-void"><span class="toc-number">2.5.</span> <span class="toc-text">[RFC] Make constructors and destructors return void</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RFC-Treat-namespaced-names-as-single-token"><span class="toc-number">2.6.</span> <span class="toc-text">[RFC] Treat namespaced names as single token</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RFC-Rename-T-PAAMAYIM-NEKUDOTAYIM-to-T-DOUBLE-COLON"><span class="toc-number">2.7.</span> <span class="toc-text">[RFC] Rename T_PAAMAYIM_NEKUDOTAYIM to T_DOUBLE_COLON</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RFC-Shorter-Attribute-Syntax"><span class="toc-number">2.8.</span> <span class="toc-text">[RFC] Shorter Attribute Syntax</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RFC-Change-terminology-to-ExcludeList"><span class="toc-number">2.9.</span> <span class="toc-text">[RFC] Change terminology to ExcludeList</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RFC-Nullsafe-operator"><span class="toc-number">2.10.</span> <span class="toc-text">[RFC] Nullsafe operator</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP-8-0-release-schedule-was-updated"><span class="toc-number">2.11.</span> <span class="toc-text">PHP 8.0 release schedule was updated</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3v4l-org"><span class="toc-number">2.12.</span> <span class="toc-text">3v4l.org</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#🛠-Tools"><span class="toc-number">3.</span> <span class="toc-text">🛠 Tools</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#beyondcode-expose"><span class="toc-number">3.1.</span> <span class="toc-text">beyondcode/expose</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pestphp-pest"><span class="toc-number">3.2.</span> <span class="toc-text">pestphp/pest</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Moxio-sqlite-extended-api"><span class="toc-number">3.3.</span> <span class="toc-text">Moxio/sqlite-extended-api</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FriendsOfPHP-pickle"><span class="toc-number">3.4.</span> <span class="toc-text">FriendsOfPHP/pickle</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#doctrine-migrations-3-0-0"><span class="toc-number">3.5.</span> <span class="toc-text">doctrine/migrations 3.0.0</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Symfony"><span class="toc-number">4.</span> <span class="toc-text">Symfony</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Symfony-5-1-was-released"><span class="toc-number">4.1.</span> <span class="toc-text">Symfony 5.1 was released.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Symfony-5-certification-is-now-available"><span class="toc-number">4.2.</span> <span class="toc-text">Symfony 5 certification is now available</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#In-Symfony-6-configurations-will-be-handled-in-usual-PHP-files"><span class="toc-number">4.3.</span> <span class="toc-text">In Symfony 6, configurations will be handled in usual PHP files</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dbu-snake-bundle"><span class="toc-number">4.4.</span> <span class="toc-text">dbu/snake-bundle</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-much-of-a-performance-boost-can-you-expect-for-a-Symfony-5-app-with-PHP-OPcache-preloading"><span class="toc-number">4.5.</span> <span class="toc-text">How much of a performance boost can you expect for a Symfony 5 app with PHP OPcache preloading?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-Symfony-testing-tips"><span class="toc-number">4.6.</span> <span class="toc-text">10 Symfony testing tips.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Protect-Symfony-app-against-the-OWASP-Top-10-threats"><span class="toc-number">4.7.</span> <span class="toc-text">Protect Symfony app against the OWASP Top 10 threats.</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Laravel"><span class="toc-number">5.</span> <span class="toc-text">Laravel</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#spatie-laravel-cronless-schedule"><span class="toc-number">5.1.</span> <span class="toc-text">spatie/laravel-cronless-schedule</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Laravel-Debugbar-vs-Telescope-Toolbar"><span class="toc-number">5.2.</span> <span class="toc-text">Laravel Debugbar vs. Telescope Toolbar</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Adding-try-catch-Laravel-collections"><span class="toc-number">5.3.</span> <span class="toc-text">Adding try/catch Laravel collections.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Laravel-package-ecosystem-statistics"><span class="toc-number">5.4.</span> <span class="toc-text">Laravel package ecosystem statistics.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tactics-you-can-use-to-write-cleaner-code-in-Laravel"><span class="toc-number">5.5.</span> <span class="toc-text">tactics you can use to write cleaner code in Laravel</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Yii"><span class="toc-number">6.</span> <span class="toc-text">Yii</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Yii2-amp-Doctrine-ORM-simple-integration"><span class="toc-number">6.1.</span> <span class="toc-text">Yii2 &amp; Doctrine ORM simple integration.</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Zend-Laminas"><span class="toc-number">7.</span> <span class="toc-text">Zend/Laminas</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Is-Zend-Framework-Dead"><span class="toc-number">7.1.</span> <span class="toc-text">Is Zend Framework Dead?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#asgrim-mini-mezzio"><span class="toc-number">7.2.</span> <span class="toc-text">asgrim/mini-mezzio</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#🌀-Async-PHP"><span class="toc-number">8.</span> <span class="toc-text">🌀 Async PHP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#badfarm-zanzara"><span class="toc-number">8.1.</span> <span class="toc-text">badfarm/zanzara</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#simple-swoole-simps"><span class="toc-number">8.2.</span> <span class="toc-text">simple-swoole/simps</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#📺-Video-course-on-ReactPHP-by-Marcel-Pociot"><span class="toc-number">8.3.</span> <span class="toc-text">📺 Video course on ReactPHP by Marcel Pociot.</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#💡-기타-읽을-만한-글"><span class="toc-number">9.</span> <span class="toc-text">💡 기타 읽을 만한 글</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introducing-the-new-Serverless-LAMP-stack"><span class="toc-number">9.1.</span> <span class="toc-text">Introducing the new Serverless LAMP stack</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Constructor-promotion-in-PHP-8"><span class="toc-number">9.2.</span> <span class="toc-text">Constructor promotion in PHP 8</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-are-the-top-most-used-PHP-functions-in-frameworks"><span class="toc-number">9.3.</span> <span class="toc-text">What are the top most used PHP functions in frameworks?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#final-classes-in-PHP"><span class="toc-number">9.4.</span> <span class="toc-text">final classes in PHP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-fastest-template-engine-for-PHP"><span class="toc-number">9.5.</span> <span class="toc-text">The fastest template engine for PHP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Unit-test-naming-conventions"><span class="toc-number">9.6.</span> <span class="toc-text">Unit test naming conventions</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#📺-Videos"><span class="toc-number">10.</span> <span class="toc-text">📺 Videos</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP-Russia-2020-Online"><span class="toc-number">10.1.</span> <span class="toc-text">PHP Russia 2020 Online</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-to-generate-and-view-code-coverage-reports-in-PhpStorm-using-PHPUnit-and-Xdebug"><span class="toc-number">10.2.</span> <span class="toc-text">How to generate and view code coverage reports in PhpStorm using PHPUnit and Xdebug</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#🔈-Podcasts"><span class="toc-number">11.</span> <span class="toc-text">🔈 Podcasts</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Voices-of-the-ElePHPant"><span class="toc-number">11.1.</span> <span class="toc-text">Voices of the ElePHPant</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PHPUgly-194-Oversight"><span class="toc-number">11.2.</span> <span class="toc-text">PHPUgly 194: Oversight</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP-Internals-News-Podcast-by-Derick-Rethans"><span class="toc-number">11.3.</span> <span class="toc-text">PHP Internals News Podcast by Derick Rethans</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        PHP Annotated – June 2020
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">ha-ah</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2020-06-24T02:11:11.000Z" itemprop="datePublished">2020-06-24</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/PHP/">PHP</a>, <a class="tag-link" href="/tags/php-annotated-monthly/">php-annotated-monthly</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p><img src="https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2020/01/PHP_Annotated_blog_1600x800.png" alt="Php_annotated_monthly 이미지"></p>
+<p><a href="https://blog.jetbrains.com/phpstorm/author/rpronskiy/" target="_blank" rel="noopener">Roman Pronskiy</a>가 쓰고 JetBrains에서 제공하는 월간 PHP Annotated <a href="https://blog.jetbrains.com/phpstorm/2020/06/php-annotated-june-2020/" target="_blank" rel="noopener">2020년 6월호</a>의 번역/해석본입니다.</p>
+<p>이 중에서 몇 가지 제 취향껏 골라 그 안의 내용도 좀 뒤져보고 개발새발 번역해서 소개합니다.</p>
+<hr>
+<h1 id="⚡️-News-amp-Releases"><a href="#⚡️-News-amp-Releases" class="headerlink" title="⚡️ News &amp; Releases"></a>⚡️ News &amp; Releases</h1><h2 id="PHP-turned-25"><a href="#PHP-turned-25" class="headerlink" title="PHP turned 25"></a>PHP turned 25</h2><p><a href="https://www.jetbrains.com/lp/php-25/?_ga=2.202675409.1336001967.1592964633-44216834.1547258235" target="_blank" rel="noopener">https://www.jetbrains.com/lp/php-25/?_ga=2.202675409.1336001967.1592964633-44216834.1547258235</a></p>
+<p>PHP가 25살이 되었습니다. PHP 역사에서 가장 인상적인 순간과 함께 타임라인을 살펴보세요.</p>
+<h2 id="PHP-7-4-7"><a href="#PHP-7-4-7" class="headerlink" title="PHP 7.4.7"></a>PHP 7.4.7</h2><p><a href="https://www.php.net/releases/7_4_7.php" target="_blank" rel="noopener">https://www.php.net/releases/7_4_7.php</a></p>
+<p>무엇보다도 <a href="https://twitter.com/nikita_ppv/status/1264857231167807489" target="_blank" rel="noopener"><code>yield from</code></a> 버그가 해결되었습니다.</p>
+<ul>
+<li>7.4.6 버전은 스킵하는 게 좋을 거라는군요.</li>
+</ul>
+<h2 id="PHP-7-3-19"><a href="#PHP-7-3-19" class="headerlink" title="PHP 7.3.19"></a>PHP 7.3.19</h2><p><a href="https://www.php.net/releases/7_3_19.php" target="_blank" rel="noopener">https://www.php.net/releases/7_3_19.php</a></p>
+<h2 id="Composer-2-0-0-alpha1"><a href="#Composer-2-0-0-alpha1" class="headerlink" title="Composer 2.0.0-alpha1"></a>Composer 2.0.0-alpha1</h2><p><a href="https://github.com/composer/composer/releases/tag/2.0.0-alpha1" target="_blank" rel="noopener">https://github.com/composer/composer/releases/tag/2.0.0-alpha1</a></p>
+<h2 id="The-State-of-Developer-Ecosystem-in-2020"><a href="#The-State-of-Developer-Ecosystem-in-2020" class="headerlink" title="The State of Developer Ecosystem in 2020"></a>The State of Developer Ecosystem in 2020</h2><p><a href="https://www.jetbrains.com/lp/devecosystem-2020/php/?_ga=2.158784506.1336001967.1592964633-44216834.1547258235" target="_blank" rel="noopener">https://www.jetbrains.com/lp/devecosystem-2020/php/?_ga=2.158784506.1336001967.1592964633-44216834.1547258235</a></p>
+<p><code>The State of Developer Ecosystem in 2020</code>에서 PHP 섹션으로 바로 넘어가는 링크입니다. </p>
+<p>응답자의 65%가 디버깅할 때 ‘dump &amp; die’ 방식을 선택한다고 <a href="https://www.jetbrains.com/lp/devecosystem-2020/php/?&amp;_ga=2.192855018.1336001967.1592964633-44216834.1547258235#:~:text=How%20do%20you%20usually%20debug%20PHP%20code%3F" target="_blank" rel="noopener">응답했습니다</a>. 이에 Xdebug의 제작자인 Derick Rethans의 <a href="https://twitter.com/derickr/status/1274134192155131905?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E1274134192155131905&amp;ref_url=https%3A%2F%2Fblog.jetbrains.com%2Fphpstorm%2F2020%2F06%2Fphp-annotated-june-2020%2F" target="_blank" rel="noopener">트윗</a>은 커뮤니티에서 강한 반응을 일으켰습니다.</p>
+<blockquote>
+<p>PHP developers that don’t use Xdebug for debugging are amateurs.</p>
+</blockquote>
+<h1 id="🐘-PHP-Internals"><a href="#🐘-PHP-Internals" class="headerlink" title="🐘 PHP Internals"></a>🐘 PHP Internals</h1><h2 id="✅-RFC-Attribute-Amendments"><a href="#✅-RFC-Attribute-Amendments" class="headerlink" title="✅ [RFC] Attribute Amendments"></a>✅ [RFC] Attribute Amendments</h2><p><a href="https://wiki.php.net/rfc/attribute_amendments" target="_blank" rel="noopener">https://wiki.php.net/rfc/attribute_amendments</a></p>
+<p>PHP 8에 accepted 된 기존 <a href="https://wiki.php.net/rfc/attributes_v2" target="_blank" rel="noopener">Attributes RFC</a>에 몇가지 스펙을 추가했습니다.</p>
+<ul>
+<li>PhpAttribute class를 Attribute로 rename</li>
+<li><code>&lt;&lt;Attr1, Attr2&gt;&gt;</code>처럼 그루핑하는 기능</li>
+<li>Validation</li>
+<li>여러개의 동일한 속성을 추가하는 기능</li>
+</ul>
+<h2 id="✅-RFC-Ensure-correct-signatures-of-magic-methods"><a href="#✅-RFC-Ensure-correct-signatures-of-magic-methods" class="headerlink" title="✅ [RFC] Ensure correct signatures of magic methods"></a>✅ [RFC] Ensure correct signatures of magic methods</h2><p><a href="https://wiki.php.net/rfc/magic-methods-signature" target="_blank" rel="noopener">https://wiki.php.net/rfc/magic-methods-signature</a></p>
+<p>지금까지는 magic method를 클래스 안에서 이렇게 선언할 수 있었습니다.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__get</span><span class="params">(int $name)</span>: <span class="title">void</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> $name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">(<span class="keyword">new</span> Foo)-&gt;&#123;<span class="number">42</span>&#125;;</span><br></pre></td></tr></table></figure>
+<p>PHP 8부터는 메소드의 유효성을 검증하게 되고, compile-time error를 발생시킵니다. 위 코드는 첫번째 인자를 string이 아닌 값으로 선언했기 때문입니다. 이 <a href="https://bugs.php.net/bug.php?id=69718" target="_blank" rel="noopener">버그 리포트</a>도 참고하세요.</p>
+<h2 id="RFC-Make-sorting-stable"><a href="#RFC-Make-sorting-stable" class="headerlink" title="[RFC] Make sorting stable"></a>[RFC] Make sorting stable</h2><p><a href="https://wiki.php.net/rfc/stable_sorting" target="_blank" rel="noopener">https://wiki.php.net/rfc/stable_sorting</a></p>
+<p>PHP 8부터는 모든 표준 정렬 함수(sort, usort, asort, etc.)가 안정적(stable)으로 동작할 것입니다. 같은 값이라면 순서가 보장됩니다. 최신 버전에서는 <a href="https://3v4l.org/bpvq1" target="_blank" rel="noopener">stable하지 않게 동작하는 예</a>를 찾기 어렵지 않습니다.</p>
+<h2 id="❌-RFC-Opcache-optimization-without-any-caching"><a href="#❌-RFC-Opcache-optimization-without-any-caching" class="headerlink" title="❌ [RFC] Opcache optimization without any caching"></a>❌ [RFC] Opcache optimization without any caching</h2><p><a href="https://wiki.php.net/rfc/opcache.no_cache" target="_blank" rel="noopener">https://wiki.php.net/rfc/opcache.no_cache</a></p>
+<p>거절됐습니다. (Declined)</p>
+<h2 id="RFC-Make-constructors-and-destructors-return-void"><a href="#RFC-Make-constructors-and-destructors-return-void" class="headerlink" title="[RFC] Make constructors and destructors return void"></a>[RFC] Make constructors and destructors return void</h2><p><a href="https://wiki.php.net/rfc/make_ctor_ret_void" target="_blank" rel="noopener">https://wiki.php.net/rfc/make_ctor_ret_void</a></p>
+<p>현재 버전의 PHP에서는 constructor나 destructor에서 아무 값이나 리턴할 수 있습니다. 예를 들면,</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">$test = <span class="keyword">new</span> Test();</span><br><span class="line"> </span><br><span class="line"><span class="comment">// this prints 0</span></span><br><span class="line"><span class="keyword">echo</span> $test-&gt;__construct();</span><br></pre></td></tr></table></figure>
+<p>Benas Seliuginas는 이런 상황에서 Deprecated warning을 던질 것을, 그리고 PHP 9에서는 이를 제거하고 Fatal Error를 발생시킬 것을 제안했습니다.</p>
+<h2 id="RFC-Treat-namespaced-names-as-single-token"><a href="#RFC-Treat-namespaced-names-as-single-token" class="headerlink" title="[RFC] Treat namespaced names as single token"></a>[RFC] Treat namespaced names as single token</h2><p><a href="https://wiki.php.net/rfc/namespaced_names_as_token" target="_blank" rel="noopener">https://wiki.php.net/rfc/namespaced_names_as_token</a></p>
+<p>인터프리터는 namespace의 각 요소를 분리된 토큰으로 다룹니다. 이것이 namespace에 키워드를 사용할 수 없는 이유였습니다. 예를 들어, <code>namespace app\function { class Foo {} };</code>는 Parse Error를 발생시킵니다. Nikita Popov는 새로운 키워드가 소개될 때 하위 호환을 문제를 최소화하기 위해, 전체 namespace를 하나의 토큰으로 고려할 수 있도록 제안했습니다.</p>
+<h2 id="RFC-Rename-T-PAAMAYIM-NEKUDOTAYIM-to-T-DOUBLE-COLON"><a href="#RFC-Rename-T-PAAMAYIM-NEKUDOTAYIM-to-T-DOUBLE-COLON" class="headerlink" title="[RFC] Rename T_PAAMAYIM_NEKUDOTAYIM to T_DOUBLE_COLON"></a>[RFC] Rename T_PAAMAYIM_NEKUDOTAYIM to T_DOUBLE_COLON</h2><p><a href="https://wiki.php.net/rfc/rename-double-colon-token" target="_blank" rel="noopener">https://wiki.php.net/rfc/rename-double-colon-token</a></p>
+<p><code>::</code> 토큰은 PHP에서 <code>T_PAAMAYIM_NEKUDOTAYIM</code>라고 불립니다. 이 문제는 <a href="http://phpsadness.com/" target="_blank" rel="noopener">PHP Sadness</a>에서도 <a href="http://phpsadness.com/sad/1" target="_blank" rel="noopener">첫번째</a>로 언급되었습니다. George Peter Banyard와 Kalle Sommer Nielsen은 이름을 바꾸길 제안했습니다. </p>
+<p>이 monthly를 작성하는 Roman Pronskiy는,<br>“오류 메시지가 항상 ::를 참조하므로 이것이 의미가 있는지 확실하지 않습니다. 게다가 재밌는 역사적인 특정을 왜 지워야 하죠?”라고 하네요.</p>
+<p>paamayim nekudotayim은 원래 이스라엘 사람이 작성한 Zend Engine에서 소개된 단어인데, double colon이라는 뜻입니다.</p>
+<h2 id="RFC-Shorter-Attribute-Syntax"><a href="#RFC-Shorter-Attribute-Syntax" class="headerlink" title="[RFC] Shorter Attribute Syntax"></a>[RFC] Shorter Attribute Syntax</h2><p><a href="https://wiki.php.net/rfc/shorter_attribute_syntax" target="_blank" rel="noopener">https://wiki.php.net/rfc/shorter_attribute_syntax</a></p>
+<p>Attribute는 이미 PHP 8에 accepted 됐지만, 많은 사람들은 그 문법을 좋아하지 않았습니다. 세가지 옵션이 투표에 올라왔습니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;&lt;Attr&gt;&gt; (현재 방식) vs. @@Attr vs. #[Attr]</span><br></pre></td></tr></table></figure>
+<p>Brent Roоse는 <code>#[ ]</code> 문법에 대해 몇 가지 설득력 있는 주장을 <a href="https://twitter.com/brendt_gd/status/1273860590730129408" target="_blank" rel="noopener">했습니다</a>.</p>
+<ul>
+<li>Rust와 같은 문법이며 이 또한 C 기반의 언어입니다.</li>
+<li>오래된 코드와 호환됩니다. <code>#[Attribute]</code> 문법은 PHP &lt;=7.4까지 comment로 취급될 것입니다.</li>
+<li><code>@@</code>는 에러 억제 연산자와 혼동될 수 있습니다. (<a href="https://3v4l.org/j9tU0" target="_blank" rel="noopener">예시</a>)</li>
+<li><code>&lt;&lt;&gt;&gt;</code> 역시 bit-shift 연산자와 혼동될 수 있습니다. 미래에는 단일 꺽쇄 연산자를 쓸 수도 있는 generics 문법과도 혼동될 수 있습니다.</li>
+</ul>
+<p>그동안, @@이 더 많은 표를 받는 것으로 보입니다.</p>
+<h2 id="RFC-Change-terminology-to-ExcludeList"><a href="#RFC-Change-terminology-to-ExcludeList" class="headerlink" title="[RFC] Change terminology to ExcludeList"></a>[RFC] Change terminology to ExcludeList</h2><p><a href="https://wiki.php.net/rfc/change-terminology-to-excludelist" target="_blank" rel="noopener">https://wiki.php.net/rfc/change-terminology-to-excludelist</a></p>
+<p>불쾌감을 주는 용어(master/slave and blacklist)의 이름을 바꾸는 주제는 PHP 세계에서도 간과되지 않았습니다. Internals에서 <a href="https://externals.io/message/110515" target="_blank" rel="noopener">열띈 토론이 있었습니다</a>.</p>
+<p>PHP 코어에서 이 변경 사항은 설정 지시자 단 한 부분에서만 영향을 미칩니다. <code>opcache.blacklist_filename</code>에서 <code>opcache.exclude_list_filename</code>를 바꾸려고 합니다. 많은 PHP 도구들은 이미 이와 관련하여 변경됐습니다 : <a href="https://github.com/sebastianbergmann/phpunit/blob/master/ChangeLog-9.3.md#930---2020-08-07" target="_blank" rel="noopener">PHPUnit</a>, <a href="https://www.drupal.org/project/drupal/issues/2993575" target="_blank" rel="noopener">Drupal</a>, <a href="https://github.com/xdebug/xdebug/commit/63b43b51e43b794cf8cd740e54089b2b7320fbe1" target="_blank" rel="noopener">Xdebug</a>, <a href="https://github.com/yiisoft/yii2/pull/18104" target="_blank" rel="noopener">Yii</a>, <a href="https://github.com/composer/composer/pull/8957" target="_blank" rel="noopener">Composer</a> (+ <a href="https://blog.packagist.com/composer-and-default-git-branches/" target="_blank" rel="noopener">working with non-master Git branches</a>).</p>
+<p>이런 불쾌감을 주는 단어를 찾기 위한 <a href="https://github.com/PHPCSStandards/PHPCSExtra/issues/59" target="_blank" rel="noopener">PHP_CodeSniffer 규칙 세트에 대한 토론</a>도 있었습니다.</p>
+<h2 id="RFC-Nullsafe-operator"><a href="#RFC-Nullsafe-operator" class="headerlink" title="[RFC] Nullsafe operator"></a>[RFC] Nullsafe operator</h2><p><a href="https://wiki.php.net/rfc/nullsafe_operator" target="_blank" rel="noopener">https://wiki.php.net/rfc/nullsafe_operator</a></p>
+<p>여러 중첩된 조건 대신, Ilija Tovilo는 null을 확인하기 위해 property 또는 method를 참조하는 기능을 추가할 것을 제안했습니다.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$country = $session?-&gt;user?-&gt;getAddress()?-&gt;country;</span><br></pre></td></tr></table></figure>
+<p>지금은 이렇게 체크해야 하죠.<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$country =  <span class="keyword">null</span>;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> ($session !== <span class="keyword">null</span>) &#123;</span><br><span class="line">    $user = $session-&gt;user;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">if</span> ($user !== <span class="keyword">null</span>) &#123;</span><br><span class="line">        $address = $user-&gt;getAddress();</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">if</span> ($address !== <span class="keyword">null</span>) &#123;</span><br><span class="line">            $country = $address-&gt;country;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="PHP-8-0-release-schedule-was-updated"><a href="#PHP-8-0-release-schedule-was-updated" class="headerlink" title="PHP 8.0 release schedule was updated"></a>PHP 8.0 release schedule was updated</h2><p><a href="https://wiki.php.net/todo/php80" target="_blank" rel="noopener">https://wiki.php.net/todo/php80</a></p>
+<p>기능 확정(feature freeze)은 8월 4일로, 최종 릴리스(GA)는 11월 26일로 날짜가 변경됐습니다.<br>다른 활성 브랜치(7.4.13, 7.3.25)의 릴리스와 스케줄을 맞추기 위해서라는군요.</p>
+<h2 id="3v4l-org"><a href="#3v4l-org" class="headerlink" title="3v4l.org"></a>3v4l.org</h2><p><a href="https://3v4l.org/" target="_blank" rel="noopener">https://3v4l.org/</a></p>
+<p>PHP 8을 3v4l.org에서 사용해보실 수 있습니다. <a href="https://3v4l.org/MgCFs/rfc#output" target="_blank" rel="noopener">php-master branch</a>에서 결과를 확인해보세요.</p>
+<h1 id="🛠-Tools"><a href="#🛠-Tools" class="headerlink" title="🛠 Tools"></a>🛠 Tools</h1><h2 id="beyondcode-expose"><a href="#beyondcode-expose" class="headerlink" title="beyondcode/expose"></a>beyondcode/expose</h2><p><a href="https://github.com/beyondcode/expose" target="_blank" rel="noopener">https://github.com/beyondcode/expose</a></p>
+<p>ReactPHP 위에 순수한 PHP로 구현된 터널링 서비스입니다. 여러분만의 <a href="https://beyondco.de/docs/expose/server/starting-the-server" target="_blank" rel="noopener">자체 호스팅 서버</a>도 실행할 수 있습니다. <a href="https://pociot.dev/28-introducing-expose-an-easy-to-use-tunneling-service-implemented-in-pure-php" target="_blank" rel="noopener">how it works</a> 페이지에서 자세히 알아보세요.</p>
+<h2 id="pestphp-pest"><a href="#pestphp-pest" class="headerlink" title="pestphp/pest"></a>pestphp/pest</h2><p><a href="https://github.com/pestphp/pest" target="_blank" rel="noopener">https://github.com/pestphp/pest</a></p>
+<p>PHPUnit 위에 구축되고 테스트를 간단하고 우아하게 작성할 수 있게 도와주는 도구입니다. <a href="https://pestphp.com/" target="_blank" rel="noopener">공식 문서</a>와 많은 <a href="https://www.youtube.com/playlist?list=PLNXrjfSe7qHncCyQYOqJBTsTbYPotMaZ8" target="_blank" rel="noopener">동영상 강좌</a>도 있습니다. <a href="https://github.com/facebook/jest" target="_blank" rel="noopener">facebook/jest</a>에서 영감을 받았다고 하네요.</p>
+<h2 id="Moxio-sqlite-extended-api"><a href="#Moxio-sqlite-extended-api" class="headerlink" title="Moxio/sqlite-extended-api"></a>Moxio/sqlite-extended-api</h2><p><a href="https://github.com/Moxio/sqlite-extended-api" target="_blank" rel="noopener">https://github.com/Moxio/sqlite-extended-api</a></p>
+<p>FFI와 <a href="https://github.com/lisachenko/z-engine" target="_blank" rel="noopener">lisachenko/z-engine</a>이 서로 어떻게 도움을 줄 수 있을지 실제 구현된 예제입니다. 이 패키지는 표준 PHP 드라이버에서는 할 수 없는 SQLite API 메소드를 제공합니다. </p>
+<h2 id="FriendsOfPHP-pickle"><a href="#FriendsOfPHP-pickle" class="headerlink" title="FriendsOfPHP/pickle"></a>FriendsOfPHP/pickle</h2><p><a href="https://github.com/FriendsOfPHP/pickle" target="_blank" rel="noopener">https://github.com/FriendsOfPHP/pickle</a></p>
+<p>Composer와 호환되는 PECL extension 관리도구입니다. 2015 이후 첫 업데이트가 있었고, 결국 <a href="https://twitter.com/PierreJoye/status/1268531238433894405" target="_blank" rel="noopener">Composer와 완전히 통합할 계획</a>을 세웠습니다.</p>
+<h2 id="doctrine-migrations-3-0-0"><a href="#doctrine-migrations-3-0-0" class="headerlink" title="doctrine/migrations 3.0.0"></a>doctrine/migrations 3.0.0</h2><p><a href="https://github.com/doctrine/migrations/releases/tag/3.0.0" target="_blank" rel="noopener">https://github.com/doctrine/migrations/releases/tag/3.0.0</a></p>
+<p>DB 마이그레이션을 처리하는, 잘 알려진 패키지의 주요 업데이트.</p>
+<h1 id="Symfony"><a href="#Symfony" class="headerlink" title="Symfony"></a>Symfony</h1><h2 id="Symfony-5-1-was-released"><a href="#Symfony-5-1-was-released" class="headerlink" title="Symfony 5.1 was released."></a>Symfony 5.1 was released.</h2><p><a href="https://symfony.com/blog/symfony-5-1-curated-new-features" target="_blank" rel="noopener">https://symfony.com/blog/symfony-5-1-curated-new-features</a></p>
+<h2 id="Symfony-5-certification-is-now-available"><a href="#Symfony-5-certification-is-now-available" class="headerlink" title="Symfony 5 certification is now available"></a>Symfony 5 certification is now available</h2><p><a href="https://symfony.com/blog/the-symfony-5-certification-is-now-available" target="_blank" rel="noopener">https://symfony.com/blog/the-symfony-5-certification-is-now-available</a></p>
+<h2 id="In-Symfony-6-configurations-will-be-handled-in-usual-PHP-files"><a href="#In-Symfony-6-configurations-will-be-handled-in-usual-PHP-files" class="headerlink" title="In Symfony 6, configurations will be handled in usual PHP files"></a>In Symfony 6, configurations will be handled in usual PHP files</h2><p><a href="https://github.com/symfony/symfony/issues/37186" target="_blank" rel="noopener">https://github.com/symfony/symfony/issues/37186</a></p>
+<p>Symfony 6에서 configuration 설정에 YAML이나 XML 대신 PHP file을 사용하기로 했습니다.</p>
+<h2 id="dbu-snake-bundle"><a href="#dbu-snake-bundle" class="headerlink" title="dbu/snake-bundle"></a>dbu/snake-bundle</h2><p><a href="https://github.com/dbu/snake-bundle" target="_blank" rel="noopener">https://github.com/dbu/snake-bundle</a></p>
+<p>symfony/console로 구현한 snake game</p>
+<h2 id="How-much-of-a-performance-boost-can-you-expect-for-a-Symfony-5-app-with-PHP-OPcache-preloading"><a href="#How-much-of-a-performance-boost-can-you-expect-for-a-Symfony-5-app-with-PHP-OPcache-preloading" class="headerlink" title="How much of a performance boost can you expect for a Symfony 5 app with PHP OPcache preloading?"></a>How much of a performance boost can you expect for a Symfony 5 app with PHP OPcache preloading?</h2><p><a href="https://www.ibexa.co/blog/how-much-of-a-performance-boost-can-you-expect-for-a-symfony-5-app-with-php-opcache-preloading" target="_blank" rel="noopener">https://www.ibexa.co/blog/how-much-of-a-performance-boost-can-you-expect-for-a-symfony-5-app-with-php-opcache-preloading</a></p>
+<p>PHP OPcache preloading으로 얼마나 성능을 개선할 수 있을지 실험한 결과입니다.<br>현실적인 예제에서는 평균 10% 정도의 개선이 있는 것으로 보입니다.</p>
+<h2 id="10-Symfony-testing-tips"><a href="#10-Symfony-testing-tips" class="headerlink" title="10 Symfony testing tips."></a>10 Symfony testing tips.</h2><p><a href="https://blog.cemunalan.com.tr/2020/02/02/10-symfony-testing-tips/" target="_blank" rel="noopener">https://blog.cemunalan.com.tr/2020/02/02/10-symfony-testing-tips/</a></p>
+<h2 id="Protect-Symfony-app-against-the-OWASP-Top-10-threats"><a href="#Protect-Symfony-app-against-the-OWASP-Top-10-threats" class="headerlink" title="Protect Symfony app against the OWASP Top 10 threats."></a>Protect Symfony app against the OWASP Top 10 threats.</h2><p><a href="https://nicwortel.nl/blog/2020/06/07/protect-symfony-application-against-owasp-top-10-security-risks" target="_blank" rel="noopener">https://nicwortel.nl/blog/2020/06/07/protect-symfony-application-against-owasp-top-10-security-risks</a></p>
+<p>PHP에서 10가지 주요 보안 위협을 대응하는 방법을 살펴 봅니다.</p>
+<ol>
+<li>Injection</li>
+<li>Broken authentication</li>
+<li>Sensitive data exposure</li>
+<li>XML external entities (XXE)</li>
+<li>Broken access control</li>
+<li>Security misconfiguration</li>
+<li>Cross-site scripting (XSS)</li>
+<li>Insecure deserialization</li>
+<li>Using components with known vulnerabilities</li>
+<li>Insufficient monitoring &amp; logging</li>
+</ol>
+<h1 id="Laravel"><a href="#Laravel" class="headerlink" title="Laravel"></a>Laravel</h1><h2 id="spatie-laravel-cronless-schedule"><a href="#spatie-laravel-cronless-schedule" class="headerlink" title="spatie/laravel-cronless-schedule"></a>spatie/laravel-cronless-schedule</h2><p><a href="https://github.com/spatie/laravel-cronless-schedule" target="_blank" rel="noopener">https://github.com/spatie/laravel-cronless-schedule</a></p>
+<p>cron 없이 예약 작업을 수행하는 패키지입니다. 내부적으로는 ReactPHP와 timer를 사용합니다. <a href="https://freek.dev/1689-a-package-to-run-the-laravel-scheduler-without-relying-on-cron" target="_blank" rel="noopener">소개 페이지</a>에서 더 자세히 알아보세요.</p>
+<h2 id="Laravel-Debugbar-vs-Telescope-Toolbar"><a href="#Laravel-Debugbar-vs-Telescope-Toolbar" class="headerlink" title="Laravel Debugbar vs. Telescope Toolbar"></a>Laravel Debugbar vs. Telescope Toolbar</h2><p><a href="https://barryvdh.nl/laravel/debugbar/telescope/2020/06/14/laravel-debugbar-vs-telescope-toolbar/" target="_blank" rel="noopener">https://barryvdh.nl/laravel/debugbar/telescope/2020/06/14/laravel-debugbar-vs-telescope-toolbar/</a></p>
+<p>글쓴이는 Telescope를 이미 사용하고 있다면, 부하를 피하기 위해서 Telescope Toolbar를 추천한다고 합니다. Laravel Debugbar를 선호하지만 너무 무겁다고 생각되면 Telescope Toolbar를 사용해보라고 하네요.</p>
+<h2 id="Adding-try-catch-Laravel-collections"><a href="#Adding-try-catch-Laravel-collections" class="headerlink" title="Adding try/catch Laravel collections."></a>Adding try/catch Laravel collections.</h2><p><a href="https://freek.dev/1691-adding-trycatch-to-laravel-collections" target="_blank" rel="noopener">https://freek.dev/1691-adding-trycatch-to-laravel-collections</a></p>
+<p><a href="https://twitter.com/gonedark" target="_blank" rel="noopener">Jason McCreary</a>라는 사람이 트위터에서 try/catch를 chaining하는 아이디어를 이야기했고, 글쓴이(Van der Herten)와 페어 코딩을 진행해서 <a href="https://github.com/spatie/laravel-collection-macros" target="_blank" rel="noopener">laravel-collection-macros</a>에 <code>try</code>와 <code>catch</code> 메소드를 추가했습니다. 이를 사용하는 법과 작동 원리를 소개하는 글입니다.</p>
+<h2 id="Laravel-package-ecosystem-statistics"><a href="#Laravel-package-ecosystem-statistics" class="headerlink" title="Laravel package ecosystem statistics."></a>Laravel package ecosystem statistics.</h2><p><a href="https://itnext.io/laravel-package-ecosystem-4afd53fad192" target="_blank" rel="noopener">https://itnext.io/laravel-package-ecosystem-4afd53fad192</a></p>
+<h2 id="tactics-you-can-use-to-write-cleaner-code-in-Laravel"><a href="#tactics-you-can-use-to-write-cleaner-code-in-Laravel" class="headerlink" title="tactics you can use to write cleaner code in Laravel"></a>tactics you can use to write cleaner code in Laravel</h2><p><a href="https://twitter.com/samuelstancl/status/1272822437181378561" target="_blank" rel="noopener">https://twitter.com/samuelstancl/status/1272822437181378561</a></p>
+<h1 id="Yii"><a href="#Yii" class="headerlink" title="Yii"></a>Yii</h1><h2 id="Yii2-amp-Doctrine-ORM-simple-integration"><a href="#Yii2-amp-Doctrine-ORM-simple-integration" class="headerlink" title="Yii2 &amp; Doctrine ORM simple integration."></a>Yii2 &amp; Doctrine ORM simple integration.</h2><p><a href="https://medium.com/rigor-guild/yii2-doctrine-orm-simple-integration-fb0625002a40" target="_blank" rel="noopener">https://medium.com/rigor-guild/yii2-doctrine-orm-simple-integration-fb0625002a40</a></p>
+<h1 id="Zend-Laminas"><a href="#Zend-Laminas" class="headerlink" title="Zend/Laminas"></a>Zend/Laminas</h1><h2 id="Is-Zend-Framework-Dead"><a href="#Is-Zend-Framework-Dead" class="headerlink" title="Is Zend Framework Dead?"></a>Is Zend Framework Dead?</h2><p><a href="https://www.youtube.com/watch?v=5luPg2oVUIk" target="_blank" rel="noopener">https://www.youtube.com/watch?v=5luPg2oVUIk</a></p>
+<p>Laminas project의 lead인 <a href="https://twitter.com/mwop" target="_blank" rel="noopener">Matthew Weier O’Phinney</a>가 “Zend Framework이 죽었는가?”라는 질문을 포함한 또 다른 질문에 답을 합니다.</p>
+<h2 id="asgrim-mini-mezzio"><a href="#asgrim-mini-mezzio" class="headerlink" title="asgrim/mini-mezzio"></a>asgrim/mini-mezzio</h2><p><a href="https://github.com/asgrim/mini-mezzio" target="_blank" rel="noopener">https://github.com/asgrim/mini-mezzio</a></p>
+<p>이 패키지를 사용하여 Mezzio 애플리케이션을 더욱 빠르게 설정하십시오.</p>
+<h1 id="🌀-Async-PHP"><a href="#🌀-Async-PHP" class="headerlink" title="🌀 Async PHP"></a>🌀 Async PHP</h1><h2 id="badfarm-zanzara"><a href="#badfarm-zanzara" class="headerlink" title="badfarm/zanzara"></a>badfarm/zanzara</h2><p><a href="https://github.com/badfarm/zanzara" target="_blank" rel="noopener">https://github.com/badfarm/zanzara</a></p>
+<p>ReactPHP 기반의 Telegram bot을 만들어주는 비동기 프레임웍.</p>
+<h2 id="simple-swoole-simps"><a href="#simple-swoole-simps" class="headerlink" title="simple-swoole/simps"></a>simple-swoole/simps</h2><p><a href="https://github.com/simple-swoole/simps" target="_blank" rel="noopener">https://github.com/simple-swoole/simps</a></p>
+<p>Swoole 기반의 프레임웍. <a href="https://github.com/the-benchmarker/web-frameworks#results" target="_blank" rel="noopener">Benchmark</a>에 따르면 PHP로 작성된 것 중에는 가장 빠릅니다.</p>
+<h2 id="📺-Video-course-on-ReactPHP-by-Marcel-Pociot"><a href="#📺-Video-course-on-ReactPHP-by-Marcel-Pociot" class="headerlink" title="📺 Video course on ReactPHP by Marcel Pociot."></a>📺 Video course on ReactPHP by Marcel Pociot.</h2><p><a href="https://beyondco.de/video-courses#:~:text=Learning%20ReactPHP" target="_blank" rel="noopener">https://beyondco.de/video-courses#:~:text=Learning%20ReactPHP</a></p>
+<h1 id="💡-기타-읽을-만한-글"><a href="#💡-기타-읽을-만한-글" class="headerlink" title="💡 기타 읽을 만한 글"></a>💡 기타 읽을 만한 글</h1><h2 id="Introducing-the-new-Serverless-LAMP-stack"><a href="#Introducing-the-new-Serverless-LAMP-stack" class="headerlink" title="Introducing the new Serverless LAMP stack"></a>Introducing the new Serverless LAMP stack</h2><p><a href="https://aws.amazon.com/blogs/compute/introducing-the-new-serverless-lamp-stack/" target="_blank" rel="noopener">https://aws.amazon.com/blogs/compute/introducing-the-new-serverless-lamp-stack/</a></p>
+<p>AWS 블로그에 올라온 serverless PHP 사용법과 Serverless LAMP stack을 주제로 한 <a href="https://github.com/aws-samples/php-examples-for-aws-lambda/blob/master/serverless-php-resources.md" target="_blank" rel="noopener">커뮤니티의 좋은 자료</a>가 소개됐습니다. </p>
+<p>또한, Amazon의 공식 <a href="https://plugins.jetbrains.com/plugin/11349-aws-toolkit?_ga=2.189618027.1336001967.1592964633-44216834.1547258235" target="_blank" rel="noopener">AWS Toolkit</a> 플러그인도 이제 PhpStorm에서 사용할 수 있습니다.</p>
+<h2 id="Constructor-promotion-in-PHP-8"><a href="#Constructor-promotion-in-PHP-8" class="headerlink" title="Constructor promotion in PHP 8"></a>Constructor promotion in PHP 8</h2><p><a href="https://stitcher.io/blog/constructor-promotion-in-php-8" target="_blank" rel="noopener">https://stitcher.io/blog/constructor-promotion-in-php-8</a></p>
+<p>PHP 8에서는 아래처럼 작성하는 대신<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CustomerDTO</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> string $name;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> string $email;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> DateTimeImmutable $birth_date;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">        string $name, </span></span></span><br><span class="line"><span class="function"><span class="params">        string $email, </span></span></span><br><span class="line"><span class="function"><span class="params">        DateTimeImmutable $birth_date</span></span></span><br><span class="line"><span class="function"><span class="params">    )</span> </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;name = $name;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;email = $email;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;birth_date = $birth_date;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>이렇게 사용할 수 있습니다.<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CustomerDTO</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">        public string $name, </span></span></span><br><span class="line"><span class="function"><span class="params">        public string $email, </span></span></span><br><span class="line"><span class="function"><span class="params">        public DateTimeImmutable $birth_date,</span></span></span><br><span class="line"><span class="function"><span class="params">    )</span> </span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>이런 Constructor property 승격(promotion)이 어떻게 동작하는지 자세히 설명합니다.</p>
+<h2 id="What-are-the-top-most-used-PHP-functions-in-frameworks"><a href="#What-are-the-top-most-used-PHP-functions-in-frameworks" class="headerlink" title="What are the top most used PHP functions in frameworks?"></a>What are the top most used PHP functions in frameworks?</h2><p><a href="https://thephp.website/en/issue/most-used-php-functions/" target="_blank" rel="noopener">https://thephp.website/en/issue/most-used-php-functions/</a></p>
+<p>Symfony에서는 <code>sprintf()</code>, 라라벨에서는 <code>is_null()</code>입니다. 다른 프레임 워크에 대해 유사한 통계를 계산하는 방법에 대한 <a href="https://github.com/nawarian/The-PHP-Website/tree/master/code/15-framework-functions/" target="_blank" rel="noopener">지침</a>도 있습니다.</p>
+<h2 id="final-classes-in-PHP"><a href="#final-classes-in-PHP" class="headerlink" title="final classes in PHP"></a>final classes in PHP</h2><p><a href="https://medium.com/swlh/final-classes-in-php-9174e3e2747e" target="_blank" rel="noopener">https://medium.com/swlh/final-classes-in-php-9174e3e2747e</a></p>
+<p>Final class의 이점.</p>
+<h2 id="The-fastest-template-engine-for-PHP"><a href="#The-fastest-template-engine-for-PHP" class="headerlink" title="The fastest template engine for PHP"></a>The fastest template engine for PHP</h2><p><a href="https://medium.com/@gotzmann/the-fastest-template-engine-for-php-b5b461b46296" target="_blank" rel="noopener">https://medium.com/@gotzmann/the-fastest-template-engine-for-php-b5b461b46296</a></p>
+<h2 id="Unit-test-naming-conventions"><a href="#Unit-test-naming-conventions" class="headerlink" title="Unit test naming conventions"></a>Unit test naming conventions</h2><p><a href="https://matthiasnoback.nl/2020/06/unit-test-naming-conventions/" target="_blank" rel="noopener">https://matthiasnoback.nl/2020/06/unit-test-naming-conventions/</a></p>
+<h1 id="📺-Videos"><a href="#📺-Videos" class="headerlink" title="📺 Videos"></a>📺 Videos</h1><h2 id="PHP-Russia-2020-Online"><a href="#PHP-Russia-2020-Online" class="headerlink" title="PHP Russia 2020 Online"></a>PHP Russia 2020 Online</h2><p><a href="https://habr.com/ru/company/badoo/blog/487264/" target="_blank" rel="noopener">https://habr.com/ru/company/badoo/blog/487264/</a></p>
+<h2 id="How-to-generate-and-view-code-coverage-reports-in-PhpStorm-using-PHPUnit-and-Xdebug"><a href="#How-to-generate-and-view-code-coverage-reports-in-PhpStorm-using-PHPUnit-and-Xdebug" class="headerlink" title="How to generate and view code coverage reports in PhpStorm using PHPUnit and Xdebug"></a>How to generate and view code coverage reports in PhpStorm using PHPUnit and Xdebug</h2><p><a href="https://freek.dev/1674-how-to-generate-and-view-code-coverage-reports-in-phpstorm-using-phpunit-and-xdebug" target="_blank" rel="noopener">https://freek.dev/1674-how-to-generate-and-view-code-coverage-reports-in-phpstorm-using-phpunit-and-xdebug</a></p>
+<h1 id="🔈-Podcasts"><a href="#🔈-Podcasts" class="headerlink" title="🔈 Podcasts"></a>🔈 Podcasts</h1><h2 id="Voices-of-the-ElePHPant"><a href="#Voices-of-the-ElePHPant" class="headerlink" title="Voices of the ElePHPant"></a>Voices of the ElePHPant</h2><p><a href="https://voicesoftheelephpant.com/2020/06/09/interview-with-nuno-maduro/" target="_blank" rel="noopener">https://voicesoftheelephpant.com/2020/06/09/interview-with-nuno-maduro/</a></p>
+<p>Interview with Nuno Maduro.</p>
+<h2 id="PHPUgly-194-Oversight"><a href="#PHPUgly-194-Oversight" class="headerlink" title="PHPUgly 194: Oversight"></a>PHPUgly 194: Oversight</h2><p><a href="https://phpugly.simplecast.com/episodes/194" target="_blank" rel="noopener">https://phpugly.simplecast.com/episodes/194</a></p>
+<h2 id="PHP-Internals-News-Podcast-by-Derick-Rethans"><a href="#PHP-Internals-News-Podcast-by-Derick-Rethans" class="headerlink" title="PHP Internals News Podcast by Derick Rethans"></a>PHP Internals News Podcast by Derick Rethans</h2><ul>
+<li><a href="https://phpinternals.news/58" target="_blank" rel="noopener">#58</a> — With <a href="https://github.com/MaxSem" target="_blank" rel="noopener">Max Semenik</a> on the accepted <a href="https://wiki.php.net/rfc/non-capturing_catches" target="_blank" rel="noopener">RFC non-capturing catches</a>.</li>
+<li><a href="https://phpinternals.news/57" target="_blank" rel="noopener">#57</a> — With <a href="https://twitter.com/ralphschindler" target="_blank" rel="noopener">Ralph Schindler</a> on his proposal about <a href="https://wiki.php.net/rfc/conditional_break_continue_return" target="_blank" rel="noopener">conditional return, break, and continue statements</a>.</li>
+<li><a href="https://phpinternals.news/56" target="_blank" rel="noopener">#56</a> — With <a href="https://twitter.com/MrDanack" target="_blank" rel="noopener">Dan Ackroyd</a> on the newly added <a href="https://wiki.php.net/rfc/mixed_type_v2" target="_blank" rel="noopener">mixed pseudotype</a>.</li>
+</ul>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+    </div>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">All Posts</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#⚡️-News-amp-Releases"><span class="toc-number">1.</span> <span class="toc-text">⚡️ News &amp; Releases</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP-turned-25"><span class="toc-number">1.1.</span> <span class="toc-text">PHP turned 25</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP-7-4-7"><span class="toc-number">1.2.</span> <span class="toc-text">PHP 7.4.7</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP-7-3-19"><span class="toc-number">1.3.</span> <span class="toc-text">PHP 7.3.19</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Composer-2-0-0-alpha1"><span class="toc-number">1.4.</span> <span class="toc-text">Composer 2.0.0-alpha1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-State-of-Developer-Ecosystem-in-2020"><span class="toc-number">1.5.</span> <span class="toc-text">The State of Developer Ecosystem in 2020</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#🐘-PHP-Internals"><span class="toc-number">2.</span> <span class="toc-text">🐘 PHP Internals</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#✅-RFC-Attribute-Amendments"><span class="toc-number">2.1.</span> <span class="toc-text">✅ [RFC] Attribute Amendments</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#✅-RFC-Ensure-correct-signatures-of-magic-methods"><span class="toc-number">2.2.</span> <span class="toc-text">✅ [RFC] Ensure correct signatures of magic methods</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RFC-Make-sorting-stable"><span class="toc-number">2.3.</span> <span class="toc-text">[RFC] Make sorting stable</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#❌-RFC-Opcache-optimization-without-any-caching"><span class="toc-number">2.4.</span> <span class="toc-text">❌ [RFC] Opcache optimization without any caching</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RFC-Make-constructors-and-destructors-return-void"><span class="toc-number">2.5.</span> <span class="toc-text">[RFC] Make constructors and destructors return void</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RFC-Treat-namespaced-names-as-single-token"><span class="toc-number">2.6.</span> <span class="toc-text">[RFC] Treat namespaced names as single token</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RFC-Rename-T-PAAMAYIM-NEKUDOTAYIM-to-T-DOUBLE-COLON"><span class="toc-number">2.7.</span> <span class="toc-text">[RFC] Rename T_PAAMAYIM_NEKUDOTAYIM to T_DOUBLE_COLON</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RFC-Shorter-Attribute-Syntax"><span class="toc-number">2.8.</span> <span class="toc-text">[RFC] Shorter Attribute Syntax</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RFC-Change-terminology-to-ExcludeList"><span class="toc-number">2.9.</span> <span class="toc-text">[RFC] Change terminology to ExcludeList</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RFC-Nullsafe-operator"><span class="toc-number">2.10.</span> <span class="toc-text">[RFC] Nullsafe operator</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP-8-0-release-schedule-was-updated"><span class="toc-number">2.11.</span> <span class="toc-text">PHP 8.0 release schedule was updated</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3v4l-org"><span class="toc-number">2.12.</span> <span class="toc-text">3v4l.org</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#🛠-Tools"><span class="toc-number">3.</span> <span class="toc-text">🛠 Tools</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#beyondcode-expose"><span class="toc-number">3.1.</span> <span class="toc-text">beyondcode/expose</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pestphp-pest"><span class="toc-number">3.2.</span> <span class="toc-text">pestphp/pest</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Moxio-sqlite-extended-api"><span class="toc-number">3.3.</span> <span class="toc-text">Moxio/sqlite-extended-api</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FriendsOfPHP-pickle"><span class="toc-number">3.4.</span> <span class="toc-text">FriendsOfPHP/pickle</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#doctrine-migrations-3-0-0"><span class="toc-number">3.5.</span> <span class="toc-text">doctrine/migrations 3.0.0</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Symfony"><span class="toc-number">4.</span> <span class="toc-text">Symfony</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Symfony-5-1-was-released"><span class="toc-number">4.1.</span> <span class="toc-text">Symfony 5.1 was released.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Symfony-5-certification-is-now-available"><span class="toc-number">4.2.</span> <span class="toc-text">Symfony 5 certification is now available</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#In-Symfony-6-configurations-will-be-handled-in-usual-PHP-files"><span class="toc-number">4.3.</span> <span class="toc-text">In Symfony 6, configurations will be handled in usual PHP files</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dbu-snake-bundle"><span class="toc-number">4.4.</span> <span class="toc-text">dbu/snake-bundle</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-much-of-a-performance-boost-can-you-expect-for-a-Symfony-5-app-with-PHP-OPcache-preloading"><span class="toc-number">4.5.</span> <span class="toc-text">How much of a performance boost can you expect for a Symfony 5 app with PHP OPcache preloading?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-Symfony-testing-tips"><span class="toc-number">4.6.</span> <span class="toc-text">10 Symfony testing tips.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Protect-Symfony-app-against-the-OWASP-Top-10-threats"><span class="toc-number">4.7.</span> <span class="toc-text">Protect Symfony app against the OWASP Top 10 threats.</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Laravel"><span class="toc-number">5.</span> <span class="toc-text">Laravel</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#spatie-laravel-cronless-schedule"><span class="toc-number">5.1.</span> <span class="toc-text">spatie/laravel-cronless-schedule</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Laravel-Debugbar-vs-Telescope-Toolbar"><span class="toc-number">5.2.</span> <span class="toc-text">Laravel Debugbar vs. Telescope Toolbar</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Adding-try-catch-Laravel-collections"><span class="toc-number">5.3.</span> <span class="toc-text">Adding try/catch Laravel collections.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Laravel-package-ecosystem-statistics"><span class="toc-number">5.4.</span> <span class="toc-text">Laravel package ecosystem statistics.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tactics-you-can-use-to-write-cleaner-code-in-Laravel"><span class="toc-number">5.5.</span> <span class="toc-text">tactics you can use to write cleaner code in Laravel</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Yii"><span class="toc-number">6.</span> <span class="toc-text">Yii</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Yii2-amp-Doctrine-ORM-simple-integration"><span class="toc-number">6.1.</span> <span class="toc-text">Yii2 &amp; Doctrine ORM simple integration.</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Zend-Laminas"><span class="toc-number">7.</span> <span class="toc-text">Zend/Laminas</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Is-Zend-Framework-Dead"><span class="toc-number">7.1.</span> <span class="toc-text">Is Zend Framework Dead?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#asgrim-mini-mezzio"><span class="toc-number">7.2.</span> <span class="toc-text">asgrim/mini-mezzio</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#🌀-Async-PHP"><span class="toc-number">8.</span> <span class="toc-text">🌀 Async PHP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#badfarm-zanzara"><span class="toc-number">8.1.</span> <span class="toc-text">badfarm/zanzara</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#simple-swoole-simps"><span class="toc-number">8.2.</span> <span class="toc-text">simple-swoole/simps</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#📺-Video-course-on-ReactPHP-by-Marcel-Pociot"><span class="toc-number">8.3.</span> <span class="toc-text">📺 Video course on ReactPHP by Marcel Pociot.</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#💡-기타-읽을-만한-글"><span class="toc-number">9.</span> <span class="toc-text">💡 기타 읽을 만한 글</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introducing-the-new-Serverless-LAMP-stack"><span class="toc-number">9.1.</span> <span class="toc-text">Introducing the new Serverless LAMP stack</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Constructor-promotion-in-PHP-8"><span class="toc-number">9.2.</span> <span class="toc-text">Constructor promotion in PHP 8</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-are-the-top-most-used-PHP-functions-in-frameworks"><span class="toc-number">9.3.</span> <span class="toc-text">What are the top most used PHP functions in frameworks?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#final-classes-in-PHP"><span class="toc-number">9.4.</span> <span class="toc-text">final classes in PHP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-fastest-template-engine-for-PHP"><span class="toc-number">9.5.</span> <span class="toc-text">The fastest template engine for PHP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Unit-test-naming-conventions"><span class="toc-number">9.6.</span> <span class="toc-text">Unit test naming conventions</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#📺-Videos"><span class="toc-number">10.</span> <span class="toc-text">📺 Videos</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP-Russia-2020-Online"><span class="toc-number">10.1.</span> <span class="toc-text">PHP Russia 2020 Online</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-to-generate-and-view-code-coverage-reports-in-PhpStorm-using-PHPUnit-and-Xdebug"><span class="toc-number">10.2.</span> <span class="toc-text">How to generate and view code coverage reports in PhpStorm using PHPUnit and Xdebug</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#🔈-Podcasts"><span class="toc-number">11.</span> <span class="toc-text">🔈 Podcasts</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Voices-of-the-ElePHPant"><span class="toc-number">11.1.</span> <span class="toc-text">Voices of the ElePHPant</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PHPUgly-194-Oversight"><span class="toc-number">11.2.</span> <span class="toc-text">PHPUgly 194: Oversight</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP-Internals-News-Podcast-by-Derick-Rethans"><span class="toc-number">11.3.</span> <span class="toc-text">PHP Internals News Podcast by Derick Rethans</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://haah.kr/2020/06/24/php-annotated-june-2020/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://haah.kr/2020/06/24/php-annotated-june-2020/&text=PHP Annotated – June 2020"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://haah.kr/2020/06/24/php-annotated-june-2020/&title=PHP Annotated – June 2020"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://haah.kr/2020/06/24/php-annotated-june-2020/&is_video=false&description=PHP Annotated – June 2020"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=PHP Annotated – June 2020&body=Check out this article: http://haah.kr/2020/06/24/php-annotated-june-2020/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://haah.kr/2020/06/24/php-annotated-june-2020/&title=PHP Annotated – June 2020"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://haah.kr/2020/06/24/php-annotated-june-2020/&title=PHP Annotated – June 2020"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://haah.kr/2020/06/24/php-annotated-june-2020/&title=PHP Annotated – June 2020"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://haah.kr/2020/06/24/php-annotated-june-2020/&title=PHP Annotated – June 2020"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://haah.kr/2020/06/24/php-annotated-june-2020/&name=PHP Annotated – June 2020&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 youngiggy
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">All Posts</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-99319001-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'youngiggy-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
