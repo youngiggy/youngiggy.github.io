@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://haah.kr/"/>
-  <updated>2020-08-21T23:07:00.074Z</updated>
+  <updated>2020-09-27T10:21:04.632Z</updated>
   <id>http://haah.kr/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PHP Annotated – September 2020</title>
+    <link href="http://haah.kr/2020/09/26/php-annotated-september-2020/"/>
+    <id>http://haah.kr/2020/09/26/php-annotated-september-2020/</id>
+    <published>2020-09-26T14:18:16.000Z</published>
+    <updated>2020-09-27T10:21:04.632Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;img src=&quot;https://blog.jetbrains.com/wp-content/uploads/2020/01/phpstorm-PHP_Annotated_blog_1600x800.png&quot; alt=&quot;Php_annotated_monthly
+        
+      
+    
+    </summary>
+    
+    
+      <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
+    
+      <category term="php-annotated-monthly" scheme="http://haah.kr/tags/php-annotated-monthly/"/>
+    
+  </entry>
   
   <entry>
     <title>PHP Annotated – August 2020</title>
@@ -520,30 +546,6 @@
       <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
     
       <category term="php-annotated-monthly" scheme="http://haah.kr/tags/php-annotated-monthly/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>독후감 - 2019년 5월</title>
-    <link href="http://haah.kr/2019/05/11/books-2019-may/"/>
-    <id>http://haah.kr/2019/05/11/books-2019-may/</id>
-    <published>2019-05-11T02:41:42.000Z</published>
-    <updated>2019-05-12T02:34:03.778Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;틀리지-않는-법-수학적-사고의-힘&quot;&gt;&lt;a href=&quot;#틀리지-않는-법-수학적-사고의-힘&quot; class=&quot;headerlink&quot; title=&quot;틀리지 않는 법 - 수학적 사고의 힘&quot;&gt;&lt;/a&gt;틀리지 않는 법 - 수학적 사고의
-        
-      
-    
-    </summary>
-    
-    
-      <category term="독후감" scheme="http://haah.kr/tags/%EB%8F%85%ED%9B%84%EA%B0%90/"/>
     
   </entry>
   
