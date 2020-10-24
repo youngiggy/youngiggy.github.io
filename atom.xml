@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://haah.kr/"/>
-  <updated>2020-09-27T10:21:04.632Z</updated>
+  <updated>2020-10-24T07:26:48.325Z</updated>
   <id>http://haah.kr/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PHP Annotated – October 2020</title>
+    <link href="http://haah.kr/2020/10/24/php-annotated-october-2020/"/>
+    <id>http://haah.kr/2020/10/24/php-annotated-october-2020/</id>
+    <published>2020-10-23T22:29:52.000Z</published>
+    <updated>2020-10-24T07:26:48.325Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;img src=&quot;https://blog.jetbrains.com/wp-content/uploads/2020/01/phpstorm-PHP_Annotated_blog_1600x800.png&quot; alt=&quot;Php_annotated_monthly
+        
+      
+    
+    </summary>
+    
+    
+      <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
+    
+      <category term="php-annotated-monthly" scheme="http://haah.kr/tags/php-annotated-monthly/"/>
+    
+  </entry>
   
   <entry>
     <title>PHP Annotated – September 2020</title>
@@ -503,32 +529,6 @@
     <id>http://haah.kr/2019/06/24/php-annotated-monthly-june-2019/</id>
     <published>2019-06-24T14:33:41.000Z</published>
     <updated>2019-06-25T16:07:54.107Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;&lt;img src=&quot;https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2018/12/new_php-annotated-monthly.jpg&quot; alt=&quot;Php_annotated_monthly
-        
-      
-    
-    </summary>
-    
-    
-      <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
-    
-      <category term="php-annotated-monthly" scheme="http://haah.kr/tags/php-annotated-monthly/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>php-annotated-monthly-may-2019</title>
-    <link href="http://haah.kr/2019/05/14/php-annotated-monthly-may-2019/"/>
-    <id>http://haah.kr/2019/05/14/php-annotated-monthly-may-2019/</id>
-    <published>2019-05-13T15:11:50.000Z</published>
-    <updated>2019-05-18T14:27:10.685Z</updated>
     
     <summary type="html">
     
