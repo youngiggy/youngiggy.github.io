@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://haah.kr/"/>
-  <updated>2020-10-24T07:26:48.325Z</updated>
+  <updated>2020-11-22T17:13:55.302Z</updated>
   <id>http://haah.kr/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>독후감 - 2020년 11월</title>
+    <link href="http://haah.kr/2020/11/23/books-2020-november/"/>
+    <id>http://haah.kr/2020/11/23/books-2020-november/</id>
+    <published>2020-11-22T16:59:05.000Z</published>
+    <updated>2020-11-22T17:13:55.302Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;선량한-차별주의자&quot;&gt;&lt;a href=&quot;#선량한-차별주의자&quot; class=&quot;headerlink&quot; title=&quot;선량한 차별주의자&quot;&gt;&lt;/a&gt;선량한 차별주의자&lt;/h2&gt;&lt;p&gt;김지혜 저 | 창비 | 2019년 07월 17일&lt;/p&gt;
+&lt;p&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+    
+      <category term="독후감" scheme="http://haah.kr/tags/%EB%8F%85%ED%9B%84%EA%B0%90/"/>
+    
+  </entry>
   
   <entry>
     <title>PHP Annotated – October 2020</title>
@@ -520,32 +545,6 @@
       <category term="매니징" scheme="http://haah.kr/tags/%EB%A7%A4%EB%8B%88%EC%A7%95/"/>
     
       <category term="OKR" scheme="http://haah.kr/tags/OKR/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>php-annotated-monthly-june-2019</title>
-    <link href="http://haah.kr/2019/06/24/php-annotated-monthly-june-2019/"/>
-    <id>http://haah.kr/2019/06/24/php-annotated-monthly-june-2019/</id>
-    <published>2019-06-24T14:33:41.000Z</published>
-    <updated>2019-06-25T16:07:54.107Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;&lt;img src=&quot;https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2018/12/new_php-annotated-monthly.jpg&quot; alt=&quot;Php_annotated_monthly
-        
-      
-    
-    </summary>
-    
-    
-      <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
-    
-      <category term="php-annotated-monthly" scheme="http://haah.kr/tags/php-annotated-monthly/"/>
     
   </entry>
   
