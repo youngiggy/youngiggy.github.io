@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://haah.kr/"/>
-  <updated>2020-11-22T17:13:55.302Z</updated>
+  <updated>2021-01-17T04:39:21.951Z</updated>
   <id>http://haah.kr/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PHP Annotated – January 2021</title>
+    <link href="http://haah.kr/2021/01/14/php-annotated-january-2021/"/>
+    <id>http://haah.kr/2021/01/14/php-annotated-january-2021/</id>
+    <published>2021-01-14T14:08:14.000Z</published>
+    <updated>2021-01-17T04:39:21.951Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;img src=&quot;https://blog.jetbrains.com/wp-content/uploads/2020/01/phpstorm-PHP_Annotated_blog_1600x800.png&quot; alt=&quot;Php_annotated
+        
+      
+    
+    </summary>
+    
+    
+      <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
+    
+      <category term="php-annotated-monthly" scheme="http://haah.kr/tags/php-annotated-monthly/"/>
+    
+      <category term="php-annotated" scheme="http://haah.kr/tags/php-annotated/"/>
+    
+  </entry>
   
   <entry>
     <title>독후감 - 2020년 11월</title>
@@ -515,36 +543,6 @@
       <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
     
       <category term="php-annotated-monthly" scheme="http://haah.kr/tags/php-annotated-monthly/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>애자일 코리아 7월 밋업 - OKR</title>
-    <link href="http://haah.kr/2019/07/20/agile-korea-meetup-190718/"/>
-    <id>http://haah.kr/2019/07/20/agile-korea-meetup-190718/</id>
-    <published>2019-07-20T04:08:08.000Z</published>
-    <updated>2019-07-20T04:18:26.292Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;애자일 커뮤니티에서 매월 애자일을 주제로 좋은 강연이나 워크샵이 열리고 있습니다.&lt;/p&gt;
-&lt;p&gt;제가 거기서 활동 하는 건 아니고 매달 좋은 강의 올라오나 보고 있는 정도입니다.&lt;/p&gt;
-&lt;p&gt;2019.10.18(금)에는 코엑스에서 &lt;a
-        
-      
-    
-    </summary>
-    
-    
-      <category term="애자일" scheme="http://haah.kr/tags/%EC%95%A0%EC%9E%90%EC%9D%BC/"/>
-    
-      <category term="매니징" scheme="http://haah.kr/tags/%EB%A7%A4%EB%8B%88%EC%A7%95/"/>
-    
-      <category term="OKR" scheme="http://haah.kr/tags/OKR/"/>
     
   </entry>
   

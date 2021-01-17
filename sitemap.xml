@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://haah.kr/2021/01/14/php-annotated-january-2021/</loc>
+    
+    <lastmod>2021-01-17T04:39:21.951Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://haah.kr/2020/11/23/books-2020-november/</loc>
     
     <lastmod>2020-11-22T17:13:55.302Z</lastmod>
@@ -394,21 +401,28 @@
   </url>
   
   <url>
-    <loc>http://haah.kr/2017/08/23/alphabetic-letter-validation/</loc>
-    
-    <lastmod>2018-02-13T06:27:02.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://haah.kr/2017/10/14/book-979-11-85152-65-3/</loc>
-    
-    <lastmod>2018-02-13T06:27:02.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://haah.kr/2017/05/18/learning-api-design/</loc>
+    
+    <lastmod>2018-02-13T06:27:02.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://haah.kr/2017/12/18/book-9788993827446-ddd-start/</loc>
+    
+    <lastmod>2018-02-13T06:27:02.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://haah.kr/2017/09/22/mac-filename-normalization/</loc>
+    
+    <lastmod>2018-02-13T06:27:02.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://haah.kr/2018/01/06/news-archive-2018-01-06/</loc>
     
     <lastmod>2018-02-13T06:27:02.000Z</lastmod>
     
@@ -436,21 +450,7 @@
   </url>
   
   <url>
-    <loc>http://haah.kr/2017/05/23/rest-http-method-in-html-form/</loc>
-    
-    <lastmod>2018-02-13T06:27:02.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://haah.kr/2017/05/22/rest-the-beginning/</loc>
-    
-    <lastmod>2018-02-13T06:27:02.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://haah.kr/2017/12/18/book-9788993827446-ddd-start/</loc>
+    <loc>http://haah.kr/2018/02/10/news-archive-2018-02-10/</loc>
     
     <lastmod>2018-02-13T06:27:02.000Z</lastmod>
     
@@ -471,13 +471,6 @@
   </url>
   
   <url>
-    <loc>http://haah.kr/2017/10/06/phttp-02/</loc>
-    
-    <lastmod>2018-02-13T06:27:02.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://haah.kr/2017/10/25/phttp-06/</loc>
     
     <lastmod>2018-02-13T06:27:02.000Z</lastmod>
@@ -485,7 +478,14 @@
   </url>
   
   <url>
-    <loc>http://haah.kr/2017/11/08/phttp-09-parsing-request-message-02/</loc>
+    <loc>http://haah.kr/2017/10/30/phttp-07/</loc>
+    
+    <lastmod>2018-02-13T06:27:02.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://haah.kr/2017/10/06/phttp-02/</loc>
     
     <lastmod>2018-02-13T06:27:02.000Z</lastmod>
     
@@ -499,7 +499,14 @@
   </url>
   
   <url>
-    <loc>http://haah.kr/2017/10/30/phttp-07/</loc>
+    <loc>http://haah.kr/2017/05/22/rest-the-beginning/</loc>
+    
+    <lastmod>2018-02-13T06:27:02.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://haah.kr/2017/11/08/phttp-09-parsing-request-message-02/</loc>
     
     <lastmod>2018-02-13T06:27:02.000Z</lastmod>
     
@@ -527,6 +534,13 @@
   </url>
   
   <url>
+    <loc>http://haah.kr/2017/05/23/rest-http-method-in-html-form/</loc>
+    
+    <lastmod>2018-02-13T06:27:02.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://haah.kr/2017/06/28/rest-the-dissertation/</loc>
     
     <lastmod>2018-02-13T06:27:02.000Z</lastmod>
@@ -541,21 +555,7 @@
   </url>
   
   <url>
-    <loc>http://haah.kr/2017/09/18/book-978-89-6262-115-0/</loc>
-    
-    <lastmod>2018-02-13T06:27:02.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://haah.kr/2017/12/28/retrospective-2017/</loc>
-    
-    <lastmod>2018-02-13T06:27:02.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://haah.kr/2017/12/10/book-9788965962090-%E1%84%8B%E1%85%A6%E1%84%80%E1%85%A9%E1%84%85%E1%85%A1%E1%84%82%E1%85%B3%E1%86%AB%E1%84%8C%E1%85%A5%E1%86%A8/</loc>
     
     <lastmod>2018-02-13T06:27:02.000Z</lastmod>
     
@@ -569,7 +569,14 @@
   </url>
   
   <url>
-    <loc>http://haah.kr/2018/02/10/news-archive-2018-02-10/</loc>
+    <loc>http://haah.kr/2017/12/02/book-978-89-98139-76-6/</loc>
+    
+    <lastmod>2018-02-13T06:27:02.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://haah.kr/2017/09/18/book-978-89-6262-115-0/</loc>
     
     <lastmod>2018-02-13T06:27:02.000Z</lastmod>
     
@@ -583,21 +590,14 @@
   </url>
   
   <url>
-    <loc>http://haah.kr/2018/01/06/news-archive-2018-01-06/</loc>
+    <loc>http://haah.kr/2017/08/23/alphabetic-letter-validation/</loc>
     
     <lastmod>2018-02-13T06:27:02.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://haah.kr/2017/08/30/eidf-2017/</loc>
-    
-    <lastmod>2018-02-13T06:27:02.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://haah.kr/2017/12/02/book-978-89-98139-76-6/</loc>
+    <loc>http://haah.kr/2017/12/10/book-9788965962090-%E1%84%8B%E1%85%A6%E1%84%80%E1%85%A9%E1%84%85%E1%85%A1%E1%84%82%E1%85%B3%E1%86%AB%E1%84%8C%E1%85%A5%E1%86%A8/</loc>
     
     <lastmod>2018-02-13T06:27:02.000Z</lastmod>
     
@@ -611,14 +611,14 @@
   </url>
   
   <url>
-    <loc>http://haah.kr/2017/05/18/declare/</loc>
+    <loc>http://haah.kr/2017/08/30/eidf-2017/</loc>
     
     <lastmod>2018-02-13T06:27:02.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://haah.kr/2017/08/04/explain-mysql-explain/</loc>
+    <loc>http://haah.kr/2017/05/18/declare/</loc>
     
     <lastmod>2018-02-13T06:27:02.000Z</lastmod>
     
@@ -632,7 +632,7 @@
   </url>
   
   <url>
-    <loc>http://haah.kr/2017/06/26/rest-the-truth/</loc>
+    <loc>http://haah.kr/2017/08/04/explain-mysql-explain/</loc>
     
     <lastmod>2018-02-13T06:27:02.000Z</lastmod>
     
@@ -646,7 +646,14 @@
   </url>
   
   <url>
-    <loc>http://haah.kr/2017/09/22/mac-filename-normalization/</loc>
+    <loc>http://haah.kr/2017/06/26/rest-the-truth/</loc>
+    
+    <lastmod>2018-02-13T06:27:02.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://haah.kr/2017/10/14/book-979-11-85152-65-3/</loc>
     
     <lastmod>2018-02-13T06:27:02.000Z</lastmod>
     
