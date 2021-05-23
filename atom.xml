@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://haah.kr/"/>
-  <updated>2021-03-21T14:22:17.976Z</updated>
+  <updated>2021-05-23T00:32:28.259Z</updated>
   <id>http://haah.kr/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PHP Annotated — May 2021</title>
+    <link href="http://haah.kr/2021/05/22/php-annotated-may-2021/"/>
+    <id>http://haah.kr/2021/05/22/php-annotated-may-2021/</id>
+    <published>2021-05-21T22:21:35.000Z</published>
+    <updated>2021-05-23T00:32:28.259Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;img src=&quot;https://blog.jetbrains.com/wp-content/uploads/2020/01/phpstorm-PHP_Annotated_blog_1600x800.png&quot; alt=&quot;Php_annotated
+        
+      
+    
+    </summary>
+    
+    
+      <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
+    
+      <category term="php-annotated" scheme="http://haah.kr/tags/php-annotated/"/>
+    
+      <category term="php-annotated-monthly" scheme="http://haah.kr/tags/php-annotated-monthly/"/>
+    
+  </entry>
   
   <entry>
     <title>PHP Annotated – March 2021</title>
@@ -499,33 +527,6 @@
     <id>http://haah.kr/2019/10/09/php-annotated-monthly-october-2019/</id>
     <published>2019-10-09T00:51:49.000Z</published>
     <updated>2019-10-09T03:56:18.040Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;&lt;img src=&quot;https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2019/07/php_annotated.png&quot; alt=&quot;Php_annotated_monthly 이미지&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-    
-      <category term="PHP" scheme="http://haah.kr/tags/PHP/"/>
-    
-      <category term="php-annotated-monthly" scheme="http://haah.kr/tags/php-annotated-monthly/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>php-annotated-monthly-september-2019</title>
-    <link href="http://haah.kr/2019/09/12/php-annotated-monthly-september-2019/"/>
-    <id>http://haah.kr/2019/09/12/php-annotated-monthly-september-2019/</id>
-    <published>2019-09-12T11:51:56.000Z</published>
-    <updated>2019-09-15T02:37:57.547Z</updated>
     
     <summary type="html">
     
