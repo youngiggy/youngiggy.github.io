@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_package_v0.16/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_package_v0.16/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_package_v0.16/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/favicon_package_v0.16/safari-pinned-tab.svg" color="#222">
+  <link rel="manifest" href="/images/favicon_package_v0.16/site.webmanifest">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"haah.kr","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="간만에 생활코딩 하나. 아이가 다니는 유치원이 문을 닫는다고 해서 혹시나 아이들 활동 사진을 올려주는 카페도 닫을까봐 부랴부랴 크롤러를 만들기 시작했다. 지금은 내년 2월까지는 운영하기로 합의된 상태지만. 사실 올 해 중순 쯤부터 생각했던 건데, 우리뿐 아니라 딸아이 친구들네도 받을 수 있게 웹 인터페이스로 제공하고 싶었다. AWS에다가 내가 여전히 잘 모">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="네이버 카페 사진을 받아라">
+<meta property="og:url" content="https://haah.kr/2018/11/24/naver-cafe-image-crawling/">
+<meta property="og:site_name" content="ha-ah">
+<meta property="og:description" content="간만에 생활코딩 하나. 아이가 다니는 유치원이 문을 닫는다고 해서 혹시나 아이들 활동 사진을 올려주는 카페도 닫을까봐 부랴부랴 크롤러를 만들기 시작했다. 지금은 내년 2월까지는 운영하기로 합의된 상태지만. 사실 올 해 중순 쯤부터 생각했던 건데, 우리뿐 아니라 딸아이 친구들네도 받을 수 있게 웹 인터페이스로 제공하고 싶었다. AWS에다가 내가 여전히 잘 모">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://haah.kr/images/naver-cafe-image-crawling/failure-testBasicExample-0.png">
+<meta property="og:image" content="https://haah.kr/images/naver-cafe-image-crawling/naver_cafe_pc.png">
+<meta property="og:image" content="https://haah.kr/images/naver-cafe-image-crawling/execution_on_console.png">
+<meta property="article:published_time" content="2018-11-24T02:04:52.000Z">
+<meta property="article:modified_time" content="2018-11-24T03:32:53.000Z">
+<meta property="article:author" content="youngiggy">
+<meta property="article:tag" content="PHP">
+<meta property="article:tag" content="생활코딩">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://haah.kr/images/naver-cafe-image-crawling/failure-testBasicExample-0.png">
+
+
+<link rel="canonical" href="https://haah.kr/2018/11/24/naver-cafe-image-crawling/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://haah.kr/2018/11/24/naver-cafe-image-crawling/","path":"2018/11/24/naver-cafe-image-crawling/","title":"네이버 카페 사진을 받아라"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>네이버 카페 사진을 받아라 | ha-ah</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=354302543"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":354302543,"only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="ha-ah" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">ha-ah</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">로그, 게으른 로그</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Laravel-Dusk"><span class="nav-number">1.</span> <span class="nav-text">Laravel Dusk</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%97%AD%EC%8B%9C-%EC%9D%8C%EC%8B%9D%EC%9D%80-%EC%86%90%EB%A7%9B"><span class="nav-number">2.</span> <span class="nav-text">역시 음식은 손맛</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">youngiggy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">113</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:youngiggy@gmail.com" title="E-Mail → mailto:youngiggy@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/profile.php?id=100001259884599" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;profile.php?id&#x3D;100001259884599" rel="noopener me" target="_blank"><i class="fab fa-facebook fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/jooyoungiggy" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;jooyoungiggy" rel="noopener me" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://haah.kr/2018/11/24/naver-cafe-image-crawling/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="youngiggy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="네이버 카페 사진을 받아라 | ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          네이버 카페 사진을 받아라
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2018-11-24 11:04:52 / Modified: 12:32:53" itemprop="dateCreated datePublished" datetime="2018-11-24T11:04:52+09:00">2018-11-24</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/11/24/naver-cafe-image-crawling/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/11/24/naver-cafe-image-crawling/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>간만에 생활코딩 하나.</p>
+<p>아이가 다니는 유치원이 문을 닫는다고 해서 혹시나 아이들 활동 사진을 올려주는 카페도 닫을까봐 부랴부랴 크롤러를 만들기 시작했다. 지금은 내년 2월까지는 운영하기로 합의된 상태지만.</p>
+<p>사실 올 해 중순 쯤부터 생각했던 건데, 우리뿐 아니라 딸아이 친구들네도 받을 수 있게 웹 인터페이스로 제공하고 싶었다. AWS에다가 내가 여전히 잘 모르는 인증을 붙여보고 누구든 자기 카페의 목록을 확인하고 그 안의 이미지를 받게 하면 되겠다는 생각이었다. 갑자기 문을 닫는다니 시간이 없어서 시도도 안해보고 다음 단계로 넘어갔다. 어차피 네이버 카페는 여전히 가입과 글 등록 이외의 API는 제공하지 않아서 크롤링을 하긴 해야 한다.</p>
+<p>이때 가장 중요한 건,</p>
+<ul>
+<li>빨리 만들어야 한다</li>
+<li>손으로 일일이 다운로드 받는 것보다는 빨라야 한다(당시 사진이 1,000장에서 2,000장 쯤 되겠지라고 생각했기에 가능한 조건이랄까)</li>
+</ul>
+<h2 id="Laravel-Dusk"><a href="#Laravel-Dusk" class="headerlink" title="Laravel Dusk"></a>Laravel Dusk</h2><p>급한대로 시도한 것은 standalone ChromeDriver를 사용하는 <a target="_blank" rel="noopener" href="https://laravel.com/docs/5.7/dusk">Laravel Dusk</a>. 라라벨을 설치하고, Dusk도 추가.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">composer create-project --prefer-dist laravel/laravel crawlincafe</span><br><span class="line">git init</span><br><span class="line">composer require --dev laravel/dusk:&quot;^2.0&quot;</span><br><span class="line">php artisan dusk:install</span><br></pre></td></tr></table></figure>
+
+<p>APP_URL을 네이버로 해주고</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">APP_URL=https://cafe.naver.com</span><br></pre></td></tr></table></figure>
+
+<p>dusk install할 때 넣어주는 샘플 테스트를 돌려본다</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">❯ php artisan dusk</span><br><span class="line">PHPUnit 6.5.13 by Sebastian Bergmann and contributors.</span><br><span class="line"></span><br><span class="line">.                                                                   1 / 1 (100%)</span><br><span class="line"></span><br><span class="line">Time: 2.08 seconds, Memory: 12.00MB</span><br><span class="line"></span><br><span class="line">OK (1 test, 1 assertion)</span><br></pre></td></tr></table></figure>
+
+<p>유저 정보는 .env에 추가</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">USER_ID=네이버아이디</span><br><span class="line">USER_PW=비밀번호</span><br></pre></td></tr></table></figure>
+
+<p>페이지 번호에 링크가 있으므로 페이징은 문제 없을 것 같고, 우선 로그인 후 원하는 페이지로 이동하는 실험을 해봤는데,</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">Tests</span>\<span class="title class_">Browser</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Tests</span>\<span class="title">DuskTestCase</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Laravel</span>\<span class="title">Dusk</span>\<span class="title">Browser</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExampleTest</span> <span class="keyword">extends</span> <span class="title">DuskTestCase</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> \Throwable</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">testBasicExample</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">browse</span>(function (Browser <span class="variable">$browser</span>) &#123;</span><br><span class="line">            <span class="variable">$userId</span> = <span class="title function_ invoke__">env</span>(<span class="string">&#x27;USER_ID&#x27;</span>);</span><br><span class="line">            <span class="variable">$userPw</span> = <span class="title function_ invoke__">env</span>(<span class="string">&#x27;USER_PW&#x27;</span>);</span><br><span class="line">            <span class="variable">$cafeId</span> = <span class="title function_ invoke__">env</span>(<span class="string">&#x27;CAFE_ID&#x27;</span>);</span><br><span class="line"></span><br><span class="line">            <span class="variable">$browser</span></span><br><span class="line">                <span class="comment">//Visit</span></span><br><span class="line">                -&gt;<span class="title function_ invoke__">visit</span>(<span class="string">&#x27;https://nid.naver.com/nidlogin.login?mode=form&amp;url=https%3A%2F%2Fcafe.naver.com%2F...&#x27;</span>)<span class="comment">//유치원 카페 URL이 보여서 생략</span></span><br><span class="line">                -&gt;<span class="title function_ invoke__">assertSee</span>(<span class="string">&#x27;NAVER&#x27;</span>)</span><br><span class="line">                -&gt;<span class="title function_ invoke__">assertSee</span>(<span class="string">&#x27;로그인 상태 유지&#x27;</span>)</span><br><span class="line">                <span class="comment">//Login</span></span><br><span class="line">                -&gt;<span class="title function_ invoke__">type</span>(<span class="string">&#x27;id&#x27;</span>, <span class="variable">$userId</span>)</span><br><span class="line">                -&gt;<span class="title function_ invoke__">type</span>(<span class="string">&#x27;pw&#x27;</span>, <span class="variable">$userPw</span>)</span><br><span class="line">                -&gt;<span class="title function_ invoke__">press</span>(<span class="string">&#x27;.login_form input[type=submit]&#x27;</span>)</span><br><span class="line">                -&gt;<span class="title function_ invoke__">pause</span>(<span class="number">5000</span>)</span><br><span class="line">                -&gt;<span class="title function_ invoke__">assertPathIs</span>(<span class="string">&quot;/<span class="subst">&#123;$cafeId&#125;</span>&quot;</span>)</span><br><span class="line">            ;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>결과는,</p>
+<p><img src="/images/naver-cafe-image-crawling/failure-testBasicExample-0.png" alt="실패한 스크린샷"></p>
+<p>이게 뭐야!</p>
+<p>아마도 최근에 자동입력 방지 기능이 추가가 됐던 것 같다. 찾아보니 올해 여름쯤부터 나처럼 당황하신 분들이 여럿 보인다. pause를 주기도 하고, 여기저기 쓸데없는 클릭도 만들어보고, 마우스 drag 이벤트도 줘보고 했는데 잘 뚤리지 않아 빠른 포기.</p>
+<h2 id="역시-음식은-손맛"><a href="#역시-음식은-손맛" class="headerlink" title="역시 음식은 손맛"></a>역시 음식은 손맛</h2><p>다시 분석을 시작했다. 이미지 URL만 있으면 별다른 인증없이 다운로드가 가능할까? 맞다. 이미지가 포함된 게시물까지 접근하는 게 문제지 이미지 URL만 확보되면 다운로드는 되는 거다. 그런데 PC버전의 경우, 아래와 같이 이미지 썸네일을 캔버스에 그려놓고 클릭을 하면 사진을 크게 보여주는 구조다. </p>
+<p><img src="/images/naver-cafe-image-crawling/naver_cafe_pc.png" alt="네이버 카페 PC 화면"></p>
+<p>엄청 불편하다. 그래서 모바일 버전으로 접근해서 URL을 수집하기로 했다.</p>
+<p>2017년에는 5세반이라서 그런지 선생님이 정말 많이 올려주셨다. 총 80회(선생님 고맙습니다). 올해 6세반은 다 안 올라왔지만 졸업까지 약 40회 정도 올라올 것 같다. 회당 100장에서 400장 사이로 양이 엄청 많다. 난 도대체 왜 2천장이 안될 거라 생각했던가!</p>
+<p>개발자도구를 열어놓고, 게시물 120건을 돌아다니며 이미지 URL을 수집했다. 수집하는 스크립트는,</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> result = &#123;</span><br><span class="line">        <span class="string">&quot;title&quot;</span> : <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;#ct h2.tit&#x27;</span>)[<span class="number">0</span>].<span class="property">innerText</span>.<span class="title function_">replace</span>(<span class="regexp">/[^0-9a-zAZㄱ-힣]/g</span>, <span class="string">&#x27;_&#x27;</span>).<span class="title function_">replace</span>(<span class="regexp">/__/g</span>, <span class="string">&#x27;_&#x27;</span>).<span class="title function_">replace</span>(<span class="regexp">/^_(.+)_$/</span>, <span class="string">&quot;$1&quot;</span>),</span><br><span class="line">        <span class="string">&quot;createdAt&quot;</span> : <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;#ct span.date&#x27;</span>)[<span class="number">0</span>].<span class="property">innerText</span>.<span class="title function_">replace</span>(<span class="regexp">/[^0-9]/g</span>, <span class="string">&#x27;&#x27;</span>),</span><br><span class="line">        <span class="string">&quot;data&quot;</span> : [</span><br><span class="line">            <span class="comment">//image urls</span></span><br><span class="line">        ]</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;#postContent img.fx&#x27;</span>).<span class="title function_">forEach</span>(<span class="keyword">function</span> (<span class="params">item</span>) &#123;</span><br><span class="line">        result.<span class="property">data</span>.<span class="title function_">push</span>(item.<span class="property">src</span>);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(result));</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<p>콘솔에 output할 양이 너무 많으면 콘솔 화면에 Copy 버튼이 생긴다.</p>
+<p><img src="/images/naver-cafe-image-crawling/execution_on_console.png" alt="콘솔에서 실행한 화면"></p>
+<p>다음 글로 이동 -&gt; 개발자도구 클릭 -&gt; 화살표 up key + enter -&gt; Copy 버튼 클릭 Editor에 붙여넣기의 과정으로 120개 글에서 노가다를 좀 해줬다. 사실 중간에 한번 실수로 지워버린 바람에 160번은 한 것 같다. </p>
+<p>더 쉬운 방법이 있진 않았을까 고민을 하긴 했었는데 당장 생각이 안나 머리를 덜 쓰는 방법을 택한 것. 목록 화면에서 개발자도구로 상세 화면을 불러와서 파싱해도 되지 않았을까 싶긴 한데. 이미 지난 일이니…</p>
+<p>이걸 모아서 Guzzle로 다운로드 받는 프로그램을 후다닥 작성했다. 코드리뷰 해주실 필요는 없다. 유지보수 할 일 없고 빠르게 유용하게 잘 만들었으니 됐다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="title function_ invoke__">define</span>(<span class="string">&#x27;PROJECT_ROOT&#x27;</span>, <span class="string">&#x27;..&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">require</span> <span class="string">&#x27;../vendor/autoload.php&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">GuzzleHttp</span>\<span class="title">Client</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$targetDir</span> = <span class="string">&#x27;storage/data&#x27;</span>;</span><br><span class="line"><span class="variable">$downloadDir</span> = <span class="string">&#x27;storage/downloads&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/////////////////////////////////////// read file</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$handle</span> = <span class="title function_ invoke__">opendir</span>(PROJECT_ROOT . <span class="string">&#x27;/&#x27;</span> . <span class="variable">$targetDir</span>)) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="variable">$data</span> = [];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//read sub dir</span></span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">false</span> !== (<span class="variable">$subDir</span> = <span class="title function_ invoke__">readdir</span>(<span class="variable">$handle</span>))) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="title function_ invoke__">strpos</span>(<span class="variable">$subDir</span>, <span class="string">&#x27;.&#x27;</span>) === <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="variable">$subDirPath</span> = PROJECT_ROOT . <span class="string">&#x27;/&#x27;</span> . <span class="variable">$targetDir</span> . <span class="string">&#x27;/&#x27;</span> . <span class="variable">$subDir</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//read files</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$handleSub</span> = <span class="title function_ invoke__">opendir</span>(<span class="variable">$subDirPath</span>)) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="variable">$data</span>[<span class="variable">$subDir</span>] = [];</span><br><span class="line"></span><br><span class="line">            <span class="keyword">while</span> (<span class="literal">false</span> !== (<span class="variable">$file</span> = <span class="title function_ invoke__">readdir</span>(<span class="variable">$handleSub</span>))) &#123;</span><br><span class="line">                <span class="keyword">if</span> (<span class="title function_ invoke__">strpos</span>(<span class="variable">$file</span>, <span class="string">&#x27;.&#x27;</span>) === <span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (<span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/.+\.([a-z]+)$/&#x27;</span>, <span class="string">&#x27;$1&#x27;</span>, <span class="variable">$file</span>) !== <span class="string">&#x27;js&#x27;</span>) &#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="variable">$fileTxt</span> = <span class="title function_ invoke__">file_get_contents</span>(<span class="variable">$subDirPath</span> . <span class="string">&#x27;/&#x27;</span> . <span class="variable">$file</span>);</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    <span class="variable">$article</span> = <span class="title function_ invoke__">json_decode</span>(<span class="variable">$fileTxt</span>, <span class="literal">true</span>);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (<span class="built_in">Exception</span> <span class="variable">$e</span>) &#123;</span><br><span class="line">                    <span class="keyword">echo</span> <span class="string">&#x27;json decode failed : &#x27;</span> . <span class="variable">$subDirPath</span> . <span class="string">&#x27;/&#x27;</span> . <span class="variable">$file</span>;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (!<span class="keyword">empty</span>(<span class="variable">$article</span>)) &#123;</span><br><span class="line">                    <span class="variable">$data</span>[<span class="variable">$subDir</span>][<span class="variable">$article</span>[<span class="string">&#x27;createdAt&#x27;</span>]] = <span class="variable">$article</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="title function_ invoke__">closedir</span>(<span class="variable">$handleSub</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_ invoke__">closedir</span>(<span class="variable">$handle</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">////////////////////////////////////// download</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$client</span> = <span class="keyword">new</span> <span class="title class_">Client</span>([</span><br><span class="line"><span class="comment">//    &#x27;timeout&#x27;  =&gt; 2.0,</span></span><br><span class="line">]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span> (<span class="variable">$data</span> <span class="keyword">as</span> <span class="variable">$subDir</span> =&gt; <span class="variable">$articles</span>) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//make sub directory</span></span><br><span class="line">    <span class="variable">$subDirPath</span> = PROJECT_ROOT . <span class="string">&#x27;/&#x27;</span> . <span class="variable">$downloadDir</span> . <span class="string">&#x27;/&#x27;</span> . <span class="variable">$subDir</span>;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="title function_ invoke__">is_dir</span>(<span class="variable">$subDirPath</span>)) &#123;</span><br><span class="line">        <span class="title function_ invoke__">mkdir</span>(<span class="variable">$subDirPath</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">foreach</span> (<span class="variable">$articles</span> <span class="keyword">as</span> <span class="variable">$createdAt</span> =&gt; <span class="variable">$article</span>) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//make sub directory</span></span><br><span class="line">        <span class="variable">$articleDirPath</span> = PROJECT_ROOT . <span class="string">&#x27;/&#x27;</span> . <span class="variable">$downloadDir</span> . <span class="string">&#x27;/&#x27;</span> . <span class="variable">$subDir</span> . <span class="string">&#x27;/&#x27;</span> . <span class="variable">$article</span>[<span class="string">&#x27;createdAt&#x27;</span>]  . <span class="string">&#x27; - &#x27;</span> . <span class="variable">$article</span>[<span class="string">&#x27;title&#x27;</span>];</span><br><span class="line">        <span class="keyword">if</span> (!<span class="title function_ invoke__">is_dir</span>(<span class="variable">$articleDirPath</span>)) &#123;</span><br><span class="line">            <span class="title function_ invoke__">mkdir</span>(<span class="variable">$articleDirPath</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">echo</span> <span class="variable">$articleDirPath</span> . PHP_EOL;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">foreach</span> (<span class="variable">$article</span>[<span class="string">&#x27;data&#x27;</span>] <span class="keyword">as</span> <span class="variable">$index</span> =&gt; <span class="variable">$imageUrl</span>) &#123;</span><br><span class="line">            <span class="variable">$filename</span> = <span class="title function_ invoke__">str_pad</span>(<span class="variable">$index</span>, <span class="number">3</span>, <span class="string">&quot;0&quot;</span>, STR_PAD_LEFT) . <span class="string">&#x27;.jpg&#x27;</span>;</span><br><span class="line">            <span class="keyword">if</span> (<span class="title function_ invoke__">file_exists</span>(<span class="variable">$articleDirPath</span>  . <span class="string">&#x27;/&#x27;</span> . <span class="variable">$filename</span>)) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="variable">$client</span>-&gt;<span class="title function_ invoke__">request</span>(<span class="string">&#x27;GET&#x27;</span>, <span class="variable">$imageUrl</span>, [<span class="string">&#x27;sink&#x27;</span> =&gt; <span class="variable">$articleDirPath</span> . <span class="string">&#x27;/&#x27;</span> . <span class="variable">$filename</span>]);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (<span class="built_in">Exception</span> <span class="variable">$e</span>) &#123;</span><br><span class="line">                <span class="keyword">echo</span> PHP_EOL . <span class="variable">$e</span>-&gt;<span class="title function_ invoke__">getMessage</span>() . PHP_EOL;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">&#x27;.&#x27;</span>;</span><br><span class="line">            <span class="title function_ invoke__">usleep</span>(<span class="number">100</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">echo</span> PHP_EOL;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>youngiggy
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://haah.kr/2018/11/24/naver-cafe-image-crawling/" title="네이버 카페 사진을 받아라">https://haah.kr/2018/11/24/naver-cafe-image-crawling/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/PHP/" rel="tag"># PHP</a>
+              <a href="/tags/%EC%83%9D%ED%99%9C%EC%BD%94%EB%94%A9/" rel="tag"># 생활코딩</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/11/13/books-2018-october-to-november/" rel="prev" title="독후감 - 2018년 10월 ~ 11월">
+                  <i class="fa fa-chevron-left"></i> 독후감 - 2018년 10월 ~ 11월
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2018/12/01/accessing-elastic-beanstalk-via-fixed-ip/" rel="next" title="고정된 IP를 통과해 Elastic Beanstalk 접근하기">
+                  고정된 IP를 통과해 Elastic Beanstalk 접근하기 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">youngiggy</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"youngiggy-github-io","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_package_v0.16/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_package_v0.16/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_package_v0.16/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/favicon_package_v0.16/safari-pinned-tab.svg" color="#222">
+  <link rel="manifest" href="/images/favicon_package_v0.16/site.webmanifest">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"haah.kr","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="이규원님이 TDD가 가능하다는 것을 보여주겠다고 하셔서 한참 전에 신청해놨었는데, 워낙 신청자가 많았고 소규모로 진행하다보니 이제야 차례가 돌아와, 지난 목요일에 다녀왔다. 장소는 을지로 위워크. 왜 참가했는가?꽤 짧은 시간 진행하는지라 평소 궁금했던 건 미리 정리해보기로 했다. 우선 내가 행사를 참여하고 싶다고 생각했던 이유는 크게 세가지로 정리했었다.">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="TDD 참관기 2018.10.11">
+<meta property="og:url" content="https://haah.kr/2018/10/13/the-tdd-show-20181011/">
+<meta property="og:site_name" content="ha-ah">
+<meta property="og:description" content="이규원님이 TDD가 가능하다는 것을 보여주겠다고 하셔서 한참 전에 신청해놨었는데, 워낙 신청자가 많았고 소규모로 진행하다보니 이제야 차례가 돌아와, 지난 목요일에 다녀왔다. 장소는 을지로 위워크. 왜 참가했는가?꽤 짧은 시간 진행하는지라 평소 궁금했던 건 미리 정리해보기로 했다. 우선 내가 행사를 참여하고 싶다고 생각했던 이유는 크게 세가지로 정리했었다.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-10-13T00:08:16.000Z">
+<meta property="article:modified_time" content="2018-10-13T04:03:55.000Z">
+<meta property="article:author" content="youngiggy">
+<meta property="article:tag" content="TDD">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://haah.kr/2018/10/13/the-tdd-show-20181011/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://haah.kr/2018/10/13/the-tdd-show-20181011/","path":"2018/10/13/the-tdd-show-20181011/","title":"TDD 참관기 2018.10.11"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>TDD 참관기 2018.10.11 | ha-ah</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=354302543"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":354302543,"only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="ha-ah" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">ha-ah</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">로그, 게으른 로그</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%99%9C-%EC%B0%B8%EA%B0%80%ED%96%88%EB%8A%94%EA%B0%80"><span class="nav-number">1.</span> <span class="nav-text">왜 참가했는가?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#TDD%EB%A1%9C-%EC%A7%84%ED%96%89%EB%90%A0-%EB%95%8C%EC%9D%98-%EC%86%8D%EB%8F%84%EB%A5%BC-%EB%8A%90%EB%81%BC%EA%B3%A0-%EC%8B%B6%EB%8B%A4"><span class="nav-number">1.1.</span> <span class="nav-text">TDD로 진행될 때의 속도를 느끼고 싶다</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DDD%EA%B0%80-%EC%96%B4%EB%96%BB%EA%B2%8C-%EC%9D%BC%EC%83%81%EC%A0%81%EC%9C%BC%EB%A1%9C-%EC%A0%91%EB%AA%A9%EB%90%98%EB%8A%94%EC%A7%80-%EB%B3%B4%EA%B3%A0-%EC%8B%B6%EB%8B%A4"><span class="nav-number">1.2.</span> <span class="nav-text">DDD가 어떻게 일상적으로 접목되는지 보고 싶다</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%9C%A0%EB%8B%9B%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%9D%B4%EC%99%B8%EC%9D%98-%ED%85%8C%EC%8A%A4%ED%8A%B8%EB%8A%94-%EC%96%B4%EB%96%BB%EA%B2%8C-%EB%8B%A4%EB%A3%A8%EB%8A%94-%EC%A7%80-%EB%B3%B4%EA%B3%A0-%EC%8B%B6%EB%8B%A4"><span class="nav-number">1.3.</span> <span class="nav-text">유닛테스트 이외의 테스트는 어떻게 다루는 지 보고 싶다</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%82%AC%EC%A0%84%EC%97%90-%EA%B6%81%EA%B8%88%ED%96%88%EB%8D%98-%EA%B2%83"><span class="nav-number">2.</span> <span class="nav-text">사전에 궁금했던 것</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%B0%B8%EA%B0%80-%EC%A0%84-%EC%83%9D%EA%B0%81%ED%96%88%EB%8D%98-%EA%B4%80%EC%A0%84-%ED%8F%AC%EC%9D%B8%ED%8A%B8"><span class="nav-number">3.</span> <span class="nav-text">참가 전 생각했던 관전 포인트</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%96%BC%EB%A7%88%EB%82%98-%EB%B9%A0%EB%A5%B8%EA%B0%80"><span class="nav-number">3.1.</span> <span class="nav-text">얼마나 빠른가</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#red-green-refactor"><span class="nav-number">3.2.</span> <span class="nav-text">red - green - refactor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EB%8B%A4%EB%A5%B8-%EC%9D%BC%EB%A1%9C-%EB%B9%A0%EC%A1%8C%EB%8B%A4%EA%B0%80-%EB%8F%8C%EC%95%84%EC%99%94%EC%9D%84-%EB%95%8C-%EA%B8%88%EB%B0%A9-%EC%A0%81%EC%9D%91%ED%95%98%EA%B3%A0-cycle%EC%9D%84-%EB%8F%8C-%EC%88%98-%EC%9E%88%EC%9D%84%EA%B9%8C"><span class="nav-number">3.3.</span> <span class="nav-text">다른 일로 빠졌다가 돌아왔을 때 금방 적응하고 cycle을 돌 수 있을까?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%84%A4%EA%B3%84%EB%A5%BC-%EB%A8%BC%EC%A0%80-%ED%95%9C%EB%8B%A4%EC%9D%98-%EC%9D%98%EB%AF%B8%EB%A5%BC-%EC%95%8C%EA%B3%A0-%EC%8B%B6%EC%97%88%EB%8B%A4"><span class="nav-number">3.4.</span> <span class="nav-text">설계를 먼저 한다의 의미를 알고 싶었다.</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%A7%8C%EB%82%A8"><span class="nav-number">4.</span> <span class="nav-text">만남</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TDD-%EC%B0%B8%EA%B4%80"><span class="nav-number">5.</span> <span class="nav-text">TDD 참관</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%9A%94%EA%B5%AC%EC%82%AC%ED%95%AD-%ED%99%95%EC%9D%B8"><span class="nav-number">5.1.</span> <span class="nav-text">요구사항 확인</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EB%B8%8C%EB%9E%9C%EC%B9%98-%EC%83%9D%EC%84%B1"><span class="nav-number">5.2.</span> <span class="nav-text">브랜치 생성</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%BD%94%EB%94%A9"><span class="nav-number">5.3.</span> <span class="nav-text">코딩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%ED%99%95%EC%9D%B8"><span class="nav-number">5.4.</span> <span class="nav-text">확인</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EA%B0%90%EC%83%81"><span class="nav-number">5.5.</span> <span class="nav-text">감상</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%95%9E%EC%9C%BC%EB%A1%9C"><span class="nav-number">5.6.</span> <span class="nav-text">앞으로</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EB%A7%88%EB%AC%B4%EB%A6%AC"><span class="nav-number">5.7.</span> <span class="nav-text">마무리</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">youngiggy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">113</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:youngiggy@gmail.com" title="E-Mail → mailto:youngiggy@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/profile.php?id=100001259884599" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;profile.php?id&#x3D;100001259884599" rel="noopener me" target="_blank"><i class="fab fa-facebook fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/jooyoungiggy" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;jooyoungiggy" rel="noopener me" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://haah.kr/2018/10/13/the-tdd-show-20181011/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="youngiggy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="TDD 참관기 2018.10.11 | ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          TDD 참관기 2018.10.11
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2018-10-13 09:08:16 / Modified: 13:03:55" itemprop="dateCreated datePublished" datetime="2018-10-13T09:08:16+09:00">2018-10-13</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/10/13/the-tdd-show-20181011/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/10/13/the-tdd-show-20181011/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>이규원님이 <a target="_blank" rel="noopener" href="https://www.facebook.com/gyuwon.yi/posts/1754562671253615">TDD가 가능하다는 것을 보여주겠다</a>고 하셔서 한참 전에 신청해놨었는데, 워낙 신청자가 많았고 소규모로 진행하다보니 이제야 차례가 돌아와, 지난 목요일에 다녀왔다. 장소는 을지로 위워크.</p>
+<h2 id="왜-참가했는가"><a href="#왜-참가했는가" class="headerlink" title="왜 참가했는가?"></a>왜 참가했는가?</h2><p>꽤 짧은 시간 진행하는지라 평소 궁금했던 건 미리 정리해보기로 했다. 우선 내가 행사를 참여하고 싶다고 생각했던 이유는 크게 세가지로 정리했었다. 난 TDD가 현실적이지 않다고 생각하진 않고, 내가 못하는 거라고 생각 했으므로 고수는 어떻게 일하는가를 보고 싶었다고 요약할 수 있겠다. (정말로 TDD를 욕하고 불가능하다고 생각하는 사람은 여기 오지도 않을 것)</p>
+<h3 id="TDD로-진행될-때의-속도를-느끼고-싶다"><a href="#TDD로-진행될-때의-속도를-느끼고-싶다" class="headerlink" title="TDD로 진행될 때의 속도를 느끼고 싶다"></a>TDD로 진행될 때의 속도를 느끼고 싶다</h3><p>당연하게도 빠른 사람이 잘한다고 생각하지 않는다. TDD에 아주 익숙한 사람은 실무에서 어떤 속도로 일하는 지 보고 싶었다. </p>
+<h3 id="DDD가-어떻게-일상적으로-접목되는지-보고-싶다"><a href="#DDD가-어떻게-일상적으로-접목되는지-보고-싶다" class="headerlink" title="DDD가 어떻게 일상적으로 접목되는지 보고 싶다"></a>DDD가 어떻게 일상적으로 접목되는지 보고 싶다</h3><p>DDD에 대한 부분은 특별한 감흥이 없었어서 뒤에서 언급을 안 할텐데, 내가 DDD를 잘 몰라서 뭘 봐도 물어볼 게 없었다. 공부 좀 더하고 실무에서 적극 다뤄봐야 궁금한 게 생길 것 같다.</p>
+<p>관련해서 코드 외적인 부분(이슈&#x2F;정책&#x2F;문서화 등)과 코딩이 연결되는 과정이 궁금했다. 업무 프로세스.</p>
+<h3 id="유닛테스트-이외의-테스트는-어떻게-다루는-지-보고-싶다"><a href="#유닛테스트-이외의-테스트는-어떻게-다루는-지-보고-싶다" class="headerlink" title="유닛테스트 이외의 테스트는 어떻게 다루는 지 보고 싶다"></a>유닛테스트 이외의 테스트는 어떻게 다루는 지 보고 싶다</h3><p>언제, 얼마나 자주.</p>
+<h2 id="사전에-궁금했던-것"><a href="#사전에-궁금했던-것" class="headerlink" title="사전에 궁금했던 것"></a>사전에 궁금했던 것</h2><ul>
+<li>통합테스트를 어떻게 하는지</li>
+<li>익숙한 패턴의 새로운 일감이 들어오면 얼마나 작게 시작하는지</li>
+<li>코드로 표현 안되는 부분이 있다면? 어떤 부분을 어디에 어떻게 문서화 하는가</li>
+<li>ubiquitous language는 어떻게 작성되었는가&#x2F;어떻게 참고하는가</li>
+<li>functional test 시 사용하는 도구</li>
+<li>User Story 를 먼저 작성해놓는다는데 어떻게 관리하는지</li>
+<li>테스트코드가 문서의 역할도 하는가? 코드를 읽을 때 테스트 코드도 자연스레 읽곤 되는지</li>
+</ul>
+<h2 id="참가-전-생각했던-관전-포인트"><a href="#참가-전-생각했던-관전-포인트" class="headerlink" title="참가 전 생각했던 관전 포인트"></a>참가 전 생각했던 관전 포인트</h2><p>위에 언급한 목표에 따라 다른 분들 후기도 보면서 몇가지 관전 포인트를 생각하고 갔었다.</p>
+<h3 id="얼마나-빠른가"><a href="#얼마나-빠른가" class="headerlink" title="얼마나 빠른가"></a>얼마나 빠른가</h3><p>기계와 육체가 얼마나 유기적으로 동작하는지 보고 싶었는데, 스포츠 관람할 때의 쾌감을 느끼고 싶었다. 다시 말하지만 속력과 실력은 전혀 관련없다고 생각한다. 다른 분들이 TDD 강의에서 물 흐르듯 코드를 써내려가는 것에서 느꼈던 동경, JetBrains Night에서 Hadi Hariri의 세션을 봤을 때의 쾌감 같은 것. </p>
+<p>이게 뭐가 중한데 자꾸 이야기 하냐고? 일단 익숙하고 좋은 툴이 생산성에 큰 영향을 끼친다고 생각하고, 개발하는 과정에서 불필요한 클릭이나 컨텍스트 전환이 자주 일어나지 않게 노력하는게 (나는) 좋다.</p>
+<h3 id="red-green-refactor"><a href="#red-green-refactor" class="headerlink" title="red - green - refactor"></a>red - green - refactor</h3><p>TDD 없이 어느 정도 개발 경력이 있는 사람이라면 공감할텐데, 처음 유닛테스트를 통한 TDD를 시도할 때 답답했던 것이 ‘내가 바로 다음에 작성할 코드가 뻔히 보이는데’라는 생각이었다. 코드를 대량으로 빠르게 갈기는 사람이라면 이 부분에서 ‘TDD는 비현실적이다’라고 할 것도 같다. 익숙해지면 조금씩 보폭을 늘린다고는 하지만 이미 익숙한 사람은 어떤 보폭으로 걸을 지 궁금했다. </p>
+<h3 id="다른-일로-빠졌다가-돌아왔을-때-금방-적응하고-cycle을-돌-수-있을까"><a href="#다른-일로-빠졌다가-돌아왔을-때-금방-적응하고-cycle을-돌-수-있을까" class="headerlink" title="다른 일로 빠졌다가 돌아왔을 때 금방 적응하고 cycle을 돌 수 있을까?"></a>다른 일로 빠졌다가 돌아왔을 때 금방 적응하고 cycle을 돌 수 있을까?</h3><p>내가 회사에서 맡은 일은 백업 인력이 아직 충분치 않고 외부와의 접점이기도 해서 context 전환이 자주 일어나는데, 이에 따른 대처를 보고 싶었다. 당연히 이 시간엔 그걸 눈으로 확인할 수 없었고, 마땅한 질문도 생각이 안 나서 여쭤보진 않았다. </p>
+<h3 id="설계를-먼저-한다의-의미를-알고-싶었다"><a href="#설계를-먼저-한다의-의미를-알고-싶었다" class="headerlink" title="설계를 먼저 한다의 의미를 알고 싶었다."></a>설계를 먼저 한다의 의미를 알고 싶었다.</h3><p>다른 분의 후기에서 이런 말이 많이 보여서 어느 정도 선까지 설계를 해놓고 코딩을 시작하는지 궁금했다.</p>
+<h2 id="만남"><a href="#만남" class="headerlink" title="만남"></a>만남</h2><p>각기 다른 배경을 가진 세 분과 함께 참여하게 됐다. 만나자마자 위워크의 카페 같은 열린 공간에 앉아 바로 시작했다. 자기 소개고 화장실 다녀올 사람이고 다 필요없고 바로 앉아서 시작. 규원님을 보면 군더더기 있는 것, 불필요한 것, 효율적이지 못한 것에 관심조차 두지 않는 것 같았다. 온통 군더더기에 잡동사니 같은 내가 보기에는 참으로 경이롭기까지 했다. 꼭 필요한 것에 대한 관념이 나와는 다른 듯. 뒤풀이 때 와우 이야기가 잠시 나왔는데, ‘저 분은 WoW(게임) 만랩 찍을 때도 저렇게 했을 거야’라는 생각까지 했다. </p>
+<p>웬 인물평이냐 싶겠지만, 이 날의 가장 큰 깨닳음 중 하나였다. 원칙을 지키고 효율을 찾고 그 과정에서 익숙한 것에 대해 의심을 하는 것.</p>
+<p>실제로 오프라인에서 만나면 친절하고 호탕할 거라고 생각은 했었는데, 예상대로 끝까지 깔끔하고 친절하고 정확한 표현으로 설명을 잘 해주셨다.</p>
+<h2 id="TDD-참관"><a href="#TDD-참관" class="headerlink" title="TDD 참관"></a>TDD 참관</h2><p>먼저 TDD를 어느 수준으로 써보았는지 물어보셨고, 다들 비슷비슷하면서도 나보다는 실무 경험이 많으신 것 같아 다행이라는 생각이었다.</p>
+<p>20분 정도 질문 받는 시간을 갖고 TDD에 대한 이야기를 조금 들었다. 몇가지 생각나는 것은</p>
+<ul>
+<li>엔지니어라면 덜 아름답더라도 현실적인 테스트를 해야하고, 그게 매뉴얼 테스트가 될 수도 있다</li>
+<li>ISP는 정말 중요하다</li>
+<li>TDD는 불안감을 해소한다는 중요한 가치를 제공한다</li>
+<li>ORM 등의 테스트를 해야할 때도 인메모리 DB를 사용하는 것이 불안하다면 차라리 실제 로컬에 설치된 데이터베이스를 쓴다(이 부분은 좀 길게 이야기가 나왔던 것 같은데 내 기억엔 저렇게 남아있다) </li>
+<li>테스트가 가정하는 것이 적어야 한다. 따라서 테스트더블이 단순해야 좋다</li>
+<li><a target="_blank" rel="noopener" href="http://xunitpatterns.com/Test%20Double.html">xUnit Patterns</a>에서 정의하는 용어</li>
+</ul>
+<p>실제 업무를 통해 본격 TDD 시작.</p>
+<h3 id="요구사항-확인"><a href="#요구사항-확인" class="headerlink" title="요구사항 확인"></a>요구사항 확인</h3><p>어떤 이슈인지 알려주셨고, 이걸 어떻게 해결할 지 User Story와 하위로 관련 task가 있으며 쉽게 연관된 정책을 확인하셨다. 익숙한 UI가 아니라서 정확히 어떤 툴을 어떻게 연동해서 쓰는지는 잘 모르겠다.</p>
+<p>중요한 건 이미 누군가가 이슈에 필요한 일을 정리했고, 여러 task로 잘 쪼개놓았고, 개발에 필요한 정책과 설계를 빨리 확인할 수 있었다.</p>
+<h3 id="브랜치-생성"><a href="#브랜치-생성" class="headerlink" title="브랜치 생성"></a>브랜치 생성</h3><p>branch를 따는 곳부터 다들 당황을 했다. master에서 바로 branch를 생성하고 다 끝나면 바로 master로 머지가 된다고 하셨다. git flow니 github flow니 이런 데 익숙한 사람들이라서, ‘아니, 그럼 이럴 땐 어떻게 하죠?’식의 질문이 꽤나 오래 이어졌다. 오히려 ‘그게 왜 필요하죠?’같은 질문을 역으로 받고 생각해보면, 또 굳이 문제가 될 건 없었다. 나에게 익숙한 것을 당연하게 생각하고 있었구나 하면서 정신 바짝 차리게 됐다. 이렇게 하루에도 수십번 상용 환경에 배포가 된다고 한다.</p>
+<p>이날 내내 어떤 것이 정답이다라고는 이야기 안 하셨고, ‘우리는 이렇게 한다’라고 말씀하셨다. 회사마다 필요한 프로세스가 있을 것이고, 남들이 많이 쓰고 추천하는 방식이 아닌 가장 단순하고 효율적인 방식으로 업무 프로세스를 만들어놨구나 생각이 들었다. 게다가 Unit &gt; Functional &gt; Manual 테스트로 이어지는 충분한 테스트 때문에라도 불안감 없이 개발할 수 있다고 하셨다. 그럼에도 커버리지는 전혀 보지 않는다고 하심.</p>
+<h3 id="코딩"><a href="#코딩" class="headerlink" title="코딩"></a>코딩</h3><p>앞서 TDD에 익숙한 사람이 얼마나 빠르게 코딩을 해나가는지 보고 싶다고 썼었는데, 초장부터 그 기대는 박살이 났다. 개발환경도 별로 빠르지 않다. 다른 분들 후기에 계속 맥북이 보여서 이상하다 생각했는데, 처음 회사 왔을 때 iOS 앱 개발할 줄 알고 신청했던 걸 그냥 쓰고 계신다고 했다.</p>
+<p>그리고 코딩을 가장 뒤로 미룬다고 하셨다. 난 기관총을 쏘듯 엄청난 코드를 만들고 지우고 하는 모습을 기대했던 것 같은데, 규원님은 스나이핑을 하거나 바둑을 두는 것처럼 필요한 정도로만 움직이셨다.</p>
+<p>테스트 코드로 이동을 하고, arrange &#x2F; act &#x2F; assert로 구역을 나누고, 테스트 코드를 작성하고, 실패하는 것을 확인하고, 코드를 수정하고, 관련된 다른 테스트도 다 통과하는지 확인하고. 다 아는 그런 이야기 아닌가! 다만 그 과정을 익숙하고 당연하게 진행한다는 점. 미리 작성한 작은 task 이외에는 한눈을 팔지 않는다는 원칙은 곱씹어 볼 만 하다.</p>
+<p>관련된 코드를 실행하는 기능이 내가 쓰는 프레임웍(PHPUnit + IntelliJ)에도 있었던가 궁금한데 확인을 해봐야겠다. 그 부분을 제외하곤 Unit 테스트를 확인하며 코딩을 하는데 있어 내 환경과 크게 다를 건 없어보였다.</p>
+<h3 id="확인"><a href="#확인" class="headerlink" title="확인"></a>확인</h3><p>코딩이 끝나고 별도의 저장소에서 관리되는 functional 테스트를 돌리는 과정을 보여주셨다. 로컬 서버를 띄우고 돌리는 것 같은데 그 과정에서의 성능이나 상태를 cloud에서 확인하는 것 같았다. 일부 틀린 기억일 수도 있지만 어쨌든 MS 이놈들 개발환경 참 잘 만들어놨구나 싶었다.</p>
+<p>다른 분들 후기에서 많이 이야기 하던 매뉴얼 테스트는 뭔가 싶었는데, 일종의 인수테스트인 셈이고, 개발자가(여긴 PO&#x2F;기획자 직군이 없음) 테스트 해야할 항목을 정리하고 단계별로 실행할 수 있게 코드를 작성해놓으면, 실무진이 직접 테스트 해보면서 시스템 적으로 assert도 할 수 있는 도구였다. 그 과정에서 메모도 남기고 이슈를 발행할 수 있는 구조처럼 보였다.</p>
+<h3 id="감상"><a href="#감상" class="headerlink" title="감상"></a>감상</h3><p>질문이 많아 task를 하나 정도만 처리할 수 있었지만 주요 과정은 다 볼 수 있었던 것 같다. 당시는 좋은 툴과 원칙을 지키는 것이 핵심이라 생각이 들었는데, 지금 생각해보면 (개발 문화를 포함해서) 업무 문화가 가장 중요하겠다는 생각이다. 요구사항을 받는 것부터가 TDD라고 생각하신다는 말이 조금은 이해가 갔다.</p>
+<p>TDD를 꼭 해야하는 건 아니지만 불안감을 해소할 목적으로 도입하고자 할 때, 우리 회사(<a target="_blank" rel="noopener" href="https://www.wanted.co.kr/company/676">그 사람 구한다</a>는..)는 어떨까? 업무를 해결하는데 있어 사용하는 여러 툴이 번잡하다고 느끼기도 하지만 Unit 테스트만 놓고 보면 괜찮다. 업무 프로세스나 문화는 아직 안정되지 않았다고 느끼지만 열려있고 실력있는 분들이 많으니 계속 개선은 되어갈 것이다. 결국 나 놈이 문제인데, 일관된 원칙을 지키고 전파하려면 많은 노력이 들 것으로 보인다.</p>
+<p>요즘 새로 들어온 주니어와 같이 일을 시작했는데, 내가 업무를 떼어주고 설명하고 개발하고 배포하는 과정에서 하나 하나 부족함을 많이 느꼈다. 이번 참관 행사에서 몇가지 액션 아이템을 도출할 수 있겠다는 생각이 들었다. 뒤풀이 때 규원님이 꼭 보라고 추천하셨던 조인석님의 발표 동영상 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=APnCVvqpjew">Build the RIGHT thing - Lean &amp; Agile 제품 개발기</a>에서도 많은 팁을 얻었다.</p>
+<p>이외에,</p>
+<p>MS님들이 개발환경 잘 만들어 주셨구나 하면서 박수.</p>
+<p>PHP나 JavaScript를 쓰는 사람 입장에선 유닛 테스트를 걸어두기 위한 초기 빌드 과정이 꽤나 길어보이긴 했지만, 그만큼의 견고함을 얻는 과정이니까 아쉬울 건 없을 것 같다.</p>
+<h3 id="앞으로"><a href="#앞으로" class="headerlink" title="앞으로"></a>앞으로</h3><p>바꿔야 할 몇가지는 내 할일 목록 상단에 적어놔야겠다.</p>
+<ul>
+<li>개발자의 코딩 비용은 매우 비싸다는 것에 공감하고, 사전에 충분한 설계를 검토하고 진행해볼 것</li>
+<li>Pair programing을 자주 시도할 것</li>
+<li>고객에게 정말 가치를 주는 목표인지 다시 생각해볼 것(기회 비용 면에서도)</li>
+<li>불필요한 프로세스를 거부하기</li>
+</ul>
+<p>구체적인 목표가 없으므로 이렇게 세월이 흘러 유야무야 다시 원래대로 돌아오는 게 아니냐고 나를 의심하는 분들도 계실 것이다. 그렇다면 정확하고 예리한 지적이다. 구체적인 아이템은 고민 중이다.</p>
+<h3 id="마무리"><a href="#마무리" class="headerlink" title="마무리"></a>마무리</h3><p>좋은 자리 마련해주신 규원님께 다시 한번 감사드리고, 같이 참여하신 동료분들의 TDD 성공담을 들어보는 날도 기원해본다.</p>
+<p>정말 좋은 경험이었고, 기회가 되면 회사 내&#x2F;외부 뛰어난 분들이 일하는 모습을 더 많이 훔쳐보고 싶다는 생각도 간절하지만, 그런다고 나의 실력이 늘겠는가. 스스로 채찍질 좀 더 해봐야겠다.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>youngiggy
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://haah.kr/2018/10/13/the-tdd-show-20181011/" title="TDD 참관기 2018.10.11">https://haah.kr/2018/10/13/the-tdd-show-20181011/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/TDD/" rel="tag"># TDD</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/09/26/news-archive-2018-09-26/" rel="prev" title="뉴스 아카이브 2018-09-26">
+                  <i class="fa fa-chevron-left"></i> 뉴스 아카이브 2018-09-26
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2018/11/05/php-annotated-monthly-november-2018/" rel="next" title="php-annotated-monthly-november-2018">
+                  php-annotated-monthly-november-2018 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">youngiggy</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"youngiggy-github-io","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

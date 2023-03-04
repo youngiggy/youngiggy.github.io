@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_package_v0.16/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_package_v0.16/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_package_v0.16/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/favicon_package_v0.16/safari-pinned-tab.svg" color="#222">
+  <link rel="manifest" href="/images/favicon_package_v0.16/site.webmanifest">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"haah.kr","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="간만에 모던PHP 모임에서 발표한 자료. https:&#x2F;&#x2F;github.com&#x2F;ModernPUG&#x2F;meetup&#x2F;tree&#x2F;master&#x2F;2018_06 발표 코드와 큰 흐름은 Kevin Smith의 Modern PHP Without a Framework이라는 글에서 가져왔고, 여기에 이런 저런 설명을 붙여서 발표했다. 발표 자료 만드는 도중에 엄청난 고민에 빠졌는데,">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Modern PHP Without a Framework">
+<meta property="og:url" content="https://haah.kr/2018/06/06/modern-php-without-a-framework/">
+<meta property="og:site_name" content="ha-ah">
+<meta property="og:description" content="간만에 모던PHP 모임에서 발표한 자료. https:&#x2F;&#x2F;github.com&#x2F;ModernPUG&#x2F;meetup&#x2F;tree&#x2F;master&#x2F;2018_06 발표 코드와 큰 흐름은 Kevin Smith의 Modern PHP Without a Framework이라는 글에서 가져왔고, 여기에 이런 저런 설명을 붙여서 발표했다. 발표 자료 만드는 도중에 엄청난 고민에 빠졌는데,">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-06-06T01:29:34.000Z">
+<meta property="article:modified_time" content="2018-06-06T02:17:10.000Z">
+<meta property="article:author" content="youngiggy">
+<meta property="article:tag" content="PHP">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://haah.kr/2018/06/06/modern-php-without-a-framework/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://haah.kr/2018/06/06/modern-php-without-a-framework/","path":"2018/06/06/modern-php-without-a-framework/","title":"Modern PHP Without a Framework"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Modern PHP Without a Framework | ha-ah</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=354302543"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":354302543,"only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="ha-ah" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">ha-ah</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">로그, 게으른 로그</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%8F%84%EC%9B%80%EB%B0%9B%EC%9D%80-%EA%B8%80"><span class="nav-number">1.</span> <span class="nav-text">도움받은 글</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">youngiggy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">113</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:youngiggy@gmail.com" title="E-Mail → mailto:youngiggy@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/profile.php?id=100001259884599" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;profile.php?id&#x3D;100001259884599" rel="noopener me" target="_blank"><i class="fab fa-facebook fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/jooyoungiggy" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;jooyoungiggy" rel="noopener me" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://haah.kr/2018/06/06/modern-php-without-a-framework/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="youngiggy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Modern PHP Without a Framework | ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Modern PHP Without a Framework
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2018-06-06 10:29:34 / Modified: 11:17:10" itemprop="dateCreated datePublished" datetime="2018-06-06T10:29:34+09:00">2018-06-06</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/06/06/modern-php-without-a-framework/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/06/06/modern-php-without-a-framework/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>간만에 모던PHP 모임에서 발표한 자료.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ModernPUG/meetup/tree/master/2018_06">https://github.com/ModernPUG/meetup/tree/master/2018_06</a></p>
+<p>발표 코드와 큰 흐름은 Kevin Smith의 <a target="_blank" rel="noopener" href="https://kevinsmith.io/modern-php-without-a-framework">Modern PHP Without a Framework</a>이라는 글에서 가져왔고, 여기에 이런 저런 설명을 붙여서 발표했다.</p>
+<p>발표 자료 만드는 도중에 엄청난 고민에 빠졌는데, 문제는 DI(Dependency Injection, 의존성 주입)였다.</p>
+<p>DI container를 설명하면서 (내가 만들지 않은) 아래 코드를 예로 들게 되었는데,</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AwesomeClass</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$dbConnection</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params">\PDO <span class="variable">$dbConnection</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;dbConnection = <span class="variable">$dbConnection</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">doSomethingAwesome</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;        </span><br><span class="line">        <span class="comment">// Make magic happen with $this-&gt;dbConnection</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>이 코드는 DI인가, 아닌가?</p>
+<p>이 코드는 의존성이 주입되지 않았다. 의존하는 객체를 생성자를 받은 것 뿐이다. 이미 이 ‘대단한’ 클래스는 PDO에 강하게 의존하고 있다.</p>
+<p>그럼 DI란? 간단히 설명하면, 의존 관계(토비님은 이 표현이 적당하다고 생각하시는 듯)를 런타임에 맺어주는 것.</p>
+<p>그래서 의존성 주입의 적당한 예로 아래처럼 다른 코드로 바꿀까 고민을 많이 했었다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PizzaDelivery</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$pizza</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params">PizzaInterface <span class="variable">$pizza</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;pizza = <span class="variable">$pizza</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">deliver</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;        </span><br><span class="line">        <span class="comment">// vroong!</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>런타임에 HawaiianPizza 인스턴스가 들어온다고 가정을 해보자.</p>
+<p>‘의존성을 제거한다’라는 말을 들으면, 예전에는 ‘어차피 이런 코드도 PizzaInterface에 의존을 하고 있구만. 의존성을 제거할 순 없지’이라만 생각을 했는데, 여기저기 찾아보니 의존성 주입에서의 ‘의존성(Dependency)’은 특정 상황을 나타내는 고유명사로 생각하는 게 속이 편하겠다는 생각이 들었다.(이건 논란의 여지를 피해 또 논란 거리를 만드는 건가?)</p>
+<p>PizzaDelivery는 HawaiianPizza와의 의존성이 없다. HawaiianPizza와 의존 관계가 만들어지는 건 런타임이다. 그래서 이 코드는 의존성이 주입되는 예시가 된다.</p>
+<p>발표에서 PHP-DI라는 DI container라고 스스로 이야기하는 툴을 DI로도 쓰고, Service Locator로도 쓰기도 하는 것에 어째 이물감이 생겼다. 남들을 더 혼란스럼게 하나 싶기도 하고.</p>
+<p>생성자에 뭔가를 넘기는 것을 의존성 주입이라고 퉁치는 경우가 많기 때문에, 이것도 REST처럼 정확히 따지고 들자면 꼰대가 되는 것 같지만, 한번쯤 DI의 의미를 깊이 생각해볼 필요가 있을 것 같다.</p>
+<p>여기까지가 DI에 대해 공부했던 내용이고, 그 출처는 아래 링크에서 많은 도움을 받았다.</p>
+<p>(공부는진행중…)</p>
+<h2 id="도움받은-글"><a href="#도움받은-글" class="headerlink" title="도움받은 글"></a>도움받은 글</h2><p><a target="_blank" rel="noopener" href="http://jwchung.github.io/DI%EB%8A%94-IoC%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EC%A7%80-%EC%95%8A%EC%95%84%EB%8F%84-%EB%90%9C%EB%8B%A4">http://jwchung.github.io/DI는-IoC를-사용하지-않아도-된다</a></p>
+<ul>
+<li>Martin Folwer의 Inversion of Control Containers and the Dependency Injection pattern(<a target="_blank" rel="noopener" href="http://gyumee.egloos.com/2512493">박성철님의 번역본</a> 참고), Mark Seemann의 주장(<a target="_blank" rel="noopener" href="https://www.haruair.com/blog/3880">haruair님의 번역본</a> 참고)등을 예로 든 DI에 관한 글이 있었는데, 이 글과 댓글을 읽고 많은 생각을 하게 됐다.</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://justhackem.wordpress.com/2016/05/13/dependency-inversion-terms/">https://justhackem.wordpress.com/2016/05/13/dependency-inversion-terms/</a></p>
+<ul>
+<li>그 댓글에서 논쟁을 벌였던 이규원님의 글 ‘의존성 역전 원리(Dependency Inversion Principle) 관련 용어’</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="http://toby.epril.com/?p=808">http://toby.epril.com/?p=808</a></p>
+<ul>
+<li>토비님의 DI에서 dependency를 어떻게 번역할 것인가에 대한 글</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>youngiggy
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://haah.kr/2018/06/06/modern-php-without-a-framework/" title="Modern PHP Without a Framework">https://haah.kr/2018/06/06/modern-php-without-a-framework/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/PHP/" rel="tag"># PHP</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/05/10/books-2018-march-to-may/" rel="prev" title="독후감 - 2018년 3~5월">
+                  <i class="fa fa-chevron-left"></i> 독후감 - 2018년 3~5월
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2018/07/05/news-archive-2018-07-05/" rel="next" title="뉴스 아카이브 2018-07-05">
+                  뉴스 아카이브 2018-07-05 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">youngiggy</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"youngiggy-github-io","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

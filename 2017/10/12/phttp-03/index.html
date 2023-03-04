@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_package_v0.16/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_package_v0.16/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_package_v0.16/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/favicon_package_v0.16/safari-pinned-tab.svg" color="#222">
+  <link rel="manifest" href="/images/favicon_package_v0.16/site.webmanifest">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"haah.kr","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="연재글 전체 보기  지난번에 이어 CGIStream class(HTTPServer 참고)를 살펴보는 시간. 말했지만, 좀 옛스러운 코드니 결벽증이 있는 분은 다음 장으로… 왜 요즘 버전의 소스를 분석하지 않냐는 질문도 할 법 하다. 못 구했다. 일단 이건 정말 공부를 위한 뻘짓이기 때문에 굳이 구현하고 싶은 사람이 없었을 것으로 보인다. 게다가 PHP5.4">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="PHP로 HTTP 서버 구현하기 - 03 - CGIStream class 둘러보기">
+<meta property="og:url" content="https://haah.kr/2017/10/12/phttp-03/">
+<meta property="og:site_name" content="ha-ah">
+<meta property="og:description" content="연재글 전체 보기  지난번에 이어 CGIStream class(HTTPServer 참고)를 살펴보는 시간. 말했지만, 좀 옛스러운 코드니 결벽증이 있는 분은 다음 장으로… 왜 요즘 버전의 소스를 분석하지 않냐는 질문도 할 법 하다. 못 구했다. 일단 이건 정말 공부를 위한 뻘짓이기 때문에 굳이 구현하고 싶은 사람이 없었을 것으로 보인다. 게다가 PHP5.4">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-10-12T10:20:37.000Z">
+<meta property="article:modified_time" content="2018-02-13T06:27:02.000Z">
+<meta property="article:author" content="youngiggy">
+<meta property="article:tag" content="PHP">
+<meta property="article:tag" content="HTTP">
+<meta property="article:tag" content="phttp">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://haah.kr/2017/10/12/phttp-03/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://haah.kr/2017/10/12/phttp-03/","path":"2017/10/12/phttp-03/","title":"PHP로 HTTP 서버 구현하기 - 03 - CGIStream class 둘러보기"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>PHP로 HTTP 서버 구현하기 - 03 - CGIStream class 둘러보기 | ha-ah</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=354302543"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":354302543,"only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="ha-ah" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">ha-ah</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">로그, 게으른 로그</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CGIStream-class"><span class="nav-number">1.</span> <span class="nav-text">CGIStream class</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#stream-read"><span class="nav-number">1.1.</span> <span class="nav-text">stream_read</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#stream-open"><span class="nav-number">1.2.</span> <span class="nav-text">stream_open</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CGIStream%EB%8A%94-%EC%97%AC%EA%B8%B0%EC%84%9C-%EB%A7%88%EB%AC%B4%EB%A6%AC"><span class="nav-number">2.</span> <span class="nav-text">CGIStream는 여기서 마무리</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTPServer-class"><span class="nav-number">3.</span> <span class="nav-text">HTTPServer class</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B2%B0%EB%A1%A0"><span class="nav-number">4.</span> <span class="nav-text">결론</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">youngiggy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">113</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:youngiggy@gmail.com" title="E-Mail → mailto:youngiggy@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/profile.php?id=100001259884599" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;profile.php?id&#x3D;100001259884599" rel="noopener me" target="_blank"><i class="fab fa-facebook fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/jooyoungiggy" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;jooyoungiggy" rel="noopener me" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://haah.kr/2017/10/12/phttp-03/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="youngiggy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="PHP로 HTTP 서버 구현하기 - 03 - CGIStream class 둘러보기 | ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          PHP로 HTTP 서버 구현하기 - 03 - CGIStream class 둘러보기
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-10-12 19:20:37" itemprop="dateCreated datePublished" datetime="2017-10-12T19:20:37+09:00">2017-10-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2018-02-13 15:27:02" itemprop="dateModified" datetime="2018-02-13T15:27:02+09:00">2018-02-13</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2017/10/12/phttp-03/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/10/12/phttp-03/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><a href="/tags/phttp/">연재글 전체 보기</a></p>
+<hr>
+<p>지난번에 이어 CGIStream class(<a target="_blank" rel="noopener" href="https://github.com/youngj/httpserver">HTTPServer</a> 참고)를 살펴보는 시간.</p>
+<p>말했지만, 좀 옛스러운 코드니 결벽증이 있는 분은 다음 장으로…</p>
+<p>왜 요즘 버전의 소스를 분석하지 않냐는 질문도 할 법 하다.</p>
+<p>못 구했다.</p>
+<p>일단 이건 정말 공부를 위한 뻘짓이기 때문에 굳이 구현하고 싶은 사람이 없었을 것으로 보인다.</p>
+<p>게다가 PHP5.4부터 내장 서버를 지원하는데 뭐하러 굳이…</p>
+<p>다시 집중!</p>
+<h2 id="CGIStream-class"><a href="#CGIStream-class" class="headerlink" title="CGIStream class"></a>CGIStream class</h2><p>주석을 보면 CGIStream class는 CGI 프로세스가 완료될 때까지 버퍼 기능도 하고, 헤더를 조작하는 것도 가능하다고 한다.</p>
+<p>외부에서 이 클래스를 어떻게 사용하는 지 찾아보면 눈에 익은 문법이 보일 것이다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="title function_ invoke__">stream_wrapper_register</span>(<span class="string">&quot;cgi&quot;</span>, <span class="string">&quot;CGIStream&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>HTTPServer class(httpserver.php)에서 서버를 띄우기 전에 등록하는 코드다.</p>
+<p>코드에서 보듯이 CGIStream class는 Stream wrapper class라고 할 수 있고,</p>
+<p>Stream wrapper class의 메소드 중 <code>stream_cast</code>, <code>stream_open</code>, <code>stream_read</code>, <code>stream_eof</code>, <code>stream_close</code>만 구현했다.</p>
+<p>이 중에 이해하기 쉬운 애들은 빼고 두가지 메소드만 설명해보겠다.</p>
+<h3 id="stream-read"><a href="#stream-read" class="headerlink" title="stream_read"></a>stream_read</h3><p><code>stream_read</code>는 BUFFERING&#x2F;BUFFERED&#x2F;EOF 상태에 따라 해야할 일을 구현해놓았다.</p>
+<p>BUFFERING 단계에선 버퍼에 request 메시지를 담고, server 쪽 클래스를 통해 request 구문을 분석하고, response를 위한 문자열을 만들고, 이를 data type의 스트림에 쌓아둔다. 그리고 현재 상태를 BUFFERED로 업데이트 한다.</p>
+<p>BUFFERED 단계에선 앞서 data 스트림에 쌓아두었던 값을 리턴한다. 그리고 현재 상태를 EOF로.</p>
+<p>EOF 단계에선 <code>return false;</code>.</p>
+<p>내가 상상했던 코드는 이 스트림쪽에선 버퍼링 정도만 처리하고 나머지는 server 쪽 코드에 위임하는 것이었는데,</p>
+<p><code>\r\n\r\n</code>(HTTP 메시지의 header와 body 구분자)로 메시지를 검사한다거나 <code>HTTPServer::parse_headers</code> 결과를 분석한다거나 하는 일도 한다.</p>
+<p>이런 부분은 역할 분리가 덜 된 것 같다는 생각이 든다.</p>
+<h3 id="stream-open"><a href="#stream-open" class="headerlink" title="stream_open"></a>stream_open</h3><p><code>stream_open</code> 메소드가 호출되는 시점은 php.net에서 <a target="_blank" rel="noopener" href="http://php.net/manual/en/streamwrapper.stream-open.php">이렇게</a> 설명한다.</p>
+<blockquote>
+<p>This method is called immediately after the wrapper is initialized</p>
+</blockquote>
+<p>wrapper가 초기화 될 때, 그러니까</p>
+<p><code>fopen(&quot;cgi://PHP파일&quot;...</code></p>
+<p>이런 식이다.</p>
+<p><code>stream_open</code>에서 cgi로 php파일을 열고, <code>stream_read</code>에서 그 실행한 결과를 스트림으로 받아 처리하는 것이다.</p>
+<p>이 예제에선 stream_context_get_options로 현재 설정된 <code>stdin</code>, <code>env</code>, <code>server</code>, <code>response</code> 등의 context를 얻어오고</p>
+<p>이를 활용해 <a target="_blank" rel="noopener" href="http://php.net/manual/en/function.proc-open.php">proc_open</a>으로 스트림을 연다.</p>
+<h2 id="CGIStream는-여기서-마무리"><a href="#CGIStream는-여기서-마무리" class="headerlink" title="CGIStream는 여기서 마무리"></a>CGIStream는 여기서 마무리</h2><p>이제 실제 서버를 띄우는 HTTPServer class에서 이 Stream wrapper(CGIStream class)를 등록하고 활용하는 부분을 보면 이 동네는 대략 이해가 될 것이다.</p>
+<p>여기까지 분석해보니 결국 CGI용 Stream wrapper는 PHP 스크립트를 실행하기 위한 것이었다.</p>
+<p><code>http://app.dev/test.php</code> 같은 요청을 받는 일 말이다.</p>
+<p>즉, (일단은) HTML과 이미지 정도의 static한 응답만 처리할 나에게는 php-cgi binary 같은 건 필요없다!! (오예)</p>
+<h2 id="HTTPServer-class"><a href="#HTTPServer-class" class="headerlink" title="HTTPServer class"></a>HTTPServer class</h2><p>이왕 본 김에 이 CGI 스트림 wrapper를 어떻게 등록하는 지만 살펴보고 (쓸 데 없었던) 2, 3장을 마무리 해야겠다.</p>
+<p>HTTPServer class는 PHP 요청과 이미지 같은 static 리소스를 별도로 라우팅한다.</p>
+<p>우선 서버를 실행하면</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="title function_ invoke__">stream_wrapper_register</span>(<span class="string">&quot;cgi&quot;</span>, <span class="string">&quot;CGIStream&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//중략</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$sock</span> = @<span class="title function_ invoke__">stream_socket_server</span>(<span class="string">&quot;tcp://<span class="subst">$addr_port</span>&quot;</span>, <span class="variable">$errno</span>, <span class="variable">$errstr</span>);</span><br></pre></td></tr></table></figure>
+
+<p>CGI용 스트림 wrapper를 등록하고 tcp 소켓을 하나 열어둔다.</p>
+<p>Client가 요청한 리소스가 PHP 스크립트일 경우, HTTPServer의 <code>get_php_response</code> 메소드로 라우팅된다.</p>
+<p>앞서 CGIStream의 <code>stream_open</code>을 설명하면서 stream_context_get_options으로 컨텍스트 정보를 가져온다고 했는데,</p>
+<p>바로 여기에서 컨텍스트 정보를 만들어 주는 것이다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$context</span> = <span class="title function_ invoke__">stream_context_create</span>(<span class="keyword">array</span>(</span><br><span class="line">    <span class="string">&#x27;cgi&#x27;</span> =&gt; <span class="keyword">array</span>(</span><br><span class="line">        <span class="string">&#x27;env&#x27;</span> =&gt; <span class="title function_ invoke__">array_merge</span>(<span class="variable">$_ENV</span>, <span class="variable">$this</span>-&gt;cgi_env, <span class="variable">$cgi_env</span>),</span><br><span class="line">        <span class="string">&#x27;stdin&#x27;</span> =&gt; <span class="variable">$request</span>-&gt;content_stream,</span><br><span class="line">        <span class="string">&#x27;server&#x27;</span> =&gt; <span class="variable">$this</span>,</span><br><span class="line">        <span class="string">&#x27;response&#x27;</span> =&gt; <span class="variable">$response</span>,</span><br><span class="line">    )</span><br><span class="line">));</span><br><span class="line"><span class="variable">$cgi_stream</span> = <span class="title function_ invoke__">fopen</span>(<span class="string">&quot;cgi://<span class="subst">&#123;$this-&gt;php_cgi&#125;</span>&quot;</span>, <span class="string">&#x27;rb&#x27;</span>, <span class="literal">false</span>, <span class="variable">$context</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h2><p>예상대로(?) php-cgi binary 같은 건 필요없다는 결론을 얻기 위해 긴 시간을 허비했다.</p>
+<p>이 시리즈의 다음 글부터는 최소한의 구성으로 서버를 띄우고, 기능을 하나씩 입혀 나갈 예정이다.</p>
+<p>그러니까…</p>
+<p>예정이다.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>youngiggy
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://haah.kr/2017/10/12/phttp-03/" title="PHP로 HTTP 서버 구현하기 - 03 - CGIStream class 둘러보기">https://haah.kr/2017/10/12/phttp-03/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/PHP/" rel="tag"># PHP</a>
+              <a href="/tags/HTTP/" rel="tag"># HTTP</a>
+              <a href="/tags/phttp/" rel="tag"># phttp</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/10/06/phttp-02/" rel="prev" title="PHP로 HTTP 서버 구현하기 - 02 - Stream wrapper">
+                  <i class="fa fa-chevron-left"></i> PHP로 HTTP 서버 구현하기 - 02 - Stream wrapper
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/10/14/book-979-11-85152-65-3/" rel="next" title="독후감 - 내 문장이 그렇게 이상한가요?">
+                  독후감 - 내 문장이 그렇게 이상한가요? <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">youngiggy</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"youngiggy-github-io","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_package_v0.16/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_package_v0.16/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_package_v0.16/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/favicon_package_v0.16/safari-pinned-tab.svg" color="#222">
+  <link rel="manifest" href="/images/favicon_package_v0.16/site.webmanifest">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"haah.kr","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="연재글 전체 보기  테스트 주도로 시작하기지금까지의 Request 분석 클래스는 아래와 같다. &lt;?php    class Request&amp;#123;    private $requestMessage;        public function __construct($requestMessage)    &amp;#123;        &#x2F;&#x2F;하지만 아직 쓰진 않지">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="PHP로 HTTP 서버 구현하기 - 07 - 첫 테스트, Response 분리">
+<meta property="og:url" content="https://haah.kr/2017/10/30/phttp-07/">
+<meta property="og:site_name" content="ha-ah">
+<meta property="og:description" content="연재글 전체 보기  테스트 주도로 시작하기지금까지의 Request 분석 클래스는 아래와 같다. &lt;?php    class Request&amp;#123;    private $requestMessage;        public function __construct($requestMessage)    &amp;#123;        &#x2F;&#x2F;하지만 아직 쓰진 않지">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-10-30T10:39:10.000Z">
+<meta property="article:modified_time" content="2018-02-13T06:27:02.000Z">
+<meta property="article:author" content="youngiggy">
+<meta property="article:tag" content="PHP">
+<meta property="article:tag" content="HTTP">
+<meta property="article:tag" content="phttp">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://haah.kr/2017/10/30/phttp-07/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://haah.kr/2017/10/30/phttp-07/","path":"2017/10/30/phttp-07/","title":"PHP로 HTTP 서버 구현하기 - 07 - 첫 테스트, Response 분리"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>PHP로 HTTP 서버 구현하기 - 07 - 첫 테스트, Response 분리 | ha-ah</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=354302543"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":354302543,"only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="ha-ah" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">ha-ah</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">로그, 게으른 로그</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84%EB%A1%9C-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0"><span class="nav-number">1.</span> <span class="nav-text">테스트 주도로 시작하기</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%B2%AB-%ED%85%8C%EC%8A%A4%ED%8A%B8"><span class="nav-number">1.1.</span> <span class="nav-text">첫 테스트</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%8B%A4%EC%8B%9C-%EC%B2%AB-%ED%85%8C%EC%8A%A4%ED%8A%B8"><span class="nav-number">1.2.</span> <span class="nav-text">다시 첫 테스트</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%97%AD%ED%95%A0-%EB%82%98%EB%88%84%EA%B8%B0"><span class="nav-number">1.3.</span> <span class="nav-text">역할 나누기</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%A7%84%EC%A7%9C-%EC%A7%84%EC%A7%9C-%EC%B2%AB-%ED%85%8C%EC%8A%A4%ED%8A%B8"><span class="nav-number">1.4.</span> <span class="nav-text">진짜 진짜 첫 테스트</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B2%B0%EB%A1%A0"><span class="nav-number">1.5.</span> <span class="nav-text">결론</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">youngiggy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">113</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:youngiggy@gmail.com" title="E-Mail → mailto:youngiggy@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/profile.php?id=100001259884599" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;profile.php?id&#x3D;100001259884599" rel="noopener me" target="_blank"><i class="fab fa-facebook fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/jooyoungiggy" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;jooyoungiggy" rel="noopener me" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://haah.kr/2017/10/30/phttp-07/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="youngiggy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="PHP로 HTTP 서버 구현하기 - 07 - 첫 테스트, Response 분리 | ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          PHP로 HTTP 서버 구현하기 - 07 - 첫 테스트, Response 분리
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-10-30 19:39:10" itemprop="dateCreated datePublished" datetime="2017-10-30T19:39:10+09:00">2017-10-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2018-02-13 15:27:02" itemprop="dateModified" datetime="2018-02-13T15:27:02+09:00">2018-02-13</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2017/10/30/phttp-07/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/10/30/phttp-07/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><a href="/tags/phttp/">연재글 전체 보기</a></p>
+<hr>
+<h1 id="테스트-주도로-시작하기"><a href="#테스트-주도로-시작하기" class="headerlink" title="테스트 주도로 시작하기"></a>테스트 주도로 시작하기</h1><p>지금까지의 Request 분석 클래스는 아래와 같다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Request</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$requestMessage</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="variable">$requestMessage</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//하지만 아직 쓰진 않지</span></span><br><span class="line">        <span class="variable language_">$this</span>-&gt;requestMessage = <span class="variable">$requestMessage</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getResponse</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$filename</span> = PROJECT_ROOT . <span class="string">&#x27;/public/index.html&#x27;</span>;</span><br><span class="line">        <span class="keyword">if</span> (!(<span class="variable">$fp</span> = <span class="title function_ invoke__">fopen</span>(<span class="variable">$filename</span>, <span class="string">&#x27;r&#x27;</span>))) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&#x27;HTTP/1.0 404 파일 없음&#x27;</span> . PHP_EOL;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="variable">$responseBody</span> = <span class="title function_ invoke__">fread</span>(<span class="variable">$fp</span>, <span class="title function_ invoke__">filesize</span>(<span class="variable">$filename</span>));</span><br><span class="line">    </span><br><span class="line">        <span class="variable">$response</span> = <span class="string">&#x27;HTTP/1.0 200 OK&#x27;</span> . PHP_EOL;</span><br><span class="line">        <span class="variable">$response</span> .= <span class="string">&#x27;Content-Type: text/html&#x27;</span> . PHP_EOL;</span><br><span class="line">        <span class="variable">$response</span> .= PHP_EOL;</span><br><span class="line">        <span class="variable">$response</span> .= <span class="variable">$responseBody</span> . PHP_EOL;</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$response</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="첫-테스트"><a href="#첫-테스트" class="headerlink" title="첫 테스트"></a>첫 테스트</h2><p>의미 없는 코드지만 테스트가 존재하면 성공하는지나 살펴보자.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    </span><br><span class="line"><span class="keyword">use</span> <span class="title">PHPUnit</span>\<span class="title">Framework</span>\<span class="title">TestCase</span>;</span><br><span class="line">    </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RequestTest</span> <span class="keyword">extends</span> <span class="title">TestCase</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">testCanBeCreated</span>(<span class="params"></span>): <span class="title">void</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">assertInstanceOf</span>(</span><br><span class="line">            <span class="title class_">Request</span>::<span class="variable language_">class</span>,</span><br><span class="line">            <span class="keyword">new</span> <span class="title class_">Request</span>([])</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>결과는,</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Testing started at PM 7:57 ...</span><br><span class="line">PHPUnit 6.4.3 by Sebastian Bergmann and contributors.</span><br><span class="line">    </span><br><span class="line">Time: 59 ms, Memory: 4.00MB</span><br><span class="line">    </span><br><span class="line">OK (1 test, 1 assertion)</span><br></pre></td></tr></table></figure>
+
+<p>이건 너무 당연한 테스트 코드라서 낭비다. 지워버리고 의미있는 테스트를 만들어보자.</p>
+<h2 id="다시-첫-테스트"><a href="#다시-첫-테스트" class="headerlink" title="다시 첫 테스트"></a>다시 첫 테스트</h2><p><code>server.php</code>에서 <code>Request.php</code>으로 기능을 가져왔으니 뭔가 테스트할 거리가 있을 것 같다.</p>
+<p>우선 <code>__construct</code>.</p>
+<p>하는 일이라곤 생성자로 전달된 값을 private 변수에 담는 것 뿐인데, 이걸 테스트로 만들 필요가 있을까?</p>
+<p>물론 테스트는 만들 수 있다.</p>
+<p>굳이 굳이 <code>Request</code> 클래스에 private 변수를 꺼내올 수 있는 public method를 만들 수도 있고.</p>
+<p>Request.php :</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getRequestMessage</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">$this</span>-&gt;requestMessage;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>RequestTest.php :</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">testConstructByGetter</span>(<span class="params"></span>) : <span class="title">void</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="variable">$requestMessage</span> = [<span class="string">&#x27;testKey&#x27;</span> =&gt; <span class="string">&#x27;testVal&#x27;</span>];</span><br><span class="line">    <span class="variable">$request</span> = <span class="keyword">new</span> <span class="title class_">Request</span>(<span class="variable">$requestMessage</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="variable">$valueByGetter</span> = <span class="variable">$request</span>-&gt;<span class="title function_ invoke__">getRequestMessage</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">assertEquals</span>(</span><br><span class="line">        <span class="title function_ invoke__">serialize</span>(<span class="variable">$requestMessage</span>), </span><br><span class="line">        <span class="title function_ invoke__">serialize</span>(<span class="variable">$valueByGetter</span>)</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>(하긴 막 짜려면 gettter도 필요없이 <code>requestMessage</code> 변수를 public으로 만들고 <code>$request-&gt;requestMessage;</code>처럼 막 갖다 써도..)</p>
+<p>또한, 굳이 굳이 Reflection으로 private 변수를 들여다 볼 수 도 있다.</p>
+<p>RequestTest.php :</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">testConstructByReflection</span>(<span class="params"></span>) : <span class="title">void</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="variable">$requestMessage</span> = [<span class="string">&#x27;testKey&#x27;</span> =&gt; <span class="string">&#x27;testVal&#x27;</span>];</span><br><span class="line">    <span class="variable">$request</span> = <span class="keyword">new</span> <span class="title class_">Request</span>(<span class="variable">$requestMessage</span>);</span><br><span class="line">    <span class="variable">$reflectionClass</span> = <span class="keyword">new</span> <span class="title class_">\ReflectionClass</span>(<span class="variable">$request</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="variable">$reflectionProperty</span> = <span class="variable">$reflectionClass</span>-&gt;<span class="title function_ invoke__">getProperty</span>(<span class="string">&#x27;requestMessage&#x27;</span>);</span><br><span class="line">    <span class="variable">$reflectionProperty</span>-&gt;<span class="title function_ invoke__">setAccessible</span>(<span class="literal">true</span>);</span><br><span class="line">    <span class="variable">$privateVal</span> = <span class="variable">$reflectionProperty</span>-&gt;<span class="title function_ invoke__">getValue</span>(<span class="variable">$request</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">assertEquals</span>(</span><br><span class="line">        <span class="title function_ invoke__">serialize</span>(<span class="variable">$requestMessage</span>),</span><br><span class="line">        <span class="title function_ invoke__">serialize</span>(<span class="variable">$privateVal</span>)</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>다시 질문. <code>이걸 테스트로 만들 필요가 있을까?</code></p>
+<p>생성자에 받은 녀석을 그대로 멤버 변수에 넣었는데 이게 잘 들어갔는지 확인할 필요는 없어보인다. 그 과정에서 이에 간섭하는 코드가 없기 때문이다.</p>
+<p>그리고 private 변수의 접근 제한 수준을 억지로 공개해서 은닉성을 포기할 만큼 가치있는 일인가?</p>
+<p>비슷한 관점으로 (그러나 명확하게 설명된) 이 글을 참고해도 좋겠다.</p>
+<p><a target="_blank" rel="noopener" href="https://justhackem.wordpress.com/2017/09/29/should-private-methods-be-tested/">비공개 메서드를 테스트 해야 하는가?</a></p>
+<blockquote>
+<p>테스트 케이스는 클라이언트 코드다</p>
+</blockquote>
+<p>억지로 만든 테스트는 다 지워버리자.</p>
+<h2 id="역할-나누기"><a href="#역할-나누기" class="headerlink" title="역할 나누기"></a>역할 나누기</h2><p>계속된 첫 테스트 작성 실패에 주눅들 것 없이 찬찬히 코드를 돌아보자.</p>
+<p>진짜 진짜 첫 테스트를 작성 하려고 보니, <code>Request</code> 클래스 안에 <code>getResponse()</code> 메소드만 덩그러니 있는 것이 마음에 걸린다.</p>
+<p><code>server.php</code>에서 기능을 분리한 것은 좋았지만, 클래스 명이 <code>Request</code>인데 여기서 응답 문자열을 만들어주는 모양이 어색하다.</p>
+<p>자연스럽게(서로 짝이 맞게) <code>Response</code>라는 클래스를 만들어야겠다는 생각이 든다. </p>
+<p>어떤 기준으로 나눠야 할지 현재의 <code>Request</code> 클래스의 코드를 기준으로 각각의 임무를 적어보자.</p>
+<p>Request</p>
+<ul>
+<li>요청된 문자열을 파싱해서 시작줄, 헤더(여러줄), 본문 등 필요한 포맷으로 정리한다</li>
+<li>해석할 수 없는 요청이라면 예외를 발생시킨다</li>
+<li>분석 결과, 클라이언트가 요청한 리소스 위치를 리턴한다 </li>
+<li>‘&#x2F;‘라는 요청이 오면 ‘index.html’이라는 파일을 읽어야 하는 것을 알고 있다</li>
+</ul>
+<p>Response</p>
+<ul>
+<li>도큐먼트 root의 절대 경로를 알고 있다</li>
+<li>파일이 존재하는지 확인하고 없으면 예외를 발생한다</li>
+<li>파일을 읽는다</li>
+<li>처리 결과를 정리한다 </li>
+<li>클라이언트에 전달할 HTTP 응답 메시지를 리턴한다</li>
+</ul>
+<p>나중에 여기서 더 더 분리가 되겠지만, 현재 코드에서 예상할 수 있는 기능을 크게 둘로 나오면 이 정도라고 생각한다.</p>
+<p>그럼 이런 흐름이 될 것이다.</p>
+<ol>
+<li><code>server.php</code>에선 클라이언트가 보낸 raw 메시지를 <code>Request</code> 클래스에 전달하고,</li>
+<li><code>Request</code> 클래스는 이를 파싱해서 내부에 저장하고,</li>
+<li><code>Response</code> 클래스는 여기서 리소스 경로를 받아 읽고 <code>server.php</code>에 최종 결과물을 리턴한다.</li>
+</ol>
+<p>이제 <code>Request</code> 클래스는 raw 메시지를 받아 특정 경로를 반환하도록 고치고</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Request</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$requestMessage</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="variable">$requestMessage</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//하지만 아직 쓰진 않지</span></span><br><span class="line">        <span class="variable language_">$this</span>-&gt;requestMessage = <span class="variable">$requestMessage</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getResourcePath</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;/index.html&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>서버는 이걸 받아 <code>Response</code>에게 던지고</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// ... 생략 ...</span></span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="variable">$client</span> = @<span class="title function_ invoke__">stream_socket_accept</span>(<span class="variable">$server</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$client</span>) &#123;</span><br><span class="line">        <span class="variable">$clientSentData</span> = <span class="title function_ invoke__">fread</span>(<span class="variable">$client</span>, <span class="number">1024</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="variable">$resourcePath</span> = (<span class="keyword">new</span> <span class="title class_">Request</span>(<span class="variable">$clientSentData</span>))-&gt;<span class="title function_ invoke__">getResourcePath</span>();</span><br><span class="line">        <span class="variable">$response</span> = (<span class="keyword">new</span> <span class="title class_">Response</span>())-&gt;<span class="title function_ invoke__">getResponse</span>(<span class="variable">$resourcePath</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="title function_ invoke__">fwrite</span>(<span class="variable">$client</span>, <span class="variable">$response</span>, <span class="title function_ invoke__">strlen</span>(<span class="variable">$response</span>));</span><br><span class="line">        <span class="title function_ invoke__">fclose</span>(<span class="variable">$client</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>Response</code>는 클라이언트에 보낼 메시지를 조합한다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Response</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$docRoot</span> = PROJECT_ROOT . <span class="string">&#x27;/public&#x27;</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getResponse</span>(<span class="params"><span class="variable">$resourcePath</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$filename</span> = <span class="variable language_">$this</span>-&gt;docRoot . <span class="variable">$resourcePath</span>;</span><br><span class="line">        <span class="keyword">if</span> (!(<span class="variable">$fp</span> = <span class="title function_ invoke__">fopen</span>(<span class="variable">$filename</span>, <span class="string">&#x27;r&#x27;</span>))) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&#x27;HTTP/1.0 404 파일 없음&#x27;</span> . PHP_EOL;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="variable">$responseBody</span> = <span class="title function_ invoke__">fread</span>(<span class="variable">$fp</span>, <span class="title function_ invoke__">filesize</span>(<span class="variable">$filename</span>));</span><br><span class="line">        </span><br><span class="line">        <span class="variable">$response</span> = <span class="string">&#x27;HTTP/1.0 200 OK&#x27;</span> . PHP_EOL;</span><br><span class="line">        <span class="variable">$response</span> .= <span class="string">&#x27;Content-Type: text/html&#x27;</span> . PHP_EOL;</span><br><span class="line">        <span class="variable">$response</span> .= PHP_EOL;</span><br><span class="line">        <span class="variable">$response</span> .= <span class="variable">$responseBody</span> . PHP_EOL;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$response</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>이제 브라우저에서 <code>http://127.0.0.1:1337/</code>에 접근해보고 문제없이 동작하는 것을 확인한다.</p>
+<p>드디어 진짜 진짜 첫 테스트를 작성할 차례다.</p>
+<h2 id="진짜-진짜-첫-테스트"><a href="#진짜-진짜-첫-테스트" class="headerlink" title="진짜 진짜 첫 테스트"></a>진짜 진짜 첫 테스트</h2><p>진짜 진짜 첫 테스트의 대상은 <code>Request</code>의 <code>getResourcePath()</code> 메소드로 정했다.</p>
+<p>사실 TDD의 정석대로 하자면, 메소드를 추가하기 전에 </p>
+<ul>
+<li>Red : 실패하는 테스트를 작성하고, 실패하는 것을 확인</li>
+<li>Green : 이를 통과하는 최소한의 코드를 작성하고</li>
+<li>Refactor : 리팩토링하는 과정</li>
+</ul>
+<p>을 겪어야 했지만, 이미 잘 돌아가는 코드가 존재했고 Request-Response로 분리하는 과정에서 믿을 수 있는 건 수동 테스트 밖에 없었기 때문에,</p>
+<p>수동 테스트가 성공하는 범위 안에서 최소한의 변경으로 코드로 분리하고자 했다.</p>
+<p>좀 늦긴 했지만 <code>getResourcePath()</code> 메소드에 대한 테스트를 작성해보자.</p>
+<p>tests&#x2F;RequestTest.php :</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">use</span> <span class="title">PHPUnit</span>\<span class="title">Framework</span>\<span class="title">TestCase</span>;</span><br><span class="line">    </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RequestTest</span> <span class="keyword">extends</span> <span class="title">TestCase</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">testGetResourcePath</span>(<span class="params"></span>): <span class="title">void</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$request</span> = <span class="keyword">new</span> <span class="title class_">Request</span>([]);</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">assertEquals</span>(<span class="string">&#x27;/index.html&#x27;</span>, <span class="variable">$request</span>-&gt;<span class="title function_ invoke__">getResourcePath</span>());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">OK (1 test, 1 assertion)</span><br></pre></td></tr></table></figure>
+
+<h2 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h2><p>7화 만에 진짜 진짜 첫 테스트를 만들다니…</p>
+<p>다음 시간에는 Request를 파싱해서 실제 동작하는(잊지 않았겠지! 클라이언트는 html과 image와 favicon을 요청할 것이다) HTTP 요청 메시지 파서를 만들 것이다. 당연히 최소한으로 동작하는..</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>youngiggy
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://haah.kr/2017/10/30/phttp-07/" title="PHP로 HTTP 서버 구현하기 - 07 - 첫 테스트, Response 분리">https://haah.kr/2017/10/30/phttp-07/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/PHP/" rel="tag"># PHP</a>
+              <a href="/tags/HTTP/" rel="tag"># HTTP</a>
+              <a href="/tags/phttp/" rel="tag"># phttp</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/10/25/phttp-06/" rel="prev" title="PHP로 HTTP 서버 구현하기 - 06 - Request 분리, autoload, PHPUnit">
+                  <i class="fa fa-chevron-left"></i> PHP로 HTTP 서버 구현하기 - 06 - Request 분리, autoload, PHPUnit
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/11/01/baking-00/" rel="next" title="베이킹 - 준비 완료">
+                  베이킹 - 준비 완료 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">youngiggy</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"youngiggy-github-io","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_package_v0.16/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_package_v0.16/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_package_v0.16/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/favicon_package_v0.16/safari-pinned-tab.svg" color="#222">
+  <link rel="manifest" href="/images/favicon_package_v0.16/site.webmanifest">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"haah.kr","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="JetBrains에서 (거의) 매월 발행하는 PHP Annotated Monthly에서 적당히 제 입맛에 맞는 것만 추려 소개합니다. 언제나 그렇듯이 성급한 오역 죄송합니다. 이번달은 내용이 많아 쪼개서 올리고 있습니다. 두번째는 PHP Internals!  [RFC] Preloadinghttps:&#x2F;&#x2F;wiki.php.net&#x2F;rfc&#x2F;preload  — Th">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="php-annotated-monthly-december-2018 - 2. PHP Internals">
+<meta property="og:url" content="https://haah.kr/2018/12/11/php-annotated-monthly-december-2018-2nd/">
+<meta property="og:site_name" content="ha-ah">
+<meta property="og:description" content="JetBrains에서 (거의) 매월 발행하는 PHP Annotated Monthly에서 적당히 제 입맛에 맞는 것만 추려 소개합니다. 언제나 그렇듯이 성급한 오역 죄송합니다. 이번달은 내용이 많아 쪼개서 올리고 있습니다. 두번째는 PHP Internals!  [RFC] Preloadinghttps:&#x2F;&#x2F;wiki.php.net&#x2F;rfc&#x2F;preload  — Th">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2018/12/new_php-annotated-monthly.jpg">
+<meta property="article:published_time" content="2018-12-11T14:22:36.000Z">
+<meta property="article:modified_time" content="2018-12-15T06:18:50.000Z">
+<meta property="article:author" content="youngiggy">
+<meta property="article:tag" content="PHP">
+<meta property="article:tag" content="php-annotated-monthly">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2018/12/new_php-annotated-monthly.jpg">
+
+
+<link rel="canonical" href="https://haah.kr/2018/12/11/php-annotated-monthly-december-2018-2nd/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://haah.kr/2018/12/11/php-annotated-monthly-december-2018-2nd/","path":"2018/12/11/php-annotated-monthly-december-2018-2nd/","title":"php-annotated-monthly-december-2018 - 2. PHP Internals"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>php-annotated-monthly-december-2018 - 2. PHP Internals | ha-ah</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=354302543"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":354302543,"only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="ha-ah" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">ha-ah</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">로그, 게으른 로그</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#RFC-Preloading"><span class="nav-number">1.</span> <span class="nav-text">[RFC] Preloading</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RFC-Spread-Operator-in-Array"><span class="nav-number">2.</span> <span class="nav-text">[RFC] Spread Operator in Array</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RFC-FFI-%E2%80%93-Foreign-Function-Interface"><span class="nav-number">3.</span> <span class="nav-text">[RFC] FFI – Foreign Function Interface</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RFC-Covariant-Returns-and-Contravariant-Parameters"><span class="nav-number">4.</span> <span class="nav-text">[RFC] Covariant Returns and Contravariant Parameters</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">youngiggy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">113</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:youngiggy@gmail.com" title="E-Mail → mailto:youngiggy@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/profile.php?id=100001259884599" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;profile.php?id&#x3D;100001259884599" rel="noopener me" target="_blank"><i class="fab fa-facebook fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/jooyoungiggy" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;jooyoungiggy" rel="noopener me" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://haah.kr/2018/12/11/php-annotated-monthly-december-2018-2nd/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="youngiggy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="php-annotated-monthly-december-2018 - 2. PHP Internals | ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          php-annotated-monthly-december-2018 - 2. PHP Internals
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-12-11 23:22:36" itemprop="dateCreated datePublished" datetime="2018-12-11T23:22:36+09:00">2018-12-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2018-12-15 15:18:50" itemprop="dateModified" datetime="2018-12-15T15:18:50+09:00">2018-12-15</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/12/11/php-annotated-monthly-december-2018-2nd/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/12/11/php-annotated-monthly-december-2018-2nd/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><img src="https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2018/12/new_php-annotated-monthly.jpg" alt="Php_annotated_monthly 이미지"></p>
+<p>JetBrains에서 (거의) 매월 발행하는 <a target="_blank" rel="noopener" href="https://blog.jetbrains.com/phpstorm/2018/12/php-annotated-monthly-december-2018/">PHP Annotated Monthly</a>에서 적당히 제 입맛에 맞는 것만 추려 소개합니다. 언제나 그렇듯이 성급한 오역 죄송합니다.</p>
+<p>이번달은 내용이 많아 쪼개서 올리고 있습니다. 두번째는 PHP Internals!</p>
+<hr>
+<h2 id="RFC-Preloading"><a href="#RFC-Preloading" class="headerlink" title="[RFC] Preloading"></a>[RFC] Preloading</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/preload">https://wiki.php.net/rfc/preload</a></p>
+<blockquote>
+<p>— The proposal is now accepted! It means that in 7.4, we’ll be able to preload any files into opcache. Any functions or classes declared in preloaded files will be available to all subsequent requests as if they were internal elements like strlen() or Exception. <br>There is an ongoing discussion about supporting preloading in Composer. Dmitry Stogov also proposed an ability to disable opcache caching per script, using declare(cache&#x3D;0) at the start of PHP files.</p>
+</blockquote>
+<p>다음 버전인 PHP7.4부터 preloading을 지원합니다. opcache.preload에 PHP 파일을 지정하고, 여기서 preloading할 파일을 지정할 수 있습니다. 이렇게 컴파일된 코드는 공유 메모리에 상주하게 되고, preload된 파일이 후에 변경된다 하더라도 서버 재시작 되기 전까지는 동일한 결과를 돌려주게 됩니다. </p>
+<p>Composer를 지원할지에 대해선 여전히 논의중이라고 하는군요.</p>
+<p>위 RFC 링크에 들어가면 더 자세한 설명이 들어있습니다. 여기에선 Zend 라이브러리를 통째로 올리는 예제가 있는데요. Laraval처럼 무거운 프레임웍도 미리 올려두고 쓰면 성능이 비약적으로 좋아지지 않을까 예상됩니다.</p>
+<p>몇가지 주의할 점도 언급하고 있는데요.</p>
+<blockquote>
+<p>And also, this approach will not be compatible with servers that host multiple applications, or multiple versions of applications - that would have different implementations for certain classes with the same name - if such classes are preloaded from the codebase of one app, it will conflict with loading the different class implementation from the other app(s).</p>
+</blockquote>
+<p>동일한 서버에서 여러 어플리케이션을 사용할 때, 동일한 클래스명을 사용하면 preload된 클래스를 사용하게 되므로 문제가 발생할 수 있다는 것입니다.</p>
+<h2 id="RFC-Spread-Operator-in-Array"><a href="#RFC-Spread-Operator-in-Array" class="headerlink" title="[RFC] Spread Operator in Array"></a>[RFC] Spread Operator in Array</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/spread_operator_for_array">https://wiki.php.net/rfc/spread_operator_for_array</a></p>
+<p> — The document proposes supporting the … operator in arrays. For example,</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$parts</span> = [<span class="string">&#x27;apple&#x27;</span>, <span class="string">&#x27;pear&#x27;</span>];</span><br><span class="line"><span class="variable">$fruits</span> = [<span class="string">&#x27;banana&#x27;</span>, <span class="string">&#x27;orange&#x27;</span>, ...<span class="variable">$parts</span>, <span class="string">&#x27;watermelon&#x27;</span>];</span><br><span class="line"><span class="comment">// [&#x27;banana&#x27;, &#x27;orange&#x27;, &#x27;apple&#x27;, &#x27;pear&#x27;, &#x27;watermelon&#x27;];</span></span><br></pre></td></tr></table></figure>
+
+<p>Spread Operator도 나올 때가 됐지요! 기대됩니다.</p>
+<h2 id="RFC-FFI-–-Foreign-Function-Interface"><a href="#RFC-FFI-–-Foreign-Function-Interface" class="headerlink" title="[RFC] FFI – Foreign Function Interface"></a>[RFC] FFI – Foreign Function Interface</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/ffi">https://wiki.php.net/rfc/ffi</a></p>
+<p> — Dmitry Stogov’s experiment is now official RFC. It allows calling C functions and using C data types from pure PHP. See for example using TensorFlow with FFI.</p>
+<p>Dmitry란 이름을 가진 사람은 다 개발을 잘하는 것 같습니다(농담입니다…). </p>
+<p>PHP 상에서 C의 함수와 데이터 타입에 접근할 수 있는 기능입니다. 링크를 타고 들어가면 여러가지 예제를 볼 수 있습니다. 그중 shared library에서 함수를 가져와 실행하는 예제를 보시죠.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// create FFI object, loading libc and exporting function printf()</span></span><br><span class="line"><span class="variable">$ffi</span> = FFI::<span class="title function_ invoke__">cdef</span>(</span><br><span class="line">    <span class="string">&quot;int printf(const char *format, ...);&quot;</span>, // this is regular C declaration</span><br><span class="line">    <span class="string">&quot;libc.so.6&quot;</span>);</span><br><span class="line"><span class="comment">// call C printf()</span></span><br><span class="line"><span class="variable">$ffi</span>-&gt;<span class="title function_ invoke__">printf</span>(<span class="string">&quot;Hello %s!\n&quot;</span>, <span class="string">&quot;world&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>FFI 역시 위에 언급한 preloading과 잘 연계되도록 설계가 되었고, default로 preload 모드로 동작합니다.</p>
+<p>과연 이걸 직접 사용할 날이 오겠냐마는, 이를 활용한 라이브러리가 여럿 등장하지 않을까 기대됩니다. 어디에 써먹냐고요? 그건 제가 알 바가…</p>
+<h2 id="RFC-Covariant-Returns-and-Contravariant-Parameters"><a href="#RFC-Covariant-Returns-and-Contravariant-Parameters" class="headerlink" title="[RFC] Covariant Returns and Contravariant Parameters"></a>[RFC] Covariant Returns and Contravariant Parameters</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/covariant-returns-and-contravariant-parameters">https://wiki.php.net/rfc/covariant-returns-and-contravariant-parameters</a></p>
+<p>공변 리턴과 반변 파라미터도 소개가 됐습니다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">X</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">m</span>(<span class="params">Y <span class="variable">$z</span></span>): <span class="title">X</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Y</span> <span class="keyword">extends</span> <span class="title">X</span> </span>&#123;</span><br><span class="line">  <span class="comment">// not permitted but type-safe</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">m</span>(<span class="params">X <span class="variable">$z</span></span>): <span class="title">Y</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Super type인 X의 메소드에서 파라미터로 Y를 받게 되어있다면 sub type인 Y의 메소드에서도 Y를 받게 되어 있습니다. Y가 X의 sub type이라 해도 Y대신 더 추상적 개념인 X를 받을 수 없는 상황이죠. 반대로 리턴 타입의 경우 X를 리턴하기로 했으면 더 구체적인 클래스인 Y를 리턴할 수 없었습니다.</p>
+<p>이 RFC는 parameter type은 super type이 대리할 수 있고, return type은 sub type이 대리할 수 있게 허용하는 것입니다.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>youngiggy
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://haah.kr/2018/12/11/php-annotated-monthly-december-2018-2nd/" title="php-annotated-monthly-december-2018 - 2. PHP Internals">https://haah.kr/2018/12/11/php-annotated-monthly-december-2018-2nd/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/PHP/" rel="tag"># PHP</a>
+              <a href="/tags/php-annotated-monthly/" rel="tag"># php-annotated-monthly</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/12/11/php-annotated-monthly-december-2018-1st/" rel="prev" title="php-annotated-monthly-december-2018 - 1. News & Releases">
+                  <i class="fa fa-chevron-left"></i> php-annotated-monthly-december-2018 - 1. News & Releases
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2018/12/15/php-annotated-monthly-december-2018-3rd/" rel="next" title="php-annotated-monthly-december-2018 - 3. 기타 읽을 만한 글">
+                  php-annotated-monthly-december-2018 - 3. 기타 읽을 만한 글 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">youngiggy</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"youngiggy-github-io","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

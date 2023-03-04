@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_package_v0.16/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_package_v0.16/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_package_v0.16/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/favicon_package_v0.16/safari-pinned-tab.svg" color="#222">
+  <link rel="manifest" href="/images/favicon_package_v0.16/site.webmanifest">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"haah.kr","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="오랜만에 노트북을 열고 PHP CLI를 실행하는데 아래와 같은 오류 문구가 보이는 겁니다. dyld: Library not loaded: &#x2F;usr&#x2F;local&#x2F;opt&#x2F;icu4c&#x2F;lib&#x2F;libicui18n.62.dylib  Referenced from: &#x2F;usr&#x2F;local&#x2F;Cellar&#x2F;php@7.0&#x2F;7.0.31&#x2F;bin&#x2F;php  Reason: image not">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Homebrew에서 php@7.0이 제거되었습니다">
+<meta property="og:url" content="https://haah.kr/2018/12/22/php7-0-removed-from-homebrew/">
+<meta property="og:site_name" content="ha-ah">
+<meta property="og:description" content="오랜만에 노트북을 열고 PHP CLI를 실행하는데 아래와 같은 오류 문구가 보이는 겁니다. dyld: Library not loaded: &#x2F;usr&#x2F;local&#x2F;opt&#x2F;icu4c&#x2F;lib&#x2F;libicui18n.62.dylib  Referenced from: &#x2F;usr&#x2F;local&#x2F;Cellar&#x2F;php@7.0&#x2F;7.0.31&#x2F;bin&#x2F;php  Reason: image not">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-12-22T01:58:10.000Z">
+<meta property="article:modified_time" content="2018-12-22T03:09:09.000Z">
+<meta property="article:author" content="youngiggy">
+<meta property="article:tag" content="PHP">
+<meta property="article:tag" content="Homebrew">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://haah.kr/2018/12/22/php7-0-removed-from-homebrew/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://haah.kr/2018/12/22/php7-0-removed-from-homebrew/","path":"2018/12/22/php7-0-removed-from-homebrew/","title":"Homebrew에서 php@7.0이 제거되었습니다"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Homebrew에서 php@7.0이 제거되었습니다 | ha-ah</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=354302543"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":354302543,"only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="ha-ah" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">ha-ah</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">로그, 게으른 로그</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Homebrew%EC%97%90%EC%84%9C-80-72-x50-x40-55-46-48-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0"><span class="nav-number">1.</span> <span class="nav-text">Homebrew에서 PHP@7.0 설치하기</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">youngiggy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">113</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:youngiggy@gmail.com" title="E-Mail → mailto:youngiggy@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/profile.php?id=100001259884599" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;profile.php?id&#x3D;100001259884599" rel="noopener me" target="_blank"><i class="fab fa-facebook fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/jooyoungiggy" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;jooyoungiggy" rel="noopener me" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://haah.kr/2018/12/22/php7-0-removed-from-homebrew/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="youngiggy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Homebrew에서 php@7.0이 제거되었습니다 | ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Homebrew에서 php@7.0이 제거되었습니다
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2018-12-22 10:58:10 / Modified: 12:09:09" itemprop="dateCreated datePublished" datetime="2018-12-22T10:58:10+09:00">2018-12-22</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/12/22/php7-0-removed-from-homebrew/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/12/22/php7-0-removed-from-homebrew/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>오랜만에 노트북을 열고 PHP CLI를 실행하는데 아래와 같은 오류 문구가 보이는 겁니다.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">dyld: Library not loaded: /usr/local/opt/icu4c/lib/libicui18n.62.dylib</span><br><span class="line">  Referenced from: /usr/local/Cellar/php@7.0/7.0.31/bin/php</span><br><span class="line">  Reason: image not found</span><br><span class="line">[1]    72024 abort      /usr/local/Cellar/php@7.0/7.0.31/bin/php</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/facebook/react-native/issues/18760">여기</a>를 읽어보면서 PHP를 다시 설치하려고 했죠.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">❯ brew reinstall php@7.0</span><br><span class="line">==&gt; Reinstalling php@7.0 </span><br><span class="line">Error: An exception occurred within a child process:</span><br><span class="line">  FormulaUnavailableError: No available formula with the name <span class="string">&quot;/usr/local/opt/php@7.0/.brew/php@7.0.rb&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>음? 이상한데…하면서 지우고 다시 설치하려고 했습니다.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">❯ brew install php@7.0</span><br></pre></td></tr></table></figure>
+
+<p>이런 문구가 보이는 겁니다.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">php@7.0 was deleted from homebrew/core <span class="keyword">in</span> commit 7e111a877:</span><br><span class="line">  php@7.0 removal due to EOL (https://github.com/Homebrew/homebrew-core/issues/34739)</span><br></pre></td></tr></table></figure>
+
+<p>PHP7.0은 EOL(End Of Life)이 됐으니 Homebrew에서 제거했다는 이야기.</p>
+<p><a target="_blank" rel="noopener" href="http://php.net/supported-versions.php">Supported Versions</a> 문서에 의하면,<br>PHP5.6은 12월 31일, PHP7.0은 12월 3일까지입니다.</p>
+<p>얼마 전(12.06)에 PHP7.3 나왔다고 설레발치면서 7.0 지원 종료된 건 못봤나 봅니다. 회사에선 (다른 분들이) PHP 버전업을 준비하고는 있지만, 아직 상용 시스템은 7.0을 사용하는 관계로 노트북의 PHP 버전도 이와 동일하게 구성해놓고 있습니다.</p>
+<h2 id="Homebrew에서-80-72-x50-x40-55-46-48-설치하기"><a href="#Homebrew에서-80-72-x50-x40-55-46-48-설치하기" class="headerlink" title="Homebrew에서 &#80;&#72;&#x50;&#x40;&#55;&#46;&#48; 설치하기"></a>Homebrew에서 <a href="mailto:&#80;&#72;&#x50;&#x40;&#55;&#46;&#48;">&#80;&#72;&#x50;&#x40;&#55;&#46;&#48;</a> 설치하기</h2><p>homebrew&#x2F;core에서 공식 지원하진 않기 때문에 우회해야 합니다.</p>
+<p>Homebrew document에 보시면, <a target="_blank" rel="noopener" href="https://docs.brew.sh/How-to-Create-and-Maintain-a-Tap">How to Create and Maintain a Tap</a>에서 비공식 Tap을 관리하는 방법을 안내하고 있습니다. Tap이란 건 online Git repository일 뿐이고, Github에서 <a target="_blank" rel="noopener" href="https://github.com/Homebrew/homebrew-core">Homebrew&#x2F;homebrew-core</a> 저장소를 참고해서 설치 파일을 올려두면 된다는 것.</p>
+<p>그래서 저도 core를 fork해서 7.0이 삭제되기 전 시점으로 돌려놓으면 원하는 rb 파일을 얻을 수 있겠다 생각을 했는데…</p>
+<p>reddit에서 <a target="_blank" rel="noopener" href="https://www.reddit.com/r/PHP/comments/a4vggg/php_70_removed_from_homebrew/">PHP 7.0 removed from Homebrew</a>란 글을 읽고 있자니 누군가 먼저 이걸 해결해 놨더군요.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/eXolnet/homebrew-deprecated">https://github.com/eXolnet/homebrew-deprecated</a></p>
+<p>여기 들어가보시면 7.0.33 버전의 Formula를 얻을 수 있습니다. 곧 같은 배를 타게 될, 5.6 버전도 함께요.</p>
+<p>설치해봅니다.</p>
+<p>저장소 이름의 <code>homebrew-</code>는 homebrew가 인식하기 위한 prefix니까 떼어버리고, 아래처럼 user&#x2F;저장소&#x2F;formula 순으로 지정하면 됩니다.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">❯ brew install eXolnet/deprecated/php@7.0</span><br></pre></td></tr></table></figure>
+
+<p>그럼 XDebug도 다시 설치해야 하겠죠? 여기부터는 XDebug를 어떻게 설치했는냐에 따라 다르겠습니다만…</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">❯ pecl install xdebug</span><br></pre></td></tr></table></figure>
+
+<p>저는 XDebug 설정 파일을 &#x2F;usr&#x2F;local&#x2F;etc&#x2F;php&#x2F;7.0&#x2F;conf.d&#x2F;ext-xdebug.ini 위치에 따로 분리했는데요. 여기서 모듈 위치를 변경해줬습니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">zend_extension=/usr/local/Cellar/php@7.0/7.0.33/pecl/20151012/xdebug.so</span><br></pre></td></tr></table></figure>
+
+<p>확인하기.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">❯ php -v</span><br><span class="line">PHP 7.0.33 (cli) (built: Dec 14 2018 16:20:36) ( NTS )</span><br><span class="line">Copyright (c) 1997-2017 The PHP Group</span><br><span class="line">Zend Engine v3.0.0, Copyright (c) 1998-2017 Zend Technologies</span><br><span class="line">    with Zend OPcache v7.0.33, Copyright (c) 1999-2017, by Zend Technologies</span><br><span class="line">    with Xdebug v2.6.1, Copyright (c) 2002-2018, by Derick Rethans</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>youngiggy
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://haah.kr/2018/12/22/php7-0-removed-from-homebrew/" title="Homebrew에서 php@7.0이 제거되었습니다">https://haah.kr/2018/12/22/php7-0-removed-from-homebrew/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/PHP/" rel="tag"># PHP</a>
+              <a href="/tags/Homebrew/" rel="tag"># Homebrew</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/12/15/php-annotated-monthly-december-2018-3rd/" rel="prev" title="php-annotated-monthly-december-2018 - 3. 기타 읽을 만한 글">
+                  <i class="fa fa-chevron-left"></i> php-annotated-monthly-december-2018 - 3. 기타 읽을 만한 글
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/01/01/retrospective-2018/" rel="next" title="2018년 회고">
+                  2018년 회고 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">youngiggy</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"youngiggy-github-io","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

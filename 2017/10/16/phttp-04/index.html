@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_package_v0.16/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_package_v0.16/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_package_v0.16/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/favicon_package_v0.16/safari-pinned-tab.svg" color="#222">
+  <link rel="manifest" href="/images/favicon_package_v0.16/site.webmanifest">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"haah.kr","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="연재글 전체 보기  Updated (2017.10.18)이번 글과 관련된 내용이라 조금 더 추가해봤습니다. 하단 Updated 참고. 가장 간단한 서버이제부터 하나씩 기능을 붙여가며 commit &amp; push를 할 예정이다. PHP7.1&#x2F;mac 환경에서 공부한 결과를 적는 거라서, 윈도 머신에선 안 통하는 설명도 있으리라. 소스 위치는 htt">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="PHP로 HTTP 서버 구현하기 - 04 - 가장 간단한 서버">
+<meta property="og:url" content="https://haah.kr/2017/10/16/phttp-04/">
+<meta property="og:site_name" content="ha-ah">
+<meta property="og:description" content="연재글 전체 보기  Updated (2017.10.18)이번 글과 관련된 내용이라 조금 더 추가해봤습니다. 하단 Updated 참고. 가장 간단한 서버이제부터 하나씩 기능을 붙여가며 commit &amp; push를 할 예정이다. PHP7.1&#x2F;mac 환경에서 공부한 결과를 적는 거라서, 윈도 머신에선 안 통하는 설명도 있으리라. 소스 위치는 htt">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://media.tenor.com/images/5746acedc3829ed1e2e569c8d525c6f9/tenor.gif">
+<meta property="article:published_time" content="2017-10-16T12:37:43.000Z">
+<meta property="article:modified_time" content="2018-02-13T06:27:02.000Z">
+<meta property="article:author" content="youngiggy">
+<meta property="article:tag" content="PHP">
+<meta property="article:tag" content="HTTP">
+<meta property="article:tag" content="phttp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://media.tenor.com/images/5746acedc3829ed1e2e569c8d525c6f9/tenor.gif">
+
+
+<link rel="canonical" href="https://haah.kr/2017/10/16/phttp-04/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://haah.kr/2017/10/16/phttp-04/","path":"2017/10/16/phttp-04/","title":"PHP로 HTTP 서버 구현하기 - 04 - 가장 간단한 서버"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>PHP로 HTTP 서버 구현하기 - 04 - 가장 간단한 서버 | ha-ah</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=354302543"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":354302543,"only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="ha-ah" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">ha-ah</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">로그, 게으른 로그</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Updated-2017-10-18"><span class="nav-number">1.</span> <span class="nav-text">Updated (2017.10.18)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B0%80%EC%9E%A5-%EA%B0%84%EB%8B%A8%ED%95%9C-%EC%84%9C%EB%B2%84"><span class="nav-number"></span> <span class="nav-text">가장 간단한 서버</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B0%80%EC%9E%A5-%EA%B0%84%EB%8B%A8%ED%95%9C-%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8"><span class="nav-number"></span> <span class="nav-text">가장 간단한 클라이언트</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%8B%A4%ED%96%89"><span class="nav-number"></span> <span class="nav-text">실행</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Updated"><span class="nav-number"></span> <span class="nav-text">Updated</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B2%B0%EB%A1%A0"><span class="nav-number"></span> <span class="nav-text">결론</span></a></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">youngiggy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">113</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:youngiggy@gmail.com" title="E-Mail → mailto:youngiggy@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/profile.php?id=100001259884599" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;profile.php?id&#x3D;100001259884599" rel="noopener me" target="_blank"><i class="fab fa-facebook fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/jooyoungiggy" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;jooyoungiggy" rel="noopener me" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://haah.kr/2017/10/16/phttp-04/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="youngiggy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="PHP로 HTTP 서버 구현하기 - 04 - 가장 간단한 서버 | ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          PHP로 HTTP 서버 구현하기 - 04 - 가장 간단한 서버
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-10-16 21:37:43" itemprop="dateCreated datePublished" datetime="2017-10-16T21:37:43+09:00">2017-10-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2018-02-13 15:27:02" itemprop="dateModified" datetime="2018-02-13T15:27:02+09:00">2018-02-13</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2017/10/16/phttp-04/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/10/16/phttp-04/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><a href="/tags/phttp/">연재글 전체 보기</a></p>
+<hr>
+<h3 id="Updated-2017-10-18"><a href="#Updated-2017-10-18" class="headerlink" title="Updated (2017.10.18)"></a>Updated (2017.10.18)</h3><p>이번 글과 관련된 내용이라 조금 더 추가해봤습니다.</p>
+<p>하단 <a href="#Updated">Updated</a> 참고.</p>
+<h2 id="가장-간단한-서버"><a href="#가장-간단한-서버" class="headerlink" title="가장 간단한 서버"></a>가장 간단한 서버</h2><p>이제부터 하나씩 기능을 붙여가며 commit &amp; push를 할 예정이다.</p>
+<p>PHP7.1&#x2F;mac 환경에서 공부한 결과를 적는 거라서, 윈도 머신에선 안 통하는 설명도 있으리라.</p>
+<p>소스 위치는 <a target="_blank" rel="noopener" href="https://github.com/youngiggy/phttp">https://github.com/youngiggy/phttp</a></p>
+<p><a href="/2017/10/06/phttp-02">PHP로 HTTP 서버 구현하기 - 01</a>에서 언급한 가장 간단한 서버부터 시작해볼까?</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$server</span> = <span class="title function_ invoke__">stream_socket_server</span>(<span class="string">&quot;tcp://127.0.0.1:1337&quot;</span>, <span class="variable">$errno</span>, <span class="variable">$errorMessage</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$server</span> === <span class="literal">false</span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">UnexpectedValueException</span>(<span class="string">&quot;Could not bind to socket: <span class="subst">$errorMessage</span>&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="variable">$client</span> = @<span class="title function_ invoke__">stream_socket_accept</span>(<span class="variable">$server</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$client</span>) &#123;</span><br><span class="line">        <span class="title function_ invoke__">stream_copy_to_stream</span>(<span class="variable">$client</span>, <span class="variable">$client</span>);</span><br><span class="line">        <span class="title function_ invoke__">fclose</span>(<span class="variable">$client</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>딱 봐도 어려울 것 없는 코드다.</p>
+<p>127.0.0.1이란 IP에 1337 포트를 열었다. </p>
+<p>왜 하필 1337이냐고? 그냥! 저 블로그 쓴 사람이 그렇게 써서 따라했다. </p>
+<p>사용하는 프로그램에 따라 이미 포트가 선점되었을 수도 있다.</p>
+<ul>
+<li>기본으로 이 포트를 쓰는 프로그램이 있는지 <a target="_blank" rel="noopener" href="https://www.speedguide.net/port.php?port=1337">이런 곳</a>에서 찾아봐도 좋고</li>
+<li>쉘에서 <code>lsof -PiTCP -sTCP:LISTEN</code> 포트가 열려있는지 확인해봐도 좋다</li>
+</ul>
+<p>그 다음 while 루프로 뱅글뱅글 돌면서 연결이 들어오는 지 확인한다.</p>
+<p><code>stream_socket_accept</code> 함수가 말을 못하게 @로 입을 막자.</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=u5CVsCnxyXg">&amp;#9834;</a> No alarms and no surprises </li>
+<li>하지만 안 막는다고 뭐 대단한 걸 볼 일은 없을 것이다</li>
+</ul>
+<p>연결이 된 클라이언트가 있다면, <code>stream_copy_to_stream</code>를 통해 클라이언트가 보낸 스트림을 고스란히 돌려주자.</p>
+<p>고스란히…</p>
+<p><img src="https://media.tenor.com/images/5746acedc3829ed1e2e569c8d525c6f9/tenor.gif" alt="주고 받기"></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://tenor.com/view/kdrama-korean-slap-anger-angry-gif-9330050">https://tenor.com/view/kdrama-korean-slap-anger-angry-gif-9330050</a></li>
+</ul>
+<h2 id="가장-간단한-클라이언트"><a href="#가장-간단한-클라이언트" class="headerlink" title="가장 간단한 클라이언트"></a>가장 간단한 클라이언트</h2><p>가장 간단한 서버가 완성됐으니 터미널을 열어 <code>php ./app/server.php</code>로 일을 시키고 돌아오자.</p>
+<p>새로운 터미널을 열어 <code>echo &quot;hello hello&quot; | nc 127.0.0.1 1337</code>를 입력하면 <code>hello hello</code>라고 반갑게 인사하는 것이 보일 것이다.</p>
+<p>너무 시시하니까 가장 간단한 클라이언트를 만들어 잘 돌아가는 지 구경해보자.</p>
+<p>아직 브라우저에서 HTTP 프로토콜로 붙을 상황은 아니므로 간단한 TCP 연결 클라이언트로 테스트 한다.</p>
+<p>역시 <a target="_blank" rel="noopener" href="https://www.christophh.net/2012/07/24/php-socket-programming/">PHP Socket Programming, done the Right Way</a>에서 예시로 보여준 것을 기본으로 시작한다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$client</span> = <span class="title function_ invoke__">stream_socket_client</span>(<span class="string">&quot;tcp://127.0.0.1:1337&quot;</span>, <span class="variable">$errno</span>, <span class="variable">$errorMessage</span>);</span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$client</span> === <span class="literal">false</span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">UnexpectedValueException</span>(<span class="string">&quot;Failed to connect: <span class="subst">$errno</span> - <span class="subst">$errorMessage</span>&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * generate a message</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="variable">$startLine</span> = <span class="string">&#x27;GET / HTTP/1.0&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$headers</span> = [</span><br><span class="line">    <span class="string">&#x27;Host: localhost&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Accept: */*&#x27;</span>,</span><br><span class="line">];</span><br><span class="line"><span class="variable">$header</span> = <span class="title function_ invoke__">implode</span>(PHP_EOL, <span class="variable">$headers</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable">$emptyLine</span> = PHP_EOL;</span><br><span class="line"></span><br><span class="line"><span class="variable">$body</span> = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * request</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="variable">$message</span> = <span class="title function_ invoke__">implode</span>(PHP_EOL, [</span><br><span class="line">    <span class="variable">$startLine</span>,</span><br><span class="line">    <span class="variable">$header</span>,</span><br><span class="line">    <span class="variable">$emptyLine</span>,</span><br><span class="line">    <span class="variable">$body</span>,</span><br><span class="line">]);</span><br><span class="line"><span class="title function_ invoke__">fwrite</span>(<span class="variable">$client</span>, <span class="variable">$message</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * response</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">stream_get_contents</span>(<span class="variable">$client</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * bye bye</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="title function_ invoke__">fclose</span>(<span class="variable">$client</span>);</span><br></pre></td></tr></table></figure>
+
+<p>역시 별 거 없는 코드다.</p>
+<p><code>stream_socket_client</code>으로 연결을 시도하고,</p>
+<p>HTTP 메시지를 만들어 준다.</p>
+<ul>
+<li>HTTP 메시지는 시작줄, 헤더, 공백, 바디로 이뤄졌다. <a href="/2017/08/23/http-the-definitive-guide-chapter-3">참고</a></li>
+</ul>
+<p>이 메시지를 fwrite를 통해 스트림에 써 준다.</p>
+<p><a href="/2017/10/06/phttp-02">02편</a>에서 얘기한 것처럼, <code>stream_socket_client</code>이 리턴하는 stream resource에는 fopen, fread같은 filesystem 함수를 사용할 수 있다.</p>
+<h2 id="실행"><a href="#실행" class="headerlink" title="실행"></a>실행</h2><p>터미널을 하나 열고 <code>php ./app/client.php</code>로 클라이언트를 실행해보자.</p>
+<p>아무 반응이 없을 것이다.</p>
+<p>하지만 조금만 더 기다려보면, 1분 후 timeout으로 client가 종료되고 자신이 서버에 전송한 값이 화면에 찍한다.</p>
+<p>왜 그럴까?</p>
+<p>다르게 재현해보자.</p>
+<p>서버를 다시 실행하고 클라이언트를 다시 실행한 후, 이번엔 서버를 죽여보자.</p>
+<p>이때도 클라이언트와 연결이 바로 끊어지고 서버에 전송한 값이 되돌아와 화면에 찍힌다.</p>
+<p>우선 timeout 1분은 환경마다 다를 수 있는데, php.ini에 default_socket_timeout에 정의되어 있다.</p>
+<p>client 소스의 response 부분을 아래와 같이 바꿔보자.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * response</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!(<span class="variable">$response</span> = <span class="title function_ invoke__">stream_get_contents</span>(<span class="variable">$client</span>, <span class="number">4</span>))) &#123;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$response</span> . <span class="string">&#x27;|&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>그럼 아래와 같이 나오던 것이</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">GET / HTTP/1.0</span><br><span class="line">Host: localhost</span><br><span class="line">Accept: *</span><br></pre></td></tr></table></figure>
+
+<p>아래와 같이 바로 찍힌다.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">GET |/ HT|TP/1|.0</span><br><span class="line">H|ost:| loc|alho|st</span><br><span class="line">A|ccep|t: *|/*</span><br></pre></td></tr></table></figure>
+
+<p><code>stream_get_contents</code>의 두번째 인자는 maxlength라서 지정한 만큼만 스트림에서 읽어온다.</p>
+<p>그래서 읽어온 만큼 바로바로 화면에 echo 하는 것이다. </p>
+<ul>
+<li>보기 좋으라고(?)뒤에 |를 붙여봤다.</li>
+</ul>
+<p>하지만 이렇게 해도 클라이언트는 종료되지 않는다.</p>
+<p><code>stream_get_contents</code>가 계속 스트림에 뭔가 들어오는지 지켜보고 있어서 while loop가 끝나지 않는다.</p>
+<p>이 악순환의 고리를 끊으려면 서버에서 연결을 끊어버리면 간단한데, 우리 코드에선 클라이언트로 들어오는 스트림을 바로 돌려주기 때문에 쉽지 않다.</p>
+<p>클라이언트에서 loop를 종료하려면 어디가 끝인지를 확인해야만 한다.</p>
+<p>서버가 Content-Length를 돌려주게끔 해주면 좋겠지만 우리 서버는 아직 바보니까 클라이언트가 좀 더 고생을 하자. </p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$messageLenth</span> = <span class="title function_ invoke__">strlen</span>(<span class="variable">$message</span>);</span><br><span class="line"><span class="variable">$totalLenth</span> = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="variable">$response</span> = <span class="title function_ invoke__">stream_get_contents</span>(<span class="variable">$client</span>, <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$response</span>;</span><br><span class="line">    <span class="variable">$totalLenth</span> += <span class="title function_ invoke__">strlen</span>(<span class="variable">$response</span>);</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$messageLenth</span> &lt;= <span class="variable">$totalLenth</span>) &#123;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Updated"><a href="#Updated" class="headerlink" title="Updated"></a>Updated</h2><p>이 글 이후로 좀 더 진행해보다가 meta 정보를 이용하는 방법까지는 여기에 묻어두는 것이 좋을 것 같아서 내용을 추가한다.</p>
+<p><code>stream_get_contents</code>으로 데이터를 가져온 다음 현재 스트림의 상태를 보려면 <a target="_blank" rel="noopener" href="http://php.net/manual/en/function.stream-get-meta-data.php">stream_get_meta_data</a>를 통해 확인할 수 있다.</p>
+<p>여기에는 다음과 같은 정보가 리턴된다.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Array</span><br><span class="line">(</span><br><span class="line">    [timed_out] =&gt; </span><br><span class="line">    [blocked] =&gt; 1</span><br><span class="line">    [eof] =&gt; </span><br><span class="line">    [stream_type] =&gt; tcp_socket/ssl</span><br><span class="line">    [mode] =&gt; r+</span><br><span class="line">    [unread_bytes] =&gt; 1</span><br><span class="line">    [seekable] =&gt; </span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>어쩐지 eof나 unread_bytes를 쓰면 될 것 같다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * response</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="variable">$response</span> = <span class="title function_ invoke__">stream_get_contents</span>(<span class="variable">$client</span>, <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$response</span>;</span><br><span class="line">    <span class="variable">$info</span> = <span class="title function_ invoke__">stream_get_meta_data</span>(<span class="variable">$client</span>);</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$info</span>[<span class="string">&#x27;eof&#x27;</span>] || <span class="variable">$info</span>[<span class="string">&#x27;unread_bytes&#x27;</span>] === <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p>이렇게 하니 소중한 고객님의 연결이 끊겼습니다.</p>
+<p>그러나,</p>
+<p><a target="_blank" rel="noopener" href="http://php.net/manual/en/function.stream-get-meta-data.php">문서</a>를 보면 unread_bytes가 의미하는 것은,</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">unread_bytes (int) - the number of bytes currently contained in the PHP&#x27;s own internal buffer.</span><br></pre></td></tr></table></figure>
+
+<p>즉, PHP 자체의 내부 버퍼의 내용을 보여주는 것이라서 스크립트에서 활용하지 않을 것을 추천하고 있다. </p>
+<blockquote>
+<p>Note: You shouldn’t use this value in a script.</p>
+</blockquote>
+<p>그럼 포기하고 다른 방법을 찾아보자.</p>
+<p>우선 client 쪽 소스에서 unread_bytes를 검사하는 부분만 제거한 다음,</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * response</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="variable">$response</span> = <span class="title function_ invoke__">stream_get_contents</span>(<span class="variable">$client</span>, <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$response</span>;</span><br><span class="line">    <span class="variable">$info</span> = <span class="title function_ invoke__">stream_get_meta_data</span>(<span class="variable">$client</span>);</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$info</span>[<span class="string">&#x27;eof&#x27;</span>] || <span class="variable">$info</span>[<span class="string">&#x27;unread_bytes&#x27;</span>] === <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p>연결이 안 끊어지는 것을 반드시 확인하자.</p>
+<p>그 다음,</p>
+<p>서버쪽 소스에서 <a target="_blank" rel="noopener" href="http://php.net/manual/en/function.stream-set-blocking.php">stream_set_blocking</a>으로 non-blocking 모드로 바꿔보자.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="title function_ invoke__">stream_set_blocking</span>(<span class="variable">$client</span>, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+
+<p>즉, 서버의 전체 소스는 아래와 같이 변할 것이다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$server</span> = <span class="title function_ invoke__">stream_socket_server</span>(<span class="string">&quot;tcp://127.0.0.1:1337&quot;</span>, <span class="variable">$errno</span>, <span class="variable">$errorMessage</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$server</span> === <span class="literal">false</span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">UnexpectedValueException</span>(<span class="string">&quot;Could not bind to socket: <span class="subst">$errorMessage</span>&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="variable">$client</span> = @<span class="title function_ invoke__">stream_socket_accept</span>(<span class="variable">$server</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$client</span>) &#123;</span><br><span class="line">        <span class="title function_ invoke__">stream_set_blocking</span>(<span class="variable">$client</span>, <span class="literal">false</span>);<span class="comment">// &lt;-- 여기요 여기</span></span><br><span class="line">        <span class="title function_ invoke__">stream_copy_to_stream</span>(<span class="variable">$client</span>, <span class="variable">$client</span>);</span><br><span class="line">        <span class="title function_ invoke__">fclose</span>(<span class="variable">$client</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>클라이언트를 실행하면 바로 연결이 끊긴다.</p>
+<p><code>stream_set_blocking</code> 함수의 두번째 인자 mode가 false로 들어가면 non-blocking 모드로 진입하며,</p>
+<p>클라이언트 쪽에서는 스트림으로 더이상의 데이터가 들어오는 것을 기다리지 않는다.</p>
+<p>이렇게 하면 굳이 스트림을 쓸 이유가 없기 때문에 이 역시도 좋은 방법은 아닐 것이다.</p>
+<h2 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h2><p>아주 간단한 서버와 아주 간단한 클라이언트를 아주 간단히 살펴봤다.</p>
+<p>도저히 못 써먹겠으니 다음 글에서는 이를 좀 더 개선해보자.<br>(뭘 어떻게 바꿀 지는 아직 계획없음)</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>youngiggy
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://haah.kr/2017/10/16/phttp-04/" title="PHP로 HTTP 서버 구현하기 - 04 - 가장 간단한 서버">https://haah.kr/2017/10/16/phttp-04/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/PHP/" rel="tag"># PHP</a>
+              <a href="/tags/HTTP/" rel="tag"># HTTP</a>
+              <a href="/tags/phttp/" rel="tag"># phttp</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/10/14/book-979-11-85152-65-3/" rel="prev" title="독후감 - 내 문장이 그렇게 이상한가요?">
+                  <i class="fa fa-chevron-left"></i> 독후감 - 내 문장이 그렇게 이상한가요?
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/10/21/phttp-05/" rel="next" title="PHP로 HTTP 서버 구현하기 - 05 - 아주 간단한 HTTP 서버로 첫 요청과 응답">
+                  PHP로 HTTP 서버 구현하기 - 05 - 아주 간단한 HTTP 서버로 첫 요청과 응답 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">youngiggy</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"youngiggy-github-io","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

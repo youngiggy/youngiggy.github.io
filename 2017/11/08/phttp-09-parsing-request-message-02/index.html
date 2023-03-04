@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_package_v0.16/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_package_v0.16/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_package_v0.16/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/favicon_package_v0.16/safari-pinned-tab.svg" color="#222">
+  <link rel="manifest" href="/images/favicon_package_v0.16/site.webmanifest">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"haah.kr","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="연재글 전체 보기  지난 시간에 우리는..HTTP 메시지를 파싱하는 용도로 HttpMessageParser라는 역할을 분리하고 테스트를 만들기 시작했다. Server &lt;-&gt; Request &lt;-&gt; HttpMessageParser  HttpMessageParser는 Request가 필요로하는 최소한의 데이터 구조로 리턴을 하게 되어있고,">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="PHP로 HTTP 서버 구현하기 - 09 - 요청 메시지 파싱 2">
+<meta property="og:url" content="https://haah.kr/2017/11/08/phttp-09-parsing-request-message-02/">
+<meta property="og:site_name" content="ha-ah">
+<meta property="og:description" content="연재글 전체 보기  지난 시간에 우리는..HTTP 메시지를 파싱하는 용도로 HttpMessageParser라는 역할을 분리하고 테스트를 만들기 시작했다. Server &lt;-&gt; Request &lt;-&gt; HttpMessageParser  HttpMessageParser는 Request가 필요로하는 최소한의 데이터 구조로 리턴을 하게 되어있고,">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://haah.kr/images/phttp-09/refactor01.png">
+<meta property="og:image" content="https://haah.kr/images/phttp-09/refactor02.png">
+<meta property="og:image" content="https://haah.kr/images/phttp-09/refactor03.png">
+<meta property="article:published_time" content="2017-11-08T10:22:06.000Z">
+<meta property="article:modified_time" content="2018-02-13T06:27:02.000Z">
+<meta property="article:author" content="youngiggy">
+<meta property="article:tag" content="PHP">
+<meta property="article:tag" content="HTTP">
+<meta property="article:tag" content="phttp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://haah.kr/images/phttp-09/refactor01.png">
+
+
+<link rel="canonical" href="https://haah.kr/2017/11/08/phttp-09-parsing-request-message-02/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://haah.kr/2017/11/08/phttp-09-parsing-request-message-02/","path":"2017/11/08/phttp-09-parsing-request-message-02/","title":"PHP로 HTTP 서버 구현하기 - 09 - 요청 메시지 파싱 2"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>PHP로 HTTP 서버 구현하기 - 09 - 요청 메시지 파싱 2 | ha-ah</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=354302543"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":354302543,"only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="ha-ah" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">ha-ah</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">로그, 게으른 로그</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%A7%80%EB%82%9C-%EC%8B%9C%EA%B0%84%EC%97%90-%EC%9A%B0%EB%A6%AC%EB%8A%94"><span class="nav-number">1.</span> <span class="nav-text">지난 시간에 우리는..</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%98%88%EC%99%B8-%EB%B0%9C%EC%83%9D"><span class="nav-number">2.</span> <span class="nav-text">예외 발생</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-Providers"><span class="nav-number">3.</span> <span class="nav-text">Data Providers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#parse"><span class="nav-number">4.</span> <span class="nav-text">parse()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%98%90-refactoring"><span class="nav-number">5.</span> <span class="nav-text">또 refactoring</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B2%B0%EB%A1%A0"><span class="nav-number">6.</span> <span class="nav-text">결론</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">youngiggy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">113</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:youngiggy@gmail.com" title="E-Mail → mailto:youngiggy@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/profile.php?id=100001259884599" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;profile.php?id&#x3D;100001259884599" rel="noopener me" target="_blank"><i class="fab fa-facebook fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/jooyoungiggy" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;jooyoungiggy" rel="noopener me" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://haah.kr/2017/11/08/phttp-09-parsing-request-message-02/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="youngiggy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="PHP로 HTTP 서버 구현하기 - 09 - 요청 메시지 파싱 2 | ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          PHP로 HTTP 서버 구현하기 - 09 - 요청 메시지 파싱 2
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-11-08 19:22:06" itemprop="dateCreated datePublished" datetime="2017-11-08T19:22:06+09:00">2017-11-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2018-02-13 15:27:02" itemprop="dateModified" datetime="2018-02-13T15:27:02+09:00">2018-02-13</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2017/11/08/phttp-09-parsing-request-message-02/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/11/08/phttp-09-parsing-request-message-02/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><a href="/tags/phttp/">연재글 전체 보기</a></p>
+<hr>
+<h2 id="지난-시간에-우리는"><a href="#지난-시간에-우리는" class="headerlink" title="지난 시간에 우리는.."></a>지난 시간에 우리는..</h2><p>HTTP 메시지를 파싱하는 용도로 <code>HttpMessageParser</code>라는 역할을 분리하고 테스트를 만들기 시작했다.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Server &lt;-&gt; Request &lt;-&gt; HttpMessageParser</span><br></pre></td></tr></table></figure>
+
+<p><code>HttpMessageParser</code>는 <code>Request</code>가 필요로하는 최소한의 데이터 구조로 리턴을 하게 되어있고, 각각의 키가 반드시 존재(set)할 것을 테스트로 보장한다.</p>
+<ul>
+<li>소스가 약간 바뀌었으나 동일하게 동작한다</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">testReturnValue</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="variable">$parser</span> = <span class="keyword">new</span> <span class="title class_">HttpMessageParser</span>(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">    <span class="variable">$result</span> = <span class="variable">$parser</span>-&gt;<span class="title function_ invoke__">getResult</span>();</span><br><span class="line">    <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">assertEquals</span>(<span class="literal">true</span>, <span class="title function_ invoke__">is_array</span>(<span class="variable">$result</span>));</span><br><span class="line">    </span><br><span class="line">    <span class="variable">$requiredFields</span> = [</span><br><span class="line">        <span class="string">&#x27;start_line&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;method&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;uri&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;version&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;headers&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;body&#x27;</span>,</span><br><span class="line">    ];</span><br><span class="line">    <span class="keyword">foreach</span> (<span class="variable">$requiredFields</span> <span class="keyword">as</span> <span class="variable">$field</span>) &#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">assertArrayHasKey</span>(<span class="variable">$field</span>, <span class="variable">$result</span>, <span class="string">&#x27;key &quot;&#x27;</span> . <span class="variable">$field</span> . <span class="string">&#x27;&quot; does not exist&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HttpMessageParser</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$message</span> = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * HttpMessageParser constructor.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="keyword">string</span> <span class="variable">$message</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;message = <span class="variable">$message</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getResult</span>(<span class="params"></span>) : <span class="title">array</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> [</span><br><span class="line">            <span class="string">&#x27;start_line&#x27;</span> =&gt; <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;method&#x27;</span> =&gt; <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;uri&#x27;</span> =&gt; <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;version&#x27;</span> =&gt; <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;headers&#x27;</span> =&gt; <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;body&#x27;</span> =&gt; <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        ];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="예외-발생"><a href="#예외-발생" class="headerlink" title="예외 발생"></a>예외 발생</h2><p>(이 시리즈 초반에 테스트 용으로 만든 것과 같은) 엉망진창인 클라이언트가 존재하는 것을 감안하여 비정상 요청부터 감지하고자 한다.</p>
+<p>어떤 요청 메시지가 비정상인가?</p>
+<p>다시 한번 <code>HttpMessageParser</code>의 역할을 상기시키는 겸, 이 녀석이 분석해야할 정상 메시지의 구조는 아래와 같다.</p>
+<ul>
+<li>start_line : 시작줄<ul>
+<li>method : 메소드</li>
+<li>uri : URI</li>
+<li>version : HTTP 버전</li>
+</ul>
+</li>
+<li>headers : 헤더는 배열로(0개 이상)</li>
+<li>body : 본문(없어도 OK)</li>
+</ul>
+<p>여기서 다시 HTTP 스펙으로 돌아가야 한다. </p>
+<p>사실상 필수 요소라면 시작줄 뿐이지만, CRLF가 두개는 나와야 정상 메시지라고 볼 수 있다.</p>
+<p>하지만 우리의 HTTP 프로토콜은 개떡같이 말해도 찰떡같이 이해하는 게 일상인 관대한 생태계가 받들고 있다.</p>
+<p>나도 또한 관대하므로 시작줄만 3요소로 멀쩡히 들어온다면 문법 자체는 문제없는 요청이라 생각할 것이다. </p>
+<p>하지만 이 조차도 지키지 못한다면 클라이언트에게 <code>400 Bad Request</code>라는 응답을 줄 것이다.</p>
+<p>그럼 테스트부터 시작하자.</p>
+<ol>
+<li>예외가 발생했는지 확인하는 테스트를 만들고</li>
+<li>예외를 발생시킨다</li>
+</ol>
+<p>기존 만들었던 테스트는 성공하는 케이스로, 새로 만드는 테스트는 실패하는 케이스로 바꿔준다:</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">testReturnValue</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="variable">$goodMsg</span> = <span class="string">&#x27;GET / HTTP/1.1&#x27;</span>;</span><br><span class="line">    <span class="variable">$parser</span> = <span class="keyword">new</span> <span class="title class_">HttpMessageParser</span>(<span class="variable">$goodMsg</span>);</span><br><span class="line">    <span class="variable">$result</span> = <span class="variable">$parser</span>-&gt;<span class="title function_ invoke__">getResult</span>();</span><br><span class="line">    <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">assertEquals</span>(<span class="literal">true</span>, <span class="title function_ invoke__">is_array</span>(<span class="variable">$result</span>));</span><br><span class="line">    </span><br><span class="line">    <span class="variable">$requiredFields</span> = [</span><br><span class="line">        <span class="string">&#x27;start_line&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;method&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;uri&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;version&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;headers&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;body&#x27;</span>,</span><br><span class="line">    ];</span><br><span class="line">    <span class="keyword">foreach</span> (<span class="variable">$requiredFields</span> <span class="keyword">as</span> <span class="variable">$field</span>) &#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">assertArrayHasKey</span>(<span class="variable">$field</span>, <span class="variable">$result</span>, <span class="string">&#x27;key &quot;&#x27;</span> . <span class="variable">$field</span> . <span class="string">&#x27;&quot; does not exist&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@expectedException</span> Exception</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">testInvalidMessageCausesException</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="variable">$badMsg</span> = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    <span class="keyword">new</span> <span class="title class_">HttpMessageParser</span>(<span class="variable">$badMsg</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>결과 배열은 멤버 변수로 옮기고, parse() 메소드를 추가하고, 공백이 넘어오면 Exception 발생:</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HttpMessageParser</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$message</span> = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$result</span> = [</span><br><span class="line">        <span class="string">&#x27;start_line&#x27;</span> =&gt; <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;method&#x27;</span> =&gt; <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;uri&#x27;</span> =&gt; <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;version&#x27;</span> =&gt; <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;headers&#x27;</span> =&gt; <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;body&#x27;</span> =&gt; <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    ];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="keyword">string</span> <span class="variable">$message</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;message = <span class="variable">$message</span>;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">parse</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">parse</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable language_">$this</span>-&gt;message == <span class="string">&#x27;&#x27;</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Exception</span>(<span class="string">&#x27;Invalid message format.&#x27;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getResult</span>(<span class="params"></span>): <span class="title">array</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">$this</span>-&gt;result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>테스트를 그지같이 짜 놨더니 불안하다. 어서 비정상 메시지를 구분하는 코드를 더 넣어보자.</p>
+<ol>
+<li>CRLF 단위로 문자열을 잘라내고 첫번째 요소만 신경쓴다</li>
+<li>공백으로 나누면 3개 이상의 요소가 되는지</li>
+<li>이해할 수 있는 METHOD인지</li>
+<li>URL은 &#x2F;로 시작하는지</li>
+<li>프로토콜이 HTTP&#x2F;정수.정수 형식인지</li>
+<li>…and?</li>
+</ol>
+<p>잠깐. 그럼 통과 못하는 문자열 여러개를 준비하고 이것들이 통과하는 테스트를 만들어야 하는데,</p>
+<p>Exception 발생을 확인하는 메소드는 그 안의 여러개의 Exception이 발생한다 하더라도 첫번째 Exception 이후 동작하지 않는다.</p>
+<p>그럼 비정상 문자열이 생각날 때마다 새로운 메소드를 만들어야 하는가?</p>
+<p>꼼수가 있다.</p>
+<h2 id="Data-Providers"><a href="#Data-Providers" class="headerlink" title="Data Providers"></a>Data Providers</h2><p><a target="_blank" rel="noopener" href="https://phpunit.de/manual/current/en/writing-tests-for-phpunit.html#writing-tests-for-phpunit.data-providers">Data Providers</a>는 테스트 메소드의 인자로 다량의 데이터를 밀어넣어줄 수 있는 annotation이다.</p>
+<p>자세한 건 매뉴얼을 확인하도록 하고, 우선 Data Providers를 사용하도록 리팩토링, 그리고 실패하는 테스트를 하나 만든다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">badMessages</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> [</span><br><span class="line">        [<span class="string">&#x27;&#x27;</span>],</span><br><span class="line">        [<span class="string">&#x27;haha&#x27;</span>],</span><br><span class="line">    ];</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@dataProvider</span> badMessages</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@expectedException</span> Exception</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">testInvalidMessageCausesException</span>(<span class="params"><span class="variable">$badMsg</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">new</span> <span class="title class_">HttpMessageParser</span>(<span class="variable">$badMsg</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>동작하는 테스트가 갖춰졌으니, 이제 <code>HttpMessageParser</code> 클래스의 <code>parse()</code> 메소드에서 놀면 된다.</p>
+<h2 id="parse"><a href="#parse" class="headerlink" title="parse()"></a>parse()</h2><p>사실 실패하는 테스트를 만들기 전에 CRLF로 나누는 리팩토링 먼저 됐으면 좋았겠지만…</p>
+<p>이왕 이렇게 된 거 시작줄이 3개의 요소로 되어 있는지를 확인하는 구문까지 진도를 쫙 빼본다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">parse</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//메시지를 \r\n 혹은 \n으로 나누기</span></span><br><span class="line">    <span class="variable">$messageSplit</span> = <span class="title function_ invoke__">preg_split</span>(<span class="string">&#x27;/(\r\n|\n)/&#x27;</span>, <span class="variable">$this</span>-&gt;message);</span><br><span class="line">    <span class="comment">//각 줄의 양 끝 공백은 제거한다</span></span><br><span class="line">    <span class="title function_ invoke__">array_walk</span>(<span class="variable">$messageSplit</span>, function(&amp;<span class="variable">$item</span>)&#123;</span><br><span class="line">        <span class="variable">$item</span> = <span class="title function_ invoke__">trim</span>(<span class="variable">$item</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//시작줄은 있어야 한다</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">empty</span>(<span class="variable">$messageSplit</span>) || <span class="keyword">empty</span>(<span class="variable">$messageSplit</span>[<span class="number">0</span>])) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Exception</span>(<span class="string">&#x27;Invalid message format.&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//시작줄을 whitespace로 나누기</span></span><br><span class="line">    <span class="variable">$startLine</span> = <span class="variable">$messageSplit</span>[<span class="number">0</span>];</span><br><span class="line">    <span class="variable">$startLineSplit</span> = <span class="title function_ invoke__">preg_split</span>(<span class="string">&#x27;/\s/&#x27;</span>, <span class="variable">$startLine</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">empty</span>(<span class="variable">$startLineSplit</span>) || <span class="title function_ invoke__">count</span>(<span class="variable">$startLineSplit</span>) !== <span class="number">3</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Exception</span>(<span class="string">&#x27;Invalid message format.&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>TDD의 기본을 되새김해보면</p>
+<ul>
+<li>Red : 실패하는 테스트를 작성하고, 실패하는 것을 확인</li>
+<li>Green : 이를 통과하는 최소한의 코드를 작성하고</li>
+<li>Refactor : 리팩토링하는 과정</li>
+</ul>
+<p>지금은 Refactoring 타임.</p>
+<p>테스트가 통과하는 코드를 만들었지만 벌써 중복이 발생했다.</p>
+<p>Custom Exception을 만들어야 할 것만 같은 충동에 휩싸였지만 이내 정신을 차리고 메소드로 분리하는 전략을 선택했다.</p>
+<p>만약, 이건 만약인데,</p>
+<p>당신이 PHPStorm을 쓴다면..</p>
+<p>Refactor 기능으로 중복 코드를 발라낼 수 있다.</p>
+<p>추출할 영역을 선택 &gt; 우클릭 &gt; Refactor &gt; Extract &gt; Method…<br><img src="/images/phttp-09/refactor01.png" alt="add_unittest_1"></p>
+<p>Parameter가 필요하다면 이를 설정할 수도 있지만 이건 단순한 메소드니까.<br><img src="/images/phttp-09/refactor02.png" alt="add_unittest_2"></p>
+<p>동일한 코드가 발견되면 같이 발라낼 것인지 물어보기도 한다.<br><img src="/images/phttp-09/refactor03.png" alt="add_unittest_3"></p>
+<p>짜잔!</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">parse</span>(<span class="params"></span>): <span class="title">void</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//메시지를 \r\n 혹은 \n으로 나누기</span></span><br><span class="line">    <span class="variable">$messageSplit</span> = <span class="title function_ invoke__">preg_split</span>(<span class="string">&#x27;/(\r\n|\n)/&#x27;</span>, <span class="variable">$this</span>-&gt;message);</span><br><span class="line">    <span class="comment">//각 줄의 양 끝 공백은 제거한다</span></span><br><span class="line">    <span class="title function_ invoke__">array_walk</span>(<span class="variable">$messageSplit</span>, function(&amp;<span class="variable">$item</span>)&#123;</span><br><span class="line">        <span class="variable">$item</span> = <span class="title function_ invoke__">trim</span>(<span class="variable">$item</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//시작줄은 있어야 한다</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">empty</span>(<span class="variable">$messageSplit</span>) || <span class="keyword">empty</span>(<span class="variable">$messageSplit</span>[<span class="number">0</span>])) &#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">throwInvalidMessageFormat</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//시작줄을 whitespace로 나누기</span></span><br><span class="line">    <span class="variable">$startLine</span> = <span class="variable">$messageSplit</span>[<span class="number">0</span>];</span><br><span class="line">    <span class="variable">$startLineSplit</span> = <span class="title function_ invoke__">preg_split</span>(<span class="string">&#x27;/\s/&#x27;</span>, <span class="variable">$startLine</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">empty</span>(<span class="variable">$startLineSplit</span>) || <span class="title function_ invoke__">count</span>(<span class="variable">$startLineSplit</span>) !== <span class="number">3</span>) &#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">throwInvalidMessageFormat</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">throwInvalidMessageFormat</span>(<span class="params"></span>): <span class="title">void</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Exception</span>(<span class="string">&#x27;Invalid message format.&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>쉽다.</p>
+<ul>
+<li>당신이 PHPStorm을 쓴다면..</li>
+</ul>
+<p>또다시 실패하는 테스트 케이스 추가.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">badMessages</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> [</span><br><span class="line">        [<span class="string">&#x27;&#x27;</span>],</span><br><span class="line">        [<span class="string">&#x27;haha&#x27;</span>],</span><br><span class="line">        [<span class="string">&#x27;하나 둘 셋&#x27;</span>],</span><br><span class="line">    ];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>(어떤 바보가 ‘시 작 줄’과 같이 요청하겠냐마는) 이 테스트는 실패한다.</p>
+<p>왜냐면 지금까지 구현한 기능은 이를 완벽한 요청 시작줄로 인식하고 Exception을 뱉지 않기 때문이다.</p>
+<p>그럼 공백으로 나눈 시작줄 요소가 각각 다음을 만족하는 지 확인하는 코드를 짜야 한다. </p>
+<ul>
+<li>method : 메소드</li>
+<li>uri : URI</li>
+<li>version : HTTP 버전</li>
+</ul>
+<p>또다시 실패하는 테스트 케이스 추가.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">badMessages</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> [</span><br><span class="line">        [<span class="string">&#x27;&#x27;</span>],</span><br><span class="line">        [<span class="string">&#x27;haha&#x27;</span>],</span><br><span class="line">        [<span class="string">&#x27;GET 둘 셋&#x27;</span>],</span><br><span class="line">        [<span class="string">&#x27;POST 둘 셋&#x27;</span>],</span><br><span class="line">        [<span class="string">&#x27;HEAD 둘 셋&#x27;</span>],</span><br><span class="line">        [<span class="string">&#x27;HEAD / 셋&#x27;</span>],</span><br><span class="line">        [<span class="string">&#x27;HEAD /index 셋&#x27;</span>],</span><br><span class="line">    ];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>성공하는 코드 추가.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">parse</span>(<span class="params"></span>): <span class="title">void</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//메시지를 \r\n 혹은 \n으로 나누기</span></span><br><span class="line">    <span class="variable">$messageSplit</span> = <span class="title function_ invoke__">preg_split</span>(<span class="string">&#x27;/(\r\n|\n)/&#x27;</span>, <span class="variable">$this</span>-&gt;message);</span><br><span class="line">    <span class="comment">//각 줄의 양 끝 공백은 제거한다</span></span><br><span class="line">    <span class="title function_ invoke__">array_walk</span>(<span class="variable">$messageSplit</span>, function(&amp;<span class="variable">$item</span>)&#123;</span><br><span class="line">        <span class="variable">$item</span> = <span class="title function_ invoke__">trim</span>(<span class="variable">$item</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//시작줄은 있어야 한다</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">empty</span>(<span class="variable">$messageSplit</span>) || <span class="keyword">empty</span>(<span class="variable">$messageSplit</span>[<span class="number">0</span>])) &#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">throwInvalidMessageFormat</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//시작줄을 whitespace로 나누기</span></span><br><span class="line">    <span class="variable">$startLine</span> = <span class="variable">$messageSplit</span>[<span class="number">0</span>];</span><br><span class="line">    <span class="variable">$startLineSplit</span> = <span class="title function_ invoke__">preg_split</span>(<span class="string">&#x27;/\s/&#x27;</span>, <span class="variable">$startLine</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">empty</span>(<span class="variable">$startLineSplit</span>) || <span class="title function_ invoke__">count</span>(<span class="variable">$startLineSplit</span>) !== <span class="number">3</span>) &#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">throwInvalidMessageFormat</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="variable">$method</span> = <span class="variable">$startLineSplit</span>[<span class="number">0</span>];</span><br><span class="line">    <span class="variable">$uri</span> = <span class="variable">$startLineSplit</span>[<span class="number">1</span>];</span><br><span class="line">    <span class="variable">$version</span> = <span class="variable">$startLineSplit</span>[<span class="number">2</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//check Method</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">empty</span>(<span class="variable">$method</span>) || !<span class="title function_ invoke__">in_array</span>(<span class="variable">$method</span>, <span class="variable">$this</span>-&gt;supportMethods)) &#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">throwInvalidMessageFormat</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//check URI</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">empty</span>(<span class="variable">$uri</span>) || <span class="title function_ invoke__">strpos</span>(<span class="variable">$uri</span>, <span class="string">&#x27;/&#x27;</span>) !== <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">throwInvalidMessageFormat</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//check version</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">empty</span>(<span class="variable">$version</span>) || !<span class="title function_ invoke__">preg_match</span>(<span class="string">&#x27;/HTTP\/\d+.\d+/&#x27;</span>, <span class="variable">$version</span>)) &#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">throwInvalidMessageFormat</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>테스트 케이스는 충분한 것 같은데(그렇다고 하자) 마지막에 추가한 버전 체크가 잘 동작하는 게 맞는지 불안할 수 있다.</p>
+<p>나는 badMessages쪽에 살짝 넣어보고 안심하긴 했지만, 정상적인 시작줄은 whitelist에서 다뤄야 할 것 같다.</p>
+<p>그 전에 리팩토링할 것이 있나 찾아보자.</p>
+<h2 id="또-refactoring"><a href="#또-refactoring" class="headerlink" title="또 refactoring"></a>또 refactoring</h2><p>클래스가 바뀌어야 하는 이유는 단 한가지여야 한다는 단일 책임의 원칙을 메소드까지 확장해서 생각해보자.</p>
+<p><code>parse()</code> 메소드가 바뀌는 상황을 상상해보면</p>
+<ul>
+<li>우리는 시작줄을 대충 whitespace(<code>\s</code>)로 나누었지만 <code>\s</code>엔 <code>\n</code>도 포함이라서 이를 좀 더 정교하게 만들 수도 있다</li>
+<li>지원하는 HTTP 메소드 혹은 표준에서 정의하는 메소드 종류는 계속 늘어날 수 있다</li>
+<li>URI 규칙을 좀 더 구체적으로 정의한다면? <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Directory_traversal_attack">Directory traversal attack</a>은?</li>
+<li>지원하는 HTTP 버전에 따른 응답을 처리하게될 지도 모른다</li>
+</ul>
+<p>아직 생기지도 않은 요구 사항을 미리 구현하는 건 반대지만, 대비하는 것은 필요하다.</p>
+<p>게다가 이미 <code>parse()</code> 메소는 그 안에 다루고 있는 지식이 꽤나 많고, 13인치 맥북에선 한 화면에 볼 수 없을 만큼 길어지고 있다.</p>
+<p>따라서 누군가(혹은 6개월 후의 당신이) 유지보수를 위해 <code>server.php</code>에서부터 관련 클래스를 타고타고 들어와 <code>parse()</code>까지 도달했을 때는 이 안에서 어떤 일을 하고 있는지 한눈에 볼 수 없다.</p>
+<p><code>parse()</code> 메소드에서 하는 일을 말로 풀어보자.</p>
+<ol>
+<li>메시지를 줄 단위로 나눈다</li>
+<li>시작줄을 검사한다<ol>
+<li>시작줄을 공백으로 나눈다</li>
+<li>메소드를 확인한다</li>
+<li>URI를 확인한다</li>
+<li>버전을 확인한다</li>
+</ol>
+</li>
+</ol>
+<p>이 걸 그대로 private 메소드로 분리해본다. 당연히 하나하나 분리할 때마다 테스트가 동작하는지는 확인해야 한다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HttpMessageParser</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$message</span> = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$messageLines</span> = [];</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$result</span> = [</span><br><span class="line">        <span class="string">&#x27;start_line&#x27;</span> =&gt; <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;method&#x27;</span> =&gt; <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;uri&#x27;</span> =&gt; <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;version&#x27;</span> =&gt; <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;headers&#x27;</span> =&gt; <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;body&#x27;</span> =&gt; <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    ];</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$supportMethods</span> = [<span class="string">&#x27;GET&#x27;</span>, <span class="string">&#x27;HEAD&#x27;</span>, <span class="string">&#x27;POST&#x27;</span>,];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="keyword">string</span> <span class="variable">$message</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;message = <span class="variable">$message</span>;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">parse</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">parse</span>(<span class="params"></span>): <span class="title">void</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">splitMessageIntoLines</span>();</span><br><span class="line"></span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">verifyStartLine</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">throwInvalidMessageFormat</span>(<span class="params"></span>): <span class="title">void</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Exception</span>(<span class="string">&#x27;Invalid message format.&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 메시지를 \r\n 혹은 \n으로 나누기</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">splitMessageIntoLines</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;messageLines = <span class="title function_ invoke__">preg_split</span>(<span class="string">&#x27;/(\r\n|\n)/&#x27;</span>, <span class="variable">$this</span>-&gt;message);</span><br><span class="line">        <span class="comment">//각 줄의 양 끝 공백은 제거한다</span></span><br><span class="line">        <span class="title function_ invoke__">array_walk</span>(<span class="variable">$this</span>-&gt;messageLines, function (&amp;<span class="variable">$item</span>) &#123;</span><br><span class="line">            <span class="variable">$item</span> = <span class="title function_ invoke__">trim</span>(<span class="variable">$item</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">verifyStartLine</span>(<span class="params"></span>): <span class="title">void</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">splitStartLineInto3Components</span>();</span><br><span class="line"></span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">verifyStartLineMethod</span>();</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">verifyStartLineURI</span>();</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">verifyStartLineVersion</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">splitStartLineInto3Components</span>(<span class="params"></span>): <span class="title">void</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//시작줄은 있어야 한다</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">empty</span>(<span class="variable language_">$this</span>-&gt;messageLines) || <span class="keyword">empty</span>(<span class="variable language_">$this</span>-&gt;messageLines[<span class="number">0</span>])) &#123;</span><br><span class="line">            <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">throwInvalidMessageFormat</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">        <span class="comment">//시작줄을 whitespace로 나누기</span></span><br><span class="line">        <span class="variable">$startLine</span> = <span class="variable language_">$this</span>-&gt;messageLines[<span class="number">0</span>];</span><br><span class="line">        <span class="variable">$startLineSplit</span> = <span class="title function_ invoke__">preg_split</span>(<span class="string">&#x27;/\s/&#x27;</span>, <span class="variable">$startLine</span>);</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">empty</span>(<span class="variable">$startLineSplit</span>) || <span class="title function_ invoke__">count</span>(<span class="variable">$startLineSplit</span>) !== <span class="number">3</span>) &#123;</span><br><span class="line">            <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">throwInvalidMessageFormat</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">        <span class="variable language_">$this</span>-&gt;result[<span class="string">&#x27;method&#x27;</span>] = <span class="variable">$startLineSplit</span>[<span class="number">0</span>];</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;result[<span class="string">&#x27;uri&#x27;</span>] = <span class="variable">$startLineSplit</span>[<span class="number">1</span>];</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;result[<span class="string">&#x27;version&#x27;</span>] = <span class="variable">$startLineSplit</span>[<span class="number">2</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">verifyStartLineMethod</span>(<span class="params"></span>): <span class="title">void</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">empty</span>(<span class="variable language_">$this</span>-&gt;result[<span class="string">&#x27;method&#x27;</span>]) || !<span class="title function_ invoke__">in_array</span>(<span class="variable">$this</span>-&gt;result[<span class="string">&#x27;method&#x27;</span>], <span class="variable">$this</span>-&gt;supportMethods)) &#123;</span><br><span class="line">            <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">throwInvalidMessageFormat</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">verifyStartLineURI</span>(<span class="params"></span>): <span class="title">void</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">empty</span>(<span class="variable language_">$this</span>-&gt;result[<span class="string">&#x27;uri&#x27;</span>]) || <span class="title function_ invoke__">strpos</span>(<span class="variable">$this</span>-&gt;result[<span class="string">&#x27;uri&#x27;</span>], <span class="string">&#x27;/&#x27;</span>) !== <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">throwInvalidMessageFormat</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">verifyStartLineVersion</span>(<span class="params"></span>): <span class="title">void</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">empty</span>(<span class="variable language_">$this</span>-&gt;result[<span class="string">&#x27;version&#x27;</span>]) || !<span class="title function_ invoke__">preg_match</span>(<span class="string">&#x27;/HTTP\/\d+.\d+/&#x27;</span>, <span class="variable">$this</span>-&gt;result[<span class="string">&#x27;version&#x27;</span>])) &#123;</span><br><span class="line">            <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">throwInvalidMessageFormat</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getResult</span>(<span class="params"></span>): <span class="title">array</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">$this</span>-&gt;result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h2><p>이제 겨우 최소한으로 허용하는 메시지에 대한 규칙이 정의됐다.</p>
+<p>다음 글에서는 나머지 항목을 채우는 과정이 진행될 것 같다.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>youngiggy
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://haah.kr/2017/11/08/phttp-09-parsing-request-message-02/" title="PHP로 HTTP 서버 구현하기 - 09 - 요청 메시지 파싱 2">https://haah.kr/2017/11/08/phttp-09-parsing-request-message-02/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/PHP/" rel="tag"># PHP</a>
+              <a href="/tags/HTTP/" rel="tag"># HTTP</a>
+              <a href="/tags/phttp/" rel="tag"># phttp</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/11/02/phttp-08-parsing-request-message-01/" rel="prev" title="PHP로 HTTP 서버 구현하기 - 08 - 요청 메시지 파싱 1">
+                  <i class="fa fa-chevron-left"></i> PHP로 HTTP 서버 구현하기 - 08 - 요청 메시지 파싱 1
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/11/20/phttp-10-parsing-request-message-03/" rel="next" title="PHP로 HTTP 서버 구현하기 - 10 - 요청 메시지 파싱 3">
+                  PHP로 HTTP 서버 구현하기 - 10 - 요청 메시지 파싱 3 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">youngiggy</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"youngiggy-github-io","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

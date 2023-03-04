@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_package_v0.16/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_package_v0.16/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_package_v0.16/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/favicon_package_v0.16/safari-pinned-tab.svg" color="#222">
+  <link rel="manifest" href="/images/favicon_package_v0.16/site.webmanifest">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"haah.kr","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Laravel Vapor가 유명세를 떨치고 있는 와중에, 국내에서는 상대적으로 덜 주목받는 프로젝트를 소개합니다. AWS작년 12월 php-annotated-monthly에 Lambda Layers를 소개드린 적이 있습니다. AWS re:Invent 2018 conference에서 발표된 내용에 따르면 AWS Lambda에서도 PHP를 쓰기 위해 우회하지">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Serverless PHP (2019년 말)">
+<meta property="og:url" content="https://haah.kr/2019/11/05/serverless-php-2019/">
+<meta property="og:site_name" content="ha-ah">
+<meta property="og:description" content="Laravel Vapor가 유명세를 떨치고 있는 와중에, 국내에서는 상대적으로 덜 주목받는 프로젝트를 소개합니다. AWS작년 12월 php-annotated-monthly에 Lambda Layers를 소개드린 적이 있습니다. AWS re:Invent 2018 conference에서 발표된 내용에 따르면 AWS Lambda에서도 PHP를 쓰기 위해 우회하지">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-11-04T17:24:09.000Z">
+<meta property="article:modified_time" content="2019-11-08T13:56:46.000Z">
+<meta property="article:author" content="youngiggy">
+<meta property="article:tag" content="PHP">
+<meta property="article:tag" content="serverless">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://haah.kr/2019/11/05/serverless-php-2019/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://haah.kr/2019/11/05/serverless-php-2019/","path":"2019/11/05/serverless-php-2019/","title":"Serverless PHP (2019년 말)"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Serverless PHP (2019년 말) | ha-ah</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=354302543"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":354302543,"only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="ha-ah" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">ha-ah</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">로그, 게으른 로그</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#AWS"><span class="nav-number">1.</span> <span class="nav-text">AWS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bref"><span class="nav-number">1.1.</span> <span class="nav-text">Bref</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%8B%A4%EC%8B%9C-Bref"><span class="nav-number">1.2.</span> <span class="nav-text">다시 Bref</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%A7%84%EC%A7%9C-Bref-%EC%9D%B4%EC%95%BC%EA%B8%B0"><span class="nav-number">1.3.</span> <span class="nav-text">진짜 Bref 이야기</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bref%EB%A1%9C-Lambda-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B0"><span class="nav-number">1.4.</span> <span class="nav-text">Bref로 Lambda 실행하기</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bref%EB%A1%9C-Laravel-%EB%9D%84%EC%9A%B0%EA%B8%B0"><span class="nav-number">1.5.</span> <span class="nav-text">Bref로 Laravel 띄우기</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Google-App-Engine"><span class="nav-number">2.</span> <span class="nav-text">Google App Engine</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Google-App-Engine-gt-%EA%B3%B5%EC%8B%9D-%EB%AC%B8%EC%84%9C"><span class="nav-number">2.1.</span> <span class="nav-text">Google App Engine &gt; 공식 문서</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Firevel"><span class="nav-number">2.2.</span> <span class="nav-text">Firevel</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%A0%95%EB%A6%AC"><span class="nav-number">3.</span> <span class="nav-text">정리</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">youngiggy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">113</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:youngiggy@gmail.com" title="E-Mail → mailto:youngiggy@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/profile.php?id=100001259884599" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;profile.php?id&#x3D;100001259884599" rel="noopener me" target="_blank"><i class="fab fa-facebook fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/jooyoungiggy" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;jooyoungiggy" rel="noopener me" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://haah.kr/2019/11/05/serverless-php-2019/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="youngiggy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Serverless PHP (2019년 말) | ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Serverless PHP (2019년 말)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-11-05 02:24:09" itemprop="dateCreated datePublished" datetime="2019-11-05T02:24:09+09:00">2019-11-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2019-11-08 22:56:46" itemprop="dateModified" datetime="2019-11-08T22:56:46+09:00">2019-11-08</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/11/05/serverless-php-2019/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/11/05/serverless-php-2019/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><a target="_blank" rel="noopener" href="https://vapor.laravel.com/">Laravel Vapor</a>가 유명세를 떨치고 있는 와중에, 국내에서는 상대적으로 덜 주목받는 프로젝트를 소개합니다.</p>
+<h1 id="AWS"><a href="#AWS" class="headerlink" title="AWS"></a>AWS</h1><p>작년 12월 <a href="/2018/12/11/php-annotated-monthly-december-2018-1st/">php-annotated-monthly</a>에 Lambda Layers를 소개드린 적이 있습니다.</p>
+<p><a target="_blank" rel="noopener" href="https://aws.amazon.com/blogs/aws/new-for-aws-lambda-use-any-programming-language-and-share-common-components/">AWS re:Invent 2018 conference에서 발표</a>된 내용에 따르면 AWS Lambda에서도 PHP를 쓰기 위해 <a target="_blank" rel="noopener" href="https://medium.com/@stephenheron/serverless-php-9da3f00df5de">우회</a>하지 않아도 정식으로 쓸 수 있게 됐습니다. </p>
+<p>Lambda Runtime API를 사용하면 되는데, <a target="_blank" rel="noopener" href="https://github.com/stackery/php-lambda-layer">stackery&#x2F;php-lambda-layer</a>(AWS SAM 기반. 현재는 활발히 운영되는 저장소가 아닙니다)를 통해 만들거나 직접 만들 수도 있다고 소개 드렸습니다.</p>
+<p>이후 AWS 서버리스 환경에서 PHP를 실행하기 위한 많은 툴이 등장했고, Google App Engine에는 PHP 7이 표준 환경으로 포함되어 있습니다. 이들 환경에서 <code>Hello World</code> PHP 코드 하나 실행하는 것은 큰 어려움이 없으므로 각 환경에서 Laravel Framework으로 실행하는 방법이나 정리해보고자 글을 시작했습니다. (그것 또한 너무 간단합니다만..)</p>
+<p>AWS Lambda에는 PHP built-in support가 없으므로 Lambda layers를 통해 3rd-party runtime을 필요로 합니다. 앞으로 소개할 Serverless PHP에 도움이 되는 프로젝트는 Layers라고 불리는 PHP용 runtime을 제공합니다.</p>
+<h2 id="Bref"><a href="#Bref" class="headerlink" title="Bref"></a>Bref</h2><p><a target="_blank" rel="noopener" href="https://bref.sh/docs/">https://bref.sh/docs/</a></p>
+<p><a target="_blank" rel="noopener" href="https://serverless.com/">Serverless</a>(“The complete solution for building &amp; operating serverless applications”)라는 프레임웍을 활용해 PHP 응용 프로그램을 간단하게 실행하는 것을 목표로 합니다.</p>
+<p>그렇다면 이미 Serverless 만으로도 PHP 어플리케이션을 띄우는 것이 가능하다는 사실.</p>
+<p><a target="_blank" rel="noopener" href="https://serverless.com/examples/">https://serverless.com/examples/</a></p>
+<p>여기서 PHP나 Java로 검색하면 결과가 하나씩 나옵니다. 상대적으로 관심이 덜한 언어라고 해야할까요?</p>
+<p>어쨌든 간단한 PHP 예제인 <a target="_blank" rel="noopener" href="https://github.com/serverless/examples/tree/master/openwhisk-php-simple">serverless&#x2F;examples</a> 페이지로 들어가 봅시다. <a target="_blank" rel="noopener" href="https://github.com/serverless/examples/blob/master/openwhisk-php-simple/serverless.yml">serverless.yml</a>을 열어보면 <a target="_blank" rel="noopener" href="https://openwhisk.apache.org/">Apache OpenWhisk</a>가 제공하는 PHP runtime을 활용하는 것을 볼 수 있습니다.</p>
+<p><code>AWS Lambda에 쉽게 올리는 PHP 코드</code>와 같은 식의 글은 대부분 이런 식입니다. 결국 AWS에서는 누군가가 만들어 놓은 runtime이 필요하구나…생각하시면 되겠습니다. 물론 직접 만들 수도 있습니다.</p>
+<p>AWS의 블로그에 <a target="_blank" rel="noopener" href="https://aws.amazon.com/ko/blogs/compute/scripting-languages-for-aws-lambda-running-php-ruby-and-go/">PHP runtime을 만드는 좋은 글</a>이 있긴 하지만, <a target="_blank" rel="noopener" href="https://aws.amazon.com/ko/blogs/apn/aws-lambda-custom-runtime-for-php-a-practical-example/">PHP 7.3 기반의 runtime을 만들 수 있는 방법을 소개하는 글</a>도 있습니다.</p>
+<ul>
+<li>Lambda Execution Environment의 기초가 되는 AMI를 <a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/lambda-runtimes.html">여기서</a> 찾아 인스턴스를 띄우고, Lambda function을 관리할 수 있는 IAM Role을 부여한 후, ssh로 접근해서 PHP를 컴파일 합니다. 그리고 나서 이리저리 요래오래 막 하면 됩니다…</li>
+</ul>
+<p>위에서 언급한 Apache OpenWhisk는 PHP를 정식으로 지원하는데요. 더 확인하고 싶으시면 아래를 참고하시고요.</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://openwhisk.apache.org/">https://openwhisk.apache.org/</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.ibm.com/kr/cloud/2017/12/24/apache-openwhisk-intro-architecture/">https://developer.ibm.com/kr/cloud/2017/12/24/apache-openwhisk-intro-architecture/</a></li>
+</ul>
+<h2 id="다시-Bref"><a href="#다시-Bref" class="headerlink" title="다시 Bref"></a>다시 Bref</h2><p>다시 Bref 이야기를 해보죠. 갑자기 기분이 이상해서 제가 5월에 공유한 <a href="/2019/05/14/php-annotated-monthly-may-2019/">php-annotated-monthly</a>을 뒤져봤습니다. Bref는 분명 <a target="_blank" rel="noopener" href="https://aws.amazon.com/ko/serverless/sam/">AWS SAM</a>을 기반으로 했다고 써있는 겁니다.</p>
+<p>사실 그동안 Serverless로 가느냐 SAM으로 가느냐 여러 논의가 있었더랬습니다. Serverless는 AWS에 종속되지 않으므로 확장성 면에서 더 유리하기 때문이가 싶었지만, Bref는 어차피 AWS만 지원하는데…</p>
+<p>이슈를 좀 뒤져보면 커뮤니티 내부에서도 좀 혼란스러웠던 것 같습니다.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/brefphp/bref/issues/99">https://github.com/brefphp/bref/issues/99</a></p>
+<ul>
+<li>Serverless와 SAM 비교 (뭐 하나가 특별히 우월하진 않은 모양입니다)</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://github.com/brefphp/bref/issues/320">https://github.com/brefphp/bref/issues/320</a></p>
+<ul>
+<li>“Mainly: it supports layers and it can run things locally with Docker”라고 이유를 밝혔습니다.</li>
+</ul>
+<p>Bref를 활용한 또 다른 사례 연구들을 찾아봐도 혼란스럽습니다.</p>
+<p><a target="_blank" rel="noopener" href="https://blog.deleu.dev/deploying-laravel-artisan-on-aws-lambda/">https://blog.deleu.dev/deploying-laravel-artisan-on-aws-lambda/</a></p>
+<ul>
+<li>SAM 활용</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://blog.servmask.com/serverless-for-php-developers/">https://blog.servmask.com/serverless-for-php-developers/</a></p>
+<ul>
+<li>Serverless 활용</li>
+</ul>
+<p>어쨌든 <code>아직까지는</code> 공식적으로 Serverless를 사용합니다.</p>
+<p>참고로 Taylor Otwell이 Vapor를 발표할 때, Bref와의 차이가 뭐냐는 질문에 아래와 같이 답변했었습니다.</p>
+<blockquote>
+<p>Yes a bit different… the whole setup is custom and not based on SAM or Serverless Framework… queue and web are separate lambdas… we have a few PHP extensions that are not on Bref runtime such as GD</p>
+</blockquote>
+<h2 id="진짜-Bref-이야기"><a href="#진짜-Bref-이야기" class="headerlink" title="진짜 Bref 이야기"></a>진짜 Bref 이야기</h2><p><a target="_blank" rel="noopener" href="https://bref.sh/">공식 문서</a>에 소개된 글을 읽어보죠.</p>
+<blockquote>
+<p>Bref(Brief를 프랑스어로 한 것)는 Composer 패키지로 제공되며 PHP 애플리케이션을 AWS에 배포 하고 AWS Lambda 에서 실행할 수 있도록 도와줍니다</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Why Bref?</span><br><span class="line">* Bref는 PHP 응용 프로그램을 간단하게 실행하는 것을 목표로합니다</span><br><span class="line">* (모든 요구 사항을 해결하는 대신) 선택을 줄여 문제를 단순화</span><br><span class="line">* (강력한 맞춤형 솔루션을 목표로하는 대신) 간단하고 친숙한 솔루션 제공</span><br><span class="line">* (불완전한 추상화 뒤로 너무 많은 것을 숨기는 대신) 지식을 공유하여 힘을 실어 준다</span><br></pre></td></tr></table></figure>
+
+<p>대충 뭔가 쉽다는 이야기입니다. (잘 하려면 어렵다는 이야기이기도…)</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Bref는 다음을 제공합니다.</span><br><span class="line">* 문서</span><br><span class="line">* AWS Lambda 용 PHP 런타임</span><br><span class="line">* 배포 툴링</span><br><span class="line">* PHP 프레임 워크 통합</span><br></pre></td></tr></table></figure>
+<p>이 정도는 뭐 당연히 제공해야할 것으로 보이긴 합니다.</p>
+<p>Bref를 통해 구현할 수 있는 것은</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Use cases</span><br><span class="line">* APIs</span><br><span class="line">* workers</span><br><span class="line">* batch processes/scripts</span><br><span class="line">* websites</span><br></pre></td></tr></table></figure>
+<p>이런 다양한 용도로 사용할 수 있다고 하고요. <a target="_blank" rel="noopener" href="https://bref.sh/docs/case-studies.html">구현 사례</a>에 가보시면 더 많은 예제를 보실 수 있습니다. </p>
+<p>최근에는 <a target="_blank" rel="noopener" href="https://externals.io/">externals.io</a>(PHP internals 소식을 외부로 가져오는 서비스)가 Bref로 LAMP에서 Serverless로 성공적으로 옮겨왔다는 소식을 전해드리기도 했었죠. 꽤 유익한 글입니다.</p>
+<p><a target="_blank" rel="noopener" href="https://mnapoli.fr/serverless-case-study-externals/">From LAMP to serverless: case study of externals.io</a></p>
+<p>여기에는 Serverless로 올렸을 때의 <a target="_blank" rel="noopener" href="https://cost-calculator.bref.sh/">비용을 계산해주는 기능</a>도 소개해줍니다.</p>
+<p>(사실 external.io는 Bref를 운영하는 <a target="_blank" rel="noopener" href="https://null.tc/">null</a>이란 회사에서 <a target="_blank" rel="noopener" href="https://mnapoli.fr/bref-is-backed-by-null/">운영 비용을 지원</a>해주고 있습니다. )</p>
+<p>계속 공식 문서를 보자면,</p>
+<p><a target="_blank" rel="noopener" href="https://bref.sh/docs/#maturity-matrix">maturity-matrix</a>에 언급하기로 Legacy application이나 Jobs&#x2F;Cron의 난이도(문서나 가격면에서)를 제외하면 꽤 자신있는 모습입니다.</p>
+<h2 id="Bref로-Lambda-실행하기"><a href="#Bref로-Lambda-실행하기" class="headerlink" title="Bref로 Lambda 실행하기"></a>Bref로 Lambda 실행하기</h2><p>우선 공식 문서의 GETTING STARTED 중 <a target="_blank" rel="noopener" href="https://bref.sh/docs/installation.html">Installation</a>과 <a target="_blank" rel="noopener" href="https://bref.sh/docs/first-steps.html">First steps</a> 그리고 <a target="_blank" rel="noopener" href="https://bref.sh/docs/deploy.html">Deployment guide</a>를 따라하면 Lambda에서 실행할 준비가 됩니다.</p>
+<p>이런 식입니다. 프로젝트를 만들고,</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">composer require bref/bref</span><br><span class="line">vendor/bin/bref init</span><br></pre></td></tr></table></figure>
+
+<p>여기서 주의깊게 봐야할 것이 serverless.yml 파일입니다. Serverless framework에서 제공하는 간단한 설정 파일인데, tutorial을 따라하시게 되면 아마 region 정도 바꿔주시면 될 겁니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">composer install --optimize-autoloader --no-dev</span><br><span class="line">serverless deploy</span><br></pre></td></tr></table></figure>
+
+<p>이 단계에서 CloudFormation stack으로 배포되는데, 아래와 같은 서비스들을 묶어주는 것 뿐입니다.</p>
+<ul>
+<li>lambda functions</li>
+<li>S3 buckets</li>
+<li>databases</li>
+</ul>
+<p>이런 전체 스택이 한번에 뜨고, 지울 땐 같이 지워집니다.</p>
+<p>몇 분 후 배포가 되면 </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">❯ serverless deploy</span><br><span class="line">Serverless: Packaging service...</span><br><span class="line">Serverless: Excluding development dependencies...</span><br><span class="line">Serverless: Creating Stack...</span><br><span class="line">Serverless: Checking Stack create progress...</span><br><span class="line">.....</span><br><span class="line">Serverless: Stack create finished...</span><br><span class="line">Serverless: Uploading CloudFormation file to S3...</span><br><span class="line">Serverless: Uploading artifacts...</span><br><span class="line">Serverless: Uploading service app.zip file to S3 (3.4 MB)...</span><br><span class="line">Serverless: Validating template...</span><br><span class="line">Serverless: Updating Stack...</span><br><span class="line">Serverless: Checking Stack update progress...</span><br><span class="line">.................................</span><br><span class="line">Serverless: Stack update finished...</span><br><span class="line">Service Information</span><br><span class="line">service: app</span><br><span class="line">stage: dev</span><br><span class="line">region: us-east-1</span><br><span class="line">stack: app-dev</span><br><span class="line">resources: 11</span><br><span class="line">api keys:</span><br><span class="line">  None</span><br><span class="line">endpoints:</span><br><span class="line">  ANY - https://**********.execute-api.us-east-1.amazonaws.com/dev</span><br><span class="line">  ANY - https://**********.execute-api.us-east-1.amazonaws.com/dev/&#123;proxy+&#125;</span><br><span class="line">functions:</span><br><span class="line">  api: app-dev-api</span><br><span class="line">layers:</span><br><span class="line">  None</span><br><span class="line">Serverless: Run the &quot;serverless&quot; command to setup monitoring, troubleshooting and testing.</span><br></pre></td></tr></table></figure>
+
+<p>위에 노출된 endpoint로 실행 결과를 확인하실 수 있습니다.</p>
+<p>모니터링도 해볼까요?</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vendor/bin/bref dashboard</span><br></pre></td></tr></table></figure>
+
+<h2 id="Bref로-Laravel-띄우기"><a href="#Bref로-Laravel-띄우기" class="headerlink" title="Bref로 Laravel 띄우기"></a>Bref로 Laravel 띄우기</h2><p>공식 문서에선 Laravel이나 Symphony 프로젝트를 띄울 수 있는 방법을 안내해줍니다.</p>
+<p><a target="_blank" rel="noopener" href="https://bref.sh/docs/frameworks/laravel.html">https://bref.sh/docs/frameworks/laravel.html</a></p>
+<p>우선 Laravel 프로젝트를 만들어 보고요.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">composer create-project --prefer-dist laravel/laravel breftest</span><br></pre></td></tr></table></figure>
+
+<p>serverless.yml을 생성합니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">service: bref-demo-laravel</span><br><span class="line"></span><br><span class="line">provider:</span><br><span class="line">    name: aws</span><br><span class="line">    region: us-east-1</span><br><span class="line">    runtime: provided</span><br><span class="line">    environment:</span><br><span class="line">        # Laravel environment variables</span><br><span class="line">        APP_STORAGE: &#x27;/tmp&#x27;</span><br><span class="line"></span><br><span class="line">plugins:</span><br><span class="line">    - ./vendor/bref/bref</span><br><span class="line"></span><br><span class="line">functions:</span><br><span class="line">    website:</span><br><span class="line">        handler: public/index.php</span><br><span class="line">        timeout: 28 # in seconds (API Gateway has a timeout of 29 seconds)</span><br><span class="line">        layers:</span><br><span class="line">            - $&#123;bref:layer.php-73-fpm&#125;</span><br><span class="line">        events:</span><br><span class="line">            -   http: &#x27;ANY /&#x27;</span><br><span class="line">            -   http: &#x27;ANY /&#123;proxy+&#125;&#x27;</span><br><span class="line">    artisan:</span><br><span class="line">        handler: artisan</span><br><span class="line">        timeout: 120 # in seconds</span><br><span class="line">        layers:</span><br><span class="line">            - $&#123;bref:layer.php-73&#125; # PHP</span><br><span class="line">            - $&#123;bref:layer.console&#125; # The &quot;console&quot; layer</span><br></pre></td></tr></table></figure>
+
+<p>데모 프로제트 저장소의 <a target="_blank" rel="noopener" href="https://github.com/mnapoli/bref-laravel-demo/blob/master/serverless.yml">serverless.yml</a>를 살펴보아도 좋습니다. </p>
+<p>Laravel과 같은 프레임워크를 띄우기 위해선 몇가지 소스 수정이 되어야 합니다(이 역시 공식 문서에 잘 설명되어 있습니다).</p>
+<p>Lambda는 &#x2F;tmp를 제외하고는 <a target="_blank" rel="noopener" href="https://bref.sh/docs/environment/storage.html">read-only</a>이므로 compile된 view 파일을 담기 위해 path 설정을 해줘야 합니다.</p>
+<p>bootstrap&#x2F;app.php 파일에서 <code>$app = new Illuminate\Foundation\Application</code> 다음에 아래와 같이 수정해줍니다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$app</span> = <span class="keyword">new</span> <span class="title class_">Illuminate\Foundation\Application</span>(</span><br><span class="line">    <span class="variable">$_ENV</span>[<span class="string">&#x27;APP_BASE_PATH&#x27;</span>] ?? <span class="title function_ invoke__">dirname</span>(<span class="keyword">__DIR__</span>)</span><br><span class="line">);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Allow overriding the storage path in production using an environment variable.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="variable">$app</span>-&gt;<span class="title function_ invoke__">useStoragePath</span>(<span class="variable">$_ENV</span>[<span class="string">&#x27;APP_STORAGE&#x27;</span>] ?? <span class="variable">$app</span>-&gt;<span class="title function_ invoke__">storagePath</span>());</span><br></pre></td></tr></table></figure>
+<p>.env에는 아래 설정이 필요합니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">VIEW_COMPILED_PATH=/tmp/storage/framework/views </span><br><span class="line"></span><br><span class="line"># We cannot store sessions to disk: if you don&#x27;t need sessions (e.g. API) # then use `array`, else store sessions in database or cookies </span><br><span class="line">SESSION_DRIVER=array </span><br><span class="line"></span><br><span class="line"># Logging to stderr allows the logs to end up in Cloudwatch </span><br><span class="line">LOG_CHANNEL=stderr</span><br></pre></td></tr></table></figure>
+
+<p>마지막으로 <code>app/Providers/AppServiceProvider.php</code>에서 view 파일용 디렉토리를 생성해줍니다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">boot</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// Make sure the directory for compiled views exist</span></span><br><span class="line">    <span class="keyword">if</span> (! <span class="title function_ invoke__">is_dir</span>(<span class="title function_ invoke__">config</span>(<span class="string">&#x27;view.compiled&#x27;</span>))) &#123;</span><br><span class="line">        <span class="title function_ invoke__">mkdir</span>(<span class="title function_ invoke__">config</span>(<span class="string">&#x27;view.compiled&#x27;</span>), <span class="number">0755</span>, <span class="literal">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>배포하기 전 config cache 파일은 지워줍니다. path가 달라져서 문제가 생길 수 있어요.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">php artisan config:clear</span><br></pre></td></tr></table></figure>
+
+<h1 id="Google-App-Engine"><a href="#Google-App-Engine" class="headerlink" title="Google App Engine"></a>Google App Engine</h1><p>Google App Engine에는 PHP 7이 표준 환경으로 포함되어 있습니다.</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://cloud.google.com/appengine/docs/standard/php7/">Google App Engine PHP 7 표준 환경 문서</a></li>
+</ul>
+<h2 id="Google-App-Engine-gt-공식-문서"><a href="#Google-App-Engine-gt-공식-문서" class="headerlink" title="Google App Engine &gt; 공식 문서"></a>Google App Engine &gt; 공식 문서</h2><p>공식 문서에 Laravel을 올리는 tutorial도 있습니다.</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://cloud.google.com/community/tutorials/run-laravel-on-appengine-standard">Run Laravel on Google App Engine standard environment</a></li>
+</ul>
+<p>크게 어렵지 않은데요.</p>
+<p>app.yaml을 생성합니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">runtime: php72</span><br><span class="line"></span><br><span class="line">env_variables:</span><br><span class="line">  ## Put production environment variables here.</span><br><span class="line">  APP_KEY: YOUR_APP_KEY</span><br><span class="line">  APP_STORAGE: /tmp</span><br><span class="line">  VIEW_COMPILED_PATH: /tmp</span><br><span class="line">  SESSION_DRIVER: cookie</span><br></pre></td></tr></table></figure>
+
+<p>YOUR_APP_KEY 부분에는 application key를 생성해 넣어야죠.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">php artisan key:generate --show</span><br></pre></td></tr></table></figure>
+
+<p>GAE에서도 &#x2F;tmp만 쓸 수 있는 것은 동일해서 해야할 것은 크게 다르지 않습니다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment"># [START] Add the following block to `bootstrap/app.php`</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">|--------------------------------------------------------------------------</span></span><br><span class="line"><span class="comment">| Set Storage Path</span></span><br><span class="line"><span class="comment">|--------------------------------------------------------------------------</span></span><br><span class="line"><span class="comment">|</span></span><br><span class="line"><span class="comment">| This script allows you to override the default storage location used by</span></span><br><span class="line"><span class="comment">| the  application.  You may set the APP_STORAGE environment variable</span></span><br><span class="line"><span class="comment">| in your .env file,  if not set the default location will be used</span></span><br><span class="line"><span class="comment">|</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="variable">$app</span>-&gt;<span class="title function_ invoke__">useStoragePath</span>(<span class="title function_ invoke__">env</span>(<span class="string">&#x27;APP_STORAGE&#x27;</span>, <span class="title function_ invoke__">base_path</span>() . <span class="string">&#x27;/storage&#x27;</span>));</span><br><span class="line"><span class="comment"># [END]</span></span><br></pre></td></tr></table></figure>
+
+<p>캐싱 문제를 해결하기 위해 composer dependency를 제거합니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">composer remove --dev beyondcode/laravel-dump-server</span><br></pre></td></tr></table></figure>
+
+<p>배포하면,</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gcloud app deploy</span><br></pre></td></tr></table></figure>
+
+<p>짠!</p>
+<h2 id="Firevel"><a href="#Firevel" class="headerlink" title="Firevel"></a>Firevel</h2><p>독특한 프레임웍을 하나 더 소개해드립니다.</p>
+<p>역시 이전에 php-annotated-monthly에서 소개됐던 글입니다. </p>
+<p><a target="_blank" rel="noopener" href="https://medium.com/firebase-developers/serverless-php-on-app-engine-firestore-c22a119dc608">Serverless PHP on App Engine + Cloud Firestore and Firevel.</a></p>
+<p>Google App Engine에서 잘 실행될 수 있게, Laravel을 수정해 Firevel이라는 프레임웍을 만들었다고 합니다. Firestore를 DB와 캐시로 사용합니다. Eloquent가 NoSQL을 고려하지 않았기 때문에 이에 대응하는 Firequent라는 패키지도 개발했다고 합니다.</p>
+<p>README에 나온 간단한 Installation 정도면 쉽게 서비스를 띄울 수 있습니다. 저는 로컬 환경에서 생소한 gRPC extension 같은 걸 설치하면서 삽질을 좀 했는데, 환경만 준비되면 서버 띄우는 건 쉽습니다.</p>
+<p>그러나 이미 Laravel에 익숙하신 분들에겐 Firequent 등 너무 많은 신지식을 필요로 하기 때문에, ‘굳이 저런 걸…’이라는 생각이 들 수 밖에 없지만 흥미롭긴 합니다. (흥미롭고 안 써야지)</p>
+<h1 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h1><p>고작 Laravel 기본 페이지를 띄워 본 정도라서 얼마나 Laravel의 경험을 그대로 이어갈 수 있을지는 모르겠습니다. Production 레벨로 올리기에는 아마도 삽질을 많이 해야겠지만, 잘 쓰면 편하고 저렴한 비용으로 서비스를 할 수도 있겠습니다.</p>
+<p>잠깐. 저렴하다고요?</p>
+<p><a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=21046547">Serverless: slower and more expensive | Hacker News</a></p>
+<p><a target="_blank" rel="noopener" href="https://einaregilsson.com/serverless-15-percent-slower-and-eight-times-more-expensive/">Serverless: 15% slower and 8x more expensive - Einar Egilsson</a></p>
+<p><a target="_blank" rel="noopener" href="https://medium.com/faun/the-cost-of-serverless-c3fa1f8fe96">The cost of serverless - Faun - Medium</a></p>
+<p><a target="_blank" rel="noopener" href="https://medium.com/@amiram_26122/the-hidden-costs-of-serverless-6ced7844780b">The hidden costs of serverless - Amiram Shachar - Medium</a></p>
+<p>가벼운 페이지에 사람 손을 덜 타는 페이지라면 도전해볼만 하지 않겠습니까?</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>youngiggy
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://haah.kr/2019/11/05/serverless-php-2019/" title="Serverless PHP (2019년 말)">https://haah.kr/2019/11/05/serverless-php-2019/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/PHP/" rel="tag"># PHP</a>
+              <a href="/tags/serverless/" rel="tag"># serverless</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2019/10/23/agile-korea-conference-2019/" rel="prev" title="애자일 코리아 컨퍼런스 2019 후기">
+                  <i class="fa fa-chevron-left"></i> 애자일 코리아 컨퍼런스 2019 후기
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/11/09/php-annotated-november-2019/" rel="next" title="php-annotated-november-2019">
+                  php-annotated-november-2019 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">youngiggy</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"youngiggy-github-io","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

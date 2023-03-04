@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_package_v0.16/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_package_v0.16/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_package_v0.16/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/favicon_package_v0.16/safari-pinned-tab.svg" color="#222">
+  <link rel="manifest" href="/images/favicon_package_v0.16/site.webmanifest">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"haah.kr","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="톡특한 책이다. 1장부터 개념보다는 소스가 훅 들어와서 당혹스러웠다.  1장에 소스가 들어와서 안될 것은 없지만, DDD 입문서인데 DDD에 대한 정의는 없다는 게 의외다.  중간에 이 책의 대상 독자를 다시 찾아봤다. 요컨대 Spring&#x2F;JPA는 눈에 익고 DDD를 들어는 봤으나 이해가 안되는 3~4년차 개발자라고 보면 되겠다. 또 하나. AG">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="독후감 - DDD Start!">
+<meta property="og:url" content="https://haah.kr/2017/12/18/book-9788993827446-ddd-start/">
+<meta property="og:site_name" content="ha-ah">
+<meta property="og:description" content="톡특한 책이다. 1장부터 개념보다는 소스가 훅 들어와서 당혹스러웠다.  1장에 소스가 들어와서 안될 것은 없지만, DDD 입문서인데 DDD에 대한 정의는 없다는 게 의외다.  중간에 이 책의 대상 독자를 다시 찾아봤다. 요컨대 Spring&#x2F;JPA는 눈에 익고 DDD를 들어는 봤으나 이해가 안되는 3~4년차 개발자라고 보면 되겠다. 또 하나. AG">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://image.kyobobook.co.kr/images/book/large/446/l9788993827446.jpg">
+<meta property="article:published_time" content="2017-12-18T14:41:19.000Z">
+<meta property="article:modified_time" content="2018-02-13T06:27:02.000Z">
+<meta property="article:author" content="youngiggy">
+<meta property="article:tag" content="독후감">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://image.kyobobook.co.kr/images/book/large/446/l9788993827446.jpg">
+
+
+<link rel="canonical" href="https://haah.kr/2017/12/18/book-9788993827446-ddd-start/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://haah.kr/2017/12/18/book-9788993827446-ddd-start/","path":"2017/12/18/book-9788993827446-ddd-start/","title":"독후감 - DDD Start!"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>독후감 - DDD Start! | ha-ah</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=354302543"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":354302543,"only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="ha-ah" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">ha-ah</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">로그, 게으른 로그</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">youngiggy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">113</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:youngiggy@gmail.com" title="E-Mail → mailto:youngiggy@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/profile.php?id=100001259884599" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;profile.php?id&#x3D;100001259884599" rel="noopener me" target="_blank"><i class="fab fa-facebook fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/jooyoungiggy" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;jooyoungiggy" rel="noopener me" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://haah.kr/2017/12/18/book-9788993827446-ddd-start/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="youngiggy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="독후감 - DDD Start! | ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          독후감 - DDD Start!
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-12-18 23:41:19" itemprop="dateCreated datePublished" datetime="2017-12-18T23:41:19+09:00">2017-12-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2018-02-13 15:27:02" itemprop="dateModified" datetime="2018-02-13T15:27:02+09:00">2018-02-13</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2017/12/18/book-9788993827446-ddd-start/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/18/book-9788993827446-ddd-start/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><img src="http://image.kyobobook.co.kr/images/book/large/446/l9788993827446.jpg" alt="DDD Start"></p>
+<p>톡특한 책이다. 1장부터 개념보다는 소스가 훅 들어와서 당혹스러웠다. </p>
+<p>1장에 소스가 들어와서 안될 것은 없지만, DDD 입문서인데 DDD에 대한 정의는 없다는 게 의외다. </p>
+<p>중간에 이 책의 대상 독자를 다시 찾아봤다. 요컨대 Spring&#x2F;JPA는 눈에 익고 DDD를 들어는 봤으나 이해가 안되는 3~4년차 개발자라고 보면 되겠다.</p>
+<p>또 하나. AGGREGATE를 동사형으로 애그리게이트라고 발음하면 안되고, 명사형은 [ǽgriget](애그리겥)으로 발음 한다면서 애그리거트라고 부르겠다니 완전 황당했다. 애그리거트라는 글자만 보면 자꾸 신경쓰여 찾아보니 책의 발음기호가 잘못 적힌 것이었다. 실제 발음기호는 [ǽgrigət].</p>
+<p>어쨌든.</p>
+<p>DDD를 아주 기초만 이해한 상태로 정리를 해보면,</p>
+<p>클린코드나 객체지향 원칙을 따르면서 역할을 분리해 나가는 것과 크게 다르지 않다고 본다. </p>
+<p>마침 ‘The Clean Architecture’의 <a target="_blank" rel="noopener" href="https://blog.coderifleman.com/2017/12/18/the-clean-architecture/">번역글</a>을 읽게 됐는데, 여기서도 비슷한 이야기를 하고 있는 것이다.</p>
+<blockquote>
+<p>위 아키텍처의 세세한 부분은 모두 다르지만 매우 비슷하기도 하다. 이들은 모두 같은 목적을 갖고 있는데 바로 관심사의 분리다. 소프트웨어를 계층으로 나눔으로써 관심사를 분리한다. 그리고 모두 비즈니스 규칙을 위한 최소 하나 이상의 계층과 인터페이스를 위한 또 다른 계층을 두고 있다.</p>
+</blockquote>
+<p>그러니까 저 다르면서 비슷한 아키텍처는 다들 고통속에 몸부림치다 이제 그만 열반에 들고자 만들어 낸 사리 쯤으로 봐야하는 건가.</p>
+<p>나도 회사에서 (가능하면) 역할별로 클래스를 나누고 컨트롤러에서는 도메인 로직을 제거해나가고 있었는데, DDD에서는 그 역할을 보다 더 분명하게 분리해놨다.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">표현 - 응용 - 도메인 - 리포지터리</span><br></pre></td></tr></table></figure>
+
+<p>(곧 떠날) 회사에 만들어 놓은(💩) 코드는 표현만 분리했지 나머지를 뭉뚱그려 놓은 모습이다. 책을 읽다보니 이렇게 네가지로 분리하는 것도 괜찮겠다는 생각이 든다. 애그리거트로 도메인 모델을 묶고, 애그리거트는 응용서비스에서 조합하며, 한 애그리거트에서 다루기 어려운 경우 도메인 서비스를 구성한다.</p>
+<p>흠…대충 이런 느낌.</p>
+<p>그런데 리포지터리와 모델 매핑 쪽이 이해가 잘 안된다.</p>
+<p>리포지터리와 관련된 설명에는 (굳이 프레임웍 의존성을 피하지 않아도 된다면서) JPA를 예를 드는데, 어디까지 DDD와 관련있는지 잘 모르겠다. </p>
+<p>그리고 PHP에서는 혹은 엘로퀀트에서는 저 예제를 어떻게 구현하게 될지 전혀 감이 안오는 상태. (JPA도 엘로퀀트도 잘 모르겠어서…)</p>
+<p>그리고 현실적으로 단일 애그리거트만 다룰 일은 적을 것이고 수도 없는 bounded context간 통신을 해야한다. 그 더러운 꼴을 보자면 DDD로 개발한다고 뭐 더 좋아진다고 볼 수 만도 없겠지. 그냥 잘하는 사람이 DDD로 개발하면 결과가 좋고 잘하는 사람은 DDD로 안 해도 결과가 좋다는 염세적인 결론이 도출되기도 하지만, 다음 유행이 돌아 또 시스템을 갈아엎기 전까지 어떻게든 제품을 만들고 유지해야 입에 풀칠이라도 하고 살지 않겠는가.</p>
+<p>아직 ACL, OHS가 나오는 도표라던가, PHP에서 AOP는 다들 얼마나 쓰고 있는지 궁금한 게 계속 꼬리를 문다.</p>
+<p>응용서비스와 도메인서비스의 차이 중에 애그리거트 수정이 발생하면 도메인 서비스에 위치시킨다 정도는 기억해둘만 하다.(아니 겨우 이거 하나 기억했다는 말인가!)</p>
+<p>가장 큰 질문은 이거다.</p>
+<p>그러니까 이 책을 보고 DDD 감을 익힐 수 있단 말인가? 그 감은 내가 익힌 감이랑 같은 감인가?</p>
+<p>그런데 DDD가 뭐더라?</p>
+<p>(검색하다 깜짝 놀람. EXID의 노래 ‘덜덜덜’이라니…그러면서 나는 김혜림이란 이름도 기억하고 있다니…)</p>
+<p>어쨌든 그동안 내가 희미하게나마 들어왔던 DDD는 <a target="_blank" rel="noopener" href="http://www.zdnet.co.kr/news/news_view.asp?artice_id=00000039170212">이런</a> 느낌이었는데,</p>
+<p>이 책의 내용은 거대한 숲 안에서 작은 군락 정도만 표현한 것 같은 느낌을 지울 수 없다.</p>
+<p>개발자들이 키보드에 손 올리고 신나게 개발할 준비를 하고 있을 때, ‘업무전문가’는 어디쯤 위치해야 하는가…</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>youngiggy
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://haah.kr/2017/12/18/book-9788993827446-ddd-start/" title="독후감 - DDD Start!">https://haah.kr/2017/12/18/book-9788993827446-ddd-start/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%EB%8F%85%ED%9B%84%EA%B0%90/" rel="tag"># 독후감</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/12/10/book-9788965962090-%E1%84%8B%E1%85%A6%E1%84%80%E1%85%A9%E1%84%85%E1%85%A1%E1%84%82%E1%85%B3%E1%86%AB%E1%84%8C%E1%85%A5%E1%86%A8/" rel="prev" title="독후감 - 에고라는 적">
+                  <i class="fa fa-chevron-left"></i> 독후감 - 에고라는 적
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/12/28/retrospective-2017/" rel="next" title="2017년 회고">
+                  2017년 회고 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">youngiggy</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"youngiggy-github-io","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

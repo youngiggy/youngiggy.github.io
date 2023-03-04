@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_package_v0.16/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_package_v0.16/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_package_v0.16/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/favicon_package_v0.16/safari-pinned-tab.svg" color="#222">
+  <link rel="manifest" href="/images/favicon_package_v0.16/site.webmanifest">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"haah.kr","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Streaming &amp; BufferingStreaming이란 응답을 한번에 보내지 않고 chunk로 나누어 보내는 것. 이를 downstream(브라우저 같은 client만을 의미하지 않고 upstream에서 만들어진 데이터를 받는 쪽을 의미하는 상대적인 개념)에서 사용하거나 또 다른 downstream으로 전달하기 위해 설정된 크기만큼 모으는 행위를">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="PHP의 output_buffering">
+<meta property="og:url" content="https://haah.kr/2018/05/01/streaming-and-output-buffering-in-PHP/">
+<meta property="og:site_name" content="ha-ah">
+<meta property="og:description" content="Streaming &amp; BufferingStreaming이란 응답을 한번에 보내지 않고 chunk로 나누어 보내는 것. 이를 downstream(브라우저 같은 client만을 의미하지 않고 upstream에서 만들어진 데이터를 받는 쪽을 의미하는 상대적인 개념)에서 사용하거나 또 다른 downstream으로 전달하기 위해 설정된 크기만큼 모으는 행위를">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://haah.kr/images/streaming-and-output-buffering-in-PHP/big_chunk_buffer.jpg">
+<meta property="og:image" content="https://haah.kr/images/streaming-and-output-buffering-in-PHP/phpinfo_output_buff.png">
+<meta property="article:published_time" content="2018-05-01T02:38:20.000Z">
+<meta property="article:modified_time" content="2018-05-05T14:40:46.000Z">
+<meta property="article:author" content="youngiggy">
+<meta property="article:tag" content="PHP">
+<meta property="article:tag" content="stream">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://haah.kr/images/streaming-and-output-buffering-in-PHP/big_chunk_buffer.jpg">
+
+
+<link rel="canonical" href="https://haah.kr/2018/05/01/streaming-and-output-buffering-in-PHP/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://haah.kr/2018/05/01/streaming-and-output-buffering-in-PHP/","path":"2018/05/01/streaming-and-output-buffering-in-PHP/","title":"PHP의 output_buffering"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>PHP의 output_buffering | ha-ah</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=354302543"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":354302543,"only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="ha-ah" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">ha-ah</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">로그, 게으른 로그</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Streaming-amp-Buffering"><span class="nav-number">1.</span> <span class="nav-text">Streaming &amp; Buffering</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#output-buffering-%EC%98%B5%EC%85%98"><span class="nav-number">2.</span> <span class="nav-text">output_buffering 옵션</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#buffering-%EC%8B%A4%ED%97%98-PHP-%EC%97%94%EC%A7%84"><span class="nav-number">3.</span> <span class="nav-text">buffering 실험 - PHP 엔진</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ob-flush-flush"><span class="nav-number">4.</span> <span class="nav-text">ob_flush(); flush();</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%9B%B9%EC%84%9C%EB%B2%84-%EC%84%A4%EC%A0%95"><span class="nav-number">5.</span> <span class="nav-text">웹서버 설정</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%A3%BC%EC%9D%98"><span class="nav-number">6.</span> <span class="nav-text">주의</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80"><span class="nav-number">7.</span> <span class="nav-text">브라우저</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B2%B0%EB%A1%A0"><span class="nav-number">8.</span> <span class="nav-text">결론</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">youngiggy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">113</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:youngiggy@gmail.com" title="E-Mail → mailto:youngiggy@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/profile.php?id=100001259884599" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;profile.php?id&#x3D;100001259884599" rel="noopener me" target="_blank"><i class="fab fa-facebook fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/jooyoungiggy" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;jooyoungiggy" rel="noopener me" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://haah.kr/2018/05/01/streaming-and-output-buffering-in-PHP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="youngiggy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="PHP의 output_buffering | ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          PHP의 output_buffering
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-05-01 11:38:20" itemprop="dateCreated datePublished" datetime="2018-05-01T11:38:20+09:00">2018-05-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2018-05-05 23:40:46" itemprop="dateModified" datetime="2018-05-05T23:40:46+09:00">2018-05-05</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/05/01/streaming-and-output-buffering-in-PHP/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/05/01/streaming-and-output-buffering-in-PHP/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="Streaming-amp-Buffering"><a href="#Streaming-amp-Buffering" class="headerlink" title="Streaming &amp; Buffering"></a>Streaming &amp; Buffering</h2><p>Streaming이란 응답을 한번에 보내지 않고 chunk로 나누어 보내는 것.</p>
+<p>이를 downstream(브라우저 같은 client만을 의미하지 않고 upstream에서 만들어진 데이터를 받는 쪽을 의미하는 상대적인 개념)에서 사용하거나 또 다른 downstream으로 전달하기 위해 설정된 크기만큼 모으는 행위를 buffering이라고 한다. (내 생각이고 정확한 정의는 아니다)</p>
+<p>브라우저에서는 body 태그가 나타난 이후 스트림으로 받는 컨텐츠를 받는 족족 화면에 추가해준다. 이 때문에 뒤늦게 추가되는 CSS가 있다면 모든 요소의 로드가 끝날 때까지 스타일이 계속 변하는 페이지도 많이 볼 수 있다. 바로 이놈의 블로그 테마처럼! 곧 갈아치우던가 해야지.</p>
+<p>(이렇게 잘못 설계하면 불편함을 초래하지만) 이런 매커니즘은 다운로드를 최종 완료하는 시점을 더 늦추는 대신 빠른 반응 속도를 제공할 수 있고, 사용자들은 더 빨리 로드되는 것처럼 느끼게 된다.<br>그리고 보내는 쪽에서도 유익한 것이, 서버의 메모리 제한에 상관없이 전체 데이터를 메모리에 두지 않고도 거대한 파일을 클라이언트에 보낼 수 있다.<br>반면 너무 작은 크기로 잘라 계속 보내게 되면, 네트웍으로 전송하는 비용과 chunk로 자르는 비용과 chunk를 분석하는 비용이 추가가 된다.</p>
+<p>괜히 있어야 할 말인 것 같아서 쓸데없이 당연한 말 좀 써봤다.</p>
+<h2 id="output-buffering-옵션"><a href="#output-buffering-옵션" class="headerlink" title="output_buffering 옵션"></a>output_buffering 옵션</h2><p>php.ini에서 많이 만나봤던 그 옵션이다. output buffering이란 PHP 엔진에서 downstream이라고 부를 수 있는 다음 단계인 apache(mod_php), FastCGI, CLI 등에 즉시 응답을 주는 대신 일정 크기의 버퍼에 데이터를 쌓고, 버퍼가 다 채워지거나 PHP 스크립트의 실행이 끝날 때 전달해주는 옵션이다.</p>
+<p>이런 느낌.</p>
+<p><img src="/images/streaming-and-output-buffering-in-PHP/big_chunk_buffer.jpg" alt="big_chunk_buffer image"></p>
+<p>공식 매뉴얼을 읽어보면,</p>
+<blockquote>
+<p>You can enable output buffering for all files by setting this directive to ‘On’. If you wish to limit the size of the buffer to a certain size - you can use a maximum number of bytes instead of ‘On’, as a value for this directive (e.g., output_buffering&#x3D;4096). As of PHP 4.3.5, this directive is always Off in PHP-CLI.</p>
+</blockquote>
+<p>default가 “0”이고, “1”로 설정하면 “On”과 동일하기 때문에 메모리가 허용하는 선까지 버퍼링하는데, 이는 위험하니 보통 4096으로 설정하는 것 같다. 왜 4096이란 숫자가 나왔는지 궁금한데 잘 모르겠다. 보통 이렇게 기본 설정으로 해놓는 듯. 왜??</p>
+<p>4096 bytes(4KB)로 설정하면 PHP는 echo나 print 등의 출력을 하더라도 바로 다음 단계로 넘기지 않고 4KB까지 들고 있는다는 말이다.</p>
+<p>중요한 점은 PHP-CLI에서는 PHP 4.3.5 버전 이후로 항상 “Off”란다.</p>
+<p>이제 로컬 머신에 어떻게 설정이 되어있는지 확인해보자.</p>
+<p>서버를 띄우고 phpinfo()를 찍는다.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt; echo &quot;&lt;?php phpinfo();&quot; &gt; output.php</span><br><span class="line">&gt; php -S localhost:8888</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/streaming-and-output-buffering-in-PHP/phpinfo_output_buff.png" alt="phpinfo_output_buffering option image"></p>
+<p>내친김에 CLI는 정말 항상 0이 되는지도 확인.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">❯ php -i | grep buff</span><br><span class="line">output_buffering =&gt; 0 =&gt; 0</span><br></pre></td></tr></table></figure>
+
+<h2 id="buffering-실험-PHP-엔진"><a href="#buffering-실험-PHP-엔진" class="headerlink" title="buffering 실험 - PHP 엔진"></a>buffering 실험 - PHP 엔진</h2><p><a target="_blank" rel="noopener" href="https://www.sitepoint.com/php-streaming-output-buffering-explained/">PHP Streaming and Output Buffering Explained</a>라는 글에서 실험 방법과 코드를 가져왔다.</p>
+<p>아까 띄웠던 서버는 죽일 필요없이 output.php를 열어 아래와 같이 수정한다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;Hello &quot;</span>;</span><br><span class="line">    <span class="title function_ invoke__">sleep</span>(<span class="number">5</span>);</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;World!&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>브라우저로 <a target="_blank" rel="noopener" href="http://localhost:8888/output.php%EC%97%90">http://localhost:8888/output.php에</a> 접근해보면, 5초후 <code>Hello World!</code>가 동시에 노출된다. “Hello “가 output_buffering 제한보다 짧아서 echo를 했음에도 아직 버퍼에만 쌓여있는 상태이기 때문이다.</p>
+<p>아까 CLI는 output_buffering이 항상 꺼져있다고 했는데, CLI에서 돌려보면 어떻게 될까? 당연히 “Hello “가 먼저 화면에 찍힐 것을 예상할 수 있다.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">❯ php output.php</span><br></pre></td></tr></table></figure>
+
+<p>그럼 이제 output_buffering 설정값인, 4KB를 다 채우는 실험을 해보자.</p>
+<p>output.php파일의 내용을 아래 소스로 바꿔준다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$multiplier</span> = <span class="number">1</span>;</span><br><span class="line"><span class="variable">$size</span> = <span class="number">1024</span> * <span class="variable">$multiplier</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="variable">$i</span> = <span class="number">1</span>; <span class="variable">$i</span> &lt;= <span class="variable">$size</span>; <span class="variable">$i</span>++) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;.&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_ invoke__">sleep</span>(<span class="number">5</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot; Hello World &quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>(buffering limit에 한참 모자라는) 1024 byte만 채우고 5초를 쉬기 때문에 이번에도 역시 <code>Hello World!</code>가 동시에 보인다.</p>
+<p>$multiplier를 4로 늘려 다시 실행해보자. 이번에는 점(.) 4096개가 먼저 화면에 노출되는 것을 볼 수 있다. </p>
+<p>만약 시킨대로 <code>php -S</code>로 서버를 구동하지 않고 웹서버를 통해 서비스했다면, 이런 현상은 못 볼 수도 있다. 아마 8KB로 늘려야 할 지도 모른다. 서버 설정에 관해선 잠시 후에 더 다룰 것이다.</p>
+<h2 id="ob-flush-flush"><a href="#ob-flush-flush" class="headerlink" title="ob_flush(); flush();"></a>ob_flush(); flush();</h2><p>ob_flush와 flush는 데이터를 상위 레이어로 보내는 built-in method이다.<br>버퍼된 데이터는 버퍼가 꽉 차거나 php 실행이 끝나지 않는 이상 비워지지 않는데, 이 메소드가 버퍼를 비우는 일을 한다.</p>
+<p>눈으로 확인하기 위해 <code>sleep(5);</code> 전에 <code>ob_flush(); flush();</code> 를 심자.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$multiplier</span> = <span class="number">4</span>;</span><br><span class="line"><span class="variable">$size</span> = <span class="number">1024</span> * <span class="variable">$multiplier</span> - <span class="number">1</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="variable">$i</span> = <span class="number">1</span>; <span class="variable">$i</span> &lt;= <span class="variable">$size</span>; <span class="variable">$i</span>++) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;.&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_ invoke__">ob_flush</span>(); <span class="title function_ invoke__">flush</span>();</span><br><span class="line"><span class="title function_ invoke__">sleep</span>(<span class="number">5</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot; Hello World &quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p><code>$size = 1024 * $multiplier - 1;</code>를 했기 때문에 output 버퍼에 다 차지 않았지만, flush를 했기 때문에 4095개의 점(.)이 화면에 먼저 뿌려지는 걸 볼 수 있다.</p>
+<p>ob_flush(); flush(); 두 메소드를 같이 쓴 이유?</p>
+<p><a target="_blank" rel="noopener" href="http://php.net/manual/en/function.flush.php">flush</a></p>
+<blockquote>
+<p>Flushes the system write buffers of PHP and whatever backend PHP is using (CGI, a web server, etc)</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="http://php.net/manual/en/function.ob-flush.php">ob_flush</a></p>
+<blockquote>
+<p>This function will send the contents of the output buffer</p>
+</blockquote>
+<p><code>flush</code>는 PHP를 사용하는 백엔드, 즉 다음 단계로 데이터를 전달하는 역할을 한다.</p>
+<p>output_buffering 설정이 되어 있지 않아도 <code>ob_start</code>를 호출하면 자체적으로 output buffering을 사용할 수 있는데(이 때는 output_buffering으로 설정한 크기를 넘어서도 버퍼에 저장할 수 있다), 이때 쌓인 버퍼가 있다면 <code>ob_flush</code>를 해줘야 한다. 따라서 ob_flush는 flush보다 앞서 실행해야 한다.</p>
+<h2 id="웹서버-설정"><a href="#웹서버-설정" class="headerlink" title="웹서버 설정"></a>웹서버 설정</h2><p>초반에 PHP 엔진에서 버퍼가 다 차면 그 데이터를 다음 단계(downstream)로 전달한다고 이야기 했는데,</p>
+<p>그 다음 단계가 웹서버라고 하면, 웹서버에서는 이렇게 받은 걸 바로 클라이언트로 전달해줄까? 미안하지만 웹서버도 자체 버퍼링을 한다. 그 다음에 끼어 있는 프록시는? ISP는? 브라우저는? 모두 나름의 버퍼링 메커니즘을 갖고 있다.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">클라이언트(브라우저 등) - ISP - Proxy - Web Server - Application Server - DB</span><br></pre></td></tr></table></figure>
+
+<p>웹서버는 보통 다음과 같이 사용하게 될텐데,</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">브라우저 - php 내장서버</span><br><span class="line">브라우저 - Apache - mod_php</span><br><span class="line">브라우저 - nginx - fastcgi + php</span><br><span class="line">...생략</span><br></pre></td></tr></table></figure>
+
+<p>위애서 본 대로 php의 내장서버를 사용하면 자체 버퍼를 두지 않고 바로 클라이언트에 데이터를 보낸다. </p>
+<p>Apache + mod_php에서 mod_php에서는 버퍼링을 하지 않지만, Apache는 버퍼링을 한다.</p>
+<p>FastCGI는 Apache에 붙여서 사용하든 nginx에서 사용하든 버퍼링 옵션이 있는데,</p>
+<p>nginx에서는 4KB(32bit 머신) 혹은 8KB(64bit 머신)의 버피링을 갖고,<br>Apache에서는 (Apache에서 FastCGI를 물려본 적은 없지만) <a target="_blank" rel="noopener" href="https://httpd.apache.org/mod_fcgid/mod/mod_fcgid.html#fcgidoutputbuffersize">문서</a>에 따르면 65536(64KB)이나 된다. (default가 너무 커서 내가 과연 제대로 찾은 건가 싶기도 한데..)</p>
+<p>웹서버가 버퍼링하는 모습을 확인하기 위해 아파치를 띄우고 새로운 파일을 만들어 서비스 해보자.</p>
+<ul>
+<li>아파치를 띄우는 건 알아서…</li>
+<li>나의 실행환경은 PHP Version 7.0.25-0ubuntu0.16.04.1, Apache&#x2F;2.4.18 (Ubuntu)</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd 웹서버띄운디렉토리</span><br><span class="line">vim webserver.php</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$multiplier</span> = <span class="number">1</span>;</span><br><span class="line"><span class="variable">$size</span> = <span class="number">1024</span> * <span class="variable">$multiplier</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="variable">$i</span> = <span class="number">1</span>; <span class="variable">$i</span> &lt;= <span class="variable">$size</span>; <span class="variable">$i</span>++) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;.&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_ invoke__">flush</span>();</span><br><span class="line"><span class="title function_ invoke__">sleep</span>(<span class="number">5</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot; Hello World &quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>이제 브라우저에서 열어본다. </p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://localhost/webserver.php">http://localhost/webserver.php</a></li>
+<li>웹서버를 몇 번 port에서 열였는지에 따라 URL은 달라질 것이다</li>
+</ul>
+<p>output_buffering이 4096으로 설정된 상태이고 echo “.”;을 1024번 했으나, flush()를 실행했기 때문에 바로 화면에 점(.) 1024개가 찍힐 것으로 기대했을 것이다. 그런데 점(.)과 “ Hello World “는 동시에 나타난다. $multiplier를 4로 늘려 4096개의 점을 찍으면 이번에는 점(.)부터 화면에 노출된다.</p>
+<p>즉, 아파치에서 클라이언트로 결과를 보내기 전 4096의 버퍼가 존재한다.</p>
+<p>gzip 같은 압축 전송의 경우 클라이언트로 보낼 데이터를 모두 모은 후 압축해서 한번에 보낼 수도 있기 때문에 꺼둬야 한다. </p>
+<p>gzip을 설정 파일에서도 끌 수 있고, PHP 스크립트에서 <code>@apache_setenv(&#39;no-gzip&#39;, 1);</code>로 끌 수도 있다.</p>
+<p>nginx + FastCGI를 사용할 때는, 아래 설정을 추가해야 가능하다.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fastcgi_buffer_size   1k;                              </span><br><span class="line">fastcgi_buffers       128 1k;  # up to 1k + 128 * 1k</span><br><span class="line">fastcgi_max_temp_file_size 0;</span><br><span class="line">gzip off;</span><br></pre></td></tr></table></figure>
+
+<p>buffer는 PHP 엔진에서 넘어오는 것보다 작게 두고, 이를 넘어가면 파일에 쓰지 않도록 fastcgi_max_temp_file_size를 0으로 설정한다.</p>
+<h2 id="주의"><a href="#주의" class="headerlink" title="주의"></a>주의</h2><p>압축 전송 모드를 꺼버리는 것은 버퍼링 테스트를 할 때만 참고하자. 실제 서비스에서는 서비스의 성격에 따라 결정해야 한다.</p>
+<p>nginx에서는 <code>header(&#39;X-Accel-Buffering: no’);</code>를 통해 특정 response에만 적용할 수 있다. Vanish 같은 데선 <code>header(&#39;Surrogate-Control: BigPipe/1.0&#39;);</code>. (아파치도 이런게 있었던 것 같은데…)</p>
+<p>데이터를 만들어지는 대로 flush하고 chunk로 나누어 보내기 시작하면, 클라이언트에 200번대 응답을 주고 전송하기 시작할 것이다. 그런데 한번 200 code 응답을 보냈음에도 중간에 오류가 발생해서 보내지 못할 수가 있다. 각오하자.</p>
+<p>데이터가 쌓이는대로 클라이언트에 전달해주면, 보낼 컨텐츠의 전체 길이를 알지 못하게 된다. 전체 길이를 알면 부분 다운로드나 이어받기가 가능해지므로, 상황에 따라 미리 컨텐츠의 데이터 크기를 알아두는 것도 도움이 된다. 여기서 또 주의할 점은 Content-Length는 Content-Encoding(gzip, deflate 등)을 한 이후의 길이를 의미한다는 것이다.</p>
+<p>동적으로 생성될 경우 전형적인 압축 스트림은 아래와 같은 헤더를 갖는다.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Content-Type: text/html</span><br><span class="line">Content-Encoding: gzip</span><br><span class="line">Transfer-Encoding: chunked</span><br></pre></td></tr></table></figure>
+
+<p>또 어떤 경우에는 chunk의 크기를 결정해야할 수도 있다. 컨텐츠의 크기나 네트웍 상황에 따라 작은 chunk로 여러번 보내거나 큰 chunk로 적게 보내는 걸 결정해야 하는데, 버퍼 크기를 늘리면 커넥션마다 메모리를 더 많이 사용하게 되고, OS의 메모리 한계에 다다르면 out of memory나 disk에 쓰기 시작할 것이다. chunk가 작으면 chunk를 만들고 분석하는 비용이 더 들 수도 있다.</p>
+<p>온갖 곳에 버퍼가 있기 때문에 chunk를 작게 자른다 하더라도 한 트랜잭션 내 어딘가에서 전체 데이터를 버퍼링하고 있다면 앞서 자른 의미가 없어지기도 한다.</p>
+<h2 id="브라우저"><a href="#브라우저" class="headerlink" title="브라우저"></a>브라우저</h2><p>브라우저에서도 서버가 주는 데이터를 바로바로 화면에 표시하지 않고 어느 정도 모아서 주곤 했는데, 2013년도 <a target="_blank" rel="noopener" href="http://stackoverflow.com/a/16909228/582917">stackoverflow의 글</a>에 비해 많이 달라진 것 같다. </p>
+<p>여기에 따르면 FF는 1024라고 되어 있지만 현재는 FF도 매우 낮다.</p>
+<p>현재의 크롬(65.0.3325.181)은 2byte(&#x3D; 2byte가 넘으면 렌더링 시작).<br>FF(58.0.2)는 1byte(&#x3D; 1byte가 넘으면 렌더링 시작).<br>curl은 여전히 4096.</p>
+<h2 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h2><p>버퍼는 어디에나 있다.</p>
+<p><br><br><br></p>
+<hr>
+<p>참고 :</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.sitepoint.com/php-streaming-output-buffering-explained/">PHP Streaming and Output Buffering Explained</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jeffgeerling.com/blog/2016/streaming-php-disabling-output-buffering-php-apache-nginx-and-varnish">Streaming PHP - disabling output buffering in PHP, Apache, Nginx, and Varnish</a></li>
+<li><a target="_blank" rel="noopener" href="https://gist.github.com/CMCDragonkai/6bfade6431e9ffb7fe88">HTTP Streaming (or Chunked vs Store &amp; Forward)</a></li>
+</ul>
+<p>이미지 출처 :</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://zzoy.co/wp-content/uploads/2017/10/great-wolf-lodge-water-park-map-grapevine.jpg">big_chunk_buffer.jpg</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>youngiggy
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://haah.kr/2018/05/01/streaming-and-output-buffering-in-PHP/" title="PHP의 output_buffering">https://haah.kr/2018/05/01/streaming-and-output-buffering-in-PHP/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/PHP/" rel="tag"># PHP</a>
+              <a href="/tags/stream/" rel="tag"># stream</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/04/28/news-archive-2018-04-28/" rel="prev" title="뉴스 아카이브 2018-04-28">
+                  <i class="fa fa-chevron-left"></i> 뉴스 아카이브 2018-04-28
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2018/05/10/books-2018-march-to-may/" rel="next" title="독후감 - 2018년 3~5월">
+                  독후감 - 2018년 3~5월 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">youngiggy</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"youngiggy-github-io","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

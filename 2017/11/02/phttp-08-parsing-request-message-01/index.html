@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_package_v0.16/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_package_v0.16/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_package_v0.16/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/favicon_package_v0.16/safari-pinned-tab.svg" color="#222">
+  <link rel="manifest" href="/images/favicon_package_v0.16/site.webmanifest">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"haah.kr","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="연재글 전체 보기  이제 요청 들어온 메시지를 적당히 분리하는 작업을 하려고 한다. 지난 시간에 우리는..마지막으로 커밋된 소스는 여기에서 볼 수 있다. 요청 분석 클래스인 Request.php만 보자면 &lt;?phpclass Request&amp;#123;    private $requestMessage;        public function __const">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="PHP로 HTTP 서버 구현하기 - 08 - 요청 메시지 파싱 1">
+<meta property="og:url" content="https://haah.kr/2017/11/02/phttp-08-parsing-request-message-01/">
+<meta property="og:site_name" content="ha-ah">
+<meta property="og:description" content="연재글 전체 보기  이제 요청 들어온 메시지를 적당히 분리하는 작업을 하려고 한다. 지난 시간에 우리는..마지막으로 커밋된 소스는 여기에서 볼 수 있다. 요청 분석 클래스인 Request.php만 보자면 &lt;?phpclass Request&amp;#123;    private $requestMessage;        public function __const">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://haah.kr/images/phttp-08/add_unittest_1.png">
+<meta property="og:image" content="https://haah.kr/images/phttp-08/add_unittest_2.png">
+<meta property="og:image" content="https://haah.kr/images/phttp-08/add_unittest_3.png">
+<meta property="og:image" content="https://haah.kr/images/phttp-08/getResultTest.png">
+<meta property="article:published_time" content="2017-11-02T09:58:31.000Z">
+<meta property="article:modified_time" content="2018-02-13T06:27:02.000Z">
+<meta property="article:author" content="youngiggy">
+<meta property="article:tag" content="PHP">
+<meta property="article:tag" content="HTTP">
+<meta property="article:tag" content="phttp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://haah.kr/images/phttp-08/add_unittest_1.png">
+
+
+<link rel="canonical" href="https://haah.kr/2017/11/02/phttp-08-parsing-request-message-01/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://haah.kr/2017/11/02/phttp-08-parsing-request-message-01/","path":"2017/11/02/phttp-08-parsing-request-message-01/","title":"PHP로 HTTP 서버 구현하기 - 08 - 요청 메시지 파싱 1"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>PHP로 HTTP 서버 구현하기 - 08 - 요청 메시지 파싱 1 | ha-ah</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=354302543"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":354302543,"only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="ha-ah" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">ha-ah</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">로그, 게으른 로그</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%A7%80%EB%82%9C-%EC%8B%9C%EA%B0%84%EC%97%90-%EC%9A%B0%EB%A6%AC%EB%8A%94"><span class="nav-number">1.</span> <span class="nav-text">지난 시간에 우리는..</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%9A%94%EA%B5%AC-%EC%82%AC%ED%95%AD-%EC%A0%95%EB%A6%AC"><span class="nav-number">2.</span> <span class="nav-text">요구 사항 정리</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#parseMessage-%EB%A9%94%EC%86%8C%EB%93%9C-%EC%B6%94%EA%B0%80"><span class="nav-number">3.</span> <span class="nav-text">parseMessage() 메소드 추가</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%A4%91%EA%B0%84-%EC%A0%90%EA%B2%80"><span class="nav-number">4.</span> <span class="nav-text">중간 점검</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%8B%A8%EC%9D%BC-%EC%B1%85%EC%9E%84-%EC%9B%90%EC%B9%99"><span class="nav-number">5.</span> <span class="nav-text">단일 책임 원칙</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HttpMessageParser-%ED%81%B4%EB%9E%98%EC%8A%A4"><span class="nav-number">6.</span> <span class="nav-text">HttpMessageParser 클래스</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B2%B0%EB%A1%A0"><span class="nav-number">7.</span> <span class="nav-text">결론</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">youngiggy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">113</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:youngiggy@gmail.com" title="E-Mail → mailto:youngiggy@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/profile.php?id=100001259884599" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;profile.php?id&#x3D;100001259884599" rel="noopener me" target="_blank"><i class="fab fa-facebook fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/jooyoungiggy" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;jooyoungiggy" rel="noopener me" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://haah.kr/2017/11/02/phttp-08-parsing-request-message-01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="youngiggy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="PHP로 HTTP 서버 구현하기 - 08 - 요청 메시지 파싱 1 | ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          PHP로 HTTP 서버 구현하기 - 08 - 요청 메시지 파싱 1
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-11-02 18:58:31" itemprop="dateCreated datePublished" datetime="2017-11-02T18:58:31+09:00">2017-11-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2018-02-13 15:27:02" itemprop="dateModified" datetime="2018-02-13T15:27:02+09:00">2018-02-13</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2017/11/02/phttp-08-parsing-request-message-01/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/11/02/phttp-08-parsing-request-message-01/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><a href="/tags/phttp/">연재글 전체 보기</a></p>
+<hr>
+<p>이제 요청 들어온 메시지를 적당히 분리하는 작업을 하려고 한다.</p>
+<h2 id="지난-시간에-우리는"><a href="#지난-시간에-우리는" class="headerlink" title="지난 시간에 우리는.."></a>지난 시간에 우리는..</h2><p>마지막으로 커밋된 소스는 <a target="_blank" rel="noopener" href="https://github.com/youngiggy/phttp/commit/398f18ee98f0e6f9c00fe7bb262d82f9c5282f68">여기</a>에서 볼 수 있다.</p>
+<p>요청 분석 클래스인 Request.php만 보자면</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Request</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$requestMessage</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="keyword">string</span> <span class="variable">$requestMessage</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//하지만 아직 쓰진 않지</span></span><br><span class="line">        <span class="variable language_">$this</span>-&gt;requestMessage = <span class="variable">$requestMessage</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getResourcePath</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;/index.html&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>테스트 코드는</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">//RequestTest.php</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// ...생략...</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">testGetResourcePath</span>(<span class="params"></span>): <span class="title">void</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$request</span> = <span class="keyword">new</span> <span class="title class_">Request</span>(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">assertEquals</span>(<span class="string">&#x27;/index.html&#x27;</span>, <span class="variable">$request</span>-&gt;<span class="title function_ invoke__">getResourcePath</span>());</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>고백하자면 Request 클래스의 생성자에 string 형식만 올 수 있게 조금 고쳐놨다.</p>
+<h2 id="요구-사항-정리"><a href="#요구-사항-정리" class="headerlink" title="요구 사항 정리"></a>요구 사항 정리</h2><p>이제 생성자에 다양한 패턴의 문자열을 던지고 이를 적당한(?) 구조에 넣어줄 것이다.</p>
+<p>개발을 시작하기 전에 요구 사항(HTTP의 문법)부터 면밀히 살펴보자.</p>
+<p>(그런데 사실 이미 HTTP 메시지 파서는 널리고 널려서 굳이 직접 구현할 필요는 없다. 공부나 하자는 것이지..)</p>
+<p>HTTP 메시지에 관한 표준은 <a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc7230">RFC 7230, HTTP&#x2F;1.1: Message Syntax and Routing</a>에 정의되어 있다. </p>
+<ul>
+<li>아직도 RFC2616으로 설명하는 글이 많은데, 바뀐지 3년 지났다</li>
+</ul>
+<p>귀찮다면 뭐…이전에 정리한 <a href="/2017/08/23/http-the-definitive-guide-chapter-3/">3장 정리 자료</a>를 봐도 된다.</p>
+<p>기본적인 HTTP 메시지의 문법을 다시 한번 살펴보자.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HTTP-message   = start-line</span><br><span class="line">                 *( header-field CRLF )</span><br><span class="line">                 CRLF</span><br><span class="line">                 [ message-body ]</span><br></pre></td></tr></table></figure>
+
+<p>HTTP 메시지</p>
+<ul>
+<li>시작줄</li>
+<li>0개 이상의 헤더</li>
+<li>(헤더의 끝을 인식하기 위해) 아무 것도 없는 빈 줄</li>
+<li>(생략 가능한) 본문</li>
+</ul>
+<p>각 항목은 CRLF로 구분하도록 정의되어 있다. </p>
+<ul>
+<li>하지만 받는 쪽에서는 CR은 무시하고 LF만 인식할 수도 있다.</li>
+<li>CRLF를 제외하고 앞뒤로 붙는 공백은 제거한다</li>
+</ul>
+<p>시작줄에는 공백(8bit 문자)으로 구분되는 세가지 정보가 들어간다.</p>
+<ul>
+<li>요청 시 : HTTP 메소드, URI, HTTP 버전</li>
+<li>응답 시 : HTTP 버전, 상태 코드, 상태 메시지</li>
+</ul>
+<p>요청 메시지에서, HTTP는 URI(Uniform Resource Identifier)를 표현하는데 <a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc3986">RFC3986</a>​​표준을 사용한다.</p>
+<ul>
+<li>그런데 이 표준을 보고 올바른 URI인지 판별할 생각은 없으므로 상식으로만 알아두자</li>
+</ul>
+<p>이정도를 기본 문법으로 정의하고, 이외의 문법으로 요청이 들어오면 서버가 이해하지 못한다는 의미로 <code>400 Bad Request</code>로 응답한다. </p>
+<p>이를 기초로 기능을 간단히 정리해보면</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CRLF로 문자열을 나눈다</span><br><span class="line">- 첫 요소를 시작줄로</span><br><span class="line">- 이후 빈 문자열이 들어올 때까지 헤더로</span><br><span class="line">- 그 다음 요소가 존재하면 본문으로 인식한다</span><br><span class="line">- 각 요소를 저장할 땐 trim</span><br><span class="line">시작줄은 공백으로 3파트로 나뉘어야 한다</span><br><span class="line">- 메소드</span><br><span class="line">- URI</span><br><span class="line">- HTTP 버전</span><br><span class="line">이 파싱 기준을 조금이라도 벗어나면 가차없이 400!!</span><br></pre></td></tr></table></figure>
+
+<h2 id="parseMessage-메소드-추가"><a href="#parseMessage-메소드-추가" class="headerlink" title="parseMessage() 메소드 추가"></a>parseMessage() 메소드 추가</h2><p>파싱을 시작하라고 요청하는 메소드는 <code>parseMessage()</code>라는 이름이 적당할 것 같고, 이제 테스트를 만들어 나갈 타이밍인데 바로 고민이 생긴다.</p>
+<p>생성자에 문자열을 넣는 동시에 파싱을 할 것인가?</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="keyword">string</span> <span class="variable">$requestMessage</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="variable language_">$this</span>-&gt;requestMessage = <span class="variable">$requestMessage</span>;</span><br><span class="line">    <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">parseMessage</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>아니면 <code>getResourcePath()</code>를 실행할 때 파싱을 실행할 것인가?</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getResourcePath</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">parseMessage</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">$this</span>-&gt;resourcePath;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>아니면 <code>parseMessage()</code> 메소드를 public으로 만들어 외부에서 명시적으로 호출하고, 이어 <code>getResourcePath()</code>로 리소스 경로를 얻어와야 하나?</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">//server.php</span></span><br><span class="line"><span class="variable">$request</span> = <span class="keyword">new</span> <span class="title class_">Request</span>(<span class="variable">$clientSentData</span>);</span><br><span class="line"><span class="variable">$request</span>-&gt;<span class="title function_ invoke__">parseMessage</span>();</span><br><span class="line"><span class="variable">$response</span> = (<span class="keyword">new</span> <span class="title class_">Response</span>())-&gt;<span class="title function_ invoke__">getResponse</span>(<span class="variable">$request</span>-&gt;<span class="title function_ invoke__">getResourcePath</span>());</span><br></pre></td></tr></table></figure>
+
+<p>아직 <code>server.php</code> 이외에 이 <code>Request</code> 클래스를 사용하는 곳이 없으므로 파싱 기능을 굳이 외부에 노출 시킬 필요가 없기 때문에, 우선은 <code>parseMessage()</code> 메소드를 private으로 묶어두기로 했다.</p>
+<p>외부에 노출할 경우, 이 분석 클래스를 바라보는 클라이언트가 늘어갈수록 수정하는데 눈치가 보인다. 공개 API가 덕지덕지 버전을 붙여가는 이유랄까.</p>
+<p>외부 노출은 최소한으로 줄이고, 내부 구현을 마음껏 리팩토링하자.</p>
+<p><code>getResourcePath()</code> 안에서 <code>parseMessage()</code> 메소드를 호출하도록 바꿔보자.</p>
+<p><code>server.php</code> 입장에선 <code>Request</code> 클래스를 사용하는 방법이 바뀐 게 아니므로 추가 테스트는 작성 안한다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Request.php</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getResourcePath</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">parseMessage</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">$this</span>-&gt;resourcePath;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>테스트는 바로 실패하고</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Call to undefined method Request::parseMessage()</span><br></pre></td></tr></table></figure>
+
+<p>테스트를 통과하도록 수정한다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">Request.php</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Request</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$requestMessage</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$resourcePath</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="keyword">string</span> <span class="variable">$requestMessage</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//하지만 아직 쓰진 않지</span></span><br><span class="line">        <span class="variable language_">$this</span>-&gt;requestMessage = <span class="variable">$requestMessage</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getResourcePath</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">parseMessage</span>();</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">$this</span>-&gt;resourcePath;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">parseMessage</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;resourcePath = <span class="string">&#x27;/index.html&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>테스트는 성공한다.</p>
+<h2 id="중간-점검"><a href="#중간-점검" class="headerlink" title="중간 점검"></a>중간 점검</h2><p>앞으로는 뭘 해야할까?</p>
+<p><code>parseMessage()</code> 안에서 <code>resourcePath</code>를 CRLF로 잘라 분리해놓고,</p>
+<p><code>/</code>라는 URI로 요청이 왔으면 <code>/index.html</code>을 리턴하는 로직도 들어가야 하고,</p>
+<p>이해 안되는 구문이면 외부에 알려야 한다.</p>
+<ul>
+<li>“이건 Bad Bad Request야”</li>
+</ul>
+<p>그런데 그 과정에서 몇개의 private 메소드가 더 생길 것이고(메소드 하나에는 하나의 기능을 담는 것이 좋으니)</p>
+<p>모두 완료될 때까지 외부(<code>server.php</code>)에 노출되는 건 계속 <code>parseMessage()</code> 뿐일 것이다.</p>
+<p><a href="/2017/10/30/phttp-07/">바로 이전 글</a>에서 <a target="_blank" rel="noopener" href="https://justhackem.wordpress.com/2017/09/29/should-private-methods-be-tested/">비공개(private) 메소드 테스트</a>에 관한 글을 링크했었다.</p>
+<blockquote>
+<p>비공개 메서드의 모든 코드를 비공개 메서드에 독립적인 방법으로 테스트 하라</p>
+</blockquote>
+<p>어떻게든 다양한 문자열을 던져주면서 <code>parseMessage()</code>의 모든 코드를 거쳐갈 수 있게 테스트를 만들면 될 것이다.</p>
+<p>그런데 또 다른 관점으로도 생각해보자.</p>
+<h2 id="단일-책임-원칙"><a href="#단일-책임-원칙" class="headerlink" title="단일 책임 원칙"></a>단일 책임 원칙</h2><p><a target="_blank" rel="noopener" href="https://ko.wikipedia.org/wiki/%EB%8B%A8%EC%9D%BC_%EC%B1%85%EC%9E%84_%EC%9B%90%EC%B9%99">단일 책임 원칙</a>은 한 클래스에서 하나의 책임을 갖는다는 것(…정도로 얼버무리고).</p>
+<p><code>Request</code> 클래스를 구현해나가다 보니,</p>
+<ul>
+<li>앞서 언급한 룰에 따라 HTTP 메시지의 각 요소로 나누는 역할이 하나.</li>
+<li>그 나뉜 요소를 읽고 어떤 판단을 하는 로직(예를 들어 <code>/</code>는 <code>/index.html</code>)이 하나.</li>
+<li>아직 어떻게 구현할지는 생각 안했지만 외부에 비정상 요청임을 알리는 기능 하나.</li>
+</ul>
+<p>이쯤되면 <code>Request</code> 클래스의 역할을 분명히 하고, 하나의 독립된 책임으로 캡슐화할 수 있는 건 별도의 클래스로 빼는 걸 고려할 법 하다.</p>
+<p>우리는 파싱을 다루고 있었으니</p>
+<p>Server &lt;-&gt; Request &lt;-&gt; HttpMessageParser</p>
+<p>정도로 우선 분리해본다.</p>
+<p>서버는 클라이언트로부터 HTTP 메시지를 수신한 후,</p>
+<p>이 문자열을 <code>Request</code>에 전달하면 그 내부에서 뭘 어쩌는 지 서버는 관심없고 단지 그 분석 결과(정상 여부, 리소스 경로 등)을 받아온다.</p>
+<p>(나중에 어찌 변할 지 몰라도) 서버 입장에서 <code>Request</code> 클래스의 역할은 <code>문자열을 받아 분석 결과를 리턴한다</code>로 정하겠다.</p>
+<p><code>Request</code> 클래스는 HttpMessageParser에게 HTTP 메시지의 각 요소로 나눠달라고 요청한다.</p>
+<p>그럼 HttpMessageParser를 분리하기 위해 테스트부터.</p>
+<h2 id="HttpMessageParser-클래스"><a href="#HttpMessageParser-클래스" class="headerlink" title="HttpMessageParser 클래스"></a>HttpMessageParser 클래스</h2><p><code>HttpMessageParser</code> 클래스는 두 군데서 사용하게 된다. <code>Request</code> 클래스와 단위 테스트.</p>
+<p>이 클래스의 역할은 문자열을 받아, 특정 구조로 데이터를 리턴하는 것이다. 우선 연관 배열을 리턴하는 것부터 시작해볼까?</p>
+<p>첫 단위 테스트에서는 리턴된 배열에서 각 항목이 set되어 있는지만 확인한다.</p>
+<p>PHPStorm을 사용한다면 손쉽게 테스트 파일을 추가할 수 있다.</p>
+<p><code>libs</code> 디렉토리에 <code>HttpMessageParser.php</code>를 생성하고, </p>
+<p>우클릭 &gt; New &gt; PHPUnit &gt; HttpMessageParserTest 선택</p>
+<p><img src="/images/phttp-08/add_unittest_1.png" alt="add_unittest_1"></p>
+<p>테스트 대상 클래스, 테스트 파일명과 위치할 디렉토리를 써주면</p>
+<p><img src="/images/phttp-08/add_unittest_2.png" alt="add_unittest_2"></p>
+<p>테스트가 생성된다.</p>
+<p><img src="/images/phttp-08/add_unittest_3.png" alt="add_unittest_3"></p>
+<p>리턴되는 값에는 기본적으로 아래와 같은 항목이 필요할 것 같다.</p>
+<ul>
+<li>start_line : 시작줄 전체</li>
+<li>method : 메소드</li>
+<li>uri : URI</li>
+<li>version : HTTP 버전</li>
+<li>headers : 헤더는 배열로</li>
+<li>body : 본문</li>
+</ul>
+<p>테스트를 만들자.</p>
+<p>테스트 클래스(<code>tests/HttpMessageParserTest.php</code>) 안에서도 (PHPStorm을 쓴다면!) <code>Generate</code>라는 기능을 메소드를 빨리 추가할 수 있다. 약간의 타이핑을 줄여주는 수준이지만 이런 게 생산성을 높여주는 법이다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    </span><br><span class="line"><span class="keyword">use</span> <span class="title">PHPUnit</span>\<span class="title">Framework</span>\<span class="title">TestCase</span>;</span><br><span class="line">    </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HttpMessageParserTest</span> <span class="keyword">extends</span> <span class="title">TestCase</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">testReturnValue</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$parser</span> = <span class="keyword">new</span> <span class="title class_">HttpMessageParser</span>(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">        <span class="variable">$result</span> = <span class="variable">$parser</span>-&gt;<span class="title function_ invoke__">getResult</span>();</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">assertEquals</span>(<span class="literal">true</span>, <span class="title function_ invoke__">is_array</span>(<span class="variable">$result</span>));</span><br><span class="line">    </span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">assertArrayHasKey</span>(<span class="string">&#x27;start_line&#x27;</span>, <span class="variable">$result</span>, <span class="string">&#x27;key start_line not exists&#x27;</span>);</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">assertArrayHasKey</span>(<span class="string">&#x27;method&#x27;</span>, <span class="variable">$result</span>, <span class="string">&#x27;key method not exists&#x27;</span>);</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">assertArrayHasKey</span>(<span class="string">&#x27;uri&#x27;</span>, <span class="variable">$result</span>, <span class="string">&#x27;key uri not exists&#x27;</span>);</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">assertArrayHasKey</span>(<span class="string">&#x27;version&#x27;</span>, <span class="variable">$result</span>, <span class="string">&#x27;key version not exists&#x27;</span>);</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">assertArrayHasKey</span>(<span class="string">&#x27;headers&#x27;</span>, <span class="variable">$result</span>, <span class="string">&#x27;key headers not exists&#x27;</span>);</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">assertArrayHasKey</span>(<span class="string">&#x27;body&#x27;</span>, <span class="variable">$result</span>, <span class="string">&#x27;key body not exists&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/youngiggy/phttp">Github</a>에서 커밋 로그를 보면 알겠지만, 하나하나 테스트부터 만들고 이를 통과하는 기능을 구현했다.</p>
+<p><img src="/images/phttp-08/getResultTest.png" alt="add_unittest_3"></p>
+<ul>
+<li>당신이 PHPStorm을 쓴다면..</li>
+</ul>
+<h2 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h2><p>다음 글에서는 <code>Request</code> 클래스에서 <code>HttpMessageParser</code>를 가져다 쓰기 전에, 기본 파싱에 필요한 기능을 테스트와 함께 작성하려고 한다.</p>
+<p>결론은 당신이 PHPStorm을 쓴다면 좀 더 편하게 할 수 있다.<br>(이제 그만 말할까…)</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>youngiggy
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://haah.kr/2017/11/02/phttp-08-parsing-request-message-01/" title="PHP로 HTTP 서버 구현하기 - 08 - 요청 메시지 파싱 1">https://haah.kr/2017/11/02/phttp-08-parsing-request-message-01/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/PHP/" rel="tag"># PHP</a>
+              <a href="/tags/HTTP/" rel="tag"># HTTP</a>
+              <a href="/tags/phttp/" rel="tag"># phttp</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/11/01/baking-00/" rel="prev" title="베이킹 - 준비 완료">
+                  <i class="fa fa-chevron-left"></i> 베이킹 - 준비 완료
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/11/08/phttp-09-parsing-request-message-02/" rel="next" title="PHP로 HTTP 서버 구현하기 - 09 - 요청 메시지 파싱 2">
+                  PHP로 HTTP 서버 구현하기 - 09 - 요청 메시지 파싱 2 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">youngiggy</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"youngiggy-github-io","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

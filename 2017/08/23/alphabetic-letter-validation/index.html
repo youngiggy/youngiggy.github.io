@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_package_v0.16/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_package_v0.16/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_package_v0.16/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/favicon_package_v0.16/safari-pinned-tab.svg" color="#222">
+  <link rel="manifest" href="/images/favicon_package_v0.16/site.webmanifest">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"haah.kr","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="오늘 라라벨 꾸준 코딩 모임에서 나왔던 이야기인데, 라라벨의 유효성 검사 규칙 중 alpha에 관해 써본다. 원문에서는 아래와 같이 정의하고 있다.   The field under validation must be entirely alphabetic characters.  이를 정수님이 옮기시면서 역주를 추가하셨는데,  필드의 값이 완벽하게 (숫자나 기호가">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="정규식으로 (한글) 문자만 골라내기">
+<meta property="og:url" content="https://haah.kr/2017/08/23/alphabetic-letter-validation/">
+<meta property="og:site_name" content="ha-ah">
+<meta property="og:description" content="오늘 라라벨 꾸준 코딩 모임에서 나왔던 이야기인데, 라라벨의 유효성 검사 규칙 중 alpha에 관해 써본다. 원문에서는 아래와 같이 정의하고 있다.   The field under validation must be entirely alphabetic characters.  이를 정수님이 옮기시면서 역주를 추가하셨는데,  필드의 값이 완벽하게 (숫자나 기호가">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-08-23T11:52:36.000Z">
+<meta property="article:modified_time" content="2018-02-13T06:27:02.000Z">
+<meta property="article:author" content="youngiggy">
+<meta property="article:tag" content="REGEX">
+<meta property="article:tag" content="Laravel">
+<meta property="article:tag" content="PHP">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://haah.kr/2017/08/23/alphabetic-letter-validation/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://haah.kr/2017/08/23/alphabetic-letter-validation/","path":"2017/08/23/alphabetic-letter-validation/","title":"정규식으로 (한글) 문자만 골라내기"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>정규식으로 (한글) 문자만 골라내기 | ha-ah</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=354302543"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":354302543,"only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="ha-ah" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">ha-ah</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">로그, 게으른 로그</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Alphabet"><span class="nav-number">1.</span> <span class="nav-text">Alphabet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Unicode-property"><span class="nav-number">2.</span> <span class="nav-text">Unicode property</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#validation-rule-alpha"><span class="nav-number">3.</span> <span class="nav-text">validation#rule-alpha</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Run"><span class="nav-number">4.</span> <span class="nav-text">Run</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%ED%95%9C%EA%B8%80%EB%A7%8C-%EA%B3%A8%EB%9D%BC%EB%82%B4%EA%B8%B0"><span class="nav-number">5.</span> <span class="nav-text">한글만 골라내기</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%B6%94%EA%B0%80"><span class="nav-number"></span> <span class="nav-text">추가</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B2%B0%EB%A1%A0"><span class="nav-number">1.</span> <span class="nav-text">결론</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#thank-to"><span class="nav-number">2.</span> <span class="nav-text">thank to</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">youngiggy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">113</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:youngiggy@gmail.com" title="E-Mail → mailto:youngiggy@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/profile.php?id=100001259884599" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;profile.php?id&#x3D;100001259884599" rel="noopener me" target="_blank"><i class="fab fa-facebook fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/jooyoungiggy" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;jooyoungiggy" rel="noopener me" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://haah.kr/2017/08/23/alphabetic-letter-validation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="youngiggy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="정규식으로 (한글) 문자만 골라내기 | ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          정규식으로 (한글) 문자만 골라내기
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-08-23 20:52:36" itemprop="dateCreated datePublished" datetime="2017-08-23T20:52:36+09:00">2017-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2018-02-13 15:27:02" itemprop="dateModified" datetime="2018-02-13T15:27:02+09:00">2018-02-13</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2017/08/23/alphabetic-letter-validation/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/08/23/alphabetic-letter-validation/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>오늘 라라벨 꾸준 코딩 모임에서 나왔던 이야기인데, 라라벨의 유효성 검사 규칙 중 <a target="_blank" rel="noopener" href="https://laravel.kr/docs/5.5/validation#rule-alpha">alpha</a>에 관해 써본다.</p>
+<p>원문에서는 아래와 같이 정의하고 있다. </p>
+<blockquote>
+<p>The field under validation must be entirely alphabetic characters.</p>
+</blockquote>
+<p>이를 정수님이 옮기시면서 역주를 추가하셨는데,</p>
+<blockquote>
+<p>필드의 값이 완벽하게 (숫자나 기호가 아닌) 알파벳[자음과 모음] 문자로 이루어져야 합니다.<br>(역자주: 영문 알파벳만을 의미하지 않고, 숫자나 기호가 아닌경우에 해당하여, 한글도 허용합니다.)</p>
+</blockquote>
+<p>여기서 자음과 모음이 언급되었길래 그럼 자음과 모음이 없는 중국어는 어떻게 되냐고 여쭤보았고,<br>(중국어에 진짜 자음과 모음이 없는가에 대한 문제는 일단 넘어가자..)</p>
+<p>유니코드의 구간을 정해놓고 validation 처리한 예전 소스를 보여주신 분도 계셨다. 한글을 구분하는 코드였던가?<br>(좀 더 복잡한 소스였지만) 예를 들어 이런 식.</p>
+<p>아래는 persian alphabet을 골라내는 정규식이(란)다.<br>(출처 : <a target="_blank" rel="noopener" href="https://github.com/anetwork/validation/blob/master/src/ValidationRules.php#L27">anetwork</a>)</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">Alpha</span>(<span class="params"><span class="variable">$attribute</span>, <span class="variable">$value</span>, <span class="variable">$parameters</span>, <span class="variable">$validator</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="title class_">ValidationMessages</span>::<span class="title function_ invoke__">setCustomMessages</span>( <span class="variable">$validator</span> );</span><br><span class="line">    <span class="variable language_">$this</span>-&gt;status = (<span class="keyword">bool</span>) <span class="title function_ invoke__">preg_match</span>(<span class="string">&quot;/^[\x&#123;600&#125;-\x&#123;6FF&#125;\x&#123;200c&#125;\x&#123;064b&#125;\x&#123;064d&#125;\x&#123;064c&#125;\x&#123;064e&#125;\x&#123;064f&#125;\x&#123;0650&#125;\x&#123;0651&#125;\s]+$/u&quot;</span>, <span class="variable">$value</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">$this</span>-&gt;status ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>결국 다같이 라라벨 소스를 보게 되었다.<br>막상 코드를 열어보니 단순해서 놀랐는데, 코드는 아래와 같다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Validate that an attribute contains only alphabetic characters.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span>  string  $attribute</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span>  mixed   $value</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> bool</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">validateAlpha</span>(<span class="params"><span class="variable">$attribute</span>, <span class="variable">$value</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_ invoke__">is_string</span>(<span class="variable">$value</span>) &amp;&amp; <span class="title function_ invoke__">preg_match</span>(<span class="string">&#x27;/^[\pL\pM]+$/u&#x27;</span>, <span class="variable">$value</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>“아니, 저건 무슨 정규식이죠?!”라며 놀랐지만, 내가 뚫어져라 본다고 알 턱이 없었다.</p>
+<p>그래서 좀 찾아보기로…</p>
+<h2 id="Alphabet"><a href="#Alphabet" class="headerlink" title="Alphabet"></a>Alphabet</h2><p>내가 처음에 혼란스러웠던 것은, 유효성 규칙에 대한 설명에서 ‘알파벳[자음과 모음]’이라는 문자에서 과연 자음과 모음이라는 게 중요한가..라는 의문 때문이었다.</p>
+<p>한국어 위키디피아의 <a target="_blank" rel="noopener" href="https://ko.wikipedia.org/wiki/%EC%9D%8C%EC%86%8C%EB%AC%B8%EC%9E%90">음소문자</a> 설명부터 보자.</p>
+<blockquote>
+<p>음소문자(音素文字, alphabet)는 하나하나의 문자가 원칙적으로 하나의 자음 또는 모음의 음소(音素)를 나타내는 문자 체계이다. 자음과 모음에 대응하는 각각의 문자가 따로 존재하는게 다른 종류의 문자와의 다른 점이다. 로마 문자, 한글, 키릴 문자, 그리스 문자 같은 것들이 음소 문자 중 하나다.</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Alphabet">위키디피아 설명</a>에는 <code>sets of letters used in written languages</code>라는 설명으로 시작해서,</p>
+<p><code>&quot;alphabet&quot; is a script that represents both vowels and consonants as letters equally</code>라는 표현도 나온다.</p>
+<p>자음과 모음을 동일하게 하나의 글자로써 표현하는 것인가 본데…</p>
+<p>라라벨 매뉴얼에서 alphabet을 ‘알파벳[자음과 모음]’이라고 표현하신 건 이제 이해가 됐다.</p>
+<h2 id="Unicode-property"><a href="#Unicode-property" class="headerlink" title="Unicode property"></a>Unicode property</h2><p>유니코드 표준에서는 각 code point마다 여러가지 속성을 부여하는데,</p>
+<p>이를 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Unicode_character_property#General_Category">Unicode character property</a>라고 하고, 이를 통해 Letter인지, Mark인지, Number인지 알 수 있다.</p>
+<p>라라벨의 alpha가 정의하는 유효성 확인 정규식을 다시 보자.</p>
+<blockquote>
+<p>&#x2F;^[\pL\pM]+$&#x2F;u</p>
+</blockquote>
+<p><code>\p</code>를 통해 property를 부여할 수 있고, 대문자로 쓰면 반대의 개념이다.</p>
+<p><code>\pL</code>은 문자(Letter)를 가져오고, <code>\PL</code>은 문자가 아닌 것만 가져온다.</p>
+<p><code>\pM</code>은 Mark를 의미하는데, 어디까지가 이 Mark에 부합하는가..가 좀 복잡하다.</p>
+<p>이 중에는 악센트와 같이 옆에 있는 문자를 꾸며주는 역할을 하는 것도 있다. 그러니까 문자(이쯤되니 문자라는 표현이 맞는지도 모르겠다)를 꾸며주는 역할을 하는 걸 의미하는 듯 하다</p>
+<p>더 자세하고 친절한 설명은 역시 <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/6493954/how-to-properly-write-regex-for-unicode-first-name-in-java">stackoverflow</a>에 있다.</p>
+<p>그럼 ™ &lt;- 요렇게 생긴 트레이드 ‘마크’는?</p>
+<p><a target="_blank" rel="noopener" href="http://www.fileformat.info/info/unicode/char/2122/index.htm">http://www.fileformat.info/info/unicode/char/2122/index.htm</a></p>
+<p>UnicodeBlock이 LETTERLIKE_SYMBOLS로 정의되어 있다. 그렇다. 이런 걸 심볼이라 부른다.</p>
+<br>
+
+<p>마지막으로 저 정규식에는 u라는 변경자가 붙어있는데,</p>
+<blockquote>
+<p>u (PCRE_UTF8)</p>
+<p>이 변경자는 펄과 호환되지 않는 PCRE의 추가 기능을 사용하게 합니다. 패턴 문자열을 UTF-8으로 취급합니다. 유닉스에서는 PHP 4.1.0부터, win32에서는 PHP 4.2.3부터 사용할 수 있습니다. PHP 4.3.5부터 패턴의 UTF-8 유효성이 검사됩니다.</p>
+</blockquote>
+<p>라고 PHP 매뉴얼에 나와있다.</p>
+<p>이번에 매뉴얼 좀 찾아보다 발견했는데, 아사마루(?)님의 블로그에 이 정규식 부분이 한글화 + 보충 설명되어 있다.</p>
+<p><a target="_blank" rel="noopener" href="https://blog.asamaru.net/2017/01/07/php-regex-prolog/">PHP 정규식(PCRE)의 모든 것</a></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.asamaru.net/2017/01/11/php-regex-unicode-character-properties/">유니코드 문자 속성</a></li>
+</ul>
+<h2 id="validation-rule-alpha"><a href="#validation-rule-alpha" class="headerlink" title="validation#rule-alpha"></a>validation#rule-alpha</h2><p>비슷한 문제로 2014년에 라라벨 Github에 이슈가 등록됐다.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/laravel/framework/issues/4626">validator rules shouldn’t allow unicode</a></p>
+<p>Taylor Otwell은 <code>We can document it.</code> 한마디하고 닫아버린다.<br>(어쩌자는 말인 지 모르겠다.)</p>
+<p>ASCII에 존재하는 라틴 알파벳 만을 매칭하려는 게 아니라면 정규식 자체에는 문제가 없어보이지만,</p>
+<p>여전히 alpha라는 단어를 쓰는 게 맞는 지는 잘 모르겠다.</p>
+<p>Letter에 매칭되는 문자가 모두 알파벳에 속하지 않을테니까.</p>
+<h2 id="Run"><a href="#Run" class="headerlink" title="Run"></a>Run</h2><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$arr</span> = [</span><br><span class="line">    <span class="string">&quot;x&quot;</span>, <span class="string">&quot;A&quot;</span>, <span class="string">&quot;3&quot;</span>, <span class="string">&quot;\n&quot;</span>, <span class="string">&quot;.&quot;</span>, <span class="string">&quot;\t&quot;</span>, <span class="string">&quot;\r&quot;</span>, <span class="string">&quot;\f&quot;</span>,</span><br><span class="line">    <span class="string">&quot;주&quot;</span>, <span class="string">&quot;$&quot;</span>, <span class="string">&quot;я&quot;</span>, <span class="string">&quot;张&quot;</span>, <span class="string">&quot;@&quot;</span>, <span class="string">&quot;ⓐ&quot;</span>, <span class="string">&quot;à&quot;</span>, </span><br><span class="line">    <span class="string">&quot;\u&#123;0300&#125;&quot;</span>, <span class="comment">/* COMBINING GRAVE ACCENT */</span></span><br><span class="line">];</span><br><span class="line"><span class="title function_ invoke__">preg_match_all</span>(<span class="string">&#x27;/\pL/u&#x27;</span>, <span class="title function_ invoke__">implode</span>(<span class="string">&#x27;&#x27;</span>, <span class="variable">$arr</span>), <span class="variable">$matchesL</span>);</span><br><span class="line"><span class="title function_ invoke__">preg_match_all</span>(<span class="string">&#x27;/\pM/u&#x27;</span>, <span class="title function_ invoke__">implode</span>(<span class="string">&#x27;&#x27;</span>, <span class="variable">$arr</span>), <span class="variable">$matchesM</span>);</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="variable">$matchesL</span>);</span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="variable">$matchesM</span>);</span><br></pre></td></tr></table></figure>
+
+<p>결과가 예상 되시나요?</p>
+<br>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Array</span><br><span class="line">(</span><br><span class="line">    [0] =&gt; Array</span><br><span class="line">        (</span><br><span class="line">            [0] =&gt; x</span><br><span class="line">            [1] =&gt; A</span><br><span class="line">            [2] =&gt; 주</span><br><span class="line">            [3] =&gt; я</span><br><span class="line">            [4] =&gt; 张</span><br><span class="line">            [5] =&gt; à</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">)</span><br><span class="line">Array</span><br><span class="line">(</span><br><span class="line">    [0] =&gt; Array</span><br><span class="line">        (</span><br><span class="line">            [0] =&gt; ̀</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h2 id="한글만-골라내기"><a href="#한글만-골라내기" class="headerlink" title="한글만 골라내기"></a>한글만 골라내기</h2><p>이렇게 유니코드에는 수많은 카테고리가 존재하고, 이 중에는 역시 한글을 표현하는 카테고리도 존재한다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="title function_ invoke__">preg_match_all</span>(<span class="string">&#x27;/\p&#123;Hangul&#125;/u&#x27;</span>, <span class="title function_ invoke__">implode</span>(<span class="string">&#x27;&#x27;</span>, <span class="variable">$arr</span>), <span class="variable">$matchesHangul</span>);</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="variable">$matchesHangul</span>);</span><br></pre></td></tr></table></figure>
+
+<p>결과가 예상 되시나요?</p>
+<h1 id="추가"><a href="#추가" class="headerlink" title="추가"></a>추가</h1><p>페이스북에서 받은 <a target="_blank" rel="noopener" href="https://www.facebook.com/permalink.php?story_fbid=1587990834586231&id=100001259884599&notif_t=like&notif_id=1503590754890689">질문</a>을 좀 더 상세히 찾아보려는데,</p>
+<p>역시 유니코드 이 동네는 까면 깔수록 깔 게 많다. </p>
+<p>우선 질문은 “항상 &#x2F;[가-힣]+&#x2F;u 을 사용했는데 틀린 건가요?”였는데,</p>
+<p>그 전에 문맥&#x2F;비즈니스 요구 사항에 관해 반문해야할 게 좀 많다.</p>
+<p>그 기능에서</p>
+<ul>
+<li>자모를 모두 사용한 완성된 글자만 필요한가?</li>
+<li>자모를 개별적으로 입력할 수 있어야 하는가?</li>
+<li>한국어에서 쓰이지 않는 글자 조합을 표시해야 하는가?</li>
+<li>입력한 자음이나 모음이 한글인지 검색해야 하는가?</li>
+</ul>
+<p>유니코드에서 한글이 존재하는 구간은 다음과 같다.</p>
+<p><a target="_blank" rel="noopener" href="https://codepoints.net/hangul_jamo">Hangul Jamo (U+1100 to U+11FF)</a><br><a target="_blank" rel="noopener" href="https://codepoints.net/hangul_compatibility_jamo">Hangul Compatibility Jamo (U+3130 to U+318F)</a><br><a target="_blank" rel="noopener" href="https://codepoints.net/hangul_jamo_extended-a">Hangul Jamo Extended-A (U+A960 to U+A97F)</a><br><a target="_blank" rel="noopener" href="https://codepoints.net/hangul_syllables">Hangul Syllables (U+AC00 to U+D7AF)</a><br><a target="_blank" rel="noopener" href="https://codepoints.net/hangul_jamo_extended-b">Hangul Jamo Extended-B (U+D7B0 to U+D7FF)</a></p>
+<p>이중 &#x2F;가-힣&#x2F;으로 걸러낼 수 있는 건 <a target="_blank" rel="noopener" href="http://d2.naver.com/helloworld/76650">한글 소리 마디 (Hangul Syllables)</a>인데,<br>한글 자모 각각을 구별하기 위해선 <a target="_blank" rel="noopener" href="https://codepoints.net/hangul_jamo">Hangul Jamo (U+1100 to U+11FF)</a>까지 살펴봐야 한다.</p>
+<p>&#x2F;ㄱ-힣&#x2F;이라고 쓰는 사람도 많은데, ㄱㄴㄷ..ㅜㅠㅡㅣ까지의 구간과 가나다…힡힢힣까지의 구간 사이에 한자 등 다른 문자가 많이 포함되어 있으므로 금지해야 한다.<br>&#x2F;ㄱ-ㅣ가-힣&#x2F;으로 써야 한다.</p>
+<p>페북에서는 옛한글(언급은 안했지만 아래아 같은 걸 염두에 뒀었다)이 현대 한글의 코드 구간 뒤쪽이라고 얘길 했었는데,<br>아래아의 경우는 한글 자모에 속해있다. 이외에 쓰이지 않는 많은 진짜(?) 옛한글은 호환용 한글 자모나 자모 확장 등에서 발견된다.</p>
+<h2 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h2><p>올바른 정규식을 얻기 위해선 뭉뚱그려 ‘한글 문자를 검사하는 기능’ 정도로 설명하지 말고, 정확한 요구사항을 명시하는 게 좋다.  </p>
+<p>자모를 사용한 완성된 글자만 필요한가?</p>
+<ul>
+<li>&#x2F;가-힣&#x2F;</li>
+</ul>
+<p>자모를 개별적으로 입력할 수 있어야 하는가?</p>
+<ul>
+<li>&#x2F;ㄱ-ㅣ가-힣&#x2F;</li>
+</ul>
+<p>한국어에서 쓰이지 않는 옛한글이나 글자 조합도 표시해야 하는가?</p>
+<ul>
+<li>&#x2F;\p{Hangul}&#x2F;u</li>
+</ul>
+<p>입력한 자음이나 모음이 한글인지 검색해야 하는가?</p>
+<ul>
+<li>자음이나 모음을 하나만 입력하고 이게 속해있는 지 검색하는 기능이라면, ‘한글 호환 자모’에 관해서도 알아놔야 한다.<ul>
+<li>참고 : <a target="_blank" rel="noopener" href="http://advent.perl.kr/2015/2015-12-04.html">http://advent.perl.kr/2015/2015-12-04.html</a></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>한글을 입력할 때 완성된 글자가 아니라 자음이나 모음 하나만 단독으로 입력하는 경우, 그 음소는 유니코드의 ‘한글 호환 자모(Hangul Compatibility Jamo)’ 영역에 있는 것을 사용하게 됩니다.</p>
+</blockquote>
+<p>각자의 비즈니스 요구 사항에 따라 선택하면 될 일이지만,</p>
+<p>향후의 요구 사항을 고려하는 좀 더 세심한 네이밍이 필요할 것 같다.</p>
+<p>라라벨 유효성를 다시 한번 돌아보자.</p>
+<p>메소드 명을 validateAlpha()라고 해놓고 &#x2F;^[\pL\pM]+$&#x2F;u로 검사하는 것은 올바른 선택인가?</p>
+<h2 id="thank-to"><a href="#thank-to" class="headerlink" title="thank to"></a>thank to</h2><p><a target="_blank" rel="noopener" href="http://blog.gaerae.com/2015/10/postgresql-hangul-regular-expression.html">http://blog.gaerae.com/2015/10/postgresql-hangul-regular-expression.html</a><br><a target="_blank" rel="noopener" href="http://www.programminginkorean.com/programming/hangul-in-unicode/">http://www.programminginkorean.com/programming/hangul-in-unicode/</a></p>
+<ul>
+<li>뭐 이런 사이트가 다 있나 싶은데…이런 사이트도 있다</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="http://advent.perl.kr/2015/2015-12-04.html">http://advent.perl.kr/2015/2015-12-04.html</a><br><a target="_blank" rel="noopener" href="http://d2.naver.com/helloworld/76650">http://d2.naver.com/helloworld/76650</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>youngiggy
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://haah.kr/2017/08/23/alphabetic-letter-validation/" title="정규식으로 (한글) 문자만 골라내기">https://haah.kr/2017/08/23/alphabetic-letter-validation/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/REGEX/" rel="tag"># REGEX</a>
+              <a href="/tags/Laravel/" rel="tag"># Laravel</a>
+              <a href="/tags/PHP/" rel="tag"># PHP</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/08/23/http-the-definitive-guide-chapter-3/" rel="prev" title="HTTP 완벽가이드 3장">
+                  <i class="fa fa-chevron-left"></i> HTTP 완벽가이드 3장
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/08/30/eidf-2017/" rel="next" title="EIDF 2017">
+                  EIDF 2017 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">youngiggy</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"youngiggy-github-io","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

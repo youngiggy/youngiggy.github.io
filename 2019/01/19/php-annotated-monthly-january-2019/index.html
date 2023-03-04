@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_package_v0.16/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_package_v0.16/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_package_v0.16/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/favicon_package_v0.16/safari-pinned-tab.svg" color="#222">
+  <link rel="manifest" href="/images/favicon_package_v0.16/site.webmanifest">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"haah.kr","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="JetBrains에서 제공하는 월간 PHP Annotated Monthly입니다. 이 중에서 몇 가지 제 취향껏 골라 그 안의 내용도 좀 뒤져보고 개발새발 번역해서 소개합니다.  News &amp; ReleasesNikita Popov Joined PhpStorm Teamhttps:&#x2F;&#x2F;blog.jetbrains.com&#x2F;phpstorm&#x2F;2019&#x2F;01&#x2F;nik">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="php-annotated-monthly-January-2019">
+<meta property="og:url" content="https://haah.kr/2019/01/19/php-annotated-monthly-january-2019/">
+<meta property="og:site_name" content="ha-ah">
+<meta property="og:description" content="JetBrains에서 제공하는 월간 PHP Annotated Monthly입니다. 이 중에서 몇 가지 제 취향껏 골라 그 안의 내용도 좀 뒤져보고 개발새발 번역해서 소개합니다.  News &amp; ReleasesNikita Popov Joined PhpStorm Teamhttps:&#x2F;&#x2F;blog.jetbrains.com&#x2F;phpstorm&#x2F;2019&#x2F;01&#x2F;nik">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2018/12/new_php-annotated-monthly.jpg">
+<meta property="article:published_time" content="2019-01-19T03:47:21.000Z">
+<meta property="article:modified_time" content="2019-03-03T00:55:03.000Z">
+<meta property="article:author" content="youngiggy">
+<meta property="article:tag" content="PHP">
+<meta property="article:tag" content="php-annotated-monthly">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2018/12/new_php-annotated-monthly.jpg">
+
+
+<link rel="canonical" href="https://haah.kr/2019/01/19/php-annotated-monthly-january-2019/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://haah.kr/2019/01/19/php-annotated-monthly-january-2019/","path":"2019/01/19/php-annotated-monthly-january-2019/","title":"php-annotated-monthly-January-2019"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>php-annotated-monthly-January-2019 | ha-ah</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=354302543"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":354302543,"only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="ha-ah" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">ha-ah</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">로그, 게으른 로그</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#News-amp-Releases"><span class="nav-number">1.</span> <span class="nav-text">News &amp; Releases</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Nikita-Popov-Joined-PhpStorm-Team"><span class="nav-number">1.1.</span> <span class="nav-text">Nikita Popov Joined PhpStorm Team</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP-5-6-40"><span class="nav-number">1.2.</span> <span class="nav-text">PHP 5.6.40</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP-Internals"><span class="nav-number">2.</span> <span class="nav-text">PHP Internals</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#RFC-Typed-Properties-2-0"><span class="nav-number">2.1.</span> <span class="nav-text">RFC: Typed Properties 2.0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP-FFI"><span class="nav-number">2.2.</span> <span class="nav-text">[PHP] FFI</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Tools-Symfony-Laravel-Yii-Async-PHP"><span class="nav-number">3.</span> <span class="nav-text">Tools, Symfony, Laravel, Yii, Async PHP</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Security"><span class="nav-number">4.</span> <span class="nav-text">Security</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Exploit-PHP-Remotely-%E2%80%93-WAF-Rule-amp-Filter-Bypass"><span class="nav-number">4.1.</span> <span class="nav-text">Exploit PHP Remotely – WAF Rule &amp; Filter Bypass</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Find-bypass-disable-functions-automatically"><span class="nav-number">4.2.</span> <span class="nav-text">Find bypass disable_functions automatically</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#guardrailsio-x2F-awesome-php-security"><span class="nav-number">4.3.</span> <span class="nav-text">guardrailsio&#x2F;awesome-php-security</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ollyxar-x2F-php-malware-detector"><span class="nav-number">4.4.</span> <span class="nav-text">ollyxar&#x2F;php-malware-detector</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EA%B8%B0%ED%83%80-%EC%9D%BD%EC%9D%84-%EB%A7%8C%ED%95%9C-%EA%B8%80"><span class="nav-number">5.</span> <span class="nav-text">기타 읽을 만한 글</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#New-in-PHP-7-4"><span class="nav-number">5.1.</span> <span class="nav-text">New in PHP 7.4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tips-to-speed-up-PHPUnit-tests"><span class="nav-number">5.2.</span> <span class="nav-text">Tips to speed up PHPUnit tests</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tips-on-how-to-get-Faster-Code-Coverage"><span class="nav-number">5.3.</span> <span class="nav-text">Tips on how to get Faster Code Coverage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Writing-serverless-Hello-World-in-PHP-on-AWS-Lambda-using-serverless-com"><span class="nav-number">5.4.</span> <span class="nav-text">Writing serverless Hello World in PHP on AWS Lambda using serverless.com.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sergey-Zhuk-How-to-speedup-code-reviews"><span class="nav-number">5.5.</span> <span class="nav-text">Sergey Zhuk: How to speedup code reviews</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nikola-Posa-Some-naming-antipatterns"><span class="nav-number">5.6.</span> <span class="nav-text">Nikola Poša: Some naming antipatterns</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Marcel-Pociot-Semantic-versioning-explained"><span class="nav-number">5.7.</span> <span class="nav-text">Marcel Pociot: Semantic versioning explained</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Marcel-Pociot-Polishing-your-code"><span class="nav-number">5.8.</span> <span class="nav-text">Marcel Pociot: Polishing your code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#John-Mackenzie-My-Modern-PHP-Development-Setup"><span class="nav-number">5.9.</span> <span class="nav-text">John Mackenzie: My Modern PHP Development Setup</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#phpapprentice-com"><span class="nav-number">5.10.</span> <span class="nav-text">phpapprentice.com</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">youngiggy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">113</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:youngiggy@gmail.com" title="E-Mail → mailto:youngiggy@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/profile.php?id=100001259884599" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;profile.php?id&#x3D;100001259884599" rel="noopener me" target="_blank"><i class="fab fa-facebook fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/jooyoungiggy" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;jooyoungiggy" rel="noopener me" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://haah.kr/2019/01/19/php-annotated-monthly-january-2019/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="youngiggy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="php-annotated-monthly-January-2019 | ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          php-annotated-monthly-January-2019
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-01-19 12:47:21" itemprop="dateCreated datePublished" datetime="2019-01-19T12:47:21+09:00">2019-01-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2019-03-03 09:55:03" itemprop="dateModified" datetime="2019-03-03T09:55:03+09:00">2019-03-03</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/01/19/php-annotated-monthly-january-2019/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/01/19/php-annotated-monthly-january-2019/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><img src="https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2018/12/new_php-annotated-monthly.jpg" alt="Php_annotated_monthly 이미지"></p>
+<p>JetBrains에서 제공하는 월간 <a target="_blank" rel="noopener" href="https://blog.jetbrains.com/phpstorm/2019/01/php-annotated-monthly-january-2019/">PHP Annotated Monthly</a>입니다.</p>
+<p>이 중에서 몇 가지 제 취향껏 골라 그 안의 내용도 좀 뒤져보고 개발새발 번역해서 소개합니다.</p>
+<hr>
+<h1 id="News-amp-Releases"><a href="#News-amp-Releases" class="headerlink" title="News &amp; Releases"></a>News &amp; Releases</h1><h2 id="Nikita-Popov-Joined-PhpStorm-Team"><a href="#Nikita-Popov-Joined-PhpStorm-Team" class="headerlink" title="Nikita Popov Joined PhpStorm Team"></a>Nikita Popov Joined PhpStorm Team</h2><p><a target="_blank" rel="noopener" href="https://blog.jetbrains.com/phpstorm/2019/01/nikita-popov-joins-phpstorm-team/">https://blog.jetbrains.com/phpstorm/2019/01/nikita-popov-joins-phpstorm-team/</a></p>
+<p>Nikita하면 (제 머릿속에) 떠오르는 두 사람 중 하나. 그 <a target="_blank" rel="noopener" href="https://www.imdb.com/title/tt0100263/">니키타</a>가 아닌 <a target="_blank" rel="noopener" href="https://nikic.github.io/aboutMe.html">Nikita Popov</a>가 PhpStorm 팀에 합류했다는 소식입니다. </p>
+<p>그가 어떤 일을 했는지 대충 소개하자면,</p>
+<blockquote>
+<p>Nikita is the author of generators, variadic functions and argument unpacking, AST as an internal structure in PHP, engine exceptions, uniform variable syntax, and many other PHP contributions.<br>He worked with Dmitry Stogov and Xinchen Hui on NG project, which later became PHP 7.<br>Nikita is also known for PHP Parser which laid the groundwork for many other tools such as PHPStan, Psalm, BetterReflection, Infection, SuperClosure, and PHP-DI, just to name a few.</p>
+</blockquote>
+<h2 id="PHP-5-6-40"><a href="#PHP-5-6-40" class="headerlink" title="PHP 5.6.40"></a>PHP 5.6.40</h2><p><a target="_blank" rel="noopener" href="http://php.net/ChangeLog-5.php#5.6.40">http://php.net/ChangeLog-5.php#5.6.40</a></p>
+<p>PHP5.6이 이미 작년 12월부터 unsupported 되었음에도 불구하고, 심각한 보안 문제가 발생하면 PHP 팀이 업데이트 해줄 수도 있다는 이야기입니다. 정이 많네요, 이 친구들.</p>
+<p>심각한 오류가 무었이었는지 한번 봅시다.</p>
+<p><a target="_blank" rel="noopener" href="http://php.net/ChangeLog-5.php#5.6.40">http://php.net/ChangeLog-5.php#5.6.40</a></p>
+<p>Heap buffer overflow 문제가 주를 이루고 있네요. Mbstring 쪽 bug fix를 보면,</p>
+<ul>
+<li>Fixed bug #77370 (Buffer overflow on mb regex functions - fetch_token).</li>
+<li>Fixed bug #77371 (heap buffer overflow in mb regex functions - compile_string_node).</li>
+<li>Fixed bug #77381 (heap buffer overflow in multibyte match_at).</li>
+<li>Fixed bug #77382 (heap buffer overflow due to incorrect length in expand_case_fold_string).</li>
+<li>Fixed bug #77385 (buffer overflow in fetch_token).</li>
+<li>Fixed bug #77394 (Buffer overflow in multibyte case folding - unicode).</li>
+<li>Fixed bug #77418 (Heap overflow in utf32be_mbc_to_code).</li>
+</ul>
+<p>5.6.39 버전을 쓰시는 분들은 얼른 업데이트 하시길 빌어요. 아니죠, PHP7.1 이상으로 올리시는 것은 어떨까요?</p>
+<ul>
+<li>PHP 7.3.1</li>
+<li>PHP 7.2.14</li>
+<li>PHP 7.1.26</li>
+</ul>
+<h1 id="PHP-Internals"><a href="#PHP-Internals" class="headerlink" title="PHP Internals"></a>PHP Internals</h1><h2 id="RFC-Typed-Properties-2-0"><a href="#RFC-Typed-Properties-2-0" class="headerlink" title="RFC: Typed Properties 2.0"></a>RFC: Typed Properties 2.0</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/typed_properties_v2">https://wiki.php.net/rfc/typed_properties_v2</a></p>
+<p>위에 언급한 Nikita Popov가 언급하길, Typed Properties가 이제 쓸 준비가 되었고 master에 머지됐다고 합니다.</p>
+<p>RFC에 올라온 기존 방식의 코드 예시를 보면, return type을 고정하기 위해선 함수 선언부에 return type을 지정해야 했고, IDE에서 자동 완성을 지원하기 위해 아래와 같이 property에 type hint를 넣어야 했습니다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="comment">/** <span class="doctag">@var</span> int $id */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$id</span>;</span><br><span class="line">    <span class="comment">/** <span class="doctag">@var</span> string $name */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$name</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="keyword">int</span> <span class="variable">$id</span>, <span class="keyword">string</span> <span class="variable">$name</span></span>) </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;id = <span class="variable">$id</span>;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;name = <span class="variable">$name</span>;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getId</span>(<span class="params"></span>): <span class="title">int</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">$this</span>-&gt;id;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">setId</span>(<span class="params"><span class="keyword">int</span> <span class="variable">$id</span></span>): <span class="title">void</span> </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;id = <span class="variable">$id</span>;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>이를 좀 더 간략하고 편하게 작성할 수 있게 됐습니다. default value, nullable 선언도 가능합니다. (var 선언도 아직 지원하는 군요??)</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Example</span> </span>&#123;</span><br><span class="line">    <span class="comment">// All types with the exception of &quot;void&quot; and &quot;callable&quot; are supported</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> <span class="variable">$scalarType</span>;</span><br><span class="line">    <span class="keyword">protected</span> ClassName <span class="variable">$classType</span>;</span><br><span class="line">    <span class="keyword">private</span> ?ClassName <span class="variable">$nullableClassType</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// Types are also legal on static properties</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="keyword">iterable</span> <span class="variable">$staticProp</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// Types can also be used with the &quot;var&quot; notation</span></span><br><span class="line">    <span class="keyword">var</span> <span class="keyword">bool</span> <span class="variable">$flag</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// Typed properties may have default values (more below)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> <span class="variable">$str</span> = <span class="string">&quot;foo&quot;</span>;</span><br><span class="line">    <span class="keyword">public</span> ?<span class="keyword">string</span> <span class="variable">$nullableStr</span> = <span class="literal">null</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// The type applies to all properties in one declaration</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> <span class="variable">$x</span>, <span class="variable">$y</span>;</span><br><span class="line">    <span class="comment">// equivalent to:</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> <span class="variable">$x</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> <span class="variable">$y</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>RFC에 다양한 예시가 포함되어 있으니 확인하시길 바랍니다.</p>
+<p>이 RFC에 대해 Rasmus Schultz란 사람이 <a target="_blank" rel="noopener" href="https://dev.to/mindplay/php-typed-properties-think-twice-3824">PHP Typed Properties: Think Twice.</a>란 글을 썼습니다. 이 분 좀 트위터를 뒤져보니 조금 보수적인 관점으로 최근의 PHP의 방향에 불만을 갖고 계신 것 같습니다. 이런 의견도 무시하지 말아야겠죠. 이 글에선 기존에 PHP를 사용하는 관점에서 typed property를 사용하면 어떤 단점이 있는지 알고 써야 한다는 입장인데, OOP를 지향하는 프로그래머들에게 많은 비판을 받기도 합니다. 저런 예시는 나쁜 코드일 뿐이라고 말이죠. 저도 딱히 Rasmus의 의견에는 동조하기 어렵습니다.</p>
+<p>또한 트위터에서 <a target="_blank" rel="noopener" href="https://twitter.com/bwoebi/status/1084091761503424513">Bob Weinand 사람이 올린 글</a>에서 소개된 재미있는 코드도 소개가 됐는데요.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">declare</span>(strict_types = <span class="number">1</span>);</span><br><span class="line"> </span><br><span class="line"><span class="variable">$a</span> = <span class="keyword">new</span> <span class="class"><span class="keyword">class</span> </span>&#123; <span class="keyword">public</span> ?<span class="keyword">string</span> <span class="variable">$v</span>; &#125;;</span><br><span class="line"><span class="variable">$typedVariable</span> = &amp;<span class="variable">$a</span>-&gt;v;</span><br><span class="line"> </span><br><span class="line"><span class="variable">$typedVariable</span> = <span class="string">&#x27;foo&#x27;</span>; <span class="comment">// Ok</span></span><br><span class="line"><span class="variable">$typedVariable</span> = <span class="number">123</span>; <span class="comment">// TypeError</span></span><br></pre></td></tr></table></figure>
+
+<p>이렇게 꼼수를 쓰면 PHP에서도 typed 변수를 쓸 수 있게 됩니다. 이 아이디어를 응용한 <a target="_blank" rel="noopener" href="https://github.com/azjezz/typed">azjezz&#x2F;typed</a>란 라이브러리도 나왔다는 군요.</p>
+<h2 id="PHP-FFI"><a href="#PHP-FFI" class="headerlink" title="[PHP] FFI"></a>[PHP] FFI</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/ffi">https://wiki.php.net/rfc/ffi</a></p>
+<p>지난 <a target="_blank" rel="noopener" href="http://localhost:4000/2018/12/11/php-annotated-monthly-december-2018-2nd/">12월의 글</a>에서 언급된 스펙인데요. 보안이나 안정성에 여전히 의문이 들지만 이 제안은 결국 통과됐다는 이야기입니다. 다음 메이저 업데이트에 포함될 가능성이 높습니다.</p>
+<h1 id="Tools-Symfony-Laravel-Yii-Async-PHP"><a href="#Tools-Symfony-Laravel-Yii-Async-PHP" class="headerlink" title="Tools, Symfony, Laravel, Yii, Async PHP"></a>Tools, Symfony, Laravel, Yii, Async PHP</h1><p>흥미로운 소식이 많습니다…만 필요하신 분들이 알아서 보시기를…</p>
+<h1 id="Security"><a href="#Security" class="headerlink" title="Security"></a>Security</h1><p>보안 관련 소식입니다.</p>
+<h2 id="Exploit-PHP-Remotely-–-WAF-Rule-amp-Filter-Bypass"><a href="#Exploit-PHP-Remotely-–-WAF-Rule-amp-Filter-Bypass" class="headerlink" title="Exploit PHP Remotely – WAF Rule &amp; Filter Bypass"></a>Exploit PHP Remotely – WAF Rule &amp; Filter Bypass</h2><p><a target="_blank" rel="noopener" href="https://www.secjuice.com/php-rce-bypass-filters-sanitization-waf/">https://www.secjuice.com/php-rce-bypass-filters-sanitization-waf/</a></p>
+<p>PHP에서 필터, 입력값 검증, WAF(Web Application Firewall) 규칙을 우회하여 원격 코드 실행을 악용하는 방법을 보여줍니다. 저자는 CloudFlare를 예시로 들었는데, 특별히 문제가 있다기 보다는 쉽고 널리 알려졌기 때문이고, 다른 WAF도 마찬가지라고 합니다.</p>
+<p>이 문서에서는 system 함수를 파라미터로 넘겨서 실행하는 악질적인 코드를 만들어 실행하는 과정을 보여줍니다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="title function_ invoke__">preg_match</span>(<span class="string">&#x27;/system|exec|passthru/&#x27;</span>, <span class="variable">$_GET</span>[<span class="string">&#x27;code&#x27;</span>])) &#123; <span class="comment">// Filter</span></span><br><span class="line">	<span class="keyword">echo</span> <span class="string">&#x27;invalid syntax&#x27;</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	<span class="keyword">eval</span>(<span class="variable">$_GET</span>([<span class="string">&#x27;code&#x27;</span>]));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>파라미터로 <code>...?code=system(&quot;cat /etc/passwd&quot;);</code> 이런 코드를 넘겨 실행할 수 있게 시도하고,<br>이걸 막는 코드(preg_match문 참고)를 추가하고,<br>이를 다시 우회하는 코드를 만들어가고 있습니다.</p>
+<p><a target="_blank" rel="noopener" href="https://medium.com/secjuice/waf-evasion-techniques-718026d693d80">WAF 회피 기술에 대한 연재글</a>에서 더 확인해보세요.</p>
+<h2 id="Find-bypass-disable-functions-automatically"><a href="#Find-bypass-disable-functions-automatically" class="headerlink" title="Find bypass disable_functions automatically"></a>Find bypass disable_functions automatically</h2><p><a target="_blank" rel="noopener" href="https://x-c3ll.github.io//posts/find-bypass-disable_functions/">https://x-c3ll.github.io//posts/find-bypass-disable_functions/</a></p>
+<p>취약점이 발견된 함수 실행으로 OS 명령어를 실행하기 위해, disable_functions를 우회할 수 있는 함수를 자동으로 찾는 방법을 보여줍니다. (스스로 이건 좀 순진한 접근 방식이라고는 합니다만)</p>
+<p>찾는 방법은 이렇습니다.</p>
+<ul>
+<li>모든 PHP 함수의 파라미터를 추출합니다(PHP.net에 공개되지 않은 것도 있으므로)</li>
+<li>올바른 파라미터로 함수를 실행하고 trace합니다</li>
+<li>trace에서 execve와 같은 잠재적으로 위험한 함수를 찾습니다</li>
+</ul>
+<h2 id="guardrailsio-x2F-awesome-php-security"><a href="#guardrailsio-x2F-awesome-php-security" class="headerlink" title="guardrailsio&#x2F;awesome-php-security"></a>guardrailsio&#x2F;awesome-php-security</h2><p><a target="_blank" rel="noopener" href="https://github.com/guardrailsio/awesome-php-security">https://github.com/guardrailsio/awesome-php-security</a></p>
+<p>PHP 보안에 관련한 자료를 모아둔 awesome 시리즈입니다.</p>
+<h2 id="ollyxar-x2F-php-malware-detector"><a href="#ollyxar-x2F-php-malware-detector" class="headerlink" title="ollyxar&#x2F;php-malware-detector"></a>ollyxar&#x2F;php-malware-detector</h2><p><a target="_blank" rel="noopener" href="https://github.com/ollyxar/php-malware-detector/blob/30f409ad60c25f5e66db91e17cc6389dce3d3eef/src/Patterns.php#L21-L35">정규식</a>으로 문제가 되는 구문을 간단히 찾아볼 수 있게 구현한 라이브러리입니다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="built_in">static</span> <span class="variable">$suspicious</span> = [</span><br><span class="line">        <span class="string">&#x27;non-printable&#x27;</span>     =&gt; <span class="string">&#x27;/(function|return|base64_decode).&#123;,256&#125;[^\x09-\x0d\x20-\x7E]&#123;3&#125;/&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;evaluation&#x27;</span>        =&gt; <span class="string">&#x27;/\b(eval|create_function|system|assert|passthru|proc_open|(pcntl_|shell_)?exec|call_user_func(_array)?)\b\s*(\/\*(.*)\*\/)?\s*\(/&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;networking&#x27;</span>        =&gt; <span class="string">&#x27;/\b(fputs|file_get_contents|fsockopen|curl_exec|curl_multi_exec)\b\s*\(/&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;double-variable&#x27;</span>   =&gt; <span class="string">&#x27;/\$&#123;?\$[0-9a-zA-z]+/&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;var-as-function&#x27;</span>   =&gt; <span class="string">&#x27;/\$_(GET|POST|COOKIE|REQUEST|SERVER)\s*\[[^\]]+\]\s*\(/&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;callback&#x27;</span>          =&gt; <span class="string">&#x27;/\b(eval|assert|passthru|exec|include|system|pcntl_exec|shell_exec|base64_decode|`|array_map|ob_start|call_user_func(_array)?)\s*\(\s*(base64_decode|php:\/\/input|str_rot13|gz(inflate|uncompress)|getenv|pack|\\\\?\$_(GET|REQUEST|POST|COOKIE|SERVER))/&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;callback-2&#x27;</span>        =&gt; <span class="string">&#x27;/\b(array_(diff|intersect)_u(key|assoc)|array_(udiff|filter|reduce|walk(_recursive)?)|assert_options|uasort|uksort|usort|preg_replace_callback|iterator_apply)\s*\(\s*.*[,]+(base64_decode|php:\/\/input|str_rot13|gz(inflate|uncompress)|getenv|pack|\\\\?\$_(GET|REQUEST|POST|COOKIE|SERVER))/&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;preg_replace-e&#x27;</span>    =&gt; <span class="string">&#x27;/\b(preg_replace)\s*\(\s*(((&quot;|\&#x27;).*(\/e)(&quot;|\&#x27;))|base64_decode|php:\/\/input|str_rot13|gz(inflate|uncompress)|getenv|pack|\\\\?\$_(GET|REQUEST|POST|COOKIE|SERVER))/&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;obfuscation&#x27;</span>       =&gt; <span class="string">&#x27;/((\\\\x[0-9a-zA-z]&#123;2,3&#125;)&#123;3&#125;)|((chr\([\d]+\)\s?\.\s?)&#123;5&#125;)|((\$|&quot;|\&#x27;)[0-9a-zA-z]+(\&#x27;|&quot;)?+\s?\.\s?)&#123;4&#125;|(\bexplode\b\s*\(\s*\bchr\b\()/&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;php-params&#x27;</span>        =&gt; <span class="string">&#x27;/ini_(get|set|restore)\s*\(\s*[\&#x27;&quot;](safe_mode|open_basedir|disable_(function|classe)s|safe_mode_exec_dir|safe_mode_include_dir|register_globals|allow_url_include)/&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;include-images&#x27;</span>    =&gt; <span class="string">&#x27;/include\s*(\(|&quot;|\&#x27;)\s*[^\.]+\.(png|jpg|gif|bmp|ico)/&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;register-function&#x27;</span> =&gt; <span class="string">&#x27;/register_[a-z]+_function\s*\(\s*[\&#x27;&quot;]\s*(eval|assert|passthru|exec|include|system|shell_exec|`)/&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;extraction&#x27;</span>        =&gt; <span class="string">&#x27;/\bextract\b\s*\(\s*\$_(GET|REQUEST|POST|COOKIE|SERVER|)/&#x27;</span></span><br><span class="line">    ];</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="기타-읽을-만한-글"><a href="#기타-읽을-만한-글" class="headerlink" title="기타 읽을 만한 글"></a>기타 읽을 만한 글</h1><h2 id="New-in-PHP-7-4"><a href="#New-in-PHP-7-4" class="headerlink" title="New in PHP 7.4"></a>New in PHP 7.4</h2><p><a target="_blank" rel="noopener" href="https://stitcher.io/blog/new-in-php-74">https://stitcher.io/blog/new-in-php-74</a></p>
+<p>PHP 7.4에 새로 추가된 기능을 간단히 잘 정리해두었습니다.</p>
+<h2 id="Tips-to-speed-up-PHPUnit-tests"><a href="#Tips-to-speed-up-PHPUnit-tests" class="headerlink" title="Tips to speed up PHPUnit tests"></a>Tips to speed up PHPUnit tests</h2><p><a target="_blank" rel="noopener" href="https://laravel-news.com/tips-to-speed-up-phpunit-tests">https://laravel-news.com/tips-to-speed-up-phpunit-tests</a></p>
+<p>Unit Test를 빠르게 실행할 수 있는 여러가지 TIP이 있습니다.</p>
+<ul>
+<li>ParaTest라는 병렬 실행 라이브러리 사용</li>
+<li>실패한 테스트만 다시 돌리기</li>
+<li>느린 테스트를 Group으로 지정하고 따로 돌리기</li>
+<li>필터하기</li>
+<li>Password hash rounds를 bcrypt가 허용하는 최소 횟수인 4까지 줄여놓기</li>
+<li>In-memory database 사용</li>
+<li>Xdebug 비활성화 하기</li>
+<li>가장 좋은 것은, 느린 테스트를 고치기!</li>
+</ul>
+<h2 id="Tips-on-how-to-get-Faster-Code-Coverage"><a href="#Tips-on-how-to-get-Faster-Code-Coverage" class="headerlink" title="Tips on how to get Faster Code Coverage"></a>Tips on how to get Faster Code Coverage</h2><p><a target="_blank" rel="noopener" href="https://thephp.cc/news/2019/01/faster-code-coverage">https://thephp.cc/news/2019/01/faster-code-coverage</a></p>
+<p>더 빠르게 코드 커버리지를 구하는 방법</p>
+<h2 id="Writing-serverless-Hello-World-in-PHP-on-AWS-Lambda-using-serverless-com"><a href="#Writing-serverless-Hello-World-in-PHP-on-AWS-Lambda-using-serverless-com" class="headerlink" title="Writing serverless Hello World in PHP on AWS Lambda using serverless.com."></a>Writing serverless Hello World in PHP on AWS Lambda using serverless.com.</h2><p><a target="_blank" rel="noopener" href="https://akrabat.com/serverless-php-on-aws-lambda/">https://akrabat.com/serverless-php-on-aws-lambda/</a></p>
+<h2 id="Sergey-Zhuk-How-to-speedup-code-reviews"><a href="#Sergey-Zhuk-How-to-speedup-code-reviews" class="headerlink" title="Sergey Zhuk: How to speedup code reviews"></a>Sergey Zhuk: How to speedup code reviews</h2><p>더 빠르게 코드리뷰를 하는 방법입니다. PR을 올리는 방법이 중요하다는데요.</p>
+<p>아래의 카테고리로 PR할 것을 구분해서 보내고</p>
+<ul>
+<li>Features - functional changes.</li>
+<li>Structure refactoring - changes in classes, interfaces, moving methods between classes.</li>
+<li>Simple refactoring - may be done by your IDE, e.g. extracting variables&#x2F;methods&#x2F;constants, simplifying conditionals).</li>
+<li>Renaming and moving classes - reorganizing namespaces.</li>
+<li>Removing unused (dead) code.</li>
+<li>Code style fixes - e.g. using autowiring, removing redundant doc-blocks.</li>
+<li>Formatting fixes.</li>
+</ul>
+<p>각 카테고리 별로 코드리뷰 전략을 다르게 가져갑니다.</p>
+<ul>
+<li>Feature changes: fulfillment of business requirements and design.</li>
+<li>Structure refactoring: backward compatibility and design improvements.</li>
+<li>Simple refactoring: readability improvements. Because these changes are mostly may be done by IDE.</li>
+<li>Renaming&#x2F;removing classes: whether the namespaces structure has become better.</li>
+<li>Removing unused code: backward compatibility.</li>
+<li>Code style fixes: in most cases instant merge.</li>
+<li>Formatting fixes in most cases instant merge.</li>
+</ul>
+<p>PR을 보내기 전에 명심할 것은,</p>
+<ul>
+<li>당신의 코드를 읽기 좋게 최적화 하십시오. 코드는 쓰이는 것보다 더 많이 읽힙니다</li>
+<li>변경 사항의 컨텍스트 정보를 제공하기 위한 설명을 적어야 합니다</li>
+<li>Request 보내기 전에 당신의 코드를 리뷰하세요. 당신의 코드가 아닌 것처럼 리뷰하세요. 간혹 당신이 놓친 걸 찾을 수 있을 겁니다. 이 과정이 PR 거절&#x2F;수정 주기를 줄여줄 것입니다.</li>
+</ul>
+<h2 id="Nikola-Posa-Some-naming-antipatterns"><a href="#Nikola-Posa-Some-naming-antipatterns" class="headerlink" title="Nikola Poša: Some naming antipatterns"></a>Nikola Poša: Some naming antipatterns</h2><p><a target="_blank" rel="noopener" href="https://blog.nikolaposa.in.rs/2019/01/06/better-naming-convention/">https://blog.nikolaposa.in.rs/2019/01/06/better-naming-convention/</a></p>
+<p>네이밍 안티 패턴을 다룹니다.</p>
+<p><a target="_blank" rel="noopener" href="https://en.rmcreative.ru/blog/naming-things/">tips on naming</a>이란 글도 함께 읽어보세요.</p>
+<h2 id="Marcel-Pociot-Semantic-versioning-explained"><a href="#Marcel-Pociot-Semantic-versioning-explained" class="headerlink" title="Marcel Pociot: Semantic versioning explained"></a>Marcel Pociot: Semantic versioning explained</h2><p><a target="_blank" rel="noopener" href="https://marcelpociot.de/blog/semantic-versioning-explained">https://marcelpociot.de/blog/semantic-versioning-explained</a></p>
+<p>시맨틱 버저닝을 설명합니다.</p>
+<h2 id="Marcel-Pociot-Polishing-your-code"><a href="#Marcel-Pociot-Polishing-your-code" class="headerlink" title="Marcel Pociot: Polishing your code"></a>Marcel Pociot: Polishing your code</h2><p><a target="_blank" rel="noopener" href="https://marcelpociot.de/blog/polish-your-code">https://marcelpociot.de/blog/polish-your-code</a></p>
+<p>여러분의 코드를 갈고 닦으세요!</p>
+<h2 id="John-Mackenzie-My-Modern-PHP-Development-Setup"><a href="#John-Mackenzie-My-Modern-PHP-Development-Setup" class="headerlink" title="John Mackenzie: My Modern PHP Development Setup"></a>John Mackenzie: My Modern PHP Development Setup</h2><p><a target="_blank" rel="noopener" href="https://johnmackenzie.co.uk/post/my-modern-php-development-setup/">https://johnmackenzie.co.uk/post/my-modern-php-development-setup/</a></p>
+<p>저자의 Modern PHP 개발 환경 설정이라고 합니다.</p>
+<ul>
+<li>Use a Makefile and make good use of it</li>
+<li>Run everything in Docker</li>
+<li>Use CS Fixer To Adhere To Coding Standards</li>
+<li>Use PHP Stan</li>
+<li>Syncronise your team IDE’s with .editorconfig</li>
+</ul>
+<h2 id="phpapprentice-com"><a href="#phpapprentice-com" class="headerlink" title="phpapprentice.com"></a>phpapprentice.com</h2><p><a target="_blank" rel="noopener" href="https://phpapprentice.com/">https://phpapprentice.com/</a></p>
+<p>이제 막 PHP를 배우는 초심자를 위한 온라인 도서입니다. 마스코트가 아기 코끼리인가 봅니다.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>youngiggy
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://haah.kr/2019/01/19/php-annotated-monthly-january-2019/" title="php-annotated-monthly-January-2019">https://haah.kr/2019/01/19/php-annotated-monthly-january-2019/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/PHP/" rel="tag"># PHP</a>
+              <a href="/tags/php-annotated-monthly/" rel="tag"># php-annotated-monthly</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2019/01/02/books-2018-december/" rel="prev" title="독후감 - 2018년 12월">
+                  <i class="fa fa-chevron-left"></i> 독후감 - 2018년 12월
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/03/02/php-annotated-monthly-february-2019/" rel="next" title="php-annotated-monthly-february-2019">
+                  php-annotated-monthly-february-2019 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">youngiggy</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"youngiggy-github-io","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

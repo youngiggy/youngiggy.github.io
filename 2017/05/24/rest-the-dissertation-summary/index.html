@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_package_v0.16/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_package_v0.16/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_package_v0.16/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/favicon_package_v0.16/safari-pinned-tab.svg" color="#222">
+  <link rel="manifest" href="/images/favicon_package_v0.16/site.webmanifest">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"haah.kr","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="연재 목록  REST - 긴 여정의 시작 REST - HTML Form에서 GET&#x2F;POST만 지원하는 이유 REST - 논문(요약) 훑어보기 REST - REST 좋아하시네 REST - Roy가 입을 열다 REST - 당신이 만든 건 REST가 아니지만 괜찮아 REST - 논문 읽기(To Do)  논문REST의 사전적인 의미부터 알아보자. ‘바쁜">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="REST - 논문(요약) 훑어보기">
+<meta property="og:url" content="https://haah.kr/2017/05/24/rest-the-dissertation-summary/">
+<meta property="og:site_name" content="ha-ah">
+<meta property="og:description" content="연재 목록  REST - 긴 여정의 시작 REST - HTML Form에서 GET&#x2F;POST만 지원하는 이유 REST - 논문(요약) 훑어보기 REST - REST 좋아하시네 REST - Roy가 입을 열다 REST - 당신이 만든 건 REST가 아니지만 괜찮아 REST - 논문 읽기(To Do)  논문REST의 사전적인 의미부터 알아보자. ‘바쁜">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-05-24T03:06:17.000Z">
+<meta property="article:modified_time" content="2018-02-13T06:27:02.000Z">
+<meta property="article:author" content="youngiggy">
+<meta property="article:tag" content="API">
+<meta property="article:tag" content="RESTful">
+<meta property="article:tag" content="REST">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://haah.kr/2017/05/24/rest-the-dissertation-summary/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://haah.kr/2017/05/24/rest-the-dissertation-summary/","path":"2017/05/24/rest-the-dissertation-summary/","title":"REST - 논문(요약) 훑어보기"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>REST - 논문(요약) 훑어보기 | ha-ah</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=354302543"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":354302543,"only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="ha-ah" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">ha-ah</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">로그, 게으른 로그</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%85%BC%EB%AC%B8"><span class="nav-number">1.</span> <span class="nav-text">논문</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#REST-%EC%A0%9C%EC%95%BD-%EC%A1%B0%EA%B1%B4"><span class="nav-number">2.</span> <span class="nav-text">REST 제약 조건</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Client-Server"><span class="nav-number">2.1.</span> <span class="nav-text">Client-Server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stateless"><span class="nav-number">2.2.</span> <span class="nav-text">Stateless</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cache"><span class="nav-number">2.3.</span> <span class="nav-text">Cache</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Uniform-Interface"><span class="nav-number">2.4.</span> <span class="nav-text">Uniform Interface</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-identification-of-resources"><span class="nav-number">2.4.1.</span> <span class="nav-text">1. identification of resources</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-manipulation-of-resources-through-representation"><span class="nav-number">2.4.2.</span> <span class="nav-text">2. manipulation of resources through representation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-self-descriptive-messages"><span class="nav-number">2.4.3.</span> <span class="nav-text">3. self-descriptive messages</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-hypermedia-as-the-engine-of-application-state"><span class="nav-number">2.4.4.</span> <span class="nav-text">4. hypermedia as the engine of application state</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Layered-System"><span class="nav-number">2.5.</span> <span class="nav-text">Layered System</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Code-On-Demand-Optional"><span class="nav-number">2.6.</span> <span class="nav-text">Code-On-Demand (Optional)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#thanks-to"><span class="nav-number">3.</span> <span class="nav-text">thanks to</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">youngiggy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">113</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:youngiggy@gmail.com" title="E-Mail → mailto:youngiggy@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/profile.php?id=100001259884599" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;profile.php?id&#x3D;100001259884599" rel="noopener me" target="_blank"><i class="fab fa-facebook fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/jooyoungiggy" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;jooyoungiggy" rel="noopener me" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://haah.kr/2017/05/24/rest-the-dissertation-summary/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="youngiggy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="REST - 논문(요약) 훑어보기 | ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          REST - 논문(요약) 훑어보기
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-05-24 12:06:17" itemprop="dateCreated datePublished" datetime="2017-05-24T12:06:17+09:00">2017-05-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2018-02-13 15:27:02" itemprop="dateModified" datetime="2018-02-13T15:27:02+09:00">2018-02-13</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2017/05/24/rest-the-dissertation-summary/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/05/24/rest-the-dissertation-summary/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>연재 목록</p>
+<ol>
+<li><a href="/2017/05/22/rest-the-beginning/">REST - 긴 여정의 시작</a></li>
+<li><a href="/2017/05/23/rest-http-method-in-html-form/">REST - HTML Form에서 GET&#x2F;POST만 지원하는 이유</a></li>
+<li><a href="/2017/05/24/rest-the-dissertation-summary/">REST - 논문(요약) 훑어보기</a></li>
+<li><a href="/2017/06/12/rest-the-big-lie/">REST - REST 좋아하시네</a></li>
+<li><a href="/2017/06/26/rest-the-truth/">REST - Roy가 입을 열다</a></li>
+<li><a href="/2017/06/28/rest-the-coclusion/">REST - 당신이 만든 건 REST가 아니지만 괜찮아</a></li>
+<li><a href="/2017/06/28/rest-the-dissertation/">REST - 논문 읽기(To Do)</a></li>
+</ol>
+<h2 id="논문"><a href="#논문" class="headerlink" title="논문"></a>논문</h2><p>REST의 사전적인 의미부터 알아보자.</p>
+<p>‘바쁜 개발자들을 위한 REST 논문 요약’을 요약 + WhatIsRest.com + 지난 며칠간 블로그와 댓글을 뒤져가며 얻은 지식 + 내 생각을 적어보려고 한다.</p>
+<h2 id="REST-제약-조건"><a href="#REST-제약-조건" class="headerlink" title="REST 제약 조건"></a>REST 제약 조건</h2><p>논문에서는 아무것도 없는 웹 스타일에서 시작해, 제약 조건을 하나씩 추가해 나가며 REST 스타일을 유도해 나가는 과정을 통해 REST를 설명한다.</p>
+<ol>
+<li>Starting with the Null Style</li>
+<li>Client-Server</li>
+<li>Stateless</li>
+<li>Cache</li>
+<li>Uniform Interface</li>
+<li>Layered System</li>
+<li>Code-On-Demand</li>
+</ol>
+<p>각 제약 조건을 취하면서 발생하는 trade-off도 언급하고 있으나 여기서는 넘어가기로 한다.</p>
+<h3 id="Client-Server"><a href="#Client-Server" class="headerlink" title="Client-Server"></a>Client-Server</h3><p>보통 생각하는 서버-클라이언트를 의미.</p>
+<p>여기서 의문이 들었던 게, Client-Server라는 게 과연 제약조건이라고 할 수 있는 건가? 그러니까, 제약 조건을 어기는 게 과연 가능한가?</p>
+<p>이 제약조건은 클라이언트와 서버의 역할을 명확하게 구분한다 정도로 생각하면 될 것 같다.</p>
+<p>서로의 관심사를 분리하여 각각의 로직의 독립적인 진화를 지원해야 한다(중요).</p>
+<h3 id="Stateless"><a href="#Stateless" class="headerlink" title="Stateless"></a>Stateless</h3><p>모든 요청은 필요한 모든 정보를 담고 있어야한다.</p>
+<p>요청 하나만 봐도 바로 뭔지 알 수 있으므로 가시성이 확보된다.</p>
+<p>API 문외한 입장에서 가장 이해가 안 됐던 부분 중 하나였다. 인증을 위해 쿠키를 심고 세션에서 필요한 정보를 가져오는 경우, 이는 stateless인가 아닌가?</p>
+<ul>
+<li>정답 : Session 정보 활용한다면 stateless가 아니다</li>
+</ul>
+<p>REST에서는 각각의 요청에 서버가 필요한 정보가 모두 담겨야 한다.</p>
+<h3 id="Cache"><a href="#Cache" class="headerlink" title="Cache"></a>Cache</h3><p>모든 서버 응답은 캐시 가능한 지 그렇지 않은 지 알 수 있어야 한다.</p>
+<p>캐시를 고려한 설계가 필요하다.</p>
+<h3 id="Uniform-Interface"><a href="#Uniform-Interface" class="headerlink" title="Uniform Interface"></a>Uniform Interface</h3><p>구성요소(클라이언트, 서버 등) 사이의 인터페이스는 균일(uniform)해야한다.</p>
+<ul>
+<li>이것만으로는 무슨 말인지 모르겠다</li>
+</ul>
+<p>WhatIsREST.com의 내용을 구글 번역으로 돌려보면 </p>
+<ul>
+<li><code>소비자는 많은 소비자와 서비스에서 표준화 된 방법, 미디어 유형 및 공통 리소스 식별자 구문을 통해 서비스 기능에 액세스합니다</code>라고 나오는데,<br>미디어 유형이나 리소스 식별자 등을 의미하는 문법이 구성요소나 호환 시스템 간 동일해야 한다는 의미</li>
+</ul>
+<p>균일한 인터페이스가 필요한 이유는</p>
+<ul>
+<li>서버 입장에선 어떤 클라이언트든 상관없이(내가 보내주는 것을 이해할 수 있을까 걱정없이) 표준에 의한 응답을 해줄 수 있고</li>
+<li>클라이언트 입장에선 hypertext를 통해 다음 상태로의 이동을 해야하는데, 표준화된 방식을 통해 해당 서버의 특성을 알 필요가 없어진다</li>
+<li>서로의 특성을 알지 못해도 커뮤니케이션이 가능할 수 있어야, 각각 독립적으로 진화할 수 있는 유연한 시스템이 만들어진다</li>
+</ul>
+<p>REST는 네가지 Interface 제약조건으로 정의된다</p>
+<p><a target="_blank" rel="noopener" href="http://exyus.com/articles/rest-the-short-version/">네가지 Interface 제약조건</a>에서 언급된 내용을 구글 번역으로 좀 더 상세히 살펴보자.</p>
+<ul>
+<li>이 자원의 추상적 정의는 웹 아키텍처의 핵심 기능을 가능하게 합니다</li>
+<li>유형이나 구현에 따라 인위적으로 구별하지 않고 많은 정보 소스를 포괄함으로써 보편성을 제공합니다 </li>
+<li>표현에 대한 참조의 늦은 바인딩을 허용하여 요청의 특성에 따라 내용 협상을 수행 할 수 있습니다 </li>
+<li>저자는 개념의 단수 표현보다는 개념을 참조 할 수 있으므로 표현이 바뀔 때마다 기존의 모든 링크를 변경할 필요가 없습니다</li>
+</ul>
+<h4 id="1-identification-of-resources"><a href="#1-identification-of-resources" class="headerlink" title="1. identification of resources"></a>1. identification of resources</h4><p>리소스를 식별하는 방법이 동일해야 한다. 우리는 보통 URI를 쓰기 때문에 어쩐지 당연한 말처럼 느껴진다.</p>
+<h4 id="2-manipulation-of-resources-through-representation"><a href="#2-manipulation-of-resources-through-representation" class="headerlink" title="2. manipulation of resources through representation"></a>2. manipulation of resources through representation</h4><p>representation의 개념은 <a target="_blank" rel="noopener" href="https://blog.npcode.com/2017/04/03/rest%EC%9D%98-representation%EC%9D%B4%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80/">이응준님 블로그</a>에서 다루고 있다.</p>
+<p>리소스의 표현계층(representation)을 리소스의 식별자(URL)로부터 분리한 것은 REST에서 아주 주요한 관점이다.</p>
+<p>RESTful 응용 프로그램은 동일한 URI에서 동일한 자원의 표현을 둘 이상 지원할 수 있다.</p>
+<h4 id="3-self-descriptive-messages"><a href="#3-self-descriptive-messages" class="headerlink" title="3. self-descriptive messages"></a>3. self-descriptive messages</h4><p>요청이나 응답 메시지에는 이를 이해하기 위한 모든 정보가 포함되어야 한다.</p>
+<h4 id="4-hypermedia-as-the-engine-of-application-state"><a href="#4-hypermedia-as-the-engine-of-application-state" class="headerlink" title="4. hypermedia as the engine of application state"></a>4. hypermedia as the engine of application state</h4><p>줄여서 HATEOAS라고도 하지만 REST를 사랑하는 이들은 종종 이렇게 줄여부르는 걸 싫어하기도 한다(똑똑하고 재수없게 보이려면 ‘HATEOAS라고 줄여 부르는 건 바보같다’라고 말하면 된다).</p>
+<p>훗날 블로그에서 Roy는 이 부분을 가장 강조하는데, 어쩌면 사람들이 가장 안 지키고 있기 때문일 지도 모르다는 생각을 했다.  </p>
+<p>그리고 이를 언급할 때 주로 hypertext라는 표현을 사용한다.</p>
+<p>논문에서 hypermedia라고 한 것은 단지 text가 아닌 매체를 고려했기 때문이고,</p>
+<p>일반적인 API에서는 거의 hypertext라고 표현하면 된다.</p>
+<p>음? 우리가 HTML 페이지에서 맨날 보는 그 hypertext라는 용어가 맞나?</p>
+<p>맞다. 제시된 hypertext 위에서 application 상태를 변경하는 주체가 client가 되어야 한다는 게 핵심이다.</p>
+<p>조대협님의 블로그에는 <code>HTTP Response에 다음 Action이나 관계되는 리소스에 대한 HTTP Link를 함께 리턴하는 것</code>이라고 언급이 되어 있다.</p>
+<ul>
+<li>뭔가…이상한데…틀렸다고 하기는 뭣 하지만 온전히 이해가 되는 문장은 또 아니다. 다른 사람의 의견을 더 들어보자</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://community.oracle.com/blogs/mkarg/2010/02/14/what-hateoas-actually-means">What HATEOAS actually means</a></p>
+<ul>
+<li>다들 혼란스러워하는 것 같은데 직접 로이 필딩에게 물어보지 그래?</li>
+<li>로이의 문장은 명확하고, 모호하지도 않으니 그냥 읽어보길 바란다</li>
+<li>로이가 HTTP 표준의 기여자라는 것을 잘 생각해보자</li>
+<li>이 논문의 주제는 WWW가 잘 동작하고 확장성도 좋고, REST가 WWW 아키텍쳐 위에서 동작한다면, 이 역시 잘 동작하고 확장성이 좋다는 것이다</li>
+<li>4가지의 제약 조건은 결국 URI를 사용해서 MIME-typed 문서를 GET&#x2F;PUT 등으로 전송하는 것 + HATEOAS</li>
+<li>WWW :&#x3D; URI + HTTP + MIME + Hypermedia</li>
+<li>Hypermedia라는 건 hypertext를 확장한 개념</li>
+<li>좀 더 정확하게 쓰자면, HATEOAS :&#x3D; hypermedia documents as the state of state</li>
+<li>로이의 배경을 생각하면 그는, 하이퍼링크가 없는 HTML 도큐먼트를 상상조차 못할 인물이다</li>
+<li>그가 언급한 Hypermedia란 문서 자체를 의미한다</li>
+<li>로이는 HTTP통신에 Link header를 넣어도 여전히 RESTful 할 수 있지만, 합당한 이유가 있어야 한다고 했다<ul>
+<li>역주) 헤더에 넣으면 이를 처리할 수 없는 클라이언트도 있을 수 있기 때문에..라고 했는데 당시에는 LINK가 정식 표준이 아닌 때였기 때문인 것 같음</li>
+</ul>
+</li>
+<li>HATEOAS를 정확히 구현한 것은 문서안에 있는 링크다</li>
+<li>HATEOAS라는 다음 상태 변경을 위한 링크(form 링크 등)를 제공해야 한다는 것</li>
+</ul>
+<p>이 문서도 좀 제멋대로 해석한 부분이 있는데, Roy는 단지 HTTP만을 염두에 둔 게 아니다. HTTP이거나 HTML 문서이거나 그런 게 중요한 게 아니다.<br>HATEOAS라는 걸 응답에 다음 액션에 관한 링크를 전달하는 것 정도로 생각하면 안 된다.</p>
+<ul>
+<li>응답에 링크를 주렁주렁 달고 다니면 HATEOAS가 되는가? NO!</li>
+<li>서버는 Hypermedia를 통해 다음 액션에 대한 선택지를 클라이언트에게 줘야한다</li>
+<li>클라이언트는 서버의 독자적인 진화에 영향을 받아선 안 되며, 서버 상의 구현에 의존하면 안 된다</li>
+</ul>
+<p>결국 HATETOAS의 목적은 (서버-클라이언트 간 의존성을 분리해야만 가능한) 독자적인 진화와 확장을 보조하는 것이며, hypermedia는 그 목적을 이루는 데 기여해야 한다   </p>
+<h3 id="Layered-System"><a href="#Layered-System" class="headerlink" title="Layered System"></a>Layered System</h3><p>클라이언트든 서버든 미들웨어 구성요소를 추가할 수 있는 구조.</p>
+<p>하지만 Client-Server 사이에선 그 구성요소가 추가되는지, 다른 서비스와 추가로 통신하는 지 여부는 관심없다.</p>
+<p>서버와 클라이언트 간 상호 작용을 일관성있게 유지해야 한다.</p>
+<h3 id="Code-On-Demand-Optional"><a href="#Code-On-Demand-Optional" class="headerlink" title="Code-On-Demand (Optional)"></a>Code-On-Demand (Optional)</h3><p>서버가 네트워크를 통해 클라이언트에 프로그램을 전달하면 그 프로그램이 클라이언트에서 실행될 수 있어야한다. (Java applet이나 Javascript 같은 것을 말함).</p>
+<p>다만 이 제약조건은 필수는 아니다.</p>
+<h2 id="thanks-to"><a href="#thanks-to" class="headerlink" title="thanks to"></a>thanks to</h2><p><a target="_blank" rel="noopener" href="http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm">로이 필딩의 논문</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.npcode.com/">이응준님의 블로그</a>에서 많은 영감을 얻음</p>
+<p><a target="_blank" rel="noopener" href="http://whatisrest.com/">WhatIsREST.com</a></p>
+<p><a target="_blank" rel="noopener" href="http://exyus.com/articles/rest-the-short-version/">네가지 제약조건에 대한 짧은 설명</a> </p>
+<p><a target="_blank" rel="noopener" href="https://community.oracle.com/blogs/mkarg/2010/02/14/what-hateoas-actually-means">HATEOAS가 진짜로 의미하는 것</a> </p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>youngiggy
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://haah.kr/2017/05/24/rest-the-dissertation-summary/" title="REST - 논문(요약) 훑어보기">https://haah.kr/2017/05/24/rest-the-dissertation-summary/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/API/" rel="tag"># API</a>
+              <a href="/tags/RESTful/" rel="tag"># RESTful</a>
+              <a href="/tags/REST/" rel="tag"># REST</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/05/23/rest-http-method-in-html-form/" rel="prev" title="REST - HTML Form에서 GET/POST만 지원하는 이유">
+                  <i class="fa fa-chevron-left"></i> REST - HTML Form에서 GET/POST만 지원하는 이유
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/06/12/rest-the-big-lie/" rel="next" title="REST - REST 좋아하시네">
+                  REST - REST 좋아하시네 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">youngiggy</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"youngiggy-github-io","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

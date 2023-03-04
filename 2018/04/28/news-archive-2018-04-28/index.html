@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_package_v0.16/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_package_v0.16/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_package_v0.16/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/favicon_package_v0.16/safari-pinned-tab.svg" color="#222">
+  <link rel="manifest" href="/images/favicon_package_v0.16/site.webmanifest">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"haah.kr","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="GraphQL의 결과 값을 CDN에 캐싱 하기 (Caching GraphQL results in your CDN)https:&#x2F;&#x2F;www.vobour.com&#x2F;graphql의-결과-값을-cdn에-캐싱-하기-caching-graph apollo 블로그의 글을 번역한 건데, (내가 너무 고지식한 건지) 그 사실을 페이지 끝에 밝혀서 좀 아쉬운 감이 있긴 하다. 그러">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="뉴스 아카이브 2018-04-28">
+<meta property="og:url" content="https://haah.kr/2018/04/28/news-archive-2018-04-28/">
+<meta property="og:site_name" content="ha-ah">
+<meta property="og:description" content="GraphQL의 결과 값을 CDN에 캐싱 하기 (Caching GraphQL results in your CDN)https:&#x2F;&#x2F;www.vobour.com&#x2F;graphql의-결과-값을-cdn에-캐싱-하기-caching-graph apollo 블로그의 글을 번역한 건데, (내가 너무 고지식한 건지) 그 사실을 페이지 끝에 밝혀서 좀 아쉬운 감이 있긴 하다. 그러">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-04-28T02:18:53.000Z">
+<meta property="article:modified_time" content="2018-04-28T03:57:51.000Z">
+<meta property="article:author" content="youngiggy">
+<meta property="article:tag" content="news">
+<meta property="article:tag" content="archive">
+<meta property="article:tag" content="뉴스아카이브">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://haah.kr/2018/04/28/news-archive-2018-04-28/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://haah.kr/2018/04/28/news-archive-2018-04-28/","path":"2018/04/28/news-archive-2018-04-28/","title":"뉴스 아카이브 2018-04-28"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>뉴스 아카이브 2018-04-28 | ha-ah</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=354302543"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":354302543,"only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="ha-ah" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">ha-ah</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">로그, 게으른 로그</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#GraphQL%EC%9D%98-%EA%B2%B0%EA%B3%BC-%EA%B0%92%EC%9D%84-CDN%EC%97%90-%EC%BA%90%EC%8B%B1-%ED%95%98%EA%B8%B0-Caching-GraphQL-results-in-your-CDN"><span class="nav-number">1.</span> <span class="nav-text">GraphQL의 결과 값을 CDN에 캐싱 하기 (Caching GraphQL results in your CDN)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2018%EB%85%84%EA%B3%BC-%EC%9D%B4%ED%9B%84-JavaScript%EC%9D%98-%EB%8F%99%ED%96%A5-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC%EC%99%80-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC"><span class="nav-number">2.</span> <span class="nav-text">2018년과 이후 JavaScript의 동향 - 라이브러리와 프레임워크</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%8E%98%EC%9D%B4%EC%A7%80-%EC%9B%B9-React-%ED%8F%AC%ED%8C%85-%ED%9B%84%EA%B8%B0"><span class="nav-number">3.</span> <span class="nav-text">카카오페이지 웹 React 포팅 후기</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%A6%AC%EC%95%A1%ED%8A%B8-%EB%8F%84%EC%9B%80%EB%8B%AB%EA%B8%B0-%ED%95%9C%EA%B5%AD%EC%96%B4-%EB%B2%88%EC%97%AD%EC%84%9C%EB%A5%BC-%EC%B6%9C%EA%B0%84%ED%95%98%EB%A9%B0"><span class="nav-number">4.</span> <span class="nav-text">리액트 도움닫기 한국어 번역서를 출간하며</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%84%B1%EA%B3%BC%EB%A5%BC-%EC%A5%90%EC%96%B4%EC%A7%9C%EB%8A%94-%EA%B4%80%EB%A6%AC%EC%9E%90"><span class="nav-number">5.</span> <span class="nav-text">성과를 쥐어짜는 관리자</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scroll-to-the-future"><span class="nav-number">6.</span> <span class="nav-text">Scroll to the future</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%A1%B0%EC%A7%81%EC%9D%B4-%EA%B1%B4%EA%B0%95%ED%95%98%EB%8B%A4%EA%B3%A0-%EB%8A%90%EB%82%84-%EB%95%8C"><span class="nav-number">7.</span> <span class="nav-text">조직이 건강하다고 느낄 때</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%ED%8C%94%EB%8F%84-%EB%B9%84%EB%B9%94%EB%A9%B4-%EC%86%8C%EC%8A%A4-%EB%A7%8C%EB%93%9C%EB%8A%94-%EB%B2%95-%EB%B9%84%EB%B9%94%EB%A9%B4-%EC%86%8C%EC%8A%A4-%EB%A0%88%EC%8B%9C%ED%94%BC-%EA%B3%B5%EA%B0%9C"><span class="nav-number">8.</span> <span class="nav-text">팔도 비빔면 소스 만드는 법 비빔면 소스 레시피 공개</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%8A%A6%EC%9D%80-%EB%82%98%EC%9D%B4%EC%97%90-%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%A1%9C-%EC%8B%9C%EC%9E%91%ED%95%A0-%EC%88%98-%EC%9E%88%EC%9D%84%EA%B9%8C%EC%9A%94"><span class="nav-number">9.</span> <span class="nav-text">늦은 나이에 개발자로 시작할 수 있을까요.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%EC%97%90%EC%84%A0-%E2%80%98%EC%9D%B4%EB%A0%87%EA%B2%8C%E2%80%99-%EC%9D%BC%ED%95%9C%EB%8B%A4"><span class="nav-number">10.</span> <span class="nav-text">인스타그램에선 ‘이렇게’ 일한다</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">youngiggy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">113</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:youngiggy@gmail.com" title="E-Mail → mailto:youngiggy@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/profile.php?id=100001259884599" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;profile.php?id&#x3D;100001259884599" rel="noopener me" target="_blank"><i class="fab fa-facebook fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/jooyoungiggy" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;jooyoungiggy" rel="noopener me" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://haah.kr/2018/04/28/news-archive-2018-04-28/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="youngiggy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="뉴스 아카이브 2018-04-28 | ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          뉴스 아카이브 2018-04-28
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2018-04-28 11:18:53 / Modified: 12:57:51" itemprop="dateCreated datePublished" datetime="2018-04-28T11:18:53+09:00">2018-04-28</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/04/28/news-archive-2018-04-28/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/04/28/news-archive-2018-04-28/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="GraphQL의-결과-값을-CDN에-캐싱-하기-Caching-GraphQL-results-in-your-CDN"><a href="#GraphQL의-결과-값을-CDN에-캐싱-하기-Caching-GraphQL-results-in-your-CDN" class="headerlink" title="GraphQL의 결과 값을 CDN에 캐싱 하기 (Caching GraphQL results in your CDN)"></a>GraphQL의 결과 값을 CDN에 캐싱 하기 (Caching GraphQL results in your CDN)</h2><p><a target="_blank" rel="noopener" href="https://www.vobour.com/graphql%EC%9D%98-%EA%B2%B0%EA%B3%BC-%EA%B0%92%EC%9D%84-cdn%EC%97%90-%EC%BA%90%EC%8B%B1-%ED%95%98%EA%B8%B0-caching-graph">https://www.vobour.com/graphql의-결과-값을-cdn에-캐싱-하기-caching-graph</a></p>
+<p>apollo 블로그의 글을 번역한 건데, (내가 너무 고지식한 건지) 그 사실을 페이지 끝에 밝혀서 좀 아쉬운 감이 있긴 하다. 그러나 매우 유용한 글을 번역해 주셔서 고마울 따름.</p>
+<p>나도 graphql의 약점 중 하나로 캐시를 들고는 했는데, 그래서 <a target="_blank" rel="noopener" href="http://restql.b2w.io/">restQL</a>같은 놈들은 Native browser caching, CDN and Proxy caching 등을 해준다고 홍보를 하기도.</p>
+<p>apollo와 같은 프레임웍에서는 이 문제를 아래와 같이 해결한다. </p>
+<ul>
+<li>Apollo Link의 Automatic Persisted Queries로 POST로 보내야할 많은 데이터를 해쉬 키로 조회할 수 있게 된다</li>
+<li>Apollo Cache Control로 상세하게 cache hints를 줄 수 있다</li>
+</ul>
+<p>더 있지만 핵심은 이 정도인 듯?</p>
+<p>GraphQL만으로는 프로덕션에서 유용하게 써먹기는 힘들 것 같고, 이런 프레임웍에 얹어줘야 쓸만 할 것 같다. Github의 GraphQL API는 벌써 v4로 올라온 것 같은데, 내부적으로 어떻게 최적화하는지 글이 있으면 좋겠다.</p>
+<h2 id="2018년과-이후-JavaScript의-동향-라이브러리와-프레임워크"><a href="#2018년과-이후-JavaScript의-동향-라이브러리와-프레임워크" class="headerlink" title="2018년과 이후 JavaScript의 동향 - 라이브러리와 프레임워크"></a>2018년과 이후 JavaScript의 동향 - 라이브러리와 프레임워크</h2><p><a target="_blank" rel="noopener" href="http://d2.naver.com/helloworld/3259111">http://d2.naver.com/helloworld/3259111</a></p>
+<p>이제는 매년 훑어볼만한 시리즈가 되어가는 것 같다.</p>
+<p>한동안 jQuery를 쓰면 골방에서 방망이 깎는 노인 개발자처럼 이야기하는게 못마땅했는데, 요즘은 슬슬 생각이 바뀌는 중이다. jQuery가 여전히 유용하다고 생각했던 이유는 적어도 한국에선 구형 IE를 지원해야하고, 이 문법에 익숙한 개발자들이 널려 있으며 굳이 (나에게) 익숙하지 않은 React&#x2F;Angular&#x2F;VUE를 배워가며 복잡한 단순 UI를 만들 필요가 없었기 때문이다.</p>
+<p>그런데 이제 구형 IE를 지원해야 하는 요구가 많이 줄었을 것이라 생각하고(아니라면 위로를…), ES6 이상 쓰는 것도 당연한 일이고(아니라면 위로를..), jQuery가 익숙하지 않은 세대가 많이 유입이 됐고, 굳이 익숙하지 않은 jQuery를 쓰느니 간단히(!) webpack 좀 올려서 vue나 써버리는 사람이 많아졌다. 어느새.</p>
+<h2 id="카카오페이지-웹-React-포팅-후기"><a href="#카카오페이지-웹-React-포팅-후기" class="headerlink" title="카카오페이지 웹 React 포팅 후기"></a>카카오페이지 웹 React 포팅 후기</h2><p><a target="_blank" rel="noopener" href="https://medium.com/@ljs0705/%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%8E%98%EC%9D%B4%EC%A7%80-%EC%9B%B9-react-%ED%8F%AC%ED%8C%85-%ED%9B%84%EA%B8%B0-76402cc5e031">https://medium.com/@ljs0705/카카오페이지-웹-react-포팅-후기-76402cc5e031</a></p>
+<p>React를 도입할 때 고민해야할 것을 다방면으로 이야기 해줘서 참 좋다. 사실 (언젠가먼훗날내가리액트를공부할날이올것을대비하여) 이런 링크만 가득 있긴 한데, 나름 최신 정보니깐…옛날 링크 좀 지워버려야지.</p>
+<h2 id="리액트-도움닫기-한국어-번역서를-출간하며"><a href="#리액트-도움닫기-한국어-번역서를-출간하며" class="headerlink" title="리액트 도움닫기 한국어 번역서를 출간하며"></a>리액트 도움닫기 한국어 번역서를 출간하며</h2><p><a target="_blank" rel="noopener" href="https://sujinlee.me/the-road-to-learn-react-korean/">https://sujinlee.me/the-road-to-learn-react-korean/</a></p>
+<p>좀 전에 안 보는 React 관련 링크 좀 지워버린다 했지만, 벌써 또 하나의 링크를 수집해 놓는다. 리액트에 대한 내용 보다는 번역에 관한 노하우가 담긴 링크다. 멋지다!</p>
+<h2 id="성과를-쥐어짜는-관리자"><a href="#성과를-쥐어짜는-관리자" class="headerlink" title="성과를 쥐어짜는 관리자"></a>성과를 쥐어짜는 관리자</h2><p><a target="_blank" rel="noopener" href="https://brunch.co.kr/@younghakjang/52">https://brunch.co.kr/@younghakjang/52</a></p>
+<blockquote>
+<p>고성과 성격파탄자를 어떻게 다룰 것인가…생략…그런 사람을 저성과자로 분류하라…</p>
+</blockquote>
+<p>피드백!</p>
+<h2 id="Scroll-to-the-future"><a href="#Scroll-to-the-future" class="headerlink" title="Scroll to the future"></a>Scroll to the future</h2><p><a target="_blank" rel="noopener" href="https://evilmartians.com/chronicles/scroll-to-the-future-modern-javascript-css-scrolling-implementations">https://evilmartians.com/chronicles/scroll-to-the-future-modern-javascript-css-scrolling-implementations</a></p>
+<p>참 골치아프다.</p>
+<p>프론트엔드 개발자가 돈을 적게 받는 경향이 있는 것 같은데(주관적인 생각이다), 우리나라는 거칠고 잡다한 일을 해야할 경우 돈을 적게 주는 것 같다. (내가 해봐서 아는데라고 할 수 있는) 세심하게 많은 일을 하는 것보단 그게 무슨 일인지 이해하기 어려울 때 돈을 더 줄 가능성이 높달까.</p>
+<p>(사실 다들 얼마나 받는지는 잘 모르겠다)</p>
+<h2 id="조직이-건강하다고-느낄-때"><a href="#조직이-건강하다고-느낄-때" class="headerlink" title="조직이 건강하다고 느낄 때"></a>조직이 건강하다고 느낄 때</h2><p><a target="_blank" rel="noopener" href="https://www.facebook.com/dgtgrade/posts/1776370592421799">https://www.facebook.com/dgtgrade/posts/1776370592421799</a></p>
+<h2 id="팔도-비빔면-소스-만드는-법-비빔면-소스-레시피-공개"><a href="#팔도-비빔면-소스-만드는-법-비빔면-소스-레시피-공개" class="headerlink" title="팔도 비빔면 소스 만드는 법 비빔면 소스 레시피 공개"></a>팔도 비빔면 소스 만드는 법 비빔면 소스 레시피 공개</h2><p><a target="_blank" rel="noopener" href="http://gall.dcinside.com/board/view/?id=food_noodle&no=49937">http://gall.dcinside.com/board/view/?id=food_noodle&amp;no=49937</a></p>
+<p>생활해킹</p>
+<h2 id="늦은-나이에-개발자로-시작할-수-있을까요"><a href="#늦은-나이에-개발자로-시작할-수-있을까요" class="headerlink" title="늦은 나이에 개발자로 시작할 수 있을까요."></a>늦은 나이에 개발자로 시작할 수 있을까요.</h2><p><a target="_blank" rel="noopener" href="https://steemit.com/development/@hikamaeng/7s6nmg">https://steemit.com/development/@hikamaeng/7s6nmg</a></p>
+<p>뒤늦게 개발자를 하려는 동생에게도 보내줬는데, 요점은 대충 해서는 안된다는 것. 그런데 그 대충이 어느 수준인지 뒤늦은 개발자 지망생은 잘 모른다. 나도 잘 모르기 때문에, 어느 수준이 적당하다고 얘기하기도 어렵다. 개발에 흥미를 느껴서가 아니라 현실 도피성이라면 또한 현실 도피하고 싶은 회사에서 기다리고 있다고 봐야…</p>
+<h2 id="인스타그램에선-‘이렇게’-일한다"><a href="#인스타그램에선-‘이렇게’-일한다" class="headerlink" title="인스타그램에선 ‘이렇게’ 일한다"></a>인스타그램에선 ‘이렇게’ 일한다</h2><p><a target="_blank" rel="noopener" href="http://bridge.500startups.co.kr/%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%EC%97%90%EC%84%A0-%ED%8C%80-%EA%B4%80%EB%A6%AC-%EC%9D%B4%EB%A0%87%EA%B2%8C-%ED%95%9C%EB%8B%A4/">http://bridge.500startups.co.kr/인스타그램에선-팀-관리-이렇게-한다/</a></p>
+<p>사실 이런 글 반 이상은 다 뻥인 것 같은데, 이제는 그게 진짜인지 아닌지가 중요하진 않다고 생각한다. 우린 이렇게 하고 싶다 정도로 받아들인다면.</p>
+<p>방향이 좋다.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>youngiggy
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://haah.kr/2018/04/28/news-archive-2018-04-28/" title="뉴스 아카이브 2018-04-28">https://haah.kr/2018/04/28/news-archive-2018-04-28/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/news/" rel="tag"># news</a>
+              <a href="/tags/archive/" rel="tag"># archive</a>
+              <a href="/tags/%EB%89%B4%EC%8A%A4%EC%95%84%EC%B9%B4%EC%9D%B4%EB%B8%8C/" rel="tag"># 뉴스아카이브</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/04/20/xdebug-on-docker-for-mac/" rel="prev" title="Docker for Mac에서 Xdebug 연동">
+                  <i class="fa fa-chevron-left"></i> Docker for Mac에서 Xdebug 연동
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2018/05/01/streaming-and-output-buffering-in-PHP/" rel="next" title="PHP의 output_buffering">
+                  PHP의 output_buffering <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">youngiggy</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"youngiggy-github-io","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

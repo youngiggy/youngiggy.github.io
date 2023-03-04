@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_package_v0.16/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_package_v0.16/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_package_v0.16/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/favicon_package_v0.16/safari-pinned-tab.svg" color="#222">
+  <link rel="manifest" href="/images/favicon_package_v0.16/site.webmanifest">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"haah.kr","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Roman Pronskiy가 쓰고 JetBrains에서 제공하는 월간 PHP Annotated 2020년 10월호의 번역&#x2F;해석본입니다. 이 중에서 몇 가지 제 취향껏 골라 그 안의 내용도 좀 뒤져보고 개발새발 번역해서 소개합니다.  ⚡️ News &amp; ReleasesPHP 8.0.0 RС 2PHP 8의 release candidate 시리즈">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="PHP Annotated – October 2020">
+<meta property="og:url" content="https://haah.kr/2020/10/24/php-annotated-october-2020/">
+<meta property="og:site_name" content="ha-ah">
+<meta property="og:description" content="Roman Pronskiy가 쓰고 JetBrains에서 제공하는 월간 PHP Annotated 2020년 10월호의 번역&#x2F;해석본입니다. 이 중에서 몇 가지 제 취향껏 골라 그 안의 내용도 좀 뒤져보고 개발새발 번역해서 소개합니다.  ⚡️ News &amp; ReleasesPHP 8.0.0 RС 2PHP 8의 release candidate 시리즈">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blog.jetbrains.com/wp-content/uploads/2020/01/phpstorm-PHP_Annotated_blog_1600x800.png">
+<meta property="og:image" content="https://haah.kr/images/php-annotated-october-2020/float_compare.png">
+<meta property="article:published_time" content="2020-10-23T22:29:52.000Z">
+<meta property="article:modified_time" content="2020-10-24T07:26:48.000Z">
+<meta property="article:author" content="youngiggy">
+<meta property="article:tag" content="PHP">
+<meta property="article:tag" content="php-annotated-monthly">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.jetbrains.com/wp-content/uploads/2020/01/phpstorm-PHP_Annotated_blog_1600x800.png">
+
+
+<link rel="canonical" href="https://haah.kr/2020/10/24/php-annotated-october-2020/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://haah.kr/2020/10/24/php-annotated-october-2020/","path":"2020/10/24/php-annotated-october-2020/","title":"PHP Annotated – October 2020"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>PHP Annotated – October 2020 | ha-ah</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=354302543"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":354302543,"only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="ha-ah" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">ha-ah</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">로그, 게으른 로그</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%9A%A1%EF%B8%8F-News-amp-Releases"><span class="nav-number">1.</span> <span class="nav-text">⚡️ News &amp; Releases</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP-8-0-0-R%D0%A1-2"><span class="nav-number">1.1.</span> <span class="nav-text">PHP 8.0.0 RС 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PhpStorm-2020-3-EAP"><span class="nav-number">1.2.</span> <span class="nav-text">PhpStorm 2020.3 EAP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP"><span class="nav-number">1.3.</span> <span class="nav-text">PHP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Xdebug-3-0-beta-1"><span class="nav-number">1.4.</span> <span class="nav-text">Xdebug 3.0 beta 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Composer-2-0-0-RC2"><span class="nav-number">1.5.</span> <span class="nav-text">Composer 2.0.0 RC2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%90%98-PHP-Internals"><span class="nav-number">2.</span> <span class="nav-text">🐘 PHP Internals</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%9C%85-PR-Attributes-on-property-groups"><span class="nav-number">2.1.</span> <span class="nav-text">✅ [PR] Attributes on property groups</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%9C%85-PR-Attributes-and-strict-types"><span class="nav-number">2.2.</span> <span class="nav-text">✅ [PR] Attributes and strict types</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PR-OPCache-Direct-execution-opcode-file-without-php-source-code-file"><span class="nav-number">2.3.</span> <span class="nav-text">[PR] OPCache: Direct execution opcode file without php source code file</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AMA-with-the-PhpStorm-team"><span class="nav-number">2.4.</span> <span class="nav-text">AMA with the PhpStorm team</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PR-Multiline-arrow-functions"><span class="nav-number">2.5.</span> <span class="nav-text">[PR] Multiline arrow functions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%86%95-RFC-Short-Functions"><span class="nav-number">2.6.</span> <span class="nav-text">🆕 [RFC] Short Functions</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%9B%A0-Tools"><span class="nav-number">3.</span> <span class="nav-text">🛠 Tools</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#thephpleague-x2F-event-3-0-0"><span class="nav-number">3.1.</span> <span class="nav-text">thephpleague&#x2F;event 3.0.0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#terrylinooo-x2F-simple-cache"><span class="nav-number">3.2.</span> <span class="nav-text">terrylinooo&#x2F;simple-cache</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bolt-4-0"><span class="nav-number">3.3.</span> <span class="nav-text">Bolt 4.0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP-DI"><span class="nav-number">3.4.</span> <span class="nav-text">PHP-DI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#markrogoyski-x2F-math-php"><span class="nav-number">3.5.</span> <span class="nav-text">markrogoyski&#x2F;math-php</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Danack-x2F-FloatHex"><span class="nav-number">3.6.</span> <span class="nav-text">Danack&#x2F;FloatHex</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#marcocesarato-x2F-PHP-Antimalware-Scanner"><span class="nav-number">3.7.</span> <span class="nav-text">marcocesarato&#x2F;PHP-Antimalware-Scanner</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Prometheus-PHP"><span class="nav-number">3.8.</span> <span class="nav-text">Prometheus PHP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#shivammathur-x2F-setup-php"><span class="nav-number">3.9.</span> <span class="nav-text">shivammathur&#x2F;setup-php</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Symfony"><span class="nav-number">4.</span> <span class="nav-text">Symfony</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Dynamically-changing-the-log-level-in-Symfony-apps"><span class="nav-number">4.1.</span> <span class="nav-text">Dynamically changing the log level in Symfony apps.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A-Week-of-Symfony-720-12-18-October-2020"><span class="nav-number">4.2.</span> <span class="nav-text">A Week of Symfony #720 (12-18 October 2020)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#New-Symfony-core-team-members"><span class="nav-number">4.3.</span> <span class="nav-text">New Symfony core team members.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What%E2%80%99s-coming-in-Symfony-5-2"><span class="nav-number">4.4.</span> <span class="nav-text">What’s coming in Symfony 5.2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Laravel"><span class="nav-number">5.</span> <span class="nav-text">Laravel</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ksassnowski-x2F-venture"><span class="nav-number">5.1.</span> <span class="nav-text">ksassnowski&#x2F;venture</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spatie-x2F-laravel-typescript-transformer"><span class="nav-number">5.2.</span> <span class="nav-text">spatie&#x2F;laravel-typescript-transformer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spatie%E2%80%99s-updated-PHP-and-Laravel-guidelines"><span class="nav-number">5.3.</span> <span class="nav-text">Spatie’s updated PHP and Laravel guidelines.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spatie-x2F-spatie-be"><span class="nav-number">5.4.</span> <span class="nav-text">spatie&#x2F;spatie.be</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-complete-guide-to-Laravel-frontend-scaffolding"><span class="nav-number">5.5.</span> <span class="nav-text">The complete guide to Laravel frontend scaffolding.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%BA-Laravel-Worldwide-Meetup-3"><span class="nav-number">5.6.</span> <span class="nav-text">📺 Laravel Worldwide Meetup #3:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%BA-Stream-Generate-dynamic-open-graph-images-for-freek-dev-blog-posts"><span class="nav-number">5.7.</span> <span class="nav-text">📺 Stream: Generate dynamic open graph images for freek.dev blog posts.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%BA-Taylor-answers-questions-regarding-Jetstream"><span class="nav-number">5.8.</span> <span class="nav-text">📺 Taylor answers questions regarding Jetstream.</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Yii"><span class="nav-number">6.</span> <span class="nav-text">Yii</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#W3C-will-move-on-from-WordPress-and-will-instead-use-CraftCMS"><span class="nav-number">6.1.</span> <span class="nav-text">W3C will move on from WordPress and will instead use CraftCMS</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%8C%80-Async-PHP"><span class="nav-number">7.</span> <span class="nav-text">🌀 Async PHP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#micc83-x2F-mailamie"><span class="nav-number">7.1.</span> <span class="nav-text">micc83&#x2F;mailamie</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#clue-x2F-reactphp-mq"><span class="nav-number">7.2.</span> <span class="nav-text">clue&#x2F;reactphp-mq</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%92%A1-%EA%B8%B0%ED%83%80-%EC%9D%BD%EC%9D%84-%EB%A7%8C%ED%95%9C-%EA%B8%80"><span class="nav-number">8.</span> <span class="nav-text">💡 기타 읽을 만한 글</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Transpiling-PHP-code-from-8-0-to-7-x-via-Rector"><span class="nav-number">8.1.</span> <span class="nav-text">Transpiling PHP code from 8.0 to 7.x via Rector</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Error-suppression-operator-usage-analysis"><span class="nav-number">8.2.</span> <span class="nav-text">Error suppression operator @ usage analysis.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP-8-0-named-parameters-and-variadic"><span class="nav-number">8.3.</span> <span class="nav-text">PHP 8.0 named parameters and variadic</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gitattributes-for-PHP-projects"><span class="nav-number">8.4.</span> <span class="nav-text">.gitattributes for PHP projects.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Instructions-on-how-to-write-tests-for-PHP-itself"><span class="nav-number">8.5.</span> <span class="nav-text">Instructions on how to write tests for PHP itself</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Set-up-PhpStorm-to-use-PHP-with-PHPUnit-and-Xdebug-in-Docker"><span class="nav-number">8.6.</span> <span class="nav-text">Set up PhpStorm to use PHP with PHPUnit and Xdebug in Docker.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Caching-makes-everything-faster-Right"><span class="nav-number">8.7.</span> <span class="nav-text">Caching makes everything faster. Right?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis-of-a-PHP-script-that-distributes-Emotet-malware"><span class="nav-number">8.8.</span> <span class="nav-text">Analysis of a PHP script that distributes Emotet malware.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Which-colour-scheme-is-better"><span class="nav-number">8.9.</span> <span class="nav-text">Which colour scheme is better?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Joe-Watkins-Being-Free"><span class="nav-number">8.10.</span> <span class="nav-text">Joe Watkins: Being Free</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%93%BA-Videos"><span class="nav-number">9.</span> <span class="nav-text">📺 Videos</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Profiling-PHP-applications-with-Xdebug"><span class="nav-number">9.1.</span> <span class="nav-text">Profiling PHP applications with Xdebug</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tutorial-on-starting-with-rectorphp-x2F-rector"><span class="nav-number">9.2.</span> <span class="nav-text">Tutorial on starting with rectorphp&#x2F;rector.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Compiling-and-test-driving-PHP-8"><span class="nav-number">9.3.</span> <span class="nav-text">Compiling and test driving PHP 8</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deploy-Friday-27-%E2%80%93-Language-Spotlight-PHP"><span class="nav-number">9.4.</span> <span class="nav-text">Deploy Friday #27 – Language Spotlight: PHP</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%94%88-Podcasts"><span class="nav-number">10.</span> <span class="nav-text">🔈 Podcasts</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">youngiggy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">113</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:youngiggy@gmail.com" title="E-Mail → mailto:youngiggy@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/profile.php?id=100001259884599" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;profile.php?id&#x3D;100001259884599" rel="noopener me" target="_blank"><i class="fab fa-facebook fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/jooyoungiggy" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;jooyoungiggy" rel="noopener me" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://haah.kr/2020/10/24/php-annotated-october-2020/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="youngiggy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="PHP Annotated – October 2020 | ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          PHP Annotated – October 2020
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2020-10-24 07:29:52 / Modified: 16:26:48" itemprop="dateCreated datePublished" datetime="2020-10-24T07:29:52+09:00">2020-10-24</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/10/24/php-annotated-october-2020/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/10/24/php-annotated-october-2020/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><img src="https://blog.jetbrains.com/wp-content/uploads/2020/01/phpstorm-PHP_Annotated_blog_1600x800.png" alt="Php_annotated_monthly 이미지"></p>
+<p><a target="_blank" rel="noopener" href="https://blog.jetbrains.com/phpstorm/author/rpronskiy/">Roman Pronskiy</a>가 쓰고 JetBrains에서 제공하는 월간 PHP Annotated <a target="_blank" rel="noopener" href="https://blog.jetbrains.com/phpstorm/2020/10/php-annotated-october-2020/">2020년 10월호</a>의 번역&#x2F;해석본입니다.</p>
+<p>이 중에서 몇 가지 제 취향껏 골라 그 안의 내용도 좀 뒤져보고 개발새발 번역해서 소개합니다.</p>
+<hr>
+<h1 id="⚡️-News-amp-Releases"><a href="#⚡️-News-amp-Releases" class="headerlink" title="⚡️ News &amp; Releases"></a>⚡️ News &amp; Releases</h1><h2 id="PHP-8-0-0-RС-2"><a href="#PHP-8-0-0-RС-2" class="headerlink" title="PHP 8.0.0 RС 2"></a>PHP 8.0.0 RС 2</h2><p>PHP 8의 release candidate 시리즈가 시작됐습니다. 최종 릴리스 전까지 두 개의 RC가 남아 있습니다.</p>
+<p>8.0을 위한 <a target="_blank" rel="noopener" href="https://github.com/php/php-src/commits/PHP-8.0">별도의 branch</a>가 생성되었고, master branch는 이제 PHP 8.1을 바라보고 있습니다(php-src 저장소에는 master branch를 “Active development branch for PHP 8.1”라고 설명하고 있습니다).</p>
+<p>PHP 8의 새로운 기능에 대한 개요는 다음 블로그 게시물에서 찾을 수 있습니다.</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://stitcher.io/blog/new-in-php-8">What’s new in PHP 8</a></li>
+<li><a target="_blank" rel="noopener" href="https://stitcher.io/blog/php-8-before-and-after">PHP 8: before and after</a></li>
+</ul>
+<p>IDE에서 다루는 방법은 <a target="_blank" rel="noopener" href="https://blog.jetbrains.com/phpstorm/2020/10/phpstorm-2020-3-early-access-program-is-now-open/">PhpStorm의 블로그 글</a>이나 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3OLKg7exBWc">동영상</a>으로 확인하실 수 있습니다.<br>Larry Garfield는 <a target="_blank" rel="noopener" href="https://platform.sh/blog/2020/php-80-feature-focus-quality-of-life-improvements/">삶의 질을 높여주는 PHP 8 신규 기능에 관한 글</a>을 쓰기도 했습니다.<br><a target="_blank" rel="noopener" href="https://php.watch/versions/8.0">PHP.Watch</a>에선 PHP 8의 변경 사항을 한눈에 볼 수 있게 정리가 되어 있습니다.</p>
+<p>PHP 8을 사용해보시려면, php:rc-cli를 이용하면 Docker로 가능하고, Mac에서는 <a target="_blank" rel="noopener" href="https://github.com/shivammathur/homebrew-php">shivammathur&#x2F;homebrew-php</a>, 혹은 <a target="_blank" rel="noopener" href="https://github.com/php-build/php-build">php-build</a> 소스로 컴파일 해보실 수 있습니다.</p>
+<p>또한 Brent Roose와 Freek Van der Herten의 PHP 8을 사용하여 최신 애플리케이션을 구축하는 방법에 관한 eBook(발매 예정)인 <a target="_blank" rel="noopener" href="https://front-line-php.com/">Front Line PHP</a>의 업데이트를 구독 할 수 있습니다.</p>
+<h2 id="PhpStorm-2020-3-EAP"><a href="#PhpStorm-2020-3-EAP" class="headerlink" title="PhpStorm 2020.3 EAP"></a>PhpStorm 2020.3 EAP</h2><p><a target="_blank" rel="noopener" href="https://blog.jetbrains.com/phpstorm/2020/10/phpstorm-2020-3-early-access-program-is-now-open/">https://blog.jetbrains.com/phpstorm/2020/10/phpstorm-2020-3-early-access-program-is-now-open/</a></p>
+<p>PhpStorm의 EAP(early access program)을 사용하면 다음 릴리스에서 제공될 새로운 기능을 사용해 볼 수 있습니다. PHP 8 support, PHPStan, Psalm이 잘 작동하고 있고, 이외에 <a target="_blank" rel="noopener" href="https://blog.jetbrains.com/phpstorm/2020/10/phpstorm-2020-3-eap-3/">다른 변경 사항</a>이 많이 있습니다. 심지어 2020.3의 <a target="_blank" rel="noopener" href="https://blog.jetbrains.com/phpstorm/2020/10/phpstorm-2020-3-eap-2/">두 번째 EAP 빌드</a>에선 <code>@template</code>을 통해 generic을 지원하는 첫 번째 시도입니다(experimental).</p>
+<h2 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h2><p><a target="_blank" rel="noopener" href="https://www.php.net/ChangeLog-7.php#7.2.34">PHP 7.2.34</a><br><a target="_blank" rel="noopener" href="https://www.php.net/ChangeLog-7.php#7.3.23">PHP 7.3.23</a><br><a target="_blank" rel="noopener" href="https://www.php.net/ChangeLog-7.php#7.4.11">PHP 7.4.11</a></p>
+<h2 id="Xdebug-3-0-beta-1"><a href="#Xdebug-3-0-beta-1" class="headerlink" title="Xdebug 3.0 beta 1"></a>Xdebug 3.0 beta 1</h2><p><a target="_blank" rel="noopener" href="https://xdebug.org/announcements/2020-10-14">https://xdebug.org/announcements/2020-10-14</a></p>
+<p>이 세 번째 버전에서는 디버거와의 작업을 더 쉽게 시작할 수 있도록 설정 방식이 재 설계되었습니다. 단 하나의 옵션 만이 필수입니다 : <code>xdebug.mode=debug</code> 혹은 command line에서 <code>export XDEBUG_MODE=debug</code>. 기본 포트는 9000에서 9003으로 변경됐고, 같은 포트를 사용하는 php-fpm과 더는 충돌하지 않습니다. <a target="_blank" rel="noopener" href="https://3.xdebug.org/docs/upgrade_guide">upgrade guide</a>를 확인해보세요.</p>
+<h2 id="Composer-2-0-0-RC2"><a href="#Composer-2-0-0-RC2" class="headerlink" title="Composer 2.0.0 RC2"></a>Composer 2.0.0 RC2</h2><p><a target="_blank" rel="noopener" href="https://getcomposer.org/changelog/2.0.0-RC2">https://getcomposer.org/changelog/2.0.0-RC2</a></p>
+<p>최종 버전 전의 마지막 RC입니다. 시도해보시려면 <code>composer self-update --preview</code>를 실행해보세요.</p>
+<h1 id="🐘-PHP-Internals"><a href="#🐘-PHP-Internals" class="headerlink" title="🐘 PHP Internals"></a>🐘 PHP Internals</h1><h2 id="✅-PR-Attributes-on-property-groups"><a href="#✅-PR-Attributes-on-property-groups" class="headerlink" title="✅ [PR] Attributes on property groups"></a>✅ [PR] Attributes on property groups</h2><p><a target="_blank" rel="noopener" href="https://github.com/php/php-src/pull/6186">https://github.com/php/php-src/pull/6186</a></p>
+<p>이제 Attribute를 하나 하나 지정하는 대신 property 그룹 전체에 지정할 수 있습니다. 액세스 수정자에서와 완전히 동일하게 작동합니다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FooBar</span> </span>&#123;</span><br><span class="line">    <span class="meta">#[NonNegative</span><span class="meta">]</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> <span class="variable">$x</span>, <span class="variable">$y</span>, <span class="variable">$z</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="✅-PR-Attributes-and-strict-types"><a href="#✅-PR-Attributes-and-strict-types" class="headerlink" title="✅ [PR] Attributes and strict types"></a>✅ [PR] Attributes and strict types</h2><p><a target="_blank" rel="noopener" href="https://externals.io/message/111915">https://externals.io/message/111915</a></p>
+<p>이제 Attribute는 strict_types&#x3D;1 지시자도 고려합니다.</p>
+<h2 id="PR-OPCache-Direct-execution-opcode-file-without-php-source-code-file"><a href="#PR-OPCache-Direct-execution-opcode-file-without-php-source-code-file" class="headerlink" title="[PR] OPCache: Direct execution opcode file without php source code file"></a>[PR] OPCache: Direct execution opcode file without php source code file</h2><p><a target="_blank" rel="noopener" href="https://github.com/php/php-src/pull/6146">https://github.com/php/php-src/pull/6146</a></p>
+<p>이 PR에서, 저자는 opcache 바이너리 파일을 저장하고 소스 코드 없이도 실행할 수 있게 제안합니다 - Python의 <code>.pyc / .pyo</code>의 파일과 유사한 방식.</p>
+<p>그러나 <a target="_blank" rel="noopener" href="https://externals.io/message/111965">이에 관한 논의</a>에서 이 접근 방식의 몇 가지 문제점이 드러났습니다. PHP의 opcode 형식이 불안정하고, 다른 버전 간에 서로 호환되지 않습니다. 예를 들어, 패치 릴리스 사이에서도 PHP 7.4.22로 컴파일 된 코드는 PHP 7.4.23에서 segfault로 실패 할 수 있습니다.</p>
+<h2 id="AMA-with-the-PhpStorm-team"><a href="#AMA-with-the-PhpStorm-team" class="headerlink" title="AMA with the PhpStorm team"></a>AMA with the PhpStorm team</h2><p><a target="_blank" rel="noopener" href="https://www.reddit.com/r/PHP/comments/j65968/ama_with_the_phpstorm_team_from_jetbrains_on/">https://www.reddit.com/r/PHP/comments/j65968/ama_with_the_phpstorm_team_from_jetbrains_on/</a></p>
+<p>최근 Reddit에서의 <a target="_blank" rel="noopener" href="https://www.reddit.com/r/PHP/comments/j65968/ama_with_the_phpstorm_team_from_jetbrains_on/">AMA(Ask Me Anything) with the PhpStorm team</a>에서 Nikita는 <a target="_blank" rel="noopener" href="https://www.reddit.com/r/PHP/comments/j65968/ama_with_the_phpstorm_team_from_jetbrains_on/g83skiz/?context=3">generic의 상태와 전망에 대해</a> 자세히 언급했습니다. 요컨대, <a target="_blank" rel="noopener" href="https://blog.jetbrains.com/phpstorm/2020/09/php-annotated-september-2020/#runtime-erased_generics">런타임에 삭제되는 제네릭</a>은 순전히 기술적인 관점에서 가장 실행 가능한 접근 방식이지만 동시에 매우 일관성이없고 형식 안전성에 구멍을 남깁니다.</p>
+<h2 id="PR-Multiline-arrow-functions"><a href="#PR-Multiline-arrow-functions" class="headerlink" title="[PR] Multiline arrow functions"></a>[PR] Multiline arrow functions</h2><p><a target="_blank" rel="noopener" href="https://github.com/php/php-src/pull/6246">https://github.com/php/php-src/pull/6246</a></p>
+<p>PHP 7.4에 추가된 arrow 함수는 한 줄짜리 표현식만 가능했습니다. 이 PR은 여러 줄의 짧은 람다식을 가능하게 합니다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$guests</span> = <span class="title function_ invoke__">array_filter</span>(<span class="variable">$users</span>, fn (<span class="variable">$user</span>) =&gt; &#123;</span><br><span class="line">  <span class="variable">$guest</span> = <span class="variable">$repository</span>-&gt;<span class="title function_ invoke__">findByUserId</span>(<span class="variable">$user</span>-&gt;id);</span><br><span class="line">  <span class="keyword">return</span> <span class="variable">$guest</span> !== <span class="literal">null</span> &amp;&amp; <span class="title function_ invoke__">in_array</span>(<span class="variable">$guest</span>-&gt;id, <span class="variable">$guestsIds</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>일반적인 람다 함수에 비해 갖는 이점은 <code>use</code>를 쓰지 않고도 scope를 캡쳐할 수 있다는 점입니다.</p>
+<p>문법에 화살표(&#x3D;&gt;)를 추가할지에 대한 질문도 남겼습니다. <code>fn() =&gt; &#123;&#125;</code> vs. <code>fn() &#123;&#125;</code></p>
+<h2 id="🆕-RFC-Short-Functions"><a href="#🆕-RFC-Short-Functions" class="headerlink" title="🆕 [RFC] Short Functions"></a>🆕 [RFC] Short Functions</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/short-functions">https://wiki.php.net/rfc/short-functions</a></p>
+<p>이 RFC는 화살표 함수 구문으로 명명된(named) 함수나 메소드에 단순 반환 표현식을 쓰도록 제안합니다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">pick_one</span>(<span class="params"><span class="keyword">int</span> <span class="variable">$a</span></span>) =&gt;</span> <span class="keyword">match</span>(<span class="variable">$a</span>) &#123;</span><br><span class="line">    <span class="number">1</span> =&gt; <span class="string">&#x27;One&#x27;</span>,</span><br><span class="line">    <span class="number">2</span> =&gt; <span class="string">&#x27;Two&#x27;</span>,</span><br><span class="line">    <span class="number">3</span> =&gt; <span class="string">&#x27;Three&#x27;</span>,</span><br><span class="line">    <span class="keyword">default</span> =&gt; <span class="string">&#x27;More&#x27;</span>,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">print</span> <span class="title function_ invoke__">pick_one</span>(<span class="number">1</span>) . PHP_EOL;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"></span></span></span><br><span class="line"><span class="params"><span class="function">        <span class="keyword">private</span> <span class="keyword">string</span> <span class="variable">$firstName</span>,</span></span></span><br><span class="line"><span class="params"><span class="function">    </span>) </span>&#123;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getFirstName</span>(<span class="params"></span>): <span class="title">string</span> =&gt;</span> <span class="variable language_">$this</span>-&gt;firstName;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="🛠-Tools"><a href="#🛠-Tools" class="headerlink" title="🛠 Tools"></a>🛠 Tools</h1><h2 id="thephpleague-x2F-event-3-0-0"><a href="#thephpleague-x2F-event-3-0-0" class="headerlink" title="thephpleague&#x2F;event 3.0.0"></a>thephpleague&#x2F;event 3.0.0</h2><p><a target="_blank" rel="noopener" href="https://github.com/thephpleague/event">https://github.com/thephpleague/event</a></p>
+<p>이 유명한 이벤트 패키지는 이제 PSR-14와 호환됩니다.</p>
+<h2 id="terrylinooo-x2F-simple-cache"><a href="#terrylinooo-x2F-simple-cache" class="headerlink" title="terrylinooo&#x2F;simple-cache"></a>terrylinooo&#x2F;simple-cache</h2><p><a target="_blank" rel="noopener" href="https://github.com/terrylinooo/simple-cache">https://github.com/terrylinooo/simple-cache</a></p>
+<p>PSR-16 simple cache drivers for files, Redis, MySQL, SQLite, APC, APCu, Memcache, Memcached, and WinCache</p>
+<h2 id="Bolt-4-0"><a href="#Bolt-4-0" class="headerlink" title="Bolt 4.0"></a>Bolt 4.0</h2><p><a target="_blank" rel="noopener" href="https://github.com/bolt/core">https://github.com/bolt/core</a></p>
+<p>즉시 사용 가능한 REST, GraphQL API 그리고 i18n과 함께 컴포저 패키지로 구워진 Symfony 5 CMS.</p>
+<h2 id="PHP-DI"><a href="#PHP-DI" class="headerlink" title="PHP-DI"></a>PHP-DI</h2><p><a target="_blank" rel="noopener" href="https://github.com/PHP-DI/PHP-DI">https://github.com/PHP-DI/PHP-DI</a></p>
+<p>실용적이고 프레임웍에 구애받지 않는 의존성 주입 컨테이너.</p>
+<h2 id="markrogoyski-x2F-math-php"><a href="#markrogoyski-x2F-math-php" class="headerlink" title="markrogoyski&#x2F;math-php"></a>markrogoyski&#x2F;math-php</h2><p><a target="_blank" rel="noopener" href="https://github.com/markrogoyski/math-php">https://github.com/markrogoyski/math-php</a></p>
+<p>PHP를 위한 강력하고 현대적인 수학 라이브러리.</p>
+<h2 id="Danack-x2F-FloatHex"><a href="#Danack-x2F-FloatHex" class="headerlink" title="Danack&#x2F;FloatHex"></a>Danack&#x2F;FloatHex</h2><p><a target="_blank" rel="noopener" href="https://github.com/Danack/FloatHex">https://github.com/Danack/FloatHex</a></p>
+<p>Float 형을 16 진수 문자열로 변환하고 그 반대로 되돌리는 기능과 2진 표현으로 두 개의 부동 소수점 숫자를 표시하는 등의 함수들. 또는 <code>float_compare(0.3, 0.1 + 0.2);</code>를 사용하면 <code>0.1 + 0.2 === 0.3</code>이 왜 <code>false</code>인지 알 수 있습니다.</p>
+<p><img src="/images/php-annotated-october-2020/float_compare.png" alt="float_compare 이미지"></p>
+<h2 id="marcocesarato-x2F-PHP-Antimalware-Scanner"><a href="#marcocesarato-x2F-PHP-Antimalware-Scanner" class="headerlink" title="marcocesarato&#x2F;PHP-Antimalware-Scanner"></a>marcocesarato&#x2F;PHP-Antimalware-Scanner</h2><p><a target="_blank" rel="noopener" href="https://github.com/marcocesarato/PHP-Antimalware-Scanner">https://github.com/marcocesarato/PHP-Antimalware-Scanner</a></p>
+<p>PHP 파일을 스캔하고 프로젝트를 분석하여 그 안에있는 악성 코드를 찾는 도구입니다.</p>
+<h2 id="Prometheus-PHP"><a href="#Prometheus-PHP" class="headerlink" title="Prometheus PHP"></a>Prometheus PHP</h2><p><a target="_blank" rel="noopener" href="https://github.com/PromPHP">https://github.com/PromPHP</a></p>
+<p><a target="_blank" rel="noopener" href="https://prometheus.io/">prometheus.io</a>를 위한 비공식 PHP용 라이브러리.</p>
+<h2 id="shivammathur-x2F-setup-php"><a href="#shivammathur-x2F-setup-php" class="headerlink" title="shivammathur&#x2F;setup-php"></a>shivammathur&#x2F;setup-php</h2><p><a target="_blank" rel="noopener" href="https://github.com/shivammathur/setup-php">https://github.com/shivammathur/setup-php</a></p>
+<p>파이프라인에서 환경을 준비하기 위해 PHP, 확장 및 기타 사항을 설정하기 위한 GitHub Action. Github 블로그에서 이에 관한 <a target="_blank" rel="noopener" href="https://github.blog/2020-10-04-github-action-hero-shivam-mathur-and-setup-php/">간략한 개요</a>를 제공합니다.</p>
+<h1 id="Symfony"><a href="#Symfony" class="headerlink" title="Symfony"></a>Symfony</h1><h2 id="Dynamically-changing-the-log-level-in-Symfony-apps"><a href="#Dynamically-changing-the-log-level-in-Symfony-apps" class="headerlink" title="Dynamically changing the log level in Symfony apps."></a>Dynamically changing the log level in Symfony apps.</h2><p><a target="_blank" rel="noopener" href="https://matthiasnoback.nl/2020/09/symfony-changing-the-log-level/">https://matthiasnoback.nl/2020/09/symfony-changing-the-log-level/</a></p>
+<h2 id="A-Week-of-Symfony-720-12-18-October-2020"><a href="#A-Week-of-Symfony-720-12-18-October-2020" class="headerlink" title="A Week of Symfony #720 (12-18 October 2020)"></a>A Week of Symfony #720 (12-18 October 2020)</h2><p><a target="_blank" rel="noopener" href="https://symfony.com/blog/a-week-of-symfony-720-12-18-october-2020">https://symfony.com/blog/a-week-of-symfony-720-12-18-october-2020</a></p>
+<h2 id="New-Symfony-core-team-members"><a href="#New-Symfony-core-team-members" class="headerlink" title="New Symfony core team members."></a>New Symfony core team members.</h2><p><a target="_blank" rel="noopener" href="https://symfony.com/blog/new-core-team-members">https://symfony.com/blog/new-core-team-members</a></p>
+<h2 id="What’s-coming-in-Symfony-5-2"><a href="#What’s-coming-in-Symfony-5-2" class="headerlink" title="What’s coming in Symfony 5.2"></a>What’s coming in Symfony 5.2</h2><p><a target="_blank" rel="noopener" href="https://symfony.com/blog/category/living-on-the-edge/5.2">https://symfony.com/blog/category/living-on-the-edge/5.2</a></p>
+<p>다가오는 Symfony 릴리스는 무엇보다도 PHP 8과 호환됩니다. Symfony 5.2는 <a target="_blank" rel="noopener" href="https://symfony.com/blog/new-in-symfony-5-2-php-8-attributes">PHP 8 attributes</a> 몇가지를 가져왔습니다. 예를 들어, 라우팅을 위해서는 <code>#[Route(&#39;/path&#39;, name: &#39;action&#39;)]</code>, 의존성을 위해서는 <code>#[Required]</code>, 그리고 user를 가져오기 위해 <code>#[CurrentUser]</code>와 같은 controller parameter를 위한 attribute를 사용할 수 있습니다.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> function <span class="title function_">index</span><span class="params">(#[CurrentUser] MyUser $user)</span> &#123; <span class="comment">/* ... */</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Laravel"><a href="#Laravel" class="headerlink" title="Laravel"></a>Laravel</h1><h2 id="ksassnowski-x2F-venture"><a href="#ksassnowski-x2F-venture" class="headerlink" title="ksassnowski&#x2F;venture"></a>ksassnowski&#x2F;venture</h2><p><a target="_blank" rel="noopener" href="https://github.com/ksassnowski/venture">https://github.com/ksassnowski/venture</a></p>
+<p>이 패키지를 사용하면 Laravel의 Queue 시스템을 사용하여 상호 의존적인 작업의 복잡한 워크플로우를 구축할 수 있습니다.</p>
+<h2 id="spatie-x2F-laravel-typescript-transformer"><a href="#spatie-x2F-laravel-typescript-transformer" class="headerlink" title="spatie&#x2F;laravel-typescript-transformer"></a>spatie&#x2F;laravel-typescript-transformer</h2><p>PHP 클래스를 기반으로 TypeScript 타입을 생성하여 frontend에서 사용할 수 있게 합니다. 이 <a target="_blank" rel="noopener" href="https://rubenvanassche.com/typing-your-frontend-from-the-backend/">게시글</a>로부터 이를 사용해야할 동기를 확인해보세요.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/spatie/laravel-typescript-transformer">https://github.com/spatie/laravel-typescript-transformer</a></p>
+<h2 id="Spatie’s-updated-PHP-and-Laravel-guidelines"><a href="#Spatie’s-updated-PHP-and-Laravel-guidelines" class="headerlink" title="Spatie’s updated PHP and Laravel guidelines."></a>Spatie’s updated PHP and Laravel guidelines.</h2><p><a target="_blank" rel="noopener" href="https://spatie.be/guidelines/laravel-php">https://spatie.be/guidelines/laravel-php</a></p>
+<p>Spatie의 Laravel &amp; PHP guideline이 업데이트 됐습니다.</p>
+<h2 id="spatie-x2F-spatie-be"><a href="#spatie-x2F-spatie-be" class="headerlink" title="spatie&#x2F;spatie.be"></a>spatie&#x2F;spatie.be</h2><p><a target="_blank" rel="noopener" href="https://github.com/spatie/spatie.be">https://github.com/spatie/spatie.be</a></p>
+<p>Spatie에 있는 친구들이 spatie.be 웹 사이트의 코드를 오픈 소스로 제공합니다. 또한 구현에 대한 모든 세부 사항이 포함된 <a target="_blank" rel="noopener" href="https://freek.dev/1789-selling-digital-products-using-laravel-part-1-intro-a-tour-of-spatiebe">자습서 시리즈</a>를 출시했습니다.</p>
+<h2 id="The-complete-guide-to-Laravel-frontend-scaffolding"><a href="#The-complete-guide-to-Laravel-frontend-scaffolding" class="headerlink" title="The complete guide to Laravel frontend scaffolding."></a>The complete guide to Laravel frontend scaffolding.</h2><p><a target="_blank" rel="noopener" href="https://samuelstancl.me/blog/the-complete-guide-to-laravel-frontend-scaffolding//">https://samuelstancl.me/blog/the-complete-guide-to-laravel-frontend-scaffolding//</a></p>
+<h2 id="📺-Laravel-Worldwide-Meetup-3"><a href="#📺-Laravel-Worldwide-Meetup-3" class="headerlink" title="📺 Laravel Worldwide Meetup #3:"></a>📺 Laravel Worldwide Meetup #3:</h2><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=h44R_ru8D3o&t=127s">Exploring The Magic Of PhpStorm – Adel Faizrakhmanov</a><br><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=h44R_ru8D3o&t=1946s">I’d Like To Speak To Your Manager – Yaz Jallad.</a></p>
+<h2 id="📺-Stream-Generate-dynamic-open-graph-images-for-freek-dev-blog-posts"><a href="#📺-Stream-Generate-dynamic-open-graph-images-for-freek-dev-blog-posts" class="headerlink" title="📺 Stream: Generate dynamic open graph images for freek.dev blog posts."></a>📺 Stream: Generate dynamic open graph images for freek.dev blog posts.</h2><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=sHS2gVFaTjo">https://www.youtube.com/watch?v=sHS2gVFaTjo</a></p>
+<h2 id="📺-Taylor-answers-questions-regarding-Jetstream"><a href="#📺-Taylor-answers-questions-regarding-Jetstream" class="headerlink" title="📺 Taylor answers questions regarding Jetstream."></a>📺 Taylor answers questions regarding Jetstream.</h2><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=krn39HjxPTs">https://www.youtube.com/watch?v=krn39HjxPTs</a></p>
+<h1 id="Yii"><a href="#Yii" class="headerlink" title="Yii"></a>Yii</h1><h2 id="W3C-will-move-on-from-WordPress-and-will-instead-use-CraftCMS"><a href="#W3C-will-move-on-from-WordPress-and-will-instead-use-CraftCMS" class="headerlink" title="W3C will move on from WordPress and will instead use CraftCMS"></a>W3C will move on from WordPress and will instead use CraftCMS</h2><p><a target="_blank" rel="noopener" href="https://www.w3.org/">W3C</a>가 WordPress 대신 Yii 2를 기반으로하는 <a target="_blank" rel="noopener" href="https://github.com/craftcms/cms">CraftCMS</a>로 옮겨가기로 했습니다. 이 결정을 하게 된 이유를 설명하는 <a target="_blank" rel="noopener" href="https://w3c.studio24.net/docs/cms-strategy-and-requirements/">이 문서</a>가 아니었다면, 이 뉴스 자체는 그다지 흥미롭진 않았을 겁니다.</p>
+<h1 id="🌀-Async-PHP"><a href="#🌀-Async-PHP" class="headerlink" title="🌀 Async PHP"></a>🌀 Async PHP</h1><h2 id="micc83-x2F-mailamie"><a href="#micc83-x2F-mailamie" class="headerlink" title="micc83&#x2F;mailamie"></a>micc83&#x2F;mailamie</h2><p><a target="_blank" rel="noopener" href="https://github.com/micc83/mailamie">https://github.com/micc83/mailamie</a></p>
+<p>테스트를 위해 SMTP를 포괄하는 서버. ReactPHP를 기반으로 만들어졌습니다.</p>
+<h2 id="clue-x2F-reactphp-mq"><a href="#clue-x2F-reactphp-mq" class="headerlink" title="clue&#x2F;reactphp-mq"></a>clue&#x2F;reactphp-mq</h2><p><a target="_blank" rel="noopener" href="https://github.com/clue/reactphp-mq">https://github.com/clue/reactphp-mq</a></p>
+<p>가벼운 인메모리 메세지 큐.</p>
+<h1 id="💡-기타-읽을-만한-글"><a href="#💡-기타-읽을-만한-글" class="headerlink" title="💡 기타 읽을 만한 글"></a>💡 기타 읽을 만한 글</h1><h2 id="Transpiling-PHP-code-from-8-0-to-7-x-via-Rector"><a href="#Transpiling-PHP-code-from-8-0-to-7-x-via-Rector" class="headerlink" title="Transpiling PHP code from 8.0 to 7.x via Rector"></a>Transpiling PHP code from 8.0 to 7.x via Rector</h2><p><a target="_blank" rel="noopener" href="https://blog.logrocket.com/transpiling-php-code-from-8-0-to-7-x-via-rector/">https://blog.logrocket.com/transpiling-php-code-from-8-0-to-7-x-via-rector/</a></p>
+<p>최신 버전의 PHP로 업그레이드 할 수 없지만 개발할 때는 새로운 기능을 사용하려면, 프로젝트에 “컴파일”단계를 추가하고 <a target="_blank" rel="noopener" href="https://github.com/rectorphp/rector/blob/master/docs/rector_rules_overview.md#downgradephp80">rector&#x2F;rectorphp</a>의 도움으로 캐발 코드를 다운그레이드 할 수 있습니다.</p>
+<h2 id="Error-suppression-operator-usage-analysis"><a href="#Error-suppression-operator-usage-analysis" class="headerlink" title="Error suppression operator @ usage analysis."></a>Error suppression operator @ usage analysis.</h2><p><a target="_blank" rel="noopener" href="https://www.exakat.io/en/i-scream-you-scream-we-all-scream-for/">https://www.exakat.io/en/i-scream-you-scream-we-all-scream-for/</a></p>
+<p>에러를 무시하는 <code>@</code> 연산자가 사용되는 경우와 대안, <code>@</code>와 함께 가장 많이 사용되는 함수 등을 정리했습니다.</p>
+<h2 id="PHP-8-0-named-parameters-and-variadic"><a href="#PHP-8-0-named-parameters-and-variadic" class="headerlink" title="PHP 8.0 named parameters and variadic"></a>PHP 8.0 named parameters and variadic</h2><p><a target="_blank" rel="noopener" href="https://www.exakat.io/en/php-8-0-named-parameters-and-variadic/">https://www.exakat.io/en/php-8-0-named-parameters-and-variadic/</a></p>
+<p>임의의 개수의 인수로 함수를 호출하고 스프레드 오퍼레이터(Spread Operator, 펼침&#x2F;전개 연산자)를 사용하는 방법에 대해 설명합니다.</p>
+<h2 id="gitattributes-for-PHP-projects"><a href="#gitattributes-for-PHP-projects" class="headerlink" title=".gitattributes for PHP projects."></a>.gitattributes for PHP projects.</h2><p><a target="_blank" rel="noopener" href="https://php.watch/articles/composer-gitattributes">https://php.watch/articles/composer-gitattributes</a></p>
+<h2 id="Instructions-on-how-to-write-tests-for-PHP-itself"><a href="#Instructions-on-how-to-write-tests-for-PHP-itself" class="headerlink" title="Instructions on how to write tests for PHP itself"></a>Instructions on how to write tests for PHP itself</h2><p><a target="_blank" rel="noopener" href="https://dev.to/realflowcontrol/growing-the-php-core-one-test-at-a-time-4g4k">https://dev.to/realflowcontrol/growing-the-php-core-one-test-at-a-time-4g4k</a></p>
+<p>PHP 자체를 위한 테스트 작성하기. 테스트는 PHP로 작성되었으므로 이를 위해 C를 알아야 할 필요는 없습니다.</p>
+<h2 id="Set-up-PhpStorm-to-use-PHP-with-PHPUnit-and-Xdebug-in-Docker"><a href="#Set-up-PhpStorm-to-use-PHP-with-PHPUnit-and-Xdebug-in-Docker" class="headerlink" title="Set up PhpStorm to use PHP with PHPUnit and Xdebug in Docker."></a>Set up PhpStorm to use PHP with PHPUnit and Xdebug in Docker.</h2><p><a target="_blank" rel="noopener" href="https://pen-y-fan.github.io/2020/10/10/Set-up-PhpStorm-to-use-PHP-with-PHPUnit-and-xDebug-in-Docker/">https://pen-y-fan.github.io/2020/10/10/Set-up-PhpStorm-to-use-PHP-with-PHPUnit-and-xDebug-in-Docker/</a></p>
+<h2 id="Caching-makes-everything-faster-Right"><a href="#Caching-makes-everything-faster-Right" class="headerlink" title="Caching makes everything faster. Right?"></a>Caching makes everything faster. Right?</h2><p><a target="_blank" rel="noopener" href="https://thephp.cc/news/2020/10/caching-makes-everything-faster-right">https://thephp.cc/news/2020/10/caching-makes-everything-faster-right</a></p>
+<p>PHPUnit에서 코드 커버리지를 위한 캐싱을 추가한 것이 원하는 효과를 얻지 못한 이유와 이 문제가 마침내 어떻게 해결 되었는지에 대한 PHPUnit 작성자인 Sebastian Bergmann의 게시물입니다.</p>
+<h2 id="Analysis-of-a-PHP-script-that-distributes-Emotet-malware"><a href="#Analysis-of-a-PHP-script-that-distributes-Emotet-malware" class="headerlink" title="Analysis of a PHP script that distributes Emotet malware."></a>Analysis of a PHP script that distributes Emotet malware.</h2><p><a target="_blank" rel="noopener" href="https://andpalmier.github.io/posts/emotet-php-maldoc/">https://andpalmier.github.io/posts/emotet-php-maldoc/</a></p>
+<p>Emotet 악성 코드를 퍼뜨리는 PHP 스크립트 분석.</p>
+<h2 id="Which-colour-scheme-is-better"><a href="#Which-colour-scheme-is-better" class="headerlink" title="Which colour scheme is better?"></a>Which colour scheme is better?</h2><p><a target="_blank" rel="noopener" href="https://stitcher.io/blog/why-light-themes-are-better-according-to-science">https://stitcher.io/blog/why-light-themes-are-better-according-to-science</a></p>
+<p>과학적으로는 다크 테마보다 밝은 테마가 좋다고 합니다.</p>
+<h2 id="Joe-Watkins-Being-Free"><a href="#Joe-Watkins-Being-Free" class="headerlink" title="Joe Watkins: Being Free"></a>Joe Watkins: Being Free</h2><p><a target="_blank" rel="noopener" href="https://blog.krakjoe.ninja/2020/10/being-free.html">https://blog.krakjoe.ninja/2020/10/being-free.html</a></p>
+<p>PHP가 20년 동안 어떻게 운영되고 있는지와 PHP를 지원할 수 있는 방안을 고민하는 글입니다.</p>
+<h1 id="📺-Videos"><a href="#📺-Videos" class="headerlink" title="📺 Videos"></a>📺 Videos</h1><h2 id="Profiling-PHP-applications-with-Xdebug"><a href="#Profiling-PHP-applications-with-Xdebug" class="headerlink" title="Profiling PHP applications with Xdebug"></a>Profiling PHP applications with Xdebug</h2><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mNc_tcomrVs">https://www.youtube.com/watch?v=mNc_tcomrVs</a></p>
+<p>Xdebug의 저자인 Derick Rethans와 함께 하는, Xdebug로 PHP 어플리케이션을 프로파일링하는 90분짜리 동영상입니다.</p>
+<h2 id="Tutorial-on-starting-with-rectorphp-x2F-rector"><a href="#Tutorial-on-starting-with-rectorphp-x2F-rector" class="headerlink" title="Tutorial on starting with rectorphp&#x2F;rector."></a>Tutorial on starting with rectorphp&#x2F;rector.</h2><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=_Uk95vG3ezQ">https://www.youtube.com/watch?v=_Uk95vG3ezQ</a></p>
+<h2 id="Compiling-and-test-driving-PHP-8"><a href="#Compiling-and-test-driving-PHP-8" class="headerlink" title="Compiling and test driving PHP 8"></a>Compiling and test driving PHP 8</h2><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=tN4qs_FPkWQ">https://www.youtube.com/watch?v=tN4qs_FPkWQ</a></p>
+<p>Brent Roose와 Freek Van der Herten이 PHP 8을 설치하고 새로운 기능을 살펴봅니다.</p>
+<h2 id="Deploy-Friday-27-–-Language-Spotlight-PHP"><a href="#Deploy-Friday-27-–-Language-Spotlight-PHP" class="headerlink" title="Deploy Friday #27 – Language Spotlight: PHP"></a>Deploy Friday #27 – Language Spotlight: PHP</h2><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=t8znkSvwQC8">https://www.youtube.com/watch?v=t8znkSvwQC8</a></p>
+<p> Larry Garfield와 Patrick Dawkins이 진행하고 PHP 8 릴리스 매니저인 Sara Golemon과 Gabriel Caruso가 함께 하는 팟캐스트</p>
+<h1 id="🔈-Podcasts"><a href="#🔈-Podcasts" class="headerlink" title="🔈 Podcasts"></a>🔈 Podcasts</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://phpugly.simplecast.com/episodes/210">PHPUgly 210</a>: About new docker set ups, migrating from Laravel 5.7 to 8, queuevms.</li>
+<li><a target="_blank" rel="noopener" href="https://phpugly.simplecast.com/episodes/209">PHPUgly 209</a>: About more drama in the Laravel world, DigitalOcean’s new app platform, reviewing pull request.</li>
+<li>Voices of the ElePHPant interviews:<ul>
+<li><a target="_blank" rel="noopener" href="https://voicesoftheelephpant.com/2020/09/22/interview-with-oliver-davies/">With Oliver Davies</a></li>
+<li><a target="_blank" rel="noopener" href="https://voicesoftheelephpant.com/2020/10/06/interview-with-miriam-schwab-and-zeev-suraski/">With Miriam Schwab and Zeev Suraski</a></li>
+<li><a target="_blank" rel="noopener" href="https://voicesoftheelephpant.com/2020/10/13/interview-with-jaap-van-otterdijk/">With Jaap van Otterdijk</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>youngiggy
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://haah.kr/2020/10/24/php-annotated-october-2020/" title="PHP Annotated – October 2020">https://haah.kr/2020/10/24/php-annotated-october-2020/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/PHP/" rel="tag"># PHP</a>
+              <a href="/tags/php-annotated-monthly/" rel="tag"># php-annotated-monthly</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/09/26/php-annotated-september-2020/" rel="prev" title="PHP Annotated – September 2020">
+                  <i class="fa fa-chevron-left"></i> PHP Annotated – September 2020
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/11/23/books-2020-november/" rel="next" title="독후감 - 2020년 11월">
+                  독후감 - 2020년 11월 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">youngiggy</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"youngiggy-github-io","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

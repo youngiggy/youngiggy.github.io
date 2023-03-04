@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_package_v0.16/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_package_v0.16/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_package_v0.16/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/favicon_package_v0.16/safari-pinned-tab.svg" color="#222">
+  <link rel="manifest" href="/images/favicon_package_v0.16/site.webmanifest">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"haah.kr","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="JetBrains에서 (거의) 매월 발행하는 PHP Annotated Monthly에서 적당히 제 입맛에 맞는 것만 추려 소개합니다. 언제나 그렇듯이 성급한 오역 죄송합니다. 이번달은 내용이 많아 쪼개서 올리고 있습니다. 세번째는 기타 읽을 만한 글!  Some nice posts on why it’s better to use classes instead">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="php-annotated-monthly-december-2018 - 3. 기타 읽을 만한 글">
+<meta property="og:url" content="https://haah.kr/2018/12/15/php-annotated-monthly-december-2018-3rd/">
+<meta property="og:site_name" content="ha-ah">
+<meta property="og:description" content="JetBrains에서 (거의) 매월 발행하는 PHP Annotated Monthly에서 적당히 제 입맛에 맞는 것만 추려 소개합니다. 언제나 그렇듯이 성급한 오역 죄송합니다. 이번달은 내용이 많아 쪼개서 올리고 있습니다. 세번째는 기타 읽을 만한 글!  Some nice posts on why it’s better to use classes instead">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2018/12/new_php-annotated-monthly.jpg">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/1600/0*YmfqQ46OdJc4Qm2l">
+<meta property="article:published_time" content="2018-12-15T06:25:04.000Z">
+<meta property="article:modified_time" content="2018-12-15T08:03:22.000Z">
+<meta property="article:author" content="youngiggy">
+<meta property="article:tag" content="PHP">
+<meta property="article:tag" content="php-annotated-monthly">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2018/12/new_php-annotated-monthly.jpg">
+
+
+<link rel="canonical" href="https://haah.kr/2018/12/15/php-annotated-monthly-december-2018-3rd/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://haah.kr/2018/12/15/php-annotated-monthly-december-2018-3rd/","path":"2018/12/15/php-annotated-monthly-december-2018-3rd/","title":"php-annotated-monthly-december-2018 - 3. 기타 읽을 만한 글"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>php-annotated-monthly-december-2018 - 3. 기타 읽을 만한 글 | ha-ah</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=354302543"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":354302543,"only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="ha-ah" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">ha-ah</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">로그, 게으른 로그</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Some-nice-posts-on-why-it%E2%80%99s-better-to-use-classes-instead-of-arrays"><span class="nav-number">1.</span> <span class="nav-text">Some nice posts on why it’s better to use classes instead of arrays</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP-code-static-analysis-based-on-the-example-of-PHPStan-Phan-and-Psalm"><span class="nav-number">2.</span> <span class="nav-text">PHP code static analysis based on the example of PHPStan, Phan, and Psalm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-Tips-to-Write-PHP-Code-that-is-Hard-to-Maintain-and-Upgrade"><span class="nav-number">3.</span> <span class="nav-text">14 Tips to Write PHP Code that is Hard to Maintain and Upgrade</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sebastian-De-Deyne-Readability-is-relative"><span class="nav-number">4.</span> <span class="nav-text">Sebastian De Deyne: Readability is relative</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#friendsofphp-org"><span class="nav-number">5.</span> <span class="nav-text">friendsofphp.org</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">youngiggy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">113</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:youngiggy@gmail.com" title="E-Mail → mailto:youngiggy@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/profile.php?id=100001259884599" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;profile.php?id&#x3D;100001259884599" rel="noopener me" target="_blank"><i class="fab fa-facebook fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/jooyoungiggy" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;jooyoungiggy" rel="noopener me" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://haah.kr/2018/12/15/php-annotated-monthly-december-2018-3rd/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="youngiggy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="php-annotated-monthly-december-2018 - 3. 기타 읽을 만한 글 | ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          php-annotated-monthly-december-2018 - 3. 기타 읽을 만한 글
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2018-12-15 15:25:04 / Modified: 17:03:22" itemprop="dateCreated datePublished" datetime="2018-12-15T15:25:04+09:00">2018-12-15</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/12/15/php-annotated-monthly-december-2018-3rd/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/12/15/php-annotated-monthly-december-2018-3rd/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><img src="https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2018/12/new_php-annotated-monthly.jpg" alt="Php_annotated_monthly 이미지"></p>
+<p>JetBrains에서 (거의) 매월 발행하는 <a target="_blank" rel="noopener" href="https://blog.jetbrains.com/phpstorm/2018/12/php-annotated-monthly-december-2018/">PHP Annotated Monthly</a>에서 적당히 제 입맛에 맞는 것만 추려 소개합니다. 언제나 그렇듯이 성급한 오역 죄송합니다.</p>
+<p>이번달은 내용이 많아 쪼개서 올리고 있습니다. 세번째는 기타 읽을 만한 글!</p>
+<hr>
+<h2 id="Some-nice-posts-on-why-it’s-better-to-use-classes-instead-of-arrays"><a href="#Some-nice-posts-on-why-it’s-better-to-use-classes-instead-of-arrays" class="headerlink" title="Some nice posts on why it’s better to use classes instead of arrays"></a>Some nice posts on why it’s better to use classes instead of arrays</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.fox21.at/2018/11/21/avoid-dynamic-data-structures-in-php.html">Avoid Dynamic Data Structures In Php</a></li>
+<li><a target="_blank" rel="noopener" href="https://nehalist.io/better-array-parameter-handling-in-php/">Better Array Parameter Handling In Php</a></li>
+<li><a target="_blank" rel="noopener" href="https://stitcher.io/blog/structuring-unstructured-data">Structuring Unstructured Data</a></li>
+</ul>
+<p>연관 배열 대신 클래스를 사용하면 좋은 이유를 설명한 세가지 글이 소개됐습니다.</p>
+<h2 id="PHP-code-static-analysis-based-on-the-example-of-PHPStan-Phan-and-Psalm"><a href="#PHP-code-static-analysis-based-on-the-example-of-PHPStan-Phan-and-Psalm" class="headerlink" title="PHP code static analysis based on the example of PHPStan, Phan, and Psalm"></a>PHP code static analysis based on the example of PHPStan, Phan, and Psalm</h2><p><a target="_blank" rel="noopener" href="https://badootech.badoo.com/php-code-static-analysis-based-on-the-example-of-phpstan-phan-and-psalm-a20654c4011d">https://badootech.badoo.com/php-code-static-analysis-based-on-the-example-of-phpstan-phan-and-psalm-a20654c4011d</a></p>
+<p>글쓴이의 회사에 새로 들어온 사람이 전체 코드에서 strict_types + scalar type hints를 의무화하자 버그 수가 엄청 줄었다는 말을 듣고 논의를 했는데, PHP는 컴파일 과정이 없는데 테스트 커버리지도 충분하지 않다면 문제가 더 발생할 것이라고 우려했다고 합니다. 그래서 정적 분석기를 도입한 이야기를 시작합니다. 세가지를 소개하는데요. 현재 시점의 watch&#x2F;star&#x2F;fork도 같이 찾아봤습니다.</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://github.com/phpstan/phpstan">PHPStan</a></li>
+</ol>
+<ul>
+<li>watch 171, star 5,509, fork 377</li>
+</ul>
+<ol start="2">
+<li><a target="_blank" rel="noopener" href="https://github.com/vimeo/psalm">Psalm</a></li>
+</ol>
+<ul>
+<li>watch 46, star 1,212, fork 68</li>
+</ul>
+<ol start="3">
+<li><a target="_blank" rel="noopener" href="https://github.com/phan/phan">Phan</a></li>
+</ol>
+<ul>
+<li>watch 128, star 3,893, fork 249</li>
+</ul>
+<p>셋 모두 사용법은 비슷하고, 활발하게 개발되고 있고, maintainer들이 24시간에 응답하고, 며칠 이내로 버그가 수정되는 편이라고 하는데요. 이 maintainer들 끼리도 서로에게 영향을 미치고 버그 리포팅이나 PR도 보낸다고 합니다.</p>
+<p>그리고 각 analyser를 어떻게 사용하는지, 자기 회사에서 어떻게 적용했는지 소개합니다. 중간중간 PHPStorm과의 궁합도 설명해주고 있어요.</p>
+<p>그래서 셋 중에 어떤 게 뽑혔을지 궁금하시죠? 다 쓴답니다.</p>
+<p><img src="https://cdn-images-1.medium.com/max/1600/0*YmfqQ46OdJc4Qm2l" alt="analyser reports"></p>
+<h2 id="14-Tips-to-Write-PHP-Code-that-is-Hard-to-Maintain-and-Upgrade"><a href="#14-Tips-to-Write-PHP-Code-that-is-Hard-to-Maintain-and-Upgrade" class="headerlink" title="14 Tips to Write PHP Code that is Hard to Maintain and Upgrade"></a>14 Tips to Write PHP Code that is Hard to Maintain and Upgrade</h2><p><a target="_blank" rel="noopener" href="https://www.tomasvotruba.cz/blog/2018/11/26/14-tips-to-write-php-code-that-is-hard-to-maintain-and-upgrade/">https://www.tomasvotruba.cz/blog/2018/11/26/14-tips-to-write-php-code-that-is-hard-to-maintain-and-upgrade/</a></p>
+<p>유지보수를 어렵게 코딩하는 방법 14가지입니다. 따라하지 마세요.</p>
+<ol>
+<li>Never use final</li>
+<li>Use protected instead of private</li>
+<li>Use Non-String Method Names</li>
+<li>Don’t Always use PSR-4</li>
+<li>Use Your Own Autoloader</li>
+<li>Hide Your Dependencies in Constructor</li>
+<li>Put Different Kinds of Objects to One Directory</li>
+<li>Use Annotations to Define Magic Methods</li>
+<li>Use Traits with Annotations to Define Magic Methods</li>
+<li>Don’t use a Different Naming to separate Interface, Trait from Class</li>
+<li>Use as Short Naming as Possible</li>
+<li>Don’t use a Different Naming to separate Abstract classes</li>
+<li>Use Fluent API with Different Return Values</li>
+<li>Use Fluent API with Different Return Values (the next level)</li>
+</ol>
+<h2 id="Sebastian-De-Deyne-Readability-is-relative"><a href="#Sebastian-De-Deyne-Readability-is-relative" class="headerlink" title="Sebastian De Deyne: Readability is relative"></a>Sebastian De Deyne: Readability is relative</h2><p><a target="_blank" rel="noopener" href="https://sebastiandedeyne.com/readability-is-relative/">https://sebastiandedeyne.com/readability-is-relative/</a></p>
+<p>가독성은 상대적이라는 글. 어떤 게 더 좋은 API인지를 묻는 글입니다.</p>
+<h2 id="friendsofphp-org"><a href="#friendsofphp-org" class="headerlink" title="friendsofphp.org"></a>friendsofphp.org</h2><p><a target="_blank" rel="noopener" href="https://friendsofphp.org/">https://friendsofphp.org/</a></p>
+<p> — The map of all PHP meetups around the world</p>
+<p> 전세계의 PHP 모임을 모아 보여주는 사이트입니다. 관련 <a target="_blank" rel="noopener" href="https://pehapkari.cz/blog/2018/11/10/can-you-count-more-than-1024-php-groups-in-the-world/">블로그</a>를 읽어보세요.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>youngiggy
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://haah.kr/2018/12/15/php-annotated-monthly-december-2018-3rd/" title="php-annotated-monthly-december-2018 - 3. 기타 읽을 만한 글">https://haah.kr/2018/12/15/php-annotated-monthly-december-2018-3rd/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/PHP/" rel="tag"># PHP</a>
+              <a href="/tags/php-annotated-monthly/" rel="tag"># php-annotated-monthly</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/12/11/php-annotated-monthly-december-2018-2nd/" rel="prev" title="php-annotated-monthly-december-2018 - 2. PHP Internals">
+                  <i class="fa fa-chevron-left"></i> php-annotated-monthly-december-2018 - 2. PHP Internals
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2018/12/22/php7-0-removed-from-homebrew/" rel="next" title="Homebrew에서 php@7.0이 제거되었습니다">
+                  Homebrew에서 php@7.0이 제거되었습니다 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">youngiggy</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"youngiggy-github-io","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

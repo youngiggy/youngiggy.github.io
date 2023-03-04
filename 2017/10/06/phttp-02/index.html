@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_package_v0.16/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_package_v0.16/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_package_v0.16/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/favicon_package_v0.16/safari-pinned-tab.svg" color="#222">
+  <link rel="manifest" href="/images/favicon_package_v0.16/site.webmanifest">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"haah.kr","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="연재글 전체 보기  Stream wrapper class시행착오를 최대한 줄이기 위해 앞에서 소개했던 HTTPServer부터 분석을 해보기로 했다. composer.json에 있는 php-cgi binary에 대한 의존성 때문인데(HTTPServer requires the php-cgi binary), 이 놈을 왜 넣었을까 궁금했다. 이 서버는 4개의 파일">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="PHP로 HTTP 서버 구현하기 - 02 - Stream wrapper">
+<meta property="og:url" content="https://haah.kr/2017/10/06/phttp-02/">
+<meta property="og:site_name" content="ha-ah">
+<meta property="og:description" content="연재글 전체 보기  Stream wrapper class시행착오를 최대한 줄이기 위해 앞에서 소개했던 HTTPServer부터 분석을 해보기로 했다. composer.json에 있는 php-cgi binary에 대한 의존성 때문인데(HTTPServer requires the php-cgi binary), 이 놈을 왜 넣었을까 궁금했다. 이 서버는 4개의 파일">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-10-06T02:18:47.000Z">
+<meta property="article:modified_time" content="2018-02-13T06:27:02.000Z">
+<meta property="article:author" content="youngiggy">
+<meta property="article:tag" content="PHP">
+<meta property="article:tag" content="HTTP">
+<meta property="article:tag" content="phttp">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://haah.kr/2017/10/06/phttp-02/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://haah.kr/2017/10/06/phttp-02/","path":"2017/10/06/phttp-02/","title":"PHP로 HTTP 서버 구현하기 - 02 - Stream wrapper"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>PHP로 HTTP 서버 구현하기 - 02 - Stream wrapper | ha-ah</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=354302543"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":354302543,"only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="ha-ah" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">ha-ah</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">로그, 게으른 로그</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Stream-wrapper-class"><span class="nav-number">1.</span> <span class="nav-text">Stream wrapper class</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CGIStream-class-%EC%A3%BC%EC%84%9D"><span class="nav-number">1.1.</span> <span class="nav-text">CGIStream class 주석</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stream-wrapper-class-1"><span class="nav-number">1.2.</span> <span class="nav-text">Stream wrapper class</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Using-stream-wrapper"><span class="nav-number">1.3.</span> <span class="nav-text">Using stream wrapper</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stream-wrapper"><span class="nav-number">1.4.</span> <span class="nav-text">Stream wrapper</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">youngiggy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">113</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:youngiggy@gmail.com" title="E-Mail → mailto:youngiggy@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/profile.php?id=100001259884599" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;profile.php?id&#x3D;100001259884599" rel="noopener me" target="_blank"><i class="fab fa-facebook fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/jooyoungiggy" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;jooyoungiggy" rel="noopener me" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://haah.kr/2017/10/06/phttp-02/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="youngiggy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="PHP로 HTTP 서버 구현하기 - 02 - Stream wrapper | ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          PHP로 HTTP 서버 구현하기 - 02 - Stream wrapper
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-10-06 11:18:47" itemprop="dateCreated datePublished" datetime="2017-10-06T11:18:47+09:00">2017-10-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2018-02-13 15:27:02" itemprop="dateModified" datetime="2018-02-13T15:27:02+09:00">2018-02-13</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2017/10/06/phttp-02/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/10/06/phttp-02/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><a href="/tags/phttp/">연재글 전체 보기</a></p>
+<hr>
+<h1 id="Stream-wrapper-class"><a href="#Stream-wrapper-class" class="headerlink" title="Stream wrapper class"></a>Stream wrapper class</h1><p>시행착오를 최대한 줄이기 위해 앞에서 소개했던 <a target="_blank" rel="noopener" href="https://github.com/youngj/httpserver">HTTPServer</a>부터 분석을 해보기로 했다.</p>
+<p>composer.json에 있는 php-cgi binary에 대한 의존성 때문인데(<code>HTTPServer requires the php-cgi binary</code>), 이 놈을 왜 넣었을까 궁금했다.</p>
+<p>이 서버는 4개의 파일로 구성됐다.</p>
+<ul>
+<li>cgistream.php</li>
+<li>httprequest.php</li>
+<li>httpresponse.php</li>
+<li>httpserver.php</li>
+</ul>
+<p>http가 prefix로 붙은 파일은 뭐하는 놈인지 이름만 봐도 알 것 같다. cgistream.php을 열어봤다.</p>
+<p>오래전에 만든 클래스라서 좀 옛스러운 맛이 있다.</p>
+<h2 id="CGIStream-class-주석"><a href="#CGIStream-class-주석" class="headerlink" title="CGIStream class 주석"></a>CGIStream class 주석</h2><p>주석부터 살펴볼까?</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * CGIStream is a PHP stream wrapper (http://www.php.net/manual/en/class.streamwrapper.php)</span></span><br><span class="line"><span class="comment"> * that wraps the stdout pipe from a CGI process. It buffers the output until the CGI process is</span></span><br><span class="line"><span class="comment"> * complete, and then rewrites some HTTP headers (Content-Length, Status, Server) and sets the HTTP status code</span></span><br><span class="line"><span class="comment"> * before returning the output stream from fread().</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * This allows the server to be notified via stream_select() when the CGI output is ready, rather than waiting</span></span><br><span class="line"><span class="comment"> * until the CGI process completes.</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>CGIStream is a <a target="_blank" rel="noopener" href="http://www.php.net/manual/en/class.streamwrapper.php">PHP stream wrapper</a> that wraps the stdout pipe from a CGI process.</p>
+</blockquote>
+<p>CGI process로부터 흘러나오는 stdout stream을 wrapping한다. - 이건 뭐 해석한 것도 아니고 안 한 것도 아니고…</p>
+<p>참고로, 앞으로 스트림과 stream을 섞어서 쓸텐데(한글 혹은 영어로), 여기엔 큰 의미를 부여하지 말고 그냥 읽으시면 된다.</p>
+<h2 id="Stream-wrapper-class-1"><a href="#Stream-wrapper-class-1" class="headerlink" title="Stream wrapper class"></a>Stream wrapper class</h2><p>php.net에 들어가보면,</p>
+<blockquote>
+<p>Allows you to implement your own protocol handlers and streams for use with all the other filesystem functions (such as fopen(), fread() etc.).</p>
+</blockquote>
+<p>나만의 프로토콜 핸들러와 fopen, fread같은 filesystem 함수를 사용할 수 있는 스트림을 구현할 수 있다고 한다.</p>
+<p>php.net의 VariableStream을 만드는 <a target="_blank" rel="noopener" href="http://php.net/manual/en/function.stream-wrapper-register.php">예제</a>부터 알아봐야겠다.</p>
+<p>우선 커스텀 stream wrapper를 어떻게 사용하는지부터.</p>
+<h2 id="Using-stream-wrapper"><a href="#Using-stream-wrapper" class="headerlink" title="Using stream wrapper"></a>Using stream wrapper</h2><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$existed</span> = <span class="title function_ invoke__">in_array</span>(<span class="string">&quot;var&quot;</span>, <span class="title function_ invoke__">stream_get_wrappers</span>());</span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$existed</span>) &#123;</span><br><span class="line">    <span class="title function_ invoke__">stream_wrapper_unregister</span>(<span class="string">&quot;var&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_ invoke__">stream_wrapper_register</span>(<span class="string">&quot;var&quot;</span>, <span class="string">&quot;VariableStream&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>“var”로 이미 등록된 wrapper가 있다면 먼저 제거한다.</p>
+<p><a target="_blank" rel="noopener" href="http://php.net/manual/en/function.stream-get-wrappers.php">stream_get_wrappers</a>는 등록된 stream wrapper 배열을 리턴하는데, 보통 이런 리스트가 나올 것이다.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Array</span><br><span class="line">(</span><br><span class="line">    [0] =&gt; https</span><br><span class="line">    [1] =&gt; ftps</span><br><span class="line">    [2] =&gt; compress.zlib</span><br><span class="line">    [3] =&gt; compress.bzip2</span><br><span class="line">    [4] =&gt; php</span><br><span class="line">    [5] =&gt; file</span><br><span class="line">    [6] =&gt; glob</span><br><span class="line">    [7] =&gt; data</span><br><span class="line">    [8] =&gt; http</span><br><span class="line">    [9] =&gt; ftp</span><br><span class="line">    [10] =&gt; phar</span><br><span class="line">    [11] =&gt; zip</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>이렇게 unregister하더라도 built-in wrapper일 경우는 나중에 <a target="_blank" rel="noopener" href="http://php.net/manual/en/function.stream-wrapper-restore.php">stream_wrapper_restore</a>로 복원할 수 있다.</p>
+<p><code>stream_wrapper_register</code>함수의 두번째 인자는 첫번째 인자(protocol)에 해당하는 스트림을 처리할 클래스명이다.</p>
+<p>이런 클래스를 어떻게 구현할 것인지는 잠시 후에 다룬다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$myvar</span> = <span class="string">&quot;&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$fp</span> = <span class="title function_ invoke__">fopen</span>(<span class="string">&quot;var://myvar&quot;</span>, <span class="string">&quot;r+&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">fwrite</span>(<span class="variable">$fp</span>, <span class="string">&quot;line1\n&quot;</span>);</span><br><span class="line"><span class="title function_ invoke__">fwrite</span>(<span class="variable">$fp</span>, <span class="string">&quot;line2\n&quot;</span>);</span><br><span class="line"><span class="title function_ invoke__">fwrite</span>(<span class="variable">$fp</span>, <span class="string">&quot;line3\n&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>위에서 언급한 대로 stream wrapper를 구현하면 fopen, fread같은 filesystem 함수를 사용할 수 있다.</p>
+<p><a target="_blank" rel="noopener" href="http://php.net/manual/kr/function.fopen.php">fopen</a> 함수로 스트림을 r+(초기화가 없는 read+write) 모드로 열고, 몇 줄 써준다.</p>
+<p>URL에는 아까 <code>stream_wrapper_register</code>함수에 첫번째 인자로 등록한 protocol을 URL scheme으로 사용하고 입력받을 myvar라는 전역 변수를 사용한다.</p>
+<p>물론 URL을 어떻게 쓰고 처리할 지는 wrapper 구현에 달려있다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="title function_ invoke__">rewind</span>(<span class="variable">$fp</span>);</span><br><span class="line"><span class="keyword">while</span> (!<span class="title function_ invoke__">feof</span>(<span class="variable">$fp</span>)) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="title function_ invoke__">fgets</span>(<span class="variable">$fp</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_ invoke__">fclose</span>(<span class="variable">$fp</span>);</span><br><span class="line"><span class="title function_ invoke__">var_dump</span>(<span class="variable">$myvar</span>);</span><br></pre></td></tr></table></figure>
+
+<p>파일 포인터를 맨 앞으로 돌리고, 파일의 내용을 한줄 한줄 써준다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="variable">$existed</span>) &#123;</span><br><span class="line">    <span class="title function_ invoke__">stream_wrapper_restore</span>(<span class="string">&quot;var&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>다 썼으면 초기화 한다. 만약,</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">stream_wrapper_register(&quot;var&quot;, &quot;VariableStream&quot;);</span><br><span class="line">stream_wrapper_unregister(&quot;var&quot;);</span><br><span class="line">stream_wrapper_restore(&quot;var&quot;);</span><br></pre></td></tr></table></figure>
+<p>이러면 뭐 달라질까? 방금 등록한 <code>var</code> wrapper는 built-in이 아니기 때문에 restore해도 아무 의미 없다.</p>
+<p>사용하는 방법은 특별할 게 없으므로, VariableStream이란 클래스를 어떻게 구현하면 될지 살펴보자.</p>
+<h2 id="Stream-wrapper"><a href="#Stream-wrapper" class="headerlink" title="Stream wrapper"></a>Stream wrapper</h2><p><a target="_blank" rel="noopener" href="http://php.net/manual/en/class.streamwrapper.php">Stream wrapper class</a>는 넓은 의미의 인터페이스지만,</p>
+<p>implements 할 수 있는 interface는 아니다. 실제 존재하는 클래스가 아니라 어떻게 동작하는 지를 보여주기 위한 prototype일 뿐이다.</p>
+<blockquote>
+<p>Note:<br>  This is NOT a real class, only a prototype of how a class defining its own protocol should be.</p>
+</blockquote>
+<p>php.net에 누가 댓글로 interface로 만들어 올렸지만, 그건 거 쓰지 말라는 댓글도 보인다(필요하지 않은 메소드도 무조건 구현해놔야 하기 때문에).</p>
+<p>필요한 메소드만 구현하는 게 정석이라고 보면 되겠다.</p>
+<p>댓글로 올라온 VariableStream 클래스를 참고해서 위 스크립트가 돌아갈 만한 간단한 커스텀 wrapper를 실행해봤다.</p>
+<p>몇가지 문법 오류와 변수명을 좀 더 알기 쉽게 바꿨다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">VariableStream</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$position</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$varname</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">stream_open</span>(<span class="params"><span class="variable">$path</span>, <span class="variable">$mode</span>, <span class="variable">$options</span>, &amp;<span class="variable">$opened_path</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$url</span> = <span class="title function_ invoke__">parse_url</span>(<span class="variable">$path</span>);</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;varname = <span class="variable">$url</span>[<span class="string">&quot;host&quot;</span>];</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;position = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">stream_read</span>(<span class="params"><span class="variable">$count</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$position</span> =&amp; <span class="variable language_">$this</span>-&gt;position;</span><br><span class="line">        <span class="variable">$ret</span> = <span class="title function_ invoke__">substr</span>(<span class="variable">$GLOBALS</span>[<span class="variable">$this</span>-&gt;varname], <span class="variable">$position</span>, <span class="variable">$count</span>);</span><br><span class="line">        <span class="variable">$position</span> += <span class="title function_ invoke__">strlen</span>(<span class="variable">$ret</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$ret</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">stream_write</span>(<span class="params"><span class="variable">$data</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$variable</span> =&amp; <span class="variable">$GLOBALS</span>[<span class="variable language_">$this</span>-&gt;varname];</span><br><span class="line">        <span class="variable">$len</span> = <span class="title function_ invoke__">strlen</span>(<span class="variable">$data</span>);</span><br><span class="line">        <span class="variable">$position</span> =&amp; <span class="variable language_">$this</span>-&gt;position;</span><br><span class="line">        <span class="variable">$variable</span> = <span class="title function_ invoke__">substr</span>(<span class="variable">$variable</span>, <span class="number">0</span>, <span class="variable">$position</span>) . <span class="variable">$data</span> . <span class="title function_ invoke__">substr</span>(<span class="variable">$variable</span>, <span class="variable">$position</span> += <span class="variable">$len</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$len</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">stream_tell</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">$this</span>-&gt;position;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">stream_eof</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">$this</span>-&gt;position &gt;= <span class="title function_ invoke__">strlen</span>(<span class="variable">$GLOBALS</span>[<span class="variable">$this</span>-&gt;varname]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">stream_seek</span>(<span class="params"><span class="variable">$offset</span>, <span class="variable">$whence</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$len</span> = <span class="title function_ invoke__">strlen</span>(<span class="variable">$GLOBALS</span>[<span class="variable">$this</span>-&gt;varname]);</span><br><span class="line">        <span class="variable">$position</span> =&amp; <span class="variable language_">$this</span>-&gt;position;</span><br><span class="line">        <span class="keyword">switch</span> (<span class="variable">$whence</span>) &#123;</span><br><span class="line">            <span class="keyword">case</span> SEEK_SET:</span><br><span class="line">                <span class="variable">$newPos</span> = <span class="variable">$offset</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> SEEK_CUR:</span><br><span class="line">                <span class="variable">$newPos</span> = <span class="variable">$position</span> + <span class="variable">$offset</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> SEEK_END:</span><br><span class="line">                <span class="variable">$newPos</span> = <span class="variable">$len</span> + <span class="variable">$offset</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="variable">$ret</span> = (<span class="variable">$newPos</span> &gt;= <span class="number">0</span> &amp;&amp; <span class="variable">$newPos</span> &lt;= <span class="variable">$len</span>);</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$ret</span>) &#123;</span><br><span class="line">            <span class="variable">$position</span> = <span class="variable">$newPos</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$ret</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>여기선 <code>stream_open</code>, <code>stream_read</code>, <code>stream_write</code>, <code>stream_tell</code>, <code>stream_eof</code>, <code>stream_seek</code> 만을 구현했는데,</p>
+<p>그 (가상) 인터페이스의 많은 메소드 중에 뭘 구현해야 할 지 어떻게 알 수 있을까?</p>
+<p>그건 사용처에서 어떤 filesystem 함수를 쓰는가에 따라 다르다.</p>
+<p>이 예제에서 <code>stream_tell</code> 함수를 구현하지 않았다면, 아래와 같은 warning이 뜰 것이다.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">PHP Warning:  rewind(): VariableStream::stream_tell is not implemented! in .....</span><br></pre></td></tr></table></figure>
+
+<p>공용 클래스라면 좀 더 충실히 구현해야겠지만, 이 예제는 이만하면 됐다.</p>
+<p>많이 돌아왔는데, 맨 처음에 언급한 CGIStream 클래스로 돌아갈 차례다(이제 겨우 CGIStream 클래스의 주석 한줄 읽었을 뿐이다).</p>
+<p>다음 글에 계속..</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>youngiggy
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://haah.kr/2017/10/06/phttp-02/" title="PHP로 HTTP 서버 구현하기 - 02 - Stream wrapper">https://haah.kr/2017/10/06/phttp-02/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/PHP/" rel="tag"># PHP</a>
+              <a href="/tags/HTTP/" rel="tag"># HTTP</a>
+              <a href="/tags/phttp/" rel="tag"># phttp</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/10/05/phttp-01/" rel="prev" title="PHP로 HTTP 서버 구현하기 - 01 - 계획">
+                  <i class="fa fa-chevron-left"></i> PHP로 HTTP 서버 구현하기 - 01 - 계획
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/10/12/phttp-03/" rel="next" title="PHP로 HTTP 서버 구현하기 - 03 - CGIStream class 둘러보기">
+                  PHP로 HTTP 서버 구현하기 - 03 - CGIStream class 둘러보기 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">youngiggy</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"youngiggy-github-io","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

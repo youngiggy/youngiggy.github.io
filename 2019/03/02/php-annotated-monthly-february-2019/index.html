@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_package_v0.16/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_package_v0.16/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_package_v0.16/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/favicon_package_v0.16/safari-pinned-tab.svg" color="#222">
+  <link rel="manifest" href="/images/favicon_package_v0.16/site.webmanifest">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"haah.kr","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="JetBrains에서 제공하는 월간 PHP Annotated Monthly 2월호입니다. 이 중에서 몇 가지 제 취향껏 골라 그 안의 내용도 좀 뒤져보고 개발새발 번역해서 소개합니다.  News &amp; ReleasesPSRhttps:&#x2F;&#x2F;github.com&#x2F;php-fig&#x2F;fig-standards&#x2F;blob&#x2F;master&#x2F;proposed&#x2F;event-dispa">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="php-annotated-monthly-february-2019">
+<meta property="og:url" content="https://haah.kr/2019/03/02/php-annotated-monthly-february-2019/">
+<meta property="og:site_name" content="ha-ah">
+<meta property="og:description" content="JetBrains에서 제공하는 월간 PHP Annotated Monthly 2월호입니다. 이 중에서 몇 가지 제 취향껏 골라 그 안의 내용도 좀 뒤져보고 개발새발 번역해서 소개합니다.  News &amp; ReleasesPSRhttps:&#x2F;&#x2F;github.com&#x2F;php-fig&#x2F;fig-standards&#x2F;blob&#x2F;master&#x2F;proposed&#x2F;event-dispa">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2018/12/new_php-annotated-monthly.jpg">
+<meta property="article:published_time" content="2019-03-02T01:30:55.000Z">
+<meta property="article:modified_time" content="2019-03-09T04:03:19.000Z">
+<meta property="article:author" content="youngiggy">
+<meta property="article:tag" content="PHP">
+<meta property="article:tag" content="php-annotated-monthly">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2018/12/new_php-annotated-monthly.jpg">
+
+
+<link rel="canonical" href="https://haah.kr/2019/03/02/php-annotated-monthly-february-2019/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://haah.kr/2019/03/02/php-annotated-monthly-february-2019/","path":"2019/03/02/php-annotated-monthly-february-2019/","title":"php-annotated-monthly-february-2019"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>php-annotated-monthly-february-2019 | ha-ah</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=354302543"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":354302543,"only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="ha-ah" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">ha-ah</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">로그, 게으른 로그</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#News-amp-Releases"><span class="nav-number">1.</span> <span class="nav-text">News &amp; Releases</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#PSR"><span class="nav-number">1.1.</span> <span class="nav-text">PSR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PhpStorm-2019-1-EAP"><span class="nav-number">1.2.</span> <span class="nav-text">PhpStorm 2019.1 EAP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHPUnit-Version-8"><span class="nav-number">1.3.</span> <span class="nav-text">PHPUnit Version 8</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PEAR-was-hacked"><span class="nav-number">1.4.</span> <span class="nav-text">PEAR was hacked</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP-Internals"><span class="nav-number">2.</span> <span class="nav-text">PHP Internals</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP-7-4-branched-master-is-PHP-8-0"><span class="nav-number">2.1.</span> <span class="nav-text">PHP-7.4 branched, master is PHP 8.0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RFC-JIT"><span class="nav-number">2.2.</span> <span class="nav-text">[RFC] JIT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RFC-Weak-References"><span class="nav-number">2.3.</span> <span class="nav-text">[RFC] Weak References</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RFC-Null-Coalescing-Assignment-Operator"><span class="nav-number">2.4.</span> <span class="nav-text">[RFC] Null Coalescing Assignment Operator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RFC-New-custom-object-serialization-mechanism"><span class="nav-number">2.5.</span> <span class="nav-text">[RFC] New custom object serialization mechanism</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RFC-Consistent-type-errors-for-internal-functions"><span class="nav-number">2.6.</span> <span class="nav-text">[RFC] Consistent type errors for internal functions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B8%B0%ED%83%80"><span class="nav-number">2.7.</span> <span class="nav-text">기타</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EA%B8%B0%ED%83%80-%EC%9D%BD%EC%9D%84-%EB%A7%8C%ED%95%9C-%EA%B8%80"><span class="nav-number">3.</span> <span class="nav-text">기타 읽을 만한 글</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-Kill-Parents"><span class="nav-number">3.1.</span> <span class="nav-text">How to Kill Parents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Moving-from-Go-to-PHP-again"><span class="nav-number">3.2.</span> <span class="nav-text">Moving from Go to PHP again</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Video"><span class="nav-number">4.</span> <span class="nav-text">Video</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Beachcasts-Tech-Videos"><span class="nav-number">4.1.</span> <span class="nav-text">Beachcasts Tech Videos</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Astrocasts"><span class="nav-number">4.2.</span> <span class="nav-text">Astrocasts</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">youngiggy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">113</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:youngiggy@gmail.com" title="E-Mail → mailto:youngiggy@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/profile.php?id=100001259884599" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;profile.php?id&#x3D;100001259884599" rel="noopener me" target="_blank"><i class="fab fa-facebook fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/jooyoungiggy" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;jooyoungiggy" rel="noopener me" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://haah.kr/2019/03/02/php-annotated-monthly-february-2019/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="youngiggy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="php-annotated-monthly-february-2019 | ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          php-annotated-monthly-february-2019
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-03-02 10:30:55" itemprop="dateCreated datePublished" datetime="2019-03-02T10:30:55+09:00">2019-03-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2019-03-09 13:03:19" itemprop="dateModified" datetime="2019-03-09T13:03:19+09:00">2019-03-09</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/03/02/php-annotated-monthly-february-2019/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/03/02/php-annotated-monthly-february-2019/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><img src="https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2018/12/new_php-annotated-monthly.jpg" alt="Php_annotated_monthly 이미지"></p>
+<p>JetBrains에서 제공하는 월간 <a target="_blank" rel="noopener" href="https://blog.jetbrains.com/phpstorm/2019/02/php-annotated-monthly-february-2019/">PHP Annotated Monthly 2월호</a>입니다.</p>
+<p>이 중에서 몇 가지 제 취향껏 골라 그 안의 내용도 좀 뒤져보고 개발새발 번역해서 소개합니다.</p>
+<hr>
+<h1 id="News-amp-Releases"><a href="#News-amp-Releases" class="headerlink" title="News &amp; Releases"></a>News &amp; Releases</h1><h2 id="PSR"><a href="#PSR" class="headerlink" title="PSR"></a>PSR</h2><p><a target="_blank" rel="noopener" href="https://github.com/php-fig/fig-standards/blob/master/proposed/event-dispatcher.md">https://github.com/php-fig/fig-standards/blob/master/proposed/event-dispatcher.md</a></p>
+<p><code>PSR-14 Event Dispatcher</code>가 review stage로 넘어갔다는 소식.</p>
+<p>아시겠지만(‘나는 알지롱’이란 뜻), <a target="_blank" rel="noopener" href="https://www.php-fig.org/bylaws/psr-workflow/">PSR Workflow</a>에 따르면 PSR이 제정되는 단계는 아래와 같습니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Pre-Draft -&gt; Draft -&gt; Review -&gt; Accepted (-&gt; DEPRECATED)</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/php-fig/fig-standards/blob/master/proposed/extended-coding-style-guide.md">https://github.com/php-fig/fig-standards/blob/master/proposed/extended-coding-style-guide.md</a></p>
+<p><code>PSR-12 Extended Code Style</code>도 review stage에 도달했습니다.</p>
+<p>PSR-2가 2012에 accepted됐고, 그동안 PHP에 많은 변화가 있어서(PHP 7이 2015년 12월에 release됐죠) 최신 PHP 스펙을 반영하자는 취지로 보입니다. </p>
+<p>PSR-12는 PSR-1에 기초하고 있고, PSR-2를 대체합니다.</p>
+<p>PSR이 review 단계에 왔다는 것은 시험 구현체(trial implementations)를 검토하게 되는데요. <a target="_blank" rel="noopener" href="https://youtrack.jetbrains.com/issue/WI-40357">JetBrains</a>, <a target="_blank" rel="noopener" href="https://github.com/squizlabs/PHP_CodeSniffer/issues/750">PHPCS</a> 등에도 이를 반영해야 한다는 논의가 되고 있습니다.</p>
+<p>바로 뒤에 소개할 2019.1 EAP에서도 ‘Sort use statements’쪽을 보시면 use statement 순서를 조정하는 것으로 적용되었습니다.</p>
+<h2 id="PhpStorm-2019-1-EAP"><a href="#PhpStorm-2019-1-EAP" class="headerlink" title="PhpStorm 2019.1 EAP"></a>PhpStorm 2019.1 EAP</h2><p><a target="_blank" rel="noopener" href="https://blog.jetbrains.com/phpstorm/2019/01/phpstorm-2019-1-early-access-program-is-open/">https://blog.jetbrains.com/phpstorm/2019/01/phpstorm-2019-1-early-access-program-is-open/</a></p>
+<p>Focus mode 재밌네요.</p>
+<p>요즘 EAP를 보면 이제 할 수 있는 건 이미 다 했다의 느낌이기도 하고요.</p>
+<h2 id="PHPUnit-Version-8"><a href="#PHPUnit-Version-8" class="headerlink" title="PHPUnit Version 8"></a>PHPUnit Version 8</h2><p><a target="_blank" rel="noopener" href="https://phpunit.de/announcements/phpunit-8.html">https://phpunit.de/announcements/phpunit-8.html</a></p>
+<p>PHPUnit 8 버전이 새로 나왔고 PHP7.2이상을 요구합니다.</p>
+<h2 id="PEAR-was-hacked"><a href="#PEAR-was-hacked" class="headerlink" title="PEAR was hacked"></a>PEAR was hacked</h2><p><a target="_blank" rel="noopener" href="https://thephp.cc/news/2019/02/blast-from-the-past">https://thephp.cc/news/2019/02/blast-from-the-past</a></p>
+<p>슬픈 소식입니다.</p>
+<blockquote>
+<p>If you downloaded go-pear.phar between December 20, 2018 and January 19, 2019 and used it on a system that has sh and perl available then you must consider that system to be compromised, and take responsible action.</p>
+</blockquote>
+<p>저도 나이 드니까 여기 저기 아프더라고요.</p>
+<h1 id="PHP-Internals"><a href="#PHP-Internals" class="headerlink" title="PHP Internals"></a>PHP Internals</h1><h2 id="PHP-7-4-branched-master-is-PHP-8-0"><a href="#PHP-7-4-branched-master-is-PHP-8-0" class="headerlink" title="PHP-7.4 branched, master is PHP 8.0"></a>PHP-7.4 branched, master is PHP 8.0</h2><p><a target="_blank" rel="noopener" href="https://externals.io/message/103862">https://externals.io/message/103862</a></p>
+<p>드디어 PHP 8.0 개발이 시작됐습니다. PHP 7.4와 PHP 8.0을 병렬로 개발한다는 소식입니다.</p>
+<p>Deprecated된 스펙은 이미 <a target="_blank" rel="noopener" href="https://github.com/php/php-src/pull/3770">지워버렸고</a>, 도커 허브의 <a target="_blank" rel="noopener" href="https://hub.docker.com/r/phpdaily/php">phpdaily&#x2F;php</a>를 통해 체험해보실 수 있습니다.</p>
+<h2 id="RFC-JIT"><a href="#RFC-JIT" class="headerlink" title="[RFC] JIT"></a>[RFC] JIT</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/jit">https://wiki.php.net/rfc/jit</a></p>
+<p>Dmitry Stogov가 제안을 넣었습니다.</p>
+<p>RFC에 따르면 OPcache와는 독립된 부분으로 개발되고, OPcache shared memory 영역을 사용할 것으로 보입니다.</p>
+<blockquote>
+<p>PHP JIT is implemented as an almost independent part of OPcache… When enabled, native code of PHP files is stored in an additional region of the OPcache shared memory…</p>
+</blockquote>
+<p>Nikita Popov의 벤치마크에 따르면, 프로젝트(PHP-Parser, amphp&#x2F;http-server)에 따라 5% ~ 30% 정도의 성능 향상이 있었다고 합니다.</p>
+<p><a target="_blank" rel="noopener" href="https://hub.docker.com/r/dmitrybalabka/php-jit/">php-jit 도커 이미지</a>에서 체험하실 수 있습니다.</p>
+<p>추가로 <a target="_blank" rel="noopener" href="https://stitcher.io/blog/php-jit">PHP JIT에 관한 좋은 글</a>도 소개주고 있는데요. 극단적인 상황에서 PHP7과 PHP-JIT의 성능을 비교해주기도 하고, 그러나 웹 어플리케이션에서는 그만큼의 성능 향상을 보일 수는 없고, PHP 사용자나 PHP 언어 자체의 유지보수를 어렵게 할 수 있다고 우려하기도 합니다. 아직 linux 환경에서만 가능하고 일반적인 개발환경(Windows, Mac)에서의 지원 여부도 아직은 불투명한 상황이라고 합니다. </p>
+<h2 id="RFC-Weak-References"><a href="#RFC-Weak-References" class="headerlink" title="[RFC] Weak References"></a>[RFC] Weak References</h2><p>저는 다른 언어에서 Weak References를 써본 적이 없고 왜 필요한 지는 잘 모르겠습니다만, 현재 extension을 통해 PHP에서도 사용할 수는 있다는군요. </p>
+<h2 id="RFC-Null-Coalescing-Assignment-Operator"><a href="#RFC-Null-Coalescing-Assignment-Operator" class="headerlink" title="[RFC] Null Coalescing Assignment Operator"></a>[RFC] Null Coalescing Assignment Operator</h2><p>2년 전에 accepted된 제안인데, 7.4에 구현되었다고 합니다. </p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> (<span class="params"><span class="keyword">array</span> <span class="variable">$parameters</span> = []</span>) </span>&#123;</span><br><span class="line">    <span class="variable">$parameters</span>[<span class="string">&#x27;property&#x27;</span>] ??= <span class="string">&#x27;default&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>이 코드는 아래와 동등합니다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> (<span class="params"><span class="keyword">array</span> <span class="variable">$parameters</span> = []</span>) </span>&#123;</span><br><span class="line">    <span class="variable">$parameters</span>[<span class="string">&#x27;property&#x27;</span>] = <span class="variable">$parameters</span>[<span class="string">&#x27;property&#x27;</span>] ?? <span class="string">&#x27;default&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>PHP의 축약형 연산자는 <a target="_blank" rel="noopener" href="https://stitcher.io/blog/shorthand-comparisons-in-php">Shorthand comparisons in PHP</a>에서 더 확인하실 수 있습니다.</p>
+<h2 id="RFC-New-custom-object-serialization-mechanism"><a href="#RFC-New-custom-object-serialization-mechanism" class="headerlink" title="[RFC] New custom object serialization mechanism"></a>[RFC] New custom object serialization mechanism</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/custom_object_serialization">https://wiki.php.net/rfc/custom_object_serialization</a></p>
+<p>PHP는 두가지 커스텀 직렬화 매커니즘을 지원하는데요.</p>
+<ul>
+<li>__sleep() &#x2F; __wakeup() magic methods</li>
+<li>Serializable interface</li>
+</ul>
+<p>여기에는 사용성 면에서나 아래 코드처럼 상속관계에서 중첩된 직렬화를 시도할 때 등 몇가지 문제가 있습니다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">	...</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">serialize</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="title function_ invoke__">serialize</span>([<span class="variable">$this</span>-&gt;prop, <span class="built_in">parent</span>::<span class="title function_ invoke__">serialize</span>()])</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
+
+<p>새로운 RFC에서는 두가지 magic method를 추가합니다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Returns array containing all the necessary state of the object.</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__serialize</span>(<span class="params"></span>): <span class="title">array</span></span>;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// Restores the object state from the given data array.</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__unserialize</span>(<span class="params"><span class="keyword">array</span> <span class="variable">$data</span></span>): <span class="title">void</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>왜 interface가 아닌 magic method냐는 질문에는, PHP는 기본적으로 모든 object를 직렬화할 수 있고 Serializable interface를 구현하지 않더라도 여전히 가능하기 때문에 magic method가 좀 더 시맨틱하기 때문이라는군요.</p>
+<h2 id="RFC-Consistent-type-errors-for-internal-functions"><a href="#RFC-Consistent-type-errors-for-internal-functions" class="headerlink" title="[RFC] Consistent type errors for internal functions"></a>[RFC] Consistent type errors for internal functions</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/consistent_type_errors">https://wiki.php.net/rfc/consistent_type_errors</a></p>
+<p>사용자 정의 함수는 잘못된 parameter가 전달되면 TypeError를 뱉지만, 내장 함수는 상황에 따라 다르지만 기본적으로 warning을 발생시키고 null을 리턴합니다. 이 RFC는 예외없이 모든 파라미터 오류에 대해 TypeError exception을 던지도록 제안합니다.</p>
+<p>PHP 8.0을 target으로 하고 있고 하위 호환을 해치므로 주의해야할 것입니다.</p>
+<h2 id="기타"><a href="#기타" class="headerlink" title="기타"></a>기타</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/allow-void-variance">[RFC] Allow void return type variance</a></p>
+<ul>
+<li>아직 Under Discussion 상태인데, return type이 void인 경우 하위 클래스에서 다른 type을 리턴할 수 있께 선언할 수 있습니다. 하지만 void return type이 아닌 경우 다시 void로 지정하는 것은 안 됩니다.</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/annotations_v2">PHP RFC: Annotations 2.0</a></p>
+<ul>
+<li>많은 분들이 기다리시는 annotation을 위한 RFC이고, 현재 Draft 상태입니다.</li>
+</ul>
+<h1 id="기타-읽을-만한-글"><a href="#기타-읽을-만한-글" class="headerlink" title="기타 읽을 만한 글"></a>기타 읽을 만한 글</h1><h2 id="How-to-Kill-Parents"><a href="#How-to-Kill-Parents" class="headerlink" title="How to Kill Parents"></a>How to Kill Parents</h2><p><a target="_blank" rel="noopener" href="https://www.tomasvotruba.cz/blog/2019/01/24/how-to-kill-parents/">https://www.tomasvotruba.cz/blog/2019/01/24/how-to-kill-parents/</a></p>
+<p><a target="_blank" rel="noopener" href="https://ocramius.github.io/blog/when-to-declare-classes-final/">When to declare classes final</a>라는 글을 쓴 Marco Pivetta가 4년 후 더 자극적인 제목으로 추가 포스팅을 올렸습니다.</p>
+<p>개발자들은 상속을 통해 문제를 해결하는 경향이 있는데, 상속 보다는 구성을 통해 해결하기 위해, 더 나은 설계를 위해, 가능하면 항상 final을 쓰라고 권고합니다.</p>
+<h2 id="Moving-from-Go-to-PHP-again"><a href="#Moving-from-Go-to-PHP-again" class="headerlink" title="Moving from Go to PHP again"></a>Moving from Go to PHP again</h2><p><a target="_blank" rel="noopener" href="https://dannyvankooten.com/from-go-back-to-php-again/">https://dannyvankooten.com/from-go-back-to-php-again/</a></p>
+<p>PHP(Laravel)을 떠나 Go로 돌아갔던 저자가 다시 PHP로 돌아왔다는 이야기입니다. GO는 여전히 좋고 퍼포먼스가 뛰어나서 필요할 땐 여전히 사용할 용의가 있지만 서비스 운영에는 쉽지 않았던 모양입니다. Symfony4가 엄청 엄청 좋다는 게 결론입니다. </p>
+<blockquote>
+<p>it’s great. Really, really great.</p>
+</blockquote>
+<h1 id="Video"><a href="#Video" class="headerlink" title="Video"></a>Video</h1><h2 id="Beachcasts-Tech-Videos"><a href="#Beachcasts-Tech-Videos" class="headerlink" title="Beachcasts Tech Videos"></a>Beachcasts Tech Videos</h2><p><a target="_blank" rel="noopener" href="http://beachcasts.com/">http://beachcasts.com/</a></p>
+<p><a target="_blank" rel="noopener" href="https://twitter.com/adamculp">Adam Culp</a>란 사람의 동영상 강의 시리즈입니다.</p>
+<h2 id="Astrocasts"><a href="#Astrocasts" class="headerlink" title="Astrocasts"></a>Astrocasts</h2><p><a target="_blank" rel="noopener" href="https://astrocasts.com/browse">https://astrocasts.com/browse</a></p>
+<p><a target="_blank" rel="noopener" href="https://twitter.com/beausimensen">Beau Simensen</a>란 사람의 동영상 강의도 추천한답니다.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>youngiggy
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://haah.kr/2019/03/02/php-annotated-monthly-february-2019/" title="php-annotated-monthly-february-2019">https://haah.kr/2019/03/02/php-annotated-monthly-february-2019/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/PHP/" rel="tag"># PHP</a>
+              <a href="/tags/php-annotated-monthly/" rel="tag"># php-annotated-monthly</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2019/01/19/php-annotated-monthly-january-2019/" rel="prev" title="php-annotated-monthly-January-2019">
+                  <i class="fa fa-chevron-left"></i> php-annotated-monthly-January-2019
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/03/19/php-annotated-monthly-march-2019/" rel="next" title="php-annotated-monthly-march-2019">
+                  php-annotated-monthly-march-2019 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">youngiggy</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"youngiggy-github-io","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>
