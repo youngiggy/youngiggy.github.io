@@ -126,7 +126,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">114</span>
+          <span class="site-state-item-count">115</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -165,6 +165,215 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://haah.kr/2018/04/20/xdebug-on-docker-for-mac/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="youngiggy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/04/20/xdebug-on-docker-for-mac/" class="post-title-link" itemprop="url">Docker for Mac에서 Xdebug 연동</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-04-20 23:58:22" itemprop="dateCreated datePublished" datetime="2018-04-20T23:58:22+09:00">2018-04-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2018-04-27 10:10:06" itemprop="dateModified" datetime="2018-04-27T10:10:06+09:00">2018-04-27</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/04/20/xdebug-on-docker-for-mac/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/04/20/xdebug-on-docker-for-mac/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="updated"><a href="#updated" class="headerlink" title="updated"></a>updated</h2><p>이 글이 의외로 인기(인기란 상대적인 것)가 있어서 여기저기 공유가 되고 있는데, 다시 읽어보니 메쉬코리아의 다른 분들은 어떻게 테스트를 하고 있었다는 건지 궁금할 수도 있겠다. 나는 분명 dd 찍는 게 위험하다고 했는데 말이다.</p>
+<p>일단 dd를 찍어 놓고 production에 배포할 일은 쉽게 일어나진 않는다. 다수의 리뷰어가 지켜보고 있기도 하고, (커버리지에 속해 있다면) 유닛 테스트가 돌아가기도 하고, QA를 거치기도 하고, 그렇게 막 배포하지 않을 사람을 뽑기도 한다.</p>
+<p>개발 환경은 통일되어 있지 않아서(굳이 다 docker로 맞출 필요가 없다) 각자 마음대로 해도 되고, 이미 xdebug같은 툴을 쓰시는 분도 계실 것이다. 나는 이걸 표준 개발 환경 안에 넣으려고 시도했던 것이고.</p>
+<p>내가 이전에 거쳐간 회사에서도 별다른 도구 없이 그냥 코드를 이해하고 개발 잘하시는 분이 많았다. 가끔 찍어볼 일이야 생기긴 하지만 나처럼 자주 breakpoint 걸어 확인하는 스타일은 아니었다. 디버깅을 편하게(편하다는 것은 상대적인 것) 한다고 좋은 코드를 만들어 내는 건 아니다.</p>
+<p>그럼에도 불구하고 나처럼 덤벙거리고 부족한 사람(여기서 내가 PHP 개발 경력이 제일 많은데, 제일 못한다!)은 팀에서는 여러 안전장치 안에서 개발하는 습관을 둬야 한다고 생각한다.<br><br></p>
+<hr>
+<h2 id="새로운-환경에-적응하기"><a href="#새로운-환경에-적응하기" class="headerlink" title="새로운 환경에 적응하기"></a>새로운 환경에 적응하기</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://xdebug.org/">Xdebug</a>와 <a target="_blank" rel="noopener" href="https://www.docker.com/docker-mac">Docker for Mac</a></li>
+</ul>
+<p>새 직장(아…그 사람 구한다는 메쉬코리아?)에서의 개발환경은 나로서는 꽤 도전적이었는데, 뭐하나 익숙한 게 없었다.</p>
+<p>Backend만 개발하며, PHP7.0, AWS, Mac…</p>
+<p>UI가 없는 순수 백엔드(API)만 개발 하다보니 <a target="_blank" rel="noopener" href="https://www.getpostman.com/">Postman</a>이 주 테스트 도구(혹은 진입점)가 된다.</p>
+<p>윈도나 리눅스 remote 서버에 올려 하던 식으로 해봤더니 뭐가 잘 안되곤 해서 매번 dd, var_dump, Log::xxxx() 식으로 코드를 망가뜨리며 테스트를 했었다. 위험하고 불편하다. 그럼 그럴 시간에 잠시 짬을 내서 Xdebug 설정을 완료하는데 노력을 했어야 하지 않았냐는 의문도 들 수 있다. 그런데 일단 대안(코드에 찍어 확인하기)이 있긴 했고, 다른 많은 것을 익혀야 했기 때문에 우선 순위가 밀리고 밀렸다.</p>
+<p>그런데 도저히 안되겠다 싶어서 최근에 다시 후벼 파기 시작했고 성과가 있었다.</p>
+<p>회사 위키에 적은 것을 조금 바꿔 공유해본다.</p>
+<h2 id="Xdebug-설정하기"><a href="#Xdebug-설정하기" class="headerlink" title="Xdebug 설정하기"></a>Xdebug 설정하기</h2><h3 id="원리"><a href="#원리" class="headerlink" title="원리"></a>원리</h3><p>IDE에서 XDebug 모듈로부터 들어오는 연결 요청을 받기 위해 특정 port를 띄우고 기다린다</p>
+<p>Client(브라우저, Postman 등)에서 HTTP request를 할 때 헤더로 XDEBUG_SESSION이라는 쿠키를 실어 보낸다.</p>
+<p>PHP 엔진(+XDebug module)에서 XDEBUG_SESSION을 감지하면 config에 설정된 remote host와 port를 찾아 연결을 시도한다</p>
+<p>DBGp 프로토콜로 두 모듈 간 통신을 하게 된다(break point로 라인 단위 실행 등)</p>
+<h3 id="Communication-Set-up"><a href="#Communication-Set-up" class="headerlink" title="Communication Set-up"></a>Communication Set-up</h3><p><strong>With a static IP&#x2F;single developer</strong></p>
+<p>With remote debugging, Xdebug embedded in PHP acts like the client, and the IDE as the server. The following animation shows how the communication channel is set-up:</p>
+<img src="/images/xdebug-on-docker-for-mac/dbgp-setup.gif" alt="comm. With a static IP/single developer image">
+- the IP of the server is 10.0.1.2 with HTTP on port 80
+- the IDE is on IP 10.0.1.42, so xdebug.remote_host is set to 10.0.1.42
+- the IDE listens on port 9000, so xdebug.remote_port is set to 9000
+- the HTTP request is started on the machine running the IDE
+- Xdebug connects to 10.0.1.42:9000
+- Debugging runs, HTTP Response provided
+
+<img src="/images/xdebug-on-docker-for-mac/dbgp-setup2.gif" alt="comm. With an unknown IP/multiple developers image">
+- The IP of the server is 10.0.1.2 with HTTP on port 80
+- The IDE is on an unknown IP, so xdebug.remote_connect_back is set to 1
+- The IDE listens on port 9000, so xdebug.remote_port is set to 9000
+- The HTTP request is made, Xdebug detects the IP addres from the HTTP headers
+- Xdebug connects to the detected IP (10.0.1.42) on port 9000
+- Debugging runs, HTTP Response provided
+
+<h2 id="기대-효과"><a href="#기대-효과" class="headerlink" title="기대 효과"></a>기대 효과</h2><ol>
+<li><p>dd(dump and die) 등의 프로세스 종료 코드나 로그 확인을 위한 코드 변경을 하지 않고 많은 context 정보를 확인할 수 있다.</p>
+</li>
+<li><p>제시된 context 정보를 통해 실시간 evaluate&#x2F;watch도 가능하다.</p>
+</li>
+<li><p>코드를 완벽히 이해하지 않아도 차례차례 순서대로 한줄씩 실행해보면서 전체 프로세스를 익힐 수 있다.</p>
+</li>
+</ol>
+<h2 id="Docker-for-mac에서의-설정-방법"><a href="#Docker-for-mac에서의-설정-방법" class="headerlink" title="Docker for mac에서의 설정 방법"></a>Docker for mac에서의 설정 방법</h2><p>회사에서는 표준 컨테이너 하나를 띄우고 쓴다</p>
+<h3 id="설정-확인"><a href="#설정-확인" class="headerlink" title="설정 확인"></a>설정 확인</h3><p>host 환경에도 php가 설치되어 있을텐데, 이건 IDE가 사용하는 cli이고 container 안의 php로 확인해야 한다</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">❯ docker exec -it 컨테이너명 bash</span><br><span class="line">root@0829de89a35f:/var/www/html#</span><br></pre></td></tr></table></figure>
+
+<p>xdebug 설치 여부 확인</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">root@0829de89a35f:/var/www/html# php -v</span><br><span class="line">PHP 7.0.22-0ubuntu0.16.04.1 (cli) ( NTS )</span><br><span class="line">Copyright (c) 1997-2017 The PHP Group</span><br><span class="line">Zend Engine v3.0.0, Copyright (c) 1998-2017 Zend Technologies</span><br><span class="line">    with Zend OPcache v7.0.22-0ubuntu0.16.04.1, Copyright (c) 1999-2017, by Zend Technologies</span><br><span class="line">    with Xdebug v2.4.0, Copyright (c) 2002-2016, by Derick Rethans</span><br></pre></td></tr></table></figure>
+
+<p>xdebug 설치 여부 및 설정 파일(xdebug.ini, php.ini 등) 위치 확인</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">root@0829de89a35f:/var/www/html# php -i | grep xdebug</span><br><span class="line">/etc/php/7.0/cli/conf.d/20-xdebug.ini,</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="XDebug-옵션-설정"><a href="#XDebug-옵션-설정" class="headerlink" title="XDebug 옵션 설정"></a>XDebug 옵션 설정</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://xdebug.org/docs/basic">https://xdebug.org/docs/basic</a> 참고</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">zend_extension=xdebug.so # to load extension</span><br><span class="line">xdebug.remote_log=/tmp/xdebug.log # 로그 파일 위치. 첫 연동이라면 실패를 대비해서 로그 파일 위치를 지정하자</span><br><span class="line">xdebug.idekey=PHPSTORM # XDEBUG_SESSION 쿠키에 value로 들어갈 문자열</span><br><span class="line">xdebug.remote_enable=1 # remote host에서의 연결을 허용할지 여부</span><br><span class="line">xdebug.remote_host=host.docker.internal # remote host의 주소. container 안에서 호스트로 접근할 때는 이대로 입력하자</span><br><span class="line">xdebug.remote_port=9003 # remote host에서 어떤 port로 연동할지</span><br></pre></td></tr></table></figure>
+
+<p>저장 후 apache 재시동</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">root@0829de89a35f:/var/www/html# supervisorctl restart apache2</span><br></pre></td></tr></table></figure>
+
+<p>(자기 환경에 맞춰 알아서 재시작 하자)</p>
+<h3 id="IDE-설정"><a href="#IDE-설정" class="headerlink" title="IDE 설정"></a>IDE 설정</h3><p><img src="/images/xdebug-on-docker-for-mac/xdebug_setting.png" alt="IDE - Xdebug 설정 이미지"></p>
+<p><img src="/images/xdebug-on-docker-for-mac/DBGp_proxy.png" alt="IDE - DBGp proxy 설정 이미지"></p>
+<p><strong>Preferences &gt; Languages &amp; Frameworks &gt; PHP &gt; Debug</strong></p>
+<ul>
+<li>debug port 입력. 기본 9000번. 충돌이 나는지 확인하고 다른 port를 입력해도 된다</li>
+<li>단, 위에서 설정한 옵션 xdebug.remote_port&#x3D;xxxx 와 맞춰야 한다</li>
+<li>Force break at the first line when no path mapping specified 옵션<ul>
+<li>path mapping이 되지 않으면 이 옵션을 켜야만 한다</li>
+<li>매번 최초의 php script 위치부터 시작하므로 매우 귀찮다</li>
+<li>아래 server 설정을 추가하자</li>
+</ul>
+</li>
+</ul>
+<p><strong>Preferences &gt; Languages &amp; Frameworks &gt; PHP &gt; Server</strong></p>
+<p><img src="/images/xdebug-on-docker-for-mac/server_path_mapping.png" alt="Server - path mapping 설정 이미지"></p>
+<h3 id="Client-쿠키-설정"><a href="#Client-쿠키-설정" class="headerlink" title="Client 쿠키 설정"></a>Client 쿠키 설정</h3><p><strong>브라우저</strong></p>
+<ul>
+<li>크롬이나 FF라면 helper를 이용하면 편하다<ul>
+<li><a target="_blank" rel="noopener" href="https://chrome.google.com/webstore/detail/xdebug-helper/eadndfjplgieldjbigjakmdgkmoaaaoc">https://chrome.google.com/webstore/detail/xdebug-helper/eadndfjplgieldjbigjakmdgkmoaaaoc</a></li>
+<li><a target="_blank" rel="noopener" href="https://addons.mozilla.org/en-US/firefox/addon/xdebug-helper-for-firefox/">https://addons.mozilla.org/en-US/firefox/addon/xdebug-helper-for-firefox/</a></li>
+</ul>
+</li>
+</ul>
+<p><strong>Postman</strong></p>
+<ul>
+<li>host별 cookie에 설정<ul>
+<li>XDEBUG_SESSION&#x3D;PHPSTORM; path&#x3D;&#x2F;; domain&#x3D;localhost; Expires&#x3D;Tue, 19 Jan 2038 03:14:07 GMT;</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/xdebug-on-docker-for-mac/postman_cookie.png" alt="Postman - cookie 설정 이미지"></p>
+<ul>
+<li>일부 request에만 추가하려면 header에 설정</li>
+</ul>
+<p><img src="/images/xdebug-on-docker-for-mac/postman_header.png" alt="Postman - header 설정 이미지"></p>
+<h2 id="테스트-중인-모습"><a href="#테스트-중인-모습" class="headerlink" title="테스트 중인 모습"></a>테스트 중인 모습</h2><p><img src="/images/xdebug-on-docker-for-mac/test_on_break_point.png" alt="테스트 중인 모습 이미지"></p>
+<h2 id="삽질"><a href="#삽질" class="headerlink" title="삽질"></a>삽질</h2><p>나는 Mac도 잘 몰랐고, Docker도 잘 몰랐으므로 도대체 어디서 문제가 생긴 건지 알 수가 없었다. 여러가지 검색을 통해 힌트를 얻을 수도 있었지만, 나는 영어도 잘 모르지 않는가! 꽤 초기에 발견했던 커뮤니티 글을 다시 한번 찬찬히 읽어보고 결정적인 힌트를 얻게 되는데…</p>
+<p>linux나 windows에선 xdebug.remote_connect_back&#x3D;1을 설정하면 remote_host를 지정할 필요도 없이 쉽게 연동되나 Docker for Mac에서는 이 방식이 동작하지 않는다. 이건 Docker for Mac의 구조적인 문제라고 한다.</p>
+<p>결국 remote host를 지정해야 하는데 그 방법으로 IP alias를 생성하라는 글이 아주 많은데,</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo ifconfig en0 alias 10.254.254.254 255.255.255.0</span><br></pre></td></tr></table></figure>
+
+<p>이렇게 하고 remote_host의 값을 10.254.254.254을 지정하면 동작은 잘된다.</p>
+<p>그런데 이때 Mac에서 인터넷 연결이 끊기는 문제가 발생했다. 이유는 도저히 모르겠다. 뭔가 충돌이 나는 IP일 수도…</p>
+<p>그러다 Docker for Mac의 <a target="_blank" rel="noopener" href="https://docs.docker.com/docker-for-mac/networking/#httphttps-proxy-support">공식 문서</a>를 보고 해결책을 찾았는데, </p>
+<p>Dcker에서는 container 안에서 호스트로 접근할 수 있는 host.docker.internal라는 특별한 DNS name을 제공한다는 것이다. 따라서 위에 설정한 대로 <code>xdebug.remote_host=host.docker.internal</code>을 입력하면 호스트(IDE를 띄워놓은)에 접근 가능하다.</p>
+<p>이 과정에서 문제가 무엇인지는 xdebug.remote_log에서 지정된 로그 파일로부터 얻었다. 연동이 잘 안된다면 맨 위에 설명한 것처럼 DBGp로 연결이 이뤄지기까지 어느 단계에서 문제가 생겼는지 확인해보는 게 좋다.</p>
+<ul>
+<li>XDEBUG_SESSION이 잘 세팅되지 않았다면 쿠키&#x2F;헤더 설정을 확인해보자</li>
+<li>PHP(+Xdebug) 엔진 단에서 XDEBUG_SESSION을 인식을 못한다면, Xdebug 모듈이 로드 안됐을 수 있으니 <code>php -v</code>나 <code>phpinfo()</code>로 확인하자</li>
+<li>XDEBUG_SESSION을 인식은 했는데 request 들어온 곳을 찾아가지 못하는 경우라면,<ul>
+<li>IDE에서 Xdebug connection을 listen하지 않거나</li>
+<li>container 내부에서 호스트에 연결할 수 없는 상황…은 다양하긴 하다</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1251,111 +1460,6 @@
 <p>과한 자기 확신으로 책 한권을 채운 잔소리를 3일 내내 읽다보니, (책 뒤표지나 추천사에서) 왜 그토록 많은 뛰어난 인물들이 책을 추천하는 지 알 것 같았다.</p>
 <p>읽고 추천한 사람들이 참 뛰어났기 때문이다.</p>
 <p>이상한 결론이지만, 나도 이 책을 추천하면서 끝을 내기로…</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://haah.kr/2017/12/02/book-978-89-98139-76-6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="youngiggy">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ha-ah">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | ha-ah">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2017/12/02/book-978-89-98139-76-6/" class="post-title-link" itemprop="url">독후감 - 객체지향의 사실과 오해</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2017-12-02 12:17:37" itemprop="dateCreated datePublished" datetime="2017-12-02T12:17:37+09:00">2017-12-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2018-02-13 15:27:02" itemprop="dateModified" datetime="2018-02-13T15:27:02+09:00">2018-02-13</time>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2017/12/02/book-978-89-98139-76-6/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/02/book-978-89-98139-76-6/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="역할-책임-협력-관점에서-본-객체지향"><a href="#역할-책임-협력-관점에서-본-객체지향" class="headerlink" title="역할, 책임, 협력 관점에서 본 객체지향"></a>역할, 책임, 협력 관점에서 본 객체지향</h2><p><img src="http://image.kyobobook.co.kr/images/book/xlarge/766/x9788998139766.jpg" alt="객체지향의 사실과 오해"></p>
-<p>그동안 객체지향을 오해한 기억이 별로 없어서 그런지 특별히 재밌고 감동적이고 그렇지는 않았다.<br>(난 오해한 적은 없고 이해한 적이 없었으니..)</p>
-<p>비교적 얇은 <code>책</code>임에도 불구하고 설명이 꽤나 장황하다. </p>
-<p>학교 다닐 때 과제 분량 맞추려고 문장을 늘려쓰곤 했던 사람이라면 의심의 눈초리를 거둘 수 없을텐데, </p>
-<p>지루함을 견디고 끝까지 읽었을 때 비로소 이해가 갔다.</p>
-<p>용어를 최대한 정확하게 표현하려 애쓴 흔적이 역력하다.</p>
-<p>표현의 근거도 일일이 제시하고 내 수준에서는 특별히 틀렸다고 생각할 만한 지점이 없었다.</p>
-<p>쉬운 이야기를 썼지만 저자의 내공이 매우 깊은가보다 생각이 든다.</p>
-<p>하지만 이 책을 추천하는지 질문을 받는다면 뜻밖의 지점에서 고민하게 될 터인데,</p>
-<p>좀…아재 감성이다.</p>
-<p>그 감성을 풀어내는 방식도 좀 장황하기도 하고, 젠더 감수성을 운운할 정도까지인지는 모르겠으나 가끔 공대 개그 같은 묘한 냄새가 난다(smell).</p>
-<p>내가 명확하게 정의 내려 입 밖에 내 본 적이 없는 수많은 개념과 용어를 한번 더 정리하는 기분으로 읽어냈고,</p>
-<p>그 경험이 나쁘진 않았다.</p>
-<p>조금 더 짧은 호흡으로 쓰였다면, 종종 뒤적거리며 개념 정리하기 좋았을 것 같다.</p>
-<p>결론은,</p>
-<p>추천하긴 하지만 선뜻 다시 손이 안 갈 것 같다.</p>
 
       
     </div>
