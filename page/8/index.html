@@ -126,7 +126,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">115</span>
+          <span class="site-state-item-count">116</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -165,6 +165,124 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://haah.kr/2018/04/28/news-archive-2018-04-28/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="youngiggy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/04/28/news-archive-2018-04-28/" class="post-title-link" itemprop="url">뉴스 아카이브 2018-04-28</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2018-04-28 11:18:53 / Modified: 12:57:51" itemprop="dateCreated datePublished" datetime="2018-04-28T11:18:53+09:00">2018-04-28</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/04/28/news-archive-2018-04-28/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/04/28/news-archive-2018-04-28/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="GraphQL의-결과-값을-CDN에-캐싱-하기-Caching-GraphQL-results-in-your-CDN"><a href="#GraphQL의-결과-값을-CDN에-캐싱-하기-Caching-GraphQL-results-in-your-CDN" class="headerlink" title="GraphQL의 결과 값을 CDN에 캐싱 하기 (Caching GraphQL results in your CDN)"></a>GraphQL의 결과 값을 CDN에 캐싱 하기 (Caching GraphQL results in your CDN)</h2><p><a target="_blank" rel="noopener" href="https://www.vobour.com/graphql%EC%9D%98-%EA%B2%B0%EA%B3%BC-%EA%B0%92%EC%9D%84-cdn%EC%97%90-%EC%BA%90%EC%8B%B1-%ED%95%98%EA%B8%B0-caching-graph">https://www.vobour.com/graphql의-결과-값을-cdn에-캐싱-하기-caching-graph</a></p>
+<p>apollo 블로그의 글을 번역한 건데, (내가 너무 고지식한 건지) 그 사실을 페이지 끝에 밝혀서 좀 아쉬운 감이 있긴 하다. 그러나 매우 유용한 글을 번역해 주셔서 고마울 따름.</p>
+<p>나도 graphql의 약점 중 하나로 캐시를 들고는 했는데, 그래서 <a target="_blank" rel="noopener" href="http://restql.b2w.io/">restQL</a>같은 놈들은 Native browser caching, CDN and Proxy caching 등을 해준다고 홍보를 하기도.</p>
+<p>apollo와 같은 프레임웍에서는 이 문제를 아래와 같이 해결한다. </p>
+<ul>
+<li>Apollo Link의 Automatic Persisted Queries로 POST로 보내야할 많은 데이터를 해쉬 키로 조회할 수 있게 된다</li>
+<li>Apollo Cache Control로 상세하게 cache hints를 줄 수 있다</li>
+</ul>
+<p>더 있지만 핵심은 이 정도인 듯?</p>
+<p>GraphQL만으로는 프로덕션에서 유용하게 써먹기는 힘들 것 같고, 이런 프레임웍에 얹어줘야 쓸만 할 것 같다. Github의 GraphQL API는 벌써 v4로 올라온 것 같은데, 내부적으로 어떻게 최적화하는지 글이 있으면 좋겠다.</p>
+<h2 id="2018년과-이후-JavaScript의-동향-라이브러리와-프레임워크"><a href="#2018년과-이후-JavaScript의-동향-라이브러리와-프레임워크" class="headerlink" title="2018년과 이후 JavaScript의 동향 - 라이브러리와 프레임워크"></a>2018년과 이후 JavaScript의 동향 - 라이브러리와 프레임워크</h2><p><a target="_blank" rel="noopener" href="http://d2.naver.com/helloworld/3259111">http://d2.naver.com/helloworld/3259111</a></p>
+<p>이제는 매년 훑어볼만한 시리즈가 되어가는 것 같다.</p>
+<p>한동안 jQuery를 쓰면 골방에서 방망이 깎는 노인 개발자처럼 이야기하는게 못마땅했는데, 요즘은 슬슬 생각이 바뀌는 중이다. jQuery가 여전히 유용하다고 생각했던 이유는 적어도 한국에선 구형 IE를 지원해야하고, 이 문법에 익숙한 개발자들이 널려 있으며 굳이 (나에게) 익숙하지 않은 React&#x2F;Angular&#x2F;VUE를 배워가며 복잡한 단순 UI를 만들 필요가 없었기 때문이다.</p>
+<p>그런데 이제 구형 IE를 지원해야 하는 요구가 많이 줄었을 것이라 생각하고(아니라면 위로를…), ES6 이상 쓰는 것도 당연한 일이고(아니라면 위로를..), jQuery가 익숙하지 않은 세대가 많이 유입이 됐고, 굳이 익숙하지 않은 jQuery를 쓰느니 간단히(!) webpack 좀 올려서 vue나 써버리는 사람이 많아졌다. 어느새.</p>
+<h2 id="카카오페이지-웹-React-포팅-후기"><a href="#카카오페이지-웹-React-포팅-후기" class="headerlink" title="카카오페이지 웹 React 포팅 후기"></a>카카오페이지 웹 React 포팅 후기</h2><p><a target="_blank" rel="noopener" href="https://medium.com/@ljs0705/%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%8E%98%EC%9D%B4%EC%A7%80-%EC%9B%B9-react-%ED%8F%AC%ED%8C%85-%ED%9B%84%EA%B8%B0-76402cc5e031">https://medium.com/@ljs0705/카카오페이지-웹-react-포팅-후기-76402cc5e031</a></p>
+<p>React를 도입할 때 고민해야할 것을 다방면으로 이야기 해줘서 참 좋다. 사실 (언젠가먼훗날내가리액트를공부할날이올것을대비하여) 이런 링크만 가득 있긴 한데, 나름 최신 정보니깐…옛날 링크 좀 지워버려야지.</p>
+<h2 id="리액트-도움닫기-한국어-번역서를-출간하며"><a href="#리액트-도움닫기-한국어-번역서를-출간하며" class="headerlink" title="리액트 도움닫기 한국어 번역서를 출간하며"></a>리액트 도움닫기 한국어 번역서를 출간하며</h2><p><a target="_blank" rel="noopener" href="https://sujinlee.me/the-road-to-learn-react-korean/">https://sujinlee.me/the-road-to-learn-react-korean/</a></p>
+<p>좀 전에 안 보는 React 관련 링크 좀 지워버린다 했지만, 벌써 또 하나의 링크를 수집해 놓는다. 리액트에 대한 내용 보다는 번역에 관한 노하우가 담긴 링크다. 멋지다!</p>
+<h2 id="성과를-쥐어짜는-관리자"><a href="#성과를-쥐어짜는-관리자" class="headerlink" title="성과를 쥐어짜는 관리자"></a>성과를 쥐어짜는 관리자</h2><p><a target="_blank" rel="noopener" href="https://brunch.co.kr/@younghakjang/52">https://brunch.co.kr/@younghakjang/52</a></p>
+<blockquote>
+<p>고성과 성격파탄자를 어떻게 다룰 것인가…생략…그런 사람을 저성과자로 분류하라…</p>
+</blockquote>
+<p>피드백!</p>
+<h2 id="Scroll-to-the-future"><a href="#Scroll-to-the-future" class="headerlink" title="Scroll to the future"></a>Scroll to the future</h2><p><a target="_blank" rel="noopener" href="https://evilmartians.com/chronicles/scroll-to-the-future-modern-javascript-css-scrolling-implementations">https://evilmartians.com/chronicles/scroll-to-the-future-modern-javascript-css-scrolling-implementations</a></p>
+<p>참 골치아프다.</p>
+<p>프론트엔드 개발자가 돈을 적게 받는 경향이 있는 것 같은데(주관적인 생각이다), 우리나라는 거칠고 잡다한 일을 해야할 경우 돈을 적게 주는 것 같다. (내가 해봐서 아는데라고 할 수 있는) 세심하게 많은 일을 하는 것보단 그게 무슨 일인지 이해하기 어려울 때 돈을 더 줄 가능성이 높달까.</p>
+<p>(사실 다들 얼마나 받는지는 잘 모르겠다)</p>
+<h2 id="조직이-건강하다고-느낄-때"><a href="#조직이-건강하다고-느낄-때" class="headerlink" title="조직이 건강하다고 느낄 때"></a>조직이 건강하다고 느낄 때</h2><p><a target="_blank" rel="noopener" href="https://www.facebook.com/dgtgrade/posts/1776370592421799">https://www.facebook.com/dgtgrade/posts/1776370592421799</a></p>
+<h2 id="팔도-비빔면-소스-만드는-법-비빔면-소스-레시피-공개"><a href="#팔도-비빔면-소스-만드는-법-비빔면-소스-레시피-공개" class="headerlink" title="팔도 비빔면 소스 만드는 법 비빔면 소스 레시피 공개"></a>팔도 비빔면 소스 만드는 법 비빔면 소스 레시피 공개</h2><p><a target="_blank" rel="noopener" href="http://gall.dcinside.com/board/view/?id=food_noodle&no=49937">http://gall.dcinside.com/board/view/?id=food_noodle&amp;no=49937</a></p>
+<p>생활해킹</p>
+<h2 id="늦은-나이에-개발자로-시작할-수-있을까요"><a href="#늦은-나이에-개발자로-시작할-수-있을까요" class="headerlink" title="늦은 나이에 개발자로 시작할 수 있을까요."></a>늦은 나이에 개발자로 시작할 수 있을까요.</h2><p><a target="_blank" rel="noopener" href="https://steemit.com/development/@hikamaeng/7s6nmg">https://steemit.com/development/@hikamaeng/7s6nmg</a></p>
+<p>뒤늦게 개발자를 하려는 동생에게도 보내줬는데, 요점은 대충 해서는 안된다는 것. 그런데 그 대충이 어느 수준인지 뒤늦은 개발자 지망생은 잘 모른다. 나도 잘 모르기 때문에, 어느 수준이 적당하다고 얘기하기도 어렵다. 개발에 흥미를 느껴서가 아니라 현실 도피성이라면 또한 현실 도피하고 싶은 회사에서 기다리고 있다고 봐야…</p>
+<h2 id="인스타그램에선-‘이렇게’-일한다"><a href="#인스타그램에선-‘이렇게’-일한다" class="headerlink" title="인스타그램에선 ‘이렇게’ 일한다"></a>인스타그램에선 ‘이렇게’ 일한다</h2><p><a target="_blank" rel="noopener" href="http://bridge.500startups.co.kr/%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%EC%97%90%EC%84%A0-%ED%8C%80-%EA%B4%80%EB%A6%AC-%EC%9D%B4%EB%A0%87%EA%B2%8C-%ED%95%9C%EB%8B%A4/">http://bridge.500startups.co.kr/인스타그램에선-팀-관리-이렇게-한다/</a></p>
+<p>사실 이런 글 반 이상은 다 뻥인 것 같은데, 이제는 그게 진짜인지 아닌지가 중요하진 않다고 생각한다. 우린 이렇게 하고 싶다 정도로 받아들인다면.</p>
+<p>방향이 좋다.</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1351,115 +1469,6 @@
 <p>어쨌든 그동안 내가 희미하게나마 들어왔던 DDD는 <a target="_blank" rel="noopener" href="http://www.zdnet.co.kr/news/news_view.asp?artice_id=00000039170212">이런</a> 느낌이었는데,</p>
 <p>이 책의 내용은 거대한 숲 안에서 작은 군락 정도만 표현한 것 같은 느낌을 지울 수 없다.</p>
 <p>개발자들이 키보드에 손 올리고 신나게 개발할 준비를 하고 있을 때, ‘업무전문가’는 어디쯤 위치해야 하는가…</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://haah.kr/2017/12/10/book-9788965962090-%E1%84%8B%E1%85%A6%E1%84%80%E1%85%A9%E1%84%85%E1%85%A1%E1%84%82%E1%85%B3%E1%86%AB%E1%84%8C%E1%85%A5%E1%86%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="youngiggy">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ha-ah">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | ha-ah">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2017/12/10/book-9788965962090-%E1%84%8B%E1%85%A6%E1%84%80%E1%85%A9%E1%84%85%E1%85%A1%E1%84%82%E1%85%B3%E1%86%AB%E1%84%8C%E1%85%A5%E1%86%A8/" class="post-title-link" itemprop="url">독후감 - 에고라는 적</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2017-12-10 23:12:53" itemprop="dateCreated datePublished" datetime="2017-12-10T23:12:53+09:00">2017-12-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2018-02-13 15:27:02" itemprop="dateModified" datetime="2018-02-13T15:27:02+09:00">2018-02-13</time>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2017/12/10/book-9788965962090-%E1%84%8B%E1%85%A6%E1%84%80%E1%85%A9%E1%84%85%E1%85%A1%E1%84%82%E1%85%B3%E1%86%AB%E1%84%8C%E1%85%A5%E1%86%A8/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/10/book-9788965962090-에고라는적/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><img src="http://image.kyobobook.co.kr/images/book/large/090/l9788965962090.jpg" alt="에고라는 적"></p>
-<p>이 책도 역시 <a target="_blank" rel="noopener" href="http://jhrogue.blogspot.kr/2017/10/blog-post_6.html">컴퓨터 vs 책</a>에서 소개되어 알게 됐고,</p>
-<p>서점에서 잠깐 보고 나서 ‘좋은 책인 것 같으나 나에겐 필요 없을 듯’과 같은 식으로 건방진 메모를 하고 있다가,</p>
-<p>딱 이 시점에 읽기 좋은 책이라 생각하며 사서 3<del>4일 정도에 후다닥 읽어버렸다. (내 최고 기록은 2</del>3일 만에 읽은 ‘의뢰인’이었던 것 같다)</p>
-<p>그렇다고 이게 엄청 재밌는 건 아닌데, 자신을 돌아보며 적극적으로 읽어나가야 공감이 많이 될 것이다. </p>
-<p>맨 처음에 언급한 독후감에 좋은 문구와 동영상과 감상평을 많이 추려 놓으셨는데, 이 분의 결론에 격한 공감을 한다.</p>
-<blockquote>
-<p>결론: 에고 때문에 혼쭐이 나신 분이라면(과연 안 그런 분이 계실까?) 이 책을 읽으면서 여러 가지 감상에 젖을 것이다. 강력 추천!</p>
-</blockquote>
-<p>희대의 잔소리꾼 라이언 홀리데이(작가의 이름)는 위인전에서 위인들의 내면을 다루지 않고 그 사람들의 인생의 단면만을 나열한다고 불만인 것 같으나, 그가 에고가 튼실한 위인을 다루는 방식도 크게 다르지 않은 것 같다.</p>
-<p>수많은 명언과 예시를 쏟아내며 잔소리에 잔소리를 거듭하지만 그가 옳다는 근거를 찾기는 힘들다.</p>
-<p>그런데 그 잔소리가 꽤 설득력은 있어서 내 과거, 내 선택, 지금 내 생각을 하나하나 짚어가며 들여다보는 재미가 있기도 했다. </p>
-<p>나는 <code>에고</code>가 뭔지 정확히 정의를 못 내리겠지만, 이 사람은 에고를 ‘모든 마음의 소리’ 정도로 해석하는 것 같다.</p>
-<p>내가 해야 할 올바른 선택을 방해하는 모든 마음의 소리. </p>
-<p>그 올바르다는 기준은 미래 시점에 알고 보니 옳았던 선택이 아니고, 합리적인 선택을 의미한다. 충분한 근거로. 더 큰 목표를 갖고. 자신을 객관적으로 바라보면서.</p>
-<p>항상 명심하기 위해 작가처럼 ‘에고가 나쁜 놈이네’라고 문신을 새길 순 없지만, 허리를 펼 때면 ‘에고 허리야’ 소리라도 낼까.</p>
-<p>아니면 가끔이라도 내 마음의 소리가 내 선택, 내 행동을 잘못 이끌고 있는지 돌아보는 용도로 이 책을 다시 읽으면 좋을 것 같다.</p>
-<p>과한 자기 확신으로 책 한권을 채운 잔소리를 3일 내내 읽다보니, (책 뒤표지나 추천사에서) 왜 그토록 많은 뛰어난 인물들이 책을 추천하는 지 알 것 같았다.</p>
-<p>읽고 추천한 사람들이 참 뛰어났기 때문이다.</p>
-<p>이상한 결론이지만, 나도 이 책을 추천하면서 끝을 내기로…</p>
 
       
     </div>

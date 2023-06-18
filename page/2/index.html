@@ -126,7 +126,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">115</span>
+          <span class="site-state-item-count">116</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -165,6 +165,249 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://haah.kr/2022/07/24/php-annotated-july-2022/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="youngiggy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/07/24/php-annotated-july-2022/" class="post-title-link" itemprop="url">PHP Annotated – July 2022</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-07-24 00:03:16 / Modified: 23:53:59" itemprop="dateCreated datePublished" datetime="2022-07-24T00:03:16+09:00">2022-07-24</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2022/07/24/php-annotated-july-2022/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2022/07/24/php-annotated-july-2022/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="https://blog.jetbrains.com/wp-content/uploads/2022/07/php-annotated-july2022-blog-featured-image-1280x600-1.png" alt="PHP Annotated 이미지"></p>
+<p><a target="_blank" rel="noopener" href="https://blog.jetbrains.com/author/rpronskiy">Roman Pronskiy</a>가 쓰고 JetBrains에서 제공하는 PHP Annotated <a target="_blank" rel="noopener" href="https://blog.jetbrains.com/phpstorm/2022/07/php-annotated-july-2022/">2022년 7월</a>의 번역&#x2F;해석본입니다.</p>
+<p>이 중에서 몇 가지 제 취향껏 골라 그 안의 내용도 좀 뒤져보고 개발새발 번역해서 소개합니다.</p>
+<hr>
+<p>안녕하세요!</p>
+<p>PHP Annotated 7월호에 오신 것을 환영합니다. 여기에서 선별된 뉴스, 기사, 도구 및 비디오를 포함하여 지난 한 달 동안 PHP 세계에서 일어난 가장 흥미로운 일을 따라잡을 것입니다.</p>
+<h1 id="News"><a href="#News" class="headerlink" title="News"></a>News</h1><h2 id="PHP-8-2-0-Alpha-2-and-PHP-8-2-0-Alpha-3-have-been-released"><a href="#PHP-8-2-0-Alpha-2-and-PHP-8-2-0-Alpha-3-have-been-released" class="headerlink" title="PHP 8.2.0 Alpha 2 and PHP 8.2.0 Alpha 3 have been released"></a>PHP 8.2.0 Alpha 2 and PHP 8.2.0 Alpha 3 have been released</h2><p>세 번째이자 마지막 알파가 <a target="_blank" rel="noopener" href="https://wiki.php.net/todo/php82#timetable">예정대로</a> 출시되었습니다. 다음 릴리스는 7월 21일에 예정된 PHP 8.2.0 Beta 1입니다. </p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.php.net/archive/2022.php#2022-06-23-1">PHP 8.2.0 Alpha 2</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.php.net/archive/2022.php#2022-07-07-2">PHP 8.2.0 Alpha 3</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.php.net/archive/2022.php#2022-07-21-1">PHP 8.2.0 Beta 1</a></li>
+</ul>
+<p>역자 주: 번역 시간 기준으로 21일이 지나 8.2.0 Beta 1은 출시되었습니다. 다음 릴리스는 8월 4일에 예정된 PHP 8.2.0 Beta 2입니다.</p>
+<p>PHP 8.2에 추가될 기능에 대한 자세한 목록은 <a target="_blank" rel="noopener" href="https://php.watch/versions/8.2">php.watch</a> 또는 <a target="_blank" rel="noopener" href="https://stitcher.io/blog/new-in-php-82">stitcher.io</a>를 참조하십시오 .</p>
+<h2 id="PHP-8-0-21-and-PHP-8-1-8-have-been-released"><a href="#PHP-8-0-21-and-PHP-8-1-8-have-been-released" class="headerlink" title="PHP 8.0.21 and PHP 8.1.8 have been released"></a>PHP 8.0.21 and PHP 8.1.8 have been released</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.php.net/archive/2022.php#2022-07-07-1">PHP 8.0.21</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.php.net/archive/2022.php#2022-07-07-3">PHP 8.1.8</a></li>
+</ul>
+<h2 id="PHP-Foundation-Update-June-2022"><a href="#PHP-Foundation-Update-June-2022" class="headerlink" title="PHP Foundation Update, June 2022"></a>PHP Foundation Update, June 2022</h2><p><a target="_blank" rel="noopener" href="https://thephp.foundation/blog/2022/07/04/php-foundation-update-june-2022/">PHP Foundation 업데이트, 2022년 6월</a></p>
+<p>후원자를 위한 월간 업데이트를 확인하십시오.</p>
+<ul>
+<li>개발자가 달성한 것, 새로운 후원자 및 재단에 기여할 수 있는 재정적 방법 등</li>
+</ul>
+<h2 id="php-net-redesign-is-being-discussed"><a href="#php-net-redesign-is-being-discussed" class="headerlink" title="php.net redesign is being discussed"></a>php.net redesign is being discussed</h2><p><a target="_blank" rel="noopener" href="https://github.com/php/web-php/pull/602">php.net 재설계가 논의 중입니다</a></p>
+<p><img src="https://pbs.twimg.com/media/FWl6PbkXwAIz_JY?format=jpg&name=small" alt="개발 중인 php 웹사이트 캡쳐 화면"></p>
+<blockquote>
+<p>디자인 실험으로 현재 #php 웹사이트를 개편했습니다. 더 수정할 수 있는 부분이 많이 있지만 지금까지는 만족합니다. 어떻게 생각하세요?</p>
+</blockquote>
+<p>Mike van Riel(@mvriel)의 <a target="_blank" rel="noopener" href="https://twitter.com/mvriel/status/1542898919142789123">트윗</a></p>
+<p>한편 <a target="_blank" rel="noopener" href="https://twitter.com/localheinz">Andreas Möller</a> 덕분에 php.net 소스 코드는 이제 <a target="_blank" rel="noopener" href="https://github.com/FriendsOfPHP/PHP-CS-Fixer">friendsofphp&#x2F;php-cs-fixer</a>를 사용하여 코딩 표준 문제를 수정 합니다.</p>
+<p>PHP의 메인 사이트 업데이트를 돕고 싶다면 <a target="_blank" rel="noopener" href="https://github.com/php/web-php/blob/master/.github/CONTRIBUTING.md">기여 가이드(contributing guide)</a>를 확인하세요 .</p>
+<h2 id="A-popular-async-framework-for-PHP-ReactPHP-turned-10"><a href="#A-popular-async-framework-for-PHP-ReactPHP-turned-10" class="headerlink" title="A popular async framework for PHP ReactPHP turned 10"></a>A popular async framework for PHP ReactPHP turned 10</h2><p>인기 있는 PHP 비동기 프레임워크 <a target="_blank" rel="noopener" href="https://clue.engineering/2022/announcing-reactphp-async">ReactPHP 10</a></p>
+<p>10주년을 기념하기 위해 팀은 async 및 await 기능이 포함된 완전히 새로운 비동기 구성 요소인 <a target="_blank" rel="noopener" href="https://github.com/reactphp/async">reactphp&#x2F;async</a>를 출시했으며 이는 PHP 8.1+와 같은 fiber를 기반으로 구축되었습니다.</p>
+<p>Cees-Jan Kiewiet의 <a target="_blank" rel="noopener" href="https://blog.wyrihaximus.net/2022/07/my-road-to-fibers-with-reactphp/">My road to fibers with ReactPHP</a>를 읽어보세요.</p>
+<h2 id="Is-PHP-dead"><a href="#Is-PHP-dead" class="headerlink" title="Is PHP dead?"></a>Is PHP dead?</h2><p><a target="_blank" rel="noopener" href="https://is-php-dead.lol/">PHP는 죽었습니까?</a></p>
+<p>한 번 그리고 영원히 대답을 남겼습니다.</p>
+<h1 id="PHP-Core"><a href="#PHP-Core" class="headerlink" title="PHP Core"></a>PHP Core</h1><p>Core 뉴스의 대부분은 PHP Foundation의 <a target="_blank" rel="noopener" href="https://thephp.foundation/blog/tag/roundup/">PHP Core Roundup 시리즈</a>에서 자세히 다룹니다 . 이 시리즈의 다음 에피소드가 곧 출시될 예정이므로 업데이트에 대해 간단히 언급하겠습니다.</p>
+<h2 id="✅-RFC-Disjunctive-Normal-Form-Types-PHP-8-2"><a href="#✅-RFC-Disjunctive-Normal-Form-Types-PHP-8-2" class="headerlink" title="✅ RFC: Disjunctive Normal Form Types #PHP 8.2"></a>✅ RFC: Disjunctive Normal Form Types #PHP 8.2</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/dnf_types">RFC: Disjunctive Normal Form Types</a> #PHP 8.2</p>
+<p>Disjunctive Normal Form 유형에 대한 지원이 PHP 8.2에 승인되었습니다. 결합 및 교차 유형을 혼합할 수 있습니다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>): (<span class="params">A &amp; B</span>) | <span class="title">D</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Derick Rethan가 George Peter Banyard와 함께 하는 🔈 <a target="_blank" rel="noopener" href="https://derickrethans.nl/phpinternalsnews-103.html">PHP Internals News 팟캐스트 에피소드 103</a>에서 자세히 알아보십시오.</p>
+<h2 id="✅-RFC-Fetch-properties-of-enums-in-const-expressions-PHP-8-2"><a href="#✅-RFC-Fetch-properties-of-enums-in-const-expressions-PHP-8-2" class="headerlink" title="✅ RFC: Fetch properties of enums in const expressions #PHP 8.2"></a>✅ RFC: Fetch properties of enums in const expressions #PHP 8.2</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/fetch_property_in_const_expressions">RFC: const 표현식에서 enum 속성 가져오기</a> #PHP 8.2</p>
+<p>PHP 8.2에서는 -&gt; &#x2F; ?-&gt; 를 사용하여 상수 표현식에서 enum 속성을 가져올 수 있습니다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">A</span>: <span class="title">string</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> B = <span class="string">&#x27;B&#x27;</span>;</span><br><span class="line">    <span class="keyword">const</span> <span class="variable constant_">C</span> = [<span class="built_in">self</span>::<span class="variable constant_">B</span>-&gt;value =&gt; <span class="built_in">self</span>::<span class="variable constant_">B</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="✅-RFC-Random-Extension-Improvement-PHP-8-2"><a href="#✅-RFC-Random-Extension-Improvement-PHP-8-2" class="headerlink" title="✅ RFC: Random Extension Improvement #PHP 8.2"></a>✅ RFC: Random Extension Improvement #PHP 8.2</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/random_extension_improvement">RFC: 랜덤 확장 개선</a> #PHP 8.2</p>
+<p>몇 가지 문제가 <a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/rng_extension">“Random Extension 5.x” RFC</a>의 투표가 시작된 이후에만 제기 되었습니다(적절한 토론이 부족했기 때문에). 이러한 각 문제에 대해 투표 옵션을 만들고 추가 결정을 내리기로 했고 모두 통과했습니다. </p>
+<h2 id="✅-RFC-Make-the-iterator-family-accept-all-iterables-PHP-8-2"><a href="#✅-RFC-Make-the-iterator-family-accept-all-iterables-PHP-8-2" class="headerlink" title="✅ RFC: Make the iterator_*() family accept all iterables #PHP 8.2."></a>✅ RFC: Make the iterator_*() family accept all iterables #PHP 8.2.</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/iterator_xyz_accept_array">RFC: iterator_*() 패밀리가 모든 이터러블 #PHP 8.2를 허용하도록 합니다.</a></p>
+<p>PHP 8.2에서 iterator_to_array()와 iterator_count()의 <code>$iterator</code> 파라미터는 <code>\Traversable</code>에서 <code>iterable</code>(예: \Traversable|array)로 확장됩니다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"><span class="keyword">iterable</span> <span class="variable">$foo</span></span>) </span>&#123;</span><br><span class="line">    <span class="variable">$foo</span> = <span class="title function_ invoke__">iterator_to_array</span>(<span class="variable">$foo</span>); <span class="comment">//now accepts arrays</span></span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> <span class="title function_ invoke__">array_map</span>(<span class="title function_ invoke__">strlen</span>(...), <span class="variable">$foo</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="✅-RFC-Constants-in-Traits-PHP-8-2"><a href="#✅-RFC-Constants-in-Traits-PHP-8-2" class="headerlink" title="✅ RFC: Constants in Traits #PHP 8.2"></a>✅ RFC: Constants in Traits #PHP 8.2</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/constants_in_traits">RFC: Trait에서의 상수</a> #PHP 8.2</p>
+<p>PHP 8.2에서는 현재 property에서 가능한 것과 동일한 방식으로 Trait에 상수를 정의할 수 있습니다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">trait</span> <span class="title">Foo</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">const</span> <span class="variable constant_">PHP_VERSION</span> = <span class="string">&#x27;8.2&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span> </span>&#123;</span><br><span class="line">    <span class="keyword">use</span> <span class="title">Foo</span>;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Bar</span> <span class="keyword">extends</span> <span class="title">Base</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">phpVersion</span>(<span class="params"></span>): <span class="title">void</span> </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="built_in">parent</span>::<span class="variable constant_">PHP_VERSION</span>; <span class="comment">// 8.2</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="❌-RFC-New-Curl-URL-API"><a href="#❌-RFC-New-Curl-URL-API" class="headerlink" title="❌ RFC: New Curl URL API"></a>❌ RFC: New Curl URL API</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/curl-url-api">RFC: 새로운 Curl URL API</a></p>
+<h2 id="❌-RFC-json-encode-indentation"><a href="#❌-RFC-json-encode-indentation" class="headerlink" title="❌ RFC: json_encode indentation"></a>❌ RFC: json_encode indentation</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/json_encode_indentation">RFC: json_encode 들여쓰기</a></p>
+<h2 id="❌-RFC-Stricter-implicit-boolean-coercions"><a href="#❌-RFC-Stricter-implicit-boolean-coercions" class="headerlink" title="❌ RFC: Stricter implicit boolean coercions"></a>❌ RFC: Stricter implicit boolean coercions</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/stricter_implicit_boolean_coercions">RFC: 더 엄격한 암시적 bool 강제 변환</a></p>
+<h2 id="❌-RFC-Create-a-global-login-system-for-php-net"><a href="#❌-RFC-Create-a-global-login-system-for-php-net" class="headerlink" title="❌ RFC: Create a global login system for php.net"></a>❌ RFC: Create a global login system for php.net</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/global_login">RFC: php.net용 글로벌 로그인 시스템 생성</a></p>
+<h2 id="❌-RFC-Short-Closures-2-0"><a href="#❌-RFC-Short-Closures-2-0" class="headerlink" title="❌ RFC: Short Closures 2.0"></a>❌ RFC: Short Closures 2.0</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/auto-capture-closure">RFC: 짧은 Closures 2.0</a></p>
+<p>Marcel Pociot(@marcelpociot)의 <a target="_blank" rel="noopener" href="https://twitter.com/marcelpociot/status/1548252633554554882">트윗</a></p>
+<blockquote>
+<p>다음에 승인될 수 있도록 RFC를 개선해 봅시다.🤞</p>
+</blockquote>
+<h2 id="🤔-RFC-Auto-implement-Stringable-for-string-backed-enums"><a href="#🤔-RFC-Auto-implement-Stringable-for-string-backed-enums" class="headerlink" title="🤔 RFC: Auto-implement Stringable for string backed enums"></a>🤔 RFC: Auto-implement Stringable for string backed enums</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/auto-implement_stringable_for_string_backed_enums">RFC: 문자열 지원 열거형에 대한 Stringable 자동 구현</a></p>
+<p>이 RFC는 문자열을 지원하는 열거형이 Stringable을 자동으로 구현하기를 제안하지만 여전히 메서드의 사용자 영역 구현은 허용하지 않습니다.</p>
+<h2 id="🤔-RFC-PDO-driver-specific-sub-classes"><a href="#🤔-RFC-PDO-driver-specific-sub-classes" class="headerlink" title="🤔 RFC: PDO driver specific sub-classes"></a>🤔 RFC: PDO driver specific sub-classes</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/pdo_driver_specific_subclasses">RFC: PDO 드라이버별 하위 클래스</a></p>
+<h2 id="💡-RFC-Unify-PHP’s-typing-modes-aka-remove-strict-type-declare"><a href="#💡-RFC-Unify-PHP’s-typing-modes-aka-remove-strict-type-declare" class="headerlink" title="💡 RFC: Unify PHP’s typing modes (aka remove strict_type declare)"></a>💡 RFC: Unify PHP’s typing modes (aka remove strict_type declare)</h2><p><a target="_blank" rel="noopener" href="https://github.com/Girgias/unify-typing-modes-rfc#readme">RFC: PHP의 타이핑 모드 통합(strict_type 선언 제거라고도 함)</a></p>
+<p>타입 캐스팅 사용 및 개발자 부담에 미치는 영향에 대한 고려와 함께,<br>strict_type를 PHP(9+)에서 기본값으로 변경하는 draft 아이디어입니다.</p>
+<blockquote>
+<p>PHP는 다른 언어와 비교하여 작동할 수 있는 두 가지 입력 모드가 있습니다. 하나는 너무 느슨하고 다른 하나는 너무 엄격합니다. 이 RFC는 이 두 모드의 존재 이유, 단점, 두 모드를 다시 통합하기 전에 변경해야 할 사항에 대해 설명합니다.</p>
+</blockquote>
+<h1 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h1><h2 id="laravel-x2F-pint"><a href="#laravel-x2F-pint" class="headerlink" title="laravel&#x2F;pint"></a>laravel&#x2F;pint</h2><p><a target="_blank" rel="noopener" href="https://github.com/laravel/pint">laravel&#x2F;pint</a> – 미니멀리스트를 위한 PHP 코드 스타일 수정기(fixer). 기본적으로 <a target="_blank" rel="noopener" href="https://github.com/FriendsOfPHP/PHP-CS-Fixer">FriendsOfPHP&#x2F;PHP-CS-Fixer</a> 래퍼지만 더 쉬운 구성과 멋진 출력을 제공합니다.</p>
+<h2 id="DaveLiddament-x2F-php-language-extensions"><a href="#DaveLiddament-x2F-php-language-extensions" class="headerlink" title="DaveLiddament&#x2F;php-language-extensions"></a>DaveLiddament&#x2F;php-language-extensions</h2><p><a target="_blank" rel="noopener" href="https://github.com/DaveLiddament/php-language-extensions">DaveLiddament&#x2F;php-language-extensions</a> - PHP 언어 확장을 정의하기 위한 속성(정적 분석에 의해 시행됨): #[Friend], #[Package]등.</p>
+<p>currently in BETA.</p>
+<h2 id="RobiNN1-x2F-phpCacheAdmin"><a href="#RobiNN1-x2F-phpCacheAdmin" class="headerlink" title="RobiNN1&#x2F;phpCacheAdmin"></a>RobiNN1&#x2F;phpCacheAdmin</h2><p><a target="_blank" rel="noopener" href="https://github.com/RobiNN1/phpCacheAdmin">RobiNN1&#x2F;phpCacheAdmin</a> – Redis, Memcache(d) 및 OPCache용 웹 대시보드.</p>
+<h2 id="thecodingmachine-x2F-safe"><a href="#thecodingmachine-x2F-safe" class="headerlink" title="thecodingmachine&#x2F;safe"></a>thecodingmachine&#x2F;safe</h2><p><a target="_blank" rel="noopener" href="https://github.com/thecodingmachine/safe">thecodingmachine&#x2F;safe</a> – 에러가 발생하면 <code>false</code>를 반환하는 대신 예외를 발생시키도록 재작성된 PHP 함수 모음.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="keyword">function</span> <span class="title">Safe</span>\<span class="title">file_get_contents</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="keyword">function</span> <span class="title">Safe</span>\<span class="title">json_decode</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// This code is both safe and simple!</span></span><br><span class="line"><span class="variable">$content</span> = <span class="title function_ invoke__">file_get_contents</span>(<span class="string">&#x27;foobar.json&#x27;</span>);</span><br><span class="line"><span class="variable">$foobar</span> = <span class="title function_ invoke__">json_decode</span>(<span class="variable">$content</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="cerbero90-x2F-enum"><a href="#cerbero90-x2F-enum" class="headerlink" title="cerbero90&#x2F;enum"></a>cerbero90&#x2F;enum</h2><p><a target="_blank" rel="noopener" href="https://github.com/cerbero90/enum">cerbero90&#x2F;enum</a> – enum 기능을 강화하기 위한 종속성 없는 PHP 라이브러리.</p>
+<h2 id="PrinsFrank-x2F-standards"><a href="#PrinsFrank-x2F-standards" class="headerlink" title="PrinsFrank&#x2F;standards"></a>PrinsFrank&#x2F;standards</h2><p><a target="_blank" rel="noopener" href="https://github.com/PrinsFrank/standards">PrinsFrank&#x2F;standards</a> – ISO3166, ISO4217, ISO639 등 PHP Enum의 표준 모음입니다.</p>
+<h2 id="soatok-x2F-cupcake"><a href="#soatok-x2F-cupcake" class="headerlink" title="soatok&#x2F;cupcake"></a>soatok&#x2F;cupcake</h2><p><a target="_blank" rel="noopener" href="https://github.com/soatok/cupcake">soatok&#x2F;cupcake</a> – 간단하고 안전한 HTML form(생성 및 처리)을 위한 PHP 라이브러리입니다.</p>
+<h2 id="T-Regx-x2F-T-Regx"><a href="#T-Regx-x2F-T-Regx" class="headerlink" title="T-Regx&#x2F;T-Regx"></a>T-Regx&#x2F;T-Regx</h2><p><a target="_blank" rel="noopener" href="https://github.com/T-Regx/T-Regx">T-Regx&#x2F;T-Regx</a> – 현대 표준에 부합하는 PHP 정규식입니다. readme에서 <code>preg_*</code> 불일치에 대한 섹션을 확인하십시오.</p>
+<p>어떤 인자는 <code>preg_*</code> 함수에 심각한(fatal) 에러를 발생시킵니다. T-Regx는 이를 예측하고, catch할 수 있도록 예외를 던집니다.</p>
+<h2 id="deComplex-me"><a href="#deComplex-me" class="headerlink" title="deComplex.me"></a>deComplex.me</h2><p><a target="_blank" rel="noopener" href="https://decomplex.me/eZGq7A">deComplex.me</a> – 두 코드 블록의 복잡성을 나란히 비교하는 웹 도구입니다.</p>
+<h2 id="PiotrPress-x2F-wordpress-hooks"><a href="#PiotrPress-x2F-wordpress-hooks" class="headerlink" title="PiotrPress&#x2F;wordpress-hooks"></a>PiotrPress&#x2F;wordpress-hooks</h2><p><a target="_blank" rel="noopener" href="https://github.com/PiotrPress/wordpress-hooks">PiotrPress&#x2F;wordpress-hooks</a> – attribute에 대한 좋은 사용 사례입니다! 라이브러리를 사용하면 WordPress Hooks(필터 및 작업)를 개체의 메서드에 자동으로 추가할 수 있습니다.</p>
+<h2 id="markrogoyski-x2F-itertools-php"><a href="#markrogoyski-x2F-itertools-php" class="headerlink" title="markrogoyski&#x2F;itertools-php"></a>markrogoyski&#x2F;itertools-php</h2><p><a target="_blank" rel="noopener" href="https://github.com/markrogoyski/itertools-php">markrogoyski&#x2F;itertools-php</a> – 루프를 강화하는 PHP 반복 도구.</p>
+<h2 id="Composer-2-4-will-be-released-later-this-year"><a href="#Composer-2-4-will-be-released-later-this-year" class="headerlink" title="Composer 2.4 will be released later this year"></a>Composer 2.4 will be released later this year</h2><p>Composer 2.4는 올해 말에 출시될 예정이며 두 가지 새로운 명령을 제공합니다.</p>
+<ul>
+<li>Ayesh Karunaratne의 <a target="_blank" rel="noopener" href="https://php.watch/articles/composer-audit">New composer audit Command and security audits</a>.</li>
+<li>Ayesh Karunaratne의 <a target="_blank" rel="noopener" href="https://php.watch/articles/composer-bump">New composer bump Command</a>.</li>
+</ul>
+<h1 id="Symfony"><a href="#Symfony" class="headerlink" title="Symfony"></a>Symfony</h1><h2 id="Launched-ux-symfony-com-and-released-4-New-UX-Components"><a href="#Launched-ux-symfony-com-and-released-4-New-UX-Components" class="headerlink" title="Launched ux.symfony.com and released 4 New UX Components."></a>Launched ux.symfony.com and released 4 New UX Components.</h2><p><a target="_blank" rel="noopener" href="https://ux.symfony.com/">ux.symfony.com</a>을 출시하고 4개의 <a target="_blank" rel="noopener" href="https://symfony.com/blog/hello-ux-symfony-com-and-4-new-ux-components">새로운 UX 컴포넌트</a>를 출시 했습니다 . 이 웹사이트는 각 UX 구성 요소를 만지고 샘플링하는 놀이터입니다.</p>
+<h2 id="Twig-Smoke-Rendering"><a href="#Twig-Smoke-Rendering" class="headerlink" title="Twig Smoke Rendering"></a>Twig Smoke Rendering</h2><p><a target="_blank" rel="noopener" href="https://tomasvotruba.com/blog/twig-smoke-rendering-fortune-favors-the-bold/">Twig Smoke Rendering – Fortune Favors the Bold</a> by Tomas Votruba.</p>
+<h1 id="Laravel"><a href="#Laravel" class="headerlink" title="Laravel"></a>Laravel</h1><h2 id="Vite-is-now-the-default-frontend-asset-bundler-in-new-Laravel-projects"><a href="#Vite-is-now-the-default-frontend-asset-bundler-in-new-Laravel-projects" class="headerlink" title="Vite is now the default frontend asset bundler in new Laravel projects"></a>Vite is now the default frontend asset bundler in new Laravel projects</h2><p>Vite는 이제 Breeze 및 Jetstream을 포함해 새로운 Laravel 프로젝트의 기본 프론트엔드 asset 번들러 입니다.</p>
+<p>Taylor Otwell(@taylorotwell)의 <a target="_blank" rel="noopener" href="https://twitter.com/taylorotwell/status/1541795873838989314">트윗</a></p>
+<blockquote>
+<p>새로운 Laravel 프로젝트가 Vite를 사용하여 프론트엔드 자산을 번들로 제공한다는 소식을 전하게 되어 기쁩니다. Breeze와 Jetstream도 업데이트되었습니다. 🔥<br>Inertia Vue 또는 React와 함께 새로운 Breeze&#x2F;Vite 스택을 사용할 때 번개처럼 빠른 핫 모듈 교체를 경험하십시오. ⚡</p>
+</blockquote>
+<p>Christoph Rumpel 의 <a target="_blank" rel="noopener" href="https://christoph-rumpel.com/2022/6/moving-a-laravel-webpack-project-to-vite">Moving A Laravel Webpack Project To Vite</a> 튜토리얼을 확인하십시오.</p>
+<h2 id="hammerstonedev-x2F-sidecar"><a href="#hammerstonedev-x2F-sidecar" class="headerlink" title="hammerstonedev&#x2F;sidecar"></a>hammerstonedev&#x2F;sidecar</h2><p><a target="_blank" rel="noopener" href="https://github.com/hammerstonedev/sidecar">hammerstonedev&#x2F;sidecar</a> – 이 패키지를 사용하면 Laravel 애플리케이션에서 AWS Lambda 기능을 배포하고 실행할 수 있습니다. 사용 사례의 예는 <a target="_blank" rel="noopener" href="https://stefanzweifel.io/posts/2022/06/21/introducing-sidecar-browsershot">Browsershot</a>을 통해 스크린샷을 만드는 것 입니다.</p>
+<h2 id="calebporzio-x2F-parental"><a href="#calebporzio-x2F-parental" class="headerlink" title="calebporzio&#x2F;parental"></a>calebporzio&#x2F;parental</h2><p><a target="_blank" rel="noopener" href="https://github.com/calebporzio/parental">calebporzio&#x2F;parental</a> – STI(Single Table Inheritance, 단일 테이블 상속) 기능을 Eloquent에 제공합니다.</p>
+<p>STI : 모델을 확장하지만(일반적으로 특정 동작을 추가하기 위해) 동일한 테이블을 참조하는 것.</p>
+<h2 id="spatie-x2F-laravel-onboard"><a href="#spatie-x2F-laravel-onboard" class="headerlink" title="spatie&#x2F;laravel-onboard"></a>spatie&#x2F;laravel-onboard</h2><p><a target="_blank" rel="noopener" href="https://github.com/spatie/laravel-onboard">spatie&#x2F;laravel-onboard</a> – 앱에 대한 단계별 사용자 온보딩을 생성하기 위한 패키지입니다.</p>
+<h2 id="zgabievi-x2F-laravel-promocodes"><a href="#zgabievi-x2F-laravel-promocodes" class="headerlink" title="zgabievi&#x2F;laravel-promocodes"></a>zgabievi&#x2F;laravel-promocodes</h2><p><a target="_blank" rel="noopener" href="https://github.com/zgabievi/laravel-promocodes">zgabievi&#x2F;laravel-promocodes</a> – 강력한 쿠폰 및 프로모션 코드 생성기.</p>
+<h2 id="abrouter-x2F-laravel-abtest"><a href="#abrouter-x2F-laravel-abtest" class="headerlink" title="abrouter&#x2F;laravel-abtest"></a>abrouter&#x2F;laravel-abtest</h2><p><a target="_blank" rel="noopener" href="https://github.com/abrouter/laravel-abtest">abrouter&#x2F;laravel-abtest</a> – Laravel로 A&#x2F;B 테스트를 실행하는 간단한 패키지입니다.</p>
+<h2 id="Running-PHPStan-on-max-with-Laravel-by-Steve-McDougall"><a href="#Running-PHPStan-on-max-with-Laravel-by-Steve-McDougall" class="headerlink" title="Running PHPStan on max with Laravel by Steve McDougall."></a>Running PHPStan on max with Laravel by Steve McDougall.</h2><p><a target="_blank" rel="noopener" href="https://laravel-news.com/running-phpstan-on-max-with-laravel">https://laravel-news.com/running-phpstan-on-max-with-laravel</a></p>
+<p>PHPStan을 최대한으로 실행하기.</p>
+<h2 id="Add-comments-to-SQL-queries-made-by-Laravel-by-Freek-Van-der-Herten"><a href="#Add-comments-to-SQL-queries-made-by-Laravel-by-Freek-Van-der-Herten" class="headerlink" title="Add comments to SQL queries made by Laravel by Freek Van der Herten."></a>Add comments to SQL queries made by Laravel by Freek Van der Herten.</h2><p><a target="_blank" rel="noopener" href="https://freek.dev/2279-add-comments-to-sql-queries-made-by-laravel">https://freek.dev/2279-add-comments-to-sql-queries-made-by-laravel</a></p>
+<p>쿼리의 출처를 쉽게 찾아낼 수 있도록 Laravel이 만든 쿼리에 주석을 추가합니다.</p>
+<h2 id="Containerizing-Laravel-Applications-by-Matt-Casperson"><a href="#Containerizing-Laravel-Applications-by-Matt-Casperson" class="headerlink" title="Containerizing Laravel Applications by Matt Casperson."></a>Containerizing Laravel Applications by Matt Casperson.</h2><p><a target="_blank" rel="noopener" href="https://www.honeybadger.io/blog/containerizing-laravel-applications/">https://www.honeybadger.io/blog/containerizing-laravel-applications/</a></p>
+<p>기존 Laravel 애플리케이션을 컨테이너화하는 과정.</p>
+<h1 id="기타"><a href="#기타" class="headerlink" title="기타"></a>기타</h1><h2 id="The-very-useful-variadic-argument-by-Damien-Seguy"><a href="#The-very-useful-variadic-argument-by-Damien-Seguy" class="headerlink" title="The very useful variadic argument by Damien Seguy."></a>The very useful variadic argument by Damien Seguy.</h2><p><a target="_blank" rel="noopener" href="https://www.exakat.io/en/the-very-useful-variadic-argument/">https://www.exakat.io/en/the-very-useful-variadic-argument/</a></p>
+<p>정적 변수는 함수 호출이 끝날 때 죽지 않고 다음 호출까지 살아 있습니다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">counter</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">static</span> <span class="variable">$i</span> = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> ++<span class="variable">$i</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>&#123;&#125;</span><br><span class="line">  </span><br><span class="line"><span class="title function_ invoke__">var_dump</span>(A::<span class="title function_ invoke__">counter</span>()); <span class="comment">// int(1)</span></span><br><span class="line"><span class="title function_ invoke__">var_dump</span>(A::<span class="title function_ invoke__">counter</span>()); <span class="comment">// int(2)</span></span><br><span class="line"><span class="title function_ invoke__">var_dump</span>(B::<span class="title function_ invoke__">counter</span>()); <span class="comment">// int(1)</span></span><br><span class="line"><span class="title function_ invoke__">var_dump</span>(B::<span class="title function_ invoke__">counter</span>()); <span class="comment">// int(2)</span></span><br></pre></td></tr></table></figure>
+<p>PHP 8.0까지는 호출되는 클래스에 따라 고유한 정적 변수가 존재했습니다만, 8.1부터 바뀌었습니다.<br>이 글에서는 정적 변수의 문제와 이를 제거하는 방법을 설명합니다.</p>
+<h2 id="5-ways-to-give-a-name-to-your-booleans-by-Damien-Seguy"><a href="#5-ways-to-give-a-name-to-your-booleans-by-Damien-Seguy" class="headerlink" title="5 ways to give a name to your booleans by Damien Seguy."></a>5 ways to give a name to your booleans by Damien Seguy.</h2><p><a target="_blank" rel="noopener" href="https://www.exakat.io/en/5-ways-to-give-a-name-to-your-booleans/">bool에 이름을 지정하는 5가지 방법</a> - Damien Seguy</p>
+<ul>
+<li>상수로 만들고</li>
+<li>enum으로 전환하고<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Comparison</span> </span>&#123;</span><br><span class="line">  <span class="keyword">case</span> STRICT;</span><br><span class="line">  <span class="keyword">case</span> LOOSE;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"><span class="keyword">bool</span> <span class="variable">$comparison</span></span>) </span>&#123;&#125; </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">goo</span>(<span class="params">Comparison <span class="variable">$comparison</span></span>) </span>&#123;&#125; </span><br><span class="line"> </span><br><span class="line"><span class="title function_ invoke__">foo</span>(<span class="literal">true</span>);</span><br><span class="line"><span class="title function_ invoke__">goo</span>(<span class="title class_">Comparison</span>::<span class="variable constant_">STRICT</span>);</span><br></pre></td></tr></table></figure></li>
+<li>named parameter를 사용하고<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$v</span> = <span class="title function_ invoke__">in_array</span>(<span class="variable">$needle</span>, <span class="variable">$haystack</span>, <span class="attr">strict</span>: <span class="literal">true</span>); </span><br></pre></td></tr></table></figure></li>
+<li>dummy 할당(assignation)을 사용하고<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$v</span> = <span class="title function_ invoke__">in_array</span>(<span class="variable">$needle</span>, <span class="variable">$haystack</span>, <span class="variable">$strict</span> = <span class="literal">true</span>); </span><br></pre></td></tr></table></figure></li>
+<li>comment를 활용<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$v</span> = <span class="title function_ invoke__">in_array</span>(<span class="variable">$needle</span>, <span class="variable">$haystack</span>, /\* strict \*/ <span class="literal">true</span>);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="Top-100-PHP-classes-that-you-should-know-by-Damien-Seguy"><a href="#Top-100-PHP-classes-that-you-should-know-by-Damien-Seguy" class="headerlink" title="Top 100 PHP classes that you should know by Damien Seguy."></a>Top 100 PHP classes that you should know by Damien Seguy.</h2><p><a target="_blank" rel="noopener" href="https://www.exakat.io/en/top-100-php-classes-that-you-should-know/">당신이 알아야 할 100대 PHP 클래스</a> - Damien Seguy.</p>
+<h2 id="PHP-version-stats-July-2022-by-Brent-Roose"><a href="#PHP-version-stats-July-2022-by-Brent-Roose" class="headerlink" title="PHP version stats: July, 2022 by Brent Roose."></a>PHP version stats: July, 2022 by Brent Roose.</h2><p><a target="_blank" rel="noopener" href="https://stitcher.io/blog/php-version-stats-july-2022">PHP 버전 통계</a> : 2022년 7월 by Brent Roose.</p>
+<h2 id="5-Pitfalls-of-Upgrade-to-Native-PHP-Enums-and-How-to-Avoid-Them-by-Tomas-Votruba"><a href="#5-Pitfalls-of-Upgrade-to-Native-PHP-Enums-and-How-to-Avoid-Them-by-Tomas-Votruba" class="headerlink" title="5 Pitfalls of Upgrade to Native PHP Enums and How to Avoid Them by Tomas Votruba."></a>5 Pitfalls of Upgrade to Native PHP Enums and How to Avoid Them by Tomas Votruba.</h2><p><a target="_blank" rel="noopener" href="https://tomasvotruba.com/blog/five-pitfalls-of-upgrade-to-native-php-enums-and-how-to-avoid-them/">네이티브 PHP 열거형으로 업그레이드할 때의 5가지 함정과 이를 피하는 방법</a> by Tomas Votruba</p>
+<h2 id="On-the-use-of-enums-by-Larry-Garfield-–-When-should-you-use-PHP-enums-and-when-shouldn’t-you"><a href="#On-the-use-of-enums-by-Larry-Garfield-–-When-should-you-use-PHP-enums-and-when-shouldn’t-you" class="headerlink" title="On the use of enums by Larry Garfield – When should you use PHP enums, and when shouldn’t you?"></a>On the use of enums by Larry Garfield – When should you use PHP enums, and when shouldn’t you?</h2><p>Larry Garfield의 <a target="_blank" rel="noopener" href="https://peakd.com/hive-168588/@crell/on-the-use-of-enums">enum 사용에 대해</a> – PHP enum을 언제 사용해야 하고 언제 사용하지 않아야 합니까?</p>
+<h2 id="Effective-immutability-with-PHPStan-by-Matthias-Noback-–-DateTimeImmutable-is-actually-mutable"><a href="#Effective-immutability-with-PHPStan-by-Matthias-Noback-–-DateTimeImmutable-is-actually-mutable" class="headerlink" title="Effective immutability with PHPStan by Matthias Noback – DateTimeImmutable is actually mutable."></a>Effective immutability with PHPStan by Matthias Noback – DateTimeImmutable is actually mutable.</h2><p>Matthias Noback의 <a target="_blank" rel="noopener" href="https://matthiasnoback.nl/2022/07/effective-immutability-with-phpstan/">PHPStan을 사용한 효과적인 불변성</a> <code>DateTimeImmutable</code>은 실제로 변경 가능합니다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$dt</span> = <span class="keyword">new</span> <span class="title class_">DateTimeImmutable</span>(<span class="string">&#x27;now&#x27;</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$dt</span>-&gt;<span class="title function_ invoke__">getTimestamp</span>() . <span class="string">&quot;\n&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$dt</span>-&gt;<span class="title function_ invoke__">__construct</span>(<span class="string">&#x27;tomorrow&#x27;</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$dt</span>-&gt;<span class="title function_ invoke__">getTimestamp</span>() . <span class="string">&quot;\n&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>위와 같이 실제로 변경 가능하기 때문에, 진짜로 변경 가능하지 않도록 하려면 더 많은 노력이 듭니다.<br>그런데 대체 누가 __construct() 호출하나요?<br>그냥 마음 편하게 빌드 과정에서 PHPStan으로 잘 감시합시다…라고 하는 글입니다.</p>
+<h2 id="Benchmarking-serialization-by-Larry-Garfield"><a href="#Benchmarking-serialization-by-Larry-Garfield" class="headerlink" title="Benchmarking serialization by Larry Garfield."></a>Benchmarking serialization by Larry Garfield.</h2><p>Larry Garfield의 <a target="_blank" rel="noopener" href="https://peakd.com/hive-168588/@crell/benchmarking-serialization">직렬화 벤치마킹</a>.</p>
+<h2 id="Decoupling-your-security-user-from-your-user-model-by-Matthias-Noback"><a href="#Decoupling-your-security-user-from-your-user-model-by-Matthias-Noback" class="headerlink" title="Decoupling your security user from your user model by Matthias Noback."></a>Decoupling your security user from your user model by Matthias Noback.</h2><p>Matthias Noback의 <a target="_blank" rel="noopener" href="https://matthiasnoback.nl/2022/07/decoupling-your-security-user-from-your-user-model/">사용자 모델에서 보안 사용자 분리</a></p>
+<h2 id="Complete-guide-for-PHP-amp-Neo4j-and-using-graph-databases-by-Michal-Stefanak"><a href="#Complete-guide-for-PHP-amp-Neo4j-and-using-graph-databases-by-Michal-Stefanak" class="headerlink" title="Complete guide for PHP &amp; Neo4j and using graph databases by Michal Štefaňák."></a>Complete guide for PHP &amp; Neo4j and using graph databases by Michal Štefaňák.</h2><p>Michal Štefaňák의 <a target="_blank" rel="noopener" href="https://ko-fi.com/post/Complete-guide-for-PHP-Neo4j-Q5Q2DT98D">PHP 및 Neo4j에 대한 완벽 가이드</a>.</p>
+<h2 id="How-to-automatically-add-return-type-declarations-with-Rector-and-without-breaking-your-code"><a href="#How-to-automatically-add-return-type-declarations-with-Rector-and-without-breaking-your-code" class="headerlink" title="How to automatically add return type declarations with Rector and without breaking your code."></a>How to automatically add return type declarations with Rector and without breaking your code.</h2><p>코드를 손상시키지 않고 Rector를 사용하여 <a target="_blank" rel="noopener" href="https://getrector.org/blog/how-to-automatically-add-return-type-declarations-without-breaking-your-code">반환 유형 선언을 자동으로 추가하는 방법</a>.</p>
+<h2 id="PHP-FPM-tuning-Using-‘pm-static’-for-max-performance-by-Hayden-James"><a href="#PHP-FPM-tuning-Using-‘pm-static’-for-max-performance-by-Hayden-James" class="headerlink" title="PHP-FPM tuning: Using ‘pm static’ for max performance by Hayden James."></a>PHP-FPM tuning: Using ‘pm static’ for max performance by Hayden James.</h2><p>Hayden James의 <a target="_blank" rel="noopener" href="https://haydenjames.io/php-fpm-tuning-using-pm-static-max-performance/">PHP-FPM 튜닝: 최대 성능을 위해 ‘pm static’ 사용</a>.</p>
+<h2 id="How-can-I-trust-my-test-suite-by-Antonello-D’Ippolito"><a href="#How-can-I-trust-my-test-suite-by-Antonello-D’Ippolito" class="headerlink" title="How can I trust my test suite? by Antonello D’Ippolito."></a>How can I trust my test suite? by Antonello D’Ippolito.</h2><p>안토넬로 디폴리토의 <a target="_blank" rel="noopener" href="https://blog.mollie.com/how-can-i-trust-my-test-suite-f884390e79f3">내 테스트 스위트를 어떻게 신뢰할 수 있습니까?</a>.</p>
+<h1 id="오디오-x2F-비디오"><a href="#오디오-x2F-비디오" class="headerlink" title="오디오&#x2F;비디오"></a>오디오&#x2F;비디오</h1><ul>
+<li>🎬 Brent Roose의 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=x9bSUo6TGgY">PHP 객체의 진화: PHP 5.6에서 PHP 8.2까지</a>.</li>
+<li>🎬 Brent Roose의 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=e0tstsbD4Ro">null 문제</a>.</li>
+<li>🔈 무료 The Geek 팟캐스트 <a target="_blank" rel="noopener" href="https://www.freethegeek.fm/38">에피소드 38</a> – Steve McDougall과 함께. 이 에피소드에서는 그가 스트리밍을 시작한 방법, 그가 Slim PHP 대신 Laravel을 사용하게 된 동기, 오픈 소스에 기여하는 것이 어떤 것인지 등을 다룹니다.</li>
+<li>🎬 PHP 라운드테이블 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=I9aDTqwhG6g">85: PHP 사용자 그룹 현황</a>.</li>
+<li>🎬 <a target="_blank" rel="noopener" href="https://www.youtube.com/playlist?list=PLL6_RArGSORJ2OU4qn8rJmIwSGBIc8C_X">로드 러너 비디오 자습서</a>.</li>
+<li>🎬 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=7YuYxbYd3P0">Docker 및 PhpStorm으로 Xdebug 3를 설치하는 방법</a>.</li>
+</ul>
+<h1 id="Community"><a href="#Community" class="headerlink" title="Community"></a>Community</h1><ul>
+<li><p>Philip Sharp가 편집한 <a target="_blank" rel="noopener" href="https://afieldguidetoelephpants.net/">ElePHPants에 대한 현장 가이드</a>. 57종의 코끼리가 있다는 사실, 알고 계셨나요?</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pufa.afup.org/">PUFA</a> – wordle과 비슷하지만 PHP 기능과 키워드를 추측하기 위한 것입니다.<br><img src="https://lh5.googleusercontent.com/Vp6o9LPEuKyeJPw8WGXfgCUMVSnK7J3FSSFEdxS7nCI1kh367q22xjP6bcasagawWJihlXyOaxHrLUzIzGe7WEJycqiLKDgIaEDJ2fWycuNZWPduluONVYiD0mM6_1fJW3k113o4fAHkR-js-dQ" alt="PUFA 화면"></p>
+</li>
+<li><p>Frédéric Bouchery(@FredBouchery)의 <a target="_blank" rel="noopener" href="https://twitter.com/FredBouchery/status/1538817185686208513">트윗</a> </p>
+<blockquote>
+<p>I just came back from the future, this is what I read on a tombstone<br>#PHP #PhpNotDead</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="https://pbs.twimg.com/media/FVr59WSWQAEzzzp?format=jpg&name=small" alt="I DIDNT THINK I WOULD DIE BEFORE PHP 비석"></p>
+<hr>
+<p>오늘은 여기까지입니다. 읽어주셔서 감사합니다!</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -2531,276 +2774,6 @@
 <li><a target="_blank" rel="noopener" href="https://phpinternals.news/76">#76</a> – Another one with Nikita Popov about restricting the use of globals, and phasing out serializable.</li>
 <li><a target="_blank" rel="noopener" href="https://phpinternals.news/77">#77</a> – With David Gebler about the fsync() function added to PHP 8.1.</li>
 <li><a target="_blank" rel="noopener" href="https://phpinternals.news/78">#78</a> – With Andreas Heigl on moving PHP documentation to Git.</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://haah.kr/2021/02/26/php-annotated-february-2021/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="youngiggy">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ha-ah">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | ha-ah">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/02/26/php-annotated-february-2021/" class="post-title-link" itemprop="url">PHP Annotated – February 2021</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-02-26 08:49:09" itemprop="dateCreated datePublished" datetime="2021-02-26T08:49:09+09:00">2021-02-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2021-02-28 00:07:44" itemprop="dateModified" datetime="2021-02-28T00:07:44+09:00">2021-02-28</time>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2021/02/26/php-annotated-february-2021/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/02/26/php-annotated-february-2021/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><img src="https://blog.jetbrains.com/wp-content/uploads/2020/01/phpstorm-PHP_Annotated_blog_1600x800.png" alt="Php_annotated 이미지"></p>
-<p><a target="_blank" rel="noopener" href="https://blog.jetbrains.com/phpstorm/author/rpronskiy/">Roman Pronskiy</a>가 쓰고 JetBrains에서 제공하는 PHP Annotated <a target="_blank" rel="noopener" href="https://blog.jetbrains.com/phpstorm/2021/02/php-annotated-february-2021/">2021년 2월호</a>의 번역&#x2F;해석본입니다.</p>
-<p>이 중에서 몇 가지 제 취향껏 골라 그 안의 내용도 좀 뒤져보고 개발새발 번역해서 소개합니다.</p>
-<hr>
-<h1 id="⚡️-News"><a href="#⚡️-News" class="headerlink" title="⚡️ News"></a>⚡️ News</h1><h2 id="PHP-8-0-2-7-4-15-7-3-27"><a href="#PHP-8-0-2-7-4-15-7-3-27" class="headerlink" title="PHP 8.0.2, 7.4.15, 7.3.27"></a>PHP 8.0.2, 7.4.15, 7.3.27</h2><p><a target="_blank" rel="noopener" href="https://www.php.net/ChangeLog-8.php#8.0.2">https://www.php.net/ChangeLog-8.php#8.0.2</a><br><a target="_blank" rel="noopener" href="https://www.php.net/ChangeLog-7.php#7.4.15">https://www.php.net/ChangeLog-7.php#7.4.15</a><br><a target="_blank" rel="noopener" href="https://www.php.net/ChangeLog-7.php#7.3.27">https://www.php.net/ChangeLog-7.php#7.3.27</a></p>
-<p>8.0과 7.4는 SoapClient에 관한 <a target="_blank" rel="noopener" href="https://bugs.php.net/bug.php?id=80672">보안 수정 사항</a>을 포함한 다양한 버그 수정이 있었습니다. 7.3 branch에는 보안 수정 사항만 반영되었습니다.</p>
-<p>7.2와 이전 버전의 PHP는 <a target="_blank" rel="noopener" href="https://www.php.net/supported-versions.php">더이상 지원받을 수 없습니다</a>. 이전 버전을 사용하고 계시다면 PHP 7.4로 업그레이드 하는 걸 고려해보세요.</p>
-<h2 id="PHP-FIG-published-updates-for-PSR-6-and-PSR-13-standards"><a href="#PHP-FIG-published-updates-for-PSR-6-and-PSR-13-standards" class="headerlink" title="PHP-FIG published updates for PSR-6 and PSR-13 standards."></a>PHP-FIG published updates for PSR-6 and PSR-13 standards.</h2><p>PHP-FIG가 <a target="_blank" rel="noopener" href="https://github.com/php-fig/cache">PSR-6</a>와 <a target="_blank" rel="noopener" href="https://github.com/php-fig/link">PSR-13</a> 표준의 업데이트를 게시했습니다.</p>
-<p><a target="_blank" rel="noopener" href="https://www.php-fig.org/bylaws/psr-evolution/">PSR 진화 계획(PSR evolution plan)</a>에 정의된 것처럼 두가지의 새로운 버전을 받았습니다.<br>두 경우 모두 첫 번째 버전은 인수에 유형을 추가하고 두 번째 버전은 이를 반환 값에 추가합니다. 업데이트에는 union type을 사용하거나 return type에 static을 쓰기 때문에 PHP 8 이상이 필요합니다.</p>
-<ul>
-<li>PSR-6 변경 사항: <a target="_blank" rel="noopener" href="https://github.com/php-fig/cache/compare/1.0.0...3.0.0">1.0.0 vs 3.0.0</a>.</li>
-<li>PSR-13 변경 사항: <a target="_blank" rel="noopener" href="https://github.com/php-fig/link/compare/1.0.0...2.0.0">1.0.0 vs 2.0.0</a>.</li>
-</ul>
-<p>PHP-FIG @phpfig의 <a target="_blank" rel="noopener" href="https://twitter.com/phpfig/status/1357237648499294209">트윗</a></p>
-<blockquote>
-<p>두 경우 모두 첫 번째 릴리스는 인수에 유형을 추가하고 두 번째 릴리스는 반환 유형을 추가합니다.<br>이는 상속과 Liskov의 원칙 제약의 조합으로 인해 최종 사용자가 모든 것을 한 번에 지원하도록 구현하기 불가능하게 합니다.</p>
-</blockquote>
-<blockquote>
-<p>이 PSR의 사용자라면, 먼저 기존 버전과 함께 신규 두 버전 중 첫번째 버전을 바로 지원할 수 있고, 이후에 새로운 두 버전을 지원하도록 바꿀 수 있습니다. 예를 들어:</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">psr/link:^1.0 (now, 1.1 already compatible!)</span><br><span class="line">psr/link:^1.1|^2.0 (then)</span><br><span class="line"></span><br><span class="line">psr/cache: ^1.0 (now)</span><br><span class="line">psr/cache: ^1.0|^2.0</span><br><span class="line">psr/cache: ^2.0|^3.0</span><br></pre></td></tr></table></figure>
-
-<h2 id="PhpStorm-2021-1-Early-Access-Program-has-started"><a href="#PhpStorm-2021-1-Early-Access-Program-has-started" class="headerlink" title="PhpStorm 2021.1 Early Access Program has started"></a>PhpStorm 2021.1 Early Access Program has started</h2><p><a target="_blank" rel="noopener" href="https://blog.jetbrains.com/phpstorm/2021/02/phpstorm-2021-1-eap-2/">https://blog.jetbrains.com/phpstorm/2021/02/phpstorm-2021-1-eap-2/</a></p>
-<p>다가올 업데이트의 새로운 기능을 먼저 경험해보세요.</p>
-<ul>
-<li>PHP 설정이 이제 최상위로 올라왔습니다.</li>
-<li>새로운 quick-fix: “Invert ‘if’ statement” <ul>
-<li>if문에서 “Invert ‘if’ statement” 옵션을 선택하면 조건문을 반대로 바꾸어 줍니다</li>
-</ul>
-</li>
-<li>http:&#x2F;&#x2F; 링크에 not safe하다는 highlight와 https:&#x2F;&#x2F;로의 quick-fix 제공</li>
-<li>Split view에서 탭 더블클릭으로 에디터를 최대화</li>
-<li>bugfix : Debugging WSL2 projects with Docker (<a target="_blank" rel="noopener" href="https://youtrack.jetbrains.com/issue/WI-53396">WI-53396</a> +86)</li>
-</ul>
-<h2 id="Developer-Ecosystem-Survey-2021-from-JetBrains"><a href="#Developer-Ecosystem-Survey-2021-from-JetBrains" class="headerlink" title="Developer Ecosystem Survey 2021 from JetBrains"></a>Developer Ecosystem Survey 2021 from JetBrains</h2><p><a target="_blank" rel="noopener" href="https://surveys.jetbrains.com/s3/developer-ecosystem-survey-2021-sh">https://surveys.jetbrains.com/s3/developer-ecosystem-survey-2021-sh</a></p>
-<p>JetBrains의 2021년 개발자 Ecosystem 설문조사가 진행 중입니다. 조금 길지만 PHP section이 포함되어 있습니다. 몇 가지 PHP 인사이트를 추가로 보려면 <a target="_blank" rel="noopener" href="https://www.jetbrains.com/lp/devecosystem-2020/php/">작년 결과</a>도 확인해보세요.</p>
-<p><img src="https://blog.jetbrains.com/wp-content/uploads/2021/02/deveco_2020_php.png" alt="part-of-devecosystem-2020-php-image"></p>
-<h1 id="🐘-PHP-Internals"><a href="#🐘-PHP-Internals" class="headerlink" title="🐘 PHP Internals"></a>🐘 PHP Internals</h1><h2 id="RFC-Object-keys-in-arrays"><a href="#RFC-Object-keys-in-arrays" class="headerlink" title="[RFC] Object keys in arrays"></a>[RFC] Object keys in arrays</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/object_keys_in_arrays">https://wiki.php.net/rfc/object_keys_in_arrays</a></p>
-<p>Nikita Popov는 객체를 일반 배열의 키로 사용할 수 있도록 제안합니다.</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$obj1</span> = <span class="keyword">new</span> <span class="built_in">stdClass</span>;</span><br><span class="line"><span class="variable">$obj2</span> = <span class="keyword">new</span> <span class="built_in">stdClass</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$array</span> = [];</span><br><span class="line"><span class="variable">$array</span>[<span class="variable">$obj1</span>] = <span class="number">1</span>;</span><br><span class="line"><span class="variable">$array</span>[<span class="variable">$obj2</span>] = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">var_dump</span>(<span class="variable">$array</span>[<span class="variable">$obj1</span>]); <span class="comment">// int(1)</span></span><br><span class="line"><span class="title function_ invoke__">var_dump</span>(<span class="variable">$array</span>[<span class="variable">$obj2</span>]); <span class="comment">// int(2)</span></span><br></pre></td></tr></table></figure>
-
-<p>이렇게 제안하는 이유는 <a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/enumerations">열거형(Enumerations) RFC</a>에서 enum의 값이 객체이기 때문입니다. 따라서 이들을 배열의 키로 사용할 수 없습니다.</p>
-<p>그러나 배열을 받아들이는 모든 함수는 정수 또는 문자열 키를 기대하기 때문에 이러한 변경은 중요합니다.</p>
-<h2 id="RFC-Object-scoped-RNG-Implementations"><a href="#RFC-Object-scoped-RNG-Implementations" class="headerlink" title="[RFC] Object scoped RNG Implementations"></a>[RFC] Object scoped RNG Implementations</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/object_scope_prng">https://wiki.php.net/rfc/object_scope_prng</a></p>
-<p>의사 난수를 생성하기 위한 rand() 및 mt_rand() 함수는 동일한 시드 값 srand()에 대해 동일한 시퀀스를 생성합니다. 그러나 그들은 전역 상태를 사용합니다. 즉, 서로 다른 시드 값을 가진 여러 생성기를 만들어 동시에 사용할 수 없습니다.</p>
-<p>Go Kudo는 전역 상태 문제를 해결하기 위해 의사 난수 시퀀스 생성기와 함께 작동하는 객체 API를 추가 할 것을 제안합니다.</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$seed</span> = <span class="number">1234</span>;</span><br><span class="line"><span class="variable">$rng</span> = <span class="keyword">new</span> RNG\<span class="title function_ invoke__">MT19937</span>(<span class="variable">$seed</span>);</span><br><span class="line"><span class="variable">$array</span> = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">shuffle</span>(<span class="variable">$array</span>, <span class="variable">$rng</span>);</span><br></pre></td></tr></table></figure>
-
-<h2 id="RFC-Change-Default-mysqli-Error-Mode"><a href="#RFC-Change-Default-mysqli-Error-Mode" class="headerlink" title="[RFC] Change Default mysqli Error Mode"></a>[RFC] Change Default mysqli Error Mode</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/mysqli_default_errmode">https://wiki.php.net/rfc/mysqli_default_errmode</a></p>
-<p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/improve_mysqli">mysqli 개선</a> 이니셔티브의 일환으로 이 RFC는 “오류에 대한 예외 발생 모드”를 default로 하는 첫 번째 단계를 제안합니다. 현재 이 결과는 다음과 같이 실행함으로 얻을 수 있습니다:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);</span><br></pre></td></tr></table></figure>
-
-<p>mysqli를 사용하는 주요 오픈 소스로는 CodeIgniter, WordPress, phpMyAdmin 등이 있습니다.</p>
-<h2 id="Inheritance-Cache"><a href="#Inheritance-Cache" class="headerlink" title="Inheritance Cache"></a>Inheritance Cache</h2><p><a target="_blank" rel="noopener" href="https://externals.io/message/113091">https://externals.io/message/113091</a></p>
-<p>Dmitry Stogov는 상속 캐싱을 구현하는 <a target="_blank" rel="noopener" href="https://github.com/php/php-src/pull/6627">pull request</a>를 제시했습니다.</p>
-<p>캐시는 Symfony “Hello World” 애플리케이션의 성능을 8% 향상시킵니다. 그리고 그 결과를 얻기 위해 아무것도 할 필요가 없습니다. PHP 버전을 업데이트하고 opcached가 활성화되어 있는지 확인하십시오.</p>
-<blockquote>
-<p>PHP 클래스는 각각 컴파일되고 (opcache에 의해) 캐시되는데, “연결(linking)”은 매 request마다 run-time에 수행되었습니다.<br>…<br>상속 캐시는 모든 종속 클래스(부모, 인터페이스, trait, property type, 호환성 검사에 관계하는 method type)의 고유한 집합에 대해 한 번 “연결(linking)”을 수행하고 결과를 opcache 공유 메모리에 저장합니다.<br>이 패치의 일환으로 불변 클래스(unresolved 상수, typed property 및 공변 타입 검사)에 대한 제한을 제거했습니다. 따라서 이제 opcache에 저장된 모든 클래스는 “불변”합니다.<br>필요하다면 프로세스 메모리에 지연 로드 될 수 있습니다만 일반적으로 한 번만 발생합니다(첫 번째 연결시).</p>
-</blockquote>
-<h2 id="RFC-Property-Accessors-early-draft"><a href="#RFC-Property-Accessors-early-draft" class="headerlink" title="[RFC] Property Accessors (early draft)"></a>[RFC] Property Accessors (early draft)</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/property_accessors">https://wiki.php.net/rfc/property_accessors</a></p>
-<p>Nikita는 각 속성에 대해 별도의 getter&#x2F;setter 접근자를 제공하는 제안 초안을 만들었습니다.</p>
-<p>이 RFC는 몇 가지 기능을 추가 할 것을 제안합니다. </p>
-<p>비대칭적인 액세스 수정자를 선언하는 기능:</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> <span class="variable">$name</span> &#123; get; <span class="keyword">private</span> set; &#125;</span><br><span class="line">    <span class="comment">// или вот так (또는 이렇게)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> <span class="variable">$prop</span> &#123; <span class="keyword">public</span> get; <span class="keyword">private</span> set; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>read-only properties 선언:</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Read-write property.</span></span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$prop</span> &#123; get; set; &#125; <span class="comment">// the same as `public $prop;`</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// Read-only property.</span></span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$prop</span> &#123; get; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>guard</strong>라는 키워드로 유효성 검사를 추가하는 기능:</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> <span class="variable">$name</span> &#123;</span><br><span class="line">        guard &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="title function_ invoke__">strlen</span>(<span class="variable">$value</span>) === <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">ValueError</span>(<span class="string">&quot;Name must be non-empty&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>2013년에 PHP 5.5에 대해 비슷한 제안이 <a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/propertygetsetsyntax-v1.2">논의되었지만</a>, 투표에서 실패했습니다.</p>
-<p>현재로서는 아직 내부에서 논의되지 않은 아주 초반의 draft이므로 공식 발표를 기다려보면 좋겠습니다.</p>
-<h2 id="🗳-RFC-var-representation-readable-alternative-to-var-export"><a href="#🗳-RFC-var-representation-readable-alternative-to-var-export" class="headerlink" title="🗳 [RFC] var_representation() : readable alternative to var_export()"></a>🗳 [RFC] var_representation() : readable alternative to var_export()</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/readable_var_representation">https://wiki.php.net/rfc/readable_var_representation</a></p>
-<p>var_export() 함수는 오랫동안 불만의 대상이었습니다. 적어도 배열 구문을 array()에서 []로 변경하라는 제안이 있는 <a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/var-export-array-syntax">RFC</a> 있었습니다.</p>
-<p>이제 var_export()의 결함을 수정하는 새로운 함수를 간단히 소개하는 제안이 올라왔습니다.</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">var_representation($value, <span class="type">int</span> $flags=<span class="number">0</span>) :<span class="built_in">string</span></span><br></pre></td></tr></table></figure>
-
-<p>이 글을 뒤늦게 번역하는 2월 27일 시점에는 이미 투표가 끝났고, 최종 결과는 9:10으로 거절(Declined) 상태가 됐습니다.</p>
-<h2 id="🗳-RFC-Enumerations"><a href="#🗳-RFC-Enumerations" class="headerlink" title="🗳 [RFC] Enumerations"></a>🗳 [RFC] Enumerations</h2><ul>
-<li>사실은 ✅ [RFC] Enumerations</li>
-</ul>
-<p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/enumerations#voting">https://wiki.php.net/rfc/enumerations#voting</a></p>
-<p>열거형(Enumerations)에 대한 투표가 진행되고 있고, 매우 유망하다는 소식을 번역하는 시점이 너무 늦다보니… 이미 투표에서 44:7로 통과 되었고, 8.1 버전에 반영될 예정입니다.</p>
-<h2 id="✅-RFC-Array-unpacking-with-string-keys"><a href="#✅-RFC-Array-unpacking-with-string-keys" class="headerlink" title="✅ [RFC] Array unpacking with string keys"></a>✅ [RFC] Array unpacking with string keys</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/array_unpacking_string_keys">https://wiki.php.net/rfc/array_unpacking_string_keys</a></p>
-<p>문자열 키를 가진 배열을 분해하는 방식에 관한 제안이 통과되었습니다. 8.1 버전에 반영될 예정입니다.</p>
-<h2 id="❌-RFC-Dump-results-of-expressions-in-php-a"><a href="#❌-RFC-Dump-results-of-expressions-in-php-a" class="headerlink" title="❌ [RFC] Dump results of expressions in php -a"></a>❌ [RFC] Dump results of expressions in <code>php -a</code></h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/readline_interactive_shell_result_function">https://wiki.php.net/rfc/readline_interactive_shell_result_function</a></p>
-<p>거절(Declined) 됐습니다.</p>
-<h2 id="New-in-PHP-8-1"><a href="#New-in-PHP-8-1" class="headerlink" title="New in PHP 8.1"></a>New in PHP 8.1</h2><p><a target="_blank" rel="noopener" href="https://stitcher.io/blog/new-in-php-81">https://stitcher.io/blog/new-in-php-81</a></p>
-<p>Brent Roose의 변경 사항이 생기면 업데이트 되는, PHP 8.1의 새로운 기능에 대한 개요입니다. 더 자세한 정보를 원하시면 <a target="_blank" rel="noopener" href="https://php.watch/versions/8.1">php.watch</a>에서 변경 사항 목록을 확인하십시오.</p>
-<p><a target="_blank" rel="noopener" href="https://php-rfc-watch.beberlei.de/">PHP RFC Watch</a>에서 새로운 RFC 및 투표를 팔로우 할 수도 있습니다.</p>
-<h1 id="🛠-Tools"><a href="#🛠-Tools" class="headerlink" title="🛠 Tools"></a>🛠 Tools</h1><h2 id="fabpot-x2F-local-php-security-checker"><a href="#fabpot-x2F-local-php-security-checker" class="headerlink" title="fabpot&#x2F;local-php-security-checker"></a>fabpot&#x2F;local-php-security-checker</h2><p><a target="_blank" rel="noopener" href="https://github.com/fabpot/local-php-security-checker">https://github.com/fabpot/local-php-security-checker</a></p>
-<p>알려진 취약성이 있는 의존성이 있는지 composer.json을 확인합니다. <a target="_blank" rel="noopener" href="https://github.com/FriendsOfPHP/security-advisories">FriendsOfPHP&#x2F;security-advisories</a>가 취약성 데이터베이스로 사용됩니다.</p>
-<h2 id="funivan-x2F-PhpClean"><a href="#funivan-x2F-PhpClean" class="headerlink" title="funivan&#x2F;PhpClean"></a>funivan&#x2F;PhpClean</h2><p><a target="_blank" rel="noopener" href="https://github.com/funivan/PhpClean">https://github.com/funivan/PhpClean</a></p>
-<p>모든 곳에 유형을 선언하고, 불필요한 주석이 없고, 상속 대신 합성(composition)을 사용하는 등 흥미로운 inspection을 많이 추가한 PhpStorm 용 플러그인. 이 <a target="_blank" rel="noopener" href="https://funivan.com/post/phpclean-intro/">소개글</a>로부터 더 자세히 알아보세요.</p>
-<h2 id="wasmerio-x2F-wasmer-php"><a href="#wasmerio-x2F-wasmer-php" class="headerlink" title="wasmerio&#x2F;wasmer-php"></a>wasmerio&#x2F;wasmer-php</h2><p><a target="_blank" rel="noopener" href="https://github.com/wasmerio/wasmer-php">https://github.com/wasmerio/wasmer-php</a></p>
-<p>PHP 용 WebAssembly 런타임. 확장을 사용하면 PHP에서 wasm 바이너리를 실행하고 사용할 수 있습니다. 예를 들어 Rust 라이브러리를 가져와 Wasm으로 컴파일하고 Composer 패키지처럼 PHP의 모든 플랫폼에서 사용할 수 있습니다. 성능도 꽤 좋습니다. 이 <a target="_blank" rel="noopener" href="https://mnt.io/2019/04/03/%f0%9f%90%98%f0%9f%a6%80%f0%9f%95%b8-php-ext-wasm-migrating-from-wasmi-to-wasmer/">블로그 게시글</a>에서 이에 대해 자세히 알아볼 수 있습니다.</p>
-<h2 id="temporalio-x2F-sdk-php"><a href="#temporalio-x2F-sdk-php" class="headerlink" title="temporalio&#x2F;sdk-php"></a>temporalio&#x2F;sdk-php</h2><p><a target="_blank" rel="noopener" href="https://github.com/temporalio/sdk-php">https://github.com/temporalio/sdk-php</a></p>
-<p>진행중인 작업임에도 불구하고, Uber에서 사용하는 이벤트 소싱 엔진인 <a target="_blank" rel="noopener" href="https://temporal.io/">temporal.io</a>를 위한 매우 흥미로운 PHP-SDK입니다.</p>
-<p>다음은 누적(cumulative) 트랜잭션의 예입니다.</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">#[Workflow\WorkflowInterface</span><span class="meta">]</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LoopWorkflow</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">array</span> <span class="variable">$values</span> = [];</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">array</span> <span class="variable">$result</span> = [];</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$simple</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;simple = <span class="title class_">Workflow</span>::<span class="title function_ invoke__">newActivityStub</span>(</span><br><span class="line">            <span class="title class_">SimpleActivity</span>::<span class="variable language_">class</span>,</span><br><span class="line">            <span class="title class_">ActivityOptions</span>::<span class="keyword">new</span>()-&gt;<span class="title function_ invoke__">withStartToCloseTimeout</span>(<span class="number">5</span>)</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">#[SignalMethod</span><span class="meta">]</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">addValue</span>(<span class="params"></span></span></span><br><span class="line"><span class="params"><span class="function">        <span class="keyword">string</span> <span class="variable">$value</span></span></span></span><br><span class="line"><span class="params"><span class="function">    </span>) </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;values[] = <span class="variable">$value</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">#[WorkflowMethod</span>(<span class="attr">name</span>: <span class="string">&#x27;LoopWorkflow&#x27;</span>)<span class="meta">]</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">run</span>(<span class="params"></span></span></span><br><span class="line"><span class="params"><span class="function">        <span class="keyword">int</span> <span class="variable">$count</span></span></span></span><br><span class="line"><span class="params"><span class="function">    </span>) </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">            <span class="keyword">yield</span> <span class="title class_">Workflow</span>::<span class="title function_ invoke__">await</span>(fn() =&gt; <span class="variable language_">$this</span>-&gt;values !== []);</span><br><span class="line">            <span class="variable">$value</span> = <span class="title function_ invoke__">array_shift</span>(<span class="variable">$this</span>-&gt;values);</span><br><span class="line"></span><br><span class="line">            <span class="variable language_">$this</span>-&gt;result[] = <span class="keyword">yield</span> <span class="variable language_">$this</span>-&gt;simple-&gt;<span class="keyword">echo</span>(<span class="variable">$value</span>);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (<span class="title function_ invoke__">count</span>(<span class="variable">$this</span>-&gt;result) === <span class="variable">$count</span>) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">$this</span>-&gt;result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>여기선 <a target="_blank" rel="noopener" href="https://github.com/spiral/roadrunner">RoadRunner</a>와 <a target="_blank" rel="noopener" href="https://github.com/reactphp/promise">reactphp&#x2F;promise</a>를 사용합니다.</p>
-<h2 id="vimeo-x2F-php-mysql-engine"><a href="#vimeo-x2F-php-mysql-engine" class="headerlink" title="vimeo&#x2F;php-mysql-engine"></a>vimeo&#x2F;php-mysql-engine</h2><p><a target="_blank" rel="noopener" href="https://github.com/vimeo/php-mysql-engine">https://github.com/vimeo/php-mysql-engine</a></p>
-<p>순수 PHP로 구현한 MySQL 쿼리 시뮬레이터 (엔진). <a target="_blank" rel="noopener" href="https://medium.com/vimeo-engineering-blog/the-great-pretender-faster-application-tests-with-mysql-simulation-26250f13d251">이 도구에 대한 게시글</a>에서 Matt Brown은 이 엔진을 구현하여 Vimeo에서 테스트를 두 배 빠르게 실행하는 방법에 대해 이야기합니다.</p>
-<h2 id="cweagans-x2F-composer-patches"><a href="#cweagans-x2F-composer-patches" class="headerlink" title="cweagans&#x2F;composer-patches"></a>cweagans&#x2F;composer-patches</h2><p><a target="_blank" rel="noopener" href="https://github.com/cweagans/composer-patches">https://github.com/cweagans/composer-patches</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.rias.be/blog/using-composer-patches">의존하는 대상에 패치를 적용</a>할 수 있는 Composer 용 플러그인입니다. 이는 변경 사항이 너무 구체적이고 패키지&#x2F;프레임워크에 대한 완전한 PR을 보내긴 적절하진 않고, 포크를 유지하고 싶지도 않은 경우에 유용합니다.</p>
-<h1 id="Symfony"><a href="#Symfony" class="headerlink" title="Symfony"></a>Symfony</h1><h2 id="chaos-php-x2F-chaos-monkey-symfony-bundle"><a href="#chaos-php-x2F-chaos-monkey-symfony-bundle" class="headerlink" title="chaos-php&#x2F;chaos-monkey-symfony-bundle"></a>chaos-php&#x2F;chaos-monkey-symfony-bundle</h2><p><a target="_blank" rel="noopener" href="https://github.com/chaos-php/chaos-monkey-symfony-bundle">https://github.com/chaos-php/chaos-monkey-symfony-bundle</a></p>
-<p>Symfony 앱 용 <a target="_blank" rel="noopener" href="https://github.com/Netflix/chaosmonkey">Chaos Monkey</a> 같은 라이브러리. 응용 프로그램의 안정성을 테스트하기 위해 모든 종류의 극한 상황을 재현합니다.</p>
-<h2 id="A-week-of-Symfony-736-February-1-7-2021"><a href="#A-week-of-Symfony-736-February-1-7-2021" class="headerlink" title="A week of Symfony #736 (February 1-7 2021)"></a>A week of Symfony #736 (February 1-7 2021)</h2><p><a target="_blank" rel="noopener" href="https://symfony.com/blog/a-week-of-symfony-736-1-7-february-2021">https://symfony.com/blog/a-week-of-symfony-736-1-7-february-2021</a></p>
-<h2 id="Elasticsearch-–-the-right-way-in-Symfony"><a href="#Elasticsearch-–-the-right-way-in-Symfony" class="headerlink" title="Elasticsearch – the right way in Symfony."></a>Elasticsearch – the right way in Symfony.</h2><p><a target="_blank" rel="noopener" href="https://jolicode.com/blog/elasticsearch-the-right-way-in-symfony">https://jolicode.com/blog/elasticsearch-the-right-way-in-symfony</a></p>
-<p>Symfony에서 Elasticsearch를 제대로 쓰기</p>
-<h1 id="Laravel"><a href="#Laravel" class="headerlink" title="Laravel"></a>Laravel</h1><h2 id="Laravel-adds-parallel-testing-capabilities"><a href="#Laravel-adds-parallel-testing-capabilities" class="headerlink" title="Laravel adds parallel testing capabilities"></a>Laravel adds parallel testing capabilities</h2><p><a target="_blank" rel="noopener" href="https://blog.laravel.com/laravel-parallel-testing-is-now-available">https://blog.laravel.com/laravel-parallel-testing-is-now-available</a></p>
-<p>Laravel v8.25부터 <a target="_blank" rel="noopener" href="https://github.com/paratestphp/paratest">paratestphp&#x2F;paratest</a> 기반의 병렬 테스트 기능을 추가합니다. 병렬로 실행되도록 테스트를 조정하는 방법에 대한 이 <a target="_blank" rel="noopener" href="https://ohdear.app/blog/making-our-laravel-test-suite-ready-for-parallel-testing">블로그 게시물</a>을 읽어보세요.</p>
-<h2 id="Laravel-New-Release-Schedule"><a href="#Laravel-New-Release-Schedule" class="headerlink" title="Laravel: New Release Schedule"></a>Laravel: New Release Schedule</h2><p><a target="_blank" rel="noopener" href="https://blog.laravel.com/updates-to-laravels-versioning-policy">https://blog.laravel.com/updates-to-laravels-versioning-policy</a></p>
-<p>이제 메이저 버전이 6개월 마다가 아니라 1년에 한 번 릴리스 됩니다. 일정은 <a target="_blank" rel="noopener" href="https://laravelversions.com/">laravelversions.com</a>에서 확인할 수 있습니다.</p>
-<h2 id="📺-Building-a-multi-domain-multi-tenant-SaaS-app-with-JetStream"><a href="#📺-Building-a-multi-domain-multi-tenant-SaaS-app-with-JetStream" class="headerlink" title="📺 Building a multi-domain multi-tenant SaaS app with JetStream"></a>📺 Building a multi-domain multi-tenant SaaS app with JetStream</h2><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5CjWPU7lns4">https://www.youtube.com/watch?v=5CjWPU7lns4</a></p>
-<p>by Julien Bourdeau.</p>
-<h2 id="📺-Laravel-Worldwide-Meetup-5"><a href="#📺-Laravel-Worldwide-Meetup-5" class="headerlink" title="📺 Laravel Worldwide Meetup #5"></a>📺 Laravel Worldwide Meetup #5</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=qqLVbd_uGiI&t=389s">Hotwire in Laravel</a> (Tony Messias)</li>
-<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=qqLVbd_uGiI&t=2557s">Single Database Multi Tenancy</a> (Kevin McKee).</li>
-</ul>
-<h1 id="Yii"><a href="#Yii" class="headerlink" title="Yii"></a>Yii</h1><h2 id="New-components-of-the-upcoming-Yii-3"><a href="#New-components-of-the-upcoming-Yii-3" class="headerlink" title="New components of the upcoming Yii 3"></a>New components of the upcoming Yii 3</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/yiisoft/i18n">yiisoft&#x2F;i18n</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/yiisoft/request-body-parser">yiisoft&#x2F;request-body-parser</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/yiisoft/cache">yiisoft&#x2F;cache</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/yiisoft/arrays">yiisoft&#x2F;arrays</a></li>
-</ul>
-<h1 id="기타-읽을-만한-글"><a href="#기타-읽을-만한-글" class="headerlink" title="기타 읽을 만한 글"></a>기타 읽을 만한 글</h1><h2 id="Getting-started-with-mutation-testing"><a href="#Getting-started-with-mutation-testing" class="headerlink" title="Getting started with mutation testing"></a>Getting started with mutation testing</h2><p><a target="_blank" rel="noopener" href="https://johnbraun.blog/posts/mutation-testing">https://johnbraun.blog/posts/mutation-testing</a></p>
-<p><a target="_blank" rel="noopener" href="https://twitter.com/maks_rafalko">Maks Rafalko</a>의 <a target="_blank" rel="noopener" href="https://infection.github.io/">Infection PHP</a>를 사용하여 Mutation Test를 하는 방법을 설명합니다. </p>
-<p>Mutation Testing은 기존 테스트 스위트에 대해 실행되는 소스 코드에서 돌연변이를 생성합니다. 이러한 테스트 중 어느 것도 실패하지 않으면 이 소스 코드(변이)가 약하게 테스트되었다는 신호입니다.</p>
-<h2 id="Colliding-PHP-arrays"><a href="#Colliding-PHP-arrays" class="headerlink" title="Colliding PHP arrays"></a>Colliding PHP arrays</h2><p><a target="_blank" rel="noopener" href="https://sorin.live/colliding-php-arrays/">https://sorin.live/colliding-php-arrays/</a></p>
-<p>PHP의 배열이 DoS 공격을 수행하는 해시 테이블이라는 사실을 이용하는 방법에 대한 흥미로운 게시물입니다.</p>
-<p>PHP의 배열은 사실 내부적으로는 해시 맵으로 구현되어 있고, 그 구현 방식이 해싱 충돌에 의한 서비스 거부(collision denial of service) 공격에 취약하다는 사실은 <a target="_blank" rel="noopener" href="https://fahrplan.events.ccc.de/congress/2011/Fahrplan/events/4680.en.html">오래된 뉴스</a>이고 많은 프로그래밍 언어에서 공통적으로 발견됩니다.<br>이 글은 이 원리를 설명하며 <code>$_POST</code>, <code>$_GET</code> and <code>$_COOKIE</code>를 통한 공격과 이를 방지하기 위한 max_input_vars 설정까지 설명합니다.</p>
-<p>2011년에 Nikita가 쓴 PHP 배열에 2 ^ 16 &#x3D; 65536 값을 삽입하는 데 예상되는 0.01 초 대신 30 초가 걸리는 방법에 대한 <a target="_blank" rel="noopener" href="https://nikic.github.io/2011/12/28/Supercolliding-a-PHP-array.html">유사한 게시물</a>을 기초로 작성했습니다.</p>
-<h2 id="php-watch-PHP-Curl-Security-Hardening"><a href="#php-watch-PHP-Curl-Security-Hardening" class="headerlink" title="php.watch: PHP Curl Security Hardening"></a>php.watch: PHP Curl Security Hardening</h2><p><a target="_blank" rel="noopener" href="https://php.watch/articles/php-curl-security-hardening">https://php.watch/articles/php-curl-security-hardening</a></p>
-<p>이 글 PHP에서 cURL을 사용할 때 안전하지 않을 수 있는 장소를 식별하고 자신을 보호하는 방법에 대해 설명합니다.</p>
-<p>Summary</p>
-<ul>
-<li>Limit Curl Protocols</li>
-<li>Do not enable automatic redirects unless absolutely necessary</li>
-<li>If redirects are enabled enabled, limit allowed protocols (if different from #1 above)</li>
-<li>If redirects are enabled, set a strict limit</li>
-<li>Set a strict time-out</li>
-<li>Do not disable certification validation, or enforce it</li>
-<li>Disable insecure SSL and TLS versions</li>
-</ul>
-<h2 id="Build-a-Telegram-bot-in-PHP"><a href="#Build-a-Telegram-bot-in-PHP" class="headerlink" title="Build a Telegram bot in PHP"></a>Build a Telegram bot in PHP</h2><p><a target="_blank" rel="noopener" href="https://pretzelhands.com/posts/build-a-telegram-bot-in-php">https://pretzelhands.com/posts/build-a-telegram-bot-in-php</a></p>
-<p>PHP로 Telegram 봇을 빌드하고 <a target="_blank" rel="noopener" href="https://github.com/beyondcode/expose">beyondcode&#x2F;expose</a>를 사용하여 로컬에서 테스트합니다.</p>
-<h2 id="How-to-build-a-dynamic-GitHub-profile"><a href="#How-to-build-a-dynamic-GitHub-profile" class="headerlink" title="How to build a dynamic GitHub profile"></a>How to build a dynamic GitHub profile</h2><p><a target="_blank" rel="noopener" href="https://hackernoon.com/how-to-build-a-dynamic-github-profile-with-github-actions-and-php-h5g34cr">https://hackernoon.com/how-to-build-a-dynamic-github-profile-with-github-actions-and-php-h5g34cr</a></p>
-<p>GitHub Actions와 PHP로 동적으로 GitHub profile을 만드는 법.</p>
-<h2 id="Webshell-was-hidden-in-an-infected-PHP-script-in-whitespace-characters"><a href="#Webshell-was-hidden-in-an-infected-PHP-script-in-whitespace-characters" class="headerlink" title="Webshell was hidden in an infected PHP script in whitespace characters"></a>Webshell was hidden in an infected PHP script in whitespace characters</h2><p><a target="_blank" rel="noopener" href="https://blog.sucuri.net/2021/02/whitespace-steganography-conceals-web-shell-in-php-malware.html">https://blog.sucuri.net/2021/02/whitespace-steganography-conceals-web-shell-in-php-malware.html</a></p>
-<p>Webshell은 감염된 PHP 스크립트에 공백 문자로 숨겨져 있습니다. 감염된 서버에서 발견된 백도어 분석.</p>
-<h2 id="Contract-Tests"><a href="#Contract-Tests" class="headerlink" title="Contract Tests"></a>Contract Tests</h2><p><a target="_blank" rel="noopener" href="https://www.kai-sassnowski.com/post/contract-tests/">https://www.kai-sassnowski.com/post/contract-tests/</a></p>
-<p>인터페이스의 모든 구현에서 일관된 동작을 보장하기 위해 테스트를 작성하는 방법.</p>
-<h2 id="Benchmarks-of-different-frameworks-and-CMSs-with-PHP-5-6-7-and-8-0"><a href="#Benchmarks-of-different-frameworks-and-CMSs-with-PHP-5-6-7-and-8-0" class="headerlink" title="Benchmarks of different frameworks and CMSs with PHP 5.6, 7.*, and 8.0"></a>Benchmarks of different frameworks and CMSs with PHP 5.6, 7.*, and 8.0</h2><p><a target="_blank" rel="noopener" href="https://kinsta.com/blog/php-benchmarks/">https://kinsta.com/blog/php-benchmarks/</a></p>
-<p>PHP 5.6, 7.* 및 8.0을 사용하는 다양한 프레임워크 및 CMS의 벤치마크.</p>
-<h1 id="📺-Videos"><a href="#📺-Videos" class="headerlink" title="📺 Videos"></a>📺 Videos</h1><h2 id="8-Things-You’ll-❤️-About-PHP-8"><a href="#8-Things-You’ll-❤️-About-PHP-8" class="headerlink" title="8 Things You’ll ❤️ About PHP 8"></a>8 Things You’ll ❤️ About PHP 8</h2><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=ZZxCj91NjWg">https://www.youtube.com/watch?v=ZZxCj91NjWg</a></p>
-<p>by <a target="_blank" rel="noopener" href="https://twitter.com/garyclarketech">Gary Clarke</a>.</p>
-<h2 id="Xdebug-3-Diagnostics"><a href="#Xdebug-3-Diagnostics" class="headerlink" title="Xdebug 3: Diagnostics"></a>Xdebug 3: Diagnostics</h2><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IN6ihpJSFDw">https://www.youtube.com/watch?v=IN6ihpJSFDw</a></p>
-<p>Xdebug가 동작하지 않을 때 해야할 것</p>
-<h2 id="Refactoring-PHP-Platform-–-LiveStream-3"><a href="#Refactoring-PHP-Platform-–-LiveStream-3" class="headerlink" title="Refactoring PHP Platform – LiveStream #3"></a>Refactoring PHP Platform – LiveStream #3</h2><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=trVMpLtDqzA">https://www.youtube.com/watch?v=trVMpLtDqzA</a></p>
-<p>from Christoph Rumpel.</p>
-<h2 id="How-to-use-the-terminal-in-PhpStorm-by-Christoph-Rumpel"><a href="#How-to-use-the-terminal-in-PhpStorm-by-Christoph-Rumpel" class="headerlink" title="How to use the terminal in PhpStorm by Christoph Rumpel."></a>How to use the terminal in PhpStorm by Christoph Rumpel.</h2><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=h1sGfV5i_kI">https://www.youtube.com/watch?v=h1sGfV5i_kI</a></p>
-<p>PhpStorm에서 터미널 사용하기.<br>Christoph가 진행할 다른 강의도 확인해보세요: <a target="_blank" rel="noopener" href="https://masteringphpstorm.com/">Mastering PhpStorm</a>.</p>
-<h2 id="Live-coding-a-Bref-Queue"><a href="#Live-coding-a-Bref-Queue" class="headerlink" title="Live-coding a Bref Queue"></a>Live-coding a Bref Queue</h2><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=tVsnbvCd6Wg">https://www.youtube.com/watch?v=tVsnbvCd6Wg</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/brefphp/bref">Bref</a>의 저자인 Matthieu Napoli가 AWS Lambda에서 PHP로 SQS와 EventBridge를 활용한 “Bref Messaging” 라이브러리를 소개합니다.</p>
-<h2 id="Creating-generative-art-with-PHP"><a href="#Creating-generative-art-with-PHP" class="headerlink" title="Creating generative art with PHP"></a>Creating generative art with PHP</h2><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=-qi4OCC7oOM">https://www.youtube.com/watch?v=-qi4OCC7oOM</a></p>
-<p>PHP로 예술 작품을 만들면서 Blackfire.io로 프로파일링하기.</p>
-<h2 id="PHP-Release-Radar"><a href="#PHP-Release-Radar" class="headerlink" title="PHP Release Radar:"></a>PHP Release Radar:</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=piFQSkVU3mw">Episode 2: PHP 8</a> – Sara Golemon과 Gabriel Caruso가 8.0, PHP 확장의 기본 사항 및 프로젝트에 참여하는 다양한 방법에 대해 논의합니다.</li>
-<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=ZE9Wng48KrI">Episode 3: Psalm 4</a> – Psalm의 저자인 Matt Brown와 함께.</li>
-<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=7WUQJx-419k">Episode 4: XDebug 3</a> – Derick Rethans과 함께.</li>
-</ul>
-<h1 id="🔈-Podcasts"><a href="#🔈-Podcasts" class="headerlink" title="🔈 Podcasts"></a>🔈 Podcasts</h1><h2 id="PHP-Ugly-podcast"><a href="#PHP-Ugly-podcast" class="headerlink" title="PHP Ugly podcast:"></a>PHP Ugly podcast:</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kg0udd5W79Y">#222</a>: – PHP Security Tools.</li>
-<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=gGmjN5H9Yd8">#221</a>: – The PHP Big Short.</li>
-</ul>
-<h2 id="PHP-Internals-News-podcast"><a href="#PHP-Internals-News-podcast" class="headerlink" title="PHP Internals News podcast:"></a>PHP Internals News podcast:</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://phpinternals.news/73">#73</a> – With <a target="_blank" rel="noopener" href="https://twitter.com/crell">Larry Garfield</a> about Enums.</li>
-<li><a target="_blank" rel="noopener" href="https://phpinternals.news/74">#74</a> – About the Fibers with <a target="_blank" rel="noopener" href="https://twitter.com/_trowski">Aaron Piotrowski</a>, Amphp maintainer.</li>
 </ul>
 
       
