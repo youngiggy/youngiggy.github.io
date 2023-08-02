@@ -126,7 +126,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">116</span>
+          <span class="site-state-item-count">117</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -165,6 +165,176 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://haah.kr/2019/03/02/php-annotated-monthly-february-2019/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="youngiggy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/03/02/php-annotated-monthly-february-2019/" class="post-title-link" itemprop="url">php-annotated-monthly-february-2019</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-03-02 10:30:55" itemprop="dateCreated datePublished" datetime="2019-03-02T10:30:55+09:00">2019-03-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2019-03-09 13:03:19" itemprop="dateModified" datetime="2019-03-09T13:03:19+09:00">2019-03-09</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/03/02/php-annotated-monthly-february-2019/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/03/02/php-annotated-monthly-february-2019/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2018/12/new_php-annotated-monthly.jpg" alt="Php_annotated_monthly 이미지"></p>
+<p>JetBrains에서 제공하는 월간 <a target="_blank" rel="noopener" href="https://blog.jetbrains.com/phpstorm/2019/02/php-annotated-monthly-february-2019/">PHP Annotated Monthly 2월호</a>입니다.</p>
+<p>이 중에서 몇 가지 제 취향껏 골라 그 안의 내용도 좀 뒤져보고 개발새발 번역해서 소개합니다.</p>
+<hr>
+<h1 id="News-amp-Releases"><a href="#News-amp-Releases" class="headerlink" title="News &amp; Releases"></a>News &amp; Releases</h1><h2 id="PSR"><a href="#PSR" class="headerlink" title="PSR"></a>PSR</h2><p><a target="_blank" rel="noopener" href="https://github.com/php-fig/fig-standards/blob/master/proposed/event-dispatcher.md">https://github.com/php-fig/fig-standards/blob/master/proposed/event-dispatcher.md</a></p>
+<p><code>PSR-14 Event Dispatcher</code>가 review stage로 넘어갔다는 소식.</p>
+<p>아시겠지만(‘나는 알지롱’이란 뜻), <a target="_blank" rel="noopener" href="https://www.php-fig.org/bylaws/psr-workflow/">PSR Workflow</a>에 따르면 PSR이 제정되는 단계는 아래와 같습니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Pre-Draft -&gt; Draft -&gt; Review -&gt; Accepted (-&gt; DEPRECATED)</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/php-fig/fig-standards/blob/master/proposed/extended-coding-style-guide.md">https://github.com/php-fig/fig-standards/blob/master/proposed/extended-coding-style-guide.md</a></p>
+<p><code>PSR-12 Extended Code Style</code>도 review stage에 도달했습니다.</p>
+<p>PSR-2가 2012에 accepted됐고, 그동안 PHP에 많은 변화가 있어서(PHP 7이 2015년 12월에 release됐죠) 최신 PHP 스펙을 반영하자는 취지로 보입니다. </p>
+<p>PSR-12는 PSR-1에 기초하고 있고, PSR-2를 대체합니다.</p>
+<p>PSR이 review 단계에 왔다는 것은 시험 구현체(trial implementations)를 검토하게 되는데요. <a target="_blank" rel="noopener" href="https://youtrack.jetbrains.com/issue/WI-40357">JetBrains</a>, <a target="_blank" rel="noopener" href="https://github.com/squizlabs/PHP_CodeSniffer/issues/750">PHPCS</a> 등에도 이를 반영해야 한다는 논의가 되고 있습니다.</p>
+<p>바로 뒤에 소개할 2019.1 EAP에서도 ‘Sort use statements’쪽을 보시면 use statement 순서를 조정하는 것으로 적용되었습니다.</p>
+<h2 id="PhpStorm-2019-1-EAP"><a href="#PhpStorm-2019-1-EAP" class="headerlink" title="PhpStorm 2019.1 EAP"></a>PhpStorm 2019.1 EAP</h2><p><a target="_blank" rel="noopener" href="https://blog.jetbrains.com/phpstorm/2019/01/phpstorm-2019-1-early-access-program-is-open/">https://blog.jetbrains.com/phpstorm/2019/01/phpstorm-2019-1-early-access-program-is-open/</a></p>
+<p>Focus mode 재밌네요.</p>
+<p>요즘 EAP를 보면 이제 할 수 있는 건 이미 다 했다의 느낌이기도 하고요.</p>
+<h2 id="PHPUnit-Version-8"><a href="#PHPUnit-Version-8" class="headerlink" title="PHPUnit Version 8"></a>PHPUnit Version 8</h2><p><a target="_blank" rel="noopener" href="https://phpunit.de/announcements/phpunit-8.html">https://phpunit.de/announcements/phpunit-8.html</a></p>
+<p>PHPUnit 8 버전이 새로 나왔고 PHP7.2이상을 요구합니다.</p>
+<h2 id="PEAR-was-hacked"><a href="#PEAR-was-hacked" class="headerlink" title="PEAR was hacked"></a>PEAR was hacked</h2><p><a target="_blank" rel="noopener" href="https://thephp.cc/news/2019/02/blast-from-the-past">https://thephp.cc/news/2019/02/blast-from-the-past</a></p>
+<p>슬픈 소식입니다.</p>
+<blockquote>
+<p>If you downloaded go-pear.phar between December 20, 2018 and January 19, 2019 and used it on a system that has sh and perl available then you must consider that system to be compromised, and take responsible action.</p>
+</blockquote>
+<p>저도 나이 드니까 여기 저기 아프더라고요.</p>
+<h1 id="PHP-Internals"><a href="#PHP-Internals" class="headerlink" title="PHP Internals"></a>PHP Internals</h1><h2 id="PHP-7-4-branched-master-is-PHP-8-0"><a href="#PHP-7-4-branched-master-is-PHP-8-0" class="headerlink" title="PHP-7.4 branched, master is PHP 8.0"></a>PHP-7.4 branched, master is PHP 8.0</h2><p><a target="_blank" rel="noopener" href="https://externals.io/message/103862">https://externals.io/message/103862</a></p>
+<p>드디어 PHP 8.0 개발이 시작됐습니다. PHP 7.4와 PHP 8.0을 병렬로 개발한다는 소식입니다.</p>
+<p>Deprecated된 스펙은 이미 <a target="_blank" rel="noopener" href="https://github.com/php/php-src/pull/3770">지워버렸고</a>, 도커 허브의 <a target="_blank" rel="noopener" href="https://hub.docker.com/r/phpdaily/php">phpdaily&#x2F;php</a>를 통해 체험해보실 수 있습니다.</p>
+<h2 id="RFC-JIT"><a href="#RFC-JIT" class="headerlink" title="[RFC] JIT"></a>[RFC] JIT</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/jit">https://wiki.php.net/rfc/jit</a></p>
+<p>Dmitry Stogov가 제안을 넣었습니다.</p>
+<p>RFC에 따르면 OPcache와는 독립된 부분으로 개발되고, OPcache shared memory 영역을 사용할 것으로 보입니다.</p>
+<blockquote>
+<p>PHP JIT is implemented as an almost independent part of OPcache… When enabled, native code of PHP files is stored in an additional region of the OPcache shared memory…</p>
+</blockquote>
+<p>Nikita Popov의 벤치마크에 따르면, 프로젝트(PHP-Parser, amphp&#x2F;http-server)에 따라 5% ~ 30% 정도의 성능 향상이 있었다고 합니다.</p>
+<p><a target="_blank" rel="noopener" href="https://hub.docker.com/r/dmitrybalabka/php-jit/">php-jit 도커 이미지</a>에서 체험하실 수 있습니다.</p>
+<p>추가로 <a target="_blank" rel="noopener" href="https://stitcher.io/blog/php-jit">PHP JIT에 관한 좋은 글</a>도 소개주고 있는데요. 극단적인 상황에서 PHP7과 PHP-JIT의 성능을 비교해주기도 하고, 그러나 웹 어플리케이션에서는 그만큼의 성능 향상을 보일 수는 없고, PHP 사용자나 PHP 언어 자체의 유지보수를 어렵게 할 수 있다고 우려하기도 합니다. 아직 linux 환경에서만 가능하고 일반적인 개발환경(Windows, Mac)에서의 지원 여부도 아직은 불투명한 상황이라고 합니다. </p>
+<h2 id="RFC-Weak-References"><a href="#RFC-Weak-References" class="headerlink" title="[RFC] Weak References"></a>[RFC] Weak References</h2><p>저는 다른 언어에서 Weak References를 써본 적이 없고 왜 필요한 지는 잘 모르겠습니다만, 현재 extension을 통해 PHP에서도 사용할 수는 있다는군요. </p>
+<h2 id="RFC-Null-Coalescing-Assignment-Operator"><a href="#RFC-Null-Coalescing-Assignment-Operator" class="headerlink" title="[RFC] Null Coalescing Assignment Operator"></a>[RFC] Null Coalescing Assignment Operator</h2><p>2년 전에 accepted된 제안인데, 7.4에 구현되었다고 합니다. </p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> (<span class="params"><span class="keyword">array</span> <span class="variable">$parameters</span> = []</span>) </span>&#123;</span><br><span class="line">    <span class="variable">$parameters</span>[<span class="string">&#x27;property&#x27;</span>] ??= <span class="string">&#x27;default&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>이 코드는 아래와 동등합니다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> (<span class="params"><span class="keyword">array</span> <span class="variable">$parameters</span> = []</span>) </span>&#123;</span><br><span class="line">    <span class="variable">$parameters</span>[<span class="string">&#x27;property&#x27;</span>] = <span class="variable">$parameters</span>[<span class="string">&#x27;property&#x27;</span>] ?? <span class="string">&#x27;default&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>PHP의 축약형 연산자는 <a target="_blank" rel="noopener" href="https://stitcher.io/blog/shorthand-comparisons-in-php">Shorthand comparisons in PHP</a>에서 더 확인하실 수 있습니다.</p>
+<h2 id="RFC-New-custom-object-serialization-mechanism"><a href="#RFC-New-custom-object-serialization-mechanism" class="headerlink" title="[RFC] New custom object serialization mechanism"></a>[RFC] New custom object serialization mechanism</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/custom_object_serialization">https://wiki.php.net/rfc/custom_object_serialization</a></p>
+<p>PHP는 두가지 커스텀 직렬화 매커니즘을 지원하는데요.</p>
+<ul>
+<li>__sleep() &#x2F; __wakeup() magic methods</li>
+<li>Serializable interface</li>
+</ul>
+<p>여기에는 사용성 면에서나 아래 코드처럼 상속관계에서 중첩된 직렬화를 시도할 때 등 몇가지 문제가 있습니다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">	...</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">serialize</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="title function_ invoke__">serialize</span>([<span class="variable">$this</span>-&gt;prop, <span class="built_in">parent</span>::<span class="title function_ invoke__">serialize</span>()])</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
+
+<p>새로운 RFC에서는 두가지 magic method를 추가합니다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Returns array containing all the necessary state of the object.</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__serialize</span>(<span class="params"></span>): <span class="title">array</span></span>;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// Restores the object state from the given data array.</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__unserialize</span>(<span class="params"><span class="keyword">array</span> <span class="variable">$data</span></span>): <span class="title">void</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>왜 interface가 아닌 magic method냐는 질문에는, PHP는 기본적으로 모든 object를 직렬화할 수 있고 Serializable interface를 구현하지 않더라도 여전히 가능하기 때문에 magic method가 좀 더 시맨틱하기 때문이라는군요.</p>
+<h2 id="RFC-Consistent-type-errors-for-internal-functions"><a href="#RFC-Consistent-type-errors-for-internal-functions" class="headerlink" title="[RFC] Consistent type errors for internal functions"></a>[RFC] Consistent type errors for internal functions</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/consistent_type_errors">https://wiki.php.net/rfc/consistent_type_errors</a></p>
+<p>사용자 정의 함수는 잘못된 parameter가 전달되면 TypeError를 뱉지만, 내장 함수는 상황에 따라 다르지만 기본적으로 warning을 발생시키고 null을 리턴합니다. 이 RFC는 예외없이 모든 파라미터 오류에 대해 TypeError exception을 던지도록 제안합니다.</p>
+<p>PHP 8.0을 target으로 하고 있고 하위 호환을 해치므로 주의해야할 것입니다.</p>
+<h2 id="기타"><a href="#기타" class="headerlink" title="기타"></a>기타</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/allow-void-variance">[RFC] Allow void return type variance</a></p>
+<ul>
+<li>아직 Under Discussion 상태인데, return type이 void인 경우 하위 클래스에서 다른 type을 리턴할 수 있께 선언할 수 있습니다. 하지만 void return type이 아닌 경우 다시 void로 지정하는 것은 안 됩니다.</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/annotations_v2">PHP RFC: Annotations 2.0</a></p>
+<ul>
+<li>많은 분들이 기다리시는 annotation을 위한 RFC이고, 현재 Draft 상태입니다.</li>
+</ul>
+<h1 id="기타-읽을-만한-글"><a href="#기타-읽을-만한-글" class="headerlink" title="기타 읽을 만한 글"></a>기타 읽을 만한 글</h1><h2 id="How-to-Kill-Parents"><a href="#How-to-Kill-Parents" class="headerlink" title="How to Kill Parents"></a>How to Kill Parents</h2><p><a target="_blank" rel="noopener" href="https://www.tomasvotruba.cz/blog/2019/01/24/how-to-kill-parents/">https://www.tomasvotruba.cz/blog/2019/01/24/how-to-kill-parents/</a></p>
+<p><a target="_blank" rel="noopener" href="https://ocramius.github.io/blog/when-to-declare-classes-final/">When to declare classes final</a>라는 글을 쓴 Marco Pivetta가 4년 후 더 자극적인 제목으로 추가 포스팅을 올렸습니다.</p>
+<p>개발자들은 상속을 통해 문제를 해결하는 경향이 있는데, 상속 보다는 구성을 통해 해결하기 위해, 더 나은 설계를 위해, 가능하면 항상 final을 쓰라고 권고합니다.</p>
+<h2 id="Moving-from-Go-to-PHP-again"><a href="#Moving-from-Go-to-PHP-again" class="headerlink" title="Moving from Go to PHP again"></a>Moving from Go to PHP again</h2><p><a target="_blank" rel="noopener" href="https://dannyvankooten.com/from-go-back-to-php-again/">https://dannyvankooten.com/from-go-back-to-php-again/</a></p>
+<p>PHP(Laravel)을 떠나 Go로 돌아갔던 저자가 다시 PHP로 돌아왔다는 이야기입니다. GO는 여전히 좋고 퍼포먼스가 뛰어나서 필요할 땐 여전히 사용할 용의가 있지만 서비스 운영에는 쉽지 않았던 모양입니다. Symfony4가 엄청 엄청 좋다는 게 결론입니다. </p>
+<blockquote>
+<p>it’s great. Really, really great.</p>
+</blockquote>
+<h1 id="Video"><a href="#Video" class="headerlink" title="Video"></a>Video</h1><h2 id="Beachcasts-Tech-Videos"><a href="#Beachcasts-Tech-Videos" class="headerlink" title="Beachcasts Tech Videos"></a>Beachcasts Tech Videos</h2><p><a target="_blank" rel="noopener" href="http://beachcasts.com/">http://beachcasts.com/</a></p>
+<p><a target="_blank" rel="noopener" href="https://twitter.com/adamculp">Adam Culp</a>란 사람의 동영상 강의 시리즈입니다.</p>
+<h2 id="Astrocasts"><a href="#Astrocasts" class="headerlink" title="Astrocasts"></a>Astrocasts</h2><p><a target="_blank" rel="noopener" href="https://astrocasts.com/browse">https://astrocasts.com/browse</a></p>
+<p><a target="_blank" rel="noopener" href="https://twitter.com/beausimensen">Beau Simensen</a>란 사람의 동영상 강의도 추천한답니다.</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1455,120 +1625,6 @@
 
 
 
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://haah.kr/2018/11/13/books-2018-october-to-november/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="youngiggy">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ha-ah">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | ha-ah">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/11/13/books-2018-october-to-november/" class="post-title-link" itemprop="url">독후감 - 2018년 10월 ~ 11월</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2018-11-13 00:21:29" itemprop="dateCreated datePublished" datetime="2018-11-13T00:21:29+09:00">2018-11-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2019-05-11 11:43:29" itemprop="dateModified" datetime="2019-05-11T11:43:29+09:00">2019-05-11</time>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2018/11/13/books-2018-october-to-november/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/11/13/books-2018-october-to-november/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="대체-뭐가-문제야"><a href="#대체-뭐가-문제야" class="headerlink" title="대체 뭐가 문제야"></a>대체 뭐가 문제야</h2><p><img src="http://image.kyobobook.co.kr/images/book/large/669/l9788966260669.jpg" alt="대체 뭐가 문제야 표지 이미지"></p>
-<blockquote>
-<p>Are Your Lights On?</p>
-</blockquote>
-<p>제럴드 와인버그 선생의 대체 뭐가 문제야 개정판을 샀다. 마침 가방없이 교보문고에 간 날이었고, 마침 이 책이 외투 주머니에 쏙 들어갈 정도였고, 마침 와인버그 선생이 돌아가신 지 얼마 안 되기도 했다.</p>
-<p>극과 극의 평을 받는다고는 했으나 나는 꽤 좋았다. 특히 첫 장의 몰입감이 좋았는데, 뒤로 갈 수로 맥이 풀리기도 한다.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;문제란 바라는 것과 인식하는 것 간의 차이다.&quot;</span><br><span class="line"></span><br><span class="line">&quot;누구의 문제인가?&quot;</span><br><span class="line"></span><br><span class="line">&quot;정말로 무엇이 문제인가?&quot;</span><br></pre></td></tr></table></figure>
-
-<p>우리가 문제로 인식하는 것이 진짜 문제인지, 그게 누구의 문제인지, 그런데 답을 내면 그게 답이 맞는지…결국 돌고 돌아 아무 것도 아닌 책이기도 하지만, 그 과정에서 이런 저런 생각을 해볼 수 있어서 좋았다. 특히 책을 읽고 얼마 후에 동료 개발자와 고민을 하고 의견을 나눈 뒤 다른 개발자와 이야기를 하는 도중 그 개발자가 문제를 없애준 경험을 겪고 보니, 역시 나는 문제를 보는 눈이 없구나 싶기도 했다.</p>
-<p>또 읽다보니 와인버그 선생의 테크니컬 리더를 관통하는 주제이기도 하다는 생각이 들었다. 물론 내가 오해를 했거나 오래전에 읽어서 기억이 가물거릴 순 있지만, 난 그 책이 서로 소통을 제대로 하고 있는지, 문제를 해결해야 할 사람이 누군지를 끊임없이 이야기 해준다고 생각을 했다 - 그것만 기억에 남은 것일 수도 있다.</p>
-<p>어쨌든 역시나 고민을 던져주는 책인데, 그래도 짧은 시간 한가지 주제로만 머리 아프게 해주니 고맙기도 하고, 남에게 추천하기는 또 애매하기도 한데, 누구든 빌려달라면 빌려주리라.</p>
-<h2 id="조엘-온-소프트웨어"><a href="#조엘-온-소프트웨어" class="headerlink" title="조엘 온 소프트웨어"></a>조엘 온 소프트웨어</h2><p><img src="http://image.kyobobook.co.kr/images/book/large/588/l9788989975588.jpg" alt="조엘 온 소프트웨어 표지 이미지"></p>
-<p>오래전에 봤으면 내가 좋아했을 법한 스타일인데, 워낙 옛스러운 탓에 큰 감동은 없었더랬다. 이미 이 책에 영향받은 사람들이 수많은 책과 블로그를 썼고, 이 사람의 철학이 이 직군 전반에 녹아들었다고 생각된다. 작가도 재미있게 글을 쓰는 사람인데다 번역가도 좋아하는 사람이지만, 중간중간 번역가가 추가한 내용에 깜짝깜짝 놀라곤 했다. 아무리 블로그 모음집이라 해도 어느정도 흐름을 고려한 편집이었기에 그 사이에 뭘 넣는 것이 어째 마뜩찮았고, 예전 PC 통신 시절의 감성을 느끼게 해줬다. 딱 그 시기이기도 하고.</p>
-<p>나도 이럴진대, 30대의 어린 친구들이라면 조엘 이후에 (어쩌면 그에게 영향을 받은 것일 수도 있는) 폴 그레이엄의 <a target="_blank" rel="noopener" href="http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788968480713&orderClick=LAH&Kc=">해커와 화가</a>, 제프 앳우드의 <a target="_blank" rel="noopener" href="http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788998139179&orderClick=LEB&Kc=">코딩 호러의 이펙티브 프로그래밍</a> 등의 글을 읽는 것이 좀 더 와 닿을 수도 있겠다. 그 친구들이라면 이 사람들도 할배라고 하려나?</p>
-<p>고전은 고전이라 좋은 글이고 좋은 관점이지만 아주 재미가 있었다고는 말하긴 힘들다. 똑똑하게 재밌는 할아버지였다.</p>
-<h2 id="요리는-화학이다"><a href="#요리는-화학이다" class="headerlink" title="요리는 화학이다"></a>요리는 화학이다</h2><p><img src="http://image.yes24.com/momo/TopCate473/MidCate003/47222497.jpg" alt="요리는 화학이다 표지 이미지"></p>
-<blockquote>
-<p>확실히 성공하기 위한 70여 개 레시피의 모든 비밀과 해독</p>
-</blockquote>
-<p>부제는 요란하지만 여러모로 애매한 책이다. 아직 (어떤 분은 재밌게 읽었다는) 달걀 부분을 읽지 않은 채로 쓴다.</p>
-<p>yes24의 독자 서평은 칭찬 일색이지만(총 리뷰가 얼마 안되긴 하다), 교보문고에는 공감가는 서평과 이해 안되는 서평이 공존한다. 내가 책을 읽고 난 뒤에 서평을 다시 찾아보기 시작했다는 것은 엄청 좋았거나 (대부분은) 워낙 이상해서다.</p>
-<p>좋은 점은 화학적 지식을 배경으로 우리가 일상적으로 하는 실수들을 지적해준다는 점이다. 예를 들어, 소금과 후추를 뿌려야 하는 타이밍 같은 것. 때론 그런 것이 너무 미묘해서 나같은 미물에겐 큰 차이가 없어보이는 경우도 있지만, 어쨌든 과학적인 접근을 했다는 점은 좋았다. 백종원 등 여러 사람이 이야기하는 고기를 이렇게 구우면 육즙을 가두게 되죠 같은 이야기도 왜 문제인지 알 수 있다. 그런데 그런 과학적인 배경을 설명하는 분량이 적기도 하고 뒤로가선 대충 설명하는 기분이 든다. </p>
-<p>프랑스 작가니까 프랑스에서나 먹을 수 있는 레시피와 재료가 들어간 건 이해할 만 하다. 내가 어릴 적부터 프랑스 코미디 영화를 볼 때마다 느끼는 감정이 이 책에서도 고스란히 드러난다. 정말 프랑스의 유머 감각은 남다르다. 프랑스 영화에서 흔히 보이는 것처럼 갸날픈(확인된 바 없음) 백인(확인된 바 없음) 게이(확인된 바 없음) 청년(확인된 바 없음)의 섬세한 말투와 유머와 몸짓이 책 곳곳에서 느껴진다. 후추를 먼저 쳤다가는 내 팔을 꼬집을 것 같다. 역시 프랑스 사람들은 재미없다. - 너무 혐오 발언을 쏟아냈나? 난 갸날픈 백인 프랑스 게이 청년을 혐오하진 않는다. 그냥 이 책이 좀…</p>
-<p>또 하나의 문제는 번역인데, 작가가 원래부터 이상한 말을 쏟아낸 게 아니라면 번역이 심각하다. 찾아보니 유명한 프랑스 요리 강사님인 것 같다. 번역이 좋았다는 사람은 도대체… 해박한 지식이 있어야 가능한 번역이긴 하지만, 글을 잘 쓰는 것과는 또 다른 문제니까. 어쩌면 출판사(도림북스)를 비난해야 정당한 일일 지도 모르겠다. </p>
-<p>마지막으로 책이 모두 그림으로만 이뤄져서 참 이쁜데, 이걸 레시피로 참고하기에는 참 어렵다. 새우머리와 껍질이 좀 남아서 비스크를 실험한다고 따라해봤는데, 난 비스크를 본 적도 없으니 모두지 내가 잘 하고 있는지도 모르겠고, 색깔이 하도 더럽게 나와 아내가 인상을 찌푸리며 “아니, 색이 왜 이래요?”라고 놀라고, 겨우 겨우 설득해 맛은 보게 했지만 다시는 먹고 싶지 않아 했다. 맛은 나쁘지 않으나 나도 좀 떠 먹다 버렸다. 이 실패는 지식이 부족한 내가 재료를 잘못 넣은 탓이긴 하지만, 원래 어떤 모양과 색인지 알 수 없어 레시피 책으로써는 부족하다. 프랑스 요리 경험이 있는 사람이 더 잘 만들기 위해 참고하면 좋을 책이라고 본다.</p>
 
       
     </div>

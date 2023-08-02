@@ -126,7 +126,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">116</span>
+          <span class="site-state-item-count">117</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -165,6 +165,126 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://haah.kr/2017/12/18/book-9788993827446-ddd-start/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="youngiggy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/12/18/book-9788993827446-ddd-start/" class="post-title-link" itemprop="url">독후감 - DDD Start!</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-12-18 23:41:19" itemprop="dateCreated datePublished" datetime="2017-12-18T23:41:19+09:00">2017-12-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2018-02-13 15:27:02" itemprop="dateModified" datetime="2018-02-13T15:27:02+09:00">2018-02-13</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2017/12/18/book-9788993827446-ddd-start/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/18/book-9788993827446-ddd-start/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="http://image.kyobobook.co.kr/images/book/large/446/l9788993827446.jpg" alt="DDD Start"></p>
+<p>톡특한 책이다. 1장부터 개념보다는 소스가 훅 들어와서 당혹스러웠다. </p>
+<p>1장에 소스가 들어와서 안될 것은 없지만, DDD 입문서인데 DDD에 대한 정의는 없다는 게 의외다. </p>
+<p>중간에 이 책의 대상 독자를 다시 찾아봤다. 요컨대 Spring&#x2F;JPA는 눈에 익고 DDD를 들어는 봤으나 이해가 안되는 3~4년차 개발자라고 보면 되겠다.</p>
+<p>또 하나. AGGREGATE를 동사형으로 애그리게이트라고 발음하면 안되고, 명사형은 [ǽgriget](애그리겥)으로 발음 한다면서 애그리거트라고 부르겠다니 완전 황당했다. 애그리거트라는 글자만 보면 자꾸 신경쓰여 찾아보니 책의 발음기호가 잘못 적힌 것이었다. 실제 발음기호는 [ǽgrigət].</p>
+<p>어쨌든.</p>
+<p>DDD를 아주 기초만 이해한 상태로 정리를 해보면,</p>
+<p>클린코드나 객체지향 원칙을 따르면서 역할을 분리해 나가는 것과 크게 다르지 않다고 본다. </p>
+<p>마침 ‘The Clean Architecture’의 <a target="_blank" rel="noopener" href="https://blog.coderifleman.com/2017/12/18/the-clean-architecture/">번역글</a>을 읽게 됐는데, 여기서도 비슷한 이야기를 하고 있는 것이다.</p>
+<blockquote>
+<p>위 아키텍처의 세세한 부분은 모두 다르지만 매우 비슷하기도 하다. 이들은 모두 같은 목적을 갖고 있는데 바로 관심사의 분리다. 소프트웨어를 계층으로 나눔으로써 관심사를 분리한다. 그리고 모두 비즈니스 규칙을 위한 최소 하나 이상의 계층과 인터페이스를 위한 또 다른 계층을 두고 있다.</p>
+</blockquote>
+<p>그러니까 저 다르면서 비슷한 아키텍처는 다들 고통속에 몸부림치다 이제 그만 열반에 들고자 만들어 낸 사리 쯤으로 봐야하는 건가.</p>
+<p>나도 회사에서 (가능하면) 역할별로 클래스를 나누고 컨트롤러에서는 도메인 로직을 제거해나가고 있었는데, DDD에서는 그 역할을 보다 더 분명하게 분리해놨다.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">표현 - 응용 - 도메인 - 리포지터리</span><br></pre></td></tr></table></figure>
+
+<p>(곧 떠날) 회사에 만들어 놓은(💩) 코드는 표현만 분리했지 나머지를 뭉뚱그려 놓은 모습이다. 책을 읽다보니 이렇게 네가지로 분리하는 것도 괜찮겠다는 생각이 든다. 애그리거트로 도메인 모델을 묶고, 애그리거트는 응용서비스에서 조합하며, 한 애그리거트에서 다루기 어려운 경우 도메인 서비스를 구성한다.</p>
+<p>흠…대충 이런 느낌.</p>
+<p>그런데 리포지터리와 모델 매핑 쪽이 이해가 잘 안된다.</p>
+<p>리포지터리와 관련된 설명에는 (굳이 프레임웍 의존성을 피하지 않아도 된다면서) JPA를 예를 드는데, 어디까지 DDD와 관련있는지 잘 모르겠다. </p>
+<p>그리고 PHP에서는 혹은 엘로퀀트에서는 저 예제를 어떻게 구현하게 될지 전혀 감이 안오는 상태. (JPA도 엘로퀀트도 잘 모르겠어서…)</p>
+<p>그리고 현실적으로 단일 애그리거트만 다룰 일은 적을 것이고 수도 없는 bounded context간 통신을 해야한다. 그 더러운 꼴을 보자면 DDD로 개발한다고 뭐 더 좋아진다고 볼 수 만도 없겠지. 그냥 잘하는 사람이 DDD로 개발하면 결과가 좋고 잘하는 사람은 DDD로 안 해도 결과가 좋다는 염세적인 결론이 도출되기도 하지만, 다음 유행이 돌아 또 시스템을 갈아엎기 전까지 어떻게든 제품을 만들고 유지해야 입에 풀칠이라도 하고 살지 않겠는가.</p>
+<p>아직 ACL, OHS가 나오는 도표라던가, PHP에서 AOP는 다들 얼마나 쓰고 있는지 궁금한 게 계속 꼬리를 문다.</p>
+<p>응용서비스와 도메인서비스의 차이 중에 애그리거트 수정이 발생하면 도메인 서비스에 위치시킨다 정도는 기억해둘만 하다.(아니 겨우 이거 하나 기억했다는 말인가!)</p>
+<p>가장 큰 질문은 이거다.</p>
+<p>그러니까 이 책을 보고 DDD 감을 익힐 수 있단 말인가? 그 감은 내가 익힌 감이랑 같은 감인가?</p>
+<p>그런데 DDD가 뭐더라?</p>
+<p>(검색하다 깜짝 놀람. EXID의 노래 ‘덜덜덜’이라니…그러면서 나는 김혜림이란 이름도 기억하고 있다니…)</p>
+<p>어쨌든 그동안 내가 희미하게나마 들어왔던 DDD는 <a target="_blank" rel="noopener" href="http://www.zdnet.co.kr/news/news_view.asp?artice_id=00000039170212">이런</a> 느낌이었는데,</p>
+<p>이 책의 내용은 거대한 숲 안에서 작은 군락 정도만 표현한 것 같은 느낌을 지울 수 없다.</p>
+<p>개발자들이 키보드에 손 올리고 신나게 개발할 준비를 하고 있을 때, ‘업무전문가’는 어디쯤 위치해야 하는가…</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1766,204 +1886,6 @@
 <li>트랜잭션을 로그로 남긴다</li>
 </ol>
 <p>(1번, 2번 정도는 PHP 함수로 대충 때웠으니 했다고 치자) </p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://haah.kr/2017/10/16/phttp-04/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="youngiggy">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ha-ah">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | ha-ah">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2017/10/16/phttp-04/" class="post-title-link" itemprop="url">PHP로 HTTP 서버 구현하기 - 04 - 가장 간단한 서버</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2017-10-16 21:37:43" itemprop="dateCreated datePublished" datetime="2017-10-16T21:37:43+09:00">2017-10-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2018-02-13 15:27:02" itemprop="dateModified" datetime="2018-02-13T15:27:02+09:00">2018-02-13</time>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2017/10/16/phttp-04/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/10/16/phttp-04/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><a href="/tags/phttp/">연재글 전체 보기</a></p>
-<hr>
-<h3 id="Updated-2017-10-18"><a href="#Updated-2017-10-18" class="headerlink" title="Updated (2017.10.18)"></a>Updated (2017.10.18)</h3><p>이번 글과 관련된 내용이라 조금 더 추가해봤습니다.</p>
-<p>하단 <a href="#Updated">Updated</a> 참고.</p>
-<h2 id="가장-간단한-서버"><a href="#가장-간단한-서버" class="headerlink" title="가장 간단한 서버"></a>가장 간단한 서버</h2><p>이제부터 하나씩 기능을 붙여가며 commit &amp; push를 할 예정이다.</p>
-<p>PHP7.1&#x2F;mac 환경에서 공부한 결과를 적는 거라서, 윈도 머신에선 안 통하는 설명도 있으리라.</p>
-<p>소스 위치는 <a target="_blank" rel="noopener" href="https://github.com/youngiggy/phttp">https://github.com/youngiggy/phttp</a></p>
-<p><a href="/2017/10/06/phttp-02">PHP로 HTTP 서버 구현하기 - 01</a>에서 언급한 가장 간단한 서버부터 시작해볼까?</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$server</span> = <span class="title function_ invoke__">stream_socket_server</span>(<span class="string">&quot;tcp://127.0.0.1:1337&quot;</span>, <span class="variable">$errno</span>, <span class="variable">$errorMessage</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$server</span> === <span class="literal">false</span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">UnexpectedValueException</span>(<span class="string">&quot;Could not bind to socket: <span class="subst">$errorMessage</span>&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="variable">$client</span> = @<span class="title function_ invoke__">stream_socket_accept</span>(<span class="variable">$server</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$client</span>) &#123;</span><br><span class="line">        <span class="title function_ invoke__">stream_copy_to_stream</span>(<span class="variable">$client</span>, <span class="variable">$client</span>);</span><br><span class="line">        <span class="title function_ invoke__">fclose</span>(<span class="variable">$client</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>딱 봐도 어려울 것 없는 코드다.</p>
-<p>127.0.0.1이란 IP에 1337 포트를 열었다. </p>
-<p>왜 하필 1337이냐고? 그냥! 저 블로그 쓴 사람이 그렇게 써서 따라했다. </p>
-<p>사용하는 프로그램에 따라 이미 포트가 선점되었을 수도 있다.</p>
-<ul>
-<li>기본으로 이 포트를 쓰는 프로그램이 있는지 <a target="_blank" rel="noopener" href="https://www.speedguide.net/port.php?port=1337">이런 곳</a>에서 찾아봐도 좋고</li>
-<li>쉘에서 <code>lsof -PiTCP -sTCP:LISTEN</code> 포트가 열려있는지 확인해봐도 좋다</li>
-</ul>
-<p>그 다음 while 루프로 뱅글뱅글 돌면서 연결이 들어오는 지 확인한다.</p>
-<p><code>stream_socket_accept</code> 함수가 말을 못하게 @로 입을 막자.</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=u5CVsCnxyXg">&amp;#9834;</a> No alarms and no surprises </li>
-<li>하지만 안 막는다고 뭐 대단한 걸 볼 일은 없을 것이다</li>
-</ul>
-<p>연결이 된 클라이언트가 있다면, <code>stream_copy_to_stream</code>를 통해 클라이언트가 보낸 스트림을 고스란히 돌려주자.</p>
-<p>고스란히…</p>
-<p><img src="https://media.tenor.com/images/5746acedc3829ed1e2e569c8d525c6f9/tenor.gif" alt="주고 받기"></p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://tenor.com/view/kdrama-korean-slap-anger-angry-gif-9330050">https://tenor.com/view/kdrama-korean-slap-anger-angry-gif-9330050</a></li>
-</ul>
-<h2 id="가장-간단한-클라이언트"><a href="#가장-간단한-클라이언트" class="headerlink" title="가장 간단한 클라이언트"></a>가장 간단한 클라이언트</h2><p>가장 간단한 서버가 완성됐으니 터미널을 열어 <code>php ./app/server.php</code>로 일을 시키고 돌아오자.</p>
-<p>새로운 터미널을 열어 <code>echo &quot;hello hello&quot; | nc 127.0.0.1 1337</code>를 입력하면 <code>hello hello</code>라고 반갑게 인사하는 것이 보일 것이다.</p>
-<p>너무 시시하니까 가장 간단한 클라이언트를 만들어 잘 돌아가는 지 구경해보자.</p>
-<p>아직 브라우저에서 HTTP 프로토콜로 붙을 상황은 아니므로 간단한 TCP 연결 클라이언트로 테스트 한다.</p>
-<p>역시 <a target="_blank" rel="noopener" href="https://www.christophh.net/2012/07/24/php-socket-programming/">PHP Socket Programming, done the Right Way</a>에서 예시로 보여준 것을 기본으로 시작한다.</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$client</span> = <span class="title function_ invoke__">stream_socket_client</span>(<span class="string">&quot;tcp://127.0.0.1:1337&quot;</span>, <span class="variable">$errno</span>, <span class="variable">$errorMessage</span>);</span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$client</span> === <span class="literal">false</span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">UnexpectedValueException</span>(<span class="string">&quot;Failed to connect: <span class="subst">$errno</span> - <span class="subst">$errorMessage</span>&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * generate a message</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="variable">$startLine</span> = <span class="string">&#x27;GET / HTTP/1.0&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$headers</span> = [</span><br><span class="line">    <span class="string">&#x27;Host: localhost&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Accept: */*&#x27;</span>,</span><br><span class="line">];</span><br><span class="line"><span class="variable">$header</span> = <span class="title function_ invoke__">implode</span>(PHP_EOL, <span class="variable">$headers</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable">$emptyLine</span> = PHP_EOL;</span><br><span class="line"></span><br><span class="line"><span class="variable">$body</span> = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * request</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="variable">$message</span> = <span class="title function_ invoke__">implode</span>(PHP_EOL, [</span><br><span class="line">    <span class="variable">$startLine</span>,</span><br><span class="line">    <span class="variable">$header</span>,</span><br><span class="line">    <span class="variable">$emptyLine</span>,</span><br><span class="line">    <span class="variable">$body</span>,</span><br><span class="line">]);</span><br><span class="line"><span class="title function_ invoke__">fwrite</span>(<span class="variable">$client</span>, <span class="variable">$message</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * response</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">stream_get_contents</span>(<span class="variable">$client</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * bye bye</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="title function_ invoke__">fclose</span>(<span class="variable">$client</span>);</span><br></pre></td></tr></table></figure>
-
-<p>역시 별 거 없는 코드다.</p>
-<p><code>stream_socket_client</code>으로 연결을 시도하고,</p>
-<p>HTTP 메시지를 만들어 준다.</p>
-<ul>
-<li>HTTP 메시지는 시작줄, 헤더, 공백, 바디로 이뤄졌다. <a href="/2017/08/23/http-the-definitive-guide-chapter-3">참고</a></li>
-</ul>
-<p>이 메시지를 fwrite를 통해 스트림에 써 준다.</p>
-<p><a href="/2017/10/06/phttp-02">02편</a>에서 얘기한 것처럼, <code>stream_socket_client</code>이 리턴하는 stream resource에는 fopen, fread같은 filesystem 함수를 사용할 수 있다.</p>
-<h2 id="실행"><a href="#실행" class="headerlink" title="실행"></a>실행</h2><p>터미널을 하나 열고 <code>php ./app/client.php</code>로 클라이언트를 실행해보자.</p>
-<p>아무 반응이 없을 것이다.</p>
-<p>하지만 조금만 더 기다려보면, 1분 후 timeout으로 client가 종료되고 자신이 서버에 전송한 값이 화면에 찍한다.</p>
-<p>왜 그럴까?</p>
-<p>다르게 재현해보자.</p>
-<p>서버를 다시 실행하고 클라이언트를 다시 실행한 후, 이번엔 서버를 죽여보자.</p>
-<p>이때도 클라이언트와 연결이 바로 끊어지고 서버에 전송한 값이 되돌아와 화면에 찍힌다.</p>
-<p>우선 timeout 1분은 환경마다 다를 수 있는데, php.ini에 default_socket_timeout에 정의되어 있다.</p>
-<p>client 소스의 response 부분을 아래와 같이 바꿔보자.</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * response</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!(<span class="variable">$response</span> = <span class="title function_ invoke__">stream_get_contents</span>(<span class="variable">$client</span>, <span class="number">4</span>))) &#123;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$response</span> . <span class="string">&#x27;|&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>그럼 아래와 같이 나오던 것이</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">GET / HTTP/1.0</span><br><span class="line">Host: localhost</span><br><span class="line">Accept: *</span><br></pre></td></tr></table></figure>
-
-<p>아래와 같이 바로 찍힌다.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">GET |/ HT|TP/1|.0</span><br><span class="line">H|ost:| loc|alho|st</span><br><span class="line">A|ccep|t: *|/*</span><br></pre></td></tr></table></figure>
-
-<p><code>stream_get_contents</code>의 두번째 인자는 maxlength라서 지정한 만큼만 스트림에서 읽어온다.</p>
-<p>그래서 읽어온 만큼 바로바로 화면에 echo 하는 것이다. </p>
-<ul>
-<li>보기 좋으라고(?)뒤에 |를 붙여봤다.</li>
-</ul>
-<p>하지만 이렇게 해도 클라이언트는 종료되지 않는다.</p>
-<p><code>stream_get_contents</code>가 계속 스트림에 뭔가 들어오는지 지켜보고 있어서 while loop가 끝나지 않는다.</p>
-<p>이 악순환의 고리를 끊으려면 서버에서 연결을 끊어버리면 간단한데, 우리 코드에선 클라이언트로 들어오는 스트림을 바로 돌려주기 때문에 쉽지 않다.</p>
-<p>클라이언트에서 loop를 종료하려면 어디가 끝인지를 확인해야만 한다.</p>
-<p>서버가 Content-Length를 돌려주게끔 해주면 좋겠지만 우리 서버는 아직 바보니까 클라이언트가 좀 더 고생을 하자. </p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$messageLenth</span> = <span class="title function_ invoke__">strlen</span>(<span class="variable">$message</span>);</span><br><span class="line"><span class="variable">$totalLenth</span> = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="variable">$response</span> = <span class="title function_ invoke__">stream_get_contents</span>(<span class="variable">$client</span>, <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$response</span>;</span><br><span class="line">    <span class="variable">$totalLenth</span> += <span class="title function_ invoke__">strlen</span>(<span class="variable">$response</span>);</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$messageLenth</span> &lt;= <span class="variable">$totalLenth</span>) &#123;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Updated"><a href="#Updated" class="headerlink" title="Updated"></a>Updated</h2><p>이 글 이후로 좀 더 진행해보다가 meta 정보를 이용하는 방법까지는 여기에 묻어두는 것이 좋을 것 같아서 내용을 추가한다.</p>
-<p><code>stream_get_contents</code>으로 데이터를 가져온 다음 현재 스트림의 상태를 보려면 <a target="_blank" rel="noopener" href="http://php.net/manual/en/function.stream-get-meta-data.php">stream_get_meta_data</a>를 통해 확인할 수 있다.</p>
-<p>여기에는 다음과 같은 정보가 리턴된다.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Array</span><br><span class="line">(</span><br><span class="line">    [timed_out] =&gt; </span><br><span class="line">    [blocked] =&gt; 1</span><br><span class="line">    [eof] =&gt; </span><br><span class="line">    [stream_type] =&gt; tcp_socket/ssl</span><br><span class="line">    [mode] =&gt; r+</span><br><span class="line">    [unread_bytes] =&gt; 1</span><br><span class="line">    [seekable] =&gt; </span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<p>어쩐지 eof나 unread_bytes를 쓰면 될 것 같다.</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * response</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="variable">$response</span> = <span class="title function_ invoke__">stream_get_contents</span>(<span class="variable">$client</span>, <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$response</span>;</span><br><span class="line">    <span class="variable">$info</span> = <span class="title function_ invoke__">stream_get_meta_data</span>(<span class="variable">$client</span>);</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$info</span>[<span class="string">&#x27;eof&#x27;</span>] || <span class="variable">$info</span>[<span class="string">&#x27;unread_bytes&#x27;</span>] === <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
-
-<p>이렇게 하니 소중한 고객님의 연결이 끊겼습니다.</p>
-<p>그러나,</p>
-<p><a target="_blank" rel="noopener" href="http://php.net/manual/en/function.stream-get-meta-data.php">문서</a>를 보면 unread_bytes가 의미하는 것은,</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">unread_bytes (int) - the number of bytes currently contained in the PHP&#x27;s own internal buffer.</span><br></pre></td></tr></table></figure>
-
-<p>즉, PHP 자체의 내부 버퍼의 내용을 보여주는 것이라서 스크립트에서 활용하지 않을 것을 추천하고 있다. </p>
-<blockquote>
-<p>Note: You shouldn’t use this value in a script.</p>
-</blockquote>
-<p>그럼 포기하고 다른 방법을 찾아보자.</p>
-<p>우선 client 쪽 소스에서 unread_bytes를 검사하는 부분만 제거한 다음,</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * response</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="variable">$response</span> = <span class="title function_ invoke__">stream_get_contents</span>(<span class="variable">$client</span>, <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$response</span>;</span><br><span class="line">    <span class="variable">$info</span> = <span class="title function_ invoke__">stream_get_meta_data</span>(<span class="variable">$client</span>);</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$info</span>[<span class="string">&#x27;eof&#x27;</span>] || <span class="variable">$info</span>[<span class="string">&#x27;unread_bytes&#x27;</span>] === <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
-
-<p>연결이 안 끊어지는 것을 반드시 확인하자.</p>
-<p>그 다음,</p>
-<p>서버쪽 소스에서 <a target="_blank" rel="noopener" href="http://php.net/manual/en/function.stream-set-blocking.php">stream_set_blocking</a>으로 non-blocking 모드로 바꿔보자.</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="title function_ invoke__">stream_set_blocking</span>(<span class="variable">$client</span>, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
-
-<p>즉, 서버의 전체 소스는 아래와 같이 변할 것이다.</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$server</span> = <span class="title function_ invoke__">stream_socket_server</span>(<span class="string">&quot;tcp://127.0.0.1:1337&quot;</span>, <span class="variable">$errno</span>, <span class="variable">$errorMessage</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$server</span> === <span class="literal">false</span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">UnexpectedValueException</span>(<span class="string">&quot;Could not bind to socket: <span class="subst">$errorMessage</span>&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="variable">$client</span> = @<span class="title function_ invoke__">stream_socket_accept</span>(<span class="variable">$server</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$client</span>) &#123;</span><br><span class="line">        <span class="title function_ invoke__">stream_set_blocking</span>(<span class="variable">$client</span>, <span class="literal">false</span>);<span class="comment">// &lt;-- 여기요 여기</span></span><br><span class="line">        <span class="title function_ invoke__">stream_copy_to_stream</span>(<span class="variable">$client</span>, <span class="variable">$client</span>);</span><br><span class="line">        <span class="title function_ invoke__">fclose</span>(<span class="variable">$client</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>클라이언트를 실행하면 바로 연결이 끊긴다.</p>
-<p><code>stream_set_blocking</code> 함수의 두번째 인자 mode가 false로 들어가면 non-blocking 모드로 진입하며,</p>
-<p>클라이언트 쪽에서는 스트림으로 더이상의 데이터가 들어오는 것을 기다리지 않는다.</p>
-<p>이렇게 하면 굳이 스트림을 쓸 이유가 없기 때문에 이 역시도 좋은 방법은 아닐 것이다.</p>
-<h2 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h2><p>아주 간단한 서버와 아주 간단한 클라이언트를 아주 간단히 살펴봤다.</p>
-<p>도저히 못 써먹겠으니 다음 글에서는 이를 좀 더 개선해보자.<br>(뭘 어떻게 바꿀 지는 아직 계획없음)</p>
 
       
     </div>

@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://haah.kr/2023/08/01/php-annotated-july-2023/</loc>
+    
+    <lastmod>2023-08-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://haah.kr/2023/06/15/php-annotated-june-2023/</loc>
     
     <lastmod>2023-06-18</lastmod>
@@ -1048,7 +1057,7 @@
 
   <url>
     <loc>https://haah.kr/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -1056,350 +1065,350 @@
   
   <url>
     <loc>https://haah.kr/tags/AWS/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/INFRA/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/%EC%95%A0%EC%9E%90%EC%9D%BC/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/%EB%A7%A4%EB%8B%88%EC%A7%95/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/OKR/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/agile/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/HTML/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/PHP/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/REGEX/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/Laravel/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/%EC%9A%94%EB%A6%AC/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/%EB%B2%A0%EC%9D%B4%ED%82%B9/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/%EB%8F%85%ED%9B%84%EA%B0%90/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/%EA%B3%BC%ED%95%99/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/OOP/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/%EC%88%98%ED%95%99/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/%ED%86%B5%EA%B3%84/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/%EC%82%AC%ED%9A%8C/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/%EA%B8%80%EC%93%B0%EA%B8%B0/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/%EC%84%A4%EA%B3%84/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/mysql/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/db/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/%EC%98%81%ED%99%94/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/EIDF/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/Redis/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/HTTP/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/%EC%9C%A1%EC%95%84/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/API/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/Design/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/Mac/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/%EC%83%9D%ED%99%9C%EC%BD%94%EB%94%A9/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/news/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/archive/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/%EB%89%B4%EC%8A%A4%EC%95%84%EC%B9%B4%EC%9D%B4%EB%B8%8C/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/php-annotated/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/php-annotated-monthly/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/Homebrew/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/phttp/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/HTML5/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/preload/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/RESTful/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/REST/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/%ED%9A%8C%EA%B3%A0/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/JavaScript/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/serverless/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/stream/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/TDD/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/Xdebug/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://haah.kr/tags/Docker/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
