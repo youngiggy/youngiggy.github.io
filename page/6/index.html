@@ -126,7 +126,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">117</span>
+          <span class="site-state-item-count">118</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -165,6 +165,241 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://haah.kr/2019/03/19/php-annotated-monthly-march-2019/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="youngiggy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/03/19/php-annotated-monthly-march-2019/" class="post-title-link" itemprop="url">php-annotated-monthly-march-2019</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-03-19 22:27:41" itemprop="dateCreated datePublished" datetime="2019-03-19T22:27:41+09:00">2019-03-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2019-03-24 09:57:01" itemprop="dateModified" datetime="2019-03-24T09:57:01+09:00">2019-03-24</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/03/19/php-annotated-monthly-march-2019/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/03/19/php-annotated-monthly-march-2019/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2018/12/new_php-annotated-monthly.jpg" alt="Php_annotated_monthly 이미지"></p>
+<p>JetBrains에서 제공하는 월간 <a target="_blank" rel="noopener" href="https://blog.jetbrains.com/phpstorm/2019/03/php-annotated-monthly-march-2019/">PHP Annotated Monthly 3월호</a>입니다.</p>
+<p>이 중에서 몇 가지 제 취향껏 골라 그 안의 내용도 좀 뒤져보고 개발새발 번역해서 소개합니다.</p>
+<hr>
+<h1 id="News-amp-Releases"><a href="#News-amp-Releases" class="headerlink" title="News &amp; Releases"></a>News &amp; Releases</h1><h2 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h2><ul>
+<li><a target="_blank" rel="noopener" href="http://php.net/ChangeLog-7.php#7.3.3">PHP 7.3.3</a></li>
+<li><a target="_blank" rel="noopener" href="http://php.net/ChangeLog-7.php#7.2.16">PHP 7.2.16</a></li>
+<li><a target="_blank" rel="noopener" href="http://php.net/ChangeLog-7.php#7.1.27">PHP 7.1.27</a></li>
+</ul>
+<h2 id="Xdebug-2-7-0"><a href="#Xdebug-2-7-0" class="headerlink" title="Xdebug 2.7.0"></a>Xdebug 2.7.0</h2><p><a target="_blank" rel="noopener" href="https://xdebug.org/#2019_03_06">https://xdebug.org/#2019_03_06</a></p>
+<p>오래 기다리셨어요. 이제 7.3을 지원합니다.</p>
+<h2 id="ircmaxell-x2F-php-compiler"><a href="#ircmaxell-x2F-php-compiler" class="headerlink" title="ircmaxell&#x2F;php-compiler"></a>ircmaxell&#x2F;php-compiler</h2><p><a target="_blank" rel="noopener" href="https://github.com/ircmaxell/php-compiler">https://github.com/ircmaxell/php-compiler</a></p>
+<p>Anthony Ferrara가 만든 PHP compiler를 소개합니다. PHP도 (JVM과는 다르지만) VM에서 돌아가는데, 이 컴파일러는 PHP7.4부터 지원될 <a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/ffi">FFI</a>를 활용해서 VM 위에서 돌지 않도록 바로 native machine code를 생성해서 실행가능한 코드(standalone binary)를 만들어 준다고 합니다. </p>
+<p>링크에 들어가 보시면, 세가지 컴파일 모드를 소개하는데, PHP로 만든 첫번째 모드는 엄청 느리고 VM에서 도는 버전이고, 두번째 JIT(Just In Time) 모드에선 machine code를 생성해서 실행하는데 PHP7.4 버전보다 실행은 빠르지만 PHP에서 컴파일 되느라 컴파일 속도가 너무 느렸다고 합니다. 매번 실행할 때마다 컴파일을 새로 한다는군요. 마지막 compile 버전에선 아예 실행 가능한 바이너리로 만들어서 이론적으로는 native C 만큼의 속도가 나왔다고 합니다.</p>
+<p>아직은 PoC(Proof of Concept)라서 매우 제한적으로 지원하지만 희망찬 미래를 보여줬다고 평가하는군요.</p>
+<p>무궁무진한 미친 짓을 할 수 있답니다.</p>
+<h1 id="PHP-Internals"><a href="#PHP-Internals" class="headerlink" title="PHP Internals"></a>PHP Internals</h1><h2 id="The-proposal-to-abolish-50-threshold-on-voting"><a href="#The-proposal-to-abolish-50-threshold-on-voting" class="headerlink" title="The proposal to abolish 50% threshold on voting"></a>The proposal to abolish 50% threshold on voting</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/abolish-narrow-margins">https://wiki.php.net/rfc/abolish-narrow-margins</a></p>
+<p>RFC 프로세스가 바뀌었다고 합니다.</p>
+<p>두 카테고리로 나뉘었고</p>
+<ul>
+<li>PHP에 변화를 주는 것</li>
+<li>정책 문서를 변경하거나 생성하는 것</li>
+</ul>
+<p>통과 되려면 투표로 2&#x2F;3 이상의 승인을 받아야 합니다.</p>
+<h2 id="overview-of-the-unaccepted-RFCs"><a href="#overview-of-the-unaccepted-RFCs" class="headerlink" title="overview of the unaccepted RFCs"></a>overview of the unaccepted RFCs</h2><p><a target="_blank" rel="noopener" href="https://github.com/Danack/RfcCodex">https://github.com/Danack/RfcCodex</a></p>
+<p>사람들이 관심이 많지만 아직 받아들여지지 않은 RFC가 어떻게 되고 있는지 정리한 글입니다.	</p>
+<p>아직 논의 중인 것</p>
+<ul>
+<li>어노테이션<a target="_blank" rel="noopener" href="https://github.com/Danack/RfcCodex/blob/master/annotations.md">Annotations</a><ul>
+<li>몇몇 사람은 여전히 어노테이션을 싫어하고</li>
+<li>이미 주석을 통한 어노테이션을 쓰는 사람들은 RFC가 자신들의 use case에 충분하지 않아 좀 더 개선하길 바람</li>
+</ul>
+</li>
+<li>더 간략한 클로저 문법<a target="_blank" rel="noopener" href="https://github.com/Danack/RfcCodex/blob/master/briefer_closure_syntax.md">Briefer closure syntax</a><ul>
+<li>아주 큰 혜택이 없기 때문에 몇몇 사람들은 그다지 원하지 않는다</li>
+<li>JavaScript 같은 경우는 자연스럽게 parameter를 상위 scope으로부터 받을 수 있지만 PHP에선 명시적으로 넣어줘야 하는데, 어떤 문법을 써야 할까?</li>
+<li>리턴 타입도 결정해야 하는데, 어떤 문법을 사용해야 할까?</li>
+</ul>
+</li>
+<li>클래스 scope 개선<a target="_blank" rel="noopener" href="https://github.com/Danack/RfcCodex/blob/master/class_scoping_improvements.md">Class scoping improvements</a><ul>
+<li>같은 패키지 내에만 공개해야할 메소드도 public으로 제공해야 하는 문제를 개선해야 함</li>
+<li>마땅히 구현할 만한 방법이 없음</li>
+<li>C++의 friendship도 적당하지 않음</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Danack/RfcCodex/blob/master/consistent_callables.md">Consistent callables</a><ul>
+<li>Callable을 일관성있게 변경하는 <a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/consistent_callables">RFC</a>가 등록되어 있음</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Danack/RfcCodex/blob/master/enums.md">Enums</a><ul>
+<li>enum을 어떻게 정의할 것인가에 대한 다른 관점이 있음</li>
+<li>Draft <a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/enum">RFC</a>가 등록되어 있으나 시간과 에너지를 쏟을 사람이 없음. 누군가 (이 RFC를 올린) Levi나 Bob에게 몇 달 치 월급을 주면 가능할 것이라고…</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Danack/RfcCodex/blob/master/generics.md">Generics</a><ul>
+<li>제네릭의 필요성은 놀랄 만큼 일치하고 있지만 구현하기가 어렵다(인터프리터 방식에서 오는 한계인 것으로 보입니다)</li>
+<li>정말 제네릭이 꼭 필요하다면 <a target="_blank" rel="noopener" href="https://preprocess.io/">https://preprocess.io/</a> 를 활용할 수는 있다</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Danack/RfcCodex/blob/master/method_overloading.md">Method overloading</a><ul>
+<li>PHP는 정적 타입 언어와 달리 런타임에 타입이 변할 수 있기 때문에 쉽지 않다</li>
+<li>성능 문제도 발생할 수 있다</li>
+<li>메소드 오버로딩이 왜 필요한가에 대한 명확한 근거가 없다</li>
+<li>정 원하면 이를 대체할 방법도 알려줍니다</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Danack/RfcCodex/blob/master/standardise_core_library.md">Standardise core library</a><ul>
+<li>Core 라이브러리 함수의 비일관성(함수명, 파라미터…)</li>
+<li>모든 비일관성이 전부 비일관적인 건 아니다(다 이유가 있다는 뜻)</li>
+<li>기존 수많은 코드를 전부 변경할 수도 없고, 누구도 긴 시간동안 수많은 alias를 유지하고 싶어하지도 않음</li>
+<li>관련 링크<ul>
+<li><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/consistent_function_names">https://wiki.php.net/rfc/consistent_function_names</a></li>
+<li><a target="_blank" rel="noopener" href="http://phpsadness.com/sad/9">http://phpsadness.com/sad/9</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Danack/RfcCodex/blob/master/union_types.md">Union types</a><ul>
+<li>parameter나 return type에 여러 타입을 전달&#x2F;리턴할 수 있도록 하는 <a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/union_types">union_types RFC</a></li>
+<li>사람들이 타입시스템에 익숙하지 않은 것이 걸림돌이라고 하는데…글쎄요</li>
+</ul>
+</li>
+</ul>
+<p>앞으로 할 것</p>
+<ul>
+<li>Async</li>
+<li>Structs</li>
+<li>Explicit defaults</li>
+</ul>
+<h2 id="RFC-Consistent-type-errors-for-internal-functions"><a href="#RFC-Consistent-type-errors-for-internal-functions" class="headerlink" title="[RFC] Consistent type errors for internal functions"></a>[RFC] Consistent type errors for internal functions</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/consistent_type_errors">https://wiki.php.net/rfc/consistent_type_errors</a></p>
+<p>이 RFC가 accepted 되어서 PHP 8 부터는 모든 내장 함수에서 잘못된 argument 타입이 들어오면 TypeError를 발생시킵니다.</p>
+<h2 id="RFC-Weak-References"><a href="#RFC-Weak-References" class="headerlink" title="[RFC] Weak References"></a>[RFC] Weak References</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/weakrefs">https://wiki.php.net/rfc/weakrefs</a></p>
+<p>PHP 7.4부터 WeakReference가 도입됩니다. 가비지 컬렉터로 객체가 파괴되는 것을 막지 않으면서 객체에 대한 참조를 유지할 수 있습니다.</p>
+<h2 id="RFC-Saner-string-to-number-comparisons"><a href="#RFC-Saner-string-to-number-comparisons" class="headerlink" title="[RFC] Saner string to number comparisons"></a>[RFC] Saner string to number comparisons</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/string_to_number_comparison">https://wiki.php.net/rfc/string_to_number_comparison</a></p>
+<p>Nikita Popov가 PHP 8을 목표로 좀 더 납득할 만한 문자열 - 숫자 비교 연산을 제안했습니다.</p>
+<p><img src="https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2019/03/php-numeric-string-comparison.png" alt="php-numeric-string-comparison"></p>
+<p>이에 대한 많은 논쟁이 있는 것으로 보입니다만, 그 동안은 PHP 7.4에서 <a target="_blank" rel="noopener" href="https://github.com/php/php-src/pull/3917">Warning</a>을 받을 수 있습니다.</p>
+<h2 id="RFC-Locked-Classes"><a href="#RFC-Locked-Classes" class="headerlink" title="[RFC] Locked Classes"></a>[RFC] Locked Classes</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/locked-classes">https://wiki.php.net/rfc/locked-classes</a></p>
+<p>새로운 클래스용 키워드인 locked를 제안했군요. property를 동적으로 할당할 수 없게 합니다.</p>
+<h2 id="Allow-throwing-from-toString"><a href="#Allow-throwing-from-toString" class="headerlink" title="Allow throwing from __toString()"></a>Allow throwing from __toString()</h2><p><a target="_blank" rel="noopener" href="http://news.php.net/php.internals/104535">http://news.php.net/php.internals/104535</a></p>
+<p>Nikita가 __toString method에서는 exception을 throw할 수 없게 되어 있는데, 이를 가능하게 하는 PR이 올라왔습니다. <a target="_blank" rel="noopener" href="http://phpsadness.com/sad/14">PHP sadness</a>에 있던 것 중 하나였죠.</p>
+<h2 id="RFC-Arrow-Functions-2-0"><a href="#RFC-Arrow-Functions-2-0" class="headerlink" title="[RFC] Arrow Functions 2.0"></a>[RFC] Arrow Functions 2.0</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/arrow_functions_v2">https://wiki.php.net/rfc/arrow_functions_v2</a></p>
+<p>(위 Briefer closure syntax에서도 언급했던) 짧은 클로저 문법에 관한 세번째 시도입니다. 이번엔 Nikita, Bob, Levi가 함께 붙었습니다!</p>
+<h2 id="RFC-Generator-comprehensions"><a href="#RFC-Generator-comprehensions" class="headerlink" title="[RFC] Generator comprehensions"></a>[RFC] Generator comprehensions</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/comprehensions">https://wiki.php.net/rfc/comprehensions</a></p>
+<p>Generator를 편하게 사용할 수 있는 draft RFC입니다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$a</span> = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="variable">$mul</span> = <span class="number">3</span>;</span><br><span class="line"><span class="variable">$c</span> = [ <span class="keyword">for</span> <span class="variable">$a</span> <span class="keyword">as</span> <span class="variable">$v</span> <span class="keyword">yield</span> <span class="variable">$mul</span> * <span class="variable">$v</span> ];</span><br></pre></td></tr></table></figure>
+
+<h2 id="PHP-Internals-News-Episode-1"><a href="#PHP-Internals-News-Episode-1" class="headerlink" title="PHP Internals News: Episode 1"></a>PHP Internals News: Episode 1</h2><p><a target="_blank" rel="noopener" href="https://derickrethans.nl/phpinternalsnews-01.html">https://derickrethans.nl/phpinternalsnews-01.html</a></p>
+<p>Xdebug의 author인 Derick Rethans가 새로운 팟캐스트를 시작했습니다. 첫 에피소드는 Nikita Popov와 함께 한 PHP Internals News랍니다.</p>
+<p>이런 내용을 이야기 했군요. </p>
+<ul>
+<li>RFC Watch — a web site to keep an eye on RFC voting progress</li>
+<li>RFC: Permit trailing whitespace in numeric strings</li>
+<li>RFC: JIT</li>
+</ul>
+<h1 id="기타-읽을-만한-글"><a href="#기타-읽을-만한-글" class="headerlink" title="기타 읽을 만한 글"></a>기타 읽을 만한 글</h1><h2 id="Moving-away-from-magic-—-or-why-I-don’t-want-to-use-Laravel-anymore"><a href="#Moving-away-from-magic-—-or-why-I-don’t-want-to-use-Laravel-anymore" class="headerlink" title="Moving away from magic — or: why I don’t want to use Laravel anymore"></a>Moving away from magic — or: why I don’t want to use Laravel anymore</h2><p><a target="_blank" rel="noopener" href="https://medium.freecodecamp.org/moving-away-from-magic-or-why-i-dont-want-to-use-laravel-anymore-2ce098c979bd">https://medium.freecodecamp.org/moving-away-from-magic-or-why-i-dont-want-to-use-laravel-anymore-2ce098c979bd</a></p>
+<p>라라벨에서 너무 많은 것을 자동으로 처리해주기 때문에 라라벨을 떠난다는 글입니다.</p>
+<ul>
+<li>Eloquent ORM은 Active record 패턴을 사용하고 개발자가 코드를 덜 쓰기를 바라길 원하는데, 이런 특성이 코드를 이해하거나 정적 분석 혹은 IDE를 활용하기에도 좋지 않고, 계속 메소드를 추가하게 되어 단일 책임 원칙을 위반하도록 유도 합니다</li>
+<li>Global 헬퍼 함수는 더 좋은 방식으로 대체할 수 있는 방법이 있음에도 단지 사용하기 쉬운 방법을 제공하기 위해 global namespace를 더럽히고 설계면에서 희생해야 합니다. 5.8에서는 일부 헬퍼 함수가 제거되어 다행이지만, 모든 헬퍼 함수를 사용하지 않게 안내해야 합니다</li>
+<li>Facade도 실제론 static 메소드가 아닌 어떤 메소드에 쉽게 접근할 수 있는 좋은 툴 같지만 모든 걸 magic method에 전달하면서 복잡도만 증가했습니다. IDE의 지원을 받기 어려운 문제도 <a target="_blank" rel="noopener" href="https://github.com/barryvdh/laravel-ide-helper">IDE helper package</a>를 통해 해결할 수 있지만, 애초에 필요가 없는 라이브러리입니다. 게다가 사실 이건 Gang of Four에서 말하는 Facade 디자인 패턴도 아닙니다. 차라리 static service locators라고 불러야 합니다.</li>
+<li>모든 것을 가능한 한 쉽게 만드는 Laravel의 접근법은 좋습니다. 그러나 앱이 성장할 수록 관리하기 어렵습니다. 나는 IDE 지원, 더 강한 타이핑, 실제 객체, 그리고 좋은 엔지니어링을 선호합니다. 더 작은 앱을 쓰고 싶을 때 Laravel로 돌아갈 수도 있습니다.</li>
+<li>요점은 Laravel의 잘못이 아닙니다. 내 요구 사항에 더 잘 맞는 툴킷으로 전활할 것입니다. 다른 프레임 워크와 도구는 기본 설계가 더 좋고 마법이 적습니다.</li>
+</ul>
+<h2 id="PhpRedis-vs-Predis-comparison-on-real-production-data"><a href="#PhpRedis-vs-Predis-comparison-on-real-production-data" class="headerlink" title="PhpRedis vs Predis: comparison on real production data"></a>PhpRedis vs Predis: comparison on real production data</h2><p><a target="_blank" rel="noopener" href="https://medium.com/@akalongman/phpredis-vs-predis-comparison-on-real-production-data-a819b48cbadb">https://medium.com/@akalongman/phpredis-vs-predis-comparison-on-real-production-data-a819b48cbadb</a></p>
+<p>PhpRedis는 Redis storage와 통신할 수 있는 PHP extension입니다.</p>
+<p>Predis는 C extension없이 순수 PHP에서 사용할 수 있는 대체품입니다.</p>
+<p>(당연하게도) PhpRedis가 6배 빠른 속도를 보였고, igbinary serializer를 사용하면 저장 공간이 3배는 절약된다고 합니다.</p>
+<h2 id="What-is-a-command-bus-and-why-should-you-use-it"><a href="#What-is-a-command-bus-and-why-should-you-use-it" class="headerlink" title="What is a command bus and why should you use it"></a>What is a command bus and why should you use it</h2><p><a target="_blank" rel="noopener" href="https://barryvanveen.nl/blog/49-what-is-a-command-bus-and-why-should-you-use-it">https://barryvanveen.nl/blog/49-what-is-a-command-bus-and-why-should-you-use-it</a></p>
+<p>Command bus를 왜 사용해야 하는지 적은 글입니다.</p>
+<ul>
+<li>결합도를 낮춰주고</li>
+<li>테스트와 확장을 용이하게 해줍니다</li>
+</ul>
+<p>그러나 복잡도를 늘리고 오버 엔지니어링이 되기도 합니다.</p>
+<h2 id="Design-Patterns-in-PHP-—-Updated-according-to-PHP-7-3-real-world-examples-added"><a href="#Design-Patterns-in-PHP-—-Updated-according-to-PHP-7-3-real-world-examples-added" class="headerlink" title="Design Patterns in PHP — Updated according to PHP 7.3 + real-world examples added"></a>Design Patterns in PHP — Updated according to PHP 7.3 + real-world examples added</h2><p><a target="_blank" rel="noopener" href="https://github.com/RefactoringGuru/design-patterns-php/">https://github.com/RefactoringGuru/design-patterns-php/</a></p>
+<p>PHP 디자인 패턴인데, 7.3버전에 맞춰 업데이트 되었다고 합니다.</p>
+<h2 id="Predict-air-pollution-with-k-Nearest-neighbors-and-PHP-—-using-php-ai-x2F-php-ml"><a href="#Predict-air-pollution-with-k-Nearest-neighbors-and-PHP-—-using-php-ai-x2F-php-ml" class="headerlink" title="Predict air pollution with k-Nearest neighbors and PHP — using php-ai&#x2F;php-ml"></a>Predict air pollution with k-Nearest neighbors and PHP — using php-ai&#x2F;php-ml</h2><p><a target="_blank" rel="noopener" href="https://arkadiuszkondas.com/predict-air-pollution-with-k-nearest-neighbors-and-php/">https://arkadiuszkondas.com/predict-air-pollution-with-k-nearest-neighbors-and-php/</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/php-ai/php-ml">php-ai&#x2F;php-ml</a>를 활용해 공기 오염을 예측하는 프로젝트입니다.</p>
+<h2 id="Write-your-own-simple-chess-AI-in-PHP"><a href="#Write-your-own-simple-chess-AI-in-PHP" class="headerlink" title="Write your own simple chess AI in PHP"></a>Write your own simple chess AI in PHP</h2><p><a target="_blank" rel="noopener" href="https://arkadiuszkondas.com/write-your-own-simple-chess-ai-in-php/">https://arkadiuszkondas.com/write-your-own-simple-chess-ai-in-php/</a></p>
+<p>PHP로 간단한 체스 AI를 만드는 방법입니다.</p>
+<h2 id="Binary-heap-implementation-in-PHP"><a href="#Binary-heap-implementation-in-PHP" class="headerlink" title="Binary heap implementation in PHP"></a>Binary heap implementation in PHP</h2><p><a target="_blank" rel="noopener" href="https://arkadiuszkondas.com/binary-heap-implementation-in-php/">https://arkadiuszkondas.com/binary-heap-implementation-in-php/</a></p>
+<p>PHP로 Binary heap을 구현했다고 합니다.</p>
+<p>위에 언급한 predict air pollution, check AI까지 다 이 사람(Arkadiusz Kondas)이 만들었는데요. 뭐하는 사람일까요?</p>
+<h2 id="Matthias-Noback-Handwritten-service-containers"><a href="#Matthias-Noback-Handwritten-service-containers" class="headerlink" title="Matthias Noback: Handwritten service containers"></a>Matthias Noback: Handwritten service containers</h2><p><a target="_blank" rel="noopener" href="https://matthiasnoback.nl/2019/03/hand-written-service-containers/">https://matthiasnoback.nl/2019/03/hand-written-service-containers/</a></p>
+<p>Matthias Noback이 손수 구현한 service containers입니다.</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1488,143 +1723,6 @@
 <p>이번에 추가한 프록시 서버들을 어떻게 운용할지는 여전히 남은 숙제다. 현재의 프록시 구성이 적당한 지 판달할 만큼 충분한 트래픽을 갖기까지는 한참이나 기다려봐야 할 것이다.</p>
 <p>아직 상용 서비스를 시작하진 않았는데, 이 글이 사라졌다면 뭔가 문제가 생겨서 실패했기 때문일 것이다.</p>
 <h2 id="마무리"><a href="#마무리" class="headerlink" title="마무리"></a>마무리</h2><p>내가 다 고민한 것처럼 써놨지만, 초기부터 중간 중간 열심히 같이 고민해준 동료가 많았다. 나는 처음에만 이런 저런 검토를 한 것 이외에는 사실상 모든 세팅은 사내 인프라 전문가께서 맡아 처리해주셨다. 한 게 없으니 블로그 정리라도 한다. 문제를 해결해야 한다는 부담도 분명 있었지만, 종일 하나의 문제에만 집중할 수 있어서 꽤나 즐거웠던 기억으로 남았다 - 해결이 됐으니까 즐거운 기억으로 남았지.</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://haah.kr/2018/11/24/naver-cafe-image-crawling/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="youngiggy">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ha-ah">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | ha-ah">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/11/24/naver-cafe-image-crawling/" class="post-title-link" itemprop="url">네이버 카페 사진을 받아라</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2018-11-24 11:04:52 / Modified: 12:32:53" itemprop="dateCreated datePublished" datetime="2018-11-24T11:04:52+09:00">2018-11-24</time>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2018/11/24/naver-cafe-image-crawling/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/11/24/naver-cafe-image-crawling/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>간만에 생활코딩 하나.</p>
-<p>아이가 다니는 유치원이 문을 닫는다고 해서 혹시나 아이들 활동 사진을 올려주는 카페도 닫을까봐 부랴부랴 크롤러를 만들기 시작했다. 지금은 내년 2월까지는 운영하기로 합의된 상태지만.</p>
-<p>사실 올 해 중순 쯤부터 생각했던 건데, 우리뿐 아니라 딸아이 친구들네도 받을 수 있게 웹 인터페이스로 제공하고 싶었다. AWS에다가 내가 여전히 잘 모르는 인증을 붙여보고 누구든 자기 카페의 목록을 확인하고 그 안의 이미지를 받게 하면 되겠다는 생각이었다. 갑자기 문을 닫는다니 시간이 없어서 시도도 안해보고 다음 단계로 넘어갔다. 어차피 네이버 카페는 여전히 가입과 글 등록 이외의 API는 제공하지 않아서 크롤링을 하긴 해야 한다.</p>
-<p>이때 가장 중요한 건,</p>
-<ul>
-<li>빨리 만들어야 한다</li>
-<li>손으로 일일이 다운로드 받는 것보다는 빨라야 한다(당시 사진이 1,000장에서 2,000장 쯤 되겠지라고 생각했기에 가능한 조건이랄까)</li>
-</ul>
-<h2 id="Laravel-Dusk"><a href="#Laravel-Dusk" class="headerlink" title="Laravel Dusk"></a>Laravel Dusk</h2><p>급한대로 시도한 것은 standalone ChromeDriver를 사용하는 <a target="_blank" rel="noopener" href="https://laravel.com/docs/5.7/dusk">Laravel Dusk</a>. 라라벨을 설치하고, Dusk도 추가.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">composer create-project --prefer-dist laravel/laravel crawlincafe</span><br><span class="line">git init</span><br><span class="line">composer require --dev laravel/dusk:&quot;^2.0&quot;</span><br><span class="line">php artisan dusk:install</span><br></pre></td></tr></table></figure>
-
-<p>APP_URL을 네이버로 해주고</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">APP_URL=https://cafe.naver.com</span><br></pre></td></tr></table></figure>
-
-<p>dusk install할 때 넣어주는 샘플 테스트를 돌려본다</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">❯ php artisan dusk</span><br><span class="line">PHPUnit 6.5.13 by Sebastian Bergmann and contributors.</span><br><span class="line"></span><br><span class="line">.                                                                   1 / 1 (100%)</span><br><span class="line"></span><br><span class="line">Time: 2.08 seconds, Memory: 12.00MB</span><br><span class="line"></span><br><span class="line">OK (1 test, 1 assertion)</span><br></pre></td></tr></table></figure>
-
-<p>유저 정보는 .env에 추가</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">USER_ID=네이버아이디</span><br><span class="line">USER_PW=비밀번호</span><br></pre></td></tr></table></figure>
-
-<p>페이지 번호에 링크가 있으므로 페이징은 문제 없을 것 같고, 우선 로그인 후 원하는 페이지로 이동하는 실험을 해봤는데,</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">Tests</span>\<span class="title class_">Browser</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Tests</span>\<span class="title">DuskTestCase</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Laravel</span>\<span class="title">Dusk</span>\<span class="title">Browser</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExampleTest</span> <span class="keyword">extends</span> <span class="title">DuskTestCase</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> \Throwable</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">testBasicExample</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">browse</span>(function (Browser <span class="variable">$browser</span>) &#123;</span><br><span class="line">            <span class="variable">$userId</span> = <span class="title function_ invoke__">env</span>(<span class="string">&#x27;USER_ID&#x27;</span>);</span><br><span class="line">            <span class="variable">$userPw</span> = <span class="title function_ invoke__">env</span>(<span class="string">&#x27;USER_PW&#x27;</span>);</span><br><span class="line">            <span class="variable">$cafeId</span> = <span class="title function_ invoke__">env</span>(<span class="string">&#x27;CAFE_ID&#x27;</span>);</span><br><span class="line"></span><br><span class="line">            <span class="variable">$browser</span></span><br><span class="line">                <span class="comment">//Visit</span></span><br><span class="line">                -&gt;<span class="title function_ invoke__">visit</span>(<span class="string">&#x27;https://nid.naver.com/nidlogin.login?mode=form&amp;url=https%3A%2F%2Fcafe.naver.com%2F...&#x27;</span>)<span class="comment">//유치원 카페 URL이 보여서 생략</span></span><br><span class="line">                -&gt;<span class="title function_ invoke__">assertSee</span>(<span class="string">&#x27;NAVER&#x27;</span>)</span><br><span class="line">                -&gt;<span class="title function_ invoke__">assertSee</span>(<span class="string">&#x27;로그인 상태 유지&#x27;</span>)</span><br><span class="line">                <span class="comment">//Login</span></span><br><span class="line">                -&gt;<span class="title function_ invoke__">type</span>(<span class="string">&#x27;id&#x27;</span>, <span class="variable">$userId</span>)</span><br><span class="line">                -&gt;<span class="title function_ invoke__">type</span>(<span class="string">&#x27;pw&#x27;</span>, <span class="variable">$userPw</span>)</span><br><span class="line">                -&gt;<span class="title function_ invoke__">press</span>(<span class="string">&#x27;.login_form input[type=submit]&#x27;</span>)</span><br><span class="line">                -&gt;<span class="title function_ invoke__">pause</span>(<span class="number">5000</span>)</span><br><span class="line">                -&gt;<span class="title function_ invoke__">assertPathIs</span>(<span class="string">&quot;/<span class="subst">&#123;$cafeId&#125;</span>&quot;</span>)</span><br><span class="line">            ;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>결과는,</p>
-<p><img src="/images/naver-cafe-image-crawling/failure-testBasicExample-0.png" alt="실패한 스크린샷"></p>
-<p>이게 뭐야!</p>
-<p>아마도 최근에 자동입력 방지 기능이 추가가 됐던 것 같다. 찾아보니 올해 여름쯤부터 나처럼 당황하신 분들이 여럿 보인다. pause를 주기도 하고, 여기저기 쓸데없는 클릭도 만들어보고, 마우스 drag 이벤트도 줘보고 했는데 잘 뚤리지 않아 빠른 포기.</p>
-<h2 id="역시-음식은-손맛"><a href="#역시-음식은-손맛" class="headerlink" title="역시 음식은 손맛"></a>역시 음식은 손맛</h2><p>다시 분석을 시작했다. 이미지 URL만 있으면 별다른 인증없이 다운로드가 가능할까? 맞다. 이미지가 포함된 게시물까지 접근하는 게 문제지 이미지 URL만 확보되면 다운로드는 되는 거다. 그런데 PC버전의 경우, 아래와 같이 이미지 썸네일을 캔버스에 그려놓고 클릭을 하면 사진을 크게 보여주는 구조다. </p>
-<p><img src="/images/naver-cafe-image-crawling/naver_cafe_pc.png" alt="네이버 카페 PC 화면"></p>
-<p>엄청 불편하다. 그래서 모바일 버전으로 접근해서 URL을 수집하기로 했다.</p>
-<p>2017년에는 5세반이라서 그런지 선생님이 정말 많이 올려주셨다. 총 80회(선생님 고맙습니다). 올해 6세반은 다 안 올라왔지만 졸업까지 약 40회 정도 올라올 것 같다. 회당 100장에서 400장 사이로 양이 엄청 많다. 난 도대체 왜 2천장이 안될 거라 생각했던가!</p>
-<p>개발자도구를 열어놓고, 게시물 120건을 돌아다니며 이미지 URL을 수집했다. 수집하는 스크립트는,</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> result = &#123;</span><br><span class="line">        <span class="string">&quot;title&quot;</span> : <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;#ct h2.tit&#x27;</span>)[<span class="number">0</span>].<span class="property">innerText</span>.<span class="title function_">replace</span>(<span class="regexp">/[^0-9a-zAZㄱ-힣]/g</span>, <span class="string">&#x27;_&#x27;</span>).<span class="title function_">replace</span>(<span class="regexp">/__/g</span>, <span class="string">&#x27;_&#x27;</span>).<span class="title function_">replace</span>(<span class="regexp">/^_(.+)_$/</span>, <span class="string">&quot;$1&quot;</span>),</span><br><span class="line">        <span class="string">&quot;createdAt&quot;</span> : <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;#ct span.date&#x27;</span>)[<span class="number">0</span>].<span class="property">innerText</span>.<span class="title function_">replace</span>(<span class="regexp">/[^0-9]/g</span>, <span class="string">&#x27;&#x27;</span>),</span><br><span class="line">        <span class="string">&quot;data&quot;</span> : [</span><br><span class="line">            <span class="comment">//image urls</span></span><br><span class="line">        ]</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;#postContent img.fx&#x27;</span>).<span class="title function_">forEach</span>(<span class="keyword">function</span> (<span class="params">item</span>) &#123;</span><br><span class="line">        result.<span class="property">data</span>.<span class="title function_">push</span>(item.<span class="property">src</span>);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(result));</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
-<p>콘솔에 output할 양이 너무 많으면 콘솔 화면에 Copy 버튼이 생긴다.</p>
-<p><img src="/images/naver-cafe-image-crawling/execution_on_console.png" alt="콘솔에서 실행한 화면"></p>
-<p>다음 글로 이동 -&gt; 개발자도구 클릭 -&gt; 화살표 up key + enter -&gt; Copy 버튼 클릭 Editor에 붙여넣기의 과정으로 120개 글에서 노가다를 좀 해줬다. 사실 중간에 한번 실수로 지워버린 바람에 160번은 한 것 같다. </p>
-<p>더 쉬운 방법이 있진 않았을까 고민을 하긴 했었는데 당장 생각이 안나 머리를 덜 쓰는 방법을 택한 것. 목록 화면에서 개발자도구로 상세 화면을 불러와서 파싱해도 되지 않았을까 싶긴 한데. 이미 지난 일이니…</p>
-<p>이걸 모아서 Guzzle로 다운로드 받는 프로그램을 후다닥 작성했다. 코드리뷰 해주실 필요는 없다. 유지보수 할 일 없고 빠르게 유용하게 잘 만들었으니 됐다.</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="title function_ invoke__">define</span>(<span class="string">&#x27;PROJECT_ROOT&#x27;</span>, <span class="string">&#x27;..&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">require</span> <span class="string">&#x27;../vendor/autoload.php&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">GuzzleHttp</span>\<span class="title">Client</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$targetDir</span> = <span class="string">&#x27;storage/data&#x27;</span>;</span><br><span class="line"><span class="variable">$downloadDir</span> = <span class="string">&#x27;storage/downloads&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/////////////////////////////////////// read file</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$handle</span> = <span class="title function_ invoke__">opendir</span>(PROJECT_ROOT . <span class="string">&#x27;/&#x27;</span> . <span class="variable">$targetDir</span>)) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="variable">$data</span> = [];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//read sub dir</span></span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">false</span> !== (<span class="variable">$subDir</span> = <span class="title function_ invoke__">readdir</span>(<span class="variable">$handle</span>))) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="title function_ invoke__">strpos</span>(<span class="variable">$subDir</span>, <span class="string">&#x27;.&#x27;</span>) === <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="variable">$subDirPath</span> = PROJECT_ROOT . <span class="string">&#x27;/&#x27;</span> . <span class="variable">$targetDir</span> . <span class="string">&#x27;/&#x27;</span> . <span class="variable">$subDir</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//read files</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$handleSub</span> = <span class="title function_ invoke__">opendir</span>(<span class="variable">$subDirPath</span>)) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="variable">$data</span>[<span class="variable">$subDir</span>] = [];</span><br><span class="line"></span><br><span class="line">            <span class="keyword">while</span> (<span class="literal">false</span> !== (<span class="variable">$file</span> = <span class="title function_ invoke__">readdir</span>(<span class="variable">$handleSub</span>))) &#123;</span><br><span class="line">                <span class="keyword">if</span> (<span class="title function_ invoke__">strpos</span>(<span class="variable">$file</span>, <span class="string">&#x27;.&#x27;</span>) === <span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (<span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/.+\.([a-z]+)$/&#x27;</span>, <span class="string">&#x27;$1&#x27;</span>, <span class="variable">$file</span>) !== <span class="string">&#x27;js&#x27;</span>) &#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="variable">$fileTxt</span> = <span class="title function_ invoke__">file_get_contents</span>(<span class="variable">$subDirPath</span> . <span class="string">&#x27;/&#x27;</span> . <span class="variable">$file</span>);</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    <span class="variable">$article</span> = <span class="title function_ invoke__">json_decode</span>(<span class="variable">$fileTxt</span>, <span class="literal">true</span>);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (<span class="built_in">Exception</span> <span class="variable">$e</span>) &#123;</span><br><span class="line">                    <span class="keyword">echo</span> <span class="string">&#x27;json decode failed : &#x27;</span> . <span class="variable">$subDirPath</span> . <span class="string">&#x27;/&#x27;</span> . <span class="variable">$file</span>;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (!<span class="keyword">empty</span>(<span class="variable">$article</span>)) &#123;</span><br><span class="line">                    <span class="variable">$data</span>[<span class="variable">$subDir</span>][<span class="variable">$article</span>[<span class="string">&#x27;createdAt&#x27;</span>]] = <span class="variable">$article</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="title function_ invoke__">closedir</span>(<span class="variable">$handleSub</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_ invoke__">closedir</span>(<span class="variable">$handle</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">////////////////////////////////////// download</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$client</span> = <span class="keyword">new</span> <span class="title class_">Client</span>([</span><br><span class="line"><span class="comment">//    &#x27;timeout&#x27;  =&gt; 2.0,</span></span><br><span class="line">]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span> (<span class="variable">$data</span> <span class="keyword">as</span> <span class="variable">$subDir</span> =&gt; <span class="variable">$articles</span>) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//make sub directory</span></span><br><span class="line">    <span class="variable">$subDirPath</span> = PROJECT_ROOT . <span class="string">&#x27;/&#x27;</span> . <span class="variable">$downloadDir</span> . <span class="string">&#x27;/&#x27;</span> . <span class="variable">$subDir</span>;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="title function_ invoke__">is_dir</span>(<span class="variable">$subDirPath</span>)) &#123;</span><br><span class="line">        <span class="title function_ invoke__">mkdir</span>(<span class="variable">$subDirPath</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">foreach</span> (<span class="variable">$articles</span> <span class="keyword">as</span> <span class="variable">$createdAt</span> =&gt; <span class="variable">$article</span>) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//make sub directory</span></span><br><span class="line">        <span class="variable">$articleDirPath</span> = PROJECT_ROOT . <span class="string">&#x27;/&#x27;</span> . <span class="variable">$downloadDir</span> . <span class="string">&#x27;/&#x27;</span> . <span class="variable">$subDir</span> . <span class="string">&#x27;/&#x27;</span> . <span class="variable">$article</span>[<span class="string">&#x27;createdAt&#x27;</span>]  . <span class="string">&#x27; - &#x27;</span> . <span class="variable">$article</span>[<span class="string">&#x27;title&#x27;</span>];</span><br><span class="line">        <span class="keyword">if</span> (!<span class="title function_ invoke__">is_dir</span>(<span class="variable">$articleDirPath</span>)) &#123;</span><br><span class="line">            <span class="title function_ invoke__">mkdir</span>(<span class="variable">$articleDirPath</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">echo</span> <span class="variable">$articleDirPath</span> . PHP_EOL;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">foreach</span> (<span class="variable">$article</span>[<span class="string">&#x27;data&#x27;</span>] <span class="keyword">as</span> <span class="variable">$index</span> =&gt; <span class="variable">$imageUrl</span>) &#123;</span><br><span class="line">            <span class="variable">$filename</span> = <span class="title function_ invoke__">str_pad</span>(<span class="variable">$index</span>, <span class="number">3</span>, <span class="string">&quot;0&quot;</span>, STR_PAD_LEFT) . <span class="string">&#x27;.jpg&#x27;</span>;</span><br><span class="line">            <span class="keyword">if</span> (<span class="title function_ invoke__">file_exists</span>(<span class="variable">$articleDirPath</span>  . <span class="string">&#x27;/&#x27;</span> . <span class="variable">$filename</span>)) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="variable">$client</span>-&gt;<span class="title function_ invoke__">request</span>(<span class="string">&#x27;GET&#x27;</span>, <span class="variable">$imageUrl</span>, [<span class="string">&#x27;sink&#x27;</span> =&gt; <span class="variable">$articleDirPath</span> . <span class="string">&#x27;/&#x27;</span> . <span class="variable">$filename</span>]);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (<span class="built_in">Exception</span> <span class="variable">$e</span>) &#123;</span><br><span class="line">                <span class="keyword">echo</span> PHP_EOL . <span class="variable">$e</span>-&gt;<span class="title function_ invoke__">getMessage</span>() . PHP_EOL;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">&#x27;.&#x27;</span>;</span><br><span class="line">            <span class="title function_ invoke__">usleep</span>(<span class="number">100</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">echo</span> PHP_EOL;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
       
     </div>

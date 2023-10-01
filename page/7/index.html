@@ -126,7 +126,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">117</span>
+          <span class="site-state-item-count">118</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -165,6 +165,143 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://haah.kr/2018/11/24/naver-cafe-image-crawling/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="youngiggy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/11/24/naver-cafe-image-crawling/" class="post-title-link" itemprop="url">네이버 카페 사진을 받아라</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2018-11-24 11:04:52 / Modified: 12:32:53" itemprop="dateCreated datePublished" datetime="2018-11-24T11:04:52+09:00">2018-11-24</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/11/24/naver-cafe-image-crawling/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/11/24/naver-cafe-image-crawling/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>간만에 생활코딩 하나.</p>
+<p>아이가 다니는 유치원이 문을 닫는다고 해서 혹시나 아이들 활동 사진을 올려주는 카페도 닫을까봐 부랴부랴 크롤러를 만들기 시작했다. 지금은 내년 2월까지는 운영하기로 합의된 상태지만.</p>
+<p>사실 올 해 중순 쯤부터 생각했던 건데, 우리뿐 아니라 딸아이 친구들네도 받을 수 있게 웹 인터페이스로 제공하고 싶었다. AWS에다가 내가 여전히 잘 모르는 인증을 붙여보고 누구든 자기 카페의 목록을 확인하고 그 안의 이미지를 받게 하면 되겠다는 생각이었다. 갑자기 문을 닫는다니 시간이 없어서 시도도 안해보고 다음 단계로 넘어갔다. 어차피 네이버 카페는 여전히 가입과 글 등록 이외의 API는 제공하지 않아서 크롤링을 하긴 해야 한다.</p>
+<p>이때 가장 중요한 건,</p>
+<ul>
+<li>빨리 만들어야 한다</li>
+<li>손으로 일일이 다운로드 받는 것보다는 빨라야 한다(당시 사진이 1,000장에서 2,000장 쯤 되겠지라고 생각했기에 가능한 조건이랄까)</li>
+</ul>
+<h2 id="Laravel-Dusk"><a href="#Laravel-Dusk" class="headerlink" title="Laravel Dusk"></a>Laravel Dusk</h2><p>급한대로 시도한 것은 standalone ChromeDriver를 사용하는 <a target="_blank" rel="noopener" href="https://laravel.com/docs/5.7/dusk">Laravel Dusk</a>. 라라벨을 설치하고, Dusk도 추가.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">composer create-project --prefer-dist laravel/laravel crawlincafe</span><br><span class="line">git init</span><br><span class="line">composer require --dev laravel/dusk:&quot;^2.0&quot;</span><br><span class="line">php artisan dusk:install</span><br></pre></td></tr></table></figure>
+
+<p>APP_URL을 네이버로 해주고</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">APP_URL=https://cafe.naver.com</span><br></pre></td></tr></table></figure>
+
+<p>dusk install할 때 넣어주는 샘플 테스트를 돌려본다</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">❯ php artisan dusk</span><br><span class="line">PHPUnit 6.5.13 by Sebastian Bergmann and contributors.</span><br><span class="line"></span><br><span class="line">.                                                                   1 / 1 (100%)</span><br><span class="line"></span><br><span class="line">Time: 2.08 seconds, Memory: 12.00MB</span><br><span class="line"></span><br><span class="line">OK (1 test, 1 assertion)</span><br></pre></td></tr></table></figure>
+
+<p>유저 정보는 .env에 추가</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">USER_ID=네이버아이디</span><br><span class="line">USER_PW=비밀번호</span><br></pre></td></tr></table></figure>
+
+<p>페이지 번호에 링크가 있으므로 페이징은 문제 없을 것 같고, 우선 로그인 후 원하는 페이지로 이동하는 실험을 해봤는데,</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">Tests</span>\<span class="title class_">Browser</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Tests</span>\<span class="title">DuskTestCase</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Laravel</span>\<span class="title">Dusk</span>\<span class="title">Browser</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExampleTest</span> <span class="keyword">extends</span> <span class="title">DuskTestCase</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> \Throwable</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">testBasicExample</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">browse</span>(function (Browser <span class="variable">$browser</span>) &#123;</span><br><span class="line">            <span class="variable">$userId</span> = <span class="title function_ invoke__">env</span>(<span class="string">&#x27;USER_ID&#x27;</span>);</span><br><span class="line">            <span class="variable">$userPw</span> = <span class="title function_ invoke__">env</span>(<span class="string">&#x27;USER_PW&#x27;</span>);</span><br><span class="line">            <span class="variable">$cafeId</span> = <span class="title function_ invoke__">env</span>(<span class="string">&#x27;CAFE_ID&#x27;</span>);</span><br><span class="line"></span><br><span class="line">            <span class="variable">$browser</span></span><br><span class="line">                <span class="comment">//Visit</span></span><br><span class="line">                -&gt;<span class="title function_ invoke__">visit</span>(<span class="string">&#x27;https://nid.naver.com/nidlogin.login?mode=form&amp;url=https%3A%2F%2Fcafe.naver.com%2F...&#x27;</span>)<span class="comment">//유치원 카페 URL이 보여서 생략</span></span><br><span class="line">                -&gt;<span class="title function_ invoke__">assertSee</span>(<span class="string">&#x27;NAVER&#x27;</span>)</span><br><span class="line">                -&gt;<span class="title function_ invoke__">assertSee</span>(<span class="string">&#x27;로그인 상태 유지&#x27;</span>)</span><br><span class="line">                <span class="comment">//Login</span></span><br><span class="line">                -&gt;<span class="title function_ invoke__">type</span>(<span class="string">&#x27;id&#x27;</span>, <span class="variable">$userId</span>)</span><br><span class="line">                -&gt;<span class="title function_ invoke__">type</span>(<span class="string">&#x27;pw&#x27;</span>, <span class="variable">$userPw</span>)</span><br><span class="line">                -&gt;<span class="title function_ invoke__">press</span>(<span class="string">&#x27;.login_form input[type=submit]&#x27;</span>)</span><br><span class="line">                -&gt;<span class="title function_ invoke__">pause</span>(<span class="number">5000</span>)</span><br><span class="line">                -&gt;<span class="title function_ invoke__">assertPathIs</span>(<span class="string">&quot;/<span class="subst">&#123;$cafeId&#125;</span>&quot;</span>)</span><br><span class="line">            ;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>결과는,</p>
+<p><img src="/images/naver-cafe-image-crawling/failure-testBasicExample-0.png" alt="실패한 스크린샷"></p>
+<p>이게 뭐야!</p>
+<p>아마도 최근에 자동입력 방지 기능이 추가가 됐던 것 같다. 찾아보니 올해 여름쯤부터 나처럼 당황하신 분들이 여럿 보인다. pause를 주기도 하고, 여기저기 쓸데없는 클릭도 만들어보고, 마우스 drag 이벤트도 줘보고 했는데 잘 뚤리지 않아 빠른 포기.</p>
+<h2 id="역시-음식은-손맛"><a href="#역시-음식은-손맛" class="headerlink" title="역시 음식은 손맛"></a>역시 음식은 손맛</h2><p>다시 분석을 시작했다. 이미지 URL만 있으면 별다른 인증없이 다운로드가 가능할까? 맞다. 이미지가 포함된 게시물까지 접근하는 게 문제지 이미지 URL만 확보되면 다운로드는 되는 거다. 그런데 PC버전의 경우, 아래와 같이 이미지 썸네일을 캔버스에 그려놓고 클릭을 하면 사진을 크게 보여주는 구조다. </p>
+<p><img src="/images/naver-cafe-image-crawling/naver_cafe_pc.png" alt="네이버 카페 PC 화면"></p>
+<p>엄청 불편하다. 그래서 모바일 버전으로 접근해서 URL을 수집하기로 했다.</p>
+<p>2017년에는 5세반이라서 그런지 선생님이 정말 많이 올려주셨다. 총 80회(선생님 고맙습니다). 올해 6세반은 다 안 올라왔지만 졸업까지 약 40회 정도 올라올 것 같다. 회당 100장에서 400장 사이로 양이 엄청 많다. 난 도대체 왜 2천장이 안될 거라 생각했던가!</p>
+<p>개발자도구를 열어놓고, 게시물 120건을 돌아다니며 이미지 URL을 수집했다. 수집하는 스크립트는,</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> result = &#123;</span><br><span class="line">        <span class="string">&quot;title&quot;</span> : <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;#ct h2.tit&#x27;</span>)[<span class="number">0</span>].<span class="property">innerText</span>.<span class="title function_">replace</span>(<span class="regexp">/[^0-9a-zAZㄱ-힣]/g</span>, <span class="string">&#x27;_&#x27;</span>).<span class="title function_">replace</span>(<span class="regexp">/__/g</span>, <span class="string">&#x27;_&#x27;</span>).<span class="title function_">replace</span>(<span class="regexp">/^_(.+)_$/</span>, <span class="string">&quot;$1&quot;</span>),</span><br><span class="line">        <span class="string">&quot;createdAt&quot;</span> : <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;#ct span.date&#x27;</span>)[<span class="number">0</span>].<span class="property">innerText</span>.<span class="title function_">replace</span>(<span class="regexp">/[^0-9]/g</span>, <span class="string">&#x27;&#x27;</span>),</span><br><span class="line">        <span class="string">&quot;data&quot;</span> : [</span><br><span class="line">            <span class="comment">//image urls</span></span><br><span class="line">        ]</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;#postContent img.fx&#x27;</span>).<span class="title function_">forEach</span>(<span class="keyword">function</span> (<span class="params">item</span>) &#123;</span><br><span class="line">        result.<span class="property">data</span>.<span class="title function_">push</span>(item.<span class="property">src</span>);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(result));</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<p>콘솔에 output할 양이 너무 많으면 콘솔 화면에 Copy 버튼이 생긴다.</p>
+<p><img src="/images/naver-cafe-image-crawling/execution_on_console.png" alt="콘솔에서 실행한 화면"></p>
+<p>다음 글로 이동 -&gt; 개발자도구 클릭 -&gt; 화살표 up key + enter -&gt; Copy 버튼 클릭 Editor에 붙여넣기의 과정으로 120개 글에서 노가다를 좀 해줬다. 사실 중간에 한번 실수로 지워버린 바람에 160번은 한 것 같다. </p>
+<p>더 쉬운 방법이 있진 않았을까 고민을 하긴 했었는데 당장 생각이 안나 머리를 덜 쓰는 방법을 택한 것. 목록 화면에서 개발자도구로 상세 화면을 불러와서 파싱해도 되지 않았을까 싶긴 한데. 이미 지난 일이니…</p>
+<p>이걸 모아서 Guzzle로 다운로드 받는 프로그램을 후다닥 작성했다. 코드리뷰 해주실 필요는 없다. 유지보수 할 일 없고 빠르게 유용하게 잘 만들었으니 됐다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="title function_ invoke__">define</span>(<span class="string">&#x27;PROJECT_ROOT&#x27;</span>, <span class="string">&#x27;..&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">require</span> <span class="string">&#x27;../vendor/autoload.php&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">GuzzleHttp</span>\<span class="title">Client</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$targetDir</span> = <span class="string">&#x27;storage/data&#x27;</span>;</span><br><span class="line"><span class="variable">$downloadDir</span> = <span class="string">&#x27;storage/downloads&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/////////////////////////////////////// read file</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$handle</span> = <span class="title function_ invoke__">opendir</span>(PROJECT_ROOT . <span class="string">&#x27;/&#x27;</span> . <span class="variable">$targetDir</span>)) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="variable">$data</span> = [];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//read sub dir</span></span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">false</span> !== (<span class="variable">$subDir</span> = <span class="title function_ invoke__">readdir</span>(<span class="variable">$handle</span>))) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="title function_ invoke__">strpos</span>(<span class="variable">$subDir</span>, <span class="string">&#x27;.&#x27;</span>) === <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="variable">$subDirPath</span> = PROJECT_ROOT . <span class="string">&#x27;/&#x27;</span> . <span class="variable">$targetDir</span> . <span class="string">&#x27;/&#x27;</span> . <span class="variable">$subDir</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//read files</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$handleSub</span> = <span class="title function_ invoke__">opendir</span>(<span class="variable">$subDirPath</span>)) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="variable">$data</span>[<span class="variable">$subDir</span>] = [];</span><br><span class="line"></span><br><span class="line">            <span class="keyword">while</span> (<span class="literal">false</span> !== (<span class="variable">$file</span> = <span class="title function_ invoke__">readdir</span>(<span class="variable">$handleSub</span>))) &#123;</span><br><span class="line">                <span class="keyword">if</span> (<span class="title function_ invoke__">strpos</span>(<span class="variable">$file</span>, <span class="string">&#x27;.&#x27;</span>) === <span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (<span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/.+\.([a-z]+)$/&#x27;</span>, <span class="string">&#x27;$1&#x27;</span>, <span class="variable">$file</span>) !== <span class="string">&#x27;js&#x27;</span>) &#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="variable">$fileTxt</span> = <span class="title function_ invoke__">file_get_contents</span>(<span class="variable">$subDirPath</span> . <span class="string">&#x27;/&#x27;</span> . <span class="variable">$file</span>);</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    <span class="variable">$article</span> = <span class="title function_ invoke__">json_decode</span>(<span class="variable">$fileTxt</span>, <span class="literal">true</span>);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (<span class="built_in">Exception</span> <span class="variable">$e</span>) &#123;</span><br><span class="line">                    <span class="keyword">echo</span> <span class="string">&#x27;json decode failed : &#x27;</span> . <span class="variable">$subDirPath</span> . <span class="string">&#x27;/&#x27;</span> . <span class="variable">$file</span>;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (!<span class="keyword">empty</span>(<span class="variable">$article</span>)) &#123;</span><br><span class="line">                    <span class="variable">$data</span>[<span class="variable">$subDir</span>][<span class="variable">$article</span>[<span class="string">&#x27;createdAt&#x27;</span>]] = <span class="variable">$article</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="title function_ invoke__">closedir</span>(<span class="variable">$handleSub</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_ invoke__">closedir</span>(<span class="variable">$handle</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">////////////////////////////////////// download</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$client</span> = <span class="keyword">new</span> <span class="title class_">Client</span>([</span><br><span class="line"><span class="comment">//    &#x27;timeout&#x27;  =&gt; 2.0,</span></span><br><span class="line">]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span> (<span class="variable">$data</span> <span class="keyword">as</span> <span class="variable">$subDir</span> =&gt; <span class="variable">$articles</span>) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//make sub directory</span></span><br><span class="line">    <span class="variable">$subDirPath</span> = PROJECT_ROOT . <span class="string">&#x27;/&#x27;</span> . <span class="variable">$downloadDir</span> . <span class="string">&#x27;/&#x27;</span> . <span class="variable">$subDir</span>;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="title function_ invoke__">is_dir</span>(<span class="variable">$subDirPath</span>)) &#123;</span><br><span class="line">        <span class="title function_ invoke__">mkdir</span>(<span class="variable">$subDirPath</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">foreach</span> (<span class="variable">$articles</span> <span class="keyword">as</span> <span class="variable">$createdAt</span> =&gt; <span class="variable">$article</span>) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//make sub directory</span></span><br><span class="line">        <span class="variable">$articleDirPath</span> = PROJECT_ROOT . <span class="string">&#x27;/&#x27;</span> . <span class="variable">$downloadDir</span> . <span class="string">&#x27;/&#x27;</span> . <span class="variable">$subDir</span> . <span class="string">&#x27;/&#x27;</span> . <span class="variable">$article</span>[<span class="string">&#x27;createdAt&#x27;</span>]  . <span class="string">&#x27; - &#x27;</span> . <span class="variable">$article</span>[<span class="string">&#x27;title&#x27;</span>];</span><br><span class="line">        <span class="keyword">if</span> (!<span class="title function_ invoke__">is_dir</span>(<span class="variable">$articleDirPath</span>)) &#123;</span><br><span class="line">            <span class="title function_ invoke__">mkdir</span>(<span class="variable">$articleDirPath</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">echo</span> <span class="variable">$articleDirPath</span> . PHP_EOL;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">foreach</span> (<span class="variable">$article</span>[<span class="string">&#x27;data&#x27;</span>] <span class="keyword">as</span> <span class="variable">$index</span> =&gt; <span class="variable">$imageUrl</span>) &#123;</span><br><span class="line">            <span class="variable">$filename</span> = <span class="title function_ invoke__">str_pad</span>(<span class="variable">$index</span>, <span class="number">3</span>, <span class="string">&quot;0&quot;</span>, STR_PAD_LEFT) . <span class="string">&#x27;.jpg&#x27;</span>;</span><br><span class="line">            <span class="keyword">if</span> (<span class="title function_ invoke__">file_exists</span>(<span class="variable">$articleDirPath</span>  . <span class="string">&#x27;/&#x27;</span> . <span class="variable">$filename</span>)) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="variable">$client</span>-&gt;<span class="title function_ invoke__">request</span>(<span class="string">&#x27;GET&#x27;</span>, <span class="variable">$imageUrl</span>, [<span class="string">&#x27;sink&#x27;</span> =&gt; <span class="variable">$articleDirPath</span> . <span class="string">&#x27;/&#x27;</span> . <span class="variable">$filename</span>]);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (<span class="built_in">Exception</span> <span class="variable">$e</span>) &#123;</span><br><span class="line">                <span class="keyword">echo</span> PHP_EOL . <span class="variable">$e</span>-&gt;<span class="title function_ invoke__">getMessage</span>() . PHP_EOL;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">&#x27;.&#x27;</span>;</span><br><span class="line">            <span class="title function_ invoke__">usleep</span>(<span class="number">100</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">echo</span> PHP_EOL;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1255,123 +1392,6 @@
 <ul>
 <li>토비님의 DI에서 dependency를 어떻게 번역할 것인가에 대한 글</li>
 </ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://haah.kr/2018/05/10/books-2018-march-to-may/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="youngiggy">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ha-ah">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | ha-ah">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/05/10/books-2018-march-to-may/" class="post-title-link" itemprop="url">독후감 - 2018년 3~5월</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2018-05-10 22:47:13 / Modified: 23:53:32" itemprop="dateCreated datePublished" datetime="2018-05-10T22:47:13+09:00">2018-05-10</time>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2018/05/10/books-2018-march-to-may/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/05/10/books-2018-march-to-may/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="1달러-프로토타입"><a href="#1달러-프로토타입" class="headerlink" title="1달러 프로토타입"></a>1달러 프로토타입</h2><p><img src="http://image.kyobobook.co.kr/images/book/large/110/l9791187497110.jpg" alt="1달러 프로토타입 표지 이미지"></p>
-<blockquote>
-<p>빠르고 획기적으로 서비스 변화를 줄 수 있는 포스트잇 한 묶음의 비밀!</p>
-</blockquote>
-<p>엄청 길고 쓸데없는 부제에 실망할 겨를 없이 아주 얇고 유익하고 간결하고 비싼 책이다. 그림 그리는 것과 이야기 만드는 것, 생각을 정리하는 것 모두에 관심을 갖고 있던 터라 아주 즐겁게 읽었다. 머리를 식힐 때 옥상에서 매일 꾸준히 그림을 그려볼까 다짐했던 과거는 주마등처럼 지나가며, 마치 ‘아참! 나는 매일 밤 자기 전 플랭크를 하기로 했었지’와 같은 뻔하고 당연한 클리셰가 되었다. 그래도 다시 도전해볼까!</p>
-<h2 id="디자인-오브-디자인"><a href="#디자인-오브-디자인" class="headerlink" title="디자인 오브 디자인"></a>디자인 오브 디자인</h2><p><img src="http://image.kyobobook.co.kr/images/book/large/111/l9791185890111.jpg" alt="디자인 오브 디자인 표지 이미지"></p>
-<blockquote>
-<p>《맨먼스 미신》의 저자, 브룩스 교수의 설계 에세이</p>
-</blockquote>
-<p>맨먼스 미신을 읽진 않았으나 명성을 익히 들어봤고, 거장의 신작이라니 뭔가 땡기기도 하고, 누군가 추천하며 재밌게 읽기도 하고, 마침 설계에 대한 고민이 되던 시기에 고른 책.</p>
-<p>정말로 이름대로 디자인 오브 디자인. 즉, 설계를 어떻게 설계할 지에 대한 이야기이다. </p>
-<p>지금은 잘 기억이 안나지만 설계에 대한 답답함에 고른 책이었는데, 컴퓨터 과학이나 컴퓨터 아키텍쳐에 발톱만큼의 관심도 없는 나에게는 조금 지루하긴 했다. 오히려 건축을 다루는 부분은 꽤 흥미롭기도 했고, 에세이답게 그 과정을 너무 길다 싶을 정도로 열심히 설명을 한다. 그래서 후반부 건축 설계쪽은 프로그래밍 설계에 대한 은유를 발견하는 것이 쉽지 않았다.</p>
-<p>브룩스 아저씨는 어떤 분야든 설계 프로세스의 핵심이 되는 부분에 공통점이 있다고 이야기 한다.</p>
-<p>애자일(이 용어를 썼는지는 확실치 않지만 결국 애자일 만세), 제한된 자원, 제약 조건, 설계 모범 사례 등에 대해 그럴듯하게 이야기를 풀어나가고, 이 할아버지 엄청 똑똑하다는 감탄이나 하고 앉아있을 무렵 사례 연구의 홍수에 허우적거리다 책을 덮었다. 마지막엔 솔직히 슥슥 넘어갔다고 고백한다.</p>
-<p>이 무거운 책을 들고 읽다 팔에 배긴 알보다 내 머릿속 지식과 교양이 먼저 빠져나갔다는 사실이 슬플 뿐.</p>
-<h2 id="소프트웨어-객체의-생애-주기"><a href="#소프트웨어-객체의-생애-주기" class="headerlink" title="소프트웨어 객체의 생애 주기"></a>소프트웨어 객체의 생애 주기</h2><p><img src="http://image.kyobobook.co.kr/images/book/large/063/l9788998791063.jpg" alt="소프트웨어 객체의 생애 주기 표지 이미지"></p>
-<p>올 해 전주영화제와 함께 한 테드 창의 중편 소설.</p>
-<p>사실 영화 컨텍트의 원작 소설(당신 인생의 이야기)을 읽어야지 했다가 잘못 고른 책인데, 꽤 좋았다.</p>
-<p>나는 작가 소개부터 차례로 읽는 편이라 매우 분명한 편견을 갖고 읽기 시작했는데, 읽자마자 딱 공대생 혹은 프로그래머가 쓴 책이라는 생각이 들 수 밖에 없었다.</p>
-<p>그러나 인간과 타 객체와의 (여러 종류의) 관계를 다양하고 섬세하고 다루고 있다. 육아에 관한 이야기이기도 하고, ‘의식이란 무엇인가’같은 논쟁을 해도 좋을 내용도 담겨있다. </p>
-<p>그래서 중편이라는 애매한 길이인데 너무 다각도로 짚은 것 아닌가 생각도 든다. 마치 비틀즈처럼 앞서 이런 작품을 만든 사람이 별로 없는 상황에서 똑똑하게 마음껏 질러놓은 작품 같다는 생각도 들었다. 아이디어는 좋았지만 글쎄. 내가 비틀즈에 열광하지 않는 것과 같이, ‘잘했네, 잘했는데 썩 열광할 것 같진 않아’같은 느낌이랄까.</p>
-<p>그럼에도 당신 인생의 이야기(테드 창의 중단편 모음집)까지는 한번 읽어보고 싶다는 생각이 들었다. 왠지 기능적으로 내가 원하는 스타일일 것 같다. 자율주행차량에 대한 이야기처럼.</p>
-<h2 id="유혹하는-글쓰기"><a href="#유혹하는-글쓰기" class="headerlink" title="유혹하는 글쓰기"></a>유혹하는 글쓰기</h2><p><img src="http://image.kyobobook.co.kr/images/book/large/322/l9788934977322.jpg" alt="유혹하는 글쓰기 표지 이미지"></p>
-<blockquote>
-<p>스티븐 킹의 창작론</p>
-</blockquote>
-<p>처음 1&#x2F;3 정도는 스티븐 킹의 어린 시절부터의 자전적인 내용이 담겨 있는데, 이렇게 키우면 스티븐 킹이 되는구나(이건 경고이기도, 격려이기도…)를 알 수 있는, 이것이야말로 육아서적이구나 생각이 들었다. </p>
-<p>이후 작가로서 어떤 마음가짐이어야 하는가, 작가는 어떤 생활을 하는가, 자신에게 글쓰기가 어떤 의미를 갖는가에 대해 이야기 한다. 내가 읽은 스티븐킹이 쓴 첫 책인 것 같다. 읽다보니 그의 글솜씨(비록 번역이 된 글일지라도)가 정말 대단하구나 생각도 든다. 세련되진 않으나 (아내를 끊임없이 웃겨주는) 유머러스한 노인같은 책이다. </p>
-<p>내가 올 해 몸살에 걸렸을 때였나? 정말 드물지만 티비 앞에서 채널을 돌리며 시간을 때우다 서프라이즈를 보게 됐는데, 스티븐 킹이 큰 사고를 당한 내용이었다. 헐리우드의 저주.. 뭐 그런 내용이었다. 바로 그 사고를 당한 시점에 쓰던 책이 바로 이 책이라고 한다.</p>
-<p>여기에는 글쓰기 워크샵에 대해서도 언급이 잠시 됐는데, 전주영화제에서 본 ‘워크샵’이란 영화도 떠올랐다. 글쓰기에 대한 여러 생각을 하게 해준 그 영화와 이 책은 조금 다른 관점이긴 하다. 그런데 이런 책 밖의 경험 덕분에 글을 막 쓰고 싶다는 느낌도 들었다.</p>
-<p>하지만 이 책을 다 읽고나니 난 작가는 못해먹겠다는 생각이 드는데, 꾸준히 써야 하고 꾸준히 읽어야 하기 때문이다. 내가 프로그래밍을 못하는 이유와 비슷하다니…<br>게다가 수없이 쓰고 거절당하고 버리기도 하는 모습을 보면, 같잖은 거 한 두개 써놓고 이게 무슨 잭이 키운 콩나무가 될 것인양 다루던 어린 시절이 생각나기도. 그것들을 개인 카페에 모아뒀는데, 지금쯤 빛바랜 콩나물이 되어 있을 것이다. 아무렴 어때.</p>
-<h2 id="to-be-continued"><a href="#to-be-continued" class="headerlink" title="to be continued"></a>to be continued</h2><p>정말 오랜만에 독후감을 쓴다.</p>
-<p>올 해 <code>SQL 코딩의 기술</code>이나 <code>그들이 어떻게 해내는지 나는 안다</code>도 읽었지만 한번 더 읽고 독후감 쓸 생각으로 벼루고 있다.</p>
-<p><code>그럼에도 불구하고 너무나 인간적인</code>을 읽다 포했다거나 <code>라디오헤드</code>를 그만 읽고 쟁여놓은 사연은 연말 회고 때나 다뤄볼까 한다.</p>
 
       
     </div>
