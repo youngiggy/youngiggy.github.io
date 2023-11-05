@@ -210,7 +210,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-11-05 13:45:54" itemprop="dateModified" datetime="2023-11-05T13:45:54+09:00">2023-11-05</time>
+      <time title="Modified: 2023-11-05 14:14:27" itemprop="dateModified" datetime="2023-11-05T14:14:27+09:00">2023-11-05</time>
     </span>
 
   
@@ -269,7 +269,7 @@
 <h2 id="✅-RFC-Increasing-the-default-bcrypt-cost"><a href="#✅-RFC-Increasing-the-default-bcrypt-cost" class="headerlink" title="✅ RFC: Increasing the default bcrypt cost"></a>✅ RFC: Increasing the default bcrypt cost</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/bcrypt_cost_2023">RFC: 기본 bcrypt 비용 상승</a></p>
 <p>기본 BCrypt 비용을 늘리자는 Tim Düsterhus의 제안이 받아들여졌습니다. PHP 8.4에서는 비용이 12로 증가합니다.</p>
 <p>보안 팁: <a target="_blank" rel="noopener" href="https://securinglaravel.com/p/security-tip-increase-your-bcrypt">bcrypt 라운드 늘리기</a> by Stephen Rees-Carter.</p>
-<p>역자 주:<br>Laravel에서도 기본 bcrypt 라운드를 12(성능과 보안 사이에서 최적의 지점)로 늘리는 PR이 머지되어 있습니다.<br>이 PR에는 관련된 논의를 따라갈 수 있는 링크와 대화가 많은데, 이중에는 bcrypt의 대안으로 알려졌던 Argon2에 관한 내용도 있습니다.</p>
+<p>역자주:<br>Laravel에서도 기본 bcrypt 라운드를 12(성능과 보안 사이에서 최적의 지점)로 늘리는 PR이 머지되어 있습니다.<br>이 PR에는 관련된 논의를 따라갈 수 있는 링크와 대화가 많은데, 이중에는 bcrypt의 대안으로 알려졌던 Argon2에 관한 내용도 있습니다.</p>
 <blockquote>
 <p>요약하자면, 일부 PHC 심사위원조차도 UX 허용 범위 연구(사용자당 인증 지연 500ms~1초)에 맞춰 인증 속도를 달성하려면 Argon2 제품군과 scrypt를 모두 “하향” 조정해야 한다는 점을 인정합니다. 동등한 인증 속도의 bcrypt보다 오프라인 공격에 대한 저항력이 떨어 집니다 (!)</p>
 <p>역설적이게도 다중 사용자 대화형 로그인 사용 사례와 “여러 해시의 오프라인 공격 저항” 사례의 경우 적절하게 조정된 bcrypt가 여전히 우수합니다.</p>
