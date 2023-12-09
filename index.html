@@ -126,7 +126,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">120</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -165,6 +165,227 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://haah.kr/2023/12/06/php-annotated-november-2023/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="youngiggy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/12/06/php-annotated-november-2023/" class="post-title-link" itemprop="url">PHP Annotated – November 2023</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-12-06 18:52:58" itemprop="dateCreated datePublished" datetime="2023-12-06T18:52:58+09:00">2023-12-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-12-10 01:05:17" itemprop="dateModified" datetime="2023-12-10T01:05:17+09:00">2023-12-10</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2023/12/06/php-annotated-november-2023/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/12/06/php-annotated-november-2023/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="https://blog.jetbrains.com/wp-content/uploads/2023/12/php-annotated-featured_blog_1280x720.png" alt="PHP Annotated 이미지"></p>
+<p><a target="_blank" rel="noopener" href="https://blog.jetbrains.com/author/rpronskiy">Roman Pronskiy</a>가 쓰고 JetBrains에서 제공하는 PHP Annotated <a target="_blank" rel="noopener" href="https://blog.jetbrains.com/phpstorm/2023/12/php-annotated-november-2023/">2023년 12월</a>호입니다.</p>
+<hr>
+<p>PHP Annotated 11월호에 오신 것을 환영합니다! 11월호에서는 엄선된 뉴스, 기사, 도구, 동영상을 통해 지난 한 달 동안 PHP 커뮤니티에서 가장 흥미로웠던 개발 동향을 되돌아봅니다.</p>
+<h1 id="Highlights"><a href="#Highlights" class="headerlink" title="Highlights"></a>Highlights</h1><h2 id="🎉-PHP-8-3-0-released"><a href="#🎉-PHP-8-3-0-released" class="headerlink" title="🎉 PHP 8.3.0 released!"></a>🎉 PHP 8.3.0 released!</h2><p><a target="_blank" rel="noopener" href="https://www.php.net/releases/8.3/">https://www.php.net/releases/8.3/</a></p>
+<p>PHP 8.3은 PHP 언어의 주요 업데이트입니다. 여기에는 입력형 클래스 상수, 읽기 전용 프로퍼티의 딥 복제, 랜덤 기능 추가 등 새로운 기능이 포함되어 있습니다. 항상 그렇듯이 성능 개선, 버그 수정, 전반적인 정리도 포함되어 있습니다.</p>
+<p>PHP 8.3의 새로운 기능에 대한 자세한 목록은 <a target="_blank" rel="noopener" href="https://www.php.net/releases/8.3/">릴리스 페이지</a>와 <a target="_blank" rel="noopener" href="https://www.php.net/manual/en/migration83.php">마이그레이션 가이드</a>에서 확인할 수 있으며, PHP 재단의 <a target="_blank" rel="noopener" href="https://thephp.foundation/blog/2023/11/23/php-83/">공지사항</a>에서 릴리스에 대해 자세히 알아볼 수 있습니다.</p>
+<p>PHP 8.3 설치 또는 업그레이드</p>
+<ul>
+<li>Windows: 컴파일된 바이너리는 <a target="_blank" rel="noopener" href="https://windows.php.net/download/">windows.php.net</a>에서 찾을 수 있습니다. 또는 <a target="_blank" rel="noopener" href="https://community.chocolatey.org/packages/php">Chocolatey에서</a> 제공되는 커뮤니티 빌드를 선택할 수 있습니다.</li>
+<li>Ubuntu&#x2F;Debian: PHP 8.3은 <a target="_blank" rel="noopener" href="https://launchpad.net/~ondrej/+archive/ubuntu/php/">ondrej&#x2F;php</a> PPA에서 사용할 수 있습니다.</li>
+<li>Fedora&#x2F;RHEL&#x2F;CentOS: <a target="_blank" rel="noopener" href="https://blog.remirepo.net/">Remi 저장소</a>에서 소프트웨어 컬렉션(php83)으로 제공됩니다.</li>
+<li>macOS: PHP 8.3은 홈브류를 통해 <a target="_blank" rel="noopener" href="https://github.com/shivammathur/homebrew-php/packages">shivammathur&#x2F;homebrew-php</a> 탭을 사용하여 설치할 수 있습니다.</li>
+<li>Docker: 이제 <a target="_blank" rel="noopener" href="https://hub.docker.com/_/php/tags?page=1&name=8.3">8.3 태그</a>가 있는 PHP 8.3 이미지를 <a target="_blank" rel="noopener" href="https://hub.docker.com/_/php">Docker Hub</a>에서 사용할 수 있습니다.</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://blog.jetbrains.com/phpstorm/2023/11/phpstorm-now-supports-php-8-3/">PhpStorm은 이미 PHP 8.3을 지원합니다</a>.</p>
+<p>Freek, Brent, Roman과 함께하는 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=VWryF035B6U">PHP 8.3 축하 스트림</a>을 시청하세요.</p>
+<h2 id="⚠️-PHP-8-0의-수명이-다했습니다"><a href="#⚠️-PHP-8-0의-수명이-다했습니다" class="headerlink" title="⚠️ PHP 8.0의 수명이 다했습니다."></a>⚠️ PHP 8.0의 수명이 다했습니다.</h2><p>PHP 8.0.30은 PHP 8.0의 마지막 릴리스입니다. 더 이상 공식 보안 업데이트가 제공되지 않습니다.</p>
+<h2 id="PHP-8-1-26-and-PHP-8-2-13-have-been-released"><a href="#PHP-8-1-26-and-PHP-8-2-13-have-been-released" class="headerlink" title="PHP 8.1.26 and PHP 8.2.13 have been released"></a>PHP 8.1.26 and PHP 8.2.13 have been released</h2><p><a target="_blank" rel="noopener" href="https://www.php.net/ChangeLog-8.php#8.1.26">https://www.php.net/ChangeLog-8.php#8.1.26</a><br><a target="_blank" rel="noopener" href="https://www.php.net/ChangeLog-8.php#8.2.13">https://www.php.net/ChangeLog-8.php#8.2.13</a></p>
+<p>🐛 버그 수정 릴리스입니다.</p>
+<p>PHP 8.1 브랜치는 마지막 버그 수정 릴리스인 PHP 8.1.27이 한 번 더 릴리스될 예정이며, 그 이후에는 보안 버그 수정만 릴리스됩니다.</p>
+<h2 id="🎂-PHP-재단-창립-2주년"><a href="#🎂-PHP-재단-창립-2주년" class="headerlink" title="🎂 PHP 재단 창립 2주년"></a>🎂 PHP 재단 창립 2주년</h2><p>PHP 재단은 <a target="_blank" rel="noopener" href="https://blog.jetbrains.com/phpstorm/2021/11/the-php-foundation/">2년 전에 설립</a>되었습니다.<br>지난 한 해 동안 PHP 재단은 6명의 <a target="_blank" rel="noopener" href="https://thephp.foundation/structure/#core_developers">핵심 개발자</a>의 작업을 지원했으며, PHP 언어에 상당한 기여를 했습니다.</p>
+<p><a target="_blank" rel="noopener" href="https://thephp.foundation/blog/2023/11/27/php-foundation-update-november-2023/">PHP 재단의 2023년 11월 업데이트</a>를 확인하세요.</p>
+<p><a target="_blank" rel="noopener" href="https://opencollective.com/phpfoundation">OpenCollective</a> 또는 <a target="_blank" rel="noopener" href="https://github.com/sponsors/thephpf">GitHub Sponsors</a>를 통해 PHP 재단을 <a target="_blank" rel="noopener" href="https://thephp.foundation/donate/">지원</a>하는 것도 고려해 보세요.</p>
+<h1 id="PHP-Core"><a href="#PHP-Core" class="headerlink" title="PHP Core"></a>PHP Core</h1><p>대부분의 핵심 소식은 PHP 재단에서 제공하는 PHP 코어 라운드업 시리즈에서 자세히 다루고 있으므로 몇 가지만 간략하게 언급하겠습니다:</p>
+<h2 id="📣-RFC-Resource-to-object-conversion"><a href="#📣-RFC-Resource-to-object-conversion" class="headerlink" title="📣 RFC: Resource to object conversion"></a>📣 RFC: Resource to object conversion</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/resource_to_object_conversion">RFC: resource를 object로 변환</a></p>
+<p><code>resource</code>는 오래전부터 객체로 대체된 PHP의 구식 데이터 구조입니다. <a target="_blank" rel="noopener" href="https://php.watch/articles/resource-object">resource를 object로 대체하는 작업</a>은 2013년에 시작되었지만, 대부분의 확장 기능은 PHP 8.0이 출시되면서 마이그레이션되었습니다.</p>
+<p>Máté Kocsis는 나머지 확장 기능을 마이그레이션하고 향후 개발을 위한 정책을 정의할 것을 제안합니다.</p>
+<h2 id="📣-RFC-Release-cycle-update"><a href="#📣-RFC-Release-cycle-update" class="headerlink" title="📣 RFC: Release cycle update"></a>📣 RFC: Release cycle update</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/release_cycle_update">RFC: 릴리스 주기 업데이트</a></p>
+<p>현재 PHP 버전의 수명은 3년입니다. 많은 사람이 이 기간이 너무 짧고 6개월인 사전 릴리스 단계가 지나치게 길다고 생각합니다.<br>PHP 8.3 릴리스 관리자인 Jakub Zelenka는 PHP 버전 수명을 4년(유지보수 2년, 보안 업데이트 2년)으로 늘리고 사전 릴리스 단계를 수정할 것을 제안합니다.</p>
+<h2 id="📣-RFC-Improve-callbacks-in-ext-x2F-dom-and-ext-x2F-xsl"><a href="#📣-RFC-Improve-callbacks-in-ext-x2F-dom-and-ext-x2F-xsl" class="headerlink" title="📣 RFC: Improve callbacks in ext&#x2F;dom and ext&#x2F;xsl"></a>📣 RFC: Improve callbacks in ext&#x2F;dom and ext&#x2F;xsl</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/improve_callbacks_dom_and_xsl">RFC: ext&#x2F;dom 및 ext&#x2F;xsl의 콜백 개선</a></p>
+<p>Niels Dossche는 <code>callable</code>을 사용할 수 있는 <code>XSLTProcessor::registerPHPFunctions()</code> 및 <code>DOMXPath::registerPhpFunctions()</code> 메서드를 허용할 것을 제안했습니다.</p>
+<h2 id="📣-RFC-Change-how-JIT-is-disabled-by-default"><a href="#📣-RFC-Change-how-JIT-is-disabled-by-default" class="headerlink" title="📣 RFC: Change how JIT is disabled by default"></a>📣 RFC: Change how JIT is disabled by default</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/jit_config_defaults">RFC: JIT가 기본적으로 비활성화되는 방식 변경</a></p>
+<p>현재 JIT는 <code>tracing</code> 모드에서 실행 중이지만 <code>opcache.jit_buffer_size</code>가 <code>0</code>으로 설정되면 기본적으로 비활성화됩니다. RFC에서는 <code>opcache.jit=disable</code>을 설정함으로써 기본적으로 JIT를 비활성화하고, 기본 <code>jit_buffer_size</code> 값을 64m로 늘릴 것을 제안합니다.</p>
+<h2 id="📣-RFC-Final-anonymous-classes"><a href="#📣-RFC-Final-anonymous-classes" class="headerlink" title="📣 RFC: Final anonymous classes"></a>📣 RFC: Final anonymous classes</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/final_anonymous_classes">RFC: Final 익명 클래스</a></p>
+<p>RFC에서는 익명 클래스 사용 환경을 개선하기 위한 세 가지 옵션 중 하나를 제안합니다:</p>
+<ol>
+<li>최종 익명 클래스에 대한 지원 추가(<code>new final class &#123;&#125;</code> 구문, 호환성 유지).</li>
+<li>또는 모든 익명 클래스를 최종 클래스로 만드는 옵션 없이 기본적으로 모든 익명 클래스를 최종 클래스로 만듭니다(호환성 깨짐).</li>
+<li>또는 모든 익명 클래스를 기본적으로 최종 클래스로 만들고, 선택적 <code>open</code> 키워드를 제공하여 최종 클래스가 아닌 것으로 만듭니다(Kotlin에서와 같이, new open class {}, 호환성 깨짐).</li>
+</ol>
+<h2 id="📣-RFC-Property-Hooks"><a href="#📣-RFC-Property-Hooks" class="headerlink" title="📣 RFC: Property Hooks"></a>📣 RFC: Property Hooks</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/property-hooks">RFC: 프로퍼티 훅</a><br>이 RFC에서 Ilija Tovillo와 Larry Garfield는 get&#x2F;set 함수를 사용하여 가상 프로퍼티를 선언할 것을 제안합니다.</p>
+<p>설계 및 구문은 <a target="_blank" rel="noopener" href="https://kotlinlang.org/docs/properties.html#getters-and-setters">Kotlin</a>과 가장 유사하지만 C# 및 <a target="_blank" rel="noopener" href="https://docs.swift.org/swift-book/documentation/the-swift-programming-language/properties/#Computed-Properties">Swift</a>의 영향도 받습니다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="keyword">implements</span> <span class="title">Named</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">bool</span> <span class="variable">$isModified</span> = <span class="literal">false</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="keyword">private</span> <span class="keyword">string</span> <span class="variable">$first</span>, <span class="keyword">private</span> <span class="keyword">string</span> <span class="variable">$last</span></span>) </span>&#123;&#125;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> <span class="variable">$fullName</span> &#123;</span><br><span class="line">        get =&gt; <span class="variable language_">$this</span>-&gt;first . <span class="string">&quot; &quot;</span> . <span class="variable language_">$this</span>-&gt;last;</span><br><span class="line"> </span><br><span class="line">        <span class="title function_ invoke__">set</span>(<span class="variable">$value</span>) =&gt; [<span class="variable language_">$this</span>-&gt;first, <span class="variable language_">$this</span>-&gt;last] = <span class="title function_ invoke__">explode</span>(<span class="string">&#x27; &#x27;</span>, <span class="variable">$value</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>이 RFC의 흥미로운 부작용은 인터페이스에서 추상 속성을 선언할 수 있다는 점입니다:</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">abstract</span> <span class="keyword">public</span> <span class="keyword">string</span> <span class="variable">$readable</span> &#123; get; &#125;</span><br><span class="line">    <span class="keyword">abstract</span> <span class="keyword">protected</span> <span class="keyword">string</span> <span class="variable">$writeable</span> &#123; set; &#125;</span><br><span class="line">    <span class="keyword">abstract</span> <span class="keyword">protected</span> <span class="keyword">string</span> <span class="variable">$both</span> &#123; get; set; &#125;   </span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> <span class="keyword">extends</span> <span class="title">A</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> <span class="variable">$readable</span>;</span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">string</span> <span class="variable">$readable</span>;</span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">string</span> <span class="variable">$writeable</span> &#123;</span><br><span class="line">        set =&gt; <span class="variable">$field</span> = <span class="variable">$value</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> <span class="variable">$both</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://github.com/sponsors/SjonHortensius">Sjon Hortensius</a> 덕분에 이미 <a target="_blank" rel="noopener" href="https://3v4l.org/">3v4l.org</a>에서 프로퍼티 훅을 사용해 볼 수 있습니다.</p>
+<p>그리고 <a target="_blank" rel="noopener" href="https://rfc.stitcher.io/">RFC Vote</a>에 피드백을 제공할 수도 있습니다: <a target="_blank" rel="noopener" href="https://rfc.stitcher.io/rfc/property-hooks">Property Hooks</a></p>
+<h1 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h1><ul>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/php-tui/php-tui">php-tui&#x2F;php-tui</a> – 의사(pseudo) 그래픽 UI를 갖춘 PHP로 콘솔 애플리케이션을 만들기 위한 프레임워크.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/Crell/Serde">Crell&#x2F;Serde</a> – PHP 8을 위한 강력한 직렬화&#x2F;역직렬화 라이브러리.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/pestphp/pest-plugin-stressless">pestphp&#x2F;pest-plugin-stressless</a> – <a target="_blank" rel="noopener" href="https://github.com/grafana/k6">grafana&#x2F;k6</a> 위에 구축된 Pest용 스트레스 부하 테스트 플러그인. 소개 비디오 📺 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=SaMoPZwdOCY">Stressless: PHP를 위한 스트레스 테스트</a>를 참조하세요.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/buggregator/server">buggregator&#x2F;server</a> – XHprof 프로파일러, Symfony VarDumper 서버, SMTP 서버, Sentry 호환 서버, Monolog 서버, HTTP 요청 덤프 서버 등 PHP 애플리케이션을 위한 다양한 디버깅 기능을 제공하는 경량의 독립형 서버입니다.<br>보다 편리한 PHP 디버깅을 위한 콘솔 미니 서버 및 도우미인 <a target="_blank" rel="noopener" href="https://github.com/buggregator/trap">buggregator&#x2F;trap</a>이 함께 제공됩니다.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/NoiseByNorthwest/php-spx">NoiseByNorthwest&#x2F;php-spx</a> – 웹 UI가 내장된 간단하고 직관적인 PHP 프로파일링 확장 프로그램입니다.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/reliforp/reli-prof">reliforp&#x2F;reli-prof</a> – PHP로 작성된 PHP용 샘플링 프로파일러 또는 메모리 프로파일러로, 프로세스 외부에서 PHP VM 실행에 대한 정보를 읽습니다. 대상 스크립트를 변경하거나 확장을 로드하지 않고도 스크립트에서 성능 병목 현상이나 메모리 누수를 찾을 수 있습니다.<br>또는 PHP용 메모리 프로파일러 확장 프로그램인 <a target="_blank" rel="noopener" href="https://github.com/arnaud-lb/php-memory-profiler">arnaud-lb&#x2F;php-memory-profiler</a>를 사용해 볼 수도 있습니다. PHP 스크립트에서 메모리 누수를 찾는 데 도움이 됩니다.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/saloonphp/xml-wrangler">saloonphp&#x2F;xml-wrangler</a> – XML을 쉽게 읽고 쓸 수 있도록 설계된 간단한 PHP 라이브러리. <a target="_blank" rel="noopener" href="https://github.com/veewee/xml">veewee&#x2F;xml</a>도 확인해보세요 - PHP에서 XML로 걱정 없이 작업하는 데 필요한 모든 도구를 제공하는 패키지입니다.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/jolicode/JoliMarkdown">jolicode&#x2F;JoliMarkdown</a> – 마크다운 콘텐츠를 위한 구문 수정기. 자세한 내용은 졸리마크다운 소개를 읽어보세요.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/cerbero90/lazy-json">cerbero90&#x2F;lazy-json</a> – 프레임워크에 구애받지 않고 모든 차원과 소스의 JSON 파일을 Laravel 지연 컬렉션에 재귀적으로 로드하는 패키지입니다.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/staabm/phpstan-baseline-analysis">staabm&#x2F;phpstan-baseline-analysis</a> – PHPStan 기준 파일을 분석하고 집계된 오류 추세 보고서를 생성합니다.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/spiral/json-schema-generator">spiral&#x2F;json-schema-generator</a> – DTO(데이터 전송 객체) 클래스에서 JSON 스키마를 생성하는 기능을 제공합니다.</p>
+</li>
+</ul>
+<h1 id="Symfony"><a href="#Symfony" class="headerlink" title="Symfony"></a>Symfony</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://symfony.com/7">Symfony 7</a> released<br>이번 릴리스의 새로운 기능에 대해 알아보려면 <a target="_blank" rel="noopener" href="https://symfony.com/blog/category/living-on-the-edge/7.0-6.4">최신 기능 목록</a>을 확인하세요. 또는 Alexander M. Turek의 <a target="_blank" rel="noopener" href="https://slidr.io/derrabus/hello-symfony-7#1">Hello Symfony 7</a> 슬라이드를 확인해 보세요.<br><a target="_blank" rel="noopener" href="https://symfony.com/releases/6.4">Symfony 6.4</a>도 7.0과 함께 출시되었습니다. 두 버전 모두 더 이상 사용되지 않는 기능에 대한 지원을 제외하고는 동일한 기능 세트를 포함하고 있습니다.<br>또한 Symfony 6.4는 장기 지원 버전으로 3년 동안 버그 수정, 1년 동안 보안 버그 수정이 제공됩니다. Symfony 7.0은 8개월 동안만 지원되는 일반 버전입니다.</li>
+<li><a target="_blank" rel="noopener" href="https://jolicode.com/blog/making-a-single-page-application-with-htmx-and-symfony">HTMX와 심포니로 단일 페이지 애플리케이션 만들기</a> by Julien Cousin-Alliot.</li>
+<li><a target="_blank" rel="noopener" href="https://smaine-milianni.medium.com/a-retry-mechanism-for-symfony-commands-15d48f9d4657">Symfony command에 대한 재시도 메커니즘</a> by Smaine Milianni.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/phpyh/service-dumper-bundle">phpyh&#x2F;service-dumper-bundle</a> – 의존성 주입 서비스를 덤프하는 Symfony console command</li>
+</ul>
+<h1 id="Laravel"><a href="#Laravel" class="headerlink" title="Laravel"></a>Laravel</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://pulse.laravel.com/">Laravel Pulse announced</a> - 라라벨 팀이 곧 출시될 무료 오픈소스 도구를 공개했습니다. 이 도구는 앱의 주요 성능 및 사용량 지표가 포함된 대시보드가 될 것입니다.</li>
+<li><a target="_blank" rel="noopener" href="https://tinkerwell.app/whats-new-in-tinkerwell-4">Tinkerwell v4가 출시되었습니다</a> - 📺 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9FBBsnwRWJ4">Detail Dive</a>에서 자세한 내용을 확인해 보세요.</li>
+<li><a target="_blank" rel="noopener" href="https://www.mongodb.com/blog/post/mongodb-laravel-integration-now-officially-supported">이제 공식적으로 지원되는 MongoDB 라라벨 통합</a> - MongoDB는 커뮤니티가 주도하는 라라벨용 MongoDB 통합 개발 작업을 인수하여 그들의 제품 포트폴리오의 일류 시민으로 만들었습니다.</li>
+<li><a target="_blank" rel="noopener" href="https://benjamincrozat.com/how-laravel-works">라라벨은 어떻게 작동하나요? 명쾌하게 설명합니다</a> by Benjamin Crozat.</li>
+<li><a target="_blank" rel="noopener" href="https://dcblog.dev/my-process-for-writing-laravel-packages">라라벨 패키지 작성 프로세스</a> by David Carr.</li>
+<li><a target="_blank" rel="noopener" href="https://muhammedsari.me/unorthodox-eloquent-2">정통적이지 않은 Eloquent II</a> by Muhammed Sari.</li>
+<li><a target="_blank" rel="noopener" href="https://tighten.com/insights/overview-of-caching-strategies-in-laravel/">제이미슨 발렌타의 라라벨의 캐싱 전략</a> by Jamison Valenta.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/laravel/pail">laravel&#x2F;pail</a> - 터미널에서 라라벨 로그를 편리하게 볼 수 있는 도구.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/waterholeforum/core">waterholeforum&#x2F;core</a> - 라라벨 기반 커뮤니티 플랫폼&#x2F;포럼.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/BookStackApp/BookStack">BookStackApp&#x2F;BookStack</a> - PHP와 라라벨로 구축된 문서&#x2F;위키 콘텐츠를 생성하는 플랫폼.</li>
+</ul>
+<h1 id="Other-Frameworks"><a href="#Other-Frameworks" class="headerlink" title="Other Frameworks"></a>Other Frameworks</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://wordpress.org/news/2023/11/shirley/">WordPress 6.4 “Shirley” 출시</a></li>
+</ul>
+<h1 id="기타"><a href="#기타" class="headerlink" title="기타"></a>기타</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://jeffochoa.me/php-enums-best-practices">PHP 열거형 사용 모범 사례</a> by Jeff Ochoa.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/php-fig/per-coding-style/blob/master/migration-2.0.md">PER-CS v1.0(PSR-12)에서 PER-CS v2.0으로 마이그레이션하기</a> by PHP-FIG.</li>
+<li><a target="_blank" rel="noopener" href="https://php.watch/articles/php-curl-http3">PHP Curl 확장을 사용한 HTTP&#x2F;3 요청</a> by Ayesh Karunaratne.</li>
+<li><a target="_blank" rel="noopener" href="https://php.watch/articles/caddy-php">PHP로 Caddy Server를 사용하는 방법</a> by Ayesh Karunaratne.</li>
+<li><a target="_blank" rel="noopener" href="https://www.dereuromark.de/2023/11/27/working-with-decimals-in-php-apps/">PHP 앱에서 소수점(decimal) 작업하기</a> by Mark Scherer.</li>
+<li><a target="_blank" rel="noopener" href="https://developer.vonage.com/en/blog/type-safety-done-right-php-array-hacking">올바른 타입 안전 - PHP 배열 해킹</a> by James Seconde.</li>
+<li><a target="_blank" rel="noopener" href="https://staabm.github.io/2023/10/30/phpstan-filter-baseline.html">Phpstan Filter Baseline</a> by Markus Staab – 거대한 Phpstan Filter Baseline을 통해 작업하는 한 가지 방법.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/php-youtubers/directory">PHP 유튜버 목록 큐레이션</a>.</li>
+<li><a target="_blank" rel="noopener" href="https://finixbit.github.io/posts/autonomous-Hacking-of-PHP-Web-Applications-at-the-Bytecode-Level/">바이트코드 수준에서 PHP 웹 애플리케이션을 자율적으로 해킹하는 방법</a> by Samuel Finixbit.</li>
+<li><a target="_blank" rel="noopener" href="https://bref.sh/docs/case-studies/treezor">브레프 사례 연구: Bref로 서버리스 뱅킹 플랫폼을 운영하는 Treezor</a> - 서버의 레거시 PHP 모놀리스로 시작하여 이 모놀리스를 람다(일명 “람다 안의 은행”)에 넣은 다음 마이크로서비스로 전환한 방법.</li>
+<li><a target="_blank" rel="noopener" href="https://www.exakat.io/en/mastering-the-array-cast-operator-in-php-a-comprehensive-guide/">PHP에서 (배열) 형 변환 연산자 마스터하기: 종합 가이드</a> by Damien Seguy.</li>
+<li><a target="_blank" rel="noopener" href="https://chat.openai.com/g/g-6cqBCrKTn-wp-plugin-architect">WP-Plugin-Architect</a> - 코드 보안에 특별한 주의를 기울이면서 워드프레스 플러그인을 작성할 수 있는 사용자 정의 (채팅)GPT.</li>
+<li><blockquote class="twitter-tweet"><p lang="en" dir="ltr">Cool <a target="_blank" rel="noopener" href="https://twitter.com/hashtag/gpt?src=hash&amp;ref_src=twsrc%5Etfw">#gpt</a> trick I learned from a friend today:<br><br>1) create a private GPT<br>2) upload your <a target="_blank" rel="noopener" href="https://twitter.com/hashtag/php?src=hash&amp;ref_src=twsrc%5Etfw">#php</a> project in a zip<br>3) ask it questions on how to improve it<br><br>Who knew this goes far beyond the 128k context window 😎<br><br>The results are impresive... feels like talking to myself with having… <a target="_blank" rel="noopener" href="https://t.co/nlOyFlmQ70">pic.twitter.com/nlOyFlmQ70</a></p>&mdash; Tomas Votruba (@VotrubaT) <a target="_blank" rel="noopener" href="https://twitter.com/VotrubaT/status/1725272310729306346?ref_src=twsrc%5Etfw">November 16, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></li>
+<li>(역자주) 위 트윗의 댓글에서 언급한 업로드 방법: <a target="_blank" rel="noopener" href="https://twitter.com/pwang_szn/status/1722932229436014772">https://twitter.com/pwang_szn/status/1722932229436014772</a></li>
+</ul>
+<h1 id="Fun"><a href="#Fun" class="headerlink" title="Fun"></a>Fun</h1><ul>
+<li>Sylius는 현재 Kickstarter에서 크라우드 펀딩 캠페인으로 <a target="_blank" rel="noopener" href="https://www.kickstarter.com/projects/734475887/sylius-elephpant">ElePHPant를 제공</a>하고 있습니다.<br><img src="https://sylius.elephpant.com/assets/images/main-photo-cropped-ead882b453e3227a738a15f4074f1410.jpg" alt="ElePHPant 이미지"></li>
+<li><a target="_blank" rel="noopener" href="https://www.vincentpontier.com/elephpant/produit/the-ping-original-legend-numbered-certified/">오리지널 핑크 코끼리</a>가 판매 중입니다.</li>
+</ul>
+<h1 id="Conferences"><a href="#Conferences" class="headerlink" title="Conferences"></a>Conferences</h1><p>앞으로 개최될 PHP 행사에 참석하여 발표를 신청해 보세요:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://live.symfony.com/2023-brussels-con/">SymfonyCon</a> – Brussels, Belgium, December 7–8, 2023.</li>
+<li><a target="_blank" rel="noopener" href="https://laracon.eu/">Laracon EU</a> – Amsterdam, The Netherlands, Feb 5–6, 2024.</li>
+<li><a target="_blank" rel="noopener" href="https://www.phpconference.co.uk/">PHP UK</a> – London, UK, February 15–16, 2024.</li>
+<li><a target="_blank" rel="noopener" href="https://laracon.in/">Laracon India</a> – Udaipur, India, March 23–24, 2024. <a target="_blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSdHBOswhGtvmrZLaeHDwdnksJ4oHCvNG58oTyC5roTNA99Qjw/viewform">CFP</a></li>
+<li><a target="_blank" rel="noopener" href="https://tek.phparch.com/">PHP[TEK] 2024</a> – Chicago, IL, USA, April 23–25, 2024. <a target="_blank" rel="noopener" href="https://sessionize.com/phptek-2024">CFP</a></li>
+<li><a target="_blank" rel="noopener" href="https://2024.phpday.it/">phpday 2024</a> – Verona, Italy, May 16–17, 2024. <a target="_blank" rel="noopener" href="https://sessionize.com/phpday-2024">CFP</a></li>
+<li><a target="_blank" rel="noopener" href="https://phpconference.com/berlin-en/">International PHP Conference</a> – Berlin, Germany, May 27–31, 2024 <a target="_blank" rel="noopener" href="https://phpconference.com/call-for-papers/">CFP</a></li>
+</ul>
+<p>가까운 PHP 밋업이 언제 열리는지 궁금하다면 <a target="_blank" rel="noopener" href="https://twitter.com/VotrubaT">Tomas Votruba</a>가 운영하는 멋진 밋업 애그리게이터 <a target="_blank" rel="noopener" href="https://friendsofphp.org/">friendsofphp.org</a>를 이용해 보세요. <a target="_blank" rel="noopener" href="https://www.php.net/cal.php">php.net에 캘린더</a>도 있습니다.</p>
+<hr>
+<p>pestphp&#x2F;pest-plugin-stressless</p>
+<ul>
+<li>어쩐지 미래에 쓰게 될 날이 올 것만 같은 툴<br>buggregator&#x2F;server</li>
+<li>어쩐지 미래에 쓰게 될 날이 올 것만 같은 툴 2<br>정통적이지 않은 Eloquent II</li>
+<li>Eloquent를 요리 보고 저리 보는 시리즈. 이 스타일에 동의하든 안 하든 Eloquent를 좀 더 깊게 이해하기 위해 도움되는 글.<br>Tomas Votruba의 트윗 - private GPT에 코드를 올리고 분석</li>
+</ul>
+<hr>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -2248,212 +2469,6 @@
 </ul>
 <p>이는 6.2.2 버전부터 <a target="_blank" rel="noopener" href="https://github.com/redis/redis/pull/8817">해결</a> 됐습니다.</p>
 <p>&lt; 끝 &gt;</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://haah.kr/2022/12/02/handling-redis-connections-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="youngiggy">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ha-ah">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | ha-ah">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/12/02/handling-redis-connections-1/" class="post-title-link" itemprop="url">식은땀이 흐르는 Redis 서버 교체기 1편</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-12-02 20:00:00" itemprop="dateCreated datePublished" datetime="2022-12-02T20:00:00+09:00">2022-12-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-12-04 11:57:04" itemprop="dateModified" datetime="2022-12-04T11:57:04+09:00">2022-12-04</time>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2022/12/02/handling-redis-connections-1/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2022/12/02/handling-redis-connections-1/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><em>올여름 Redis 서버 교체 과정에서 여러 번의 장애를 겪은 후 뼈에 새기는 반성문입니다.</em></p>
-<p>목차</p>
-<ul>
-<li><strong>낡은 캐시 서버를 교체하라</strong></li>
-<li><strong>섣부른 서버 교체, 죄송합니다</strong></li>
-<li><strong>ElastiCache의 지표들을 이해해봅니다</strong></li>
-<li>애플리케이션 서버에서 문제를 찾아봅시다</li>
-<li>살려야 한다</li>
-<li>살려는 드렸는데…</li>
-<li>마무리</li>
-<li>부록 : 도입하는 과정에서 알게 된 잡다한 지식</li>
-</ul>
-<h1 id="낡은-캐시-서버를-교체하라"><a href="#낡은-캐시-서버를-교체하라" class="headerlink" title="낡은 캐시 서버를 교체하라"></a>낡은 캐시 서버를 교체하라</h1><p>오랜 시간 큰 문제 없이 사용하던 Redis 서버가 있었습니다.</p>
-<p>TLS 연결도 없이 default user를 사용했는데, Laravel 애플리케이션의 database.php 파일 설정은 이렇게 간단했죠.</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line">    <span class="string">&#x27;redis&#x27;</span> =&gt; [</span><br><span class="line">        <span class="string">&#x27;client&#x27;</span> =&gt; <span class="string">&#x27;predis&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;default&#x27;</span> =&gt; [</span><br><span class="line">            <span class="string">&#x27;host&#x27;</span> =&gt; <span class="title function_ invoke__">env</span>(<span class="string">&#x27;REDIS_HOST&#x27;</span>, <span class="string">&#x27;127.0.0.1&#x27;</span>),</span><br><span class="line">            <span class="string">&#x27;port&#x27;</span> =&gt; <span class="title function_ invoke__">env</span>(<span class="string">&#x27;REDIS_PORT&#x27;</span>, <span class="number">6379</span>),</span><br><span class="line">            <span class="string">&#x27;database&#x27;</span> =&gt; <span class="number">0</span>,</span><br><span class="line">        ],</span><br><span class="line">    ],</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-<p>보안취약점 개선 작업을 준비하던 과정에서 EOL 소식도 들었습니다(<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/ko_kr/AmazonElastiCache/latest/red-ug/deprecated-engine-versions.html">Redis 버전의 수명 종료 일정</a> 참고).</p>
-<p><img src="/images/handling-redis-connections/redis-eol-warning.png" alt="redis eol warning 이미지"></p>
-<p>개선하는 김에 버전도 Redis 6.2 이상으로 올리고<br>default user를 사용하는 대신 최신 버전에서 지원하는 역할 기반 액세스 제어(RBAC)를 사용한 사용자 인증,<br>여기에 TLS 연결까지 적용하기로 했어요.</p>
-<h1 id="섣부른-서버-교체-죄송합니다"><a href="#섣부른-서버-교체-죄송합니다" class="headerlink" title="섣부른 서버 교체, 죄송합니다"></a>섣부른 서버 교체, 죄송합니다</h1><p>이제 조금 더 복잡해진 설정.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#x27;redis&#x27; =&gt; [</span><br><span class="line">    &#x27;client&#x27; =&gt; &#x27;predis&#x27;,</span><br><span class="line">    &#x27;default&#x27; =&gt; [</span><br><span class="line">        &#x27;scheme&#x27; =&gt; env(&#x27;REDIS_SCHEME&#x27;, &#x27;tcp&#x27;),</span><br><span class="line">        &#x27;ssl&#x27; =&gt; [&#x27;verify_peer&#x27; =&gt; env(&#x27;REDIS_VERIFY_PEER&#x27;, true)],</span><br><span class="line">        &#x27;host&#x27; =&gt; env(&#x27;REDIS_HOST&#x27;, &#x27;127.0.0.1&#x27;),</span><br><span class="line">        &#x27;username&#x27; =&gt; env(&#x27;REDIS_USERNAME&#x27;, null),</span><br><span class="line">        &#x27;password&#x27; =&gt; env(&#x27;REDIS_PASSWORD&#x27;, null),</span><br><span class="line">        &#x27;port&#x27; =&gt; env(&#x27;REDIS_PORT&#x27;, 6379),</span><br><span class="line">        &#x27;database&#x27; =&gt; env(&#x27;REDIS_DATABASE&#x27;, 0),</span><br><span class="line">    ],</span><br><span class="line">],</span><br></pre></td></tr></table></figure>
-
-<p>테스트 환경과 트래픽이 낮은 다른 서비스에 미리 도입해서 잘 동작하는 것은 확인했습니다.</p>
-<p>연결 테스트:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># openssl 설치</span></span><br><span class="line">apt-get update;apt-get install -y openssl;</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 서버 연결</span></span><br><span class="line">openssl s_client --connect 신규레디스호스트명:6379</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 인증</span></span><br><span class="line">AUTH &lt;username&gt; &lt;password&gt;</span><br></pre></td></tr></table></figure>
-
-<p>애플리케이션 테스트 by tinker</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">Psy Shell v0.<span class="number">9.12</span> (PHP <span class="number">7.4</span>.<span class="number">33</span> — cli) by Justin Hileman</span><br><span class="line">&gt;&gt;&gt; <span class="title function_ invoke__">config</span>(<span class="string">&#x27;database.redis&#x27;</span>);</span><br><span class="line">=&gt; [</span><br><span class="line">      ...</span><br><span class="line">   ]</span><br><span class="line">&gt;&gt;&gt; <span class="title class_">Cache</span>::<span class="title function_ invoke__">put</span>(<span class="string">&#x27;test&#x27;</span>, <span class="string">&#x27;testval&#x27;</span>, <span class="number">1</span>); <span class="title class_">Cache</span>::<span class="title function_ invoke__">get</span>(<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line">=&gt; <span class="string">&quot;testval&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="1차-시도"><a href="#1차-시도" class="headerlink" title="1차 시도"></a>1차 시도</h2><p>오전 8시경 트래픽이 비교적 많은 서비스에 넣어봤습니다.</p>
-<p>저희 서비스는 식당이 주 고객이라서 매장 오픈 시간부터 트래픽이 몰리는데, 특히 11시부터 2시까지를 오전 피크로 보고 있습니다.<br>AWS에서 운영 중인 API 서버군의 ELB Latency 지표는 일반적으로 130ms ~ 150ms 사이를 유지하고 있습니다.</p>
-<p>여기서 ELB Latency란, “로드 밸런서가 등록된 인스턴스에 요청을 보낸 시간부터 인스턴스가 응답 헤더를 보내기 시작할 때까지 경과된 총시간(초)”을 의미합니다. (<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/ko_kr/elasticloadbalancing/latest/classic/elb-cloudwatch-metrics.html">elb-cloudwatch-metrics</a> 문서 참고)</p>
-<p>그런데 오전 11시를 넘어서며 ELB Latency가 급격히 오르기 시작합니다.</p>
-<p><img src="/images/handling-redis-connections/elb-latency-average-peak.png" alt="elb latency가 오르는 모습 이미지"></p>
-<p>지표를 확인한 순간 바로 롤백을 진행했지만 5분에서 10분 정도의 장애가 발생했습니다.</p>
-<p>바로 AWS Premium Support에 case를 열어 어떤 일이 있었는지 문의를 해봤고,<br>내부 툴로 확인한 결과라며 답변을 주셨는데, 요약하면 이렇습니다.</p>
-<p>서비스 투입되고 일정 시간 동안의 지표를 비교해본 결과</p>
-<ul>
-<li>신 Redis로 교체 시<ul>
-<li>CPUUtilization: 15% -&gt; 60% , EngineCPUutiliaztoin: 22% -&gt; 99% , Total Cmds: 기존 대비 거의 두 배로 증가</li>
-<li>HitRate는 투입 후 2시간에 걸쳐 0%에서 51%까지 상승</li>
-</ul>
-</li>
-<li>다시 구 Redis로 교체 시<ul>
-<li>CPUUtilization: 15% ~ 17% , EngineCPUutiliaztoin: 16% -&gt; 18% , Total Cmds: 20% 증가</li>
-</ul>
-</li>
-</ul>
-<p>추가로 아래와 같이 제안도 주셨습니다.</p>
-<ul>
-<li>가장 데이터가 적은 시간대에 Redis 교체를 고려</li>
-<li>기존 Redis의 데이터를 백업 후 Restore 하여 6.2 버젼의 Redis를 시작(캐쉬데이터의 TTL 이 너무 짧지 않으면)</li>
-<li>기존(cache.m5.large)보다 큰사이즈(cache.m5.xlarge 또는 그 이상)로 시작하였다가, 추후 Online scaling down을 통하여 크기를 줄이는 방법</li>
-</ul>
-<p>아마도 RBAC을 적용하면 AUTH 명령을 추가로 실행하기 때문에 전체 커맨드 수가 많이 증가했을 것이고, 캐시가 비어 있는 새로운 서버를 띄우면서 HitRate가 지나치게 낮은 것이 문제가 됐을 거라고 판단했습니다.</p>
-<h2 id="2차-시도"><a href="#2차-시도" class="headerlink" title="2차 시도"></a>2차 시도</h2><p>기존 cache.m5.large(2vCPU)에서 cache.m5.xlarge(4vCPU)로 인스턴스 타입을 올렸습니다.<br>교체 전 스냅샷을 생성하고(10분 이내), 스냅샷으로부터 신규 Redis 서버를 생성했습니다(30분 이내)</p>
-<p>이번에는 엔진 지표도 함께 볼 수 있게 모니터링 대시보드를 설정했습니다. </p>
-<p><img src="/images/handling-redis-connections/EngineCPUUtilization-of-first-try.png" alt="EngineCPUUtilization 추가된 1차 시도의 Redis 지표 이미지"></p>
-<ul>
-<li>1차 장애 당시 신규 투입된 서버의 CPUUtilization, EngineCPUUtilization 지표</li>
-<li>당시에는 EngineCPUUtilization를 보고 있지 않아서 100%까지 치고 올라가는 상황을 인지하지 못했었습니다.</li>
-<li>그림에서 레디스 서버가 두 대인 것을 확인할 수 있는데, 두 대가 클러스터로 묶여(<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/ko_kr/AmazonElastiCache/latest/red-ug/Clusters.html">cluster mode</a> 아님 주의) 한대가 장애가 날 경우를 대비하고 있습니다. 애플리케이션은 primary node만 바라보고 있습니다.</li>
-</ul>
-<p>교체 시작!</p>
-<p><img src="/images/handling-redis-connections/redis-metric-of-second-try.png" alt="두번째 시도에서의 Redis 지표 이미지"></p>
-<ul>
-<li>Redis는 어쩐지 안정적인 것 같았습니다.</li>
-</ul>
-<p>하지만 애플리케이션 서버 쪽 ELB Latency 지표는 200ms를 넘어가고 있었고, New Relic에서 확인한 연결 지연 시간(아래 그래프)이 심상치 않아 다시 롤백을 결정했습니다.</p>
-<p><img src="/images/handling-redis-connections/new-relic-redis-query-time-of-second-try.png" alt="New Relic에서 바라 본 두번째 시도에서의 Redis query 시간 이미지"></p>
-<p>두 번의 실패 이후, 많은 반성을 하면서 ‘나는 뭘 모르고 있는지’ 찬찬히 돌아보기로 했습니다.</p>
-<h1 id="ElastiCache의-지표들을-이해해봅니다"><a href="#ElastiCache의-지표들을-이해해봅니다" class="headerlink" title="ElastiCache의 지표들을 이해해봅니다"></a>ElastiCache의 지표들을 이해해봅니다</h1><h2 id="EngineCPUUtilization"><a href="#EngineCPUUtilization" class="headerlink" title="EngineCPUUtilization"></a>EngineCPUUtilization</h2><p>기존 사용하던 Redis 서버와 새로 띄운 서버는 몇 가지 지표에서 차이가 나긴 했지만, 모두 AWS <a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/ko_kr/AmazonElastiCache/latest/red-ug/CacheMetrics.Redis.html">Redis 지표</a> 페이지에서 권고하는 수준 안에 있었습니다.</p>
-<p>이 문제를 해결하기 위해 CPUUtilization와 EngineCPUUtilization는 물론이고, connection 관련 지표에 집중해서 모니터링하기로 했습니다.</p>
-<p>첫 번째 장애 때의 그래프를 다시 가져와 봅니다. </p>
-<p><img src="/images/handling-redis-connections/EngineCPUUtilization-of-first-try.png" alt="EngineCPUUtilization 추가된 1차 시도의 Redis 지표 이미지"></p>
-<p>CPUUtilization은 EngineCPUUtilization보다 낮았습니다.</p>
-<p>CPUUtilization은 Redis 엔진(EngineCPUUtilization으로 표현)의 동작에 백그라운드 프로세스의 비용도 포함하기 때문에 이 값이 EngineCPUUtilization보다 낮은 게 이상하다고 생각했습니다.</p>
-<p>Amazon ElastiCache for Redis 사용 설명서 &gt; <a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/ko_kr/AmazonElastiCache/latest/red-ug/CacheMetrics.WhichShouldIMonitor.html">어떤 지표를 모니터링해야 합니까?</a> 문서를 보면, vCPU를 고려해서 알림 기준을 세워야 한다고 나와 있습니다.</p>
-<blockquote>
-<p>일반적으로, 사용 가능한 CPU의 90%로 임계값을 설정하는 것이 좋습니다. Redis는 단일 스레드이기 때문에 실제 임계값은 노드 총 용량의 일부로 계산해야 합니다. 2개의 코어가 있는 노드 유형을 사용하는 경우를 예로 들어보겠습니다. 이 경우 CPUUtilization의 임계값은 90&#x2F;2 또는 45%입니다.</p>
-</blockquote>
-<p>당시 인스턴스 타입이 cache.m5.large였기 때문에 vCPU는 2개입니다.<br>위 그래프에서 CPUUtilization이 15% -&gt; 60% 올라가는 것을 봤다면, 실제로는 30% ~ 100%구나라고 인지했어야 한다는 말입니다.</p>
-<p>Amazon ElastiCache for Redis 사용 설명서 &gt; <a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/ko_kr/AmazonElastiCache/latest/red-ug/CacheMetrics.Redis.html">Redis 지표</a>에서의 설명에도 vCPU 2개까지의 소규모 호스트에선 CPUUtilization으로 보는 것이 더 낫다고 하는군요.</p>
-<blockquote>
-<p>Redis 엔진 스레드의 CPU 사용률을 제공합니다. Redis는 단일 스레드이므로 이 지표를 사용하여 Redis 프로세스 자체의 로드를 분석할 수 있습니다. EngineCPUUtilization 지표는 Redis 프로세스에 대한 보다 정확한 정보를 제공합니다. 이 지표를 CPUUtilization 지표와 함께 사용할 수 있습니다. CPUUtilization은 다른 운영 체제 및 관리 프로세스를 포함하여 전체적인 서버 인스턴스의 CPU 사용률을 표시합니다. 4개 이상의 vCPU를 포함하는 대규모 노드 유형에는 EngineCPUUtilization 지표를 사용하여 조정 임계값을 모니터링하고 설정하세요.</p>
-</blockquote>
-<blockquote>
-<p>ElastiCache 호스트에서는 백그라운드 프로세스가 관리형 데이터베이스 환경을 제공하기 위해 호스트를 모니터링합니다. 이러한 백그라운드 프로세스는 CPU 워크로드의 상당 부분을 차지할 수 있습니다. vCPU가 2개 이상(2를 초과하는)인 대규모 호스트에서는 이 점이 중요하지 않습니다. 하지만 vCPU가 2개 이하인 소규모 호스트에 영향을 줄 수 있습니다. EngineCPUUtilization 지표만 모니터링하는 경우 호스트가 Redis의 높은 CPU 사용률과 백그라운드 모니터링 프로세스의 높은 CPU 사용률로 오버로드되는 상황을 인식하지 못합니다. 따라서 vCPU가 2개 이하인 호스트의 CPUUtilization 지표를 모니터링하는 것이 좋습니다.</p>
-</blockquote>
-<p>이 내용은 Amazon ElastiCache for Redis 사용 설명서 &gt; <a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/ko_kr/AmazonElastiCache/latest/red-ug/TroubleshootingConnections.html">문제 해결</a>(Troubleshooting) 문서에서도 언급됩니다.</p>
-<blockquote>
-<p>CPU 사용량: Redis는 다중 스레드 애플리케이션입니다. 그러나 각 명령의 실행은 단일(주) 스레드에서 발생합니다. 이러한 이유로 ElastiCache는 CPUUtilization 및 EngineCPUUtilization 지표를 제공합니다. EngineCPUUtilization은 Redis 프로세스 전용 CPU 사용률을 제공하고 CPUUtilization은 모든 vCPU에 대한 사용량을 제공합니다. 두 개 이상의 vCPU가 있는 노드는 대개 CPUUtilization 및 EngineCPUUtilization의 값이 서로 다르며, 일반적으로 두 번째 값이 더 큽니다.</p>
-</blockquote>
-<p>여기서 일반적으로 두번째 값이 더 크다고 했는데, 두번째 Redis 서버 교체 당시의 지표를 다시 가져와 볼까요?</p>
-<p><img src="/images/handling-redis-connections/redis-metric-of-second-try.png" alt="두번째 시도에서의 Redis 지표 이미지"></p>
-<p>이때는 EngineCPUUtilization 지표가 계속 낮았습니다. 이 현상에 대해 AWS 측에 문의를 해봤는데,</p>
-<blockquote>
-<p>CPUUtilization &#x3D; Redis 사용 CPU(EngineCPUUtilization) + others (Redis 외 프로세스) 사용 CPU로 이해하면 될 듯합니다.<br>즉, 해당 시점에는 Redis 서비스보다 others 서비스(예를 들면, 스냅샷으로 생성 이후 스토리지 최적화를 위한 작업 ?)에 CPU가 쓰이고 있었다고 봐야 할 거 같습니다.<br>문서에서 일반적으로 EngineCPUUtilization이 높다는 것은 해당 서버가 Redis 용이니까 일반적으로 그렇다는 의미로 보입니다. </p>
-</blockquote>
-<p>화면에서 보이는 CPUUtilization 지표의 피크는 35%이고 이때도 일시 연결 오류가 발생했습니다. 그렇다면 어느 시점에 위험하다고 판단해야 했을까요?</p>
-<p>이 당시 서버는 cache.m5.xlarge(4vCPU)이기 때문에, CPUUtilization 지표의 임계값을 90&#x2F;4 즉, 20% 선으로 설정하고 20%가 넘으면 위험하다고 판단했어야 했을지도 모릅니다. AWS 측의 답변도,</p>
-<blockquote>
-<p>네 , CPUUtilization 을 기준으로 본다면 22.5 % 를 임계값으로 계산해 볼 수 있겠습니다. Redis 가 단일 Thread 로 처리되므로 단일 CPU Core 가 90% 이상 사용되지 않는 것을 임계값으로 보라는 의미로 이해됩니다.<br>단, 4vCPU 이상의 대규모 노드 유형에는 Redis 엔진 코어 대한 사용률을 보고하는 EngineCPUUtilization 지표를 사용할 수 있습니다. 현재 사용하시는 인스턴스 유형 상 EngineCPUUtilization 으로 CPU 부하상황을 판단하는 것이 맞을 것 같습니다.</p>
-</blockquote>
-<p>4vCPU의 대규모 노드라서 완전한 설명이 되는 건 아니지만, 아래와 같이 분석해볼 수 있겠습니다.</p>
-<ul>
-<li>당시 redis 자체의 부하는 높지 않았다(EngineCPUUtilization 23%)</li>
-<li>redis 이외의 프로세스에서 높은 CPU를 사용하고 있었고(22.5%를 초과) 부하의 원인이 되었다.</li>
-</ul>
-<p>Amazon ElastiCache for Redis 사용 설명서 &gt; <a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/ko_kr/AmazonElastiCache/latest/red-ug/CacheMetrics.WhichShouldIMonitor.html">어떤 지표를 모니터링해야 합니까?</a>에서 언급된 Redis 모니터링에 관한 글도 Redis 지표를 이해하는 데 많은 도움이 됩니다.</p>
-<p><a target="_blank" rel="noopener" href="https://aws.amazon.com/ko/blogs/database/monitoring-best-practices-with-amazon-elasticache-for-redis-using-amazon-cloudwatch/">https://aws.amazon.com/ko/blogs/database/monitoring-best-practices-with-amazon-elasticache-for-redis-using-amazon-cloudwatch/</a></p>
-<ul>
-<li>여기서는 신규 커넥션이 늘어날수록 CPUUtilization 지표가 높아질 수 있다고 (가볍게) 언급이 되어있습니다.</li>
-</ul>
-<p>신규 커넥션의 수 혹은 많은 커넥션 자체가 Redis 서버의 CPU 사용량을 늘리고, 이것이 장애로까지 이어졌을 거라 가정하고 개선 계획을 짜보았습니다.</p>
-<p>개선 과정은 다음 글로 이어집니다.</p>
-<p><a href="/2022/12/02/handling-redis-connections-2/">“식은땀이 흐르는 Redis 서버 교체기 2편”으로 이동</a></p>
 
       
     </div>

@@ -126,7 +126,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">120</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -165,6 +165,129 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://haah.kr/2018/12/11/php-annotated-monthly-december-2018-1st/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="youngiggy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/12/11/php-annotated-monthly-december-2018-1st/" class="post-title-link" itemprop="url">php-annotated-monthly-december-2018 - 1. News & Releases</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-12-11 00:06:51" itemprop="dateCreated datePublished" datetime="2018-12-11T00:06:51+09:00">2018-12-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2019-03-03 09:54:52" itemprop="dateModified" datetime="2019-03-03T09:54:52+09:00">2019-03-03</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/12/11/php-annotated-monthly-december-2018-1st/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/12/11/php-annotated-monthly-december-2018-1st/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2018/12/new_php-annotated-monthly.jpg" alt="Php_annotated_monthly 이미지"></p>
+<p>JetBrains에서 (거의) 매월 발행하는 <a target="_blank" rel="noopener" href="https://blog.jetbrains.com/phpstorm/2018/12/php-annotated-monthly-december-2018/">PHP Annotated Monthly</a>에서 적당히 제 입맛에 맞는 것만 추려 소개합니다. 언제나 그렇듯이 성급한 오역 죄송합니다.</p>
+<p>이번 달은 내용이 많아 쪼개서 올리겠습니다. 우선 News &amp; Releases!</p>
+<hr>
+<h2 id="PHP-7-3-0-released"><a href="#PHP-7-3-0-released" class="headerlink" title="PHP 7.3.0 released"></a>PHP 7.3.0 released</h2><p><a target="_blank" rel="noopener" href="http://php.net/releases/7_3_0.php">http://php.net/releases/7_3_0.php</a></p>
+<p>여기서 소개된 7.3의 특징으로는<br>• Flexible Heredoc and Nowdoc syntax RFC<br>• json_encode() and json_decode() function will be throwing exception in case of error and flag set RFC<br>• Trailing comma in functions calls RFC<br>• The new high-resolution monotonic timer function hrtime() PR<br>• New functions, array_key_first() and array_key_last() RFC<br>• Another new function is_countable() RFC<br>• Reference assignment in list() RFC<br>• Garbage collector improved PR<br>• Regexp engine updated to PCRE2 RFC</p>
+<p>몇가지 편리한 기능도 환영할 만 하지만 <a target="_blank" rel="noopener" href="https://www.phoronix.com/scan.php?page=news_item&px=PHP-7.3-Performance-Benchmarks">benchmark tests</a>가 인상적입니다. 벤치마크에 따라 7.2보다 살짝 높거나 10%까지 성능이 좋아졌어요.</p>
+<h2 id="PHP-on-AWS-Lambda"><a href="#PHP-on-AWS-Lambda" class="headerlink" title="PHP on AWS Lambda"></a>PHP on AWS Lambda</h2><p><a target="_blank" rel="noopener" href="https://aws.amazon.com/blogs/aws/new-for-aws-lambda-use-any-programming-language-and-share-common-components/">https://aws.amazon.com/blogs/aws/new-for-aws-lambda-use-any-programming-language-and-share-common-components/</a></p>
+<p>AWS re:Invent 2018 conference에서 좋은 소식이 들려왔습니다. 이제 AWS Lambda에서도 PHP를 쓰기 위해 우회(<a target="_blank" rel="noopener" href="https://medium.com/@stephenheron/serverless-php-9da3f00df5de)%ED%95%98%EC%A7%80">https://medium.com/@stephenheron/serverless-php-9da3f00df5de)하지</a> 않아도 정식으로 쓸 수 있게 됐습니다. <a target="_blank" rel="noopener" href="https://aws.amazon.com/blogs/aws/new-for-aws-lambda-use-any-programming-language-and-share-common-components/">Lambda Runtime API</a>를 사용하면 된다고 하는데, <a target="_blank" rel="noopener" href="https://github.com/stackery/php-lambda-layer">stackery&#x2F;php-lambda-layer</a>를 통해 만들거나 직접 만들 수도 있다고 합니다. 정확히 어떻게 돌아가는 지는 좀 더 알아봐야겠습니다. </p>
+<p>Rasmus Lerdorf가 남긴 글도 소개가 됐네요.</p>
+<blockquote>
+<p>3rd question about severless PHP in as many days. There is no such thing as serverless from the PHP perspective. It’s just a different deploy strategy and provider billing model. There are still servers running your PHP code.</p>
+</blockquote>
+<p>PHP 관점에선 serverless 같은 건 없다는 이야기인데요. PHP 코드 정도 돌리는 서버는 이미 충분하다는 뜻으로 풀이됩니다.(맞죠??)</p>
+<h2 id="PHP-Versions-Stats-2018-2-Edition"><a href="#PHP-Versions-Stats-2018-2-Edition" class="headerlink" title="PHP Versions Stats 2018.2 Edition"></a>PHP Versions Stats 2018.2 Edition</h2><p><a target="_blank" rel="noopener" href="https://blog.packagist.com/php-versions-stats-2018-2-edition/">https://blog.packagist.com/php-versions-stats-2018-2-edition/</a></p>
+<p>Composer가 설치될 때 User-Agent 헤더를 통해 PHP 버전을 전달하는데, 이를 1년에 두번씩 통계로 뽑아낸 보고서입니다. 무섭게들 업데이트 하고 있습니다. 아직 5버전을 쓰고 있다면 당장, 7.0을 쓰고 있다면 올 해 안으로 버전업 계획을 잡는 게 좋겠습니다.</p>
+<h2 id="HTTP-x2F-3-over-QUIC"><a href="#HTTP-x2F-3-over-QUIC" class="headerlink" title="HTTP&#x2F;3 over QUIC"></a>HTTP&#x2F;3 over QUIC</h2><p><a target="_blank" rel="noopener" href="https://daniel.haxx.se/blog/2018/11/11/http-3/">https://daniel.haxx.se/blog/2018/11/11/http-3/</a></p>
+<p>PHP와는 직접적으로 관련은 없지만 새로운 HTTP 표준이 탄생(renamed)했습니다.</p>
+<p>이제 HTTP2를 도입할 때입니다, 여러분.<br><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--0IyP1yFi--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/800/1%2Az5o-mslkNcdDbGzo6G3zqg.jpeg" alt="i guess we should start looking at HTTP2 then"></p>
+<ul>
+<li>출처 : <a target="_blank" rel="noopener" href="https://dev.to/grigorkh/what-is-http3--4pib">https://dev.to/grigorkh/what-is-http3--4pib</a></li>
+</ul>
+<h2 id="Symfony-leaves-PHP-FIG"><a href="#Symfony-leaves-PHP-FIG" class="headerlink" title="Symfony leaves PHP-FIG"></a>Symfony leaves PHP-FIG</h2><p><a target="_blank" rel="noopener" href="https://github.com/php-fig/fig-standards/pull/1120/files">https://github.com/php-fig/fig-standards/pull/1120/files</a></p>
+<p>Symfony의 리더인 Fabien Potencier가 PHP-FIG의 <a target="_blank" rel="noopener" href="https://github.com/php-fig/fig-standards/blob/master/personnel.md#member-projects">Member Projects 목록</a>에서 스스로를 지워버렸다고 합니다. 2년 전에도 Laravel, Propel, Doctrine, Guzzle, Stash, Aura도 이미 떠났다고 하는군요.</p>
+<p>이와 같은 맥락에 있는 2014년에 Anthony Ferrara가 쓴 <a target="_blank" rel="noopener" href="https://blog.ircmaxell.com/2014/10/an-open-letter-to-php-fig.html">open letter to PHP-FIG</a>도 소개가 됐습니다.</p>
+<p>이것 만으로는 떠난 이유가 잘 납득이 되지 않아 Fabien Potencier의 <a target="_blank" rel="noopener" href="https://twitter.com/fabpot/status/1064946698089365505">트윗</a>을 좀 더 읽어봤는데요. 여기 보면 이런 말이 나옵니다.</p>
+<blockquote>
+<p>PHP-FIG is <strong>not</strong> about interoperability anymore, it’s about creating an opinionated framework, a framework by committee…</p>
+</blockquote>
+<p>더이상 상호운용성을 위한 것이 아니라 위원회 중심으로 하나의 큰 프레임웍을 만드는 것 같다는 이야기입니다. 여기에는 PSR은 단지 Recommendations일 뿐이라는 리트윗도 꽤 많이 보이는군요. </p>
+<h2 id="NPM-dependency-hell-comparison-with-Symfony-Laravel-and-API-Platform"><a href="#NPM-dependency-hell-comparison-with-Symfony-Laravel-and-API-Platform" class="headerlink" title="NPM dependency hell: comparison with Symfony, Laravel, and API Platform"></a>NPM dependency hell: comparison with Symfony, Laravel, and API Platform</h2><p><a target="_blank" rel="noopener" href="https://dunglas.fr/2018/11/about-the-dependencies-of-symfony/">https://dunglas.fr/2018/11/about-the-dependencies-of-symfony/</a></p>
+<p>몰랐는데 얼마 전 NPM 진영에서 또 <a target="_blank" rel="noopener" href="https://blog.npmjs.org/post/180565383195/details-about-the-event-stream-incident">사고</a>가 났었나 보군요.</p>
+<p>NPM이 왜 이렇게 취약한지 PHP 프레임웍과 비교한 내용인데, 별로 재미는 없어서 마지막 결론만 언급하겠습니다. 우리도 조심하자!</p>
+<p><a target="_blank" rel="noopener" href="https://security.symfony.com/">PHP security vulnerabilities monitoring</a>에서 테스트 해보아요.</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1307,143 +1430,6 @@
 <p>이렇게 새로운 직업이 계속 생기고 여기에 다른 직업이 혁신 직업을 보조하고(그들의 생산성을 높여주고) 사라질 직업은 사라질텐데, 오래전부터 인당 투입 시간에 큰 변화가 없는 미용사, 서빙하는 종업원, 간호사 등은 앞으로도 크게 변화는 없을 것이라 내다봤으나(내가 제대로 읽은 게 맞나?) 기계가 대체하기 쉬운 건 중간 정도의 교육 수준에 중간 정도의 소득을 받는 사람들의 직업이라고 한다. 그냥 우리 모두 죽었다라고 생각해야 할지도 모르겠다. 지금의 혁신 직업에 속한 이들도 그들의 수명 안에는 중간 정도의 대체 가능한 직업이 될 테니까. 이렇게 보니 세상에 쉬운 일은 사라지고 모두가 고통에 쌓일 거라는 나의 예언이 맞아 들어간다. (젊을 때 혁신 산업에 종사하고 나이 들면 종교 산업에 들어가는 것도…)</p>
 <p><a target="_blank" rel="noopener" href="http://news.naver.com/main/read.nhn?oid=011&aid=0003335684&sid1=001">[근로시간 단축 한숨짓는 자영업] 저녁 예약 손님 뚝···식당가는 “죽을 맛” 노래방은 “곡소리”</a></p>
 <p>멍청한(혹은 고약한) 기사긴 하지만 자영업자가 이렇게 많은 것도 그릇된 회식 문화가 키워놓은 산업일 지도 모르겠다. 개개인의 생활은 고통스럽겠지만 변화는 계속 더 빨라질테고 다들 얼른 준비를 하셔야 할텐데. 나는 여전히 나이들면 외식업을 차리는 걸 고려하고 있지만, 쥐꼬리만한 월급을 모은 돈을 모두 투자해선 안된다. 나이가 들면 어떤 직업이든 치고 빠질 생각을 해야겠다.</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://haah.kr/2018/07/05/news-archive-2018-07-05/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="youngiggy">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ha-ah">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | ha-ah">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/07/05/news-archive-2018-07-05/" class="post-title-link" itemprop="url">뉴스 아카이브 2018-07-05</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2018-07-05 21:17:14 / Modified: 23:50:15" itemprop="dateCreated datePublished" datetime="2018-07-05T21:17:14+09:00">2018-07-05</time>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2018/07/05/news-archive-2018-07-05/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/07/05/news-archive-2018-07-05/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="OKKYCON-2017-참석-후기"><a href="#OKKYCON-2017-참석-후기" class="headerlink" title="OKKYCON 2017 참석 후기"></a>OKKYCON 2017 참석 후기</h2><p><a target="_blank" rel="noopener" href="http://jojoldu.tistory.com/249">http://jojoldu.tistory.com/249</a></p>
-<p>2017년 말 (후기 전문가의) 한 행사 후기를 올 4월에 읽었는데 좋은 내용이 많아 아카이브 하기로.</p>
-<p>4월에 갑자기 스크럼이 본격 도입되고(지금은 음…) 꽤나 혼란이 있었는데, 여기서 좋은 힌트를 얻었었다. 당시 이 링크를 공유하면서 이야기 했던 것이,</p>
-<blockquote>
-<p>가장 아차싶었던 것은 이번 스프린트가 끝났을 때 어떤 결과가 되길 바랐는가 생각이 없었구나 생각했어요…생략…제 티켓은 완료가 되었으나 사실 일이 완료되진 않았고 이번엔 계획하지 않았던 부분을 더 많이 고민했던 스프린트였…생략</p>
-</blockquote>
-<p>우리가 했던 애자일과 툴(JIRA)과 현실은 아구가 잘 맞지 않았고, 이런 저런 시도와 실패를 했고, 급하게 맥이 끊기게 됐지만, 좋은 경험이 됐으니 다음엔 더 제대로 해보고 싶으니, 이 정도면 애자일인가.</p>
-<p>김훈민 님의 <a target="_blank" rel="noopener" href="https://www.facebook.com/jeokrang/posts/1695423233840157">이런 포스팅</a>을 보면서는 또 다른 공감을 했다. 프로세스가 과연 도움이 되긴 하는가라는 질문인데, 똑똑한 사람들이 모였다면 간단한 프로세스를 만들고 선의를 보이고 협업을 하는 것이 최고겠지. 우리도 아직 소규모라 그런지 잘 해내는 것 같다(xx같은 놈이 팀에 없다고 생각하면 내가 xx이란 말이 있었지).</p>
-<h2 id="NDC18-야생의-땅-듀랑고의-데이터-엔지니어링-이야기-로그-시스템-구축-경험-공유"><a href="#NDC18-야생의-땅-듀랑고의-데이터-엔지니어링-이야기-로그-시스템-구축-경험-공유" class="headerlink" title="[NDC18] 야생의 땅 듀랑고의 데이터 엔지니어링 이야기: 로그 시스템 구축 경험 공유"></a>[NDC18] 야생의 땅 듀랑고의 데이터 엔지니어링 이야기: 로그 시스템 구축 경험 공유</h2><p><a target="_blank" rel="noopener" href="https://www.slideshare.net/ssuser380e9c/ndc18-95524337">https://www.slideshare.net/ssuser380e9c/ndc18-95524337</a><br><a target="_blank" rel="noopener" href="https://www.slideshare.net/ssuser380e9c/ndc18-2-95522893">https://www.slideshare.net/ssuser380e9c/ndc18-2-95522893</a></p>
-<p>주제도 참 재밌거니와 발표 자료에 하나 하나 스크립트를 달아놓아 현장감 있고 아쉽게 행사에 참여 못한 사람도 충분히 즐길 수 있는 매우 좋은 자료. 발표를 최대한 효과적으로 하기 위해 그 시간만을 위한 자료를 만드는 사람도 많은데, 매번 행사장을 찾아갈 수 없는 입장에선 조금 아쉽긴 하다. 나의 경우는 좀 귀찮아서 발표자료에 내용이 충분히 안 넣는 편…</p>
-<h2 id="😎한국어로만-선별된-타입스크립트-리소스-리스트-🇰🇷"><a href="#😎한국어로만-선별된-타입스크립트-리소스-리스트-🇰🇷" class="headerlink" title="😎한국어로만 선별된 타입스크립트 리소스 리스트 🇰🇷"></a>😎한국어로만 선별된 타입스크립트 리소스 리스트 🇰🇷</h2><p><a target="_blank" rel="noopener" href="https://github.com/typescript-kr/awesome-typescript-korean">https://github.com/typescript-kr/awesome-typescript-korean</a></p>
-<p>저 아래 <code>언젠가 쓸모 있을 것 같은 링크 모음</code>에 들어가야할 것 같은 저장소지만, 이런 시도 매우 좋다.</p>
-<p>ES6 시대가 열린 이후로 전혀 실무 경험이 없는데, 날 잡고 읽어봐야겠다. </p>
-<h2 id="수많은-데이터-사이언티스트들이-직장을-떠나는-이유는-무엇인가"><a href="#수많은-데이터-사이언티스트들이-직장을-떠나는-이유는-무엇인가" class="headerlink" title="수많은 데이터 사이언티스트들이 직장을 떠나는 이유는 무엇인가?"></a>수많은 데이터 사이언티스트들이 직장을 떠나는 이유는 무엇인가?</h2><p><a target="_blank" rel="noopener" href="https://github.com/youngwoos/etc/blob/master/Here%E2%80%99s%20why%20so%20many%20data%20scientists%20are%20leaving%20their%20jobs.md">https://github.com/youngwoos/etc/blob/master/Here%E2%80%99s%20why%20so%20many%20data%20scientists%20are%20leaving%20their%20jobs.md</a></p>
-<p>유망하고 인기있는 분야라서 자금과 뛰어난 인재가 모이고 그런데 자금을 쥔 자들은 그 분야를 잘 모르는데 어린 친구들은 거기서 장미빛 미래를 보니까 학원들이 강좌를 열고 더 어린 친구들이 또 다른 학원에서 쪼이는 세상에서 항상 발생하는 일. 10년 전 모든 개발자가 그랬고, 5년 전 앱&#x2F;빅데이터 전문가가 그랬고, 최근은 머신러닝과 블록체인인가. 잘하는 놈이 잘한다.</p>
-<p>그 분야 자체도 힘들겠지만 명예나 돈 같은 다른 욕망을 쫓아 갔다면 어디든 버티기 힘들텐데. 나는 진로를 결정(이 결정도 내가 한 건 아니고)할 때부터 아무 욕망이 없었으니 이 실력으로 여지껏 버텼나 싶군. 간간이 만나게 되는 소위 돈 버는 사람들을 보면 볼수록 역시 난 못 벌겠다 싶다.</p>
-<h2 id="딥러닝-간단하게-시작하기"><a href="#딥러닝-간단하게-시작하기" class="headerlink" title="딥러닝 간단하게 시작하기"></a>딥러닝 간단하게 시작하기</h2><p><a target="_blank" rel="noopener" href="https://www.facebook.com/dgtgrade/posts/1854447711280753">https://www.facebook.com/dgtgrade/posts/1854447711280753</a><br><a target="_blank" rel="noopener" href="https://medium.com/daangn/%EC%9D%B4%EB%AF%B8%EC%A7%80-%ED%83%90%EC%A7%80%EA%B8%B0-%EC%89%BD%EA%B2%8C-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0-abd967638c8e">https://medium.com/daangn/이미지-탐지기-쉽게-구현하기-abd967638c8e</a></p>
-<p>이정도로 쉽게 시작할 수 있다니. 시작을 시작하기가 더 어려운 세상이다.</p>
-<h2 id="TDD는-죽었는가"><a href="#TDD는-죽었는가" class="headerlink" title="TDD는 죽었는가?"></a>TDD는 죽었는가?</h2><p><a target="_blank" rel="noopener" href="http://jinson.tistory.com/m/271">http://jinson.tistory.com/m/271</a></p>
-<p>이규원님의 <a target="_blank" rel="noopener" href="https://www.facebook.com/gyuwon.yi/posts/1815215271855021">포스팅</a>에서 알아낸 번역 페이지. 아니 저 대단한 사람(DHH)이 어쩜 저렇게 TDD에 대해 오해를 했을까 싶을 정도로 놀라운 경험이었다. 정말 토론이라기 보다는 예수님과 부처님이 중생을 달래는 분위기였네. (그렇다고 DHH가 나보다 TDD를 못했겠느냐 그건 아니다)</p>
-<p>DHH의 <a target="_blank" rel="noopener" href="http://david.heinemeierhansson.com/2014/tdd-is-dead-long-live-testing.html">TDD is dead. Long live testing.</a>은 나도 TDD를 전혀 모르던 시절에 한번 누군가에게 공유했던 기억이 난다. 나는 전혀 모르면서 TDD를 둘러싼 난리법석과 어려움만 얘기 듣고 ‘그래 이건 현실적이지 않아’라고 생각했던 것 같다. 어디서 많이 보던 풍경인데, 그렇지?</p>
-<h2 id="10배-뛰어난-개발자-되기-좋은-동료가-되기-위한-10가지-방법"><a href="#10배-뛰어난-개발자-되기-좋은-동료가-되기-위한-10가지-방법" class="headerlink" title="10배 뛰어난 개발자 되기 - 좋은 동료가 되기 위한 10가지 방법"></a>10배 뛰어난 개발자 되기 - 좋은 동료가 되기 위한 10가지 방법</h2><p><a target="_blank" rel="noopener" href="http://muchtrans.com/10xdeveloper.html">http://muchtrans.com/10xdeveloper.html</a></p>
-<p>페이지 구성이 참 마음에 드네. 어차피 번역도 괜찮으니 왼쪽 원문은 안 읽을 것 같기도 하지만…</p>
-<p>어쨌든 참 좋은 관점이라고 생각한다. 예전에는 정말 사람이 부족할 때, 실력이 있으면 성격 좀 거칠고 진상 좀 부려도 어느정도 용인할 수 있다는 생각을 했다. 나는 그런 사람과 비교적 잘 지내는 편이었기 때문에 그런 생각도 했겠지? 그런데 팀원들에게도 새로운 사람이 오면 같이 적응하고 변하길 바랐던 건 잘못 판단했다.</p>
-<h2 id="스포카-크리에이터-행동-강령-소개"><a href="#스포카-크리에이터-행동-강령-소개" class="headerlink" title="스포카 크리에이터 행동 강령 소개"></a>스포카 크리에이터 행동 강령 소개</h2><p><a target="_blank" rel="noopener" href="https://spoqa.github.io/2018/06/28/code-of-conduct.html">https://spoqa.github.io/2018/06/28/code-of-conduct.html</a> </p>
-<p>스포카의 행동강령(이라고 하니까 뭔가 운동권 같은 느낌도 있는데…)입니다. 역시 스포카다. 이 역시 위에서 소개한대로 좋은 동료가 되기 위한 방법.</p>
-<h2 id="좋은-대화를-하기-위한-10가지-비법"><a href="#좋은-대화를-하기-위한-10가지-비법" class="headerlink" title="좋은 대화를 하기 위한 10가지 비법"></a>좋은 대화를 하기 위한 10가지 비법</h2><p><a target="_blank" rel="noopener" href="https://www.ted.com/talks/celeste_headlee_10_ways_to_have_a_better_conversation?language=ko">https://www.ted.com/talks/celeste_headlee_10_ways_to_have_a_better_conversation?language=ko</a></p>
-<p>xx하기 위한 10가지 비법…이란 제목은 영 마음에 안드는데, 역시 제목을 이렇게 지어야 하나보다. 이 글 제목도 <code>이번달 나를 사로 잡은 10가지 뉴스</code>로 바꿔야 하나.</p>
-<p>페북에도 한번 공유했는데, 꼭 명심하길 바라며 기록에 남기기로 한다.</p>
-<blockquote>
-<p>안 그래도 요즘 얘기하다가 머릿속을 엄청 굴리면서 시선을 다른데로 돌리는 버릇이 재발했는데, 꼭 나중에 생각난다. 누구든 나랑 말하다가 내가 집중하지 않으면 뺨을 찰싹 치..일 것처럼 손을 들어주면 좋겠다.</p>
-</blockquote>
-<p>계속 노력 중.</p>
-<h2 id="SI-x2F-대기업에서-스타트업으로-이직하기"><a href="#SI-x2F-대기업에서-스타트업으로-이직하기" class="headerlink" title="SI &#x2F; 대기업에서 스타트업으로 이직하기"></a>SI &#x2F; 대기업에서 스타트업으로 이직하기</h2><p><a target="_blank" rel="noopener" href="https://okky.kr/article/470785">https://okky.kr/article/470785</a></p>
-<p>약 파는 이야기 같으면서도 참 공감되면서도 기억해놔야할 것 같다가도 좀 오해도 있으신 것 같고 그러함.</p>
-<h2 id="머리가-하는-노동-손이-하는-노동…’월급-차이는-당연한가’"><a href="#머리가-하는-노동-손이-하는-노동…’월급-차이는-당연한가’" class="headerlink" title="머리가 하는 노동, 손이 하는 노동…’월급 차이는 당연한가’"></a>머리가 하는 노동, 손이 하는 노동…’월급 차이는 당연한가’</h2><p><a target="_blank" rel="noopener" href="http://www.hankookilbo.com/v/f7ff09cc4af3477e9218a5c83286815f">http://www.hankookilbo.com/v/f7ff09cc4af3477e9218a5c83286815f</a></p>
-<p>별로 생각도 안 해본 주제인데, 나도 은근 편견이 있었구나 싶다. 곧 후기를 쓸 <code>직업의 지리학</code>이란 책에서는 혁신 일자리 주위에 만들어지는 많은 일자리(서빙, 미용실, 의료)는 몇 십년 전이나 지금이나 (시간 관점에서의) 생산성이 거의 변함없다고 지적했다. 결국 수익이나 생산성을 극적으로 높여주는 직군에 더 돈이 모이게되는 시장의 이치. 그리고 누가해도 비슷하고 누구든 쉽게 시작할 수 있다고 여겨지는 직업에는 편견이 쌓이는 것 같고.</p>
-<p>가만, 그러고보니 영화 <code>서칭 포 슈가맨</code>의 그 슈가맨은 엄청 돈을 잘 벌고 있었던 게 아닐런지.</p>
-<p>PS. 공유 당시에는 <code>...&#39;월급 차이&#39;는 당연한가</code>라는 문구가 붙어있었나보다. 문구는 나쁘지 않은데 <code>월급 차이</code>에 왜 따옴표를 붙였을까?</p>
-<h2 id="신규-Web-서비스시-고려해-볼-사항"><a href="#신규-Web-서비스시-고려해-볼-사항" class="headerlink" title="신규 Web 서비스시 고려해 볼 사항"></a>신규 Web 서비스시 고려해 볼 사항</h2><p><a target="_blank" rel="noopener" href="http://kwonnam.pe.kr/wiki/web/%EC%8B%A0%EA%B7%9C%EC%84%9C%EB%B9%84%EC%8A%A4">http://kwonnam.pe.kr/wiki/web/신규서비스</a></p>
-<p>오랫동안 정리해오신 것 같다. 신규 서비스 시작할 때 기억해놓고 다시 읽어봐야지.</p>
-<h2 id="게임-디자이너에게-도움이-되는-확률과-통계-이야기"><a href="#게임-디자이너에게-도움이-되는-확률과-통계-이야기" class="headerlink" title="게임 디자이너에게 도움이 되는 확률과 통계 이야기"></a>게임 디자이너에게 도움이 되는 확률과 통계 이야기</h2><p><a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1Z71So_Xc-4QBtriYe9G1XlrNM9FoNk3z/view">https://drive.google.com/file/d/1Z71So_Xc-4QBtriYe9G1XlrNM9FoNk3z/view</a></p>
-<p>수포자에게도 도움이 됩니다.</p>
-<p>확률를 따져야할 때 기억하고 다시 읽어보기!</p>
-<h2 id="언젠가-쓸모-있을-것-같은-링크-모음"><a href="#언젠가-쓸모-있을-것-같은-링크-모음" class="headerlink" title="언젠가 쓸모 있을 것 같은 링크 모음"></a>언젠가 쓸모 있을 것 같은 링크 모음</h2><p><a target="_blank" rel="noopener" href="http://abc1211.tistory.com/m/category/%EB%A7%A4%EC%9D%BC%EC%BD%94%EB%94%A9/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8">자바스크립트로 블록체인 구현 강좌 - 나만의 비트코인 발행하기</a></p>
-<p><a target="_blank" rel="noopener" href="https://sujinlee.me/webpack-react-tutorial/">[번역] 깊이 있는 리액트 개발 환경 구축하기</a></p>
-<p><a target="_blank" rel="noopener" href="https://feel5ny.github.io/2018/05/27/JS_12/">File Api와 이미지 용량 줄이기</a></p>
-<p><a target="_blank" rel="noopener" href="https://engineering.huiseoul.com/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EB%8A%94-%EC%96%B4%EB%96%BB%EA%B2%8C-%EC%9E%91%EB%8F%99%ED%95%98%EB%8A%94%EA%B0%80-%EC%9B%B9%EC%96%B4%EC%85%88%EB%B8%94%EB%A6%AC%EC%99%80%EC%9D%98-%EB%B9%84%EA%B5%90-%EC%96%B8%EC%A0%9C-%EC%9B%B9%EC%96%B4%EC%85%88%EB%B8%94%EB%A6%AC%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EA%B2%8C-%EC%A2%8B%EC%9D%80%EA%B0%80-cf48a576ca3">자바스크립트는 어떻게 작동하는가: 웹어셈블리와의 비교 + 언제 웹어셈블리를 사용하는 게 좋은가</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/nhnent/fe.javascript/wiki/March-26---March-30,-2018">ES modules: 만화로 보는 심층 탐구</a></p>
-<p><a target="_blank" rel="noopener" href="https://medium.com/@soonhyungjung/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8-%EA%B3%B5%EB%B6%80-%EC%9E%90%EB%A3%8C-%EC%A0%95%EB%A6%AC%EC%99%80-%EC%88%9C%EC%84%9C-5c390b5323fa">블록체인 공부 자료 정리</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.slideshare.net/raccoonyy/docker-compose-98851170">파이썬 개발환경 구성하기의 끝판왕 - Docker Compose</a></p>
-<p><a target="_blank" rel="noopener" href="https://b.luavis.kr/server/linux-performance-analysis">리눅스 서버 60초안에 상황파악하기</a></p>
-<p><a target="_blank" rel="noopener" href="http://ikimiisoh.tistory.com/778">일본 여행 정보</a></p>
-<p><a target="_blank" rel="noopener" href="https://mug896.github.io/bash-shell/index.html">BASH Shell Script</a></p>
 
       
     </div>
