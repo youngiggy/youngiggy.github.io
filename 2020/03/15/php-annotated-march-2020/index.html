@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_package_v0.16/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_package_v0.16/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_package_v0.16/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/favicon_package_v0.16/safari-pinned-tab.svg" color="#222">
+  <link rel="manifest" href="/images/favicon_package_v0.16/site.webmanifest">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"haah.kr","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Roman Pronskiy가 쓰고 JetBrains에서 제공하는 월간 PHP Annotated 2020년 3월호의 번역&#x2F;해석본입니다. 이 중에서 몇 가지 제 취향껏 골라 그 안의 내용도 좀 뒤져보고 개발새발 번역해서 소개합니다.  ⚡️ News &amp; ReleasesCodeIgniter 4.0https:&#x2F;&#x2F;github.com&#x2F;codeignit">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="PHP Annotated – March 2020">
+<meta property="og:url" content="https://haah.kr/2020/03/15/php-annotated-march-2020/">
+<meta property="og:site_name" content="ha-ah">
+<meta property="og:description" content="Roman Pronskiy가 쓰고 JetBrains에서 제공하는 월간 PHP Annotated 2020년 3월호의 번역&#x2F;해석본입니다. 이 중에서 몇 가지 제 취향껏 골라 그 안의 내용도 좀 뒤져보고 개발새발 번역해서 소개합니다.  ⚡️ News &amp; ReleasesCodeIgniter 4.0https:&#x2F;&#x2F;github.com&#x2F;codeignit">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2020/01/PHP_Annotated_blog_1600x800.png">
+<meta property="article:published_time" content="2020-03-15T01:55:31.000Z">
+<meta property="article:modified_time" content="2026-09-06T20:59:15.893Z">
+<meta property="article:author" content="youngiggy">
+<meta property="article:tag" content="PHP">
+<meta property="article:tag" content="php-annotated-monthly">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2020/01/PHP_Annotated_blog_1600x800.png">
+
+
+<link rel="canonical" href="https://haah.kr/2020/03/15/php-annotated-march-2020/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://haah.kr/2020/03/15/php-annotated-march-2020/","path":"2020/03/15/php-annotated-march-2020/","title":"PHP Annotated – March 2020"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>PHP Annotated – March 2020 | ha-ah</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=354302543"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":354302543,"only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="ha-ah" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">ha-ah</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">로그, 게으른 로그</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%9A%A1%EF%B8%8F-News-amp-Releases"><span class="nav-number">1.</span> <span class="nav-text">⚡️ News &amp; Releases</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CodeIgniter-4-0"><span class="nav-number">1.1.</span> <span class="nav-text">CodeIgniter 4.0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP-7-4-3"><span class="nav-number">1.2.</span> <span class="nav-text">PHP 7.4.3</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%90%98-PHP-Internals"><span class="nav-number">2.</span> <span class="nav-text">🐘 PHP Internals</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Accepted-proposals"><span class="nav-number">2.1.</span> <span class="nav-text">Accepted proposals:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RFC-Stringable"><span class="nav-number">2.2.</span> <span class="nav-text">[RFC] Stringable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Language-evolution"><span class="nav-number">2.3.</span> <span class="nav-text">Language evolution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RFC-Write-Once-Properties"><span class="nav-number">2.4.</span> <span class="nav-text">[RFC] Write-Once Properties</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RFC-Allow-explicit-call-site-pass-by-reference-annotation"><span class="nav-number">2.5.</span> <span class="nav-text">[RFC] Allow explicit call-site pass-by-reference annotation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RFC-Increment-x2F-Decrement-Fixes"><span class="nav-number">2.6.</span> <span class="nav-text">[RFC] Increment&#x2F;Decrement Fixes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RFC-Attributes-v2"><span class="nav-number">2.7.</span> <span class="nav-text">[RFC] Attributes v2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PR-Make-sorting-stable"><span class="nav-number">2.8.</span> <span class="nav-text">[PR] Make sorting stable</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%9B%A0-Tools"><span class="nav-number">3.</span> <span class="nav-text">🛠 Tools</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#T-Regx-x2F-T-Regx"><span class="nav-number">3.1.</span> <span class="nav-text">T-Regx&#x2F;T-Regx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spiral-x2F-RoadRunner"><span class="nav-number">3.2.</span> <span class="nav-text">spiral&#x2F;RoadRunner</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tightenco-x2F-overload"><span class="nav-number">3.3.</span> <span class="nav-text">tightenco&#x2F;overload</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cmorrell-com-x2F-php-fpm"><span class="nav-number">3.4.</span> <span class="nav-text">cmorrell.com&#x2F;php-fpm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#minicli-x2F-minicli"><span class="nav-number">3.5.</span> <span class="nav-text">minicli&#x2F;minicli</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#shivammathur-x2F-setup-php"><span class="nav-number">3.6.</span> <span class="nav-text">shivammathur&#x2F;setup-php</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Symfony"><span class="nav-number">4.</span> <span class="nav-text">Symfony</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%BA-Charming-Development-in-Symfony-5"><span class="nav-number">4.1.</span> <span class="nav-text">📺 Charming Development in Symfony 5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Auto-configuration-of-Doctrine-repositories-as-services"><span class="nav-number">4.2.</span> <span class="nav-text">Auto-configuration of Doctrine repositories as services</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A-Week-of-Symfony-688-2-8-March-2020"><span class="nav-number">4.3.</span> <span class="nav-text">A Week of Symfony #688 (2-8 March 2020)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Laravel"><span class="nav-number">5.</span> <span class="nav-text">Laravel</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Laravel-7"><span class="nav-number">5.1.</span> <span class="nav-text">Laravel 7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Livewire-v1-0"><span class="nav-number">5.2.</span> <span class="nav-text">Livewire v1.0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nunomaduro-x2F-laravel-mojito"><span class="nav-number">5.3.</span> <span class="nav-text">nunomaduro&#x2F;laravel-mojito</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Optimizing-circular-relationships-in-Laravel"><span class="nav-number">5.4.</span> <span class="nav-text">Optimizing circular relationships in Laravel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%BA-How-to-write-exceptionally-good-exceptions-in-PHP"><span class="nav-number">5.5.</span> <span class="nav-text">📺 How to write exceptionally good exceptions in PHP.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%94%88-Laravel-Snippet-23-Laravel-7-x-Forge-Vapor-Speaking-vs-Silence"><span class="nav-number">5.6.</span> <span class="nav-text">🔈 Laravel Snippet #23: Laravel 7.x, Forge, Vapor, Speaking vs. Silence.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%BA-Laracon-Australia-2019-videos"><span class="nav-number">5.7.</span> <span class="nav-text">📺 Laracon Australia 2019 videos.</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Yii"><span class="nav-number">6.</span> <span class="nav-text">Yii</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Yii-news-2020-issue-2"><span class="nav-number">6.1.</span> <span class="nav-text">Yii news 2020, issue 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#yiisoft-x2F-friendly-exception"><span class="nav-number">6.2.</span> <span class="nav-text">yiisoft&#x2F;friendly-exception</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Zend-x2F-Laminas"><span class="nav-number">7.</span> <span class="nav-text">Zend&#x2F;Laminas</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Inaugural-Technical-Steering-Committee-Meeting"><span class="nav-number">7.1.</span> <span class="nav-text">Inaugural Technical Steering Committee Meeting</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%8C%80-Async-PHP"><span class="nav-number">8.</span> <span class="nav-text">🌀 Async PHP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%BA-Interview-with-Marc-Morera"><span class="nav-number">8.1.</span> <span class="nav-text">📺 Interview with Marc Morera</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#driftphp-x2F-tiny-load-balancer"><span class="nav-number">8.2.</span> <span class="nav-text">driftphp&#x2F;tiny-load-balancer</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%92%A1-%EA%B8%B0%ED%83%80-%EC%9D%BD%EC%9D%84-%EB%A7%8C%ED%95%9C-%EA%B8%80"><span class="nav-number">9.</span> <span class="nav-text">💡 기타 읽을 만한 글</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Understanding-PHP-8%E2%80%99s-JIT"><span class="nav-number">9.1.</span> <span class="nav-text">Understanding PHP 8’s JIT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#When-does-PHP-call-destruct"><span class="nav-number">9.2.</span> <span class="nav-text">When does PHP call __destruct()?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bitwise-booleans-in-PHP"><span class="nav-number">9.3.</span> <span class="nav-text">Bitwise booleans in PHP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHPUnit-A-Security-Risk"><span class="nav-number">9.4.</span> <span class="nav-text">PHPUnit: A Security Risk?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-miguelxpn-found-a-bug-in-PHP%E2%80%99s-standard-library-and-fixed-it"><span class="nav-number">9.5.</span> <span class="nav-text">How @miguelxpn found a bug in PHP’s standard library and fixed it.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Clean-Code-and-Object-Calisthenics-Rules"><span class="nav-number">9.6.</span> <span class="nav-text">Clean Code and Object Calisthenics Rules</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%93%BA-Videos"><span class="nav-number">10.</span> <span class="nav-text">📺 Videos</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%BA-What%E2%80%99s-coming-in-PhpStorm-2020-1-%E2%80%93-Every-week-we-publish-a-new-5-minute-video"><span class="nav-number">10.1.</span> <span class="nav-text">📺 What’s coming in PhpStorm 2020.1 – Every week we publish a new 5-minute video.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%BA-PHP-Tutorial-for-Absolute-Beginners-%E2%80%93-PHP-Course-2020-%E2%80%93-5-hours-of-video-tutorials"><span class="nav-number">10.2.</span> <span class="nav-text">📺 PHP Tutorial for Absolute Beginners – PHP Course 2020 – 5 hours of video tutorials.</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%94%88-Podcasts"><span class="nav-number">11.</span> <span class="nav-text">🔈 Podcasts</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP-Internals-News"><span class="nav-number">11.1.</span> <span class="nav-text">PHP Internals News</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Undercover-ElePHPant"><span class="nav-number">11.2.</span> <span class="nav-text">The Undercover ElePHPant</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Voices-of-the-ElePHPant-with-Sara-Golemon-and-Derick-Rethans"><span class="nav-number">11.3.</span> <span class="nav-text">Voices of the ElePHPant with Sara Golemon and Derick Rethans</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">youngiggy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">120</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:youngiggy@gmail.com" title="E-Mail → mailto:youngiggy@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/profile.php?id=100001259884599" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;profile.php?id&#x3D;100001259884599" rel="noopener me" target="_blank"><i class="fab fa-facebook fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/jooyoungiggy" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;jooyoungiggy" rel="noopener me" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://haah.kr/2020/03/15/php-annotated-march-2020/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="youngiggy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="PHP Annotated – March 2020 | ha-ah">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          PHP Annotated – March 2020
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-03-15 10:55:31" itemprop="dateCreated datePublished" datetime="2020-03-15T10:55:31+09:00">2020-03-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2026-09-07 05:59:15" itemprop="dateModified" datetime="2026-09-07T05:59:15+09:00">2026-09-07</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/03/15/php-annotated-march-2020/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/03/15/php-annotated-march-2020/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><img src="https://d3nmt5vlzunoa1.cloudfront.net/phpstorm/files/2020/01/PHP_Annotated_blog_1600x800.png" alt="Php_annotated_monthly 이미지"></p>
+<p><a target="_blank" rel="noopener" href="https://blog.jetbrains.com/phpstorm/author/rpronskiy/">Roman Pronskiy</a>가 쓰고 JetBrains에서 제공하는 월간 PHP Annotated <a target="_blank" rel="noopener" href="https://blog.jetbrains.com/phpstorm/2020/03/php-annotated-march-2020/">2020년 3월호</a>의 번역&#x2F;해석본입니다.</p>
+<p>이 중에서 몇 가지 제 취향껏 골라 그 안의 내용도 좀 뒤져보고 개발새발 번역해서 소개합니다.</p>
+<hr>
+<h1 id="⚡️-News-amp-Releases"><a href="#⚡️-News-amp-Releases" class="headerlink" title="⚡️ News &amp; Releases"></a>⚡️ News &amp; Releases</h1><h2 id="CodeIgniter-4-0"><a href="#CodeIgniter-4-0" class="headerlink" title="CodeIgniter 4.0"></a>CodeIgniter 4.0</h2><p><a target="_blank" rel="noopener" href="https://github.com/codeigniter4/CodeIgniter4">https://github.com/codeigniter4/CodeIgniter4</a></p>
+<p>5년 간의 개발 끝에 새 버전이 릴리스되었습니다. 처음부터 다시 작성하고, PHP 7.2 이상에서 동작하며, PSR-1, 3, 4를 구현했습니다.</p>
+<h2 id="PHP-7-4-3"><a href="#PHP-7-4-3" class="headerlink" title="PHP 7.4.3"></a>PHP 7.4.3</h2><p><a target="_blank" rel="noopener" href="https://www.php.net/ChangeLog-7.php#7.4.3">https://www.php.net/ChangeLog-7.php#7.4.3</a></p>
+<p>오래 기다렸던 <code>opcache.preload_user</code> 버그가 수정됐고, 이제는 production에서 사용할 수 있겠습니다.<br>preload_user 버그란 이걸 말하는 가 봅니다.</p>
+<blockquote>
+<p>Fixed bug #79128 (Preloading segfaults if preload_user is used).</p>
+</blockquote>
+<h1 id="🐘-PHP-Internals"><a href="#🐘-PHP-Internals" class="headerlink" title="🐘 PHP Internals"></a>🐘 PHP Internals</h1><h2 id="Accepted-proposals"><a href="#Accepted-proposals" class="headerlink" title="Accepted proposals:"></a>Accepted proposals:</h2><p>아래 세가지 RFC가 승인되었습니다.</p>
+<p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/variable_syntax_tweaks">[RFC] Variable Syntax Tweaks</a><br><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/static_return_type">[RFC] Static return type</a><br><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/class_name_literal_on_object">[RFC] Allow ::class on objects</a></p>
+<h2 id="RFC-Stringable"><a href="#RFC-Stringable" class="headerlink" title="[RFC] Stringable"></a>[RFC] Stringable</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/stringable">https://wiki.php.net/rfc/stringable</a></p>
+<p>Nicolas Grekas의 제안이 승인됐습니다. 따라서 PHP 8에서는 <code>string|Stringable</code> union type을 쓸 수 있고, __toString()을 구현한 클래스를 인자로 넘길 수 있습니다. 게다가 명시적으로 <code>implements Stringable</code>을 선언하지도 않아도 되는데, __toString()을 구현한 클래스라면 뒤에서 알아서 처리해줍니다.</p>
+<h2 id="Language-evolution"><a href="#Language-evolution" class="headerlink" title="Language evolution"></a>Language evolution</h2><p><a target="_blank" rel="noopener" href="https://github.com/nikic/php-rfcs/blob/language-evolution/rfcs/0000-language-evolution.md">https://github.com/nikic/php-rfcs/blob/language-evolution/rfcs/0000-language-evolution.md</a></p>
+<p>Nikita가 PHP를 어떻게 legacy code를 깨뜨리지 않으면서 앞으로 나아가게 할 수 있을지 <a target="_blank" rel="noopener" href="https://github.com/php/php-rfcs/pull/2">논의</a>를 시작했습니다.<br>하나의 옵션으로 <a target="_blank" rel="noopener" href="https://doc.rust-lang.org/edition-guide/editions/index.html">Rust의 방식</a>처럼 “edition”을 도입하는 것이 있는데, <code>declare(edition=2020)</code>처럼 파일 단위 선언하는 것입니다.</p>
+<h2 id="RFC-Write-Once-Properties"><a href="#RFC-Write-Once-Properties" class="headerlink" title="[RFC] Write-Once Properties"></a>[RFC] Write-Once Properties</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/write_once_properties">https://wiki.php.net/rfc/write_once_properties</a></p>
+<p>새로운 property 수정자를 추가하는 제안입니다. 특정 property를 초기화하면 이후 수정할 수 없도록 합니다.<br>어떤 keyword를 사용할 지 다양한 옵션이 거론되고 있습니다. final, immutable, readonly, writeonce, locked, sealed…</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    &lt;keyword&gt; <span class="keyword">public</span> <span class="keyword">int</span> <span class="variable">$a</span> = <span class="number">1</span>;</span><br><span class="line">    &lt;keyword&gt; <span class="keyword">public</span> <span class="keyword">string</span> <span class="variable">$b</span>;</span><br><span class="line">    &lt;keyword&gt; <span class="keyword">public</span> <span class="keyword">array</span> <span class="variable">$c</span> = [<span class="string">&quot;foo&quot;</span>];</span><br><span class="line">    &lt;keyword&gt; <span class="keyword">public</span> <span class="keyword">object</span> <span class="variable">$d</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;b = <span class="string">&quot;foo&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="variable">$foo</span> = <span class="keyword">new</span> <span class="title class_">Foo</span>();</span><br><span class="line"> </span><br><span class="line"><span class="variable">$foo</span>-&gt;a = <span class="number">42</span>;       <span class="comment">// EXCEPTION: property a has already been initialized</span></span><br><span class="line"><span class="variable">$foo</span>-&gt;b = <span class="string">&quot;bar&quot;</span>;    <span class="comment">// EXCEPTION: property b has already been initialized</span></span><br><span class="line"><span class="variable">$foo</span>-&gt;a++;          <span class="comment">// EXCEPTION: incrementing/decrementing is forbidden</span></span><br><span class="line"><span class="keyword">unset</span>(<span class="variable">$foo</span>-&gt;c);     <span class="comment">// EXCEPTION: unsetting is forbidden</span></span><br><span class="line"><span class="variable">$foo</span>-&gt;c[] = <span class="string">&quot;bar&quot;</span>;  <span class="comment">// EXCEPTION: arrays can&#x27;t be modified</span></span><br><span class="line"><span class="variable">$var</span>= &amp;<span class="variable language_">$this</span>-&gt;c;    <span class="comment">// EXCEPTION: reference isn&#x27;t allowed</span></span><br><span class="line"> </span><br><span class="line"><span class="variable">$foo</span>-&gt;d = <span class="keyword">new</span> <span class="title class_">Foo</span>();    <span class="comment">// SUCCESS: property d hasn&#x27;t been initialized before</span></span><br><span class="line"><span class="variable">$foo</span>-&gt;d-&gt;foo = <span class="string">&quot;foo&quot;</span>;   <span class="comment">// SUCCESS: objects are still mutable internally</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="RFC-Allow-explicit-call-site-pass-by-reference-annotation"><a href="#RFC-Allow-explicit-call-site-pass-by-reference-annotation" class="headerlink" title="[RFC] Allow explicit call-site pass-by-reference annotation"></a>[RFC] Allow explicit call-site pass-by-reference annotation</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/explicit_send_by_ref">https://wiki.php.net/rfc/explicit_send_by_ref</a></p>
+<p>호출하는 쪽에서도 reference를 전달한다는 것을 명시적으로 보여줄 수 있도록 제안합니다.<br>require_explicit_send_by_ref 옵션이 활성화 될 떄만 적용됩니다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">declare</span>(require_explicit_send_by_ref=<span class="number">1</span>);</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">byRef</span>(<span class="params">&amp;<span class="variable">$ref</span></span>) </span>&#123;...&#125;</span><br><span class="line"><span class="title function_ invoke__">byRef</span>(&amp;<span class="variable">$var</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="RFC-Increment-x2F-Decrement-Fixes"><a href="#RFC-Increment-x2F-Decrement-Fixes" class="headerlink" title="[RFC] Increment&#x2F;Decrement Fixes"></a>[RFC] Increment&#x2F;Decrement Fixes</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/increment_decrement_fixes">https://wiki.php.net/rfc/increment_decrement_fixes</a></p>
+<p>경우에 따라 덧셈&#x2F;뺄셈 연산자가 명시적으로 1을 더하거나 빼는 연산에서 일관되게 동작하지 않는 문제가 있습니다. 예를 들면,</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"> </span><br><span class="line"><span class="variable">$a</span> = [];</span><br><span class="line"><span class="variable">$a</span> = ++<span class="variable">$a</span>; <span class="comment">// [] and no errors</span></span><br><span class="line"><span class="variable">$a</span> = <span class="variable">$a</span> + <span class="number">1</span>; <span class="comment">// Fatal error</span></span><br></pre></td></tr></table></figure>
+
+<p>이 RFC는 PHP 8에서 오류를 수정하고 Error를 던질 수 있도록 제안합니다.</p>
+<h2 id="RFC-Attributes-v2"><a href="#RFC-Attributes-v2" class="headerlink" title="[RFC] Attributes v2"></a>[RFC] Attributes v2</h2><p><a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/attributes_v2">https://wiki.php.net/rfc/attributes_v2</a></p>
+<p>이 RFC는 &lt;&lt;, &gt;&gt;를 사용해 완전한 어노테이션(annotations)을 추가하기 위한 두번째 시도입니다.</p>
+<p>이전에 <a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/simple-annotations">simple annotations</a>나 <a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/attributes">attributes</a>같은 제안이 있었지만 투표를 통과하진 못했습니다.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Doctrine</span>\<span class="title">ORM</span>\<span class="title">Mapping</span> <span class="keyword">as</span> <span class="title">ORM</span>;</span><br><span class="line"> </span><br><span class="line">&lt;&lt;ORM\<span class="title function_ invoke__">Entity</span>([<span class="string">&quot;repositoryClass&quot;</span> =&gt; <span class="title class_">UserRepository</span>::<span class="variable language_">class</span>])&gt;&gt;</span><br><span class="line">&lt;&lt;ORM\<span class="title function_ invoke__">Table</span>(<span class="string">&quot;users&quot;</span>)&gt;&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    &lt;&lt;ORM\Id, ORM\Column, ORM\GeneratedValue&gt;&gt;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> <span class="variable">$id</span>;</span><br><span class="line"> </span><br><span class="line">    &lt;&lt;ORM\<span class="title function_ invoke__">Column</span>([<span class="string">&quot;unique&quot;</span> =&gt; <span class="literal">true</span>])&gt;&gt;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> <span class="variable">$email</span>;</span><br><span class="line"> </span><br><span class="line">    &lt;&lt;ORM\<span class="title function_ invoke__">ManyToOne</span>()&gt;&gt;</span><br><span class="line">    <span class="keyword">public</span> ?Address <span class="variable">$address</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="PR-Make-sorting-stable"><a href="#PR-Make-sorting-stable" class="headerlink" title="[PR] Make sorting stable"></a>[PR] Make sorting stable</h2><p><a target="_blank" rel="noopener" href="https://github.com/php/php-src/pull/5236">https://github.com/php/php-src/pull/5236</a></p>
+<p>PHP의 정렬 함수는 안정되지 않았습니다(not stable). 같은 값을 가진 요소들의 원래 순서가 보장되지 않습니다. 예를 들면, <a target="_blank" rel="noopener" href="https://3v4l.org/bpvq1">이렇습니다</a>.</p>
+<p>이를 고치자는 제안이 올라왔습니다만, 동일한 요소가 여럿 포함될 경우 성능에 영향을 줄 것입니다.</p>
+<h1 id="🛠-Tools"><a href="#🛠-Tools" class="headerlink" title="🛠 Tools"></a>🛠 Tools</h1><h2 id="T-Regx-x2F-T-Regx"><a href="#T-Regx-x2F-T-Regx" class="headerlink" title="T-Regx&#x2F;T-Regx"></a>T-Regx&#x2F;T-Regx</h2><p><a target="_blank" rel="noopener" href="https://github.com/T-Regx/T-Regx">https://github.com/T-Regx/T-Regx</a></p>
+<p>사용자 친화적인 인터페이스로 정규식을 작업하기 좋은 패키지입니다.</p>
+<h2 id="spiral-x2F-RoadRunner"><a href="#spiral-x2F-RoadRunner" class="headerlink" title="spiral&#x2F;RoadRunner"></a>spiral&#x2F;RoadRunner</h2><p><a target="_blank" rel="noopener" href="https://github.com/spiral/roadrunner">https://github.com/spiral/roadrunner</a></p>
+<p>Golang으로 만들어진 PHP Application Server입니다. 이제 file watcher가 포함되어, 워커가 <a target="_blank" rel="noopener" href="https://roadrunner.dev/docs/beep-beep-reload">자동으로 갱신</a>될 수 있습니다.</p>
+<h2 id="tightenco-x2F-overload"><a href="#tightenco-x2F-overload" class="headerlink" title="tightenco&#x2F;overload"></a>tightenco&#x2F;overload</h2><p><a target="_blank" rel="noopener" href="https://github.com/tightenco/overload">https://github.com/tightenco/overload</a></p>
+<p>closure의 모음을 통해 overloading method를 구현한 간단하지만 흥미로운 구현체입니다.</p>
+<h2 id="cmorrell-com-x2F-php-fpm"><a href="#cmorrell-com-x2F-php-fpm" class="headerlink" title="cmorrell.com&#x2F;php-fpm"></a>cmorrell.com&#x2F;php-fpm</h2><p><a target="_blank" rel="noopener" href="https://cmorrell.com/php-fpm/">https://cmorrell.com/php-fpm/</a></p>
+<p>php-fpm 설정을 생성하는 좋은 툴.</p>
+<h2 id="minicli-x2F-minicli"><a href="#minicli-x2F-minicli" class="headerlink" title="minicli&#x2F;minicli"></a>minicli&#x2F;minicli</h2><p><a target="_blank" rel="noopener" href="https://github.com/minicli/minicli">https://github.com/minicli/minicli</a></p>
+<p>CLI 중심의 PHP 애플리케이션을 생성하기 위한, 의존성이 없이 Vanilla PHP로 만들어진 도구입니다. </p>
+<p><a target="_blank" rel="noopener" href="https://dev.to/erikaheidi/bootstrapping-a-cli-php-application-in-vanilla-php-4ee">minicli를 소개하는 4개의 연재</a>를 확인하세요.</p>
+<h2 id="shivammathur-x2F-setup-php"><a href="#shivammathur-x2F-setup-php" class="headerlink" title="shivammathur&#x2F;setup-php"></a>shivammathur&#x2F;setup-php</h2><p><a target="_blank" rel="noopener" href="https://github.com/shivammathur/setup-php">https://github.com/shivammathur/setup-php</a></p>
+<p>PHP 환경을 설정해서 당신의 workflow의 기반으로 사용할 수 있게 도와주는 Github Action입니다.</p>
+<blockquote>
+<p>GitHub action to setup PHP with required extensions, php.ini configuration, code-coverage support and various tools like composer</p>
+</blockquote>
+<h1 id="Symfony"><a href="#Symfony" class="headerlink" title="Symfony"></a>Symfony</h1><h2 id="📺-Charming-Development-in-Symfony-5"><a href="#📺-Charming-Development-in-Symfony-5" class="headerlink" title="📺 Charming Development in Symfony 5"></a>📺 Charming Development in Symfony 5</h2><p><a target="_blank" rel="noopener" href="https://symfonycasts.com/screencast/symfony">https://symfonycasts.com/screencast/symfony</a></p>
+<p>SymfonyCasts에서 진행중인 시리즈입니다.</p>
+<h2 id="Auto-configuration-of-Doctrine-repositories-as-services"><a href="#Auto-configuration-of-Doctrine-repositories-as-services" class="headerlink" title="Auto-configuration of Doctrine repositories as services"></a>Auto-configuration of Doctrine repositories as services</h2><p><a target="_blank" rel="noopener" href="https://www.strangebuzz.com/en/blog/auto-configuration-of-doctrine-repositories-as-services">https://www.strangebuzz.com/en/blog/auto-configuration-of-doctrine-repositories-as-services</a></p>
+<h2 id="A-Week-of-Symfony-688-2-8-March-2020"><a href="#A-Week-of-Symfony-688-2-8-March-2020" class="headerlink" title="A Week of Symfony #688 (2-8 March 2020)"></a>A Week of Symfony #688 (2-8 March 2020)</h2><p><a target="_blank" rel="noopener" href="https://symfony.com/blog/a-week-of-symfony-688-2-8-march-2020">https://symfony.com/blog/a-week-of-symfony-688-2-8-march-2020</a></p>
+<h1 id="Laravel"><a href="#Laravel" class="headerlink" title="Laravel"></a>Laravel</h1><h2 id="Laravel-7"><a href="#Laravel-7" class="headerlink" title="Laravel 7"></a>Laravel 7</h2><p><a target="_blank" rel="noopener" href="https://laravel.com/docs/7.x/releases">https://laravel.com/docs/7.x/releases</a></p>
+<p>이번 릴리스에선,</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/laravel/airlock">laravel&#x2F;airlock</a> – SPA에서의 인증을 위한 새로운 component</li>
+<li>Custom Eloquent Casts – 어떻게 사용하는 지는 이 <a target="_blank" rel="noopener" href="https://atymic.dev/blog/laravel-custom-casts//">tutorial</a>을 보세요!</li>
+<li>Blade component가 이제 클래스와 custom HTML 태그로 선언될 수 있고 @component 태그 대신 사용할 수 있습니다</li>
+<li>HTTP Client – 일반적인 작업을 위해 단순한 인터페이스를 가진 Guzzle wrapper입니다. <a target="_blank" rel="noopener" href="https://github.com/kitetail/zttp">kitetail&#x2F;zttp</a>를 기반으로 합니다.</li>
+</ul>
+<p>어떤 점이 새로워졌는지 📺 <a target="_blank" rel="noopener" href="https://laracasts.com/series/whats-new-in-laravel-7">Laracasts</a>와 📺 <a target="_blank" rel="noopener" href="https://www.youtube.com/playlist?list=PLpzy7FIRqpGCl26FcHazZmIUwT7zFJu7U">Coder’s Tape channel</a>에서 동영상 overview로 확인해보실 수 있습니다.</p>
+<h2 id="Livewire-v1-0"><a href="#Livewire-v1-0" class="headerlink" title="Livewire v1.0"></a>Livewire v1.0</h2><p><a target="_blank" rel="noopener" href="https://github.com/livewire/livewire">https://github.com/livewire/livewire</a></p>
+<p>이 Laravel을 위한 frontend framework은 추가적인 JS 코드 없이도 Blade를 PHP class로 바인딩 해줄 수 있습니다. 이 📺 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Qljh8w5YX44">video tutorial</a>에서 form을 처리하는 방식을 확인하실 수 있어요.</p>
+<h2 id="nunomaduro-x2F-laravel-mojito"><a href="#nunomaduro-x2F-laravel-mojito" class="headerlink" title="nunomaduro&#x2F;laravel-mojito"></a>nunomaduro&#x2F;laravel-mojito</h2><p><a target="_blank" rel="noopener" href="https://github.com/nunomaduro/laravel-mojito">https://github.com/nunomaduro/laravel-mojito</a></p>
+<p>독립적으로 뷰를 테스트할 수 있는 간단한 패키지입니다. 어떻게 사용하는지 이 📺 <a target="_blank" rel="noopener" href="https://www.codecaptain.io/blog/web-development/testing-views-in-isolation-with-laravel-mojito/685">demo</a>를 보고 확인하세요.</p>
+<h2 id="Optimizing-circular-relationships-in-Laravel"><a href="#Optimizing-circular-relationships-in-Laravel" class="headerlink" title="Optimizing circular relationships in Laravel"></a>Optimizing circular relationships in Laravel</h2><p><a target="_blank" rel="noopener" href="https://reinink.ca/articles/optimizing-circular-relationships-in-laravel">https://reinink.ca/articles/optimizing-circular-relationships-in-laravel</a></p>
+<p>Laravel에서 양방향 relation을 최적화하는 방법입니다.</p>
+<h2 id="📺-How-to-write-exceptionally-good-exceptions-in-PHP"><a href="#📺-How-to-write-exceptionally-good-exceptions-in-PHP" class="headerlink" title="📺 How to write exceptionally good exceptions in PHP."></a>📺 How to write exceptionally good exceptions in PHP.</h2><p><a target="_blank" rel="noopener" href="https://freek.dev/1582-how-to-write-exceptionally-good-exceptions-in-php">https://freek.dev/1582-how-to-write-exceptionally-good-exceptions-in-php</a></p>
+<h2 id="🔈-Laravel-Snippet-23-Laravel-7-x-Forge-Vapor-Speaking-vs-Silence"><a href="#🔈-Laravel-Snippet-23-Laravel-7-x-Forge-Vapor-Speaking-vs-Silence" class="headerlink" title="🔈 Laravel Snippet #23: Laravel 7.x, Forge, Vapor, Speaking vs. Silence."></a>🔈 Laravel Snippet #23: Laravel 7.x, Forge, Vapor, Speaking vs. Silence.</h2><p><a target="_blank" rel="noopener" href="https://blog.laravel.com/laravel-snippet-23-laravel-7x-forge-vapor-speaking-vs-silence">https://blog.laravel.com/laravel-snippet-23-laravel-7x-forge-vapor-speaking-vs-silence</a></p>
+<h2 id="📺-Laracon-Australia-2019-videos"><a href="#📺-Laracon-Australia-2019-videos" class="headerlink" title="📺 Laracon Australia 2019 videos."></a>📺 Laracon Australia 2019 videos.</h2><p><a target="_blank" rel="noopener" href="https://www.youtube.com/playlist?list=PLEkJYA4gJb78lIOKjZ0tJ9rWszT6uCTJH">https://www.youtube.com/playlist?list=PLEkJYA4gJb78lIOKjZ0tJ9rWszT6uCTJH</a></p>
+<h1 id="Yii"><a href="#Yii" class="headerlink" title="Yii"></a>Yii</h1><h2 id="Yii-news-2020-issue-2"><a href="#Yii-news-2020-issue-2" class="headerlink" title="Yii news 2020, issue 2"></a>Yii news 2020, issue 2</h2><p><a target="_blank" rel="noopener" href="https://opencollective.com/yiisoft/updates/yii-news-2020-issue-2">https://opencollective.com/yiisoft/updates/yii-news-2020-issue-2</a></p>
+<p>Yii 3에 반영된 많은 변화를 포함한 뉴스입니다.</p>
+<h2 id="yiisoft-x2F-friendly-exception"><a href="#yiisoft-x2F-friendly-exception" class="headerlink" title="yiisoft&#x2F;friendly-exception"></a>yiisoft&#x2F;friendly-exception</h2><p><a target="_blank" rel="noopener" href="https://github.com/yiisoft/friendly-exception">https://github.com/yiisoft/friendly-exception</a></p>
+<p>Yii 3이 릴리스된 후 첫 패키지입니다. 사람이 읽을 수 있는 exception을 선언할 수 있는 인터페이스를 제공합니다.</p>
+<h1 id="Zend-x2F-Laminas"><a href="#Zend-x2F-Laminas" class="headerlink" title="Zend&#x2F;Laminas"></a>Zend&#x2F;Laminas</h1><h2 id="Inaugural-Technical-Steering-Committee-Meeting"><a href="#Inaugural-Technical-Steering-Committee-Meeting" class="headerlink" title="Inaugural Technical Steering Committee Meeting"></a>Inaugural Technical Steering Committee Meeting</h2><p><a target="_blank" rel="noopener" href="https://getlaminas.org/blog/2020-03-05-tsc-inaugural-meeting.html">https://getlaminas.org/blog/2020-03-05-tsc-inaugural-meeting.html</a></p>
+<p>Laminas의 개발 및 자금 조달 계획에 대해 알 수 있습니다.</p>
+<h1 id="🌀-Async-PHP"><a href="#🌀-Async-PHP" class="headerlink" title="🌀 Async PHP"></a>🌀 Async PHP</h1><h2 id="📺-Interview-with-Marc-Morera"><a href="#📺-Interview-with-Marc-Morera" class="headerlink" title="📺 Interview with Marc Morera"></a>📺 Interview with Marc Morera</h2><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=bekZ7cPmSuE">https://www.youtube.com/watch?v=bekZ7cPmSuE</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/driftphp">DriftPHP</a>의 저자와 <a target="_blank" rel="noopener" href="https://github.com/driftphp/reactphp-dbal">driftphp&#x2F;reactphp-dbal</a>에 관해 이야기 합니다.</p>
+<h2 id="driftphp-x2F-tiny-load-balancer"><a href="#driftphp-x2F-tiny-load-balancer" class="headerlink" title="driftphp&#x2F;tiny-load-balancer"></a>driftphp&#x2F;tiny-load-balancer</h2><p><a target="_blank" rel="noopener" href="https://github.com/driftphp/tiny-load-balancer">https://github.com/driftphp/tiny-load-balancer</a></p>
+<p>ReactPHP 위애서 도는 아주 작은 로드밸런서입니다.</p>
+<h1 id="💡-기타-읽을-만한-글"><a href="#💡-기타-읽을-만한-글" class="headerlink" title="💡 기타 읽을 만한 글"></a>💡 기타 읽을 만한 글</h1><h2 id="Understanding-PHP-8’s-JIT"><a href="#Understanding-PHP-8’s-JIT" class="headerlink" title="Understanding PHP 8’s JIT"></a>Understanding PHP 8’s JIT</h2><p><a target="_blank" rel="noopener" href="https://thephp.website/en/issue/php-8-jit/">https://thephp.website/en/issue/php-8-jit/</a></p>
+<p>PHP 8의 JIT 이해하기</p>
+<h2 id="When-does-PHP-call-destruct"><a href="#When-does-PHP-call-destruct" class="headerlink" title="When does PHP call __destruct()?"></a>When does PHP call __destruct()?</h2><p><a target="_blank" rel="noopener" href="https://dev.to/themsaid/when-does-php-call-destruct-1167">https://dev.to/themsaid/when-does-php-call-destruct-1167</a></p>
+<p>__destruct()가 언제 호출되는지 설명합니다.</p>
+<h2 id="Bitwise-booleans-in-PHP"><a href="#Bitwise-booleans-in-PHP" class="headerlink" title="Bitwise booleans in PHP"></a>Bitwise booleans in PHP</h2><p><a target="_blank" rel="noopener" href="https://stitcher.io/blog/bitwise-booleans-in-php">https://stitcher.io/blog/bitwise-booleans-in-php</a></p>
+<p>저자가 PHP의 <a target="_blank" rel="noopener" href="https://stitcher.io/blog/enums-without-enums">Enum type의 지원없이 Enum을 구현하는 이전 포스트</a>에서 bool flag를 저장하는 것을 보여줬었는데, 이번에는 bitmask를 사용하여 bool flag를 저장하는 방식을 설명합니다.</p>
+<h2 id="PHPUnit-A-Security-Risk"><a href="#PHPUnit-A-Security-Risk" class="headerlink" title="PHPUnit: A Security Risk?"></a>PHPUnit: A Security Risk?</h2><p><a target="_blank" rel="noopener" href="https://thephp.cc/news/2020/02/phpunit-a-security-risk">https://thephp.cc/news/2020/02/phpunit-a-security-risk</a></p>
+<p>vendor 디렉토리가 공개적으로 접근 가능하다면, PHPUnit의 이전 버전이 어떤 보안 문제를 일으키는지 알아보세요.</p>
+<p>여기서 얻은 교훈으로는</p>
+<ul>
+<li>Composer로 관리되는 vendor 디렉토리는 공개적으로 접근 가능해선 안 된다</li>
+<li>PHPUnit과 같은 개발 단계에서 필요한 라이브러리는 production에 배포되어선 안 된다</li>
+</ul>
+<p>PHPUnit 문서에서도 이를 명확히 경고하고 있습니다.</p>
+<blockquote>
+<p>PHPUnit is a framework for writing as well as a commandline tool for running tests. Writing and running tests is a development-time activity. There is no reason why PHPUnit should be installed on a webserver. If you upload PHPUnit to a webserver then your deployment process is broken. On a more general note, if your vendor directory is publicly accessible on your webserver then your deployment process is also broken. Please note that if you upload PHPUnit to a webserver “bad things” may happen. You have been warned.</p>
+</blockquote>
+<h2 id="How-miguelxpn-found-a-bug-in-PHP’s-standard-library-and-fixed-it"><a href="#How-miguelxpn-found-a-bug-in-PHP’s-standard-library-and-fixed-it" class="headerlink" title="How @miguelxpn found a bug in PHP’s standard library and fixed it."></a>How @miguelxpn found a bug in PHP’s standard library and fixed it.</h2><p><a target="_blank" rel="noopener" href="https://www.miguelxpn.com/coding/php/opensource/2020/03/01/how-i-found-and-fixed-a-bug-in-php-std-lib.html">https://www.miguelxpn.com/coding/php/opensource/2020/03/01/how-i-found-and-fixed-a-bug-in-php-std-lib.html</a></p>
+<p>Miguel Xavier Penha Neto란 사람이 PHP 표준 라이브러리의 <a target="_blank" rel="noopener" href="https://bugs.php.net/bug.php?id=79265">버그</a>를 <a target="_blank" rel="noopener" href="https://github.com/php/php-src/pull/5201">고쳤다</a>는 이야기.</p>
+<h2 id="Clean-Code-and-Object-Calisthenics-Rules"><a href="#Clean-Code-and-Object-Calisthenics-Rules" class="headerlink" title="Clean Code and Object Calisthenics Rules"></a>Clean Code and Object Calisthenics Rules</h2><p><a target="_blank" rel="noopener" href="https://beberlei.de/2020/02/25/clean_code_object_calisthenics_rules_i_try_to_follow.html">https://beberlei.de/2020/02/25/clean_code_object_calisthenics_rules_i_try_to_follow.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://twitter.com/beberlei">Benjamin Eberlei</a>란 사람이 지키려고 하는 Clean Code &#x2F; 객체 관리 규칙을 소개합니다.</p>
+<ul>
+<li>A strict coding style</li>
+<li>A static code analyzer, but not at highest level</li>
+<li>Take very good care of API Information Hiding and Encapsulation</li>
+<li><a target="_blank" rel="noopener" href="http://misko.hevery.com/2008/09/30/to-new-or-not-to-new/">To new or not to new</a></li>
+<li>Separate Statements and Declartions by empty lines</li>
+<li>Use early exits and don’t use else</li>
+<li>Only one level of indentation per method and a second for early exits</li>
+<li>Don’t abbreviate names (too much)</li>
+<li>Prefer Null Coalesce Operator over if isset</li>
+<li>Don’t allow a variable to have two types</li>
+<li>Don’t re-use a variable with a different type</li>
+<li>Typehint Collection Items with assert</li>
+<li>Use structs to wrap arrays (especially from SQL results)</li>
+</ul>
+<h1 id="📺-Videos"><a href="#📺-Videos" class="headerlink" title="📺 Videos"></a>📺 Videos</h1><h2 id="📺-What’s-coming-in-PhpStorm-2020-1-–-Every-week-we-publish-a-new-5-minute-video"><a href="#📺-What’s-coming-in-PhpStorm-2020-1-–-Every-week-we-publish-a-new-5-minute-video" class="headerlink" title="📺 What’s coming in PhpStorm 2020.1 – Every week we publish a new 5-minute video."></a>📺 What’s coming in PhpStorm 2020.1 – Every week we publish a new 5-minute video.</h2><p><a target="_blank" rel="noopener" href="https://www.youtube.com/playlist?list=PLQ176FUIyIUb7qSArPCxOkIGX-cqdfoBx">https://www.youtube.com/playlist?list=PLQ176FUIyIUb7qSArPCxOkIGX-cqdfoBx</a></p>
+<h2 id="📺-PHP-Tutorial-for-Absolute-Beginners-–-PHP-Course-2020-–-5-hours-of-video-tutorials"><a href="#📺-PHP-Tutorial-for-Absolute-Beginners-–-PHP-Course-2020-–-5-hours-of-video-tutorials" class="headerlink" title="📺 PHP Tutorial for Absolute Beginners – PHP Course 2020 – 5 hours of video tutorials."></a>📺 PHP Tutorial for Absolute Beginners – PHP Course 2020 – 5 hours of video tutorials.</h2><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=yXzWfZ4N4xU">https://www.youtube.com/watch?v=yXzWfZ4N4xU</a></p>
+<h1 id="🔈-Podcasts"><a href="#🔈-Podcasts" class="headerlink" title="🔈 Podcasts"></a>🔈 Podcasts</h1><h2 id="PHP-Internals-News"><a href="#PHP-Internals-News" class="headerlink" title="PHP Internals News"></a>PHP Internals News</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://phpinternals.news/40">#40 with Nikita Popov</a> on three small accepted RFCs.</li>
+<li><a target="_blank" rel="noopener" href="https://phpinternals.news/41">#41 with Steven Wade</a> on the proposal to add a magic __toArray().</li>
+<li><a target="_blank" rel="noopener" href="https://phpinternals.news/42">#42 with Jan Böhmer</a> on userspace operator overloading.</li>
+<li><a target="_blank" rel="noopener" href="https://phpinternals.news/43">#43 with Nikita Popov</a> on a fix for <a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/abstract_trait_method_validation">traits</a> and improvement to the <a target="_blank" rel="noopener" href="https://wiki.php.net/rfc/token_as_object">tokenizer</a>.</li>
+</ul>
+<h2 id="The-Undercover-ElePHPant"><a href="#The-Undercover-ElePHPant" class="headerlink" title="The Undercover ElePHPant"></a>The Undercover ElePHPant</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://undercover-elephpant.com/episodes/talking-tuning-php-fpm-with-arne-blankerts">#8 about tuning php-fpm</a> with <a target="_blank" rel="noopener" href="https://twitter.com/arneblankerts">Arne Blankerts</a> from <a target="_blank" rel="noopener" href="https://thephp.cc/">thephp.cc</a>. Also see <a target="_blank" rel="noopener" href="https://tideways.com/profiler/blog/an-introduction-to-php-fpm-tuning">An Introduction to PHP-FPM Tuning</a> blog post.</li>
+<li><a target="_blank" rel="noopener" href="https://undercover-elephpant.com/episodes/talking-background-processes-and-workers-in-php-with-samuel-roze">#9 on background processes and workers</a> with <a target="_blank" rel="noopener" href="https://twitter.com/samuelroze">Samuel Rose</a> (Symfony core). Also, see <a target="_blank" rel="noopener" href="https://tideways.com/profiler/blog/five-challenges-for-running-reliable-php-background-processes">Five Challenges for Running Reliable PHP Background Processes</a>.</li>
+</ul>
+<h2 id="Voices-of-the-ElePHPant-with-Sara-Golemon-and-Derick-Rethans"><a href="#Voices-of-the-ElePHPant-with-Sara-Golemon-and-Derick-Rethans" class="headerlink" title="Voices of the ElePHPant with Sara Golemon and Derick Rethans"></a>Voices of the ElePHPant with Sara Golemon and Derick Rethans</h2><p><a target="_blank" rel="noopener" href="https://voicesoftheelephpant.com/2020/02/26/interview-with-sara-golemon-derick-rethans/">https://voicesoftheelephpant.com/2020/02/26/interview-with-sara-golemon-derick-rethans/</a></p>
+<p>a discussion of various updates in PHP 8.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>youngiggy
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://haah.kr/2020/03/15/php-annotated-march-2020/" title="PHP Annotated – March 2020">https://haah.kr/2020/03/15/php-annotated-march-2020/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/PHP/" rel="tag"># PHP</a>
+              <a href="/tags/php-annotated-monthly/" rel="tag"># php-annotated-monthly</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/02/11/php-annotated-february-2020/" rel="prev" title="php-annotated-february-2020">
+                  <i class="fa fa-chevron-left"></i> php-annotated-february-2020
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/04/11/accessing-elastic-beanstalk-via-fixed-ip-2/" rel="next" title="고정된 IP를 통과해 Elastic Beanstalk 접근하기 그 두번째">
+                  고정된 IP를 통과해 Elastic Beanstalk 접근하기 그 두번째 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">youngiggy</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"youngiggy-github-io","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>
