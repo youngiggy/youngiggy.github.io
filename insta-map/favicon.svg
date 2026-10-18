@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="ig" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#feda77"/>
+      <stop offset="40%" stop-color="#f56040"/>
+      <stop offset="80%" stop-color="#c1377d"/>
+      <stop offset="100%" stop-color="#833ab4"/>
+    </linearGradient>
+    <filter id="sh" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <!-- 지도 핀 (둥근 물방울) -->
+  <path d="M50 8 C30 8, 16 24, 16 44 C16 66, 42 88, 49 92 a2 2 0 0 0 2 0 C58 88, 84 66, 84 44 C84 24, 70 8, 50 8 Z"
+        fill="url(#ig)" filter="url(#sh)"/>
+  <!-- 한입 베어문 듯한 흰 원 + 인스타그램 도넛 동그라미 -->
+  <circle cx="50" cy="42" r="14" fill="#fff"/>
+  <circle cx="50" cy="42" r="6" fill="none" stroke="url(#ig)" stroke-width="3.5"/>
+  <circle cx="58" cy="34" r="2.2" fill="url(#ig)"/>
+</svg>
