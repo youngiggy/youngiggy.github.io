@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+  <title>컬렉션 - Insta Map</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="collections.css">
+</head>
+<body>
+  <div id="loader" aria-label="로딩 중"><div class="loader-spinner"></div></div>
+
+  <div id="app">
+    <!-- 헤더 -->
+    <header id="header">
+      <div class="header-left">
+        <a href="index.html" class="back-link" title="메인으로">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        </a>
+        <h1>컬렉션</h1>
+        <span class="subtitle" id="curator-meta"></span>
+      </div>
+      <div class="header-right">
+        <select id="curator-select" class="curator-select"></select>
+        <button id="btn-list-toggle" class="btn-icon" title="목록 토글">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- 폴더 탭 + 필터 -->
+    <div id="filter-bar">
+      <div class="filter-row">
+        <div class="folder-tabs" id="folder-tabs"></div>
+      </div>
+      <div class="filter-row">
+        <div class="filter-chips" id="category-filters"></div>
+        <div class="filter-controls">
+          <label class="toggle">
+            <input type="checkbox" id="filter-new"> NEW만 (<span id="new-count">0</span>)
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- 메인: 지도 + 사이드바 -->
+    <div id="main">
+      <div id="map-container">
+        <div id="map"></div>
+        <button id="btn-my-location" class="btn-fab" title="현재 위치">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/></svg>
+        </button>
+        <div id="map-fallback" style="display:none;">
+          <p>지도 API 키가 설정되지 않았습니다.</p>
+          <p>아래 목록에서 장소 정보를 확인하세요.</p>
+        </div>
+      </div>
+
+      <aside id="sidebar" class="sidebar-open">
+        <div id="sidebar-header">
+          <h2>장소 <span id="count-badge"></span></h2>
+          <select id="sort-select">
+            <option value="added">추가순</option>
+            <option value="score">평점순</option>
+            <option value="reviews">리뷰많은순</option>
+            <option value="name">이름순</option>
+          </select>
+        </div>
+        <div id="places-list"></div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- Naver Maps SDK (키는 config에서) -->
+  <script id="naver-maps-script"></script>
+  <script id="google-maps-script"></script>
+  <script src="config.js" onerror=""></script>
+  <script src="collections.js"></script>
+</body>
+</html>

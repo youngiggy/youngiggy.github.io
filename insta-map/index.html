@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+  <title>Insta Map - 맛집 지도</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta property="og:title" content="Insta Map - 인스타그램 맛집 지도">
+  <meta property="og:description" content="인스타 맛집 리뷰어들이 다녀온 곳을 지도로">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://haah.kr/insta-map/">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="loader" aria-label="로딩 중"><div class="loader-spinner"></div></div>
+  <div id="app">
+    <!-- 헤더 -->
+    <header id="header">
+      <div class="header-left">
+        <h1><img src="favicon.svg" alt="" class="header-logo">Insta Map</h1>
+        <span class="subtitle" id="meta-info"></span>
+      </div>
+      <div class="header-right">
+        <a class="btn-toggle btn-collection" title="큐레이터 컬렉션 보기" href="collections.html">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/></svg>
+          <span>컬렉션</span>
+        </a>
+        <a id="btn-recommend" class="btn-toggle" title="맛집 추천하기" href="#">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v12H5.17L4 17.17V4z"/><line x1="8" y1="9" x2="16" y2="9"/><line x1="8" y1="13" x2="13" y2="13"/></svg>
+          <span>맛집 추천</span>
+        </a>
+        <button id="btn-sync-toggle" class="btn-toggle active" title="지도 영역 연동">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="12" x2="16" y2="12"/></svg>
+          <span>지도 연동</span>
+        </button>
+        <button id="btn-list-toggle" class="btn-icon" title="목록 토글">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- 필터 통합 바 -->
+    <div id="filter-bar">
+      <div class="filter-row">
+        <div class="filter-chips" id="reviewer-filters"></div>
+      </div>
+      <div class="filter-row">
+        <div class="filter-chips" id="category-filters"></div>
+        <div class="filter-search">
+          <input type="text" id="search-input" placeholder="음식점 검색...">
+        </div>
+      </div>
+    </div>
+
+    <!-- 메인 영역 -->
+    <div id="main">
+      <!-- 지도 -->
+      <div id="map-container">
+        <div id="map"></div>
+        <button id="btn-my-location" class="btn-fab" title="현재 위치">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/></svg>
+        </button>
+        <div id="map-fallback" style="display:none;">
+          <p>지도 API 키가 설정되지 않았습니다.</p>
+          <p>아래 목록에서 음식점 정보를 확인하세요.</p>
+        </div>
+      </div>
+
+      <!-- 사이드바 (목록) -->
+      <aside id="sidebar" class="sidebar-open">
+        <div id="sidebar-header">
+          <h2>음식점 목록 <span id="count-badge"></span></h2>
+          <select id="sort-select">
+            <option value="recommend">추천순</option>
+            <option value="date">최신순</option>
+            <option value="distance">가까운순</option>
+            <option value="name">이름순</option>
+            <option value="category">카테고리순</option>
+          </select>
+        </div>
+        <div id="restaurant-list"></div>
+
+        <!-- 미확인 목록 -->
+        <div id="unresolved-section" style="display:none;">
+          <h3>미확인 음식점 <span id="unresolved-badge"></span></h3>
+          <p class="unresolved-help">위치를 찾지 못한 음식점입니다. 인스타 게시글을 확인해 주세요.</p>
+          <div id="unresolved-list"></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- Naver Maps SDK (키는 config에서) -->
+  <script id="naver-maps-script"></script>
+  <!-- Google Maps SDK (폴백) -->
+  <script id="google-maps-script"></script>
+
+  <script src="app.js"></script>
+</body>
+</html>
